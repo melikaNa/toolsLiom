@@ -1637,7 +1637,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return window.open(
-                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}`
+                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}`,
+                                  "_self"
                                 );
                               }
                             };
