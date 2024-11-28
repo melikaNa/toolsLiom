@@ -281,6 +281,12 @@ function PlasmicResult__RenderFunc(props: {
                 "theme",
                 "dark"
               ),
+              [sty.rootglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
+                hasVariant(
+                  globalVariants,
+                  "unnamedGlobalGroupOfVariants",
+                  "unnamedVariant"
+                ),
               [sty.rootglobal_unnamedGlobalGroupOfVariants_unnamedVariant_global_theme_dark]:
                 hasVariant(globalVariants, "theme", "dark") &&
                 hasVariant(
@@ -702,7 +708,7 @@ function PlasmicResult__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return currentItem.score + " %";
+                                      return currentItem.score + "%";
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -720,13 +726,23 @@ function PlasmicResult__RenderFunc(props: {
                           </div>
                           <Paziresh24Button
                             children2={
-                              "\u062a\u0633\u062a \u062a\u062e\u0635\u0635\u06cc"
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___6W1Ft
+                                )}
+                              >
+                                {
+                                  "\u062a\u0633\u062a \u062a\u062e\u0635\u0635\u06cc"
+                                }
+                              </div>
                             }
                             className={classNames(
                               "__wab_instance",
                               sty.paziresh24Button__kRUtI
                             )}
-                            size={"compact"}
+                            size={"minimal"}
                           />
                         </Stack__>
                       ),
