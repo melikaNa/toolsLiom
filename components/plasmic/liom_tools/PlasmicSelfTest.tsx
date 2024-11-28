@@ -115,6 +115,7 @@ export type PlasmicSelfTest__OverridesType = {
   progress?: Flex__<typeof AntdProgress>;
   timer?: Flex__<typeof Timer>;
   user?: Flex__<typeof ApiRequest>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSelfTestProps {}
@@ -314,6 +315,36 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "numberTest",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "totalTest",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 20
       }
     ],
     [$props, $ctx, $refs]
@@ -740,6 +771,52 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ];
                     }
 
+                    $steps["runCode6"] =
+                      $state.nextQuesionId == -1
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  $state.testChat[$state.testChat.length - 1] =
+                                    {
+                                      text: "حالا برو نتیجه تست رو ببین. امیدوارم همه‌چیز خوب باشه! اگر به کمک نیاز داشتی\u060C من اینجا هستم.",
+                                      from: "system"
+                                    };
+                                  $state.variable = {
+                                    question:
+                                      $steps.invokeGlobalAction2.data.question,
+                                    text: $steps.invokeGlobalAction2.data
+                                      .question.question,
+                                    from: "system",
+                                    btnText:
+                                      $steps.invokeGlobalAction2.data.options
+                                        ?.length == 1
+                                        ? $steps.invokeGlobalAction2.data
+                                            .options[0].text
+                                        : "ارسال",
+                                    options:
+                                      $steps.invokeGlobalAction2.data.options
+                                  };
+                                  return window.scrollTo({
+                                    top: document.body.scrollHeight,
+                                    behavior: "smooth"
+                                  });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["runCode6"] != null &&
+                      typeof $steps["runCode6"] === "object" &&
+                      typeof $steps["runCode6"].then === "function"
+                    ) {
+                      $steps["runCode6"] = await $steps["runCode6"];
+                    }
+
                     $steps["invokeGlobalAction"] =
                       $state.ferst == false
                         ? (() => {
@@ -978,50 +1055,41 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["runCode4"] = await $steps["runCode4"];
                     }
 
-                    $steps["runCode6"] =
-                      $state.nextQuesionId == -1
+                    $steps["updateNumberTest"] =
+                      $state.ferst == true
                         ? (() => {
                             const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  $state.testChat[$state.testChat.length - 1] =
-                                    {
-                                      text: "حالا برو نتیجه تست رو ببین. امیدوارم همه‌چیز خوب باشه! اگر به کمک نیاز داشتی\u060C من اینجا هستم.",
-                                      from: "system"
-                                    };
-                                  $state.variable = {
-                                    question:
-                                      $steps.invokeGlobalAction2.data.question,
-                                    text: $steps.invokeGlobalAction2.data
-                                      .question.question,
-                                    from: "system",
-                                    btnText:
-                                      $steps.invokeGlobalAction2.data.options
-                                        ?.length == 1
-                                        ? $steps.invokeGlobalAction2.data
-                                            .options[0].text
-                                        : "ارسال",
-                                    options:
-                                      $steps.invokeGlobalAction2.data.options
-                                  };
-                                  return window.scrollTo({
-                                    top: document.body.scrollHeight,
-                                    behavior: "smooth"
-                                  });
-                                })();
-                              }
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["numberTest"]
+                              },
+                              operation: 0,
+                              value: $state.numberTest + 1
                             };
-                            return (({ customFunction }) => {
-                              return customFunction();
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                     if (
-                      $steps["runCode6"] != null &&
-                      typeof $steps["runCode6"] === "object" &&
-                      typeof $steps["runCode6"].then === "function"
+                      $steps["updateNumberTest"] != null &&
+                      typeof $steps["updateNumberTest"] === "object" &&
+                      typeof $steps["updateNumberTest"].then === "function"
                     ) {
-                      $steps["runCode6"] = await $steps["runCode6"];
+                      $steps["updateNumberTest"] = await $steps[
+                        "updateNumberTest"
+                      ];
                     }
 
                     $steps["updateFerst"] = true
@@ -1596,7 +1664,19 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-override={overrides.progress}
             className={classNames("__wab_instance", sty.progress)}
             gradient={[]}
-            percent={60}
+            percent={(() => {
+              try {
+                return $state.numberTest / ($state.totalTest / 100);
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return 0;
+                }
+                throw e;
+              }
+            })()}
             showInfo={false}
             strokeWidth={
               hasVariant(globalVariants, "screen", "mobileOnly") ? 5 : 6
@@ -1716,6 +1796,80 @@ function PlasmicSelfTest__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/selfTest/getUser"}
           />
+
+          {(() => {
+            try {
+              return $state.ferst == false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__uwCpx)}>
+              <ApiRequest
+                data-plasmic-name={"apiRequest"}
+                data-plasmic-override={overrides.apiRequest}
+                body={(() => {
+                  try {
+                    return {
+                      type: $state.type,
+                      user_id: $state.userId
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                className={classNames("__wab_instance", sty.apiRequest)}
+                errorDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fqgLm
+                    )}
+                  >
+                    {"Error fetching data"}
+                  </div>
+                }
+                loadingDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fV5TX
+                    )}
+                  >
+                    {"Loading..."}
+                  </div>
+                }
+                method={"POST"}
+                onError={generateStateOnChangeProp($state, [
+                  "apiRequest",
+                  "error"
+                ])}
+                onLoading={generateStateOnChangeProp($state, [
+                  "apiRequest",
+                  "loading"
+                ])}
+                onSuccess={generateStateOnChangeProp($state, [
+                  "apiRequest",
+                  "data"
+                ])}
+                url={"https://n8n.staas.ir/webhook/selfTestSession"}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -1734,7 +1888,8 @@ const PlasmicDescendants = {
     "paziresh24Button",
     "progress",
     "timer",
-    "user"
+    "user",
+    "apiRequest"
   ],
   headerLiom: ["headerLiom"],
   messageLiom: ["messageLiom"],
@@ -1745,7 +1900,8 @@ const PlasmicDescendants = {
   paziresh24Button: ["paziresh24Button"],
   progress: ["progress"],
   timer: ["timer"],
-  user: ["user"]
+  user: ["user"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1762,6 +1918,7 @@ type NodeDefaultElementType = {
   progress: typeof AntdProgress;
   timer: typeof Timer;
   user: typeof ApiRequest;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1859,6 +2016,7 @@ export const PlasmicSelfTest = Object.assign(
     progress: makeNodeComponent("progress"),
     timer: makeNodeComponent("timer"),
     user: makeNodeComponent("user"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicSelfTest
     internalVariantProps: PlasmicSelfTest__VariantProps,
