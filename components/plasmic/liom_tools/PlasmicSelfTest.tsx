@@ -68,6 +68,7 @@ import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/com
 import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJCAy9/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
+import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
@@ -88,6 +89,8 @@ import sty from "./PlasmicSelfTest.module.css"; // plasmic-import: 5IOCSv5V9vzY/
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
+import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
+import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 
 createPlasmicElementProxy;
 
@@ -108,6 +111,7 @@ export type PlasmicSelfTest__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   svg?: Flex__<"svg">;
   apiRequest2?: Flex__<typeof ApiRequest>;
+  paziresh24Button?: Flex__<typeof Paziresh24Button>;
   progress?: Flex__<typeof AntdProgress>;
   timer?: Flex__<typeof Timer>;
   user?: Flex__<typeof ApiRequest>;
@@ -499,7 +503,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                 try {
                   return (
                     $state.testChat[$state.testChat.length - 1].options !=
-                      null && $state.variable.question.lock == 0
+                      null &&
+                    $state.variable.question.lock == 0 &&
+                    $state.nextQuesionId != -1
                   );
                 } catch (e) {
                   if (
@@ -590,29 +596,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["updateNextQuesionId"] = await $steps[
                         "updateNextQuesionId"
                       ];
-                    }
-
-                    $steps["runCode6"] =
-                      $state.nextQuesionId == -1
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return window.open(
-                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}`
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["runCode6"] != null &&
-                      typeof $steps["runCode6"] === "object" &&
-                      typeof $steps["runCode6"].then === "function"
-                    ) {
-                      $steps["runCode6"] = await $steps["runCode6"];
                     }
 
                     $steps["runCode"] = true
@@ -1504,6 +1487,62 @@ function PlasmicSelfTest__RenderFunc(props: {
                   />
                 </Stack__>
               ) : null}
+              {(() => {
+                try {
+                  return $state.nextQuesionId == -1;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__hc0LI)}
+                >
+                  <Paziresh24Button
+                    data-plasmic-name={"paziresh24Button"}
+                    data-plasmic-override={overrides.paziresh24Button}
+                    children2={
+                      "\u062f\u06cc\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647"
+                    }
+                    className={classNames(
+                      "__wab_instance",
+                      sty.paziresh24Button
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.open(
+                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}`
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  />
+                </Stack__>
+              ) : null}
             </Reveal>
           </div>
           <AntdProgress
@@ -1646,6 +1685,7 @@ const PlasmicDescendants = {
     "buttonLiom",
     "svg",
     "apiRequest2",
+    "paziresh24Button",
     "progress",
     "timer",
     "user"
@@ -1656,6 +1696,7 @@ const PlasmicDescendants = {
   buttonLiom: ["buttonLiom", "svg"],
   svg: ["svg"],
   apiRequest2: ["apiRequest2"],
+  paziresh24Button: ["paziresh24Button"],
   progress: ["progress"],
   timer: ["timer"],
   user: ["user"]
@@ -1671,6 +1712,7 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   svg: "svg";
   apiRequest2: typeof ApiRequest;
+  paziresh24Button: typeof Paziresh24Button;
   progress: typeof AntdProgress;
   timer: typeof Timer;
   user: typeof ApiRequest;
@@ -1767,6 +1809,7 @@ export const PlasmicSelfTest = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     svg: makeNodeComponent("svg"),
     apiRequest2: makeNodeComponent("apiRequest2"),
+    paziresh24Button: makeNodeComponent("paziresh24Button"),
     progress: makeNodeComponent("progress"),
     timer: makeNodeComponent("timer"),
     user: makeNodeComponent("user"),

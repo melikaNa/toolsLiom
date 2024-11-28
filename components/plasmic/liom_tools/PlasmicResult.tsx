@@ -200,7 +200,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 4
       },
       {
         path: "buttonLiom.color",
@@ -672,6 +672,25 @@ function PlasmicResult__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.percentageBox
                               )}
+                              unnamedGroupOfVariants={(() => {
+                                try {
+                                  return parseInt(currentItem.score) >= 80
+                                    ? "red"
+                                    : parseInt(currentItem.score) < 80 &&
+                                      parseInt(currentItem.score) >= 50
+                                    ? "yellow"
+                                    : "";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "red";
+                                  }
+                                  throw e;
+                                }
+                              })()}
                             >
                               <div
                                 className={classNames(

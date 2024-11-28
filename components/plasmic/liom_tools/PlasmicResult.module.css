@@ -226,7 +226,6 @@
   object-fit: cover;
 }
 .freeBox__tktV {
-  display: flex;
   flex-direction: column;
   position: fixed;
   align-items: stretch;
@@ -240,6 +239,7 @@
   z-index: 1;
   right: 0;
   bottom: 0;
+  display: none;
   padding: var(--token-6eH8UjLOmr7v);
 }
 .paziresh24Button___2SVaX:global(.__wab_instance) {
