@@ -535,6 +535,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                       throw e;
                     }
                   })()}
+                  ferst={(() => {
+                    try {
+                      return $state.ferst;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })()}
                   onClick24={async event => {
                     const $steps = {};
 
@@ -579,30 +592,27 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["goToResult"] =
+                    $steps["runCode6"] =
                       $state.nextQuesionId == -1
                         ? (() => {
-                            const actionArgs = { destination: `/result` };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.open(
+                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}`
+                                );
                               }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                     if (
-                      $steps["goToResult"] != null &&
-                      typeof $steps["goToResult"] === "object" &&
-                      typeof $steps["goToResult"].then === "function"
+                      $steps["runCode6"] != null &&
+                      typeof $steps["runCode6"] === "object" &&
+                      typeof $steps["runCode6"].then === "function"
                     ) {
-                      $steps["goToResult"] = await $steps["goToResult"];
+                      $steps["runCode6"] = await $steps["runCode6"];
                     }
 
                     $steps["runCode"] = true
@@ -649,9 +659,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     });
                                   }
                                 }
-                                return $state.testChat.push({
+                                $state.testChat.push({
                                   text: "loading",
                                   from: "system"
+                                });
+                                return window.scrollTo({
+                                  top: document.body.scrollHeight,
+                                  behavior: "smooth"
                                 });
                               })();
                             }
@@ -852,18 +866,20 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   };
                                   $state.testChat[$state.testChat.length - 1] =
                                     a;
-                                  $state.nextQuesionId =
-                                    $steps.invokeGlobalAction.data.options[0].nextQuesion_id;
                                   $state.sessionId =
                                     $steps.invokeGlobalAction.data.session_id;
-                                  return ($state.testOptionsLiom.selectedIDs =
+                                  $state.testOptionsLiom.selectedIDs =
                                     $steps.invokeGlobalAction.data.options
                                       .length == 1
                                       ? [
                                           $steps.invokeGlobalAction.data
                                             .options[0].id
                                         ]
-                                      : []);
+                                      : [];
+                                  return window.scrollTo({
+                                    top: document.body.scrollHeight,
+                                    behavior: "smooth"
+                                  });
                                 })();
                               }
                             };
@@ -904,16 +920,18 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   };
                                   $state.testChat[$state.testChat.length - 1] =
                                     a;
-                                  $state.nextQuesionId =
-                                    $steps.invokeGlobalAction2.data.options[0].nextQuesion_id;
-                                  return ($state.testOptionsLiom.selectedIDs =
+                                  $state.testOptionsLiom.selectedIDs =
                                     $steps.invokeGlobalAction2.data.options
                                       .length == 1
                                       ? [
                                           $steps.invokeGlobalAction2.data
                                             .options[0].id
                                         ]
-                                      : []);
+                                      : [];
+                                  return window.scrollTo({
+                                    top: document.body.scrollHeight,
+                                    behavior: "smooth"
+                                  });
                                 })();
                               }
                             };
@@ -942,7 +960,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       text: "اگه دوست داری گفتگو رو ادامه بدیم\u060C لطفاً هزینه رو پرداخت کن. ",
                                       from: "system"
                                     };
-                                  return ($state.variable = {
+                                  $state.variable = {
                                     question:
                                       $steps.invokeGlobalAction2.data.question,
                                     text: $steps.invokeGlobalAction2.data
@@ -956,6 +974,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                                         : "ارسال",
                                     options:
                                       $steps.invokeGlobalAction2.data.options
+                                  };
+                                  return window.scrollTo({
+                                    top: document.body.scrollHeight,
+                                    behavior: "smooth"
                                   });
                                 })();
                               }
@@ -1005,6 +1027,47 @@ function PlasmicSelfTest__RenderFunc(props: {
                       typeof $steps["updateFerst"].then === "function"
                     ) {
                       $steps["updateFerst"] = await $steps["updateFerst"];
+                    }
+
+                    $steps["invokeGlobalAction4"] = true
+                      ? (() => {
+                          const actionArgs = { args: [1000] };
+                          return $globalActions["Fragment.wait"]?.apply(null, [
+                            ...actionArgs.args
+                          ]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction4"] != null &&
+                      typeof $steps["invokeGlobalAction4"] === "object" &&
+                      typeof $steps["invokeGlobalAction4"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction4"] = await $steps[
+                        "invokeGlobalAction4"
+                      ];
+                    }
+
+                    $steps["runCode5"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return window.scrollTo({
+                                top: document.body.scrollHeight,
+                                behavior: "smooth"
+                              });
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode5"] != null &&
+                      typeof $steps["runCode5"] === "object" &&
+                      typeof $steps["runCode5"].then === "function"
+                    ) {
+                      $steps["runCode5"] = await $steps["runCode5"];
                     }
                   }}
                   onSelectedIDsChange={generateStateOnChangeProp($state, [

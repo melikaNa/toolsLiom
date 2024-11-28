@@ -91,13 +91,15 @@ export type PlasmicTestOptionsLiom__ArgsType = {
   selectedIDs?: any;
   onSelectedIDsChange?: (val: string) => void;
   onClick24?: (event: any) => void;
+  ferst?: boolean;
 };
 type ArgPropType = keyof PlasmicTestOptionsLiom__ArgsType;
 export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
   "data",
   "selectedIDs",
   "onSelectedIDsChange",
-  "onClick24"
+  "onClick24",
+  "ferst"
 );
 
 export type PlasmicTestOptionsLiom__OverridesType = {
@@ -114,6 +116,7 @@ export interface DefaultTestOptionsLiomProps {
   selectedIDs?: any;
   onSelectedIDsChange?: (val: string) => void;
   onClick24?: (event: any) => void;
+  ferst?: boolean;
   className?: string;
 }
 
@@ -150,7 +153,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
               { id: 31, t1: "gozineh1asdsfsdfdsf" },
               { id: 51, t1: "gozineh1   rergregrg" }
             ]
-          }
+          },
+          ferst: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -392,6 +396,21 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           </div>
         }
         className={classNames("__wab_instance", sty.paziresh24Button)}
+        isDisabled={(() => {
+          try {
+            return (
+              ($state.selectedIDs.length == 0 && $props.ferst == true) || false
+            );
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return [];
+            }
+            throw e;
+          }
+        })()}
         onClick={args.onClick24}
       />
 
