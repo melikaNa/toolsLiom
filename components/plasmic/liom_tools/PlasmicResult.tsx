@@ -70,8 +70,6 @@ import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-T
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
-import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
-import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 
@@ -117,7 +115,6 @@ export type PlasmicResult__OverridesType = {
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   timer?: Flex__<typeof Timer>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
-  collapse?: Flex__<typeof AntdSingleCollapse>;
   percentageBox?: Flex__<typeof PercentageBox>;
   apiRequest?: Flex__<typeof ApiRequest>;
 };
@@ -200,20 +197,13 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 4
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "buttonLiom.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "collapse[].open",
-        type: "private",
-        variableType: "boolean",
-
-        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
       {
         path: "apiRequest.data",
@@ -327,7 +317,6 @@ function PlasmicResult__RenderFunc(props: {
               data-plasmic-name={"backgrond"}
               data-plasmic-override={overrides.backgrond}
               className={classNames("__wab_instance", sty.backgrond)}
-              liom={true}
             >
               <Stack__
                 as={"div"}
@@ -449,9 +438,26 @@ function PlasmicResult__RenderFunc(props: {
                   sty.text__feipf
                 )}
               >
-                {
-                  "\u0644\u0648\u0631\u0645 \u0627\u06cc\u067e\u0633\u0648\u0645 \u0645\u062a\u0646 \u0633\u0627\u062e\u062a\u06af\u06cc \u0628\u0627 \u062a\u0648\u0644\u06cc\u062f \u0633\u0627\u062f\u06af\u06cc \u0646\u0627\u0645\u0641\u0647\u0648\u0645 \u0627\u0632 \u0635\u0646\u0639\u062a \u0686\u0627\u067e\u060c \u0648 \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0637\u0631\u0627\u062d\u0627\u0646 \u06af\u0631\u0627\u0641\u06cc\u06a9 \u0627\u0633\u062a\u060c \u0686\u0627\u067e\u06af\u0631\u0647\u0627 \u0648 \u0645\u062a\u0648\u0646 \u0628\u0644\u06a9\u0647 \u0631\u0648\u0632\u0646\u0627\u0645\u0647 \u0648 \u0645\u062c\u0644\u0647 \u062f\u0631 \u0633\u062a\u0648\u0646 \u0648 \u0633\u0637\u0631\u0622\u0646\u0686\u0646\u0627\u0646 \u06a9\u0647 \u0644\u0627\u0632\u0645 \u0627\u0633\u062a\u060c \u0648 \u0628\u0631\u0627\u06cc \u0634\u0631\u0627\u06cc\u0637 \u0641\u0639\u0644\u06cc \u062a\u06a9\u0646\u0648\u0644\u0648\u0698\u06cc \u0645\u0648\u0631\u062f \u0646\u06cc\u0627\u0632\u060c \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u0647\u0627\u06cc \u0645\u062a\u0646\u0648\u0639 \u0628\u0627 \u0647\u062f\u0641 \u0628\u0647\u0628\u0648\u062f \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0645\u06cc \u0628\u0627\u0634\u062f\u060c \u06a9\u062a\u0627\u0628\u0647\u0627\u06cc \u0632\u06cc\u0627\u062f\u06cc \u062f\u0631 \u0634\u0635\u062a \u0648 \u0633\u0647 \u062f\u0631\u0635\u062f \u06af\u0630\u0634\u062a\u0647 \u062d\u0627\u0644 \u0648 \u0622\u06cc\u0646\u062f\u0647\u060c \u0634\u0646\u0627\u062e\u062a \u0641\u0631\u0627\u0648\u0627\u0646 \u062c\u0627\u0645\u0639\u0647 \u0648 \u0645\u062a\u062e\u0635\u0635\u0627\u0646 \u0631\u0627 \u0645\u06cc \u0637\u0644\u0628\u062f\u060c \u062a\u0627 \u0628\u0627 \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631\u0647\u0627 \u0634\u0646\u0627\u062e\u062a \u0628\u06cc\u0634\u062a\u0631\u06cc \u0631\u0627 \u0628\u0631\u0627\u06cc \u0637\u0631\u0627\u062d\u0627\u0646 \u0631\u0627\u06cc\u0627\u0646\u0647 \u0627\u06cc \u0639\u0644\u06cc \u0627\u0644\u062e\u0635\u0648\u0635 \u0637\u0631\u0627\u062d\u0627\u0646 \u062e\u0644\u0627\u0642\u06cc\u060c \u0648 \u0641\u0631\u0647\u0646\u06af \u067e\u06cc\u0634\u0631\u0648 \u062f\u0631 \u0632\u0628\u0627\u0646 \u0641\u0627\u0631\u0633\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0631\u062f\u060c \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0648\u0631\u062a \u0645\u06cc \u062a\u0648\u0627\u0646 \u0627\u0645\u06cc\u062f \u062f\u0627\u0634\u062a \u06a9\u0647 \u062a\u0645\u0627\u0645 \u0648 \u062f\u0634\u0648\u0627\u0631\u06cc \u0645\u0648\u062c\u0648\u062f \u062f\u0631 \u0627\u0631\u0627\u0626\u0647 \u0631\u0627\u0647\u06a9\u0627\u0631\u0647\u0627\u060c \u0648 \u0634\u0631\u0627\u06cc\u0637 \u0633\u062e\u062a \u062a\u0627\u06cc\u067e \u0628\u0647 \u067e\u0627\u06cc\u0627\u0646 \u0631\u0633\u062f \u0648 \u0632\u0645\u0627\u0646 \u0645\u0648\u0631\u062f \u0646\u06cc\u0627\u0632 \u0634\u0627\u0645\u0644 \u062d\u0631\u0648\u0641\u0686\u06cc\u0646\u06cc \u062f\u0633\u062a\u0627\u0648\u0631\u062f\u0647\u0627\u06cc \u0627\u0635\u0644\u06cc\u060c \u0648 \u062c\u0648\u0627\u0628\u06af\u0648\u06cc \u0633\u0648\u0627\u0644\u0627\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u0627\u0647\u0644 \u062f\u0646\u06cc\u0627\u06cc \u0645\u0648\u062c\u0648\u062f \u0637\u0631\u0627\u062d\u06cc \u0627\u0633\u0627\u0633\u0627 \u0645\u0648\u0631\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0642\u0631\u0627\u0631 \u06af\u06cc\u0631\u062f."
-                }
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return (() => {
+                        return $state.apiRequest.data.message
+                          .split(".")
+                          .map(str => str.trim())
+                          .join(".\n");
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0644\u0648\u0631\u0645 \u0627\u06cc\u067e\u0633\u0648\u0645 \u0645\u062a\u0646 \u0633\u0627\u062e\u062a\u06af\u06cc \u0628\u0627 \u062a\u0648\u0644\u06cc\u062f \u0633\u0627\u062f\u06af\u06cc \u0646\u0627\u0645\u0641\u0647\u0648\u0645 \u0627\u0632 \u0635\u0646\u0639\u062a \u0686\u0627\u067e\u060c \u0648 \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0637\u0631\u0627\u062d\u0627\u0646 \u06af\u0631\u0627\u0641\u06cc\u06a9 \u0627\u0633\u062a\u060c \u0686\u0627\u067e\u06af\u0631\u0647\u0627 \u0648 \u0645\u062a\u0648\u0646 \u0628\u0644\u06a9\u0647 \u0631\u0648\u0632\u0646\u0627\u0645\u0647 \u0648 \u0645\u062c\u0644\u0647 \u062f\u0631 \u0633\u062a\u0648\u0646 \u0648 \u0633\u0637\u0631\u0622\u0646\u0686\u0646\u0627\u0646 \u06a9\u0647 \u0644\u0627\u0632\u0645 \u0627\u0633\u062a\u060c \u0648 \u0628\u0631\u0627\u06cc \u0634\u0631\u0627\u06cc\u0637 \u0641\u0639\u0644\u06cc \u062a\u06a9\u0646\u0648\u0644\u0648\u0698\u06cc \u0645\u0648\u0631\u062f \u0646\u06cc\u0627\u0632\u060c \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u0647\u0627\u06cc \u0645\u062a\u0646\u0648\u0639 \u0628\u0627 \u0647\u062f\u0641 \u0628\u0647\u0628\u0648\u062f \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0645\u06cc \u0628\u0627\u0634\u062f\u060c \u06a9\u062a\u0627\u0628\u0647\u0627\u06cc \u0632\u06cc\u0627\u062f\u06cc \u062f\u0631 \u0634\u0635\u062a \u0648 \u0633\u0647 \u062f\u0631\u0635\u062f \u06af\u0630\u0634\u062a\u0647 \u062d\u0627\u0644 \u0648 \u0622\u06cc\u0646\u062f\u0647\u060c \u0634\u0646\u0627\u062e\u062a \u0641\u0631\u0627\u0648\u0627\u0646 \u062c\u0627\u0645\u0639\u0647 \u0648 \u0645\u062a\u062e\u0635\u0635\u0627\u0646 \u0631\u0627 \u0645\u06cc \u0637\u0644\u0628\u062f\u060c \u062a\u0627 \u0628\u0627 \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631\u0647\u0627 \u0634\u0646\u0627\u062e\u062a \u0628\u06cc\u0634\u062a\u0631\u06cc \u0631\u0627 \u0628\u0631\u0627\u06cc \u0637\u0631\u0627\u062d\u0627\u0646 \u0631\u0627\u06cc\u0627\u0646\u0647 \u0627\u06cc \u0639\u0644\u06cc \u0627\u0644\u062e\u0635\u0648\u0635 \u0637\u0631\u0627\u062d\u0627\u0646 \u062e\u0644\u0627\u0642\u06cc\u060c \u0648 \u0641\u0631\u0647\u0646\u06af \u067e\u06cc\u0634\u0631\u0648 \u062f\u0631 \u0632\u0628\u0627\u0646 \u0641\u0627\u0631\u0633\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0631\u062f\u060c \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0648\u0631\u062a \u0645\u06cc \u062a\u0648\u0627\u0646 \u0627\u0645\u06cc\u062f \u062f\u0627\u0634\u062a \u06a9\u0647 \u062a\u0645\u0627\u0645 \u0648 \u062f\u0634\u0648\u0627\u0631\u06cc \u0645\u0648\u062c\u0648\u062f \u062f\u0631 \u0627\u0631\u0627\u0626\u0647 \u0631\u0627\u0647\u06a9\u0627\u0631\u0647\u0627\u060c \u0648 \u0634\u0631\u0627\u06cc\u0637 \u0633\u062e\u062a \u062a\u0627\u06cc\u067e \u0628\u0647 \u067e\u0627\u06cc\u0627\u0646 \u0631\u0633\u062f \u0648 \u0632\u0645\u0627\u0646 \u0645\u0648\u0631\u062f \u0646\u06cc\u0627\u0632 \u0634\u0627\u0645\u0644 \u062d\u0631\u0648\u0641\u0686\u06cc\u0646\u06cc \u062f\u0633\u062a\u0627\u0648\u0631\u062f\u0647\u0627\u06cc \u0627\u0635\u0644\u06cc\u060c \u0648 \u062c\u0648\u0627\u0628\u06af\u0648\u06cc \u0633\u0648\u0627\u0644\u0627\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u0627\u0647\u0644 \u062f\u0646\u06cc\u0627\u06cc \u0645\u0648\u062c\u0648\u062f \u0637\u0631\u0627\u062d\u06cc \u0627\u0633\u0627\u0633\u0627 \u0645\u0648\u0631\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0642\u0631\u0627\u0631 \u06af\u06cc\u0631\u062f.";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
               </div>
             </div>
           </Stack__>
@@ -541,7 +547,7 @@ function PlasmicResult__RenderFunc(props: {
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
-                  return $state.apiRequest.data;
+                  return $state.apiRequest.data.details;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -560,248 +566,107 @@ function PlasmicResult__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.freeBox___3GvY6)}
                   key={currentIndex}
                 >
-                  {(() => {
-                    const child$Props = {
-                      bordered: true,
-                      className: classNames("__wab_instance", sty.collapse),
-                      expandIcon: (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__rZgJu)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__b45Lz)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xXc2
+                        )}
+                      >
                         <React.Fragment>
                           {(() => {
                             try {
-                              return $state.collapse.open != true;
+                              return currentItem.option_metric_fa;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return false;
+                                return "\u06a9\u0645 \u062e\u0648\u0646\u06cc";
                               }
                               throw e;
                             }
-                          })() ? (
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__rJtp)}
-                              displayHeight={"auto"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"15px"}
-                              loading={"lazy"}
-                              src={{
-                                src: "/plasmic/liom_tools/images/image32.svg",
-                                fullWidth: 16,
-                                fullHeight: 16,
-                                aspectRatio: 1
-                              }}
-                            />
-                          ) : null}
-                          {(() => {
-                            try {
-                              return $state.collapse.open == true;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__ew4V1)}
-                              displayHeight={"auto"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"25px"}
-                              loading={"lazy"}
-                              src={{
-                                src: "/plasmic/liom_tools/images/image31.svg",
-                                fullWidth: 16,
-                                fullHeight: 16,
-                                aspectRatio: 1
-                              }}
-                            />
-                          ) : null}
+                          })()}
                         </React.Fragment>
-                      ),
-                      expandIconPosition: "end",
-                      ghost: true,
-                      label2: (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__rZgJu
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__b45Lz
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__xXc2
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.option_metric_fa;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u06a9\u0645 \u062e\u0648\u0646\u06cc";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                            <PercentageBox
-                              data-plasmic-name={"percentageBox"}
-                              data-plasmic-override={overrides.percentageBox}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.percentageBox
-                              )}
-                              unnamedGroupOfVariants={(() => {
-                                try {
-                                  return parseInt(currentItem.score) >= 80
-                                    ? "red"
-                                    : parseInt(currentItem.score) < 80 &&
-                                      parseInt(currentItem.score) >= 50
-                                    ? "yellow"
-                                    : "";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "red";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__vtkPr
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.score + "%";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "99 % ";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </PercentageBox>
-                          </div>
-                          <Paziresh24Button
-                            children2={
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___6W1Ft
-                                )}
-                              >
-                                {
-                                  "\u062a\u0633\u062a \u062a\u062e\u0635\u0635\u06cc"
-                                }
-                              </div>
+                      </div>
+                      <PercentageBox
+                        data-plasmic-name={"percentageBox"}
+                        data-plasmic-override={overrides.percentageBox}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.percentageBox
+                        )}
+                        unnamedGroupOfVariants={(() => {
+                          try {
+                            return parseInt(currentItem.score) >= 80
+                              ? "red"
+                              : parseInt(currentItem.score) < 80 &&
+                                parseInt(currentItem.score) >= 50
+                              ? "yellow"
+                              : "";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "red";
                             }
-                            className={classNames(
-                              "__wab_instance",
-                              sty.paziresh24Button__kRUtI
-                            )}
-                            size={"minimal"}
-                          />
-                        </Stack__>
-                      ),
-                      onChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "open",
-                        ["collapse", __plasmic_idx_0, "open"],
-                        AntdSingleCollapse_Helpers
-                      ),
-                      open: generateStateValueProp($state, [
-                        "collapse",
-                        __plasmic_idx_0,
-                        "open"
-                      ]),
-                      showArrow: true,
-                      size: "large"
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "open",
-                          plasmicStateName: "collapse[].open"
-                        }
-                      ],
-                      [__plasmic_idx_0],
-                      AntdSingleCollapse_Helpers ?? {},
-                      child$Props
-                    );
-                    initializePlasmicStates(
-                      $state,
-                      [
-                        {
-                          name: "collapse[].open",
-                          initFunc: ({ $props, $state, $queries }) => undefined
-                        }
-                      ],
-                      [__plasmic_idx_0]
-                    );
-                    return (
-                      <AntdSingleCollapse
-                        data-plasmic-name={"collapse"}
-                        data-plasmic-override={overrides.collapse}
-                        {...child$Props}
+                            throw e;
+                          }
+                        })()}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__tWeIb
+                            sty.text__vtkPr
                           )}
                         >
-                          {
-                            "\u0644\u0648\u0631\u0645 \u0627\u06cc\u067e\u0633\u0648\u0645 \u0645\u062a\u0646 \u0633\u0627\u062e\u062a\u06af\u06cc \u0628\u0627 \u062a\u0648\u0644\u06cc\u062f \u0633\u0627\u062f\u06af\u06cc \u0646\u0627\u0645\u0641\u0647\u0648\u0645 \u0627\u0632 \u0635\u0646\u0639\u062a \u0686\u0627\u067e\u060c \u0648 \u0628\u0627 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0637\u0631\u0627\u062d\u0627\u0646 \u06af\u0631\u0627\u0641\u06cc\u06a9 \u0627\u0633\u062a\u060c \u0686\u0627\u067e\u06af\u0631\u0647\u0627 \u0648 \u0645\u062a\u0648\u0646 \u0628\u0644\u06a9\u0647 \u0631\u0648\u0632\u0646\u0627\u0645\u0647 \u0648 \u0645\u062c\u0644\u0647 \u062f\u0631 \u0633\u062a\u0648\u0646 \u0648 \u0633\u0637\u0631\u0622\u0646\u0686\u0646\u0627\u0646 \u06a9\u0647 \u0644\u0627\u0632\u0645 \u0627\u0633\u062a\u060c \u0648 \u0628\u0631\u0627\u06cc \u0634\u0631\u0627\u06cc\u0637 \u0641\u0639\u0644\u06cc \u062a\u06a9\u0646\u0648\u0644\u0648\u0698\u06cc \u0645\u0648\u0631\u062f \u0646\u06cc\u0627\u0632\u060c \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u0647\u0627\u06cc \u0645\u062a\u0646\u0648\u0639 \u0628\u0627 \u0647\u062f\u0641 \u0628\u0647\u0628\u0648\u062f \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0645\u06cc \u0628\u0627\u0634\u062f\u060c \u06a9\u062a\u0627\u0628\u0647\u0627\u06cc \u0632\u06cc\u0627\u062f\u06cc \u062f\u0631 \u0634\u0635\u062a \u0648 \u0633\u0647 \u062f\u0631\u0635\u062f \u06af\u0630\u0634\u062a\u0647 \u062d\u0627\u0644 \u0648 \u0622\u06cc\u0646\u062f\u0647\u060c \u0634\u0646\u0627\u062e\u062a \u0641\u0631\u0627\u0648\u0627\u0646 \u062c\u0627\u0645\u0639\u0647 \u0648 \u0645\u062a\u062e\u0635\u0635\u0627\u0646 \u0631\u0627 \u0645\u06cc \u0637\u0644\u0628\u062f\u060c \u062a\u0627 \u0628\u0627 \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631\u0647\u0627 \u0634\u0646\u0627\u062e\u062a \u0628\u06cc\u0634\u062a\u0631\u06cc \u0631\u0627 \u0628\u0631\u0627\u06cc \u0637\u0631\u0627\u062d\u0627\u0646 \u0631\u0627\u06cc\u0627\u0646\u0647 \u0627\u06cc \u0639\u0644\u06cc \u0627\u0644\u062e\u0635\u0648\u0635 \u0637\u0631\u0627\u062d\u0627\u0646 \u062e\u0644\u0627\u0642\u06cc\u060c \u0648 \u0641\u0631\u0647\u0646\u06af \u067e\u06cc\u0634\u0631\u0648 \u062f\u0631 \u0632\u0628\u0627\u0646 \u0641\u0627\u0631\u0633\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0631\u062f\u060c \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0648\u0631\u062a \u0645\u06cc \u062a\u0648\u0627\u0646 \u0627\u0645\u06cc\u062f \u062f\u0627\u0634\u062a \u06a9\u0647 \u062a\u0645\u0627\u0645 \u0648 \u062f\u0634\u0648\u0627\u0631\u06cc \u0645\u0648\u062c\u0648\u062f \u062f\u0631 \u0627\u0631\u0627\u0626\u0647 \u0631\u0627\u0647\u06a9\u0627\u0631\u0647\u0627\u060c \u0648 \u0634\u0631\u0627\u06cc\u0637 \u0633\u062e\u062a \u062a\u0627\u06cc\u067e \u0628\u0647 \u067e\u0627\u06cc\u0627\u0646 \u0631\u0633\u062f \u0648 \u0632\u0645\u0627\u0646 \u0645\u0648\u0631\u062f \u0646\u06cc\u0627\u0632 \u0634\u0627\u0645\u0644 \u062d\u0631\u0648\u0641\u0686\u06cc\u0646\u06cc \u062f\u0633\u062a\u0627\u0648\u0631\u062f\u0647\u0627\u06cc \u0627\u0635\u0644\u06cc\u060c \u0648 \u062c\u0648\u0627\u0628\u06af\u0648\u06cc \u0633\u0648\u0627\u0644\u0627\u062a \u067e\u06cc\u0648\u0633\u062a\u0647 \u0627\u0647\u0644 \u062f\u0646\u06cc\u0627\u06cc \u0645\u0648\u062c\u0648\u062f \u0637\u0631\u0627\u062d\u06cc \u0627\u0633\u0627\u0633\u0627 \u0645\u0648\u0631\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0642\u0631\u0627\u0631 \u06af\u06cc\u0631\u062f."
-                          }
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.score + "%";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "99 % ";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
                         </div>
-                      </AntdSingleCollapse>
-                    );
-                  })()}
+                      </PercentageBox>
+                    </div>
+                    <Paziresh24Button
+                      children2={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___6W1Ft
+                          )}
+                        >
+                          {"\u062a\u0633\u062a \u062a\u062e\u0635\u0635\u06cc"}
+                        </div>
+                      }
+                      className={classNames(
+                        "__wab_instance",
+                        sty.paziresh24Button__kRUtI
+                      )}
+                      size={"minimal"}
+                    />
+                  </Stack__>
                 </div>
               );
             })}
@@ -857,7 +722,6 @@ const PlasmicDescendants = {
     "paziresh24Avatar",
     "timer",
     "buttonLiom",
-    "collapse",
     "percentageBox",
     "apiRequest"
   ],
@@ -869,7 +733,6 @@ const PlasmicDescendants = {
   paziresh24Avatar: ["paziresh24Avatar"],
   timer: ["timer"],
   buttonLiom: ["buttonLiom"],
-  collapse: ["collapse", "percentageBox"],
   percentageBox: ["percentageBox"],
   apiRequest: ["apiRequest"]
 } as const;
@@ -886,7 +749,6 @@ type NodeDefaultElementType = {
   paziresh24Avatar: typeof Paziresh24Avatar;
   timer: typeof Timer;
   buttonLiom: typeof ButtonLiom;
-  collapse: typeof AntdSingleCollapse;
   percentageBox: typeof PercentageBox;
   apiRequest: typeof ApiRequest;
 };
@@ -984,7 +846,6 @@ export const PlasmicResult = Object.assign(
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     timer: makeNodeComponent("timer"),
     buttonLiom: makeNodeComponent("buttonLiom"),
-    collapse: makeNodeComponent("collapse"),
     percentageBox: makeNodeComponent("percentageBox"),
     apiRequest: makeNodeComponent("apiRequest"),
 
