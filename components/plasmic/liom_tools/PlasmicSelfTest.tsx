@@ -178,7 +178,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             from: "system"
           },
           {
-            text: "\u067e\u0627\u0633\u062e\u200c\u0647\u0627\u06cc \u0645\u0646 \u0628\u0647 \u0635\u0648\u0631\u062a \u062e\u0648\u062f\u06a9\u0627\u0631 \u062a\u0648\u0644\u06cc\u062f \u0645\u06cc\u200c\u0634\u0648\u0646\u062f\u060c \u0627\u0645\u0627 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06af\u0633\u062a\u0631\u062f\u0647 \u0648 \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637 \u062a\u0647\u06cc\u0647 \u0634\u062f\u0647\u200c\u0627\u0646\u062f.\u0645\u0646 \u0627\u06cc\u0646\u062c\u0627 \u0647\u0633\u062a\u0645 \u062a\u0627 \u062f\u0631 \u0645\u0648\u0631\u062f \u0633\u0631\u062f\u0631\u062f\u0647\u0627 \u0628\u0627 \u0634\u0645\u0627 \u0635\u062d\u0628\u062a \u06a9\u0646\u0645 \ud83e\udd15.",
+            text: "\u067e\u0627\u0633\u062e\u200c\u0647\u0627\u06cc \u0645\u0646 \u0628\u0647 \u0635\u0648\u0631\u062a \u062e\u0648\u062f\u06a9\u0627\u0631 \u062a\u0648\u0644\u06cc\u062f \u0645\u06cc\u200c\u0634\u0648\u0646\u062f\u060c \u0627\u0645\u0627 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06af\u0633\u062a\u0631\u062f\u0647 \u0648 \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637 \u062a\u0647\u06cc\u0647 \u0634\u062f\u0647\u200c\u0627\u0646\u062f.\u0645\u0646 \u0627\u06cc\u0646\u062c\u0627 \u0647\u0633\u062a\u0645 \u062a\u0627 \u062f\u0631 \u0645\u0648\u0631\u062f \u0645\u0634\u06a9\u0644\u062a \u0628\u0627 \u0634\u0645\u0627 \u0635\u062d\u0628\u062a \u06a9\u0646\u0645 \ud83d\ude0a.",
             from: "system"
           },
           {
@@ -940,7 +940,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 return (() => {
                                   $state.testChat[$state.testChat.length - 1] =
                                     {
-                                      text: "اگه دوست داری گفتگو رو ادامه بدیم\u060C لطفاً هزینه رو پرداخت کن. ",
+                                      text: "اگه دوست داری گفتگو رو ادامه بدیم لطفاً هزینه رو پرداخت کن. ",
                                       from: "system"
                                     };
                                   $state.variable = {
@@ -976,6 +976,52 @@ function PlasmicSelfTest__RenderFunc(props: {
                       typeof $steps["runCode4"].then === "function"
                     ) {
                       $steps["runCode4"] = await $steps["runCode4"];
+                    }
+
+                    $steps["runCode6"] =
+                      $state.nextQuesionId == -1
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  $state.testChat[$state.testChat.length - 1] =
+                                    {
+                                      text: "حالا برو نتیجه تست رو ببین. امیدوارم همه‌چیز خوب باشه! اگر به کمک نیاز داشتی\u060C من اینجا هستم.",
+                                      from: "system"
+                                    };
+                                  $state.variable = {
+                                    question:
+                                      $steps.invokeGlobalAction2.data.question,
+                                    text: $steps.invokeGlobalAction2.data
+                                      .question.question,
+                                    from: "system",
+                                    btnText:
+                                      $steps.invokeGlobalAction2.data.options
+                                        ?.length == 1
+                                        ? $steps.invokeGlobalAction2.data
+                                            .options[0].text
+                                        : "ارسال",
+                                    options:
+                                      $steps.invokeGlobalAction2.data.options
+                                  };
+                                  return window.scrollTo({
+                                    top: document.body.scrollHeight,
+                                    behavior: "smooth"
+                                  });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["runCode6"] != null &&
+                      typeof $steps["runCode6"] === "object" &&
+                      typeof $steps["runCode6"].then === "function"
+                    ) {
+                      $steps["runCode6"] = await $steps["runCode6"];
                     }
 
                     $steps["updateFerst"] = true
