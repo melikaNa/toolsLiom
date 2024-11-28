@@ -1,0 +1,10 @@
+.root:global(.__wab_instance) {
+  width: auto;
+  height: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+  position: relative;
+}
+.rootstate_empty:global(.__wab_instance) {
+  width: auto;
+}

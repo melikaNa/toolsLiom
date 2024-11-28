@@ -1,0 +1,99 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  background: none;
+  transition-property: all;
+  transition-duration: 1s;
+  min-width: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+  padding: 0px;
+}
+.root > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - var(--token-KVcr9NiMwFLr));
+  width: calc(100% + var(--token-KVcr9NiMwFLr));
+}
+.root > :global(.__wab_flex-container) > *,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.root > :global(.__wab_flex-container) > picture > img,
+.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-left: var(--token-KVcr9NiMwFLr);
+}
+.rootfouse {
+  background: none;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  width: var(--token-KDnC5QlJdkgq);
+  height: var(--token-KDnC5QlJdkgq);
+  align-self: center;
+  color: var(--token-jgohepLVeKvh);
+  opacity: 0.6;
+  transition-property: all;
+  transition-duration: 5s;
+  flex-shrink: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 5s;
+}
+.svgfouse {
+  opacity: 1;
+  transform: scaleX(1.1) scaleY(1.1) scaleZ(1);
+}
+.freeBox {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  opacity: 0.6;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+}
+.freeBoxfouse {
+  opacity: 1;
+}
+.slotTargetChildren {
+  font-size: var(--token-podr231_9RBN);
+  color: var(--token-jgohepLVeKvh);
+  text-align: right;
+}
+.slotTargetChildren > *,
+.slotTargetChildren > :global(.__wab_slot) > *,
+.slotTargetChildren > :global(.__wab_slot) > :global(.__wab_slot) > *,
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > *,
+.slotTargetChildren > picture > img,
+.slotTargetChildren > :global(.__wab_slot) > picture > img,
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > picture
+  > img,
+.slotTargetChildren
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  transition-property: all, all;
+  transition-duration: 1s, 1s;
+  -webkit-transition-property: all, all;
+  -webkit-transition-duration: 1s, 1s;
+}
+.slotTargetChildrenfouse {
+  font-size: var(--token-podr231_9RBN);
+  font-weight: 700;
+}

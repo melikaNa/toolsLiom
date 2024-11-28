@@ -1,0 +1,10 @@
+.root {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-Pxe4wDL2kJpb);
+  position: relative;
+  height: 1em;
+}
+.rootaction {
+  color: var(--token-bASdKwkcGC-_);
+}
