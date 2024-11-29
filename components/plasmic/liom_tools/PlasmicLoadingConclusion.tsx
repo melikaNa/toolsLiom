@@ -68,19 +68,22 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJp
 import sty from "./PlasmicLoadingConclusion.module.css"; // plasmic-import: 4McqJ57YwWl3/css
 
 import Icon105Icon from "./icons/PlasmicIcon__Icon105"; // plasmic-import: Qk9ZFVnKudTK/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 import Icon106Icon from "./icons/PlasmicIcon__Icon106"; // plasmic-import: otphAWl8l3Dm/icon
 
 createPlasmicElementProxy;
 
 export type PlasmicLoadingConclusion__VariantMembers = {
   fouse: "fouse";
+  selected: "selected";
 };
 export type PlasmicLoadingConclusion__VariantsArgs = {
   fouse?: SingleBooleanChoiceArg<"fouse">;
+  selected?: SingleBooleanChoiceArg<"selected">;
 };
 type VariantPropType = keyof PlasmicLoadingConclusion__VariantsArgs;
 export const PlasmicLoadingConclusion__VariantProps =
-  new Array<VariantPropType>("fouse");
+  new Array<VariantPropType>("fouse", "selected");
 
 export type PlasmicLoadingConclusion__ArgsType = {
   children?: React.ReactNode;
@@ -99,6 +102,7 @@ export type PlasmicLoadingConclusion__OverridesType = {
 export interface DefaultLoadingConclusionProps {
   children?: React.ReactNode;
   fouse?: SingleBooleanChoiceArg<"fouse">;
+  selected?: SingleBooleanChoiceArg<"selected">;
   className?: string;
 }
 
@@ -149,6 +153,12 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.fouse
+      },
+      {
+        path: "selected",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.selected
       }
     ],
     [$props, $ctx, $refs]
@@ -178,17 +188,25 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         plasmic_paziresh_24_design_system_css.plasmic_tokens,
         sty.root,
-        { [sty.rootfouse]: hasVariant($state, "fouse", "fouse") }
+        {
+          [sty.rootfouse]: hasVariant($state, "fouse", "fouse"),
+          [sty.rootselected]: hasVariant($state, "selected", "selected")
+        }
       )}
     >
       <PlasmicIcon__
         data-plasmic-name={"svg"}
         data-plasmic-override={overrides.svg}
         PlasmicIconType={
-          hasVariant($state, "fouse", "fouse") ? Icon106Icon : Icon105Icon
+          hasVariant($state, "selected", "selected")
+            ? Icon106Icon
+            : hasVariant($state, "fouse", "fouse")
+            ? Icon11Icon
+            : Icon105Icon
         }
         className={classNames(projectcss.all, sty.svg, {
-          [sty.svgfouse]: hasVariant($state, "fouse", "fouse")
+          [sty.svgfouse]: hasVariant($state, "fouse", "fouse"),
+          [sty.svgselected]: hasVariant($state, "selected", "selected")
         })}
         role={"img"}
       />
@@ -197,14 +215,20 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxfouse]: hasVariant($state, "fouse", "fouse")
+          [sty.freeBoxfouse]: hasVariant($state, "fouse", "fouse"),
+          [sty.freeBoxselected]: hasVariant($state, "selected", "selected")
         })}
       >
         {renderPlasmicSlot({
           defaultContents: "jsgcsgdcgsgcgscgs",
           value: args.children,
           className: classNames(sty.slotTargetChildren, {
-            [sty.slotTargetChildrenfouse]: hasVariant($state, "fouse", "fouse")
+            [sty.slotTargetChildrenfouse]: hasVariant($state, "fouse", "fouse"),
+            [sty.slotTargetChildrenselected]: hasVariant(
+              $state,
+              "selected",
+              "selected"
+            )
           })
         })}
       </div>

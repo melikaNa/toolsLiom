@@ -3028,6 +3028,11 @@
           "id": "E5qGXuJrSxC-",
           "name": "Icon111Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon111.tsx"
+        },
+        {
+          "id": "KkG2nnQC8TPR",
+          "name": "Icon112Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon112.tsx"
         }
       ],
       "images": [

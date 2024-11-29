@@ -318,89 +318,106 @@ function PlasmicResult__RenderFunc(props: {
               data-plasmic-override={overrides.backgrond}
               className={classNames("__wab_instance", sty.backgrond)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__tAoo6)}
-              >
-                <Reveal
-                  data-plasmic-name={"reveal"}
-                  data-plasmic-override={overrides.reveal}
-                  big={false}
-                  cascade={false}
-                  className={classNames("__wab_instance", sty.reveal)}
-                  direction={"up"}
-                  effect={"fade"}
-                  triggerOnce={false}
+              <div className={classNames(projectcss.all, sty.freeBox__xSFO)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__tAoo6)}
                 >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.loadingConclusion;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <LoadingConclusion
-                        data-plasmic-name={"loadingConclusion"}
-                        data-plasmic-override={overrides.loadingConclusion}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.loadingConclusion
-                        )}
-                        fouse={(() => {
-                          try {
-                            return currentIndex == $state.level;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
+                  <Reveal
+                    data-plasmic-name={"reveal"}
+                    data-plasmic-override={overrides.reveal}
+                    big={false}
+                    cascade={false}
+                    className={classNames("__wab_instance", sty.reveal)}
+                    direction={"up"}
+                    effect={"fade"}
+                    triggerOnce={false}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.loadingConclusion;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
                           }
-                        })()}
-                        key={currentIndex}
-                      >
-                        <div
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <LoadingConclusion
+                          data-plasmic-name={"loadingConclusion"}
+                          data-plasmic-override={overrides.loadingConclusion}
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___4OXwR
+                            "__wab_instance",
+                            sty.loadingConclusion
                           )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "..";
-                                }
-                                throw e;
+                          fouse={(() => {
+                            try {
+                              return currentIndex == $state.level;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </LoadingConclusion>
-                    );
-                  })}
-                </Reveal>
-              </Stack__>
+                              throw e;
+                            }
+                          })()}
+                          key={currentIndex}
+                          selected={(() => {
+                            try {
+                              return currentIndex < $state.level;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___4OXwR
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "..";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </LoadingConclusion>
+                      );
+                    })}
+                  </Reveal>
+                </Stack__>
+              </div>
             </Backgrond>
           </AntdModal>
           <HeaderLiom
