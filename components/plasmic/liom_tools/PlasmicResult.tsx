@@ -197,7 +197,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 4
       },
       {
         path: "buttonLiom.color",
@@ -414,53 +414,70 @@ function PlasmicResult__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.paziresh24Avatar)}
               />
             }
-          />
-
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__f1R9S)}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__obt8K
-              )}
+            {
+              "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a"
+            }
+          </HeaderLiom>
+          {(() => {
+            try {
+              return $state.level == 4;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__f1R9S)}
             >
-              {"\u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a"}
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__hB9Nw)}>
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__feipf
+                  sty.text__obt8K
                 )}
               >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return (() => {
-                        return $state.apiRequest.data.message
-                          .split(".")
-                          .map(str => str.trim())
-                          .join(".\n");
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "...";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
+                {"\u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a"}
               </div>
-            </div>
-          </Stack__>
+              <div className={classNames(projectcss.all, sty.freeBox__hB9Nw)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__feipf
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          return $state.apiRequest.data.message
+                            .split(".")
+                            .map(str => str.trim())
+                            .join(".\n");
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "...";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </div>
+            </Stack__>
+          ) : null}
           <Timer
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
@@ -528,177 +545,197 @@ function PlasmicResult__RenderFunc(props: {
               }}
             />
           </div>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__mzAy8)}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fo0X
-              )}
-            >
-              {
-                "\u0628\u0631 \u0627\u0633\u0627\u0633 \u0646\u062a\u0627\u06cc\u062c \u062a\u0633\u062a\u060c \u0627\u062d\u062a\u0645\u0627\u0644 \u0627\u0628\u062a\u0644\u0627 \u0628\u0647 \u0648\u0636\u0639\u06cc\u062a\u200c\u0647\u0627\u06cc \u0632\u06cc\u0631 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f:"
+          {(() => {
+            try {
+              return $state.level == 4;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-            </div>
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-              (() => {
-                try {
-                  return $state.apiRequest.data.details;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__mzAy8)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fo0X
+                )}
+              >
+                {
+                  "\u0628\u0631 \u0627\u0633\u0627\u0633 \u0646\u062a\u0627\u06cc\u062c \u062a\u0633\u062a\u060c \u0627\u062d\u062a\u0645\u0627\u0644 \u0627\u0628\u062a\u0644\u0627 \u0628\u0647 \u0648\u0636\u0639\u06cc\u062a\u200c\u0647\u0627\u06cc \u0632\u06cc\u0631 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f:"
                 }
-              })()
-            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___3GvY6)}
-                  key={currentIndex}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__rZgJu)}
+              </div>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.apiRequest.data.details;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___3GvY6)}
+                    key={currentIndex}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__b45Lz)}
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__rZgJu)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__xXc2
+                          sty.freeBox__b45Lz
                         )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.option_metric_fa;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u06a9\u0645 \u062e\u0648\u0646\u06cc";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                      <PercentageBox
-                        data-plasmic-name={"percentageBox"}
-                        data-plasmic-override={overrides.percentageBox}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.percentageBox
-                        )}
-                        unnamedGroupOfVariants={(() => {
-                          try {
-                            return parseInt(currentItem.score) >= 80
-                              ? "red"
-                              : parseInt(currentItem.score) < 80 &&
-                                parseInt(currentItem.score) >= 50
-                              ? "yellow"
-                              : "";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "red";
-                            }
-                            throw e;
-                          }
-                        })()}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__vtkPr
+                            sty.text__xXc2
                           )}
                         >
                           <React.Fragment>
                             {(() => {
                               try {
-                                return currentItem.score + "%";
+                                return currentItem.option_metric_fa;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "99 % ";
+                                  return "\u06a9\u0645 \u062e\u0648\u0646\u06cc";
                                 }
                                 throw e;
                               }
                             })()}
                           </React.Fragment>
                         </div>
-                      </PercentageBox>
-                    </div>
-                    <Paziresh24Button
-                      children2={
-                        <div
+                        <PercentageBox
+                          data-plasmic-name={"percentageBox"}
+                          data-plasmic-override={overrides.percentageBox}
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___6W1Ft
+                            "__wab_instance",
+                            sty.percentageBox
                           )}
+                          unnamedGroupOfVariants={(() => {
+                            try {
+                              return parseInt(currentItem.score) >= 80
+                                ? "red"
+                                : parseInt(currentItem.score) < 80 &&
+                                  parseInt(currentItem.score) >= 50
+                                ? "yellow"
+                                : "";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "red";
+                              }
+                              throw e;
+                            }
+                          })()}
                         >
-                          {"\u062a\u0633\u062a \u062a\u062e\u0635\u0635\u06cc"}
-                        </div>
-                      }
-                      className={classNames(
-                        "__wab_instance",
-                        sty.paziresh24Button__kRUtI
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return window.open(
-                                      `https://tools.liom.app/self-test?UserId=${$ctx.query.user_id}&user_id=${currentItem.option_metric}`,
-                                      "_self"
-                                    );
-                                  })();
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__vtkPr
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.score + "%";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "99 % ";
+                                  }
+                                  throw e;
                                 }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </PercentageBox>
+                      </div>
+                      <Paziresh24Button
+                        children2={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___6W1Ft
+                            )}
+                          >
+                            {
+                              "\u062a\u0633\u062a \u062a\u062e\u0635\u0635\u06cc"
+                            }
+                          </div>
                         }
-                      }}
-                      size={"minimal"}
-                    />
-                  </Stack__>
-                </div>
-              );
-            })}
-          </Stack__>
+                        className={classNames(
+                          "__wab_instance",
+                          sty.paziresh24Button__kRUtI
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return window.open(
+                                        `https://tools.liom.app/self-test?UserId=${$ctx.query.user_id}&user_id=${currentItem.option_metric}`,
+                                        "_self"
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                        size={"minimal"}
+                      />
+                    </Stack__>
+                  </div>
+                );
+              })}
+            </Stack__>
+          ) : null}
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}

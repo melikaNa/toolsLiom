@@ -106,6 +106,7 @@ export const PlasmicSelfTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicSelfTest__OverridesType = {
   root?: Flex__<"div">;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   messageLiom?: Flex__<typeof MessageLiom>;
   testOptionsLiom?: Flex__<typeof TestOptionsLiom>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
@@ -408,8 +409,20 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-name={"headerLiom"}
             data-plasmic-override={overrides.headerLiom}
             className={classNames("__wab_instance", sty.headerLiom)}
+            slot={
+              <Paziresh24Avatar
+                data-plasmic-name={"paziresh24Avatar"}
+                data-plasmic-override={overrides.paziresh24Avatar}
+                className={classNames("__wab_instance", sty.paziresh24Avatar)}
+                src={
+                  "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg"
+                }
+              />
+            }
           >
-            {"ddddd"}
+            {
+              "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a"
+            }
           </HeaderLiom>
           <div
             className={classNames(
@@ -1814,6 +1827,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "headerLiom",
+    "paziresh24Avatar",
     "messageLiom",
     "testOptionsLiom",
     "buttonLiom",
@@ -1824,7 +1838,8 @@ const PlasmicDescendants = {
     "timer",
     "user"
   ],
-  headerLiom: ["headerLiom"],
+  headerLiom: ["headerLiom", "paziresh24Avatar"],
+  paziresh24Avatar: ["paziresh24Avatar"],
   messageLiom: ["messageLiom"],
   testOptionsLiom: ["testOptionsLiom"],
   buttonLiom: ["buttonLiom", "svg"],
@@ -1841,6 +1856,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   headerLiom: typeof HeaderLiom;
+  paziresh24Avatar: typeof Paziresh24Avatar;
   messageLiom: typeof MessageLiom;
   testOptionsLiom: typeof TestOptionsLiom;
   buttonLiom: typeof ButtonLiom;
@@ -1938,6 +1954,7 @@ export const PlasmicSelfTest = Object.assign(
   {
     // Helper components rendering sub-elements
     headerLiom: makeNodeComponent("headerLiom"),
+    paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     messageLiom: makeNodeComponent("messageLiom"),
     testOptionsLiom: makeNodeComponent("testOptionsLiom"),
     buttonLiom: makeNodeComponent("buttonLiom"),
