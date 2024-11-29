@@ -709,7 +709,7 @@ function PlasmicResult__RenderFunc(props: {
                                   customFunction: async () => {
                                     return (() => {
                                       return window.open(
-                                        `https://tools.liom.app/self-test?UserId=${$ctx.query.user_id}&user_id=${currentItem.option_metric}`,
+                                        `https://tools.liom.app/self-test?UserId=${$ctx.query.user_id}&type=${currentItem.option_metric}`,
                                         "_self"
                                       );
                                     })();
