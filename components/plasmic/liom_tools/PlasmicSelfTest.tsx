@@ -115,7 +115,6 @@ export type PlasmicSelfTest__OverridesType = {
   progress?: Flex__<typeof AntdProgress>;
   timer?: Flex__<typeof Timer>;
   user?: Flex__<typeof ApiRequest>;
-  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSelfTestProps {}
@@ -341,24 +340,6 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "apiRequest.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "numberTest",
@@ -1823,80 +1804,6 @@ function PlasmicSelfTest__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/selfTest/getUser"}
           />
-
-          {(() => {
-            try {
-              return $state.ferst == false;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__uwCpx)}>
-              <ApiRequest
-                data-plasmic-name={"apiRequest"}
-                data-plasmic-override={overrides.apiRequest}
-                body={(() => {
-                  try {
-                    return {
-                      type: $state.type,
-                      user_id: $state.userId
-                    };
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                className={classNames("__wab_instance", sty.apiRequest)}
-                errorDisplay={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__fqgLm
-                    )}
-                  >
-                    {"Error fetching data"}
-                  </div>
-                }
-                loadingDisplay={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__fV5TX
-                    )}
-                  >
-                    {"Loading..."}
-                  </div>
-                }
-                method={"POST"}
-                onError={generateStateOnChangeProp($state, [
-                  "apiRequest",
-                  "error"
-                ])}
-                onLoading={generateStateOnChangeProp($state, [
-                  "apiRequest",
-                  "loading"
-                ])}
-                onSuccess={generateStateOnChangeProp($state, [
-                  "apiRequest",
-                  "data"
-                ])}
-                url={"https://n8n.staas.ir/webhook/selfTestSession"}
-              />
-            </div>
-          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -1915,8 +1822,7 @@ const PlasmicDescendants = {
     "paziresh24Button",
     "progress",
     "timer",
-    "user",
-    "apiRequest"
+    "user"
   ],
   headerLiom: ["headerLiom"],
   messageLiom: ["messageLiom"],
@@ -1927,8 +1833,7 @@ const PlasmicDescendants = {
   paziresh24Button: ["paziresh24Button"],
   progress: ["progress"],
   timer: ["timer"],
-  user: ["user"],
-  apiRequest: ["apiRequest"]
+  user: ["user"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1945,7 +1850,6 @@ type NodeDefaultElementType = {
   progress: typeof AntdProgress;
   timer: typeof Timer;
   user: typeof ApiRequest;
-  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2043,7 +1947,6 @@ export const PlasmicSelfTest = Object.assign(
     progress: makeNodeComponent("progress"),
     timer: makeNodeComponent("timer"),
     user: makeNodeComponent("user"),
-    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicSelfTest
     internalVariantProps: PlasmicSelfTest__VariantProps,
