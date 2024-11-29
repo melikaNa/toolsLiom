@@ -209,7 +209,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return $ctx.query.type;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -225,7 +225,20 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "userId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "234568"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.UserId;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "ferst",
