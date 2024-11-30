@@ -150,7 +150,7 @@
   width: 100%;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 52;
   position: fixed;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
@@ -502,7 +502,7 @@
   flex-direction: column;
   position: fixed;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: auto;
   height: 100%;
   max-width: 100%;
@@ -513,4 +513,12 @@
   background: #00000033;
   min-height: 0;
   padding: 8px;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-s_XuzePAGmOh);
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
 }

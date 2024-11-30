@@ -93,6 +93,7 @@ import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"
 import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
+import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 
 createPlasmicElementProxy;
 
@@ -117,6 +118,7 @@ export type PlasmicResult__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   percentageBox?: Flex__<typeof PercentageBox>;
   apiRequest?: Flex__<typeof ApiRequest>;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultResultProps {}
@@ -191,14 +193,14 @@ function PlasmicResult__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => [
           "\u0622\u0646\u0627\u0644\u06cc\u0632 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627",
           "\u0628\u0631\u0631\u0633\u06cc \u0634\u0627\u062e\u0635 \u0647\u0627\u06cc \u0627\u0631\u0632\u06cc\u0627\u0628\u06cc",
-          "\u0622\u0645\u0627\u062f\u0647\u200c\u0633\u0627\u0632\u06cc \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a"
+          "\u0622\u0645\u0627\u062f\u0647 \u0633\u0627\u0632\u06cc \u0646\u062a\u06cc\u062c\u0647 \u062e\u0648\u062f\u062a\u0634\u062e\u06cc\u0635\u06cc"
         ]
       },
       {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 3
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "buttonLiom.color",
@@ -223,6 +225,12 @@ function PlasmicResult__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -769,28 +777,60 @@ function PlasmicResult__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
+                            $steps["updateLoading"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["loading"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateLoading"] != null &&
+                              typeof $steps["updateLoading"] === "object" &&
+                              typeof $steps["updateLoading"].then === "function"
+                            ) {
+                              $steps["updateLoading"] = await $steps[
+                                "updateLoading"
+                              ];
+                            }
+
                             $steps["runCode"] = true
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return (() => {
-                                        return window.open(
-                                          `https://tools.liom.app/self-test?UserId=${
-                                            $ctx.query.user_id
-                                          }&type=${
-                                            currentItem.option_metric
-                                          }&nextQuesion_id=${
-                                            $state.apiRequest.data.extras.find(
-                                              a =>
-                                                a.type ==
-                                                currentItem.option_metric
-                                            ).next_question_id
-                                          }&session_id=${
-                                            $ctx.query.session_id
-                                          }`,
-                                          "_self"
-                                        );
-                                      })();
+                                      return window.open(
+                                        `https://tools.liom.app/self-test?UserId=${
+                                          $ctx.query.user_id
+                                        }&type=${
+                                          currentItem.option_metric
+                                        }&nextQuesion_id=${
+                                          $state.apiRequest.data.extras.find(
+                                            a =>
+                                              a.type ==
+                                              currentItem.option_metric
+                                          ).next_question_id
+                                        }&session_id=${$ctx.query.session_id}`,
+                                        "_self"
+                                      );
                                     }
                                   };
                                   return (({ customFunction }) => {
@@ -804,6 +844,43 @@ function PlasmicResult__RenderFunc(props: {
                               typeof $steps["runCode"].then === "function"
                             ) {
                               $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["updateLoading2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["loading"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateLoading2"] != null &&
+                              typeof $steps["updateLoading2"] === "object" &&
+                              typeof $steps["updateLoading2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateLoading2"] = await $steps[
+                                "updateLoading2"
+                              ];
                             }
                           }}
                           size={"minimal"}
@@ -885,7 +962,28 @@ function PlasmicResult__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/selfTestLogs"}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__xqVc8)} />
+          {(() => {
+            try {
+              return $state.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__xqVc8)}>
+              <Icon111Icon
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg)}
+                role={"img"}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -904,7 +1002,8 @@ const PlasmicDescendants = {
     "timer",
     "buttonLiom",
     "percentageBox",
-    "apiRequest"
+    "apiRequest",
+    "svg"
   ],
   modal: ["modal", "backgrond", "reveal", "loadingConclusion"],
   backgrond: ["backgrond", "reveal", "loadingConclusion"],
@@ -915,7 +1014,8 @@ const PlasmicDescendants = {
   timer: ["timer"],
   buttonLiom: ["buttonLiom"],
   percentageBox: ["percentageBox"],
-  apiRequest: ["apiRequest"]
+  apiRequest: ["apiRequest"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -932,6 +1032,7 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   percentageBox: typeof PercentageBox;
   apiRequest: typeof ApiRequest;
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1029,6 +1130,7 @@ export const PlasmicResult = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     percentageBox: makeNodeComponent("percentageBox"),
     apiRequest: makeNodeComponent("apiRequest"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicResult
     internalVariantProps: PlasmicResult__VariantProps,
