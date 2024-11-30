@@ -170,7 +170,9 @@ function PlasmicResult__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.level == 3 ? false : true;
+              return $state.level == 3 && !$state.apiRequest.loading
+                ? false
+                : true;
             } catch (e) {
               if (
                 e instanceof TypeError ||
