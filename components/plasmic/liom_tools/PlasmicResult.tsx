@@ -430,11 +430,14 @@ function PlasmicResult__RenderFunc(props: {
                 data-plasmic-name={"paziresh24Avatar"}
                 data-plasmic-override={overrides.paziresh24Avatar}
                 className={classNames("__wab_instance", sty.paziresh24Avatar)}
+                src={
+                  "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg"
+                }
               />
             }
           >
             {
-              "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a"
+              "\u0646\u062a\u06cc\u062c\u0647 \u062e\u0648\u062f\u062a\u0634\u062e\u06cc\u0635\u06cc \u0634\u0645\u0627"
             }
           </HeaderLiom>
           {(() => {
