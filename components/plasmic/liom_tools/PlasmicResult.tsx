@@ -908,7 +908,25 @@ function PlasmicResult__RenderFunc(props: {
                               throw e;
                             }
                           })()
-                        : true
+                        : (() => {
+                            try {
+                              return (() => {
+                                return (
+                                  $state.apiRequest.data.extras.find(
+                                    a => a.type === currentItem.option_metric
+                                  )?.isDone !== 1 || false
+                                );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
                     ) ? (
                       <div
                         className={classNames(

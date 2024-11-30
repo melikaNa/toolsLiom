@@ -491,6 +491,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .text__q4Ey {
     text-align: left;
+    display: block;
   }
 }
 .apiRequest:global(.__wab_instance) {
