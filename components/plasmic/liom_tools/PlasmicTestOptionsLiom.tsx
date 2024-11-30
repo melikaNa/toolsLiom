@@ -109,7 +109,6 @@ export type PlasmicTestOptionsLiom__OverridesType = {
   freeBox?: Flex__<"div">;
   optionItemLiom?: Flex__<typeof OptionItemLiom>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
-  text?: Flex__<"div">;
   button?: Flex__<typeof ButtonLiom>;
 };
 
@@ -346,7 +345,15 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                 }
               })()}
             >
-              <React.Fragment>{currentItem.text}</React.Fragment>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__p0O
+                )}
+              >
+                <React.Fragment>{currentItem.text}</React.Fragment>
+              </div>
             </OptionItemLiom>
           );
         })}
@@ -356,12 +363,10 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         data-plasmic-override={overrides.paziresh24Button}
         children2={
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text
+              sty.text__gFRfC
             )}
           >
             {hasVariant(globalVariants, "screen", "mobileOnly") ? (
@@ -435,18 +440,10 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "freeBox",
-    "optionItemLiom",
-    "paziresh24Button",
-    "text",
-    "button"
-  ],
+  root: ["root", "freeBox", "optionItemLiom", "paziresh24Button", "button"],
   freeBox: ["freeBox", "optionItemLiom"],
   optionItemLiom: ["optionItemLiom"],
-  paziresh24Button: ["paziresh24Button", "text"],
-  text: ["text"],
+  paziresh24Button: ["paziresh24Button"],
   button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -457,7 +454,6 @@ type NodeDefaultElementType = {
   freeBox: "div";
   optionItemLiom: typeof OptionItemLiom;
   paziresh24Button: typeof Paziresh24Button;
-  text: "div";
   button: typeof ButtonLiom;
 };
 
@@ -524,7 +520,6 @@ export const PlasmicTestOptionsLiom = Object.assign(
     freeBox: makeNodeComponent("freeBox"),
     optionItemLiom: makeNodeComponent("optionItemLiom"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
-    text: makeNodeComponent("text"),
     button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicTestOptionsLiom

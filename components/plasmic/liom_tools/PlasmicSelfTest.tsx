@@ -1950,6 +1950,34 @@ function PlasmicSelfTest__RenderFunc(props: {
               ) {
                 $steps["runCode"] = await $steps["runCode"];
               }
+
+              $steps["updateTestChat"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["testChat"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat"] != null &&
+                typeof $steps["updateTestChat"] === "object" &&
+                typeof $steps["updateTestChat"].then === "function"
+              ) {
+                $steps["updateTestChat"] = await $steps["updateTestChat"];
+              }
             }}
             runWhileEditing={false}
           />
