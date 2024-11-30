@@ -698,54 +698,68 @@ function PlasmicResult__RenderFunc(props: {
                           </div>
                         </PercentageBox>
                       </div>
-                      <Paziresh24Button
-                        children2={
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___6W1Ft
-                            )}
-                          >
-                            {
-                              "\u062a\u0633\u062a \u062a\u062e\u0635\u0635\u06cc"
-                            }
-                          </div>
-                        }
-                        className={classNames(
-                          "__wab_instance",
-                          sty.paziresh24Button__kRUtI
-                        )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      return window.open(
-                                        `https://tools.liom.app/self-test?UserId=${$ctx.query.user_id}&type=${currentItem.option_metric}`,
-                                        "_self"
-                                      );
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                      {(() => {
+                        try {
+                          return true;
+                        } catch (e) {
                           if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            $steps["runCode"] = await $steps["runCode"];
+                            return true;
                           }
-                        }}
-                        size={"minimal"}
-                      />
+                          throw e;
+                        }
+                      })() ? (
+                        <Paziresh24Button
+                          children2={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___6W1Ft
+                              )}
+                            >
+                              {
+                                "\u062a\u0633\u062a \u062a\u062e\u0635\u0635\u06cc"
+                              }
+                            </div>
+                          }
+                          className={classNames(
+                            "__wab_instance",
+                            sty.paziresh24Button__kRUtI
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return window.open(
+                                          `https://tools.liom.app/self-test?UserId=${$ctx.query.user_id}&type=${currentItem.option_metric}`,
+                                          "_self"
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
+                          size={"minimal"}
+                        />
+                      ) : null}
                     </Stack__>
                   </div>
                 );

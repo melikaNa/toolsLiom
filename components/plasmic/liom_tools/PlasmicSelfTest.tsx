@@ -418,6 +418,12 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 20
+      },
+      {
+        path: "retestTest",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -682,11 +688,18 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 variablePath: ["nextQuesionId"]
                               },
                               operation: 0,
-                              value: $state.variable.options.find(
-                                option =>
-                                  option.id ===
-                                  $state.testOptionsLiom.selectedIDs[0]
-                              ).nextQuesion_id
+                              value: (() => {
+                                if (
+                                  $ctx.query.nextQuesion_id == "" ||
+                                  $ctx.query.nextQuesion_id == null
+                                )
+                                  return $state.variable.options.find(
+                                    option =>
+                                      option.id ===
+                                      $state.testOptionsLiom.selectedIDs[0]
+                                  ).nextQuesion_id;
+                                else return $ctx.query.nextQuesion_id;
+                              })()
                             };
                             return (({
                               variable,
@@ -739,23 +752,32 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   from: "user",
                                   type: "answer"
                                 });
-                                for (
-                                  let i = 0;
-                                  i < $state.testOptionsLiom.selectedIDs.length;
-                                  i++
+                                if (
+                                  $ctx.query.nextQuesion_id == "" ||
+                                  $ctx.query.nextQuesion_id == null
                                 ) {
-                                  let selectedOption = $state.testChat[
-                                    $state.testChat.length - 2
-                                  ]?.options.filter(
-                                    option =>
-                                      option.id ===
-                                      $state.testOptionsLiom.selectedIDs[i]
-                                  )[0];
-                                  if (selectedOption && selectedOption.advice) {
-                                    $state.testChat.push({
-                                      text: selectedOption.advice,
-                                      from: "system"
-                                    });
+                                  for (
+                                    let i = 0;
+                                    i <
+                                    $state.testOptionsLiom.selectedIDs.length;
+                                    i++
+                                  ) {
+                                    let selectedOption = $state.testChat[
+                                      $state.testChat.length - 2
+                                    ]?.options.filter(
+                                      option =>
+                                        option.id ===
+                                        $state.testOptionsLiom.selectedIDs[i]
+                                    )[0];
+                                    if (
+                                      selectedOption &&
+                                      selectedOption.advice
+                                    ) {
+                                      $state.testChat.push({
+                                        text: selectedOption.advice,
+                                        from: "system"
+                                      });
+                                    }
                                   }
                                 }
                                 $state.testChat.push({
@@ -1754,6 +1776,18 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
+                                  $state.testChat.push({
+                                    text: "آماده ای گفتگو رو شروع کنیم\u061F",
+                                    question: { lock: 0 },
+                                    from: "system",
+                                    btnText: "ادامه گفتگو",
+                                    options: [
+                                      {
+                                        id: -50,
+                                        text: "ادامه گفتگو"
+                                      }
+                                    ]
+                                  });
                                   return localStorage.setItem(
                                     "test",
                                     JSON.stringify($state.testChat)
