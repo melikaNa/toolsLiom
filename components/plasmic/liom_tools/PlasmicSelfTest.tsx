@@ -423,7 +423,23 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "retestTest",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (
+                $ctx.query.nextQuesion_id == "" ||
+                $ctx.query.nextQuesion_id == null
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -689,16 +705,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                               },
                               operation: 0,
                               value: (() => {
-                                if (
-                                  $ctx.query.nextQuesion_id == "" ||
-                                  $ctx.query.nextQuesion_id == null
-                                )
+                                if ($state.retestTest)
                                   return $state.variable.options.find(
                                     option =>
                                       option.id ===
                                       $state.testOptionsLiom.selectedIDs[0]
                                   ).nextQuesion_id;
-                                else return $ctx.query.nextQuesion_id;
+                                else return parseInt($ctx.query.nextQuesion_id);
                               })()
                             };
                             return (({
@@ -752,10 +765,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   from: "user",
                                   type: "answer"
                                 });
-                                if (
-                                  $ctx.query.nextQuesion_id == "" ||
-                                  $ctx.query.nextQuesion_id == null
-                                ) {
+                                if ($state.retestTest) {
                                   for (
                                     let i = 0;
                                     i <
@@ -784,6 +794,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   text: "loading",
                                   from: "system"
                                 });
+                                $state.retestTest = true;
                                 return window.scrollTo({
                                   top: document.body.scrollHeight,
                                   behavior: "smooth"
