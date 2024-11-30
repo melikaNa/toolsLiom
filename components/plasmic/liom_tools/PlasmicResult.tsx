@@ -170,7 +170,7 @@ function PlasmicResult__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.level == 4 ? false : true;
+              return $state.level == 3 ? false : true;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -188,16 +188,15 @@ function PlasmicResult__RenderFunc(props: {
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
           "\u0622\u0646\u0627\u0644\u06cc\u0632 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627",
-          "\u0645\u062d\u0627\u0633\u0628\u0647 \u062f\u0631\u0635\u062f \u062a\u0633\u062a",
-          "\u0622\u0645\u0627\u062f\u0647\u200c\u0633\u0627\u0632\u06cc \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a",
-          "\u0622\u0645\u0627\u062f\u0647\u200c\u0633\u0627\u0632\u06cc \u0628\u0631\u0646\u0627\u0645\u0647 \u062f\u0631\u0645\u0627\u0646\u06cc"
+          "\u0628\u0631\u0631\u0633\u06cc \u0634\u0627\u062e\u0635 \u0647\u0627\u06cc \u0627\u0631\u0632\u06cc\u0627\u0628\u06cc",
+          "\u0622\u0645\u0627\u062f\u0647\u200c\u0633\u0627\u0632\u06cc \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a"
         ]
       },
       {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 3
       },
       {
         path: "buttonLiom.color",
@@ -438,7 +437,7 @@ function PlasmicResult__RenderFunc(props: {
           </HeaderLiom>
           {(() => {
             try {
-              return $state.level == 4;
+              return $state.level == 3;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -505,7 +504,7 @@ function PlasmicResult__RenderFunc(props: {
               const $steps = {};
 
               $steps["updateLevel"] =
-                $state.level < 4
+                $state.level < 3
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -564,7 +563,7 @@ function PlasmicResult__RenderFunc(props: {
           </div>
           {(() => {
             try {
-              return $state.level == 4;
+              return $state.level == 3;
             } catch (e) {
               if (
                 e instanceof TypeError ||

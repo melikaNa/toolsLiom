@@ -168,33 +168,47 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "testChat",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            text: "\ud83d\udc4b \u0633\u0644\u0627\u0645!",
-            from: "system",
-            type: "answer"
-          },
-          {
-            text: "\u0645\u0646 \u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a \u0634\u0645\u0627 \u0647\u0633\u062a\u0645.",
-            from: "system"
-          },
-          {
-            text: "\u067e\u0627\u0633\u062e\u200c\u0647\u0627\u06cc \u0645\u0646 \u0628\u0647 \u0635\u0648\u0631\u062a \u062e\u0648\u062f\u06a9\u0627\u0631 \u062a\u0648\u0644\u06cc\u062f \u0645\u06cc\u200c\u0634\u0648\u0646\u062f\u060c \u0627\u0645\u0627 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06af\u0633\u062a\u0631\u062f\u0647 \u0648 \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637 \u062a\u0647\u06cc\u0647 \u0634\u062f\u0647\u200c\u0627\u0646\u062f.\u0645\u0646 \u0627\u06cc\u0646\u062c\u0627 \u0647\u0633\u062a\u0645 \u062a\u0627 \u062f\u0631 \u0645\u0648\u0631\u062f \u0645\u0634\u06a9\u0644\u062a \u0628\u0627 \u0634\u0645\u0627 \u0635\u062d\u0628\u062a \u06a9\u0646\u0645 \ud83d\ude0a.",
-            from: "system"
-          },
-          {
-            text: "\u0622\u0645\u0627\u062f\u0647 \u0627\u06cc \u0635\u062d\u0628\u062a \u0631\u0648 \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645\u061f",
-            question: { lock: 0 },
-            from: "system",
-            btnText: "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645.",
-            options: [
-              {
-                id: 1,
-                text: "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645."
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [
+                  {
+                    text: "\ud83d\udc4b \u0633\u0644\u0627\u0645!",
+                    from: "system",
+                    type: "answer"
+                  },
+                  {
+                    text: "\u0645\u0646 \u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a \u0634\u0645\u0627 \u0647\u0633\u062a\u0645.",
+                    from: "system"
+                  },
+                  {
+                    text: "\u067e\u0627\u0633\u062e\u200c\u0647\u0627\u06cc \u0645\u0646 \u0628\u0647 \u0635\u0648\u0631\u062a \u062e\u0648\u062f\u06a9\u0627\u0631 \u062a\u0648\u0644\u06cc\u062f \u0645\u06cc\u200c\u0634\u0648\u0646\u062f\u060c \u0627\u0645\u0627 \u0628\u0631 \u0627\u0633\u0627\u0633 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06af\u0633\u062a\u0631\u062f\u0647 \u0648 \u062f\u0627\u062f\u0647\u200c\u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637 \u062a\u0647\u06cc\u0647 \u0634\u062f\u0647\u200c\u0627\u0646\u062f.\u0645\u0646 \u0627\u06cc\u0646\u062c\u0627 \u0647\u0633\u062a\u0645 \u062a\u0627 \u062f\u0631 \u0645\u0648\u0631\u062f \u0645\u0634\u06a9\u0644\u062a \u0628\u0627 \u0634\u0645\u0627 \u0635\u062d\u0628\u062a \u06a9\u0646\u0645 \ud83d\ude0a.",
+                    from: "system"
+                  },
+                  {
+                    text: "\u0622\u0645\u0627\u062f\u0647 \u0627\u06cc \u0635\u062d\u0628\u062a \u0631\u0648 \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645\u061f",
+                    question: { lock: 0 },
+                    from: "system",
+                    btnText:
+                      "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645.",
+                    options: [
+                      {
+                        id: 1,
+                        text: "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645."
+                      }
+                    ]
+                  }
+                ];
               }
-            ]
-          }
-        ]
+              throw e;
+            }
+          })()
       },
       {
         path: "testOptionsLiom.selectedIDs",
@@ -749,6 +763,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                         ).score,
                                       question_text:
                                         $state.variable.question.question,
+                                      question_type: $state.type,
                                       option_text: $state.variable.options.find(
                                         option =>
                                           option.id ===
@@ -1649,6 +1664,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                       "__wab_instance",
                       sty.paziresh24Button
                     )}
+                    color={"green"}
                     onClick={async event => {
                       const $steps = {};
 
@@ -1673,6 +1689,31 @@ function PlasmicSelfTest__RenderFunc(props: {
                         typeof $steps["runCode"].then === "function"
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["runCode2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return localStorage.setItem(
+                                    "test",
+                                    JSON.stringify($state.testChat)
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode2"] != null &&
+                        typeof $steps["runCode2"] === "object" &&
+                        typeof $steps["runCode2"].then === "function"
+                      ) {
+                        $steps["runCode2"] = await $steps["runCode2"];
                       }
                     }}
                   />
