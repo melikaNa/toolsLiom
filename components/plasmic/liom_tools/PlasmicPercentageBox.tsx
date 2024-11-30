@@ -70,10 +70,10 @@ import sty from "./PlasmicPercentageBox.module.css"; // plasmic-import: twduJO0v
 createPlasmicElementProxy;
 
 export type PlasmicPercentageBox__VariantMembers = {
-  unnamedGroupOfVariants: "red" | "yellow";
+  unnamedGroupOfVariants: "red" | "yellow" | "blue" | "oreng";
 };
 export type PlasmicPercentageBox__VariantsArgs = {
-  unnamedGroupOfVariants?: SingleChoiceArg<"red" | "yellow">;
+  unnamedGroupOfVariants?: SingleChoiceArg<"red" | "yellow" | "blue" | "oreng">;
 };
 type VariantPropType = keyof PlasmicPercentageBox__VariantsArgs;
 export const PlasmicPercentageBox__VariantProps = new Array<VariantPropType>(
@@ -95,7 +95,7 @@ export type PlasmicPercentageBox__OverridesType = {
 
 export interface DefaultPercentageBoxProps {
   children?: React.ReactNode;
-  unnamedGroupOfVariants?: SingleChoiceArg<"red" | "yellow">;
+  unnamedGroupOfVariants?: SingleChoiceArg<"red" | "yellow" | "blue" | "oreng">;
   className?: string;
 }
 
@@ -175,6 +175,16 @@ function PlasmicPercentageBox__RenderFunc(props: {
         plasmic_paziresh_24_design_system_css.plasmic_tokens,
         sty.root,
         {
+          [sty.rootunnamedGroupOfVariants_blue]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "blue"
+          ),
+          [sty.rootunnamedGroupOfVariants_oreng]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "oreng"
+          ),
           [sty.rootunnamedGroupOfVariants_red]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -197,6 +207,16 @@ function PlasmicPercentageBox__RenderFunc(props: {
           defaultContents: "Enter some text",
           value: args.children,
           className: classNames(sty.slotTargetChildren, {
+            [sty.slotTargetChildrenunnamedGroupOfVariants_blue]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "blue"
+            ),
+            [sty.slotTargetChildrenunnamedGroupOfVariants_oreng]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "oreng"
+            ),
             [sty.slotTargetChildrenunnamedGroupOfVariants_red]: hasVariant(
               $state,
               "unnamedGroupOfVariants",

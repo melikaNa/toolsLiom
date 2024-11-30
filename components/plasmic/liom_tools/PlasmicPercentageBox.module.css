@@ -17,6 +17,12 @@
 .rootunnamedGroupOfVariants_yellow {
   background: #faad1466;
 }
+.rootunnamedGroupOfVariants_blue {
+  background: #69b1ff99;
+}
+.rootunnamedGroupOfVariants_oreng {
+  background: #ff710080;
+}
 .freeBox {
   position: relative;
   width: 100%;
@@ -35,4 +41,10 @@
 }
 .slotTargetChildrenunnamedGroupOfVariants_yellow {
   color: #e89b00;
+}
+.slotTargetChildrenunnamedGroupOfVariants_blue {
+  color: var(--token-5OZEb1MGGCI4);
+}
+.slotTargetChildrenunnamedGroupOfVariants_oreng {
+  color: #ff3c00;
 }

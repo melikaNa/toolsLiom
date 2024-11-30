@@ -509,29 +509,6 @@ function PlasmicSelfTest__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return window.scrollTo({
-                        top: document.body.scrollHeight,
-                        behavior: "smooth"
-                      });
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
           }}
         >
           <HeaderLiom
@@ -1951,32 +1928,28 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
-              $steps["updateTestChat"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["testChat"]
-                      },
-                      operation: 0
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+              $steps["runCode2"] =
+                $state.testChat[$state.testChat.length - 1].options[0].id == -50
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.scrollTo({
+                            top: document.body.scrollHeight,
+                            behavior: "smooth"
+                          });
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
-                $steps["updateTestChat"] != null &&
-                typeof $steps["updateTestChat"] === "object" &&
-                typeof $steps["updateTestChat"].then === "function"
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
               ) {
-                $steps["updateTestChat"] = await $steps["updateTestChat"];
+                $steps["runCode2"] = await $steps["runCode2"];
               }
             }}
             runWhileEditing={false}

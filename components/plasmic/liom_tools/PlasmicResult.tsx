@@ -198,7 +198,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 3
       },
       {
         path: "buttonLiom.color",
@@ -659,12 +659,22 @@ function PlasmicResult__RenderFunc(props: {
                           )}
                           unnamedGroupOfVariants={(() => {
                             try {
-                              return parseInt(currentItem.score) >= 80
-                                ? "red"
-                                : parseInt(currentItem.score) < 80 &&
-                                  parseInt(currentItem.score) >= 50
-                                ? "yellow"
-                                : "";
+                              return (() => {
+                                let score = parseInt(currentItem.score);
+                                let color =
+                                  score >= 80
+                                    ? "red"
+                                    : score >= 70
+                                    ? "orange"
+                                    : score >= 60
+                                    ? "yellow"
+                                    : score >= 50
+                                    ? "blue"
+                                    : score >= 40
+                                    ? ""
+                                    : "";
+                                return color;
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -686,12 +696,22 @@ function PlasmicResult__RenderFunc(props: {
                             <React.Fragment>
                               {(() => {
                                 try {
-                                  return parseInt(currentItem.score) >= 80
-                                    ? "وضعیت نگران کننده! مراجعه به پزشک"
-                                    : parseInt(currentItem.score) < 80 &&
-                                      parseInt(currentItem.score) >= 50
-                                    ? "نیاز به احتیاط!"
-                                    : "خداروشکر، هیچ مشکلی نیست";
+                                  return (() => {
+                                    let score = parseInt(currentItem.score);
+                                    let color =
+                                      score >= 80
+                                        ? "احتمال زیاد"
+                                        : score >= 70
+                                        ? "احتمال بالا"
+                                        : score >= 60
+                                        ? "احتمال متوسط"
+                                        : score >= 50
+                                        ? "احتمال پایین"
+                                        : score >= 40
+                                        ? "احتمال کم"
+                                        : "";
+                                    return color;
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
