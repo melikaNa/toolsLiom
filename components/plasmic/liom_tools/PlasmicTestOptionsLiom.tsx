@@ -92,6 +92,7 @@ export type PlasmicTestOptionsLiom__ArgsType = {
   onSelectedIDsChange?: (val: string) => void;
   onClick24?: (event: any) => void;
   ferst?: boolean;
+  retestTest?: boolean;
 };
 type ArgPropType = keyof PlasmicTestOptionsLiom__ArgsType;
 export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
@@ -99,7 +100,8 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
   "selectedIDs",
   "onSelectedIDsChange",
   "onClick24",
-  "ferst"
+  "ferst",
+  "retestTest"
 );
 
 export type PlasmicTestOptionsLiom__OverridesType = {
@@ -117,6 +119,7 @@ export interface DefaultTestOptionsLiomProps {
   onSelectedIDsChange?: (val: string) => void;
   onClick24?: (event: any) => void;
   ferst?: boolean;
+  retestTest?: boolean;
   className?: string;
 }
 
@@ -154,7 +157,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
               { id: 51, t1: "gozineh1   rergregrg" }
             ]
           },
-          ferst: false
+          ferst: false,
+          retestTest: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -401,7 +405,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             return (
               ($state.selectedIDs.length == 0 &&
                 $props.ferst == true &&
-                $props.data.options[0].id == -50) ||
+                $props.retestTest == true) ||
               false
             );
           } catch (e) {
