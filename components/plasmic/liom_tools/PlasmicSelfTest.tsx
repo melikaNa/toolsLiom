@@ -171,7 +171,42 @@ function PlasmicSelfTest__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return (() => {
+                if (
+                  $ctx.query.nextQuesion_id == "" ||
+                  $ctx.query.nextQuesion_id == null
+                ) {
+                  return [
+                    {
+                      text: "\uD83D\uDC4B سلام!",
+                      from: "system",
+                      type: "answer"
+                    },
+                    {
+                      text: "من دستیار سلامت شما هستم.",
+                      from: "system"
+                    },
+                    {
+                      text: "پاسخ‌های من به صورت خودکار تولید می‌شوند\u060C اما بر اساس اطلاعات گسترده و داده‌های مرتبط تهیه شده‌اند.من اینجا هستم تا در مورد مشکلت با شما صحبت کنم \uD83D\uDE0A.",
+                      from: "system"
+                    },
+                    {
+                      text: "آماده ای صحبت رو شروع کنیم\u061F",
+                      question: { lock: 0 },
+                      from: "system",
+                      btnText: "شروع کنیم.",
+                      options: [
+                        {
+                          id: 1,
+                          text: "شروع کنیم."
+                        }
+                      ]
+                    }
+                  ];
+                } else {
+                  return JSON.parse(localStorage.getItem("test"));
+                }
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -258,7 +293,23 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "ferst",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.nextQuesion_id == null ||
+                $ctx.query.nextQuesion_id == ""
+                ? false
+                : true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "nextQuesionId",
@@ -764,6 +815,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       question_text:
                                         $state.variable.question.question,
                                       question_type: $state.type,
+                                      option_advice:
+                                        $state.variable.options.find(
+                                          option =>
+                                            option.id ===
+                                            $state.testOptionsLiom
+                                              .selectedIDs[0]
+                                        ).advice,
                                       option_text: $state.variable.options.find(
                                         option =>
                                           option.id ===
