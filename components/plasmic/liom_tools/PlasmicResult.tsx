@@ -198,7 +198,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 3
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "buttonLiom.color",
@@ -589,7 +589,7 @@ function PlasmicResult__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0633\u062a \u062e\u0648\u062f\u0622\u0632\u0645\u0627\u06cc\u06cc \u0634\u0645\u0627\u060c \u0646\u062a\u0627\u06cc\u062c \u0632\u06cc\u0631 \u0628\u062f\u0633\u062a \u0622\u0645\u062f\u0647 \u0627\u0633\u062a:"
+                  "\u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627\u060c \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc \u0627\u06cc \u06a9\u0647 \u062a\u062c\u0631\u0628\u0647 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u062f \u0628\u0647 \u062f\u0644\u0627\u06cc\u0644 \u0632\u06cc\u0631 \u0627\u0633\u062a:"
                 }
               </div>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
