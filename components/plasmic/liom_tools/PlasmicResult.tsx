@@ -462,7 +462,9 @@ function PlasmicResult__RenderFunc(props: {
                   sty.text__obt8K
                 )}
               >
-                {"\u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a"}
+                {
+                  "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u062e\u0648\u062f\u062a\u0634\u062e\u06cc\u0635\u06cc"
+                }
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__hB9Nw)}>
                 <div
@@ -475,12 +477,7 @@ function PlasmicResult__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return (() => {
-                          return $state.apiRequest.data.message
-                            .split(".")
-                            .map(str => str.trim())
-                            .join(".\n");
-                        })();
+                        return $state.apiRequest.data.message;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -589,7 +586,7 @@ function PlasmicResult__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u0628\u0631 \u0627\u0633\u0627\u0633 \u0646\u062a\u0627\u06cc\u062c \u062a\u0633\u062a\u060c \u0627\u062d\u062a\u0645\u0627\u0644 \u0627\u0628\u062a\u0644\u0627 \u0628\u0647 \u0648\u0636\u0639\u06cc\u062a\u200c\u0647\u0627\u06cc \u0632\u06cc\u0631 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f:"
+                  "\u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0633\u062a \u062e\u0648\u062f\u0622\u0632\u0645\u0627\u06cc\u06cc \u0634\u0645\u0627\u060c \u0646\u062a\u0627\u06cc\u062c \u0632\u06cc\u0631 \u0628\u062f\u0633\u062a \u0622\u0645\u062f\u0647 \u0627\u0633\u062a:"
                 }
               </div>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -684,7 +681,12 @@ function PlasmicResult__RenderFunc(props: {
                             <React.Fragment>
                               {(() => {
                                 try {
-                                  return currentItem.score + "%";
+                                  return parseInt(currentItem.score) >= 80
+                                    ? "وضعیت نگران کننده! مراجعه به پزشک"
+                                    : parseInt(currentItem.score) < 80 &&
+                                      parseInt(currentItem.score) >= 50
+                                    ? "نیاز به احتیاط!"
+                                    : "خداروشکر، هیچ مشکلی نیست";
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -727,7 +729,7 @@ function PlasmicResult__RenderFunc(props: {
                               )}
                             >
                               {
-                                "\u062a\u0633\u062a \u062a\u062e\u0635\u0635\u06cc"
+                                "\u062a\u0633\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc"
                               }
                             </div>
                           }

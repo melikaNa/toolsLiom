@@ -178,20 +178,20 @@ function PlasmicSelfTest__RenderFunc(props: {
                 ) {
                   return [
                     {
-                      text: "\uD83D\uDC4B سلام!",
+                      text: "سلام بر شما\uD83D\uDC4B امیدوارم روح و جسم شما همیشه سالم باشد\u2764️",
                       from: "system",
                       type: "answer"
                     },
                     {
-                      text: "من دستیار سلامت شما هستم.",
+                      text: "من ابزاری هستم تا به شما کمک میکنم بتوانید در کمتر از چند دقیقه\u060C از سلامت خود اطمینان حاصل کنید و فرآیند خودتشخیصی اولیه را انجام دهید",
                       from: "system"
                     },
                     {
-                      text: "پاسخ‌های من به صورت خودکار تولید می‌شوند\u060C اما بر اساس اطلاعات گسترده و داده‌های مرتبط تهیه شده‌اند.من اینجا هستم تا در مورد مشکلت با شما صحبت کنم \uD83D\uDE0A.",
+                      text: 'این ابزار به کمک و دانش متخصصین و پزشکان ایجاد شده و شبیه سازی یک ویزیت واقعی است. با گرفتن شرح حال شما به تشخیص "بدون حضور دکتر" کمک میکند',
                       from: "system"
                     },
                     {
-                      text: "آماده ای صحبت رو شروع کنیم\u061F",
+                      text: "آماده ای خودتشخیصی را شروع کنیم\u061F",
                       question: { lock: 0 },
                       from: "system",
                       btnText: "شروع کنیم.",
@@ -946,7 +946,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 return (() => {
                                   $state.testChat[$state.testChat.length - 1] =
                                     {
-                                      text: "حالا برو نتیجه تست رو ببین. امیدوارم همه‌چیز خوب باشه! اگر به کمک نیاز داشتی\u060C من اینجا هستم.",
+                                      text: "سوالات خودتشخیصی به اتمام رسید\u060C حالا روی دکمه دیدن نتیجه کلیک کنید تا وضعیت شما آنالیز شود.",
                                       from: "system"
                                     };
                                   return window.scrollTo({
@@ -1850,7 +1850,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   let b = $state.testChat;
-                                  b[b[b.length - 1]] = {
+                                  b[b.length - 1] = {
                                     text: "آماده ای گفتگو رو ادامه بدیم\u061F",
                                     question: { lock: 0 },
                                     from: "system",
