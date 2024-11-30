@@ -200,7 +200,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 3
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "buttonLiom.color",
@@ -740,11 +740,11 @@ function PlasmicResult__RenderFunc(props: {
                       {(() => {
                         try {
                           return (() => {
-                            return (
-                              $state.apiRequest.data.extras.find(
-                                a => a.type === currentItem.option_metric
-                              )?.isDone !== 1 || false
+                            let result = $state.apiRequest.data.extras.find(
+                              a => a.type === currentItem.option_metric
                             );
+                            let isDone = result ? result.isDone !== 1 : false;
+                            return isDone;
                           })();
                         } catch (e) {
                           if (
@@ -911,11 +911,13 @@ function PlasmicResult__RenderFunc(props: {
                         : (() => {
                             try {
                               return (() => {
-                                return (
-                                  $state.apiRequest.data.extras.find(
-                                    a => a.type === currentItem.option_metric
-                                  )?.isDone !== 1 || false
+                                let result = $state.apiRequest.data.extras.find(
+                                  a => a.type === currentItem.option_metric
                                 );
+                                let isDone = result
+                                  ? result.isDone !== 1
+                                  : false;
+                                return isDone;
                               })();
                             } catch (e) {
                               if (
@@ -988,7 +990,7 @@ function PlasmicResult__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return true;
+                return false;
               }
               throw e;
             }
