@@ -90,7 +90,6 @@ import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuw
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
-import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
 
 createPlasmicElementProxy;
 
@@ -110,7 +109,6 @@ export type PlasmicSelfTest__OverridesType = {
   messageLiom?: Flex__<typeof MessageLiom>;
   testOptionsLiom?: Flex__<typeof TestOptionsLiom>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
-  svg?: Flex__<"svg">;
   apiRequest2?: Flex__<typeof ApiRequest>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   progress?: Flex__<typeof AntdProgress>;
@@ -1500,9 +1498,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                     ])}
                     endIcon={
                       <Icon111Icon
-                        data-plasmic-name={"svg"}
-                        data-plasmic-override={overrides.svg}
-                        className={classNames(projectcss.all, sty.svg)}
+                        className={classNames(projectcss.all, sty.svg__a8EU)}
                         role={"img"}
                       />
                     }
@@ -1788,15 +1784,94 @@ function PlasmicSelfTest__RenderFunc(props: {
                     data-plasmic-name={"paziresh24Button"}
                     data-plasmic-override={overrides.paziresh24Button}
                     children2={
-                      "\u062f\u06cc\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647"
+                      (() => {
+                        try {
+                          return !$state.loadinkBotten;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__gRmS
+                          )}
+                        >
+                          {
+                            "\u062f\u06cc\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647"
+                          }
+                        </div>
+                      ) : null
                     }
                     className={classNames(
                       "__wab_instance",
                       sty.paziresh24Button
                     )}
                     color={"green"}
+                    endIcon={
+                      <Icon111Icon
+                        className={classNames(projectcss.all, sty.svg___6V1EU)}
+                        role={"img"}
+                      />
+                    }
+                    isDisabled={(() => {
+                      try {
+                        return $state.loadinkBotten;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async event => {
                       const $steps = {};
+
+                      $steps["updateLoadinkBotten"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadinkBotten"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadinkBotten"] != null &&
+                        typeof $steps["updateLoadinkBotten"] === "object" &&
+                        typeof $steps["updateLoadinkBotten"].then === "function"
+                      ) {
+                        $steps["updateLoadinkBotten"] = await $steps[
+                          "updateLoadinkBotten"
+                        ];
+                      }
 
                       $steps["runCode"] = true
                         ? (() => {
@@ -1858,7 +1933,57 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ) {
                         $steps["runCode2"] = await $steps["runCode2"];
                       }
+
+                      $steps["updateLoadinkBotten2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadinkBotten"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadinkBotten2"] != null &&
+                        typeof $steps["updateLoadinkBotten2"] === "object" &&
+                        typeof $steps["updateLoadinkBotten2"].then ===
+                          "function"
+                      ) {
+                        $steps["updateLoadinkBotten2"] = await $steps[
+                          "updateLoadinkBotten2"
+                        ];
+                      }
                     }}
+                    showEndIcon={(() => {
+                      try {
+                        return $state.loadinkBotten;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                   />
                 </Stack__>
               ) : null}
@@ -2039,7 +2164,6 @@ const PlasmicDescendants = {
     "messageLiom",
     "testOptionsLiom",
     "buttonLiom",
-    "svg",
     "apiRequest2",
     "paziresh24Button",
     "progress",
@@ -2050,8 +2174,7 @@ const PlasmicDescendants = {
   paziresh24Avatar: ["paziresh24Avatar"],
   messageLiom: ["messageLiom"],
   testOptionsLiom: ["testOptionsLiom"],
-  buttonLiom: ["buttonLiom", "svg"],
-  svg: ["svg"],
+  buttonLiom: ["buttonLiom"],
   apiRequest2: ["apiRequest2"],
   paziresh24Button: ["paziresh24Button"],
   progress: ["progress"],
@@ -2068,7 +2191,6 @@ type NodeDefaultElementType = {
   messageLiom: typeof MessageLiom;
   testOptionsLiom: typeof TestOptionsLiom;
   buttonLiom: typeof ButtonLiom;
-  svg: "svg";
   apiRequest2: typeof ApiRequest;
   paziresh24Button: typeof Paziresh24Button;
   progress: typeof AntdProgress;
@@ -2166,7 +2288,6 @@ export const PlasmicSelfTest = Object.assign(
     messageLiom: makeNodeComponent("messageLiom"),
     testOptionsLiom: makeNodeComponent("testOptionsLiom"),
     buttonLiom: makeNodeComponent("buttonLiom"),
-    svg: makeNodeComponent("svg"),
     apiRequest2: makeNodeComponent("apiRequest2"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     progress: makeNodeComponent("progress"),

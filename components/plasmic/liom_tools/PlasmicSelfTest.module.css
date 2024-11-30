@@ -296,7 +296,7 @@
   font-size: var(--token-KUiXUfHPkqkm);
   padding-left: 0px;
 }
-.svg {
+.svg__a8EU {
   object-fit: cover;
   max-width: 100%;
   width: 30px;
@@ -360,8 +360,8 @@
 .svg___6V1EU {
   position: relative;
   object-fit: cover;
-  width: auto;
-  height: 1em;
+  width: 30px;
+  height: 30px;
 }
 .progress:global(.__wab_instance) {
   max-width: 100%;

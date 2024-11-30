@@ -198,7 +198,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 3
       },
       {
         path: "buttonLiom.color",
@@ -621,7 +621,9 @@ function PlasmicResult__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__rZgJu)}
                     >
-                      <div
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__b45Lz
@@ -665,7 +667,7 @@ function PlasmicResult__RenderFunc(props: {
                                   score >= 80
                                     ? "red"
                                     : score >= 70
-                                    ? "orange"
+                                    ? "oreng"
                                     : score >= 60
                                     ? "yellow"
                                     : score >= 50
@@ -726,7 +728,7 @@ function PlasmicResult__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </PercentageBox>
-                      </div>
+                      </Stack__>
                       {(() => {
                         try {
                           return (() => {
@@ -882,6 +884,8 @@ function PlasmicResult__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/selfTestLogs"}
           />
+
+          <div className={classNames(projectcss.all, sty.freeBox__xqVc8)} />
         </div>
       </div>
     </React.Fragment>
