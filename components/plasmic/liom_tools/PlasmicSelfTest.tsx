@@ -507,6 +507,32 @@ function PlasmicSelfTest__RenderFunc(props: {
                 )
             }
           )}
+          onLoad={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: "smooth"
+                      });
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
         >
           <HeaderLiom
             data-plasmic-name={"headerLiom"}
@@ -1823,18 +1849,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  $state.testChat.push({
-                                    text: "آماده ای گفتگو رو شروع کنیم\u061F",
-                                    question: { lock: 0 },
-                                    from: "system",
-                                    btnText: "ادامه گفتگو",
-                                    options: [
-                                      {
-                                        id: -50,
-                                        text: "ادامه گفتگو"
-                                      }
-                                    ]
-                                  });
+                                  $state.testChat[$state.testChat.length - 1] =
+                                    {
+                                      text: "آماده ای گفتگو رو ادامه بدیم\u061F",
+                                      question: { lock: 0 },
+                                      from: "system",
+                                      btnText: "ادامه گفتگو",
+                                      options: [
+                                        {
+                                          id: -50,
+                                          text: "ادامه گفتگو"
+                                        }
+                                      ]
+                                    };
                                   return localStorage.setItem(
                                     "test",
                                     JSON.stringify($state.testChat)
