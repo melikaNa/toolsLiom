@@ -345,7 +345,23 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "sessionId",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.session_id == "" ||
+                $ctx.query.session_id == null
+                ? 0
+                : parseInt($ctx.query.session_id);
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "buttonLiom.color",
@@ -794,7 +810,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   text: "loading",
                                   from: "system"
                                 });
-                                $state.retestTest = true;
                                 return window.scrollTo({
                                   top: document.body.scrollHeight,
                                   behavior: "smooth"
@@ -816,7 +831,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                     }
 
                     $steps["invokeGlobalAction3"] =
-                      $state.ferst == true
+                      $state.ferst == true && $state.retestTest == true
                         ? (() => {
                             const actionArgs = {
                               args: [
@@ -908,21 +923,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       text: "حالا برو نتیجه تست رو ببین. امیدوارم همه‌چیز خوب باشه! اگر به کمک نیاز داشتی\u060C من اینجا هستم.",
                                       from: "system"
                                     };
-                                  $state.variable = {
-                                    question:
-                                      $steps.invokeGlobalAction2.data.question,
-                                    text: $steps.invokeGlobalAction2.data
-                                      .question.question,
-                                    from: "system",
-                                    btnText:
-                                      $steps.invokeGlobalAction2.data.options
-                                        ?.length == 1
-                                        ? $steps.invokeGlobalAction2.data
-                                            .options[0].text
-                                        : "ارسال",
-                                    options:
-                                      $steps.invokeGlobalAction2.data.options
-                                  };
                                   return window.scrollTo({
                                     top: document.body.scrollHeight,
                                     behavior: "smooth"
@@ -1250,6 +1250,42 @@ function PlasmicSelfTest__RenderFunc(props: {
                       typeof $steps["updateFerst"].then === "function"
                     ) {
                       $steps["updateFerst"] = await $steps["updateFerst"];
+                    }
+
+                    $steps["updateRetestTest"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["retestTest"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateRetestTest"] != null &&
+                      typeof $steps["updateRetestTest"] === "object" &&
+                      typeof $steps["updateRetestTest"].then === "function"
+                    ) {
+                      $steps["updateRetestTest"] = await $steps[
+                        "updateRetestTest"
+                      ];
                     }
 
                     $steps["invokeGlobalAction4"] = true

@@ -700,7 +700,11 @@ function PlasmicResult__RenderFunc(props: {
                       </div>
                       {(() => {
                         try {
-                          return true;
+                          return (
+                            $state.apiRequest.data.extras.find(
+                              a => a.type == currentItem.option_metric
+                            ).isDone != 1
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -738,7 +742,19 @@ function PlasmicResult__RenderFunc(props: {
                                     customFunction: async () => {
                                       return (() => {
                                         return window.open(
-                                          `https://tools.liom.app/self-test?UserId=${$ctx.query.user_id}&type=${currentItem.option_metric}`,
+                                          `https://tools.liom.app/self-test?UserId=${
+                                            $ctx.query.user_id
+                                          }&type=${
+                                            currentItem.option_metric
+                                          }&nextQuesion_id=${
+                                            $state.apiRequest.data.extras.find(
+                                              a =>
+                                                a.type ==
+                                                currentItem.option_metric
+                                            ).next_question_id
+                                          }&session_id=${
+                                            $ctx.query.session_id
+                                          }`,
                                           "_self"
                                         );
                                       })();
