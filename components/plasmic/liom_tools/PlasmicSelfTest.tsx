@@ -1849,22 +1849,22 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  $state.testChat[$state.testChat.length - 1] =
-                                    {
-                                      text: "آماده ای گفتگو رو ادامه بدیم\u061F",
-                                      question: { lock: 0 },
-                                      from: "system",
-                                      btnText: "ادامه گفتگو",
-                                      options: [
-                                        {
-                                          id: -50,
-                                          text: "ادامه گفتگو"
-                                        }
-                                      ]
-                                    };
+                                  let b = $state.testChat;
+                                  b[b[b.length - 1]] = {
+                                    text: "آماده ای گفتگو رو ادامه بدیم\u061F",
+                                    question: { lock: 0 },
+                                    from: "system",
+                                    btnText: "ادامه گفتگو",
+                                    options: [
+                                      {
+                                        id: -50,
+                                        text: "ادامه گفتگو"
+                                      }
+                                    ]
+                                  };
                                   return localStorage.setItem(
                                     "test",
-                                    JSON.stringify($state.testChat)
+                                    JSON.stringify(b)
                                   );
                                 })();
                               }
