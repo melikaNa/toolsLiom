@@ -688,7 +688,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                       null &&
                     !(
                       $state.variable.question.lock == 1 &&
-                      $ctx.query.app == liom
+                      $ctx.query.app == "liom"
                     ) &&
                     $state.nextQuesionId != -1
                   );
@@ -1074,7 +1074,10 @@ function PlasmicSelfTest__RenderFunc(props: {
 
                     $steps["runCode2"] =
                       $state.ferst == false &&
-                      $steps.invokeGlobalAction?.data?.question?.lock == 0
+                      !(
+                        $steps.invokeGlobalAction?.data?.question?.lock == 1 &&
+                        $ctx.query.app == "liom"
+                      )
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
@@ -1128,7 +1131,10 @@ function PlasmicSelfTest__RenderFunc(props: {
 
                     $steps["runCode3"] =
                       $state.ferst == true &&
-                      $steps.invokeGlobalAction2?.data?.question?.lock == 0
+                      !(
+                        $steps.invokeGlobalAction2?.data?.question?.lock == 1 &&
+                        $ctx.query.app == "liom"
+                      )
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
@@ -1179,8 +1185,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                     }
 
                     $steps["runCode4"] =
-                      $steps.invokeGlobalAction2?.data?.question?.lock == 1 ||
-                      $steps.invokeGlobalAction1?.data?.question?.lock == 1
+                      ($steps.invokeGlobalAction2?.data?.question?.lock == 1 ||
+                        $steps.invokeGlobalAction1?.data?.question?.lock ==
+                          1) &&
+                      $ctx.query.app == "liom"
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
