@@ -326,6 +326,19 @@ function PlasmicResult__RenderFunc(props: {
               data-plasmic-name={"backgrond"}
               data-plasmic-override={overrides.backgrond}
               className={classNames("__wab_instance", sty.backgrond)}
+              liom={(() => {
+                try {
+                  return $ctx.query.app == "liom";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox__xSFO)}>
                 <Stack__
@@ -438,9 +451,21 @@ function PlasmicResult__RenderFunc(props: {
                 data-plasmic-name={"paziresh24Avatar"}
                 data-plasmic-override={overrides.paziresh24Avatar}
                 className={classNames("__wab_instance", sty.paziresh24Avatar)}
-                src={
-                  "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg"
-                }
+                src={(() => {
+                  try {
+                    return $ctx.query.app == "liom"
+                      ? "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png"
+                      : "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               />
             }
           >

@@ -518,9 +518,21 @@ function PlasmicSelfTest__RenderFunc(props: {
                 data-plasmic-name={"paziresh24Avatar"}
                 data-plasmic-override={overrides.paziresh24Avatar}
                 className={classNames("__wab_instance", sty.paziresh24Avatar)}
-                src={
-                  "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg"
-                }
+                src={(() => {
+                  try {
+                    return $ctx.query.app == "liom"
+                      ? "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png"
+                      : "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               />
             }
           >
@@ -586,6 +598,21 @@ function PlasmicSelfTest__RenderFunc(props: {
                       }
                     })()}
                     key={currentIndex}
+                    liomAnswer={(() => {
+                      try {
+                        return (
+                          currentItem.from == "user" && $ctx.query.app == "liom"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     loadingMessage={(() => {
                       try {
                         return currentItem.text == "loading";
@@ -659,7 +686,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                   return (
                     $state.testChat[$state.testChat.length - 1].options !=
                       null &&
-                    $state.variable.question.lock == 0 &&
+                    !(
+                      $state.variable.question.lock == 1 &&
+                      $ctx.query.app == liom
+                    ) &&
                     $state.nextQuesionId != -1
                   );
                 } catch (e) {
@@ -675,6 +705,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                 <TestOptionsLiom
                   data-plasmic-name={"testOptionsLiom"}
                   data-plasmic-override={overrides.testOptionsLiom}
+                  app={(() => {
+                    try {
+                      return $ctx.query.app;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                   className={classNames("__wab_instance", sty.testOptionsLiom, {
                     [sty.testOptionsLiomglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
                       hasVariant(
@@ -1342,7 +1385,10 @@ function PlasmicSelfTest__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return $state.variable.question?.lock == 1;
+                  return (
+                    $state.variable.question?.lock == 1 &&
+                    $ctx.query.app == "liom"
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1878,7 +1924,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return window.open(
-                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}`,
+                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}&app=${$ctx.query.app}`,
                                   "_self"
                                 );
                               }

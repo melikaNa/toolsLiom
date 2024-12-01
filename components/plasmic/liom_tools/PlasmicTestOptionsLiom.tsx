@@ -93,6 +93,8 @@ export type PlasmicTestOptionsLiom__ArgsType = {
   onClick24?: (event: any) => void;
   ferst?: boolean;
   retestTest?: boolean;
+  app?: string;
+  onClickliom?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicTestOptionsLiom__ArgsType;
 export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
@@ -101,7 +103,9 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
   "onSelectedIDsChange",
   "onClick24",
   "ferst",
-  "retestTest"
+  "retestTest",
+  "app",
+  "onClickliom"
 );
 
 export type PlasmicTestOptionsLiom__OverridesType = {
@@ -119,6 +123,8 @@ export interface DefaultTestOptionsLiomProps {
   onClick24?: (event: any) => void;
   ferst?: boolean;
   retestTest?: boolean;
+  app?: string;
+  onClickliom?: (event: any) => void;
   className?: string;
 }
 
@@ -331,9 +337,28 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                   ];
                 }
               }}
+              selctedOptionLiom={(() => {
+                try {
+                  return (
+                    $state.selectedIDs.indexOf(currentItem.id) != -1 &&
+                    $props.app == "liom"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()}
               selctedOptionPaziresh={(() => {
                 try {
-                  return $state.selectedIDs.indexOf(currentItem.id) != -1;
+                  return (
+                    $state.selectedIDs.indexOf(currentItem.id) != -1 &&
+                    $props.app != "liom"
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -358,83 +383,147 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           );
         })}
       </div>
-      <Paziresh24Button
-        data-plasmic-name={"paziresh24Button"}
-        data-plasmic-override={overrides.paziresh24Button}
-        children2={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__gFRfC
-            )}
-          >
-            {hasVariant(globalVariants, "screen", "mobileOnly") ? (
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.data.btnText;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "Button";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $props.data.btnText;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "Button";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            )}
-          </div>
-        }
-        className={classNames("__wab_instance", sty.paziresh24Button)}
-        isDisabled={(() => {
-          try {
-            return (
-              ($state.selectedIDs.length == 0 &&
-                $props.ferst == true &&
-                $props.retestTest == true) ||
-              false
-            );
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return [];
-            }
-            throw e;
+      {(() => {
+        try {
+          return $props.app != "liom";
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
           }
-        })()}
-        onClick={args.onClick24}
-      />
-
-      <ButtonLiom
-        data-plasmic-name={"button"}
-        data-plasmic-override={overrides.button}
-        className={classNames("__wab_instance", sty.button)}
-        color={generateStateValueProp($state, ["button", "color"])}
-        onColorChange={(...eventArgs) => {
-          generateStateOnChangeProp($state, ["button", "color"])(eventArgs[0]);
-        }}
-      />
+          throw e;
+        }
+      })() ? (
+        <Paziresh24Button
+          data-plasmic-name={"paziresh24Button"}
+          data-plasmic-override={overrides.paziresh24Button}
+          children2={
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__gFRfC
+              )}
+            >
+              {hasVariant(globalVariants, "screen", "mobileOnly") ? (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.data.btnText;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Button";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.data.btnText;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "Button";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              )}
+            </div>
+          }
+          className={classNames("__wab_instance", sty.paziresh24Button)}
+          isDisabled={(() => {
+            try {
+              return (
+                ($state.selectedIDs.length == 0 &&
+                  $props.ferst == true &&
+                  $props.retestTest == true) ||
+                false
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()}
+          onClick={args.onClick24}
+        />
+      ) : null}
+      {(() => {
+        try {
+          return $props.app == "liom";
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <ButtonLiom
+          data-plasmic-name={"button"}
+          data-plasmic-override={overrides.button}
+          className={classNames("__wab_instance", sty.button)}
+          color={generateStateValueProp($state, ["button", "color"])}
+          isDisabled={(() => {
+            try {
+              return (
+                ($state.selectedIDs.length == 0 &&
+                  $props.ferst == true &&
+                  $props.retestTest == true) ||
+                false
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()}
+          onClick={args.onClick24}
+          onColorChange={(...eventArgs) => {
+            generateStateOnChangeProp($state, ["button", "color"])(
+              eventArgs[0]
+            );
+          }}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.data.btnText;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "Button";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </ButtonLiom>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
