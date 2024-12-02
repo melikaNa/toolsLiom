@@ -114,6 +114,8 @@ export type PlasmicResult__OverridesType = {
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
+  ul?: Flex__<"ul">;
+  li?: Flex__<"li">;
   timer?: Flex__<typeof Timer>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
@@ -233,12 +235,6 @@ function PlasmicResult__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "text",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -510,31 +506,86 @@ function PlasmicResult__RenderFunc(props: {
                   "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u062e\u0648\u062f\u062a\u0634\u062e\u06cc\u0635\u06cc"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__hB9Nw)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__feipf
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $state.apiRequest.data.message;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "...";
-                        }
-                        throw e;
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__hB9Nw)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.apiRequest.data.details;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
                       }
-                    })()}
-                  </React.Fragment>
-                </div>
-              </div>
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <Stack__
+                      as={"ul"}
+                      data-plasmic-name={"ul"}
+                      data-plasmic-override={overrides.ul}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.ul,
+                        sty.ul
+                      )}
+                      key={currentIndex}
+                    >
+                      <li
+                        data-plasmic-name={"li"}
+                        data-plasmic-override={overrides.li}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          sty.li
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__xvODr
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__nKnkj
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.advice_text;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                      </li>
+                    </Stack__>
+                  );
+                })}
+              </Stack__>
             </Stack__>
           ) : null}
           <Timer
@@ -746,22 +797,7 @@ function PlasmicResult__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return (() => {
-                                      let score = parseInt(currentItem.score);
-                                      let color =
-                                        score >= 80
-                                          ? "احتمال زیاد"
-                                          : score >= 70
-                                          ? "احتمال بالا"
-                                          : score >= 60
-                                          ? "احتمال متوسط"
-                                          : score >= 50
-                                          ? "احتمال پایین"
-                                          : score >= 40
-                                          ? "احتمال کم"
-                                          : "";
-                                      return color;
-                                    })();
+                                    return currentItem.badge;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -783,15 +819,6 @@ function PlasmicResult__RenderFunc(props: {
                               let result = $state.apiRequest.data.extras.find(
                                 a => a.type === currentItem.option_metric
                               );
-                              if (
-                                result
-                                  ? result.isDone !== undefined
-                                    ? result.isDone !== 1
-                                    : false
-                                  : false
-                              )
-                                $state.text =
-                                  "\u26A0️ برای دقیق تر شدن نتیجه\u060C تست تکمیلی رو انجام بدید";
                               return result
                                 ? result.isDone !== undefined
                                   ? result.isDone !== 1
@@ -1010,9 +1037,21 @@ function PlasmicResult__RenderFunc(props: {
                           sty.text__cb6Qj
                         )}
                       >
-                        {
-                          "\u26a0\ufe0f \u0628\u0631\u0627\u06cc \u062f\u0642\u06cc\u0642 \u062a\u0631 \u0634\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647\u060c \u062a\u0633\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc\u062f"
-                        }
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.hint;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u26a0\ufe0f \u0628\u0631\u0627\u06cc \u062f\u0642\u06cc\u0642 \u062a\u0631 \u0634\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647\u060c \u062a\u0633\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc\u062f";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
                       </div>
                     </Stack__>
                   );
@@ -1057,6 +1096,62 @@ function PlasmicResult__RenderFunc(props: {
 
           {(() => {
             try {
+              return $state.level == 3;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__rQkBj)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___0YW7K
+                )}
+              >
+                {
+                  "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u0628\u0647 \u06a9\u0645\u06a9 \u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc"
+                }
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__vEyWx)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__u2Gx8
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.apiRequest.data.message;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "...";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </div>
+            </Stack__>
+          ) : null}
+          {(() => {
+            try {
               return $state.loading;
             } catch (e) {
               if (
@@ -1092,6 +1187,8 @@ const PlasmicDescendants = {
     "loadingConclusion",
     "headerLiom",
     "paziresh24Avatar",
+    "ul",
+    "li",
     "timer",
     "paziresh24Button",
     "buttonLiom",
@@ -1106,6 +1203,8 @@ const PlasmicDescendants = {
   loadingConclusion: ["loadingConclusion"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
+  ul: ["ul", "li"],
+  li: ["li"],
   timer: ["timer"],
   paziresh24Button: ["paziresh24Button"],
   buttonLiom: ["buttonLiom"],
@@ -1125,6 +1224,8 @@ type NodeDefaultElementType = {
   loadingConclusion: typeof LoadingConclusion;
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
+  ul: "ul";
+  li: "li";
   timer: typeof Timer;
   paziresh24Button: typeof Paziresh24Button;
   buttonLiom: typeof ButtonLiom;
@@ -1225,6 +1326,8 @@ export const PlasmicResult = Object.assign(
     loadingConclusion: makeNodeComponent("loadingConclusion"),
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
+    ul: makeNodeComponent("ul"),
+    li: makeNodeComponent("li"),
     timer: makeNodeComponent("timer"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     buttonLiom: makeNodeComponent("buttonLiom"),

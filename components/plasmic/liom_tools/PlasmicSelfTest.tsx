@@ -66,11 +66,11 @@ import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-T
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/component
 import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJCAy9/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 
 import {
   UnnamedGlobalGroupOfVariantsValue,
@@ -108,12 +108,12 @@ export type PlasmicSelfTest__OverridesType = {
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   messageLiom?: Flex__<typeof MessageLiom>;
   testOptionsLiom?: Flex__<typeof TestOptionsLiom>;
-  apiRequest2?: Flex__<typeof ApiRequest>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   progress?: Flex__<typeof AntdProgress>;
   timer?: Flex__<typeof Timer>;
   user?: Flex__<typeof ApiRequest>;
+  apiRequest2?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSelfTestProps {}
@@ -1412,45 +1412,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__qtre0)}
                 >
-                  <ApiRequest
-                    data-plasmic-name={"apiRequest2"}
-                    data-plasmic-override={overrides.apiRequest2}
-                    body={(() => {
-                      try {
-                        return {
-                          userId: $ctx.query.UserId,
-                          shopId: "91d5973e-eefd-4753-a611-ac6d37357184",
-                          token: $state.user.data.result.token
-                        };
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    className={classNames("__wab_instance", sty.apiRequest2)}
-                    errorDisplay={null}
-                    loadingDisplay={null}
-                    method={"POST"}
-                    onError={generateStateOnChangeProp($state, [
-                      "apiRequest2",
-                      "error"
-                    ])}
-                    onLoading={generateStateOnChangeProp($state, [
-                      "apiRequest2",
-                      "loading"
-                    ])}
-                    onSuccess={generateStateOnChangeProp($state, [
-                      "apiRequest2",
-                      "data"
-                    ])}
-                    url={"https://n8n.staas.ir/webhook/selfTest/shop"}
-                  />
-
                   <div
                     className={classNames(projectcss.all, sty.freeBox__tmi79)}
                   >
@@ -2261,6 +2222,45 @@ function PlasmicSelfTest__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/selfTest/getUser"}
           />
+
+          <ApiRequest
+            data-plasmic-name={"apiRequest2"}
+            data-plasmic-override={overrides.apiRequest2}
+            body={(() => {
+              try {
+                return {
+                  userId: $ctx.query.UserId,
+                  shopId: "91d5973e-eefd-4753-a611-ac6d37357184",
+                  token: $state.user.data.result.token
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.apiRequest2)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"POST"}
+            onError={generateStateOnChangeProp($state, [
+              "apiRequest2",
+              "error"
+            ])}
+            onLoading={generateStateOnChangeProp($state, [
+              "apiRequest2",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "apiRequest2",
+              "data"
+            ])}
+            url={"https://n8n.staas.ir/webhook/selfTest/shop"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -2274,23 +2274,23 @@ const PlasmicDescendants = {
     "paziresh24Avatar",
     "messageLiom",
     "testOptionsLiom",
-    "apiRequest2",
     "buttonLiom",
     "paziresh24Button",
     "progress",
     "timer",
-    "user"
+    "user",
+    "apiRequest2"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
   messageLiom: ["messageLiom"],
   testOptionsLiom: ["testOptionsLiom"],
-  apiRequest2: ["apiRequest2"],
   buttonLiom: ["buttonLiom"],
   paziresh24Button: ["paziresh24Button"],
   progress: ["progress"],
   timer: ["timer"],
-  user: ["user"]
+  user: ["user"],
+  apiRequest2: ["apiRequest2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2301,12 +2301,12 @@ type NodeDefaultElementType = {
   paziresh24Avatar: typeof Paziresh24Avatar;
   messageLiom: typeof MessageLiom;
   testOptionsLiom: typeof TestOptionsLiom;
-  apiRequest2: typeof ApiRequest;
   buttonLiom: typeof ButtonLiom;
   paziresh24Button: typeof Paziresh24Button;
   progress: typeof AntdProgress;
   timer: typeof Timer;
   user: typeof ApiRequest;
+  apiRequest2: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2398,12 +2398,12 @@ export const PlasmicSelfTest = Object.assign(
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     messageLiom: makeNodeComponent("messageLiom"),
     testOptionsLiom: makeNodeComponent("testOptionsLiom"),
-    apiRequest2: makeNodeComponent("apiRequest2"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     progress: makeNodeComponent("progress"),
     timer: makeNodeComponent("timer"),
     user: makeNodeComponent("user"),
+    apiRequest2: makeNodeComponent("apiRequest2"),
 
     // Metadata about props expected for PlasmicSelfTest
     internalVariantProps: PlasmicSelfTest__VariantProps,

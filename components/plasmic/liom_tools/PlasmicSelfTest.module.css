@@ -161,10 +161,6 @@
   > img {
   margin-top: var(--token-6eH8UjLOmr7v);
 }
-.apiRequest2:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .freeBox__tmi79 {
   display: flex;
   flex-direction: column;
@@ -384,6 +380,10 @@
   object-fit: cover;
 }
 .user:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.apiRequest2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
