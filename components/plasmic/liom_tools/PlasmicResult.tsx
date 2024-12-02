@@ -514,7 +514,9 @@ function PlasmicResult__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.apiRequest.data.details;
+                      return $state.apiRequest.data.details.filter(
+                        item => item.advice_text != null
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -751,67 +753,82 @@ function PlasmicResult__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                          <PercentageBox
-                            data-plasmic-name={"percentageBox"}
-                            data-plasmic-override={overrides.percentageBox}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.percentageBox
-                            )}
-                            unnamedGroupOfVariants={(() => {
-                              try {
-                                return (() => {
-                                  let score = parseInt(currentItem.score);
-                                  let color =
-                                    score >= 80
-                                      ? "red"
-                                      : score >= 70
-                                      ? "oreng"
-                                      : score >= 60
-                                      ? "yellow"
-                                      : score >= 50
-                                      ? "blue"
-                                      : score >= 40
-                                      ? ""
-                                      : "";
-                                  return color;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "red";
-                                }
-                                throw e;
+                          {(() => {
+                            try {
+                              return currentItem.badge != null;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
                               }
-                            })()}
-                          >
-                            <div
+                              throw e;
+                            }
+                          })() ? (
+                            <PercentageBox
+                              data-plasmic-name={"percentageBox"}
+                              data-plasmic-override={overrides.percentageBox}
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__vtkPr
+                                "__wab_instance",
+                                sty.percentageBox
                               )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.badge;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "99 % ";
-                                    }
-                                    throw e;
+                              unnamedGroupOfVariants={(() => {
+                                try {
+                                  return (() => {
+                                    let score = parseInt(currentItem.score);
+                                    let color =
+                                      score >= 80
+                                        ? "red"
+                                        : score >= 70
+                                        ? "oreng"
+                                        : score >= 60
+                                        ? "yellow"
+                                        : score >= 50
+                                        ? "blue"
+                                        : score >= 40
+                                        ? ""
+                                        : "";
+                                    return color;
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "red";
                                   }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          </PercentageBox>
+                                  throw e;
+                                }
+                              })()}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__vtkPr
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.badge;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "99 % ";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </PercentageBox>
+                          ) : null}
                         </Stack__>
                         {(() => {
                           try {
@@ -843,12 +860,30 @@ function PlasmicResult__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text___6W1Ft
+                                  sty.text___6W1Ft,
+                                  "animashen"
                                 )}
                               >
-                                {
-                                  "\u062a\u0633\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc"
-                                }
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.option_metric ==
+                                        "pregnancy"
+                                        ? "باردارم یا نه؟"
+                                        : currentItem.option_metric_fa +
+                                            " یا نه؟";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
                               </div>
                             }
                             className={classNames(
@@ -969,7 +1004,7 @@ function PlasmicResult__RenderFunc(props: {
                                 ];
                               }
                             }}
-                            size={"minimal"}
+                            size={"compact"}
                           />
                         ) : null}
                       </Stack__>
@@ -994,29 +1029,7 @@ function PlasmicResult__RenderFunc(props: {
                                 throw e;
                               }
                             })()
-                          : (() => {
-                              try {
-                                return (() => {
-                                  let result =
-                                    $state.apiRequest.data.extras.find(
-                                      a => a.type === currentItem.option_metric
-                                    );
-                                  return result
-                                    ? result.isDone !== undefined
-                                      ? result.isDone !== 1
-                                      : false
-                                    : false;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
+                          : true
                       ) ? (
                         <div
                           className={classNames(
