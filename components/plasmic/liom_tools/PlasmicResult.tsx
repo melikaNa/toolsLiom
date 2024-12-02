@@ -871,7 +871,7 @@ function PlasmicResult__RenderFunc(props: {
                                         "pregnancy"
                                         ? "باردارم یا نه؟"
                                         : currentItem.option_metric_fa +
-                                            " یا نه؟";
+                                            " دارم یا نه؟";
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
