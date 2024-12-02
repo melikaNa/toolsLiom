@@ -161,6 +161,10 @@
   > img {
   margin-top: var(--token-6eH8UjLOmr7v);
 }
+.apiRequest2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .freeBox__tmi79 {
   display: flex;
   flex-direction: column;
@@ -309,10 +313,6 @@
   right: auto;
   transform: none;
 }
-.apiRequest2:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .freeBox__hc0LI {
   display: flex;
   flex-direction: column;
@@ -371,6 +371,7 @@
   z-index: 1;
   position: fixed;
   right: 0;
+  display: none;
   padding: 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {

@@ -66,8 +66,8 @@ import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-T
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/component
 import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJCAy9/component
-import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
+import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
@@ -108,8 +108,8 @@ export type PlasmicSelfTest__OverridesType = {
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   messageLiom?: Flex__<typeof MessageLiom>;
   testOptionsLiom?: Flex__<typeof TestOptionsLiom>;
-  buttonLiom?: Flex__<typeof ButtonLiom>;
   apiRequest2?: Flex__<typeof ApiRequest>;
+  buttonLiom?: Flex__<typeof ButtonLiom>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   progress?: Flex__<typeof AntdProgress>;
   timer?: Flex__<typeof Timer>;
@@ -1195,7 +1195,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 return (() => {
                                   $state.testChat[$state.testChat.length - 1] =
                                     {
-                                      text: "اگه دوست داری گفتگو رو ادامه بدیم لطفاً هزینه رو پرداخت کن. ",
+                                      text: "ممنون که تا اینجا همراه من بودی! برای ادامه گفت‌وگو و دریافت خدمات بیشتر\u060C لطفاً هزینه مربوطه را پرداخت کن. ما در تلاشیم بهترین تجربه را برایت فراهم کنیم.",
                                       from: "system"
                                     };
                                   $state.variable = {
@@ -1394,7 +1394,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    $state.variable.question?.lock == 1 &&
+                    $state.variable.question.lock == 1 &&
                     $ctx.query.app == "liom"
                   );
                 } catch (e) {
@@ -1412,6 +1412,45 @@ function PlasmicSelfTest__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__qtre0)}
                 >
+                  <ApiRequest
+                    data-plasmic-name={"apiRequest2"}
+                    data-plasmic-override={overrides.apiRequest2}
+                    body={(() => {
+                      try {
+                        return {
+                          userId: $ctx.query.UserId,
+                          shopId: "91d5973e-eefd-4753-a611-ac6d37357184",
+                          token: $state.user.data.result.token
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    className={classNames("__wab_instance", sty.apiRequest2)}
+                    errorDisplay={null}
+                    loadingDisplay={null}
+                    method={"POST"}
+                    onError={generateStateOnChangeProp($state, [
+                      "apiRequest2",
+                      "error"
+                    ])}
+                    onLoading={generateStateOnChangeProp($state, [
+                      "apiRequest2",
+                      "loading"
+                    ])}
+                    onSuccess={generateStateOnChangeProp($state, [
+                      "apiRequest2",
+                      "data"
+                    ])}
+                    url={"https://n8n.staas.ir/webhook/selfTest/shop"}
+                  />
+
                   <div
                     className={classNames(projectcss.all, sty.freeBox__tmi79)}
                   >
@@ -1621,7 +1660,24 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       id: "91d5973e-eefd-4753-a611-ac6d37357184",
                                       offCode: "",
                                       userId: $ctx.query.UserId,
-                                      redirectUrl: "www.google.com"
+                                      refCode: "hrWgK5mZv",
+                                      redirectUrl:
+                                        "https://apps.liom.app/shop-result?r=" +
+                                        "hrWgK5mZv" +
+                                        "&m=" +
+                                        "hrWgK5mZv" +
+                                        "&buyId=" +
+                                        "hrWgK5mZv" +
+                                        "&offCode=" +
+                                        "gyft" +
+                                        "&valueShop=" +
+                                        "gygyuyt" +
+                                        "-" +
+                                        "jhgjghyg" +
+                                        "&price=" +
+                                        "kuhuyutyutut" +
+                                        "&manId=" +
+                                        "jgyghyfdfd"
                                     };
                                   } catch (e) {
                                     if (
@@ -1639,7 +1695,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     return {
                                       headers: {
                                         "Content-Type": "application/json",
-                                        Authorization: $state.token
+                                        Authorization:
+                                          $state.user.data.result.token
                                       }
                                     };
                                   } catch (e) {
@@ -1693,6 +1750,44 @@ function PlasmicSelfTest__RenderFunc(props: {
                         typeof $steps["runCode"].then === "function"
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["runCode2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  let b = $state.testChat;
+                                  b[b.length - 1] = {
+                                    text: "آماده ای گفتگو رو ادامه بدیم\u061F",
+                                    question: { lock: 0 },
+                                    from: "system",
+                                    btnText: "ادامه گفتگو",
+                                    options: [
+                                      {
+                                        id: -50,
+                                        text: "ادامه گفتگو"
+                                      }
+                                    ]
+                                  };
+                                  return localStorage.setItem(
+                                    "test",
+                                    JSON.stringify(b)
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode2"] != null &&
+                        typeof $steps["runCode2"] === "object" &&
+                        typeof $steps["runCode2"].then === "function"
+                      ) {
+                        $steps["runCode2"] = await $steps["runCode2"];
                       }
 
                       $steps["updateLoadinkBotten2"] = true
@@ -1776,44 +1871,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                       </div>
                     ) : null}
                   </ButtonLiom>
-                  <ApiRequest
-                    data-plasmic-name={"apiRequest2"}
-                    data-plasmic-override={overrides.apiRequest2}
-                    body={(() => {
-                      try {
-                        return {
-                          userId: $ctx.query.UserId,
-                          shopId: "91d5973e-eefd-4753-a611-ac6d37357184",
-                          token: $state.token
-                        };
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    className={classNames("__wab_instance", sty.apiRequest2)}
-                    errorDisplay={null}
-                    loadingDisplay={null}
-                    method={"POST"}
-                    onError={generateStateOnChangeProp($state, [
-                      "apiRequest2",
-                      "error"
-                    ])}
-                    onLoading={generateStateOnChangeProp($state, [
-                      "apiRequest2",
-                      "loading"
-                    ])}
-                    onSuccess={generateStateOnChangeProp($state, [
-                      "apiRequest2",
-                      "data"
-                    ])}
-                    url={"https://n8n.staas.ir/webhook/selfTest/shop"}
-                  />
                 </Stack__>
               ) : null}
               {(() => {
@@ -2217,8 +2274,8 @@ const PlasmicDescendants = {
     "paziresh24Avatar",
     "messageLiom",
     "testOptionsLiom",
-    "buttonLiom",
     "apiRequest2",
+    "buttonLiom",
     "paziresh24Button",
     "progress",
     "timer",
@@ -2228,8 +2285,8 @@ const PlasmicDescendants = {
   paziresh24Avatar: ["paziresh24Avatar"],
   messageLiom: ["messageLiom"],
   testOptionsLiom: ["testOptionsLiom"],
-  buttonLiom: ["buttonLiom"],
   apiRequest2: ["apiRequest2"],
+  buttonLiom: ["buttonLiom"],
   paziresh24Button: ["paziresh24Button"],
   progress: ["progress"],
   timer: ["timer"],
@@ -2244,8 +2301,8 @@ type NodeDefaultElementType = {
   paziresh24Avatar: typeof Paziresh24Avatar;
   messageLiom: typeof MessageLiom;
   testOptionsLiom: typeof TestOptionsLiom;
-  buttonLiom: typeof ButtonLiom;
   apiRequest2: typeof ApiRequest;
+  buttonLiom: typeof ButtonLiom;
   paziresh24Button: typeof Paziresh24Button;
   progress: typeof AntdProgress;
   timer: typeof Timer;
@@ -2341,8 +2398,8 @@ export const PlasmicSelfTest = Object.assign(
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     messageLiom: makeNodeComponent("messageLiom"),
     testOptionsLiom: makeNodeComponent("testOptionsLiom"),
-    buttonLiom: makeNodeComponent("buttonLiom"),
     apiRequest2: makeNodeComponent("apiRequest2"),
+    buttonLiom: makeNodeComponent("buttonLiom"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     progress: makeNodeComponent("progress"),
     timer: makeNodeComponent("timer"),

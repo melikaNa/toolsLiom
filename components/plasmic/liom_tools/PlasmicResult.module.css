@@ -265,7 +265,7 @@
   display: none;
   padding: var(--token-6eH8UjLOmr7v);
 }
-.paziresh24Button___2SVaX:global(.__wab_instance) {
+.paziresh24Button:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
   min-width: 0;
@@ -345,6 +345,18 @@
   font-weight: 700;
   font-size: var(--token-podr231_9RBN);
   min-width: 0;
+}
+.freeBox__ke2Tb {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  grid-row-gap: var(--token-6eH8UjLOmr7v);
+  grid-column-gap: var(--token-6eH8UjLOmr7v);
+  min-width: 0;
+  padding: 0px;
 }
 .freeBox___3GvY6 {
   display: flex;
@@ -461,7 +473,7 @@
   padding-right: var(--token-omrXvBNBcWTN);
   padding-left: var(--token-omrXvBNBcWTN);
 }
-.paziresh24Button__kRUtI:global(.__wab_instance) {
+.testTakmily:global(.__wab_instance) {
   max-width: 100%;
 }
 .svg__yvahh {
@@ -493,6 +505,17 @@
     text-align: left;
     display: block;
   }
+}
+.text__cb6Qj {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: var(--token-KUiXUfHPkqkm);
+  color: var(--token-ZDcvRU4gUKFH);
+  text-align: right;
+  min-width: 0;
+  display: none;
 }
 .apiRequest:global(.__wab_instance) {
   max-width: 100%;
