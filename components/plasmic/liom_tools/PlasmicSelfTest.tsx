@@ -1715,7 +1715,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 customFunction: async () => {
                                   return window.open(
                                     $steps.invokeGlobalAction.data.result,
-                                    "_blank"
+                                    "_self"
                                   );
                                 }
                               };
@@ -1738,6 +1738,18 @@ function PlasmicSelfTest__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   let b = $state.testChat;
+                                  b[b.length - 1] = {
+                                    text: "آماده ای گفتگو رو ادامه بدیم\u061F",
+                                    question: { lock: 0 },
+                                    from: "system",
+                                    btnText: "ادامه گفتگو",
+                                    options: [
+                                      {
+                                        id: -50,
+                                        text: "ادامه گفتگو"
+                                      }
+                                    ]
+                                  };
                                   return localStorage.setItem(
                                     "test",
                                     JSON.stringify(b)
