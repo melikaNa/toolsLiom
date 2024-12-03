@@ -446,10 +446,9 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           isDisabled={(() => {
             try {
               return (
-                ($state.selectedIDs.length == 0 &&
-                  $props.ferst == true &&
-                  $props.retestTest == true) ||
-                false
+                ($state.selectedIDs.length == 0 && $props.ferst == true) ||
+                false ||
+                ($state.selectedIDs.length == 0 && $props.retestTest == true)
               );
             } catch (e) {
               if (

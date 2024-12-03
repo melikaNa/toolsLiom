@@ -175,7 +175,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 ) {
                   return [
                     {
-                      text: "سلام بر شما\uD83D\uDC4B امیدوارم روح و جسم شما همیشه سالم باشد\u2764️",
+                      text: "سلام \uD83D\uDC4B امیدوارم روح و جسم شما همیشه سالم باشد\u2764️",
                       from: "system",
                       type: "answer"
                     },
