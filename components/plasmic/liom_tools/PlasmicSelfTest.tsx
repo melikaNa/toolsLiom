@@ -274,7 +274,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.UserId;
+              return $ctx.query.user_id;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -517,9 +517,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                 )
             }
           )}
-          onLoad={async event => {
-            const $steps = {};
-          }}
         >
           <HeaderLiom
             data-plasmic-name={"headerLiom"}
@@ -1741,18 +1738,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   let b = $state.testChat;
-                                  b[b.length - 1] = {
-                                    text: "آماده ای گفتگو رو ادامه بدیم\u061F",
-                                    question: { lock: 0 },
-                                    from: "system",
-                                    btnText: "ادامه گفتگو",
-                                    options: [
-                                      {
-                                        id: -50,
-                                        text: "ادامه گفتگو"
-                                      }
-                                    ]
-                                  };
                                   return localStorage.setItem(
                                     "test",
                                     JSON.stringify(b)
@@ -2230,7 +2215,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  userId: $ctx.query.UserId
+                  userId: $ctx.query.user_id
                 };
               } catch (e) {
                 if (
@@ -2251,7 +2236,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  userId: $ctx.query.UserId,
+                  userId: $ctx.query.user_id,
                   shopId: "91d5973e-eefd-4753-a611-ac6d37357184",
                   token: $state.user.data.result.token
                 };

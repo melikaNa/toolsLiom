@@ -206,7 +206,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 3
       },
       {
         path: "buttonLiom.color",
@@ -1005,7 +1005,7 @@ function PlasmicResult__RenderFunc(props: {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return window.open(
-                                          `https://tools.liom.app/self-test?UserId=${
+                                          `https://tools.liom.app/self-test?user_id=${
                                             $ctx.query.user_id
                                           }&type=${
                                             currentItem.option_metric
