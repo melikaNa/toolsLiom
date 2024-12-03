@@ -550,6 +550,7 @@
   font-weight: 500;
   padding-right: var(--token-omrXvBNBcWTN);
   padding-left: var(--token-omrXvBNBcWTN);
+  text-align: right;
 }
 .testTakmily:global(.__wab_instance) {
   max-width: 100%;

@@ -110,7 +110,6 @@ export type PlasmicSelfTest__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   progress?: Flex__<typeof AntdProgress>;
-  timer?: Flex__<typeof Timer>;
   user?: Flex__<typeof ApiRequest>;
   apiRequest2?: Flex__<typeof ApiRequest>;
 };
@@ -1412,10 +1411,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return (
-                    $state.variable.question.lock == 1 &&
-                    $ctx.query.app == "liom"
-                  );
+                  return false; //($state.variable.question.lock==1 && $ctx.query.app=="liom")
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -2106,9 +2102,7 @@ function PlasmicSelfTest__RenderFunc(props: {
           />
 
           <Timer
-            data-plasmic-name={"timer"}
-            data-plasmic-override={overrides.timer}
-            className={classNames("__wab_instance", sty.timer)}
+            className={classNames("__wab_instance", sty.timer__cIfqj)}
             intervalSeconds={1}
             isRunning={true}
             onTick={async () => {
@@ -2280,6 +2274,55 @@ function PlasmicSelfTest__RenderFunc(props: {
             ])}
             url={"https://n8n.staas.ir/webhook/selfTest/shop"}
           />
+
+          <Timer
+            className={classNames("__wab_instance", sty.timer___6LblZ)}
+            intervalSeconds={1}
+            isRunning={true}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["updateTestOptionsLiomSelectedIDs"] =
+                $state.retestTest == false
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["testOptionsLiom", "selectedIDs"]
+                        },
+                        operation: 0,
+                        value: [0]
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateTestOptionsLiomSelectedIDs"] != null &&
+                typeof $steps["updateTestOptionsLiomSelectedIDs"] ===
+                  "object" &&
+                typeof $steps["updateTestOptionsLiomSelectedIDs"].then ===
+                  "function"
+              ) {
+                $steps["updateTestOptionsLiomSelectedIDs"] = await $steps[
+                  "updateTestOptionsLiomSelectedIDs"
+                ];
+              }
+            }}
+            runWhileEditing={false}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -2296,7 +2339,6 @@ const PlasmicDescendants = {
     "buttonLiom",
     "paziresh24Button",
     "progress",
-    "timer",
     "user",
     "apiRequest2"
   ],
@@ -2307,7 +2349,6 @@ const PlasmicDescendants = {
   buttonLiom: ["buttonLiom"],
   paziresh24Button: ["paziresh24Button"],
   progress: ["progress"],
-  timer: ["timer"],
   user: ["user"],
   apiRequest2: ["apiRequest2"]
 } as const;
@@ -2323,7 +2364,6 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   paziresh24Button: typeof Paziresh24Button;
   progress: typeof AntdProgress;
-  timer: typeof Timer;
   user: typeof ApiRequest;
   apiRequest2: typeof ApiRequest;
 };
@@ -2420,7 +2460,6 @@ export const PlasmicSelfTest = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     progress: makeNodeComponent("progress"),
-    timer: makeNodeComponent("timer"),
     user: makeNodeComponent("user"),
     apiRequest2: makeNodeComponent("apiRequest2"),
 

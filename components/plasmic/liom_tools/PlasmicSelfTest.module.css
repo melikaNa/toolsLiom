@@ -364,7 +364,7 @@
     top: 55px;
   }
 }
-.timer:global(.__wab_instance) {
+.timer__cIfqj:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
@@ -373,6 +373,10 @@
   object-fit: cover;
 }
 .apiRequest2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.timer___6LblZ:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
