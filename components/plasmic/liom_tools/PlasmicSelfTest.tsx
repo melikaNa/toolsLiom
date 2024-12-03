@@ -86,7 +86,6 @@ import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicSelfTest.module.css"; // plasmic-import: 5IOCSv5V9vzY/css
 
-import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
@@ -181,15 +180,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                       type: "answer"
                     },
                     {
-                      text: "من ابزاری هستم تا به شما کمک میکنم بتوانید در کمتر از چند دقیقه\u060C از سلامت خود اطمینان حاصل کنید و فرآیند خودتشخیصی اولیه را انجام دهید",
+                      text: "من به شما کمک میکنم بتوانید در کمتر از چند دقیقه از سلامت خود اطمینان حاصل کنید.",
                       from: "system"
                     },
                     {
-                      text: 'این ابزار به کمک و دانش متخصصین و پزشکان ایجاد شده و شبیه سازی یک ویزیت واقعی است. با گرفتن شرح حال شما به تشخیص "بدون حضور دکتر" کمک میکند',
+                      text: "من به کمک دانش متخصصین و پزشکان یک ویزیت واقعی را شبیه سازی کرده‌ام.",
                       from: "system"
                     },
                     {
-                      text: "آماده ای خودتشخیصی را شروع کنیم\u061F",
+                      text: "آماده ای شروع کنیم\u061F",
                       question: { lock: 0 },
                       from: "system",
                       btnText: "شروع کنیم.",
@@ -472,7 +471,20 @@ function PlasmicSelfTest__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicSelfTest.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicSelfTest.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicSelfTest.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -535,6 +547,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 })()}
               />
             }
+            slot2={null}
           >
             {
               "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a"
@@ -849,6 +862,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       });
                                     }
                                   }
+                                }
+                                if (
+                                  $state.ferst == false &&
+                                  $state.type == "irregular"
+                                ) {
+                                  $state.testChat.push({
+                                    text: "حدودا 14 علت برای نامنظم شدن قاعدگی وجود دارد. من به کمک پاسخ های شما آنها را بررسی می کنم و در آخر نتیجه را بازگو می کنم. تا کار های لازم برای رفع این نامنظمی را انجام دهید\nدر پاسخ دادن به سوالات دقت و شکیبایی کافی را داشته باشید",
+                                    from: "system"
+                                  });
                                 }
                                 $state.testChat.push({
                                   text: "loading",
@@ -2411,7 +2433,7 @@ export const PlasmicSelfTest = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "دستیار سلامت",
       description: "",
       ogImageSrc: "",
       canonical: ""

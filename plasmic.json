@@ -2256,6 +2256,19 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicPercentageBox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "Uv6Ny2EftKLb",
+          "name": "ExternalBookSurveyPopup",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicExternalBookSurveyPopup.tsx",
+          "importSpec": {
+            "modulePath": "ExternalBookSurveyPopup.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicExternalBookSurveyPopup.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

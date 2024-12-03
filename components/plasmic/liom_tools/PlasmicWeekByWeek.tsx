@@ -1803,24 +1803,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                               }
                             )}
                           >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $state.textBaby[
-                                    $state.selectedWeek - 1
-                                  ];
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
+                            {""}
                           </div>
                         </AntdSingleCollapse>
                       );
