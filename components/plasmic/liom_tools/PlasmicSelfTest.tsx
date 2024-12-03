@@ -2291,7 +2291,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           variablePath: ["testOptionsLiom", "selectedIDs"]
                         },
                         operation: 0,
-                        value: [0]
+                        value: [-50]
                       };
                       return (({
                         variable,
