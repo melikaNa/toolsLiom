@@ -110,6 +110,7 @@ export type PlasmicSelfTest__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   progress?: Flex__<typeof AntdProgress>;
+  timer?: Flex__<typeof Timer>;
   user?: Flex__<typeof ApiRequest>;
   apiRequest2?: Flex__<typeof ApiRequest>;
 };
@@ -1989,18 +1990,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   let b = $state.testChat;
-                                  b[b.length - 1] = {
-                                    text: "آماده ای گفتگو رو ادامه بدیم\u061F",
-                                    question: { lock: 0 },
-                                    from: "system",
-                                    btnText: "ادامه گفتگو",
-                                    options: [
-                                      {
-                                        id: -50,
-                                        text: "ادامه گفتگو"
-                                      }
-                                    ]
-                                  };
                                   return localStorage.setItem(
                                     "test",
                                     JSON.stringify(b)
@@ -2102,7 +2091,9 @@ function PlasmicSelfTest__RenderFunc(props: {
           />
 
           <Timer
-            className={classNames("__wab_instance", sty.timer__cIfqj)}
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer)}
             intervalSeconds={1}
             isRunning={true}
             onTick={async () => {
@@ -2137,30 +2128,6 @@ function PlasmicSelfTest__RenderFunc(props: {
               ) {
                 $steps["runCode"] = await $steps["runCode"];
               }
-
-              $steps["runCode2"] =
-                $state.testChat[$state.testChat.length - 1].options[0].id == -50
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return window.scrollTo({
-                            top: document.body.scrollHeight,
-                            behavior: "smooth"
-                          });
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode2"] != null &&
-                typeof $steps["runCode2"] === "object" &&
-                typeof $steps["runCode2"].then === "function"
-              ) {
-                $steps["runCode2"] = await $steps["runCode2"];
-              }
             }}
             runWhileEditing={false}
           />
@@ -2173,7 +2140,115 @@ function PlasmicSelfTest__RenderFunc(props: {
             loadingDisplay={null}
             method={"GET"}
             onError={generateStateOnChangeProp($state, ["user", "error"])}
-            onLoading={generateStateOnChangeProp($state, ["user", "loading"])}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["user", "loading"]).apply(
+                null,
+                eventArgs
+              );
+              (async loading => {
+                const $steps = {};
+
+                $steps["runCode2"] =
+                  $state.retestTest == false
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return ($state.testChat[
+                                $state.testChat.length - 1
+                              ] = {
+                                text: "آماده ای گفتگو رو ادامه بدیم\u061F",
+                                question: { lock: 0 },
+                                from: "system",
+                                btnText: "ادامه گفتگو",
+                                options: [
+                                  {
+                                    id: -50,
+                                    text: "ادامه گفتگو"
+                                  }
+                                ]
+                              });
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
+
+                $steps["updateTestOptionsLiomSelectedIDs"] =
+                  $state.retestTest == false
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["testOptionsLiom", "selectedIDs"]
+                          },
+                          operation: 0,
+                          value: [-50]
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateTestOptionsLiomSelectedIDs"] != null &&
+                  typeof $steps["updateTestOptionsLiomSelectedIDs"] ===
+                    "object" &&
+                  typeof $steps["updateTestOptionsLiomSelectedIDs"].then ===
+                    "function"
+                ) {
+                  $steps["updateTestOptionsLiomSelectedIDs"] = await $steps[
+                    "updateTestOptionsLiomSelectedIDs"
+                  ];
+                }
+
+                $steps["runCode"] =
+                  $state.testChat[$state.testChat.length - 1].options[0].id ==
+                  -50
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return window.scrollTo({
+                              top: document.body.scrollHeight,
+                              behavior: "smooth"
+                            });
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }).apply(null, eventArgs);
+            }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "data"]).apply(
                 null,
@@ -2274,55 +2349,6 @@ function PlasmicSelfTest__RenderFunc(props: {
             ])}
             url={"https://n8n.staas.ir/webhook/selfTest/shop"}
           />
-
-          <Timer
-            className={classNames("__wab_instance", sty.timer___6LblZ)}
-            intervalSeconds={1}
-            isRunning={true}
-            onTick={async () => {
-              const $steps = {};
-
-              $steps["updateTestOptionsLiomSelectedIDs"] =
-                $state.retestTest == false
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["testOptionsLiom", "selectedIDs"]
-                        },
-                        operation: 0,
-                        value: [-50]
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateTestOptionsLiomSelectedIDs"] != null &&
-                typeof $steps["updateTestOptionsLiomSelectedIDs"] ===
-                  "object" &&
-                typeof $steps["updateTestOptionsLiomSelectedIDs"].then ===
-                  "function"
-              ) {
-                $steps["updateTestOptionsLiomSelectedIDs"] = await $steps[
-                  "updateTestOptionsLiomSelectedIDs"
-                ];
-              }
-            }}
-            runWhileEditing={false}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -2339,6 +2365,7 @@ const PlasmicDescendants = {
     "buttonLiom",
     "paziresh24Button",
     "progress",
+    "timer",
     "user",
     "apiRequest2"
   ],
@@ -2349,6 +2376,7 @@ const PlasmicDescendants = {
   buttonLiom: ["buttonLiom"],
   paziresh24Button: ["paziresh24Button"],
   progress: ["progress"],
+  timer: ["timer"],
   user: ["user"],
   apiRequest2: ["apiRequest2"]
 } as const;
@@ -2364,6 +2392,7 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   paziresh24Button: typeof Paziresh24Button;
   progress: typeof AntdProgress;
+  timer: typeof Timer;
   user: typeof ApiRequest;
   apiRequest2: typeof ApiRequest;
 };
@@ -2460,6 +2489,7 @@ export const PlasmicSelfTest = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     progress: makeNodeComponent("progress"),
+    timer: makeNodeComponent("timer"),
     user: makeNodeComponent("user"),
     apiRequest2: makeNodeComponent("apiRequest2"),
 
