@@ -2371,6 +2371,16 @@
       }
     },
     {
+      "name": "golden",
+      "type": "color",
+      "value": "#FFB700",
+      "category": "color",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "txtIJoASUNtv"
+      }
+    },
+    {
       "name": "green",
       "type": "color",
       "value": "#00C371",

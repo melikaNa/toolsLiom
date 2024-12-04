@@ -77,6 +77,8 @@
   --plasmic-token-hint: var(--token-NXlEQg0VOw-c);
   --token-84PkxcVKH9-F: #1d1b1e;
   --plasmic-token-title: var(--token-84PkxcVKH9-F);
+  --token-txtIJoASUNtv: #ffb700;
+  --plasmic-token-golden: var(--token-txtIJoASUNtv);
 }
 
 @media (max-width: 640px) {

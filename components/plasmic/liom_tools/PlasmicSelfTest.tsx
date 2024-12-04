@@ -986,6 +986,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       text: "سوالات خودتشخیصی به اتمام رسید\u060C حالا روی دکمه دیدن نتیجه کلیک کنید تا وضعیت شما آنالیز شود.",
                                       from: "system"
                                     };
+                                  $state.numberTest = $state.totalTest;
                                   return window.scrollTo({
                                     top: document.body.scrollHeight,
                                     behavior: "smooth"
@@ -1381,20 +1382,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return (() => {
-                                window.scrollTo({
-                                  top: document.body.scrollHeight,
-                                  behavior: "smooth"
-                                });
-                                if (
-                                  $state.variable.options.find(
-                                    option =>
-                                      option.id ===
-                                      $state.testOptionsLiom.selectedIDs[0]
-                                  ).nextQuesion_id == -1
-                                )
-                                  return ($state.numberTest = $state.totalTest);
-                              })();
+                              return window.scrollTo({
+                                top: document.body.scrollHeight,
+                                behavior: "smooth"
+                              });
                             }
                           };
                           return (({ customFunction }) => {
@@ -2253,7 +2244,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                           return (() => {
                             if ($state.type == "irregular")
                               return ($state.totalTest = 50);
-                            else return ($state.totalTest = 10);
+                            else {
+                              $state.totalTest = 51;
+                              return ($state.numberTest = 40);
+                            }
                           })();
                         }
                       };

@@ -2269,6 +2269,19 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicExternalBookSurveyPopup.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "K1JUp41_NKIi",
+          "name": "Alert",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicAlert.tsx",
+          "importSpec": {
+            "modulePath": "Alert.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicAlert.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3046,6 +3059,36 @@
           "id": "KkG2nnQC8TPR",
           "name": "Icon112Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon112.tsx"
+        },
+        {
+          "id": "2DtIAeAc823f",
+          "name": "Icon113Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon113.tsx"
+        },
+        {
+          "id": "3GJi3NV2X6Zg",
+          "name": "ChevronRightIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__ChevronRight.tsx"
+        },
+        {
+          "id": "ZqTOLr82hcYp",
+          "name": "ChevronLeftIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__ChevronLeft.tsx"
+        },
+        {
+          "id": "RUmdKmuNnzzP",
+          "name": "Icon114Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon114.tsx"
+        },
+        {
+          "id": "sKUeDF21ImIk",
+          "name": "Icon115Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon115.tsx"
+        },
+        {
+          "id": "uviv-WPVJzuw",
+          "name": "Icon116Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon116.tsx"
         }
       ],
       "images": [
@@ -3465,7 +3508,8 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "YUiM7yqBWAqsh8KSnrdj7",
@@ -3493,7 +3537,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

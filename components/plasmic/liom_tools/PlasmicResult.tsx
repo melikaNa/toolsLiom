@@ -74,6 +74,9 @@ import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
+import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
+import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
+import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import {
@@ -95,6 +98,10 @@ import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
+import Icon113Icon from "./icons/PlasmicIcon__Icon113"; // plasmic-import: 2DtIAeAc823f/icon
+import Icon116Icon from "./icons/PlasmicIcon__Icon116"; // plasmic-import: uviv-WPVJzuw/icon
+
+import { random as __lib_lodash__random } from "lodash";
 
 createPlasmicElementProxy;
 
@@ -114,22 +121,29 @@ export type PlasmicResult__OverridesType = {
   reveal?: Flex__<typeof Reveal>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   ul?: Flex__<"ul">;
   li?: Flex__<"li">;
   timer?: Flex__<typeof Timer>;
-  paziresh24Button?: Flex__<typeof Paziresh24Button>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   percentageBox?: Flex__<typeof PercentageBox>;
   testTakmily?: Flex__<typeof Paziresh24Button>;
   collapse2?: Flex__<typeof AntdSingleCollapse>;
   apiRequest?: Flex__<typeof ApiRequest>;
-  svg?: Flex__<"svg">;
+  dialog?: Flex__<typeof Paziresh24Dialog>;
+  apiRequest2?: Flex__<typeof ApiRequest>;
+  link?: Flex__<"a"> & Partial<LinkProps>;
+  h2?: Flex__<"h2">;
+  paziresh24LineClamp?: Flex__<typeof Paziresh24LineClamp>;
+  cardSubtitle?: Flex__<"span">;
 };
 
 export interface DefaultResultProps {}
 
-const $$ = {};
+const $$ = {
+  lodash: {
+    random: __lib_lodash__random
+  }
+};
 
 function useNextRouter() {
   try {
@@ -244,6 +258,30 @@ function PlasmicResult__RenderFunc(props: {
         variableType: "boolean",
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "dialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "apiRequest2.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest2.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -497,9 +535,10 @@ function PlasmicResult__RenderFunc(props: {
             className={classNames("__wab_instance", sty.headerLiom)}
             slot={
               <Paziresh24Avatar
-                data-plasmic-name={"paziresh24Avatar"}
-                data-plasmic-override={overrides.paziresh24Avatar}
-                className={classNames("__wab_instance", sty.paziresh24Avatar)}
+                className={classNames(
+                  "__wab_instance",
+                  sty.paziresh24Avatar__etGjv
+                )}
                 src={(() => {
                   try {
                     return $ctx.query.app == "liom"
@@ -711,9 +750,10 @@ function PlasmicResult__RenderFunc(props: {
 
           <div className={classNames(projectcss.all, sty.freeBox__tktV)}>
             <Paziresh24Button
-              data-plasmic-name={"paziresh24Button"}
-              data-plasmic-override={overrides.paziresh24Button}
-              className={classNames("__wab_instance", sty.paziresh24Button)}
+              className={classNames(
+                "__wab_instance",
+                sty.paziresh24Button___2SVaX
+              )}
             />
 
             <ButtonLiom
@@ -1378,13 +1418,357 @@ function PlasmicResult__RenderFunc(props: {
           })() ? (
             <div className={classNames(projectcss.all, sty.freeBox__xqVc8)}>
               <Icon111Icon
-                data-plasmic-name={"svg"}
-                data-plasmic-override={overrides.svg}
-                className={classNames(projectcss.all, sty.svg)}
+                className={classNames(projectcss.all, sty.svg__vXrcx)}
                 role={"img"}
               />
             </div>
           ) : null}
+          <Paziresh24Dialog
+            data-plasmic-name={"dialog"}
+            data-plasmic-override={overrides.dialog}
+            body={
+              <ApiRequest
+                data-plasmic-name={"apiRequest2"}
+                data-plasmic-override={overrides.apiRequest2}
+                className={classNames("__wab_instance", sty.apiRequest2)}
+                errorDisplay={null}
+                loadingDisplay={
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___4MJGg)}
+                  >
+                    <Icon113Icon
+                      className={classNames(projectcss.all, sty.svg__boGu)}
+                      role={"img"}
+                    />
+                  </div>
+                }
+                method={"GET"}
+                onError={generateStateOnChangeProp($state, [
+                  "apiRequest2",
+                  "error"
+                ])}
+                onLoading={generateStateOnChangeProp($state, [
+                  "apiRequest2",
+                  "loading"
+                ])}
+                onSuccess={generateStateOnChangeProp($state, [
+                  "apiRequest2",
+                  "data"
+                ])}
+                url={(() => {
+                  try {
+                    return (
+                      //`https://apigw.paziresh24.com/seapi/v1/search/ir/${!!$props.expertise ? $props.expertise :"general-practitioner"}?turn_type=${$props.turnType||"consult"}`
+                      "https://apigw.paziresh24.com/seapi/v1/search/ir/general-practitioner?turn_type=consult"
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__m21QZ)}>
+                  <Alert
+                    className={classNames("__wab_instance", sty.alert__ojW2B)}
+                    hasIcon={true}
+                    success={true}
+                    text={
+                      "\u0628\u062f\u0648\u0646 \u062e\u0631\u0648\u062c \u0627\u0632 \u0645\u0646\u0632\u0644\u060c \u0622\u0646\u0644\u0627\u06cc\u0646 \u0648\u06cc\u0632\u06cc\u062a \u0634\u0648\u06cc\u062f."
+                    }
+                  />
+
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return (() => {
+                          const random = $$.lodash.random(0, 2);
+                          return [
+                            $state.apiRequest2.data.search.result.slice(0, 3)?.[
+                              random
+                            ]
+                          ];
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__cIuuh
+                        )}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___55QU
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__xvU
+                            )}
+                          >
+                            <Paziresh24Avatar
+                              badge={"check"}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.paziresh24Avatar__ppn9L
+                              )}
+                              ring={"green"}
+                            />
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ncdy0
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___8Mbe
+                              )}
+                            >
+                              <PlasmicLink__
+                                data-plasmic-name={"link"}
+                                data-plasmic-override={overrides.link}
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.a,
+                                  sty.link
+                                )}
+                                component={Link}
+                                platform={"nextjs"}
+                              >
+                                <h2
+                                  data-plasmic-name={"h2"}
+                                  data-plasmic-override={overrides.h2}
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.h2,
+                                    projectcss.__wab_text,
+                                    sty.h2
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.title;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "You won't believe what happens next.";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </h2>
+                              </PlasmicLink__>
+                              <Paziresh24LineClamp
+                                data-plasmic-name={"paziresh24LineClamp"}
+                                data-plasmic-override={
+                                  overrides.paziresh24LineClamp
+                                }
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.paziresh24LineClamp
+                                )}
+                              >
+                                <span
+                                  data-plasmic-name={"cardSubtitle"}
+                                  data-plasmic-override={overrides.cardSubtitle}
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.span,
+                                    projectcss.__wab_text,
+                                    sty.cardSubtitle
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return undefined;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </span>
+                              </Paziresh24LineClamp>
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__vhDZa
+                                )}
+                              >
+                                <Icon116Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg___4UogS
+                                  )}
+                                  role={"img"}
+                                />
+
+                                <span
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.span,
+                                    projectcss.__wab_text,
+                                    sty.span__w7U14
+                                  )}
+                                >
+                                  {" fggfgf"}
+                                </span>
+                                <span
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.span,
+                                    projectcss.__wab_text,
+                                    sty.span__lTyi
+                                  )}
+                                >
+                                  {"(376 \u0646\u0638\u0631)"}
+                                </span>
+                              </Stack__>
+                            </Stack__>
+                          </div>
+                        </div>
+                        <Alert
+                          className={classNames(
+                            "__wab_instance",
+                            sty.alert__bdt9J
+                          )}
+                          error={true}
+                          hasIcon={true}
+                          text={
+                            "\u062a\u0636\u0645\u06cc\u0646 \u0628\u0627\u0632\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u0627\u0631\u0636\u0627\u06cc\u062a\u06cc"
+                          }
+                        />
+
+                        <Paziresh24Button
+                          children2={
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return `گفتگو با ${currentItem.display_name}`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "Button";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          }
+                          className={classNames(
+                            "__wab_instance",
+                            sty.paziresh24Button__hZeLs
+                          )}
+                        />
+
+                        <Paziresh24Button
+                          children2={
+                            "\u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0627\u06cc\u0631 \u067e\u0632\u0634\u06a9\u0627\u0646 \u0622\u0646\u0644\u0627\u06cc\u0646"
+                          }
+                          className={classNames(
+                            "__wab_instance",
+                            sty.paziresh24Button___3Plz2
+                          )}
+                          color={"text"}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps[
+                              "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
+                            ] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination:
+                                      "https://www.paziresh24.com/consult?from_recommend_section=1"
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps[
+                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
+                              ] != null &&
+                              typeof $steps[
+                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
+                              ] === "object" &&
+                              typeof $steps[
+                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
+                              ].then === "function"
+                            ) {
+                              $steps[
+                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
+                              ] = await $steps[
+                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
+                              ];
+                            }
+                          }}
+                        />
+                      </Stack__>
+                    );
+                  })}
+                </div>
+              </ApiRequest>
+            }
+            className={classNames("__wab_instance", sty.dialog)}
+            onOpenChange={generateStateOnChangeProp($state, ["dialog", "open"])}
+            open={generateStateValueProp($state, ["dialog", "open"])}
+            trigger={null}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -1399,34 +1783,53 @@ const PlasmicDescendants = {
     "reveal",
     "loadingConclusion",
     "headerLiom",
-    "paziresh24Avatar",
     "ul",
     "li",
     "timer",
-    "paziresh24Button",
     "buttonLiom",
     "percentageBox",
     "testTakmily",
     "collapse2",
     "apiRequest",
-    "svg"
+    "dialog",
+    "apiRequest2",
+    "link",
+    "h2",
+    "paziresh24LineClamp",
+    "cardSubtitle"
   ],
   modal: ["modal", "backgrond", "reveal", "loadingConclusion"],
   backgrond: ["backgrond", "reveal", "loadingConclusion"],
   reveal: ["reveal", "loadingConclusion"],
   loadingConclusion: ["loadingConclusion"],
-  headerLiom: ["headerLiom", "paziresh24Avatar"],
-  paziresh24Avatar: ["paziresh24Avatar"],
+  headerLiom: ["headerLiom"],
   ul: ["ul", "li"],
   li: ["li"],
   timer: ["timer"],
-  paziresh24Button: ["paziresh24Button"],
   buttonLiom: ["buttonLiom"],
   percentageBox: ["percentageBox"],
   testTakmily: ["testTakmily"],
   collapse2: ["collapse2"],
   apiRequest: ["apiRequest"],
-  svg: ["svg"]
+  dialog: [
+    "dialog",
+    "apiRequest2",
+    "link",
+    "h2",
+    "paziresh24LineClamp",
+    "cardSubtitle"
+  ],
+  apiRequest2: [
+    "apiRequest2",
+    "link",
+    "h2",
+    "paziresh24LineClamp",
+    "cardSubtitle"
+  ],
+  link: ["link", "h2"],
+  h2: ["h2"],
+  paziresh24LineClamp: ["paziresh24LineClamp", "cardSubtitle"],
+  cardSubtitle: ["cardSubtitle"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1438,17 +1841,20 @@ type NodeDefaultElementType = {
   reveal: typeof Reveal;
   loadingConclusion: typeof LoadingConclusion;
   headerLiom: typeof HeaderLiom;
-  paziresh24Avatar: typeof Paziresh24Avatar;
   ul: "ul";
   li: "li";
   timer: typeof Timer;
-  paziresh24Button: typeof Paziresh24Button;
   buttonLiom: typeof ButtonLiom;
   percentageBox: typeof PercentageBox;
   testTakmily: typeof Paziresh24Button;
   collapse2: typeof AntdSingleCollapse;
   apiRequest: typeof ApiRequest;
-  svg: "svg";
+  dialog: typeof Paziresh24Dialog;
+  apiRequest2: typeof ApiRequest;
+  link: "a";
+  h2: "h2";
+  paziresh24LineClamp: typeof Paziresh24LineClamp;
+  cardSubtitle: "span";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1541,17 +1947,20 @@ export const PlasmicResult = Object.assign(
     reveal: makeNodeComponent("reveal"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
     headerLiom: makeNodeComponent("headerLiom"),
-    paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     ul: makeNodeComponent("ul"),
     li: makeNodeComponent("li"),
     timer: makeNodeComponent("timer"),
-    paziresh24Button: makeNodeComponent("paziresh24Button"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     percentageBox: makeNodeComponent("percentageBox"),
     testTakmily: makeNodeComponent("testTakmily"),
     collapse2: makeNodeComponent("collapse2"),
     apiRequest: makeNodeComponent("apiRequest"),
-    svg: makeNodeComponent("svg"),
+    dialog: makeNodeComponent("dialog"),
+    apiRequest2: makeNodeComponent("apiRequest2"),
+    link: makeNodeComponent("link"),
+    h2: makeNodeComponent("h2"),
+    paziresh24LineClamp: makeNodeComponent("paziresh24LineClamp"),
+    cardSubtitle: makeNodeComponent("cardSubtitle"),
 
     // Metadata about props expected for PlasmicResult
     internalVariantProps: PlasmicResult__VariantProps,
