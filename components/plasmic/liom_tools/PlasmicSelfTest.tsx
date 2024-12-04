@@ -2048,7 +2048,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             gradient={[]}
             percent={(() => {
               try {
-                return $state.numberTest / ($state.totalTest / 100);
+                return $state.numberTest / ($state.totalTest / 100) - 0.1;
               } catch (e) {
                 if (
                   e instanceof TypeError ||

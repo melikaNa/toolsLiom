@@ -148,7 +148,7 @@ export default function GlobalContextsProvider(
                 antdConfigProviderProps &&
                 "colorSuccess" in antdConfigProviderProps
                   ? antdConfigProviderProps.colorSuccess!
-                  : "#327CE4"
+                  : "#32E43F"
               }
               colorWarning={
                 antdConfigProviderProps &&
