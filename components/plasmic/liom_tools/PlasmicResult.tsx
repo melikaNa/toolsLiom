@@ -558,9 +558,7 @@ function PlasmicResult__RenderFunc(props: {
             }
             slot2={null}
           >
-            {
-              "\u0646\u062a\u06cc\u062c\u0647 \u062e\u0648\u062f\u062a\u0634\u062e\u06cc\u0635\u06cc \u0634\u0645\u0627"
-            }
+            {"\u0646\u062a\u06cc\u062c\u0647  \u0634\u0645\u0627"}
           </HeaderLiom>
           {(() => {
             try {
@@ -580,17 +578,6 @@ function PlasmicResult__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__f1R9S)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__obt8K
-                )}
-              >
-                {
-                  "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u062e\u0648\u062f\u062a\u0634\u062e\u06cc\u0635\u06cc"
-                }
-              </div>
               <div
                 className={classNames(
                   projectcss.all,
@@ -669,72 +656,124 @@ function PlasmicResult__RenderFunc(props: {
                             sty.freeBox__xvODr
                           )}
                         >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__nKnkj
-                            )}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["updateDialogOpen"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["dialog", "open"]
-                                      },
-                                      operation: 0,
-                                      value: true
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
+                          {(() => {
+                            try {
+                              return currentItem.action == "";
+                            } catch (e) {
                               if (
-                                $steps["updateDialogOpen"] != null &&
-                                typeof $steps["updateDialogOpen"] ===
-                                  "object" &&
-                                typeof $steps["updateDialogOpen"].then ===
-                                  "function"
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                $steps["updateDialogOpen"] = await $steps[
-                                  "updateDialogOpen"
-                                ];
+                                return true;
                               }
-                            }}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return currentItem.task;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__nKnkj
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.task;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                          {(() => {
+                            try {
+                              return currentItem.action == "#doctor";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__xW3G
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateDialogOpen"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["dialog", "open"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateDialogOpen"] != null &&
+                                  typeof $steps["updateDialogOpen"] ===
+                                    "object" &&
+                                  typeof $steps["updateDialogOpen"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateDialogOpen"] = await $steps[
+                                    "updateDialogOpen"
+                                  ];
                                 }
-                              })()}
-                            </React.Fragment>
-                          </div>
+                              }}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.task;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
                         </div>
                       </li>
                     </Stack__>
@@ -1828,7 +1867,7 @@ function PlasmicResult__RenderFunc(props: {
                                   const actionArgs = {
                                     destination: (() => {
                                       try {
-                                        return `/booking/${currentItem.slug}/?centerId=5532&skipTimeSelectStep=true`;
+                                        return `https://www.paziresh24.com/booking/${currentItem.slug}/?centerId=5532&skipTimeSelectStep=true`;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
