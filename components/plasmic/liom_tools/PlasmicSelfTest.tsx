@@ -430,7 +430,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "totalTest",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 20
+        initFunc: ({ $props, $state, $queries, $ctx }) => 40
       },
       {
         path: "retestTest",
@@ -1361,7 +1361,7 @@ function PlasmicSelfTest__RenderFunc(props: {
 
                     $steps["invokeGlobalAction4"] = true
                       ? (() => {
-                          const actionArgs = { args: [1000] };
+                          const actionArgs = { args: [800] };
                           return $globalActions["Fragment.wait"]?.apply(null, [
                             ...actionArgs.args
                           ]);
@@ -1412,7 +1412,10 @@ function PlasmicSelfTest__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return false; //($state.variable.question.lock==1 && $ctx.query.app=="liom")
+                  return (
+                    $state.variable.question.lock == 1 &&
+                    $ctx.query.app == "liom"
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1638,23 +1641,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       offCode: "",
                                       userId: $ctx.query.UserId,
                                       refCode: "hrWgK5mZv",
-                                      redirectUrl:
-                                        "https://apps.liom.app/shop-result?r=" +
-                                        "hrWgK5mZv" +
-                                        "&m=" +
-                                        "hrWgK5mZv" +
-                                        "&buyId=" +
-                                        "hrWgK5mZv" +
-                                        "&offCode=" +
-                                        "gyft" +
-                                        "&valueShop=" +
-                                        "gygyuyt" +
-                                        "-" +
-                                        "jhgjghyg" +
-                                        "&price=" +
-                                        "kuhuyutyutut" +
-                                        "&manId=" +
-                                        "jgyghyfdfd"
+                                      redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
                                     };
                                   } catch (e) {
                                     if (
@@ -1735,18 +1722,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   let b = $state.testChat;
-                                  b[b.length - 1] = {
-                                    text: "آماده ای گفتگو رو ادامه بدیم\u061F",
-                                    question: { lock: 0 },
-                                    from: "system",
-                                    btnText: "ادامه گفتگو",
-                                    options: [
-                                      {
-                                        id: -50,
-                                        text: "ادامه گفتگو"
-                                      }
-                                    ]
-                                  };
                                   return localStorage.setItem(
                                     "test",
                                     JSON.stringify(b)
@@ -2084,6 +2059,21 @@ function PlasmicSelfTest__RenderFunc(props: {
               }
             })()}
             showInfo={false}
+            strokeColor={(() => {
+              try {
+                return (() => {
+                  if ($ctx.query.app == "liom") return "#EF6FB7";
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             strokeWidth={
               hasVariant(globalVariants, "screen", "mobileOnly") ? 5 : 6
             }
@@ -2094,7 +2084,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
             className={classNames("__wab_instance", sty.timer)}
-            intervalSeconds={1}
+            intervalSeconds={0.5}
             isRunning={true}
             onTick={async () => {
               const $steps = {};

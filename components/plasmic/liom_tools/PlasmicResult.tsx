@@ -559,21 +559,24 @@ function PlasmicResult__RenderFunc(props: {
                   sty.text__mGj9Z
                 )}
               >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $state.apiRequest.data.our_message;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u062e\u0648\u062f\u062a\u0634\u062e\u06cc\u0635\u06cc";
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return $state.apiRequest.data.our_message;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u062e\u0648\u062f\u062a\u0634\u062e\u06cc\u0635\u06cc";
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
+                    })()
+                  }}
+                />
               </div>
               <Stack__
                 as={"div"}
@@ -1166,22 +1169,25 @@ function PlasmicResult__RenderFunc(props: {
                                 sty.text___0XeKx
                               )}
                             >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.hint;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647";
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return currentItem.hint;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647";
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
+                                  })()
+                                }}
+                              />
                             </div>
                           ),
                           onChange: generateStateOnChangePropForCodeComponents(
@@ -1234,22 +1240,25 @@ function PlasmicResult__RenderFunc(props: {
                                 sty.text__l1248
                               )}
                             >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.advice_text;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u26a0\ufe0f \u0628\u0631\u0627\u06cc \u062f\u0642\u06cc\u0642 \u062a\u0631 \u0634\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647\u060c \u062a\u0633\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc\u062f";
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return currentItem.advice_text;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u26a0\ufe0f \u0628\u0631\u0627\u06cc \u062f\u0642\u06cc\u0642 \u062a\u0631 \u0634\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647\u060c \u062a\u0633\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc\u062f";
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
+                                  })()
+                                }}
+                              />
                             </div>
                           </AntdSingleCollapse>
                         );
@@ -1332,21 +1341,24 @@ function PlasmicResult__RenderFunc(props: {
                     sty.text__u2Gx8
                   )}
                 >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $state.apiRequest.data.message;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "...";
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
+                        try {
+                          return $state.apiRequest.data.message;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "...";
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
+                      })()
+                    }}
+                  />
                 </div>
               </div>
             </Stack__>

@@ -356,7 +356,7 @@
   z-index: 1;
   position: fixed;
   right: 0;
-  display: none;
+  color: #8254c6;
   padding: 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
