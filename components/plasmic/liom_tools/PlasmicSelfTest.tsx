@@ -1381,10 +1381,20 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return window.scrollTo({
-                                top: document.body.scrollHeight,
-                                behavior: "smooth"
-                              });
+                              return (() => {
+                                window.scrollTo({
+                                  top: document.body.scrollHeight,
+                                  behavior: "smooth"
+                                });
+                                if (
+                                  $state.variable.options.find(
+                                    option =>
+                                      option.id ===
+                                      $state.testOptionsLiom.selectedIDs[0]
+                                  ).nextQuesion_id == -1
+                                )
+                                  return ($state.numberTest = $state.totalTest);
+                              })();
                             }
                           };
                           return (({ customFunction }) => {
@@ -2143,22 +2153,20 @@ function PlasmicSelfTest__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {
-                              return ($state.testChat[
-                                $state.testChat.length - 1
-                              ] = {
-                                text: "آماده ای گفتگو رو ادامه بدیم\u061F",
-                                question: { lock: 0 },
-                                from: "system",
-                                btnText: "ادامه گفتگو",
-                                options: [
-                                  {
-                                    id: -50,
-                                    text: "ادامه گفتگو"
-                                  }
-                                ]
-                              });
-                            })();
+                            return ($state.testChat[
+                              $state.testChat.length - 1
+                            ] = {
+                              text: "آماده ای گفتگو رو ادامه بدیم\u061F",
+                              question: { lock: 0 },
+                              from: "system",
+                              btnText: "ادامه گفتگو",
+                              options: [
+                                {
+                                  id: -50,
+                                  text: "ادامه گفتگو"
+                                }
+                              ]
+                            });
                           }
                         };
                         return (({ customFunction }) => {
@@ -2236,6 +2244,30 @@ function PlasmicSelfTest__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["runCode3"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            if ($state.type == "irregular")
+                              return ($state.totalTest = 50);
+                            else return ($state.totalTest = 10);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode3"] != null &&
+                  typeof $steps["runCode3"] === "object" &&
+                  typeof $steps["runCode3"].then === "function"
+                ) {
+                  $steps["runCode3"] = await $steps["runCode3"];
                 }
               }).apply(null, eventArgs);
             }}
