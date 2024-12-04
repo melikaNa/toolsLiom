@@ -2242,13 +2242,16 @@ function PlasmicSelfTest__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            if ($ctx.query.type == "irregular") {
+                            if ($ctx.query.type === "irregular") {
                               $state.totalTest = 50;
-                            } else {
+                              return ($state.numberTest = 0);
+                            } else if (
+                              $ctx.query.type != null ||
+                              $ctx.query.type != undefined
+                            ) {
                               $state.totalTest = 51;
-                              $state.numberTest = 40;
+                              return ($state.numberTest = 40);
                             }
-                            return console.log($ctx.query.type == "irregular");
                           })();
                         }
                       };
