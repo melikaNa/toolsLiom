@@ -290,6 +290,8 @@
 .ul {
   display: flex;
   width: 100%;
+  color: var(--token-fyoD0poQfxvl);
+  text-decoration-line: underline;
   min-width: 0;
   flex-direction: column;
   padding: 0px;
@@ -793,9 +795,9 @@
   > img {
   margin-top: var(--token-3WxvfyIdJppy);
 }
-.freeBox___55QU {
+.freeBox__z6AUi {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   width: 100%;
   height: auto;
@@ -803,6 +805,17 @@
   justify-content: flex-start;
   align-items: center;
   align-self: flex-start;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox___55QU {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
   min-width: 0;
   padding: 8px 8px 0px;
 }

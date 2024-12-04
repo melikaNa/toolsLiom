@@ -220,7 +220,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 3
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "buttonLiom.color",
@@ -263,7 +263,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "dialog.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "apiRequest2.data",
@@ -675,6 +675,48 @@ function PlasmicResult__RenderFunc(props: {
                               projectcss.__wab_text,
                               sty.text__nKnkj
                             )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["updateDialogOpen"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["dialog", "open"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateDialogOpen"] != null &&
+                                typeof $steps["updateDialogOpen"] ===
+                                  "object" &&
+                                typeof $steps["updateDialogOpen"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateDialogOpen"] = await $steps[
+                                  "updateDialogOpen"
+                                ];
+                              }
+                            }}
                           >
                             <React.Fragment>
                               {(() => {
@@ -1519,167 +1561,242 @@ function PlasmicResult__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox___55QU
+                            sty.freeBox__z6AUi
                           )}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__xvU
+                              sty.freeBox___55QU
                             )}
                           >
-                            <Paziresh24Avatar
-                              badge={"check"}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.paziresh24Avatar__ppn9L
-                              )}
-                              ring={"green"}
-                            />
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ncdy0
-                            )}
-                          >
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox___8Mbe
+                                sty.freeBox__xvU
                               )}
                             >
-                              <PlasmicLink__
-                                data-plasmic-name={"link"}
-                                data-plasmic-override={overrides.link}
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.a,
-                                  sty.link
-                                )}
-                                component={Link}
-                                platform={"nextjs"}
-                              >
-                                <h2
-                                  data-plasmic-name={"h2"}
-                                  data-plasmic-override={overrides.h2}
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h2,
-                                    projectcss.__wab_text,
-                                    sty.h2
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.title;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "You won't believe what happens next.";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </h2>
-                              </PlasmicLink__>
-                              <Paziresh24LineClamp
-                                data-plasmic-name={"paziresh24LineClamp"}
-                                data-plasmic-override={
-                                  overrides.paziresh24LineClamp
-                                }
+                              <Paziresh24Avatar
+                                alt={(() => {
+                                  try {
+                                    return currentItem.title;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                                badge={"check"}
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.paziresh24LineClamp
+                                  sty.paziresh24Avatar__ppn9L
                                 )}
-                              >
-                                <span
-                                  data-plasmic-name={"cardSubtitle"}
-                                  data-plasmic-override={overrides.cardSubtitle}
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.span,
-                                    projectcss.__wab_text,
-                                    sty.cardSubtitle
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return undefined;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </span>
-                              </Paziresh24LineClamp>
+                                ring={"green"}
+                                src={(() => {
+                                  try {
+                                    return `https://cdn.paziresh24.com${currentItem.image}`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ncdy0
+                              )}
+                            >
                               <Stack__
                                 as={"div"}
                                 hasGap={true}
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__vhDZa
+                                  sty.freeBox___8Mbe
                                 )}
                               >
-                                <Icon116Icon
+                                <PlasmicLink__
+                                  data-plasmic-name={"link"}
+                                  data-plasmic-override={overrides.link}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg___4UogS
+                                    projectcss.a,
+                                    sty.link
                                   )}
-                                  role={"img"}
-                                />
+                                  component={Link}
+                                  platform={"nextjs"}
+                                >
+                                  <h2
+                                    data-plasmic-name={"h2"}
+                                    data-plasmic-override={overrides.h2}
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.h2,
+                                      projectcss.__wab_text,
+                                      sty.h2
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentItem.title;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "You won't believe what happens next.";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </h2>
+                                </PlasmicLink__>
+                                <Paziresh24LineClamp
+                                  data-plasmic-name={"paziresh24LineClamp"}
+                                  data-plasmic-override={
+                                    overrides.paziresh24LineClamp
+                                  }
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.paziresh24LineClamp
+                                  )}
+                                >
+                                  <span
+                                    data-plasmic-name={"cardSubtitle"}
+                                    data-plasmic-override={
+                                      overrides.cardSubtitle
+                                    }
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.span,
+                                      projectcss.__wab_text,
+                                      sty.cardSubtitle
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentItem.display_expertise.replace(
+                                            /([^،])،([^،])/g,
+                                            "$1، $2"
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </span>
+                                </Paziresh24LineClamp>
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__vhDZa
+                                  )}
+                                >
+                                  <Icon116Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg___4UogS
+                                    )}
+                                    role={"img"}
+                                  />
 
-                                <span
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.span,
-                                    projectcss.__wab_text,
-                                    sty.span__w7U14
-                                  )}
-                                >
-                                  {" fggfgf"}
-                                </span>
-                                <span
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.span,
-                                    projectcss.__wab_text,
-                                    sty.span__lTyi
-                                  )}
-                                >
-                                  {"(376 \u0646\u0638\u0631)"}
-                                </span>
+                                  <span
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.span,
+                                      projectcss.__wab_text,
+                                      sty.span__w7U14
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentItem.satisfaction %
+                                            20 ===
+                                            0
+                                            ? currentItem.satisfaction / 20
+                                            : (currentItem.satisfaction / 20)
+                                                .toFixed(1)
+                                                .replace(".0", "");
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return " fggfgf";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </span>
+                                  <span
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.span,
+                                      projectcss.__wab_text,
+                                      sty.span__lTyi
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return `(${currentItem.rates_count} نظر)`;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "(376 \u0646\u0638\u0631)";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </span>
+                                </Stack__>
                               </Stack__>
-                            </Stack__>
+                            </div>
                           </div>
+                          <Alert
+                            className={classNames(
+                              "__wab_instance",
+                              sty.alert__bdt9J
+                            )}
+                            error={true}
+                            hasIcon={true}
+                            text={
+                              "\u062a\u0636\u0645\u06cc\u0646 \u0628\u0627\u0632\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u0627\u0631\u0636\u0627\u06cc\u062a\u06cc"
+                            }
+                          />
                         </div>
-                        <Alert
-                          className={classNames(
-                            "__wab_instance",
-                            sty.alert__bdt9J
-                          )}
-                          error={true}
-                          hasIcon={true}
-                          text={
-                            "\u062a\u0636\u0645\u06cc\u0646 \u0628\u0627\u0632\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0628\u0644\u063a \u0648\u06cc\u0632\u06cc\u062a \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u0627\u0631\u0636\u0627\u06cc\u062a\u06cc"
-                          }
-                        />
-
                         <Paziresh24Button
                           children2={
                             <React.Fragment>
@@ -1703,6 +1820,49 @@ function PlasmicResult__RenderFunc(props: {
                             "__wab_instance",
                             sty.paziresh24Button__hZeLs
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["goToPage"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return `/booking/${currentItem.slug}/?centerId=5532&skipTimeSelectStep=true`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["goToPage"] != null &&
+                              typeof $steps["goToPage"] === "object" &&
+                              typeof $steps["goToPage"].then === "function"
+                            ) {
+                              $steps["goToPage"] = await $steps["goToPage"];
+                            }
+                          }}
                         />
 
                         <Paziresh24Button
@@ -1767,6 +1927,7 @@ function PlasmicResult__RenderFunc(props: {
             className={classNames("__wab_instance", sty.dialog)}
             onOpenChange={generateStateOnChangeProp($state, ["dialog", "open"])}
             open={generateStateValueProp($state, ["dialog", "open"])}
+            title={null}
             trigger={null}
           />
         </div>
