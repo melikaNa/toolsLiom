@@ -2078,6 +2078,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             strokeWidth={
               hasVariant(globalVariants, "screen", "mobileOnly") ? 5 : 6
             }
+            successPercent={undefined}
             type={"line"}
           />
 
