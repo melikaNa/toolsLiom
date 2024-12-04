@@ -702,7 +702,7 @@ function PlasmicResult__RenderFunc(props: {
                           ) : null}
                           {(() => {
                             try {
-                              return currentItem.action == "#doctor";
+                              return currentItem.action != "";
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -992,7 +992,7 @@ function PlasmicResult__RenderFunc(props: {
                           </div>
                           {(() => {
                             try {
-                              return currentItem.badge != null;
+                              return currentItem.badg != null;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1050,7 +1050,7 @@ function PlasmicResult__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return currentItem.badge;
+                                      return currentItem.badg;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
