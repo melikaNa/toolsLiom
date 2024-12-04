@@ -992,7 +992,7 @@ function PlasmicResult__RenderFunc(props: {
                           </div>
                           {(() => {
                             try {
-                              return currentItem.badg != null;
+                              return currentItem.badge != null;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1050,7 +1050,7 @@ function PlasmicResult__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return currentItem.badg;
+                                      return currentItem.badge;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
