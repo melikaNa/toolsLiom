@@ -60,6 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import Backgrond from "../../Backgrond"; // plasmic-import: nqaGqDTn_cay/component
@@ -100,6 +105,8 @@ import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSD
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 import Icon113Icon from "./icons/PlasmicIcon__Icon113"; // plasmic-import: 2DtIAeAc823f/icon
 import Icon116Icon from "./icons/PlasmicIcon__Icon116"; // plasmic-import: uviv-WPVJzuw/icon
+import Icon118Icon from "./icons/PlasmicIcon__Icon118"; // plasmic-import: DnG_0B8ScC9o/icon
+import Icon117Icon from "./icons/PlasmicIcon__Icon117"; // plasmic-import: v74DW-fSFwuD/icon
 
 import { random as __lib_lodash__random } from "lodash";
 
@@ -298,6 +305,8 @@ function PlasmicResult__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     theme: useTheme(),
@@ -568,7 +577,9 @@ function PlasmicResult__RenderFunc(props: {
           </HeaderLiom>
           {(() => {
             try {
-              return $state.level == 3;
+              return (
+                $state.apiRequest.data && $state.apiRequest.data.our_message
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -895,7 +906,9 @@ function PlasmicResult__RenderFunc(props: {
           </div>
           {(() => {
             try {
-              return $state.level == 3;
+              return (
+                $state.apiRequest.data && $state.apiRequest.data.our_message
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1471,7 +1484,9 @@ function PlasmicResult__RenderFunc(props: {
 
           {(() => {
             try {
-              return $state.level == 3;
+              return (
+                $state.apiRequest.data && $state.apiRequest.data.our_message
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2011,6 +2026,90 @@ function PlasmicResult__RenderFunc(props: {
             title={null}
             trigger={null}
           />
+
+          {(() => {
+            try {
+              return (
+                !$state.apiRequest.loading &&
+                !($state.apiRequest.data && $state.apiRequest.data.our_message)
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__iL8Gu)}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__k4ZuN)}>
+                <Icon118Icon
+                  className={classNames(projectcss.all, sty.svg__e4MpW)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__c0Uj
+                  )}
+                >
+                  {
+                    "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                  }
+                </div>
+              </div>
+              <Paziresh24Button
+                children2={
+                  "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
+                }
+                className={classNames(
+                  "__wab_instance",
+                  sty.paziresh24Button__q7Gs
+                )}
+                color={"softGreen"}
+                endIcon={
+                  <Icon117Icon
+                    className={classNames(projectcss.all, sty.svg__q7RiQ)}
+                    role={"img"}
+                  />
+                }
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["refreshData"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          queryInvalidation: ["plasmic_refresh_all"]
+                        };
+                        return (async ({ queryInvalidation }) => {
+                          if (!queryInvalidation) {
+                            return;
+                          }
+                          await plasmicInvalidate(queryInvalidation);
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["refreshData"] != null &&
+                    typeof $steps["refreshData"] === "object" &&
+                    typeof $steps["refreshData"].then === "function"
+                  ) {
+                    $steps["refreshData"] = await $steps["refreshData"];
+                  }
+                }}
+                shape={"rounded"}
+                showEndIcon={true}
+              />
+            </Stack__>
+          ) : null}
         </div>
       </div>
     </React.Fragment>

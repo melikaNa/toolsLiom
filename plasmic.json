@@ -3089,6 +3089,16 @@
           "id": "uviv-WPVJzuw",
           "name": "Icon116Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon116.tsx"
+        },
+        {
+          "id": "v74DW-fSFwuD",
+          "name": "Icon117Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon117.tsx"
+        },
+        {
+          "id": "DnG_0B8ScC9o",
+          "name": "Icon118Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon118.tsx"
         }
       ],
       "images": [
