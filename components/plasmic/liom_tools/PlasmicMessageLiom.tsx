@@ -70,6 +70,7 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJp
 import sty from "./PlasmicMessageLiom.module.css"; // plasmic-import: xCdoITDvZVKn/css
 
 import Icon109Icon from "./icons/PlasmicIcon__Icon109"; // plasmic-import: FdWVKA90TGYv/icon
+import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
 
 createPlasmicElementProxy;
 
@@ -96,11 +97,13 @@ export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
 export type PlasmicMessageLiom__ArgsType = {
   children?: React.ReactNode;
   children2?: React.ReactNode;
+  slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicMessageLiom__ArgsType;
 export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
   "children",
-  "children2"
+  "children2",
+  "slot"
 );
 
 export type PlasmicMessageLiom__OverridesType = {
@@ -112,6 +115,7 @@ export type PlasmicMessageLiom__OverridesType = {
 export interface DefaultMessageLiomProps {
   children?: React.ReactNode;
   children2?: React.ReactNode;
+  slot?: React.ReactNode;
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
   liomAnswer?: SingleBooleanChoiceArg<"liomAnswer">;
   loadingMessage?: SingleBooleanChoiceArg<"loadingMessage">;
@@ -376,6 +380,26 @@ function PlasmicMessageLiom__RenderFunc(props: {
             role={"img"}
           />
         ) : null}
+        <div
+          className={classNames(projectcss.all, sty.freeBox__q3Toq, {
+            [sty.freeBoxpazireshAnswer__q3ToqyPoRs]: hasVariant(
+              $state,
+              "pazireshAnswer",
+              "pazireshAnswer"
+            )
+          })}
+        >
+          {renderPlasmicSlot({
+            defaultContents: (
+              <Icon119Icon
+                className={classNames(projectcss.all, sty.svg__l4GC)}
+                role={"img"}
+              />
+            ),
+
+            value: args.slot
+          })}
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;

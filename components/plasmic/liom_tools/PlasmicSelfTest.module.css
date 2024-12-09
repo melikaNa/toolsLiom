@@ -88,6 +88,18 @@
 .text___91S8B {
   text-align: right;
 }
+.svg__fCcuL {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-WxvvgatuPYoJ);
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  display: none;
+}
 .freeBox__ssEaT {
   display: flex;
   flex-direction: row;

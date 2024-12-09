@@ -1,7 +1,6 @@
 .root {
   display: flex;
   flex-direction: row;
-  position: relative;
   width: 100%;
   height: auto;
   min-width: 0;
@@ -41,13 +40,13 @@
 }
 .freeBox__pSGqD {
   display: block;
-  position: relative;
   width: var(--token-6eH8UjLOmr7v);
   height: var(--token-6eH8UjLOmr7v);
   max-width: 100%;
   transform: translateX(0px) translateY(0px) translateZ(0px);
   transition-property: all;
   transition-duration: 1s;
+  position: relative;
   flex-shrink: 0;
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;

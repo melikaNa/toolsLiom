@@ -86,6 +86,7 @@ import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicSelfTest.module.css"; // plasmic-import: 5IOCSv5V9vzY/css
 
+import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
@@ -649,6 +650,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    slot={
+                      <Icon119Icon
+                        className={classNames(projectcss.all, sty.svg__fCcuL)}
+                        role={"img"}
+                      />
+                    }
                   >
                     <div
                       className={classNames(

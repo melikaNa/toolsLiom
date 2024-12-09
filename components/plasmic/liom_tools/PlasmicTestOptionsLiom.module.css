@@ -28,6 +28,8 @@
 }
 .text__p0O {
   text-align: right;
+  width: 100%;
+  min-width: 0;
 }
 .paziresh24Button:global(.__wab_instance) {
   max-width: 100%;

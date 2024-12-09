@@ -15,6 +15,8 @@
 .rootpazireshAnswer {
   align-items: flex-start;
   justify-content: flex-start;
+  display: flex;
+  flex-direction: row;
 }
 .rootliomAnswer {
   align-items: flex-start;
@@ -171,4 +173,22 @@
   height: var(--token-RPGjJxLh3tUl);
   flex-shrink: 0;
   display: block;
+}
+.freeBox__q3Toq {
+  display: flex;
+  position: absolute;
+  left: -20px;
+  bottom: 0px;
+}
+.svg__l4GC {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-WxvvgatuPYoJ);
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  flex-shrink: 0;
 }

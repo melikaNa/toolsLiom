@@ -273,35 +273,11 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              onClick={async event => {
+              onClick={args.onClick24}
+              onClick2={async event => {
                 const $steps = {};
 
-                $steps["updateButton"] = $props.data.selectAll
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return $state.selectedIDs.indexOf(currentItem.id) ==
-                            -1
-                            ? $state.selectedIDs.push(currentItem.id)
-                            : ($state.selectedIDs = $state.selectedIDs.filter(
-                                item => item !== currentItem.id
-                              ));
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateButton"] != null &&
-                  typeof $steps["updateButton"] === "object" &&
-                  typeof $steps["updateButton"].then === "function"
-                ) {
-                  $steps["updateButton"] = await $steps["updateButton"];
-                }
-
-                $steps["updateSelectedIDs2"] = !$props.data.selectAll
+                $steps["updateSelectedIDs"] = true
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -328,12 +304,51 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["updateSelectedIDs2"] != null &&
-                  typeof $steps["updateSelectedIDs2"] === "object" &&
-                  typeof $steps["updateSelectedIDs2"].then === "function"
+                  $steps["updateSelectedIDs"] != null &&
+                  typeof $steps["updateSelectedIDs"] === "object" &&
+                  typeof $steps["updateSelectedIDs"].then === "function"
                 ) {
-                  $steps["updateSelectedIDs2"] = await $steps[
-                    "updateSelectedIDs2"
+                  $steps["updateSelectedIDs"] = await $steps[
+                    "updateSelectedIDs"
+                  ];
+                }
+              }}
+              onTouchStart={async event => {
+                const $steps = {};
+
+                $steps["updateSelectedIDs"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["selectedIDs"]
+                        },
+                        operation: 0,
+                        value: [currentItem.id]
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSelectedIDs"] != null &&
+                  typeof $steps["updateSelectedIDs"] === "object" &&
+                  typeof $steps["updateSelectedIDs"].then === "function"
+                ) {
+                  $steps["updateSelectedIDs"] = await $steps[
+                    "updateSelectedIDs"
                   ];
                 }
               }}
@@ -376,6 +391,45 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                   projectcss.__wab_text,
                   sty.text__p0O
                 )}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSelectedIDs"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["selectedIDs"]
+                          },
+                          operation: 0,
+                          value: [currentItem.id]
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSelectedIDs"] != null &&
+                    typeof $steps["updateSelectedIDs"] === "object" &&
+                    typeof $steps["updateSelectedIDs"].then === "function"
+                  ) {
+                    $steps["updateSelectedIDs"] = await $steps[
+                      "updateSelectedIDs"
+                    ];
+                  }
+                }}
               >
                 <React.Fragment>{currentItem.text}</React.Fragment>
               </div>
@@ -385,7 +439,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
       </div>
       {(() => {
         try {
-          return $props.app != "liom";
+          return $props.app != "liom" && $props.ferst == false;
         } catch (e) {
           if (
             e instanceof TypeError ||
@@ -464,7 +518,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
       ) : null}
       {(() => {
         try {
-          return $props.app == "liom";
+          return $props.app == "liom" && $props.ferst == false;
         } catch (e) {
           if (
             e instanceof TypeError ||
