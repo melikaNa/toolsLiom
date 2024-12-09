@@ -95,6 +95,7 @@ export type PlasmicTestOptionsLiom__ArgsType = {
   retestTest?: boolean;
   app?: string;
   onClickliom?: (event: any) => void;
+  children?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicTestOptionsLiom__ArgsType;
 export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
@@ -105,12 +106,12 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
   "ferst",
   "retestTest",
   "app",
-  "onClickliom"
+  "onClickliom",
+  "children"
 );
 
 export type PlasmicTestOptionsLiom__OverridesType = {
   root?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
   optionItemLiom?: Flex__<typeof OptionItemLiom>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   button?: Flex__<typeof ButtonLiom>;
@@ -125,6 +126,7 @@ export interface DefaultTestOptionsLiomProps {
   retestTest?: boolean;
   app?: string;
   onClickliom?: (event: any) => void;
+  children?: React.ReactNode;
   className?: string;
 }
 
@@ -162,8 +164,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
               { id: 51, t1: "gozineh1   rergregrg" }
             ]
           },
-          ferst: false,
-          retestTest: false
+          ferst: true,
+          retestTest: true
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -232,11 +234,15 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         sty.root
       )}
     >
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
-      >
+      <div className={classNames(projectcss.all, sty.freeBox__rHKq5)}>
+        {renderPlasmicSlot({
+          defaultContents:
+            "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u067e\u0627\u0633\u062e ! \u0644\u0637\u0641\u0627 \u06af\u0632\u06cc\u0646\u0647 \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.",
+          value: args.children,
+          className: classNames(sty.slotTargetChildren)
+        })}
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox__yDt3R)}>
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
@@ -439,7 +445,11 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
       </div>
       {(() => {
         try {
-          return $props.app != "liom" && $props.ferst == false;
+          return (
+            $props.app !== "liom" &&
+            ($props.ferst === false ||
+              ($props.ferst === true && $props.retestTest === false))
+          );
         } catch (e) {
           if (
             e instanceof TypeError ||
@@ -581,8 +591,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "optionItemLiom", "paziresh24Button", "button"],
-  freeBox: ["freeBox", "optionItemLiom"],
+  root: ["root", "optionItemLiom", "paziresh24Button", "button"],
   optionItemLiom: ["optionItemLiom"],
   paziresh24Button: ["paziresh24Button"],
   button: ["button"]
@@ -592,7 +601,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
   optionItemLiom: typeof OptionItemLiom;
   paziresh24Button: typeof Paziresh24Button;
   button: typeof ButtonLiom;
@@ -658,7 +666,6 @@ export const PlasmicTestOptionsLiom = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
     optionItemLiom: makeNodeComponent("optionItemLiom"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     button: makeNodeComponent("button"),

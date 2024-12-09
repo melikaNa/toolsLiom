@@ -14,7 +14,22 @@
   min-width: 0;
   padding: var(--token-6eH8UjLOmr7v);
 }
-.freeBox {
+.freeBox__rHKq5 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: flex-start;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+.slotTargetChildren {
+  font-weight: 700;
+  text-align: right;
+}
+.freeBox__yDt3R {
   display: flex;
   flex-direction: column;
   width: 100%;

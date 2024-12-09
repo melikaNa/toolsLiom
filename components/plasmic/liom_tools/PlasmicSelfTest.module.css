@@ -98,7 +98,7 @@
   left: auto;
   top: auto;
   bottom: auto;
-  display: none;
+  transform: translateX(-1px) translateY(0px) translateZ(0px);
 }
 .freeBox__ssEaT {
   display: flex;
@@ -133,6 +133,12 @@
   right: auto;
   bottom: auto;
   height: auto;
+  min-width: 0;
+}
+.text__m0ODd {
+  text-align: right;
+  width: 100%;
+  color: #535353;
   min-width: 0;
 }
 .freeBox__qtre0 {
