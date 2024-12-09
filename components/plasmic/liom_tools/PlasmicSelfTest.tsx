@@ -667,7 +667,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 .find(item => item.from === "user") || false;
                             return (
                               lastUserMessage &&
-                              lastUserMessage.text === currentItem.text &&
+                              lastUserMessage.id === currentItem.id &&
                               currentItem.text != "شروع کنیم."
                             );
                           })();
@@ -1016,6 +1016,22 @@ function PlasmicSelfTest__RenderFunc(props: {
                             customFunction: async () => {
                               return (() => {
                                 $state.testChat.push({
+                                  id:
+                                    $state.testOptionsLiom.selectedIDs
+                                      .length !== 0
+                                      ? $state.testOptionsLiom.selectedIDs
+                                          .map(
+                                            id =>
+                                              $state.testChat[
+                                                $state.testChat.length - 1
+                                              ].options.filter(
+                                                option => option.id === id
+                                              )[0]?.id
+                                          )
+                                          .join(" \n ")
+                                      : $state.testChat[
+                                          $state.testChat.length - 1
+                                        ].options[0]?.id,
                                   text:
                                     $state.testOptionsLiom.selectedIDs
                                       .length !== 0
