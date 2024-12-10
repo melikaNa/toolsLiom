@@ -77,6 +77,7 @@ import {
   useUnnamedGlobalGroupOfVariants
 } from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants"; // plasmic-import: gDFLJp69n7ET/globalVariant
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
+import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -90,6 +91,9 @@ import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtC
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
+import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: frqiW1UAlfdr/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
+import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: VTuVNgeUH3X6/icon
 
 createPlasmicElementProxy;
 
@@ -110,6 +114,8 @@ export type PlasmicSelfTest__OverridesType = {
   testOptionsLiom?: Flex__<typeof TestOptionsLiom>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
+  button2?: Flex__<typeof ButtonLiom>;
+  button3?: Flex__<typeof ButtonLiom>;
   progress?: Flex__<typeof AntdProgress>;
   timer?: Flex__<typeof Timer>;
   user?: Flex__<typeof ApiRequest>;
@@ -460,6 +466,18 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "green"
       }
     ],
     [$props, $ctx, $refs]
@@ -473,7 +491,8 @@ function PlasmicSelfTest__RenderFunc(props: {
 
   const globalVariants = ensureGlobalVariants({
     unnamedGlobalGroupOfVariants: useUnnamedGlobalGroupOfVariants(),
-    screen: useScreenVariantsqiBuxNlixBgQ()
+    screen: useScreenVariantsqiBuxNlixBgQ(),
+    screen: useScreenVariantsyg4Uf6WCaaLe()
   });
 
   return (
@@ -669,7 +688,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                               lastUserMessage &&
                               lastUserMessage.id === currentItem.id &&
                               currentItem.text != "شروع کنیم." &&
-                              currentItem.text != "ادامه گفتگو"
+                              currentItem.text != "ادامه گفتگو" &&
+                              $state.retestTest == true
                             );
                           })();
                         } catch (e) {
@@ -1717,8 +1737,8 @@ function PlasmicSelfTest__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    $state.variable.question?.lock === 1 &&
-                    $ctx.query.app === "liom"
+                    $state.variable.question?.lock == 1 &&
+                    $ctx.query.app == "liom"
                   );
                 } catch (e) {
                   if (
@@ -2344,6 +2364,278 @@ function PlasmicSelfTest__RenderFunc(props: {
               ) : null}
             </Reveal>
           </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__mF86D,
+              "selectBox"
+            )}
+          >
+            <Reveal
+              big={true}
+              className={classNames("__wab_instance", sty.reveal___8PZJt)}
+              direction={"up"}
+              triggerOnce={true}
+            >
+              {(() => {
+                try {
+                  return $ctx.query.status == "false";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__gpNit)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___60P5P)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___4V5E2
+                      )}
+                    >
+                      <EmojiSadSquareSvgrepoComSvgIcon
+                        className={classNames(projectcss.all, sty.svg___3Bzdx)}
+                        role={"img"}
+                      />
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__dwtdu)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___4KOyK
+                        )}
+                      >
+                        {
+                          "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__dbYkD
+                        )}
+                      >
+                        {
+                          "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f . "
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__sFt8
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "\u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc >"
+                          : "Enter some text"}
+                      </div>
+                    </div>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__uq9Xa)}
+                    >
+                      <ButtonLiom
+                        data-plasmic-name={"button2"}
+                        data-plasmic-override={overrides.button2}
+                        className={classNames("__wab_instance", sty.button2)}
+                        color={generateStateValueProp($state, [
+                          "button2",
+                          "color"
+                        ])}
+                        endIcon={
+                          <Icon12Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__gbyTu
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        onColorChange={(...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button2",
+                            "color"
+                          ])(eventArgs[0]);
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__uMRn
+                          )}
+                        >
+                          {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
+                        </div>
+                      </ButtonLiom>
+                    </Stack__>
+                  </Stack__>
+                </Stack__>
+              ) : null}
+              {(() => {
+                try {
+                  return $ctx.query.status == "true";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__bEXdF)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__gd2U)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___5JxJ9
+                      )}
+                    >
+                      <EmojiHappySquareSvgrepoComSvg2Icon
+                        className={classNames(projectcss.all, sty.svg__vHyEk)}
+                        role={"img"}
+                      />
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___8Dz03
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__y5K4A
+                        )}
+                      >
+                        {
+                          "\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__b4Mg3
+                        )}
+                      >
+                        {
+                          "\u0627\u0632 \u062e\u0631\u06cc\u062f \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645. \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u06a9\u0646\u0648\u0646 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a \u0648 \u0627\u0632 \u0627\u06cc\u0646 \u067e\u0633 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a\u0627\u0646 \u0631\u0627 \u0627\u0632 \u0644\u06cc\u0648\u0645 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f."
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__g8LmD
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "\u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc >"
+                          : "Enter some text"}
+                      </div>
+                    </div>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__iUi6R)}
+                    >
+                      <ButtonLiom
+                        data-plasmic-name={"button3"}
+                        data-plasmic-override={overrides.button3}
+                        className={classNames("__wab_instance", sty.button3)}
+                        color={generateStateValueProp($state, [
+                          "button3",
+                          "color"
+                        ])}
+                        endIcon={
+                          <Icon12Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__j4U1T
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return ($ctx.query.status =
+                                        "another value");
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                        onColorChange={(...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button3",
+                            "color"
+                          ])(eventArgs[0]);
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__id937
+                          )}
+                        >
+                          {"\u062a\u0627\u06cc\u06cc\u062f"}
+                        </div>
+                      </ButtonLiom>
+                    </Stack__>
+                  </Stack__>
+                </Stack__>
+              ) : null}
+            </Reveal>
+          </div>
           <AntdProgress
             data-plasmic-name={"progress"}
             data-plasmic-override={overrides.progress}
@@ -2688,6 +2980,8 @@ const PlasmicDescendants = {
     "testOptionsLiom",
     "buttonLiom",
     "paziresh24Button",
+    "button2",
+    "button3",
     "progress",
     "timer",
     "user",
@@ -2699,6 +2993,8 @@ const PlasmicDescendants = {
   testOptionsLiom: ["testOptionsLiom"],
   buttonLiom: ["buttonLiom"],
   paziresh24Button: ["paziresh24Button"],
+  button2: ["button2"],
+  button3: ["button3"],
   progress: ["progress"],
   timer: ["timer"],
   user: ["user"],
@@ -2715,6 +3011,8 @@ type NodeDefaultElementType = {
   testOptionsLiom: typeof TestOptionsLiom;
   buttonLiom: typeof ButtonLiom;
   paziresh24Button: typeof Paziresh24Button;
+  button2: typeof ButtonLiom;
+  button3: typeof ButtonLiom;
   progress: typeof AntdProgress;
   timer: typeof Timer;
   user: typeof ApiRequest;
@@ -2812,6 +3110,8 @@ export const PlasmicSelfTest = Object.assign(
     testOptionsLiom: makeNodeComponent("testOptionsLiom"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
+    button2: makeNodeComponent("button2"),
+    button3: makeNodeComponent("button3"),
     progress: makeNodeComponent("progress"),
     timer: makeNodeComponent("timer"),
     user: makeNodeComponent("user"),

@@ -528,7 +528,11 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
       ) : null}
       {(() => {
         try {
-          return $props.app == "liom" && $props.ferst == false;
+          return (
+            $props.app == "liom" &&
+            ($props.ferst === false ||
+              ($props.ferst === true && $props.retestTest === false))
+          );
         } catch (e) {
           if (
             e instanceof TypeError ||
