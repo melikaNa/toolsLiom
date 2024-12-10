@@ -2030,7 +2030,7 @@ function PlasmicResult__RenderFunc(props: {
           {(() => {
             try {
               return (
-                $state.apiRequest.loading &&
+                $state.level == 3 &&
                 !($state.apiRequest.data && $state.apiRequest.data.our_message)
               );
             } catch (e) {
