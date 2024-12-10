@@ -2051,13 +2051,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   let b = $state.testChat;
-                                  localStorage.setItem(
+                                  return localStorage.setItem(
                                     "test",
                                     JSON.stringify(b)
-                                  );
-                                  return localStorage.setItem(
-                                    "numberTest",
-                                    $state.numberTest.toString()
                                   );
                                 })();
                               }
@@ -3071,9 +3067,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 $ctx.query.nextQuesion_id != null ||
                                 $ctx.query.nextQuesion_id != ""
                               )
-                                return ($state.numberTest = parseInt(
-                                  localStorage.getItem("numberTest")
-                                ));
+                                return ($state.numberTest = 10);
                             } else if (
                               $ctx.query.type != null ||
                               $ctx.query.type != undefined
