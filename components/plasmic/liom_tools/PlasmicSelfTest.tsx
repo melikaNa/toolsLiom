@@ -932,7 +932,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                       null &&
                     !(
                       $state.variable.question.lock == 1 &&
-                      $ctx.query.app == "liom"
+                      $ctx.query.app == "liom" &&
+                      !$ctx.query.buy
                     ) &&
                     $state.nextQuesionId != -1
                   );
