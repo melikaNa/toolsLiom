@@ -668,7 +668,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                             return (
                               lastUserMessage &&
                               lastUserMessage.id === currentItem.id &&
-                              currentItem.text != "شروع کنیم."
+                              currentItem.text != "شروع کنیم." &&
+                              currentItem.text != "ادامه گفتگو"
                             );
                           })();
                         } catch (e) {
@@ -681,138 +682,185 @@ function PlasmicSelfTest__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <Icon119Icon
-                          className={classNames(projectcss.all, sty.svg__fCcuL)}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateEdit"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["edit"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateEdit"] != null &&
-                              typeof $steps["updateEdit"] === "object" &&
-                              typeof $steps["updateEdit"].then === "function"
-                            ) {
-                              $steps["updateEdit"] = await $steps["updateEdit"];
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__c1Ue
+                          )}
+                        >
+                          {(() => {
+                            try {
+                              return (() => {
+                                const lastUserMessage =
+                                  $state.testChat
+                                    .slice()
+                                    .reverse()
+                                    .find(item => item.from === "user") ||
+                                  false;
+                                return (
+                                  lastUserMessage &&
+                                  lastUserMessage.id === currentItem.id &&
+                                  currentItem.text != "شروع کنیم."
+                                );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
                             }
+                          })() ? (
+                            <Icon119Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__fCcuL
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
 
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        const reversedIndex = $state.testChat
-                                          .slice()
-                                          .reverse()
-                                          .findIndex(item => item.question);
-                                        if (reversedIndex !== -1) {
-                                          const originalIndex =
-                                            $state.testChat.length -
-                                            1 -
-                                            reversedIndex;
-                                          const previousReversedIndex =
-                                            $state.testChat
-                                              .slice(0, originalIndex)
-                                              .reverse()
-                                              .findIndex(item => item.question);
-                                          if (previousReversedIndex !== -1) {
-                                            const previousOriginalIndex =
-                                              originalIndex -
-                                              1 -
-                                              previousReversedIndex;
-                                            return $state.testChat.splice(
-                                              previousOriginalIndex + 1
-                                            );
-                                          }
+                                $steps["updateEdit"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["edit"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
                                         }
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
+                                        const { objRoot, variablePath } =
+                                          variable;
 
-                            $steps["invokeGlobalAction"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "PUT",
-                                      "https://n8n.staas.ir/webhook/selfTestLogs",
-                                      undefined,
-                                      (() => {
-                                        try {
-                                          return {
-                                            session_id: $state.sessionId,
-                                            question_id:
-                                              $state.testChat[
-                                                $state.testChat.length - 1
-                                              ].question.id
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateEdit"] != null &&
+                                  typeof $steps["updateEdit"] === "object" &&
+                                  typeof $steps["updateEdit"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateEdit"] = await $steps[
+                                    "updateEdit"
+                                  ];
+                                }
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            const reversedIndex =
+                                              $state.testChat
+                                                .slice()
+                                                .reverse()
+                                                .findIndex(
+                                                  item => item.question
+                                                );
+                                            if (reversedIndex !== -1) {
+                                              const originalIndex =
+                                                $state.testChat.length -
+                                                1 -
+                                                reversedIndex;
+                                              const previousReversedIndex =
+                                                $state.testChat
+                                                  .slice(0, originalIndex)
+                                                  .reverse()
+                                                  .findIndex(
+                                                    item => item.question
+                                                  );
+                                              if (
+                                                previousReversedIndex !== -1
+                                              ) {
+                                                const previousOriginalIndex =
+                                                  originalIndex -
+                                                  1 -
+                                                  previousReversedIndex;
+                                                return $state.testChat.splice(
+                                                  previousOriginalIndex + 1
+                                                );
+                                              }
+                                            }
+                                          })();
                                         }
-                                      })()
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.apiRequest"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
-                            ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
-                            }
-                          }}
-                          role={"img"}
-                        />
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["invokeGlobalAction"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "PUT",
+                                          "https://n8n.staas.ir/webhook/selfTestLogs",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                session_id: $state.sessionId,
+                                                question_id:
+                                                  $state.testChat[
+                                                    $state.testChat.length - 1
+                                                  ].question.id
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] = await $steps[
+                                    "invokeGlobalAction"
+                                  ];
+                                }
+                              }}
+                              role={"img"}
+                            />
+                          ) : null}
+                        </div>
                       ) : null
                     }
                   >
@@ -1621,6 +1669,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                     "testOptionsLiom",
                     "selectedIDs"
                   ])}
+                  retestTest={(() => {
+                    try {
+                      return $state.retestTest;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })()}
                   selectedIDs={generateStateValueProp($state, [
                     "testOptionsLiom",
                     "selectedIDs"
@@ -1656,8 +1717,8 @@ function PlasmicSelfTest__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    $state.variable.question.lock == 1 &&
-                    $ctx.query.app == "liom"
+                    $state.variable.question?.lock === 1 &&
+                    $ctx.query.app === "liom"
                   );
                 } catch (e) {
                   if (
