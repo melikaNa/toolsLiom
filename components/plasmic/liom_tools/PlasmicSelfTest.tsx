@@ -92,8 +92,8 @@ import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: frqiW1UAlfdr/icon
-import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
 import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: VTuVNgeUH3X6/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
 
 createPlasmicElementProxy;
 
@@ -114,7 +114,7 @@ export type PlasmicSelfTest__OverridesType = {
   testOptionsLiom?: Flex__<typeof TestOptionsLiom>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
-  button2?: Flex__<typeof ButtonLiom>;
+  buttonLiom2?: Flex__<typeof ButtonLiom>;
   button3?: Flex__<typeof ButtonLiom>;
   progress?: Flex__<typeof AntdProgress>;
   timer?: Flex__<typeof Timer>;
@@ -468,16 +468,16 @@ function PlasmicSelfTest__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "button2.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
-      },
-      {
         path: "button3.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "green"
+      },
+      {
+        path: "buttonLiom2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2046,9 +2046,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   let b = $state.testChat;
-                                  return localStorage.setItem(
+                                  localStorage.setItem(
                                     "test",
                                     JSON.stringify(b)
+                                  );
+                                  return localStorage.setItem(
+                                    "numberTest",
+                                    $state.numberTest
                                   );
                                 })();
                               }
@@ -2454,38 +2458,250 @@ function PlasmicSelfTest__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.freeBox__uq9Xa)}
                     >
                       <ButtonLiom
-                        data-plasmic-name={"button2"}
-                        data-plasmic-override={overrides.button2}
-                        className={classNames("__wab_instance", sty.button2)}
+                        data-plasmic-name={"buttonLiom2"}
+                        data-plasmic-override={overrides.buttonLiom2}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.buttonLiom2
+                        )}
                         color={generateStateValueProp($state, [
-                          "button2",
+                          "buttonLiom2",
                           "color"
                         ])}
                         endIcon={
-                          <Icon12Icon
+                          <Icon111Icon
                             className={classNames(
                               projectcss.all,
-                              sty.svg__gbyTu
+                              sty.svg__o9Zkq
                             )}
                             role={"img"}
                           />
                         }
+                        isDisabled={(() => {
+                          try {
+                            return $state.loadinkBotten;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateLoadinkBotten"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loadinkBotten"]
+                                  },
+                                  operation: 0,
+                                  value: true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoadinkBotten"] != null &&
+                            typeof $steps["updateLoadinkBotten"] === "object" &&
+                            typeof $steps["updateLoadinkBotten"].then ===
+                              "function"
+                          ) {
+                            $steps["updateLoadinkBotten"] = await $steps[
+                              "updateLoadinkBotten"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://n8n.staas.ir/webhook/selfTest/shopBuy",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          id: "91d5973e-eefd-4753-a611-ac6d37357184",
+                                          offCode: "",
+                                          userId: $ctx.query.UserId,
+                                          refCode: "hrWgK5mZv",
+                                          redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    (() => {
+                                      try {
+                                        return {
+                                          headers: {
+                                            "Content-Type": "application/json",
+                                            Authorization:
+                                              $state.user.data.result.token
+                                          }
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["runCode"] =
+                            $steps.invokeGlobalAction?.data?.success == true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.open(
+                                        $steps.invokeGlobalAction.data.result,
+                                        "_self"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["updateLoadinkBotten2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loadinkBotten"]
+                                  },
+                                  operation: 0,
+                                  value: false
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoadinkBotten2"] != null &&
+                            typeof $steps["updateLoadinkBotten2"] ===
+                              "object" &&
+                            typeof $steps["updateLoadinkBotten2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateLoadinkBotten2"] = await $steps[
+                              "updateLoadinkBotten2"
+                            ];
+                          }
+                        }}
                         onColorChange={(...eventArgs) => {
                           generateStateOnChangeProp($state, [
-                            "button2",
+                            "buttonLiom2",
                             "color"
                           ])(eventArgs[0]);
                         }}
+                        showEndIcon={(() => {
+                          try {
+                            return $state.loadinkBotten;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "showEndIcon";
+                            }
+                            throw e;
+                          }
+                        })()}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__uMRn
-                          )}
-                        >
-                          {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
-                        </div>
+                        {(() => {
+                          try {
+                            return !$state.loadinkBotten;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__wSvu9
+                            )}
+                          >
+                            {
+                              "\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"
+                            }
+                          </div>
+                        ) : null}
                       </ButtonLiom>
                     </Stack__>
                   </Stack__>
@@ -2597,7 +2813,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     return (() => {
                                       var url = window.location.href;
                                       return (window.location.href =
-                                        url.split("&status")[0]);
+                                        url.split("&type=buy&status")[0]);
                                     })();
                                   }
                                 };
@@ -2841,7 +3057,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                           return (() => {
                             if ($ctx.query.type === "irregular") {
                               $state.totalTest = 50;
-                              return ($state.numberTest = 0);
+                              $state.numberTest = 0;
+                              if (
+                                $ctx.query.nextQuesion_id != null ||
+                                $ctx.query.nextQuesion_id != ""
+                              )
+                                return ($state.numberTest = parseInt(
+                                  localStorage.getItem("numberTest")
+                                ));
                             } else if (
                               $ctx.query.type != null ||
                               $ctx.query.type != undefined
@@ -2981,7 +3204,7 @@ const PlasmicDescendants = {
     "testOptionsLiom",
     "buttonLiom",
     "paziresh24Button",
-    "button2",
+    "buttonLiom2",
     "button3",
     "progress",
     "timer",
@@ -2994,7 +3217,7 @@ const PlasmicDescendants = {
   testOptionsLiom: ["testOptionsLiom"],
   buttonLiom: ["buttonLiom"],
   paziresh24Button: ["paziresh24Button"],
-  button2: ["button2"],
+  buttonLiom2: ["buttonLiom2"],
   button3: ["button3"],
   progress: ["progress"],
   timer: ["timer"],
@@ -3012,7 +3235,7 @@ type NodeDefaultElementType = {
   testOptionsLiom: typeof TestOptionsLiom;
   buttonLiom: typeof ButtonLiom;
   paziresh24Button: typeof Paziresh24Button;
-  button2: typeof ButtonLiom;
+  buttonLiom2: typeof ButtonLiom;
   button3: typeof ButtonLiom;
   progress: typeof AntdProgress;
   timer: typeof Timer;
@@ -3111,7 +3334,7 @@ export const PlasmicSelfTest = Object.assign(
     testOptionsLiom: makeNodeComponent("testOptionsLiom"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
-    button2: makeNodeComponent("button2"),
+    buttonLiom2: makeNodeComponent("buttonLiom2"),
     button3: makeNodeComponent("button3"),
     progress: makeNodeComponent("progress"),
     timer: makeNodeComponent("timer"),
