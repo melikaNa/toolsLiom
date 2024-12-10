@@ -2595,8 +2595,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      return ($ctx.query.status =
-                                        "another value");
+                                      var url = window.location.href;
+                                      return (window.location.href =
+                                        url.split("&status")[0]);
                                     })();
                                   }
                                 };
