@@ -2544,7 +2544,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                                           offCode: "",
                                           userId: $ctx.query.UserId,
                                           refCode: "hrWgK5mZv",
-                                          redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
+                                          redirectUrl:
+                                            window.location.href.split(
+                                              "&type=buy&status"
+                                            )[0]
                                         };
                                       } catch (e) {
                                         if (
