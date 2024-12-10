@@ -1380,7 +1380,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $state.ferst == false &&
                       !(
                         $steps.invokeGlobalAction?.data?.question?.lock == 1 &&
-                        $ctx.query.app == "liom"
+                        $ctx.query.app == "liom" &&
+                        !$ctx.query.buy
                       )
                         ? (() => {
                             const actionArgs = {
@@ -1437,7 +1438,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $state.ferst == true &&
                       !(
                         $steps.invokeGlobalAction2?.data?.question?.lock == 1 &&
-                        $ctx.query.app == "liom"
+                        $ctx.query.app == "liom" &&
+                        !$ctx.query.buy
                       )
                         ? (() => {
                             const actionArgs = {
@@ -1492,7 +1494,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ($steps.invokeGlobalAction2?.data?.question?.lock == 1 ||
                         $steps.invokeGlobalAction1?.data?.question?.lock ==
                           1) &&
-                      $ctx.query.app == "liom"
+                      $ctx.query.app == "liom" &&
+                      !$ctx.query.buy
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
@@ -1738,7 +1741,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                 try {
                   return (
                     $state.variable.question?.lock == 1 &&
-                    $ctx.query.app == "liom"
+                    $ctx.query.app == "liom" &&
+                    !$ctx.query.buy
                   );
                 } catch (e) {
                   if (
@@ -2052,7 +2056,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   );
                                   return localStorage.setItem(
                                     "numberTest",
-                                    $state.numberTest
+                                    $state.numberTest.toString()
                                   );
                                 })();
                               }
@@ -2816,7 +2820,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     return (() => {
                                       var url = window.location.href;
                                       return (window.location.href =
-                                        url.split("&type=buy&status")[0]);
+                                        url.split("&type=buy&status")[0] +
+                                        "&buy=true");
                                     })();
                                   }
                                 };
