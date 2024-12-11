@@ -176,9 +176,9 @@
 }
 .freeBox__q3Toq {
   display: flex;
-  position: absolute;
-  left: -20px;
-  bottom: 0px;
+  position: relative;
+  left: auto;
+  bottom: auto;
 }
 .svg__l4GC {
   object-fit: cover;

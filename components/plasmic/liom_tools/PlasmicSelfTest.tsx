@@ -3060,11 +3060,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            if ($ctx.query.type === "irregular") {
+                            if (
+                              $ctx.query.type === "irregular" ||
+                              $ctx.query.type.includes("irregular")
+                            ) {
                               $state.totalTest = 50;
                               $state.numberTest = 0;
                               if (
-                                $ctx.query.nextQuesion_id != null ||
+                                $ctx.query.nextQuesion_id != null &&
                                 $ctx.query.nextQuesion_id != ""
                               )
                                 return ($state.numberTest = 10);

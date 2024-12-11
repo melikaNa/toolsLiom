@@ -98,26 +98,24 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
-  height: auto;
+  width: 25px;
+  height: 25px;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
   top: auto;
   left: auto;
   bottom: auto;
-  background: var(--token-M8SHDPuEHkX2);
-  min-width: 0;
+  background: #ffffff82;
   border-radius: 100%;
   padding: 3px;
-  border-width: 1px;
 }
 .svg__fCcuL {
   object-fit: cover;
   max-width: 100%;
-  color: var(--token-WxvvgatuPYoJ);
-  width: 15px;
-  height: 15px;
+  color: var(--token--fsPf0hcXOpA);
+  width: 20px;
+  height: 20px;
   transform: translateX(-1px) translateY(0px) translateZ(0px);
   flex-shrink: 0;
 }

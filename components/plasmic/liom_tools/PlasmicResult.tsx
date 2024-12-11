@@ -134,6 +134,7 @@ export type PlasmicResult__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   percentageBox?: Flex__<typeof PercentageBox>;
   testTakmily?: Flex__<typeof Paziresh24Button>;
+  buttonLiom2?: Flex__<typeof ButtonLiom>;
   collapse2?: Flex__<typeof AntdSingleCollapse>;
   apiRequest?: Flex__<typeof ApiRequest>;
   dialog?: Flex__<typeof Paziresh24Dialog>;
@@ -295,6 +296,11 @@ function PlasmicResult__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "buttonLiom2[].color",
+        type: "private",
+        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -1087,7 +1093,8 @@ function PlasmicResult__RenderFunc(props: {
                                 a => a.type === currentItem.option_metric
                               );
                               return result
-                                ? result.isDone !== undefined
+                                ? result.isDone !== undefined &&
+                                  $ctx.query.app != "liom"
                                   ? result.isDone !== 1
                                   : false
                                 : false;
@@ -1140,6 +1147,32 @@ function PlasmicResult__RenderFunc(props: {
                               "__wab_instance",
                               sty.testTakmily
                             )}
+                            isDisabled={(() => {
+                              try {
+                                return $state.loading;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
+                            loading={(() => {
+                              try {
+                                return $state.loading;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
                             onClick={async event => {
                               const $steps = {};
 
@@ -1198,7 +1231,7 @@ function PlasmicResult__RenderFunc(props: {
                                             ).next_question_id
                                           }&session_id=${
                                             $ctx.query.session_id
-                                          }`,
+                                          }&app=${$ctx.query.app}`,
                                           "_self"
                                         );
                                       }
@@ -1257,6 +1290,228 @@ function PlasmicResult__RenderFunc(props: {
                             size={"compact"}
                           />
                         ) : null}
+                        {(() => {
+                          try {
+                            return (() => {
+                              let result = $state.apiRequest.data.extras.find(
+                                a => a.type === currentItem.option_metric
+                              );
+                              return result
+                                ? result.isDone !== undefined &&
+                                  $ctx.query.app == "liom"
+                                  ? result.isDone !== 1
+                                  : false
+                                : false;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                          ? (() => {
+                              const child$Props = {
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.buttonLiom2
+                                ),
+                                color: generateStateValueProp($state, [
+                                  "buttonLiom2",
+                                  __plasmic_idx_0,
+                                  "color"
+                                ]),
+                                isDisabled: (() => {
+                                  try {
+                                    return undefined;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                onClick: async event => {
+                                  const $steps = {};
+
+                                  $steps["updateLoading"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["loading"]
+                                          },
+                                          operation: 0,
+                                          value: true
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateLoading"] != null &&
+                                    typeof $steps["updateLoading"] ===
+                                      "object" &&
+                                    typeof $steps["updateLoading"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateLoading"] = await $steps[
+                                      "updateLoading"
+                                    ];
+                                  }
+
+                                  $steps["runCode"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return window.open(
+                                              `https://tools.liom.app/self-test?user_id=${
+                                                $ctx.query.user_id
+                                              }&type=${
+                                                currentItem.option_metric
+                                              }&nextQuesion_id=${
+                                                $state.apiRequest.data.extras.find(
+                                                  a =>
+                                                    a.type ==
+                                                    currentItem.option_metric
+                                                ).next_question_id
+                                              }&session_id=${
+                                                $ctx.query.session_id
+                                              }&app=${$ctx.query.app}`,
+                                              "_self"
+                                            );
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["runCode"] != null &&
+                                    typeof $steps["runCode"] === "object" &&
+                                    typeof $steps["runCode"].then === "function"
+                                  ) {
+                                    $steps["runCode"] = await $steps["runCode"];
+                                  }
+
+                                  $steps["updateLoading2"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["loading"]
+                                          },
+                                          operation: 0,
+                                          value: false
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateLoading2"] != null &&
+                                    typeof $steps["updateLoading2"] ===
+                                      "object" &&
+                                    typeof $steps["updateLoading2"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateLoading2"] = await $steps[
+                                      "updateLoading2"
+                                    ];
+                                  }
+                                },
+                                onColorChange: (...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "buttonLiom2",
+                                    __plasmic_idx_0,
+                                    "color"
+                                  ])(eventArgs[0]);
+                                }
+                              };
+
+                              initializePlasmicStates(
+                                $state,
+                                [
+                                  {
+                                    name: "buttonLiom2[].color",
+                                    initFunc: ({ $props, $state, $queries }) =>
+                                      undefined
+                                  }
+                                ],
+                                [__plasmic_idx_0]
+                              );
+                              return (
+                                <ButtonLiom
+                                  data-plasmic-name={"buttonLiom2"}
+                                  data-plasmic-override={overrides.buttonLiom2}
+                                  {...child$Props}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.option_metric ==
+                                          "pregnancy"
+                                          ? "باردارم یا نه؟"
+                                          : currentItem.option_metric_fa +
+                                              " دارم یا نه؟";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "Button";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </ButtonLiom>
+                              );
+                            })()
+                          : null}
                       </Stack__>
                       {(() => {
                         const child$Props = {
@@ -2130,6 +2385,7 @@ const PlasmicDescendants = {
     "buttonLiom",
     "percentageBox",
     "testTakmily",
+    "buttonLiom2",
     "collapse2",
     "apiRequest",
     "dialog",
@@ -2150,6 +2406,7 @@ const PlasmicDescendants = {
   buttonLiom: ["buttonLiom"],
   percentageBox: ["percentageBox"],
   testTakmily: ["testTakmily"],
+  buttonLiom2: ["buttonLiom2"],
   collapse2: ["collapse2"],
   apiRequest: ["apiRequest"],
   dialog: [
@@ -2188,6 +2445,7 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   percentageBox: typeof PercentageBox;
   testTakmily: typeof Paziresh24Button;
+  buttonLiom2: typeof ButtonLiom;
   collapse2: typeof AntdSingleCollapse;
   apiRequest: typeof ApiRequest;
   dialog: typeof Paziresh24Dialog;
@@ -2294,6 +2552,7 @@ export const PlasmicResult = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     percentageBox: makeNodeComponent("percentageBox"),
     testTakmily: makeNodeComponent("testTakmily"),
+    buttonLiom2: makeNodeComponent("buttonLiom2"),
     collapse2: makeNodeComponent("collapse2"),
     apiRequest: makeNodeComponent("apiRequest"),
     dialog: makeNodeComponent("dialog"),
