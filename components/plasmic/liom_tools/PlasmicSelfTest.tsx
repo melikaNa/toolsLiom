@@ -69,8 +69,8 @@ import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJ
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
-import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -120,6 +120,8 @@ export type PlasmicSelfTest__OverridesType = {
   progress?: Flex__<typeof AntdProgress>;
   user?: Flex__<typeof ApiRequest>;
   apiRequest2?: Flex__<typeof ApiRequest>;
+  apiRequest?: Flex__<typeof ApiRequest>;
+  timer?: Flex__<typeof Timer>;
 };
 
 export interface DefaultSelfTestProps {}
@@ -496,6 +498,24 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1668,7 +1688,7 @@ function PlasmicSelfTest__RenderFunc(props: {
 
                     $steps["invokeGlobalAction4"] = true
                       ? (() => {
-                          const actionArgs = { args: [800] };
+                          const actionArgs = { args: [500] };
                           return $globalActions["Fragment.wait"]?.apply(null, [
                             ...actionArgs.args
                           ]);
@@ -2979,255 +2999,6 @@ function PlasmicSelfTest__RenderFunc(props: {
             type={"line"}
           />
 
-          <Timer
-            className={classNames("__wab_instance", sty.timer__cIfqj)}
-            intervalSeconds={1}
-            isRunning={true}
-            onTick={async () => {
-              const $steps = {};
-
-              $steps["updateTestChat2"] =
-                $state.timer > 6
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["timer"]
-                        },
-                        operation: 0,
-                        value: $state.timer + 1
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateTestChat2"] != null &&
-                typeof $steps["updateTestChat2"] === "object" &&
-                typeof $steps["updateTestChat2"].then === "function"
-              ) {
-                $steps["updateTestChat2"] = await $steps["updateTestChat2"];
-              }
-
-              $steps["runCode2"] =
-                $state.timer == 2 && !localStorage.getItem("user_id")
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://n8n.staas.ir/webhook/selfTestUser",
-                          undefined,
-                          (() => {
-                            try {
-                              return {
-                                mobile: "",
-                                email: "",
-                                name: "",
-                                origin: $ctx.query.app || "liomSite",
-                                origin_user_id: $ctx.query.user_id
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode2"] != null &&
-                typeof $steps["runCode2"] === "object" &&
-                typeof $steps["runCode2"].then === "function"
-              ) {
-                $steps["runCode2"] = await $steps["runCode2"];
-              }
-
-              $steps["runCode3"] =
-                $steps.runCode2?.data?.success == true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return localStorage.setItem(
-                            "user_id",
-                            $steps.runCode2.data.user_id
-                          );
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode3"] != null &&
-                typeof $steps["runCode3"] === "object" &&
-                typeof $steps["runCode3"].then === "function"
-              ) {
-                $steps["runCode3"] = await $steps["runCode3"];
-              }
-
-              $steps["runCode4"] =
-                $state.retestTest == false && $state.timer == 2
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return ($state.testChat[$state.testChat.length - 1] =
-                            {
-                              text: "آماده ای گفتگو رو ادامه بدیم\u061F",
-                              question: { lock: 0 },
-                              from: "system",
-                              btnText: "ادامه گفتگو",
-                              options: [
-                                {
-                                  id: -50,
-                                  text: "ادامه گفتگو"
-                                }
-                              ]
-                            });
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode4"] != null &&
-                typeof $steps["runCode4"] === "object" &&
-                typeof $steps["runCode4"].then === "function"
-              ) {
-                $steps["runCode4"] = await $steps["runCode4"];
-              }
-
-              $steps["updateTestOptionsLiomSelectedIDs"] =
-                $state.retestTest == false && $state.timer == 2
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["testOptionsLiom", "selectedIDs"]
-                        },
-                        operation: 0,
-                        value: [-50]
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateTestOptionsLiomSelectedIDs"] != null &&
-                typeof $steps["updateTestOptionsLiomSelectedIDs"] ===
-                  "object" &&
-                typeof $steps["updateTestOptionsLiomSelectedIDs"].then ===
-                  "function"
-              ) {
-                $steps["updateTestOptionsLiomSelectedIDs"] = await $steps[
-                  "updateTestOptionsLiomSelectedIDs"
-                ];
-              }
-
-              $steps["runCode5"] =
-                $state.testChat[$state.testChat.length - 1].options[0].id ==
-                  -50 && $state.timer == 2
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return window.scrollTo({
-                            top: document.body.scrollHeight,
-                            behavior: "smooth"
-                          });
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode5"] != null &&
-                typeof $steps["runCode5"] === "object" &&
-                typeof $steps["runCode5"].then === "function"
-              ) {
-                $steps["runCode5"] = await $steps["runCode5"];
-              }
-
-              $steps["runCode6"] =
-                $state.timer == 2
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            if (
-                              $ctx.query.type === "irregular" ||
-                              $ctx.query.type.includes("irregular")
-                            ) {
-                              $state.totalTest = 50;
-                              $state.numberTest = 0;
-                              if (
-                                $ctx.query.nextQuesion_id != null &&
-                                $ctx.query.nextQuesion_id != ""
-                              )
-                                return ($state.numberTest = 10);
-                            } else if (
-                              $ctx.query.type != null ||
-                              $ctx.query.type != undefined
-                            ) {
-                              $state.totalTest = 51;
-                              return ($state.numberTest = 40);
-                            }
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["runCode6"] != null &&
-                typeof $steps["runCode6"] === "object" &&
-                typeof $steps["runCode6"].then === "function"
-              ) {
-                $steps["runCode6"] = await $steps["runCode6"];
-              }
-            }}
-            runWhileEditing={false}
-          />
-
           {(() => {
             try {
               return $ctx.query.app == "liom" && $ctx.query.user_id;
@@ -3406,8 +3177,259 @@ function PlasmicSelfTest__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/selfTest/shop"}
           />
 
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__pu1Qg
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__w2Fx0
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+              (async loading => {
+                const $steps = {};
+
+                $steps["invokeGlobalAction"] = !localStorage.getItem("user_id")
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/selfTestUser",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                mobile: "",
+                                email: "",
+                                name: "",
+                                origin: $ctx.query.app || "liomSite",
+                                origin_user_id: $ctx.query.user_id
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+
+                $steps["runCode"] =
+                  $steps.invokeGlobalAction?.data?.success == true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return localStorage.setItem(
+                              "user_id",
+                              $steps.invokeGlobalAction.data.user_id
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["runCode2"] =
+                  $state.retestTest == false
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.testChat[
+                              $state.testChat.length - 1
+                            ] = {
+                              text: "آماده ای گفتگو رو ادامه بدیم\u061F",
+                              question: { lock: 0 },
+                              from: "system",
+                              btnText: "ادامه گفتگو",
+                              options: [
+                                {
+                                  id: -50,
+                                  text: "ادامه گفتگو"
+                                }
+                              ]
+                            });
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
+
+                $steps["updateTestOptionsLiomSelectedIDs"] =
+                  $state.retestTest == false
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["testOptionsLiom", "selectedIDs"]
+                          },
+                          operation: 0,
+                          value: [-50]
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateTestOptionsLiomSelectedIDs"] != null &&
+                  typeof $steps["updateTestOptionsLiomSelectedIDs"] ===
+                    "object" &&
+                  typeof $steps["updateTestOptionsLiomSelectedIDs"].then ===
+                    "function"
+                ) {
+                  $steps["updateTestOptionsLiomSelectedIDs"] = await $steps[
+                    "updateTestOptionsLiomSelectedIDs"
+                  ];
+                }
+
+                $steps["runCode3"] =
+                  $state.testChat[$state.testChat.length - 1]?.options[0]?.id ==
+                  -50
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return window.scrollTo({
+                              top: document.body.scrollHeight,
+                              behavior: "smooth"
+                            });
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode3"] != null &&
+                  typeof $steps["runCode3"] === "object" &&
+                  typeof $steps["runCode3"].then === "function"
+                ) {
+                  $steps["runCode3"] = await $steps["runCode3"];
+                }
+
+                $steps["runCode4"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            if (
+                              $ctx.query.type === "irregular" ||
+                              $ctx.query.type.includes("irregular")
+                            ) {
+                              $state.totalTest = 50;
+                              $state.numberTest = 0;
+                              if (
+                                $ctx.query.nextQuesion_id != null &&
+                                $ctx.query.nextQuesion_id != ""
+                              )
+                                return ($state.numberTest = 10);
+                            } else if (
+                              $ctx.query.type != null ||
+                              $ctx.query.type != undefined
+                            ) {
+                              $state.totalTest = 51;
+                              return ($state.numberTest = 40);
+                            }
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode4"] != null &&
+                  typeof $steps["runCode4"] === "object" &&
+                  typeof $steps["runCode4"].then === "function"
+                ) {
+                  $steps["runCode4"] = await $steps["runCode4"];
+                }
+              }).apply(null, eventArgs);
+            }}
+            onSuccess={generateStateOnChangeProp($state, [
+              "apiRequest",
+              "data"
+            ])}
+            url={"/"}
+          />
+
           <Timer
-            className={classNames("__wab_instance", sty.timer__yqyY)}
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer)}
             intervalSeconds={0.5}
             isRunning={true}
             onTick={async () => {
@@ -3464,7 +3486,9 @@ const PlasmicDescendants = {
     "button3",
     "progress",
     "user",
-    "apiRequest2"
+    "apiRequest2",
+    "apiRequest",
+    "timer"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -3476,7 +3500,9 @@ const PlasmicDescendants = {
   button3: ["button3"],
   progress: ["progress"],
   user: ["user"],
-  apiRequest2: ["apiRequest2"]
+  apiRequest2: ["apiRequest2"],
+  apiRequest: ["apiRequest"],
+  timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3494,6 +3520,8 @@ type NodeDefaultElementType = {
   progress: typeof AntdProgress;
   user: typeof ApiRequest;
   apiRequest2: typeof ApiRequest;
+  apiRequest: typeof ApiRequest;
+  timer: typeof Timer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3592,6 +3620,8 @@ export const PlasmicSelfTest = Object.assign(
     progress: makeNodeComponent("progress"),
     user: makeNodeComponent("user"),
     apiRequest2: makeNodeComponent("apiRequest2"),
+    apiRequest: makeNodeComponent("apiRequest"),
+    timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicSelfTest
     internalVariantProps: PlasmicSelfTest__VariantProps,
