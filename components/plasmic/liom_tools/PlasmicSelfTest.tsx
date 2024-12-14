@@ -1688,7 +1688,7 @@ function PlasmicSelfTest__RenderFunc(props: {
 
                     $steps["invokeGlobalAction4"] = true
                       ? (() => {
-                          const actionArgs = { args: [500] };
+                          const actionArgs = { args: [800] };
                           return $globalActions["Fragment.wait"]?.apply(null, [
                             ...actionArgs.args
                           ]);
@@ -3430,7 +3430,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
             className={classNames("__wab_instance", sty.timer)}
-            intervalSeconds={0.5}
+            intervalSeconds={0.3}
             isRunning={true}
             onTick={async () => {
               const $steps = {};
