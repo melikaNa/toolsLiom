@@ -71,6 +71,7 @@ import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5f
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
   UnnamedGlobalGroupOfVariantsValue,
@@ -281,7 +282,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.user_id;
+              return localStorage.getItem("user_id");
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -478,6 +479,24 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "timer",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "variable2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "userData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1966,9 +1985,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 (() => {
                                   try {
                                     return {
-                                      id: "91d5973e-eefd-4753-a611-ac6d37357184",
+                                      id: "a0becceb-8ca9-49c0-a9d3-7c192f85129c",
                                       offCode: "",
-                                      userId: $ctx.query.UserId,
+                                      userId: $state.userId,
                                       refCode: "hrWgK5mZv",
                                       redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
                                     };
@@ -2810,29 +2829,97 @@ function PlasmicSelfTest__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["runCode"] = true
+                          $steps["invokeGlobalAction"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      var url = window.location.href;
-                                      return (window.location.href =
-                                        url.split("&type=buy&status")[0] +
-                                        "&buy=true");
-                                    })();
-                                  }
+                                  args: [
+                                    undefined,
+                                    "https://n8n.staas.ir/webhook/selfTestPayment",
+                                    (() => {
+                                      try {
+                                        return {
+                                          session_id: $state.sessionId,
+                                          user_id: $state.userId
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
                                 };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
                               })()
                             : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["runCode"] =
+                            $steps.invokeGlobalAction.data.statusBuy == "ok"
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        var url = window.location.href;
+                                        return (window.location.href =
+                                          url.split("&type=buy&status")[0] +
+                                          "&buy=true");
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
                             $steps["runCode"] != null &&
                             typeof $steps["runCode"] === "object" &&
                             typeof $steps["runCode"].then === "function"
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["runCode2"] =
+                            $steps.invokeGlobalAction.data.statusBuy != "ok"
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        var url = window.location.href;
+                                        return (window.location.href =
+                                          url.split("&type=buy&status")[0] +
+                                          "&status=false");
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["runCode2"] != null &&
+                            typeof $steps["runCode2"] === "object" &&
+                            typeof $steps["runCode2"].then === "function"
+                          ) {
+                            $steps["runCode2"] = await $steps["runCode2"];
                           }
                         }}
                         onColorChange={(...eventArgs) => {
@@ -2937,34 +3024,110 @@ function PlasmicSelfTest__RenderFunc(props: {
               ) {
                 $steps["runCode"] = await $steps["runCode"];
               }
-            }}
-            runWhileEditing={false}
-          />
 
-          <ApiRequest
-            data-plasmic-name={"user"}
-            data-plasmic-override={overrides.user}
-            className={classNames("__wab_instance", sty.user)}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"GET"}
-            onError={generateStateOnChangeProp($state, ["user", "error"])}
-            onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["user", "loading"]).apply(
-                null,
-                eventArgs
-              );
-              (async loading => {
-                const $steps = {};
+              $steps["updateTestChat2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["timer"]
+                      },
+                      operation: 0,
+                      value: $state.timer + 1
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
 
-                $steps["runCode2"] =
-                  $state.retestTest == false
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return ($state.testChat[
-                              $state.testChat.length - 1
-                            ] = {
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat2"] != null &&
+                typeof $steps["updateTestChat2"] === "object" &&
+                typeof $steps["updateTestChat2"].then === "function"
+              ) {
+                $steps["updateTestChat2"] = await $steps["updateTestChat2"];
+              }
+
+              $steps["runCode2"] =
+                $state.timer == 4 && !localStorage.getItem("user_id")
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/selfTestUser",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                mobile: "",
+                                email: "",
+                                name: "",
+                                origin: $ctx.query.app || "liomSite",
+                                origin_user_id: $ctx.query.user_id
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["runCode3"] =
+                $steps.runCode2?.data?.success == true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return localStorage.setItem(
+                            "user_id",
+                            $steps.runCode2.data.user_id
+                          );
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["runCode3"] != null &&
+                typeof $steps["runCode3"] === "object" &&
+                typeof $steps["runCode3"].then === "function"
+              ) {
+                $steps["runCode3"] = await $steps["runCode3"];
+              }
+
+              $steps["runCode4"] =
+                $state.retestTest == false && $state.timer == 2
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return ($state.testChat[$state.testChat.length - 1] =
+                            {
                               text: "آماده ای گفتگو رو ادامه بدیم\u061F",
                               question: { lock: 0 },
                               from: "system",
@@ -2976,86 +3139,87 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 }
                               ]
                             });
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["runCode2"] != null &&
-                  typeof $steps["runCode2"] === "object" &&
-                  typeof $steps["runCode2"].then === "function"
-                ) {
-                  $steps["runCode2"] = await $steps["runCode2"];
-                }
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["runCode4"] != null &&
+                typeof $steps["runCode4"] === "object" &&
+                typeof $steps["runCode4"].then === "function"
+              ) {
+                $steps["runCode4"] = await $steps["runCode4"];
+              }
 
-                $steps["updateTestOptionsLiomSelectedIDs"] =
-                  $state.retestTest == false
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["testOptionsLiom", "selectedIDs"]
-                          },
-                          operation: 0,
-                          value: [-50]
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
+              $steps["updateTestOptionsLiomSelectedIDs"] =
+                $state.retestTest == false && $state.timer == 2
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["testOptionsLiom", "selectedIDs"]
+                        },
+                        operation: 0,
+                        value: [-50]
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["updateTestOptionsLiomSelectedIDs"] != null &&
-                  typeof $steps["updateTestOptionsLiomSelectedIDs"] ===
-                    "object" &&
-                  typeof $steps["updateTestOptionsLiomSelectedIDs"].then ===
-                    "function"
-                ) {
-                  $steps["updateTestOptionsLiomSelectedIDs"] = await $steps[
-                    "updateTestOptionsLiomSelectedIDs"
-                  ];
-                }
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateTestOptionsLiomSelectedIDs"] != null &&
+                typeof $steps["updateTestOptionsLiomSelectedIDs"] ===
+                  "object" &&
+                typeof $steps["updateTestOptionsLiomSelectedIDs"].then ===
+                  "function"
+              ) {
+                $steps["updateTestOptionsLiomSelectedIDs"] = await $steps[
+                  "updateTestOptionsLiomSelectedIDs"
+                ];
+              }
 
-                $steps["runCode"] =
-                  $state.testChat[$state.testChat.length - 1].options[0].id ==
-                  -50
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return window.scrollTo({
-                              top: document.body.scrollHeight,
-                              behavior: "smooth"
-                            });
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
+              $steps["runCode5"] =
+                $state.testChat[$state.testChat.length - 1].options[0].id ==
+                  -50 && $state.timer == 2
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.scrollTo({
+                            top: document.body.scrollHeight,
+                            behavior: "smooth"
+                          });
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["runCode5"] != null &&
+                typeof $steps["runCode5"] === "object" &&
+                typeof $steps["runCode5"].then === "function"
+              ) {
+                $steps["runCode5"] = await $steps["runCode5"];
+              }
 
-                $steps["runCode3"] = true
+              $steps["runCode6"] =
+                $state.timer == 2
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -3086,85 +3250,169 @@ function PlasmicSelfTest__RenderFunc(props: {
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
-                if (
-                  $steps["runCode3"] != null &&
-                  typeof $steps["runCode3"] === "object" &&
-                  typeof $steps["runCode3"].then === "function"
-                ) {
-                  $steps["runCode3"] = await $steps["runCode3"];
-                }
-              }).apply(null, eventArgs);
-            }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["user", "data"]).apply(
-                null,
-                eventArgs
-              );
-              (async data => {
-                const $steps = {};
-
-                $steps["updateToken"] =
-                  $state.user?.data?.result?.token != null
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["token"]
-                          },
-                          operation: 0,
-                          value: $state.user.data.result.token
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["updateToken"] != null &&
-                  typeof $steps["updateToken"] === "object" &&
-                  typeof $steps["updateToken"].then === "function"
-                ) {
-                  $steps["updateToken"] = await $steps["updateToken"];
-                }
-              }).apply(null, eventArgs);
-            }}
-            params={(() => {
-              try {
-                return {
-                  userId: $ctx.query.user_id
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
+              if (
+                $steps["runCode6"] != null &&
+                typeof $steps["runCode6"] === "object" &&
+                typeof $steps["runCode6"].then === "function"
+              ) {
+                $steps["runCode6"] = await $steps["runCode6"];
               }
-            })()}
-            url={"https://n8n.staas.ir/webhook/selfTest/getUser"}
+            }}
+            runWhileEditing={false}
           />
 
+          {(() => {
+            try {
+              return $ctx.query.app == "liom" && $ctx.query.user_id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__ymmfB)}>
+              <ApiRequest
+                data-plasmic-name={"user"}
+                data-plasmic-override={overrides.user}
+                className={classNames("__wab_instance", sty.user)}
+                config={(() => {
+                  try {
+                    return {
+                      headers: {
+                        Authorization:
+                          "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmFiYXJrYXRBcHAiLCJpZCI6MX0.5X1qg5Fy3ui3v4xVYJb_uCsah72MahjvWhsHYMLm56Kf-Z1ZrN1dJxKcdQCgu5OAMdMrVBDbhEY9VRx4pc6yfQ",
+                        authorization:
+                          "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmFiYXJrYXRBcHAiLCJpZCI6MX0.5X1qg5Fy3ui3v4xVYJb_uCsah72MahjvWhsHYMLm56Kf-Z1ZrN1dJxKcdQCgu5OAMdMrVBDbhEY9VRx4pc6yfQ"
+                      }
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                errorDisplay={null}
+                loadingDisplay={null}
+                method={"GET"}
+                onError={generateStateOnChangeProp($state, ["user", "error"])}
+                onLoading={generateStateOnChangeProp($state, [
+                  "user",
+                  "loading"
+                ])}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["user", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["updateToken"] =
+                      $state.user?.data?.success == true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["token"]
+                              },
+                              operation: 0,
+                              value: $state.user.data.result.user.access_token
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateToken"] != null &&
+                      typeof $steps["updateToken"] === "object" &&
+                      typeof $steps["updateToken"].then === "function"
+                    ) {
+                      $steps["updateToken"] = await $steps["updateToken"];
+                    }
+
+                    $steps["invokeGlobalAction"] =
+                      $state.user?.data?.success == true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "PUT",
+                                "https://n8n.staas.ir/webhook/selfTestUser",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      mobile:
+                                        $state.user.data.result.user.mobile ||
+                                        "",
+                                      email:
+                                        $state.user.data.result.user.email ||
+                                        "",
+                                      name:
+                                        $state.user.data.result.user.name || "",
+                                      user_id: $state.userId
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                url={"https://api.liom.app/rest/user/profile"}
+              />
+            </div>
+          ) : null}
           <ApiRequest
             data-plasmic-name={"apiRequest2"}
             data-plasmic-override={overrides.apiRequest2}
             body={(() => {
               try {
                 return {
-                  userId: $ctx.query.user_id,
-                  shopId: "91d5973e-eefd-4753-a611-ac6d37357184",
+                  userId: $state.userId,
+                  shopId: "a0becceb-8ca9-49c0-a9d3-7c192f85129c",
                   token: $state.user.data.result.token
                 };
               } catch (e) {

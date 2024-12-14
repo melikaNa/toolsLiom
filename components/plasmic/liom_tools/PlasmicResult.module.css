@@ -738,6 +738,7 @@
 }
 .dialog:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
+  z-index: 100;
 }
 .apiRequest2:global(.__wab_instance) {
   max-width: 100%;
