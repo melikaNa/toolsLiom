@@ -118,7 +118,6 @@ export type PlasmicSelfTest__OverridesType = {
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   button3?: Flex__<typeof ButtonLiom>;
   progress?: Flex__<typeof AntdProgress>;
-  timer?: Flex__<typeof Timer>;
   user?: Flex__<typeof ApiRequest>;
   apiRequest2?: Flex__<typeof ApiRequest>;
 };
@@ -2388,13 +2387,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               ) : null}
             </Reveal>
           </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__mF86D,
-              "selectBox"
-            )}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__mF86D, ``)}>
             <Reveal
               big={true}
               className={classNames("__wab_instance", sty.reveal___8PZJt)}
@@ -2987,65 +2980,39 @@ function PlasmicSelfTest__RenderFunc(props: {
           />
 
           <Timer
-            data-plasmic-name={"timer"}
-            data-plasmic-override={overrides.timer}
-            className={classNames("__wab_instance", sty.timer)}
-            intervalSeconds={0.5}
+            className={classNames("__wab_instance", sty.timer__cIfqj)}
+            intervalSeconds={1}
             isRunning={true}
             onTick={async () => {
               const $steps = {};
 
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const inputBox = document.querySelector(".selectBox");
-                          const textBox = document.querySelector(".messegeBox");
-                          if (inputBox.style.display === "none") {
-                            return (textBox.style.paddingBottom = "8px");
-                          } else {
-                            return (textBox.style.paddingBottom = `${
-                              inputBox.offsetHeight + 20
-                            }px`);
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
+              $steps["updateTestChat2"] =
+                $state.timer > 6
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["timer"]
+                        },
+                        operation: 0,
+                        value: $state.timer + 1
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-              $steps["updateTestChat2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["timer"]
-                      },
-                      operation: 0,
-                      value: $state.timer + 1
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["updateTestChat2"] != null &&
                 typeof $steps["updateTestChat2"] === "object" &&
@@ -3055,7 +3022,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               }
 
               $steps["runCode2"] =
-                $state.timer == 4 && !localStorage.getItem("user_id")
+                $state.timer == 2 && !localStorage.getItem("user_id")
                   ? (() => {
                       const actionArgs = {
                         args: [
@@ -3438,6 +3405,46 @@ function PlasmicSelfTest__RenderFunc(props: {
             ])}
             url={"https://n8n.staas.ir/webhook/selfTest/shop"}
           />
+
+          <Timer
+            className={classNames("__wab_instance", sty.timer__yqyY)}
+            intervalSeconds={0.5}
+            isRunning={true}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const inputBox = document.querySelector(".selectBox");
+                          const textBox = document.querySelector(".messegeBox");
+                          if (inputBox.style.display === "none") {
+                            return (textBox.style.paddingBottom = "8px");
+                          } else {
+                            return (textBox.style.paddingBottom = `${
+                              inputBox.offsetHeight + 20
+                            }px`);
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+            runWhileEditing={false}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3456,7 +3463,6 @@ const PlasmicDescendants = {
     "buttonLiom2",
     "button3",
     "progress",
-    "timer",
     "user",
     "apiRequest2"
   ],
@@ -3469,7 +3475,6 @@ const PlasmicDescendants = {
   buttonLiom2: ["buttonLiom2"],
   button3: ["button3"],
   progress: ["progress"],
-  timer: ["timer"],
   user: ["user"],
   apiRequest2: ["apiRequest2"]
 } as const;
@@ -3487,7 +3492,6 @@ type NodeDefaultElementType = {
   buttonLiom2: typeof ButtonLiom;
   button3: typeof ButtonLiom;
   progress: typeof AntdProgress;
-  timer: typeof Timer;
   user: typeof ApiRequest;
   apiRequest2: typeof ApiRequest;
 };
@@ -3586,7 +3590,6 @@ export const PlasmicSelfTest = Object.assign(
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     button3: makeNodeComponent("button3"),
     progress: makeNodeComponent("progress"),
-    timer: makeNodeComponent("timer"),
     user: makeNodeComponent("user"),
     apiRequest2: makeNodeComponent("apiRequest2"),
 
