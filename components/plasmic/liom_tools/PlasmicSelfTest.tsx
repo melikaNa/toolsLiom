@@ -3282,12 +3282,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 config={(() => {
                   try {
                     return {
-                      headers: {
-                        Authorization:
-                          "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmFiYXJrYXRBcHAiLCJpZCI6MX0.5X1qg5Fy3ui3v4xVYJb_uCsah72MahjvWhsHYMLm56Kf-Z1ZrN1dJxKcdQCgu5OAMdMrVBDbhEY9VRx4pc6yfQ",
-                        authorization:
-                          "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmFiYXJrYXRBcHAiLCJpZCI6MX0.5X1qg5Fy3ui3v4xVYJb_uCsah72MahjvWhsHYMLm56Kf-Z1ZrN1dJxKcdQCgu5OAMdMrVBDbhEY9VRx4pc6yfQ"
-                      }
+                      headers: { Authorization: "Bearer " + $ctx.query.token }
                     };
                   } catch (e) {
                     if (
