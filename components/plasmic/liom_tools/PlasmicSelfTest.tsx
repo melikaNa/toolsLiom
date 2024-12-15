@@ -3194,7 +3194,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 const $steps = {};
 
                 $steps["goToPage"] =
-                  $ctx.query.app == "paziresh24"
+                  $ctx.query.app != "liom"
                     ? (() => {
                         const actionArgs = {
                           destination: (() => {
