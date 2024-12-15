@@ -3443,14 +3443,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                   $steps["runCode4"] = await $steps["runCode4"];
                 }
 
-                $steps["updateTestChat"] = true
+                $steps["updateLoadinkBotten"] = true
                   ? (() => {
                       const actionArgs = {
                         variable: {
                           objRoot: $state,
-                          variablePath: ["testChat"]
+                          variablePath: ["loadinkBotten"]
                         },
-                        operation: 0
+                        operation: 0,
+                        value: false
                       };
                       return (({
                         variable,
@@ -3469,11 +3470,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["updateTestChat"] != null &&
-                  typeof $steps["updateTestChat"] === "object" &&
-                  typeof $steps["updateTestChat"].then === "function"
+                  $steps["updateLoadinkBotten"] != null &&
+                  typeof $steps["updateLoadinkBotten"] === "object" &&
+                  typeof $steps["updateLoadinkBotten"].then === "function"
                 ) {
-                  $steps["updateTestChat"] = await $steps["updateTestChat"];
+                  $steps["updateLoadinkBotten"] = await $steps[
+                    "updateLoadinkBotten"
+                  ];
                 }
               }).apply(null, eventArgs);
             }}
@@ -3525,6 +3528,27 @@ function PlasmicSelfTest__RenderFunc(props: {
             }}
             runWhileEditing={false}
           />
+
+          {(() => {
+            try {
+              return $state.loadinkBotten;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox___1Hpgz)}>
+              <Icon111Icon
+                className={classNames(projectcss.all, sty.svg__uaLit)}
+                role={"img"}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>

@@ -1083,3 +1083,27 @@
   max-width: 100%;
   object-fit: cover;
 }
+.freeBox___1Hpgz {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: auto;
+  height: 100vh;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background: var(--token-jgohepLVeKvh);
+  right: 0;
+  padding: 0px;
+}
+.svg__uaLit {
+  object-fit: cover;
+  max-width: 100%;
+  width: 80px;
+  height: 80px;
+  color: var(--token-VzWdrvFHnhlm);
+  flex-shrink: 0;
+}
