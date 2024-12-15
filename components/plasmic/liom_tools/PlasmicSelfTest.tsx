@@ -3199,7 +3199,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return `'https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${window.location.href}'`;
+                              return `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${window.location.href}`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
