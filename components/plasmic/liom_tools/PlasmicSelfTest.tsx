@@ -602,7 +602,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                           )}`;
                         }
                         if (!urlParams.has("type")) {
-                          return urlParams.set("type", "irregular");
+                          return (window.location.href =
+                            window.location.href + "&type=irregular");
                         }
                       })();
                     }
