@@ -3001,7 +3001,7 @@ function PlasmicSelfTest__RenderFunc(props: {
 
           {(() => {
             try {
-              return $ctx.query.app == "liom" && $ctx.query.user_id;
+              return $ctx.query.token;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3194,7 +3194,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 const $steps = {};
 
                 $steps["goToPage"] =
-                  $ctx.query.app != "liom"
+                  $ctx.query.app != "liom" && !$ctx.query.origin_user_id
                     ? (() => {
                         const actionArgs = {
                           destination: (() => {
