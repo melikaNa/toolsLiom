@@ -516,6 +516,12 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -3447,13 +3453,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                   $steps["runCode4"] = await $steps["runCode4"];
                 }
 
-                $steps["updateLoadinkBotten"] =
+                $steps["updateLoading"] =
                   $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
                     ? (() => {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["loadinkBotten"]
+                            variablePath: ["loading"]
                           },
                           operation: 0,
                           value: false
@@ -3475,13 +3481,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                       })()
                     : undefined;
                 if (
-                  $steps["updateLoadinkBotten"] != null &&
-                  typeof $steps["updateLoadinkBotten"] === "object" &&
-                  typeof $steps["updateLoadinkBotten"].then === "function"
+                  $steps["updateLoading"] != null &&
+                  typeof $steps["updateLoading"] === "object" &&
+                  typeof $steps["updateLoading"].then === "function"
                 ) {
-                  $steps["updateLoadinkBotten"] = await $steps[
-                    "updateLoadinkBotten"
-                  ];
+                  $steps["updateLoading"] = await $steps["updateLoading"];
                 }
               }).apply(null, eventArgs);
             }}
@@ -3536,7 +3540,7 @@ function PlasmicSelfTest__RenderFunc(props: {
 
           {(() => {
             try {
-              return $state.loadinkBotten;
+              return $state.loading;
             } catch (e) {
               if (
                 e instanceof TypeError ||
