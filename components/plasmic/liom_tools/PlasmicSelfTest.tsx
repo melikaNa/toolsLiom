@@ -597,9 +597,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                           ? urlParams.get("origin_user_id")
                           : null;
                         if (app !== "liom" && originUserId === null) {
-                          return (window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${encodeURIComponent(
+                          window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${encodeURIComponent(
                             window.location.href
-                          )}`);
+                          )}`;
+                        }
+                        if (!urlParams.has("type")) {
+                          return urlParams.set("type", "irregular");
                         }
                       })();
                     }
@@ -3537,7 +3540,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return true;
+                return false;
               }
               throw e;
             }
