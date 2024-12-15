@@ -581,6 +581,38 @@ function PlasmicSelfTest__RenderFunc(props: {
                 )
             }
           )}
+          onLoad={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        var urlParams = new URLSearchParams(
+                          window.location.search
+                        );
+                        var app = urlParams.get("app");
+                        var originUserId = urlParams.get("origin_user_id");
+                        if (app !== "liom" && !originUserId) {
+                          return (window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${window.location.href}`);
+                        }
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
         >
           <HeaderLiom
             data-plasmic-name={"headerLiom"}
