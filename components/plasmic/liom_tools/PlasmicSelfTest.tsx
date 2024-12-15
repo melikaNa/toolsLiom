@@ -3181,28 +3181,8 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
             className={classNames("__wab_instance", sty.apiRequest)}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pu1Qg
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
-            loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__w2Fx0
-                )}
-              >
-                {"Loading..."}
-              </div>
-            }
+            errorDisplay={null}
+            loadingDisplay={null}
             method={"GET"}
             onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
             onLoading={async (...eventArgs: any) => {
@@ -3213,22 +3193,13 @@ function PlasmicSelfTest__RenderFunc(props: {
               (async loading => {
                 const $steps = {};
 
-                $steps["invokeGlobalAction"] = !localStorage.getItem("user_id")
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://n8n.staas.ir/webhook/selfTestUser",
-                          undefined,
-                          (() => {
+                $steps["goToPage"] =
+                  $ctx.query.app == "paziresh24"
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
                             try {
-                              return {
-                                mobile: "",
-                                email: "",
-                                name: "",
-                                origin: $ctx.query.app || "liomSite",
-                                origin_user_id: $ctx.query.user_id
-                              };
+                              return `'https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${window.location.href}'`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -3239,14 +3210,72 @@ function PlasmicSelfTest__RenderFunc(props: {
                               throw e;
                             }
                           })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+
+                $steps["invokeGlobalAction"] =
+                  ($ctx.query.app != "liom" &&
+                    !$ctx.query.origin_user_id &&
+                    !localStorage.getItem("user_id")) ||
+                  (!localStorage.getItem("user_id") && $ctx.query.app == "liom")
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://n8n.staas.ir/webhook/selfTestUser",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  mobile: "",
+                                  email: "",
+                                  name: "",
+                                  origin:
+                                    $ctx.query.origin ||
+                                    $ctx.query.app ||
+                                    "liomSite",
+                                  origin_user_id:
+                                    $ctx.query.user_id ||
+                                    $ctx.query.origin_user_id
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
                 if (
                   $steps["invokeGlobalAction"] != null &&
                   typeof $steps["invokeGlobalAction"] === "object" &&

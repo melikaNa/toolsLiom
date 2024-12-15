@@ -1079,20 +1079,6 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__w2Fx0 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.text__pu1Qg {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
 .timer:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
