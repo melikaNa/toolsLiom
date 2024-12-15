@@ -427,7 +427,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "loadinkBotten",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "numberTest",
@@ -593,9 +593,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                           window.location.search
                         );
                         var app = urlParams.get("app");
-                        var originUserId = urlParams.get("origin_user_id");
-                        if (app !== "liom" && !originUserId) {
-                          return (window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${window.location.href}`);
+                        var originUserId = urlParams.has("origin_user_id")
+                          ? urlParams.get("origin_user_id")
+                          : null;
+                        if (app !== "liom" && originUserId === null) {
+                          return (window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${encodeURIComponent(
+                            window.location.href
+                          )}`);
                         }
                       })();
                     }
@@ -3437,6 +3441,39 @@ function PlasmicSelfTest__RenderFunc(props: {
                   typeof $steps["runCode4"].then === "function"
                 ) {
                   $steps["runCode4"] = await $steps["runCode4"];
+                }
+
+                $steps["updateTestChat"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["testChat"]
+                        },
+                        operation: 0
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTestChat"] != null &&
+                  typeof $steps["updateTestChat"] === "object" &&
+                  typeof $steps["updateTestChat"].then === "function"
+                ) {
+                  $steps["updateTestChat"] = await $steps["updateTestChat"];
                 }
               }).apply(null, eventArgs);
             }}
