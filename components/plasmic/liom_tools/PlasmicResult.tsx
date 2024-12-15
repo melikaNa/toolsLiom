@@ -1226,12 +1226,16 @@ function PlasmicResult__RenderFunc(props: {
                                           }&nextQuesion_id=${
                                             $state.apiRequest.data.extras.find(
                                               a =>
-                                                a.type ==
+                                                a.type ===
                                                 currentItem.option_metric
                                             ).next_question_id
                                           }&session_id=${
                                             $ctx.query.session_id
-                                          }&app=${$ctx.query.app}`,
+                                          }&app=${$ctx.query.app}&token=${
+                                            $ctx.query.token
+                                          }&origin_user_id=${
+                                            $ctx.query.origin_user_id
+                                          }`,
                                           "_self"
                                         );
                                       }

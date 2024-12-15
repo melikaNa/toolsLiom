@@ -2348,7 +2348,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return window.open(
-                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}&app=${$ctx.query.app}`,
+                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}&app=${$ctx.query.app}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}`,
                                   "_self"
                                 );
                               }
@@ -3447,32 +3447,33 @@ function PlasmicSelfTest__RenderFunc(props: {
                   $steps["runCode4"] = await $steps["runCode4"];
                 }
 
-                $steps["updateLoadinkBotten"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["loadinkBotten"]
-                        },
-                        operation: 0,
-                        value: false
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
+                $steps["updateLoadinkBotten"] =
+                  $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loadinkBotten"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
 
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
                 if (
                   $steps["updateLoadinkBotten"] != null &&
                   typeof $steps["updateLoadinkBotten"] === "object" &&
@@ -3547,10 +3548,48 @@ function PlasmicSelfTest__RenderFunc(props: {
             }
           })() ? (
             <div className={classNames(projectcss.all, sty.freeBox___1Hpgz)}>
-              <Icon111Icon
-                className={classNames(projectcss.all, sty.svg__uaLit)}
-                role={"img"}
-              />
+              {(() => {
+                try {
+                  return (() => {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get("app") != "liom";
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Icon111Icon
+                  className={classNames(projectcss.all, sty.svg__uaLit)}
+                  role={"img"}
+                />
+              ) : null}
+              {(() => {
+                try {
+                  return (() => {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get("app") == "liom";
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Icon111Icon
+                  className={classNames(projectcss.all, sty.svg__kgnAq)}
+                  role={"img"}
+                />
+              ) : null}
             </div>
           ) : null}
         </div>

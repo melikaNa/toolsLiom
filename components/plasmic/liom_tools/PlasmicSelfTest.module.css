@@ -1107,3 +1107,11 @@
   color: var(--token-VzWdrvFHnhlm);
   flex-shrink: 0;
 }
+.svg__kgnAq {
+  object-fit: cover;
+  max-width: 100%;
+  width: 80px;
+  height: 80px;
+  color: var(--token-QR8ATjORhQqO);
+  flex-shrink: 0;
+}
