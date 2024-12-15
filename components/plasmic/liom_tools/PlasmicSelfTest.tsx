@@ -3225,46 +3225,6 @@ function PlasmicSelfTest__RenderFunc(props: {
               (async loading => {
                 const $steps = {};
 
-                $steps["goToPage"] =
-                  $ctx.query.app != "liom" && !$ctx.query.origin_user_id
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${window.location.href}`;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
-                }
-
                 $steps["invokeGlobalAction"] =
                   ($ctx.query.app != "liom" &&
                     !$ctx.query.origin_user_id &&
