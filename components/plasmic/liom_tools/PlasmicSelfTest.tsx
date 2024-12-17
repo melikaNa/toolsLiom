@@ -3631,7 +3631,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
             className={classNames("__wab_instance", sty.timer)}
-            intervalSeconds={0.2}
+            intervalSeconds={1}
             isRunning={true}
             onTick={async () => {
               const $steps = {};
