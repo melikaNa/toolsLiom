@@ -2076,7 +2076,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               args: [
                                 "POST",
-                                "https://api.liom.app/service/shop/buy",
+                                "https://n8n.staas.ir/webhook/selfTest/shopBuy",
                                 undefined,
                                 (() => {
                                   try {
