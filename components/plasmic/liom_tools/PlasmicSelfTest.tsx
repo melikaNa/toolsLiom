@@ -2070,13 +2070,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   try {
                                     return {
                                       merchantID:
-                                        "a0becceb-8ca9-49c0-a9d3-7c192f85129c",
+                                        "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
                                       amount: $state.shop.data.result.price,
-                                      offCode: "",
-                                      type: "",
-                                      value: 0,
+                                      type: "selfTest",
+                                      text: $state.shop.data.result.title,
+                                      value: 1,
                                       userId: $state.userId,
-                                      refCode: "hrWgK5mZv",
                                       redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
                                     };
                                   } catch (e) {
@@ -2090,26 +2089,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     throw e;
                                   }
                                 })(),
-                                (() => {
-                                  try {
-                                    return {
-                                      headers: {
-                                        "Content-Type": "application/json",
-                                        Authorization:
-                                          $state.user.data.result.token || ""
-                                      }
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
+                                undefined
                               ]
                             };
                             return $globalActions["Fragment.apiRequest"]?.apply(
@@ -3284,9 +3264,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             body={(() => {
               try {
                 return {
-                  userId: 1,
-                  shopId: "a0becceb-8ca9-49c0-a9d3-7c192f85129c",
-                  token: $state.token
+                  shopId: "a0becceb-8ca9-49c0-a9d3-7c192f85129c"
                 };
               } catch (e) {
                 if (
