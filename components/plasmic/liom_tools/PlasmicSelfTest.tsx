@@ -440,7 +440,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "loadinkBotten",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "numberTest",
@@ -1879,9 +1879,21 @@ function PlasmicSelfTest__RenderFunc(props: {
                           sty.text__r8DyR
                         )}
                       >
-                        {
-                          "\u0627\u06af\u0647 \u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u06af\u0641\u062a\u06af\u0648 \u0631\u0648 \u0627\u062f\u0627\u0645\u0647 \u0628\u062f\u06cc\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0647\u0632\u06cc\u0646\u0647 \u0631\u0648 \u067e\u0631\u062f\u0627\u062e\u062a \u06a9\u0646. "
-                        }
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.shop.data.result.text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0627\u06af\u0647 \u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u06af\u0641\u062a\u06af\u0648 \u0631\u0648 \u0627\u062f\u0627\u0645\u0647 \u0628\u062f\u06cc\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0647\u0632\u06cc\u0646\u0647 \u0631\u0648 \u067e\u0631\u062f\u0627\u062e\u062a \u06a9\u0646. ";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
                       </div>
                     </div>
                     <div
