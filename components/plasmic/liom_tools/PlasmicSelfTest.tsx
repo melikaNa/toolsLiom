@@ -3545,21 +3545,20 @@ function PlasmicSelfTest__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
+                            const type = $ctx.query.type || "";
                             if (
-                              $ctx.query.type === "irregular" ||
-                              $ctx.query.type.includes("irregular")
+                              type === "irregular" ||
+                              type.includes("irregular")
                             ) {
                               $state.totalTest = 50;
                               $state.numberTest = 0;
                               if (
                                 $ctx.query.nextQuesion_id != null &&
-                                $ctx.query.nextQuesion_id != ""
-                              )
+                                $ctx.query.nextQuesion_id !== ""
+                              ) {
                                 return ($state.numberTest = 10);
-                            } else if (
-                              $ctx.query.type != null ||
-                              $ctx.query.type != undefined
-                            ) {
+                              }
+                            } else if (type !== "") {
                               $state.totalTest = 51;
                               return ($state.numberTest = 40);
                             }
