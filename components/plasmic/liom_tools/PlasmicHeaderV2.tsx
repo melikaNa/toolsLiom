@@ -225,8 +225,16 @@ function PlasmicHeaderV2__RenderFunc(props: {
             ];
           }
         }}
-        onColorChange={(...eventArgs) => {
-          generateStateOnChangeProp($state, ["button", "color"])(eventArgs[0]);
+        onColorChange={async (...eventArgs: any) => {
+          ((...eventArgs) => {
+            generateStateOnChangeProp($state, ["button", "color"])(
+              eventArgs[0]
+            );
+          }).apply(null, eventArgs);
+
+          if (eventArgs.length > 1 && eventArgs[1]) {
+            return;
+          }
         }}
         target={true}
       >

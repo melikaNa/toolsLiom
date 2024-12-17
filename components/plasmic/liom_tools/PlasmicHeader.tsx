@@ -260,10 +260,12 @@ function PlasmicHeader__RenderFunc(props: {
           ),
           [sty.textboxstate_empty]: hasVariant($state, "state", "empty")
         })}
-        onChange={e => {
-          generateStateOnChangeProp($state, ["textbox", "value"])(
-            e.target.value
-          );
+        onChange={async (...eventArgs: any) => {
+          (e => {
+            generateStateOnChangeProp($state, ["textbox", "value"])(
+              e.target.value
+            );
+          }).apply(null, eventArgs);
         }}
         onKeyDown={async event => {
           const $steps = {};

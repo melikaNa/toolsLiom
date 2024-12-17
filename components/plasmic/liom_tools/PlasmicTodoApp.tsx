@@ -377,10 +377,16 @@ function PlasmicTodoApp__RenderFunc(props: {
                       "empty"
                     )
                   })}
-                  onShownTypeChange={generateStateOnChangeProp($state, [
-                    "footer",
-                    "shownType"
-                  ])}
+                  onShownTypeChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "footer",
+                      "shownType"
+                    ]).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
+                  }}
                   state={
                     $queries.tasks?.data?.some(t => t.done)
                       ? "HasCompleted"

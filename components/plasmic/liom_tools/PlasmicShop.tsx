@@ -488,12 +488,18 @@ function PlasmicShop__RenderFunc(props: {
                           bordered: false,
                           className: classNames("__wab_instance", sty.input2),
                           disabled: false,
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["input2", "value"],
-                            AntdInput_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["input2", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+                          },
                           placeholder:
                             "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
                           prefix: (
@@ -550,10 +556,17 @@ function PlasmicShop__RenderFunc(props: {
                         "button",
                         "color"
                       ])}
-                      onColorChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button", "color"])(
-                          eventArgs[0]
-                        );
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
                       }}
                     >
                       <div
@@ -579,10 +592,16 @@ function PlasmicShop__RenderFunc(props: {
                       role={"img"}
                     />
                   }
-                  onColorChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
-                      eventArgs[0]
-                    );
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
                   }}
                 >
                   <div
@@ -684,18 +703,36 @@ function PlasmicShop__RenderFunc(props: {
               </div>
             }
             method={"POST"}
-            onError={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
-              "error"
-            ])}
-            onLoading={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
-              "data"
-            ])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "fragmentApiRequest",
+                "error"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "fragmentApiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "fragmentApiRequest",
+                "data"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           />
         </div>

@@ -401,7 +401,16 @@ function PlasmicResult__RenderFunc(props: {
               [sty["pcls_E8b_Q8Grg3ng"]]: true
             })}
             modalScopeClassName={sty["modal__modal"]}
-            onOpenChange={generateStateOnChangeProp($state, ["modal", "open"])}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["modal", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             open={generateStateValueProp($state, ["modal", "open"])}
             title={null}
             trigger={null}
@@ -903,10 +912,16 @@ function PlasmicResult__RenderFunc(props: {
               data-plasmic-override={overrides.buttonLiom}
               className={classNames("__wab_instance", sty.buttonLiom)}
               color={generateStateValueProp($state, ["buttonLiom", "color"])}
-              onColorChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["buttonLiom", "color"])(
-                  eventArgs[0]
-                );
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["buttonLiom", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (eventArgs.length > 1 && eventArgs[1]) {
+                  return;
+                }
               }}
             />
           </div>
@@ -1466,12 +1481,18 @@ function PlasmicResult__RenderFunc(props: {
                                     ];
                                   }
                                 },
-                                onColorChange: (...eventArgs) => {
-                                  generateStateOnChangeProp($state, [
-                                    "buttonLiom2",
-                                    __plasmic_idx_0,
-                                    "color"
-                                  ])(eventArgs[0]);
+                                onColorChange: async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "buttonLiom2",
+                                      __plasmic_idx_0,
+                                      "color"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (eventArgs.length > 1 && eventArgs[1]) {
+                                    return;
+                                  }
                                 }
                               };
 
@@ -1627,12 +1648,18 @@ function PlasmicResult__RenderFunc(props: {
                               />
                             </div>
                           ),
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "open",
-                            ["collapse2", __plasmic_idx_0, "open"],
-                            AntdSingleCollapse_Helpers
-                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "open",
+                              ["collapse2", __plasmic_idx_0, "open"],
+                              AntdSingleCollapse_Helpers
+                            ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+                          },
                           open: generateStateValueProp($state, [
                             "collapse2",
                             __plasmic_idx_0,
@@ -1713,15 +1740,36 @@ function PlasmicResult__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}
-            onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
-            onLoading={generateStateOnChangeProp($state, [
-              "apiRequest",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "apiRequest",
-              "data"
-            ])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             params={(() => {
               try {
                 return {
@@ -1842,18 +1890,36 @@ function PlasmicResult__RenderFunc(props: {
                   </div>
                 }
                 method={"GET"}
-                onError={generateStateOnChangeProp($state, [
-                  "apiRequest2",
-                  "error"
-                ])}
-                onLoading={generateStateOnChangeProp($state, [
-                  "apiRequest2",
-                  "loading"
-                ])}
-                onSuccess={generateStateOnChangeProp($state, [
-                  "apiRequest2",
-                  "data"
-                ])}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "apiRequest2",
+                    "error"
+                  ]).apply(null, eventArgs);
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "apiRequest2",
+                    "loading"
+                  ]).apply(null, eventArgs);
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+                }}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "apiRequest2",
+                    "data"
+                  ]).apply(null, eventArgs);
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+                }}
                 url={(() => {
                   try {
                     return `https://apigw.paziresh24.com/seapi/v1/search/ir/${
@@ -2280,7 +2346,16 @@ function PlasmicResult__RenderFunc(props: {
               </ApiRequest>
             }
             className={classNames("__wab_instance", sty.dialog)}
-            onOpenChange={generateStateOnChangeProp($state, ["dialog", "open"])}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["dialog", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             open={generateStateValueProp($state, ["dialog", "open"])}
             title={null}
             trigger={null}

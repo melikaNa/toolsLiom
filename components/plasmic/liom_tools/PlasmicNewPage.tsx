@@ -227,11 +227,17 @@ function PlasmicNewPage__RenderFunc(props: {
             const child$Props = {
               className: classNames("__wab_instance", sty.header2),
               key: currentIndex,
-              onTytleChange: generateStateOnChangeProp($state, [
-                "header2",
-                __plasmic_idx_0,
-                "tytle"
-              ]),
+              onTytleChange: async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "header2",
+                  __plasmic_idx_0,
+                  "tytle"
+                ]).apply(null, eventArgs);
+
+                if (eventArgs.length > 1 && eventArgs[1]) {
+                  return;
+                }
+              },
               tytle: generateStateValueProp($state, [
                 "header2",
                 __plasmic_idx_0,
@@ -393,7 +399,16 @@ function PlasmicNewPage__RenderFunc(props: {
               $steps["updateModalOpen"] = await $steps["updateModalOpen"];
             }
           }}
-          onOpenChange={generateStateOnChangeProp($state, ["modal", "open"])}
+          onOpenChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["modal", "open"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (eventArgs.length > 1 && eventArgs[1]) {
+              return;
+            }
+          }}
           open={generateStateValueProp($state, ["modal", "open"])}
           title={"Modal title"}
           trigger={null}

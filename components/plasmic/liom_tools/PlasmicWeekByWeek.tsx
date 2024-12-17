@@ -597,12 +597,36 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}
-            onError={generateStateOnChangeProp($state, ["getInfo", "error"])}
-            onLoading={generateStateOnChangeProp($state, [
-              "getInfo",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, ["getInfo", "data"])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "loading"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             params={(() => {
               try {
                 return {
@@ -1234,10 +1258,16 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             ) : null
                           }
                           modalScopeClassName={sty["modal__modal"]}
-                          onOpenChange={generateStateOnChangeProp($state, [
-                            "modal",
-                            "open"
-                          ])}
+                          onOpenChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "modal",
+                              "open"
+                            ]).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+                          }}
                           open={generateStateValueProp($state, [
                             "modal",
                             "open"
@@ -1757,12 +1787,18 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             }
                           </div>
                         ),
-                        onChange: generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "open",
-                          ["collapse2", "open"],
-                          AntdSingleCollapse_Helpers
-                        ),
+                        onChange: async (...eventArgs: any) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "open",
+                            ["collapse2", "open"],
+                            AntdSingleCollapse_Helpers
+                          ).apply(null, eventArgs);
+
+                          if (eventArgs.length > 1 && eventArgs[1]) {
+                            return;
+                          }
+                        },
                         open: generateStateValueProp($state, [
                           "collapse2",
                           "open"
@@ -1912,12 +1948,18 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             }
                           </div>
                         ),
-                        onChange: generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "open",
-                          ["collapse", "open"],
-                          AntdSingleCollapse_Helpers
-                        ),
+                        onChange: async (...eventArgs: any) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "open",
+                            ["collapse", "open"],
+                            AntdSingleCollapse_Helpers
+                          ).apply(null, eventArgs);
+
+                          if (eventArgs.length > 1 && eventArgs[1]) {
+                            return;
+                          }
+                        },
                         open: generateStateValueProp($state, [
                           "collapse",
                           "open"
@@ -2071,12 +2113,18 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             }
                           </div>
                         ),
-                        onChange: generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "open",
-                          ["collapse3", "open"],
-                          AntdSingleCollapse_Helpers
-                        ),
+                        onChange: async (...eventArgs: any) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "open",
+                            ["collapse3", "open"],
+                            AntdSingleCollapse_Helpers
+                          ).apply(null, eventArgs);
+
+                          if (eventArgs.length > 1 && eventArgs[1]) {
+                            return;
+                          }
+                        },
                         open: generateStateValueProp($state, [
                           "collapse3",
                           "open"

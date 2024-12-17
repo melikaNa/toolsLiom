@@ -527,12 +527,18 @@ function PlasmicNewPage2__RenderFunc(props: {
                 const child$Props = {
                   autoSize: true,
                   className: classNames("__wab_instance", sty.textArea),
-                  onChange: generateStateOnChangePropForCodeComponents(
-                    $state,
-                    "value",
-                    ["textArea", "value"],
-                    AntdTextArea_Helpers
-                  ),
+                  onChange: async (...eventArgs: any) => {
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "value",
+                      ["textArea", "value"],
+                      AntdTextArea_Helpers
+                    ).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
+                  },
                   placeholder:
                     "\u067e\u06cc\u0627\u0645 \u062e\u0648\u062f \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...",
                   value: generateStateValueProp($state, ["textArea", "value"])

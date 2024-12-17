@@ -87,6 +87,8 @@
   transition-property: all;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
+  width: 100%;
+  min-width: 0;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   -webkit-transition-duration: 1s;
@@ -406,7 +408,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 2;
+  z-index: 5;
   padding: 0px;
 }
 .reveal___8PZJt:global(.__wab_instance) {
@@ -1071,7 +1073,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.apiRequest2:global(.__wab_instance) {
+.shop:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }

@@ -447,6 +447,11 @@ function PlasmicNotifBox__RenderFunc(props: {
               ["collapse", "open"],
               AntdSingleCollapse_Helpers
             ).apply(null, eventArgs);
+
+            if (eventArgs.length > 1 && eventArgs[1]) {
+              return;
+            }
+
             args.onChange.apply(null, eventArgs);
           },
           open: generateStateValueProp($state, ["collapse", "open"]),

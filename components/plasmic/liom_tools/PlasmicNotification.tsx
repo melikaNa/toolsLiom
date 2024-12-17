@@ -3087,12 +3087,18 @@ function PlasmicNotification__RenderFunc(props: {
                                 $steps["goToPage"] = await $steps["goToPage"];
                               }
                             },
-                            onColorChange: (...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button",
-                                __plasmic_idx_0,
-                                "color"
-                              ])(eventArgs[0]);
+                            onColorChange: async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button",
+                                  __plasmic_idx_0,
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
                             }
                           };
 
@@ -3346,31 +3352,61 @@ function PlasmicNotification__RenderFunc(props: {
                         $steps["runCode"] = await $steps["runCode"];
                       }
                     },
-                    onDateChange: generateStateOnChangeProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "date"
-                    ]),
-                    onDeletChange: generateStateOnChangeProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "delet"
-                    ]),
-                    onSeenChange: generateStateOnChangeProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "seen"
-                    ]),
-                    onTextChange: generateStateOnChangeProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "text"
-                    ]),
-                    onTitleChange: generateStateOnChangeProp($state, [
-                      "notifBox2",
-                      __plasmic_idx_0,
-                      "title"
-                    ]),
+                    onDateChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "date"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    },
+                    onDeletChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "delet"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    },
+                    onSeenChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "seen"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    },
+                    onTextChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "text"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    },
+                    onTitleChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "notifBox2",
+                        __plasmic_idx_0,
+                        "title"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    },
                     seen: generateStateValueProp($state, [
                       "notifBox2",
                       __plasmic_idx_0,
@@ -3669,15 +3705,36 @@ function PlasmicNotification__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}
-            onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
-            onLoading={generateStateOnChangeProp($state, [
-              "apiRequest",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "apiRequest",
-              "data"
-            ])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             params={
               hasVariant($state, "notification", "notification")
                 ? (() => {

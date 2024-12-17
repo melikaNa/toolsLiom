@@ -1237,10 +1237,16 @@ function PlasmicBioritm__RenderFunc(props: {
                       ];
                     }
                   }}
-                  onColorChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
-                      eventArgs[0]
-                    );
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
                   }}
                 >
                   {
@@ -1334,10 +1340,16 @@ function PlasmicBioritm__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
-                  onColorChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button3", "color"])(
-                      eventArgs[0]
-                    );
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button3", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
                   }}
                 >
                   {
@@ -4574,10 +4586,16 @@ function PlasmicBioritm__RenderFunc(props: {
                 ];
               }
             }}
-            onClickChange={generateStateOnChangeProp($state, [
-              "slideinModal",
-              "click"
-            ])}
+            onClickChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "slideinModal",
+                "click"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
           >
             <Stack__
               as={"div"}
@@ -4620,10 +4638,16 @@ function PlasmicBioritm__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
             }}
-            onClickChange={generateStateOnChangeProp($state, [
-              "slideinModal2",
-              "click"
-            ])}
+            onClickChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "slideinModal2",
+                "click"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
           >
             <div
               className={classNames(projectcss.all, sty.freeBox___7Dfdi, {
@@ -4948,10 +4972,16 @@ function PlasmicBioritm__RenderFunc(props: {
                       ];
                     }
                   }}
-                  onColorChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button5", "color"])(
-                      eventArgs[0]
-                    );
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button5", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
                   }}
                 >
                   <div
@@ -5008,16 +5038,36 @@ function PlasmicBioritm__RenderFunc(props: {
           errorDisplay={null}
           loadingDisplay={null}
           method={"POST"}
-          onError={generateStateOnChangeProp($state, ["biorhythm", "error"])}
-          onLoading={generateStateOnChangeProp($state, [
-            "biorhythm",
-            "loading"
-          ])}
+          onError={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["biorhythm", "error"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (eventArgs.length > 1 && eventArgs[1]) {
+              return;
+            }
+          }}
+          onLoading={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["biorhythm", "loading"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (eventArgs.length > 1 && eventArgs[1]) {
+              return;
+            }
+          }}
           onSuccess={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["biorhythm", "data"]).apply(
               null,
               eventArgs
             );
+
+            if (eventArgs.length > 1 && eventArgs[1]) {
+              return;
+            }
+
             (async data => {
               const $steps = {};
 
@@ -5124,10 +5174,16 @@ function PlasmicBioritm__RenderFunc(props: {
               ];
             }
           }}
-          onClickChange={generateStateOnChangeProp($state, [
-            "slideinModal3",
-            "click"
-          ])}
+          onClickChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["slideinModal3", "click"]).apply(
+              null,
+              eventArgs
+            );
+
+            if (eventArgs.length > 1 && eventArgs[1]) {
+              return;
+            }
+          }}
         >
           <div
             className={classNames(projectcss.all, sty.freeBox___2KNk, {
@@ -5449,10 +5505,16 @@ function PlasmicBioritm__RenderFunc(props: {
                     ];
                   }
                 }}
-                onColorChange={(...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "color"])(
-                    eventArgs[0]
-                  );
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
                 }}
               >
                 <div
@@ -5516,10 +5578,16 @@ function PlasmicBioritm__RenderFunc(props: {
                     ];
                   }
                 }}
-                onColorChange={(...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button4", "color"])(
-                    eventArgs[0]
-                  );
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button4", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
                 }}
               >
                 <div
