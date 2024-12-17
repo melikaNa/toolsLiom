@@ -2666,14 +2666,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       (() => {
                                         try {
                                           return {
-                                            id: "91d5973e-eefd-4753-a611-ac6d37357184",
-                                            offCode: "",
-                                            userId: $ctx.query.UserId,
-                                            refCode: "hrWgK5mZv",
-                                            redirectUrl:
-                                              window.location.href.split(
-                                                "&type=buy&status"
-                                              )[0]
+                                            merchantID:
+                                              "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
+                                            amount:
+                                              $state.shop.data.result.price,
+                                            type: "selfTest",
+                                            text: $state.shop.data.result.title,
+                                            value: 1,
+                                            userId: $state.userId,
+                                            redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
                                           };
                                         } catch (e) {
                                           if (
@@ -2686,27 +2687,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                           throw e;
                                         }
                                       })(),
-                                      (() => {
-                                        try {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                $state.user.data.result.token
-                                            }
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
+                                      undefined
                                     ]
                                   };
                                   return $globalActions[
