@@ -2502,7 +2502,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               >
                 {(() => {
                   try {
-                    return $ctx.query.status == "false";
+                    return $ctx.query.status == "NOK";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -2839,7 +2839,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 ) : null}
                 {(() => {
                   try {
-                    return $ctx.query.status == "true";
+                    return $ctx.query.status == "OK";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -2982,7 +2982,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             }
 
                             $steps["runCode"] =
-                              $steps.invokeGlobalAction?.data?.statusBuy == "ok"
+                              $steps.invokeGlobalAction?.data?.statusBuy == "OK"
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
@@ -3008,7 +3008,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                             }
 
                             $steps["runCode2"] =
-                              $steps.invokeGlobalAction?.data?.statusBuy != "ok"
+                              $steps.invokeGlobalAction?.data?.statusBuy !=
+                              "NOK"
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {

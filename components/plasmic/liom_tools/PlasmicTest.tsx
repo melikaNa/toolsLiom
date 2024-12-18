@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { Video } from "@plasmicpkgs/plasmic-basic-components";
+import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -85,6 +86,8 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   htmlVideo?: Flex__<typeof Video>;
+  paziresh24LineClamp?: Flex__<typeof Paziresh24LineClamp>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultTestProps {}
@@ -166,6 +169,27 @@ function PlasmicTest__RenderFunc(props: {
               "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
             }
           />
+
+          <Paziresh24LineClamp
+            data-plasmic-name={"paziresh24LineClamp"}
+            data-plasmic-override={overrides.paziresh24LineClamp}
+            className={classNames("__wab_instance", sty.paziresh24LineClamp)}
+            numberOfLines={2}
+          >
+            <div
+              data-plasmic-name={"text"}
+              data-plasmic-override={overrides.text}
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text
+              )}
+            >
+              {
+                "\u0633\u0632\u0645\u062a\u062e\u0633\u06cc\u062e\u0639\u0647\u0632\u0633\u0627\u0627\u0632\u0633\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0627\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646   \u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\n\n\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646\u0646"
+              }
+            </div>
+          </Paziresh24LineClamp>
         </div>
       </div>
     </React.Fragment>
@@ -173,8 +197,10 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "htmlVideo"],
-  htmlVideo: ["htmlVideo"]
+  root: ["root", "htmlVideo", "paziresh24LineClamp", "text"],
+  htmlVideo: ["htmlVideo"],
+  paziresh24LineClamp: ["paziresh24LineClamp", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -182,6 +208,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   htmlVideo: typeof Video;
+  paziresh24LineClamp: typeof Paziresh24LineClamp;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -270,6 +298,8 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     htmlVideo: makeNodeComponent("htmlVideo"),
+    paziresh24LineClamp: makeNodeComponent("paziresh24LineClamp"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,
