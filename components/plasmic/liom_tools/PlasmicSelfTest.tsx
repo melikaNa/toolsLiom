@@ -2982,14 +2982,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                             }
 
                             $steps["runCode"] =
-                              $steps.invokeGlobalAction.data.statusBuy == "ok"
+                              $steps.invokeGlobalAction?.data?.statusBuy == "ok"
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
                                           var url = window.location.href;
                                           return (window.location.href =
-                                            url.split("&type=buy&status")[0] +
+                                            url.split("&status")[0] +
                                             "&buy=true");
                                         })();
                                       }
@@ -3008,14 +3008,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                             }
 
                             $steps["runCode2"] =
-                              $steps.invokeGlobalAction.data.statusBuy != "ok"
+                              $steps.invokeGlobalAction?.data?.statusBuy != "ok"
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
                                           var url = window.location.href;
                                           return (window.location.href =
-                                            url.split("&type=buy&status")[0] +
+                                            url.split("&status")[0] +
                                             "&status=false");
                                         })();
                                       }
@@ -3529,10 +3529,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         customFunction: async () => {
                           return (() => {
                             const type = $ctx.query.type || "";
-                            if (
-                              type === "irregular" ||
-                              type.includes("irregular")
-                            ) {
+                            if (type === "irregular") {
                               $state.totalTest = 50;
                               $state.numberTest = 0;
                               if (
@@ -3614,7 +3611,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
             className={classNames("__wab_instance", sty.timer)}
-            intervalSeconds={1}
+            intervalSeconds={0.3}
             isRunning={true}
             onTick={async () => {
               const $steps = {};
