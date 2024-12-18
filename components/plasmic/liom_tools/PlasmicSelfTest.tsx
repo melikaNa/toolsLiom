@@ -2088,6 +2088,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       text: $state.shop.data.result.title,
                                       value: 1,
                                       userId: $state.userId,
+                                      callback:
+                                        "https://n8n.staas.ir/webhook/selfTestPayment",
+                                      extraData: {
+                                        user_id: $state.userId,
+                                        session_id: $state.sessionId
+                                      },
                                       redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
                                     };
                                   } catch (e) {
@@ -2674,6 +2680,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                                             text: $state.shop.data.result.title,
                                             value: 1,
                                             userId: $state.userId,
+                                            callback:
+                                              "https://n8n.staas.ir/webhook/selfTestPayment",
+                                            extraData: {
+                                              user_id: $state.userId,
+                                              session_id: $state.sessionId
+                                            },
                                             redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
                                           };
                                         } catch (e) {
