@@ -534,7 +534,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -3599,7 +3599,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 return;
               }
             }}
-            url={"/"}
+            url={"https://worldtimeapi.org/api/timezone/Asia/Tehran"}
           />
 
           <Timer

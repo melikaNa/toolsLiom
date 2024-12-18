@@ -1078,7 +1078,6 @@
   justify-content: flex-start;
   align-items: stretch;
   min-width: 0;
-  display: none;
   padding: 8px;
 }
 .shop:global(.__wab_instance) {
