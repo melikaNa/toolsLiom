@@ -94,7 +94,6 @@ export type PlasmicTestOptionsLiom__ArgsType = {
   ferst?: boolean;
   retestTest?: boolean;
   app?: string;
-  onClickliom?: (event: any) => void;
   children?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicTestOptionsLiom__ArgsType;
@@ -106,7 +105,6 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
   "ferst",
   "retestTest",
   "app",
-  "onClickliom",
   "children"
 );
 
@@ -125,7 +123,6 @@ export interface DefaultTestOptionsLiomProps {
   ferst?: boolean;
   retestTest?: boolean;
   app?: string;
-  onClickliom?: (event: any) => void;
   children?: React.ReactNode;
   className?: string;
 }
@@ -280,6 +277,84 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                 }
               })()}
               onClick={args.onClick24}
+              onMouseDown={async event => {
+                const $steps = {};
+
+                $steps["updateSelectedIDs"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["selectedIDs"]
+                        },
+                        operation: 0,
+                        value: [currentItem.id]
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSelectedIDs"] != null &&
+                  typeof $steps["updateSelectedIDs"] === "object" &&
+                  typeof $steps["updateSelectedIDs"].then === "function"
+                ) {
+                  $steps["updateSelectedIDs"] = await $steps[
+                    "updateSelectedIDs"
+                  ];
+                }
+              }}
+              onTouchStart={async event => {
+                const $steps = {};
+
+                $steps["updateSelectedIDs"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["selectedIDs"]
+                        },
+                        operation: 0,
+                        value: [currentItem.id]
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSelectedIDs"] != null &&
+                  typeof $steps["updateSelectedIDs"] === "object" &&
+                  typeof $steps["updateSelectedIDs"].then === "function"
+                ) {
+                  $steps["updateSelectedIDs"] = await $steps[
+                    "updateSelectedIDs"
+                  ];
+                }
+              }}
               selctedOptionLiom={(() => {
                 try {
                   return (
@@ -429,22 +504,6 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             </div>
           }
           className={classNames("__wab_instance", sty.paziresh24Button)}
-          isDisabled={(() => {
-            try {
-              return (
-                ($state.selectedIDs.length == 0 && $props.ferst == true) ||
-                false
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()}
           onClick={args.onClick24}
         />
       ) : null}
@@ -470,24 +529,6 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           data-plasmic-override={overrides.button}
           className={classNames("__wab_instance", sty.button)}
           color={generateStateValueProp($state, ["button", "color"])}
-          isDisabled={(() => {
-            try {
-              return (
-                ($state.selectedIDs.length == 0 &&
-                  $props.ferst == true &&
-                  $props.retestTest == true) ||
-                false
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()}
           onClick={args.onClick24}
           onColorChange={async (...eventArgs: any) => {
             ((...eventArgs) => {

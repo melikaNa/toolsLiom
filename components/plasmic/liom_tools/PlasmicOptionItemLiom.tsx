@@ -89,11 +89,15 @@ export const PlasmicOptionItemLiom__VariantProps = new Array<VariantPropType>(
 export type PlasmicOptionItemLiom__ArgsType = {
   children?: React.ReactNode;
   onClick?: (event: any) => void;
+  onTouchStart?: (event: any) => void;
+  onMouseDown?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicOptionItemLiom__ArgsType;
 export const PlasmicOptionItemLiom__ArgProps = new Array<ArgPropType>(
   "children",
-  "onClick"
+  "onClick",
+  "onTouchStart",
+  "onMouseDown"
 );
 
 export type PlasmicOptionItemLiom__OverridesType = {
@@ -103,6 +107,8 @@ export type PlasmicOptionItemLiom__OverridesType = {
 export interface DefaultOptionItemLiomProps {
   children?: React.ReactNode;
   onClick?: (event: any) => void;
+  onTouchStart?: (event: any) => void;
+  onMouseDown?: (event: any) => void;
   selctedOptionLiom?: SingleBooleanChoiceArg<"selctedOptionLiom">;
   selctedOptionPaziresh?: SingleBooleanChoiceArg<"selctedOptionPaziresh">;
   noLine?: SingleBooleanChoiceArg<"noLine">;
@@ -216,6 +222,8 @@ function PlasmicOptionItemLiom__RenderFunc(props: {
       onClick={async event => {
         const $steps = {};
       }}
+      onMouseDown={args.onMouseDown}
+      onTouchStart={args.onTouchStart}
     >
       <div
         className={classNames(projectcss.all, sty.freeBox__pSGqD, {
