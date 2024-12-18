@@ -216,9 +216,6 @@ function PlasmicOptionItemLiom__RenderFunc(props: {
       onClick={async event => {
         const $steps = {};
       }}
-      onTouchStart={async event => {
-        const $steps = {};
-      }}
     >
       <div
         className={classNames(projectcss.all, sty.freeBox__pSGqD, {
