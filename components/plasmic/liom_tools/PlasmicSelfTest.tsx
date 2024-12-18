@@ -534,7 +534,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -674,11 +674,8 @@ function PlasmicSelfTest__RenderFunc(props: {
             }
           </HeaderLiom>
           <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__fwEj,
-              "messegeBox"
-            )}
+            className={classNames(projectcss.all, sty.freeBox__fwEj, ``)}
+            id={"messegeBox"}
           >
             <Reveal
               big={false}
@@ -992,11 +989,8 @@ function PlasmicSelfTest__RenderFunc(props: {
             </Reveal>
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__ssEaT,
-              "selectBox"
-            )}
+            className={classNames(projectcss.all, sty.freeBox__ssEaT, ``)}
+            id={"selectBox"}
           >
             <Reveal
               big={true}
