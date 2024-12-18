@@ -712,24 +712,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                     data-plasmic-name={"messageLiom"}
                     data-plasmic-override={overrides.messageLiom}
                     className={classNames("__wab_instance", sty.messageLiom)}
-                    endMessege={(() => {
-                      try {
-                        return (
-                          $state.testChat[currentIndex].from === "system" &&
-                          ($state.testChat[currentIndex + 1]?.from !==
-                            "system" ||
-                            $state.testChat.length - 1 === currentIndex)
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
                     key={currentIndex}
                     liomAnswer={(() => {
                       try {

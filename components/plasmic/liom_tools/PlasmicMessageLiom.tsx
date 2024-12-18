@@ -371,6 +371,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "liomAnswer",
                 "liomAnswer"
               ),
+              [sty.svgliomAnswer_pazireshAnswer]:
+                hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+                hasVariant($state, "liomAnswer", "liomAnswer"),
               [sty.svgpazireshAnswer]: hasVariant(
                 $state,
                 "pazireshAnswer",
