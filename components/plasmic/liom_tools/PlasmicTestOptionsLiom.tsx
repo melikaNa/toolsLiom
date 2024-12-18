@@ -315,6 +315,22 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                     "updateSelectedIDs"
                   ];
                 }
+
+                $steps["runOnClick24"] = true
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["onClick24"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runOnClick24"] != null &&
+                  typeof $steps["runOnClick24"] === "object" &&
+                  typeof $steps["runOnClick24"].then === "function"
+                ) {
+                  $steps["runOnClick24"] = await $steps["runOnClick24"];
+                }
               }}
               onTouchStart={async event => {
                 const $steps = {};
@@ -353,6 +369,22 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                   $steps["updateSelectedIDs"] = await $steps[
                     "updateSelectedIDs"
                   ];
+                }
+
+                $steps["runOnClick24"] = true
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["onClick24"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runOnClick24"] != null &&
+                  typeof $steps["runOnClick24"] === "object" &&
+                  typeof $steps["runOnClick24"].then === "function"
+                ) {
+                  $steps["runOnClick24"] = await $steps["runOnClick24"];
                 }
               }}
               selctedOptionLiom={(() => {
