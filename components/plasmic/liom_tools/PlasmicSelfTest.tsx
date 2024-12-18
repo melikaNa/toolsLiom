@@ -3598,8 +3598,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          const inputBox = document.querySelector(".selectBox");
-                          const textBox = document.querySelector(".messegeBox");
+                          var inputBox = document.getElementById("selectBox");
+                          var textBox = document.getElementById("messegeBox");
                           if (inputBox.style.display === "none") {
                             return (textBox.style.paddingBottom = "8px");
                           } else {
