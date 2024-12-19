@@ -2517,7 +2517,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   try {
                                     return {
                                       headers: {
-                                        token: $ctx.query.token
+                                        token:
+                                          "MDb5YJXCtWaLtWXdPERz7C3rJ4gw1uBqa7UKIY5baLc4232WD4pyowQOv4TRFoirqXc55mf8TWC6jWWEUVh4x7ODU4RXzyRW4yrFxyMfCo04Ql3KQyUviW9Lcbqap1eWM2a9A1h0OCqACJo0BpfyGsJboPcrjbeMR6zy9kLDQ5RKVRdQ0w7UGt5DDhLwLU4RtOzYm76Ius24V4gSumEYE2sb9GzTVA46sHfYWJa7LP5PDSFq3h7KrAmr6zUUiz"
                                       }
                                     };
                                   } catch (e) {
