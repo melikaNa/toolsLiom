@@ -700,10 +700,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        window.location.href = window.location.href.replace(
-                          "?token=",
-                          "&token="
-                        );
+                        if (window.location.href.includes("?token")) {
+                          window.location.href = window.location.href.replace(
+                            "?token=",
+                            "&token="
+                          );
+                        }
                         var urlParams = new URLSearchParams(
                           window.location.search
                         );
