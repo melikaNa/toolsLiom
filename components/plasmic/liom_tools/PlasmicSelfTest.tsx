@@ -605,6 +605,96 @@ function PlasmicSelfTest__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
+            $steps["invokeGlobalAction"] = localStorage.getItem("receipt_id")
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "POST",
+                      (() => {
+                        try {
+                          return `https://apigw.paziresh24.com/katibe/v1/payments/${localStorage.getItem(
+                            "receipt_id"
+                          )}/verify`;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })(),
+                      undefined,
+                      undefined,
+                      {
+                        headers: {
+                          token:
+                            "MDb5YJXCtWaLtWXdPERz7C3rJ4gw1uBqa7UKIY5baLc4232WD4pyowQOv4TRFoirqXc55mf8TWC6jWWEUVh4x7ODU4RXzyRW4yrFxyMfCo04Ql3KQyUviW9Lcbqap1eWM2a9A1h0OCqACJo0BpfyGsJboPcrjbeMR6zy9kLDQ5RKVRdQ0w7UGt5DDhLwLU4RtOzYm76Ius24V4gSumEYE2sb9GzTVA46sHfYWJa7LP5PDSFq3h7KrAmr6zUUiz"
+                        }
+                      }
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction"] != null &&
+              typeof $steps["invokeGlobalAction"] === "object" &&
+              typeof $steps["invokeGlobalAction"].then === "function"
+            ) {
+              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
+
+            $steps["invokeGlobalAction2"] = localStorage.getItem("receipt_id")
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "POST",
+                      "https://n8n.staas.ir/webhook/selfTestPayment",
+                      undefined,
+                      (() => {
+                        try {
+                          return {
+                            status:
+                              $steps.invokeGlobalAction.data.status || false,
+                            extra: {
+                              user_id: localStorage.getItem("user_id"),
+                              session_id: new URLSearchParams(
+                                window.location.search
+                              ).get("session_id")
+                            },
+                            pt: localStorage.getItem("receipt_id")
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction2"] != null &&
+              typeof $steps["invokeGlobalAction2"] === "object" &&
+              typeof $steps["invokeGlobalAction2"].then === "function"
+            ) {
+              $steps["invokeGlobalAction2"] = await $steps[
+                "invokeGlobalAction2"
+              ];
+            }
+
             $steps["runCode"] = true
               ? (() => {
                   const actionArgs = {
@@ -623,8 +713,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                           )}`;
                         }
                         if (!urlParams.has("type")) {
-                          return (window.location.href =
-                            window.location.href + "&type=irregular");
+                          window.location.href =
+                            window.location.href + "&type=irregular";
+                        }
+                        if ($steps.invokeGlobalAction.data.status == true) {
+                          window.location.href =
+                            window.location.href + "&status==OK";
+                          return localStorage.removeItem("receipt_id");
+                        } else if (
+                          $steps.invokeGlobalAction.data.status == false
+                        ) {
+                          window.location.href =
+                            window.location.href + "&status==NOK";
+                          return localStorage.removeItem("receipt_id");
                         }
                       })();
                     }
@@ -2500,7 +2601,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     return {
                                       amount: $state.shop.data.result.price,
                                       purchase_id: $state.shop.data.result.id,
-                                      return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`,
+                                      return_link:
+                                        window.location.href +
+                                        `&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`,
                                       title: $state.shop.data.result.title
                                     };
                                   } catch (e) {
