@@ -700,6 +700,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
+                        window.location.href = window.location.href.replace(
+                          "?token=",
+                          "&token="
+                        );
                         var urlParams = new URLSearchParams(
                           window.location.search
                         );
@@ -716,12 +720,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                           window.location.href =
                             window.location.href + "&type=irregular";
                         }
-                        if ($steps.invokeGlobalAction.data.status == true) {
+                        if ($steps.invokeGlobalAction?.data?.status == true) {
                           window.location.href =
                             window.location.href + "&status==OK";
                           return localStorage.removeItem("receipt_id");
                         } else if (
-                          $steps.invokeGlobalAction.data.status == false
+                          $steps.invokeGlobalAction?.data?.status == false
                         ) {
                           window.location.href =
                             window.location.href + "&status==NOK";
