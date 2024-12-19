@@ -232,7 +232,11 @@ function PlasmicHeaderV2__RenderFunc(props: {
             );
           }).apply(null, eventArgs);
 
-          if (eventArgs.length > 1 && eventArgs[1]) {
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
             return;
           }
         }}

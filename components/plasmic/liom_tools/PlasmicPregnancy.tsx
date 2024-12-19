@@ -599,30 +599,18 @@ function PlasmicPregnancy__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["getInfo", "loading"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
 
               (async data => {
                 const $steps = {};
@@ -4477,20 +4465,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                   null,
                   eventArgs
                 );
-
-                if (eventArgs.length > 1 && eventArgs[1]) {
-                  return;
-                }
               }}
               onLoading={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
                   "getAdvice",
                   "loading"
                 ]).apply(null, eventArgs);
-
-                if (eventArgs.length > 1 && eventArgs[1]) {
-                  return;
-                }
 
                 (async loading => {
                   const $steps = {};
@@ -4523,10 +4503,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                   null,
                   eventArgs
                 );
-
-                if (eventArgs.length > 1 && eventArgs[1]) {
-                  return;
-                }
               }}
               params={{
                 weekNumber: $state.weeksPregnant
@@ -4546,20 +4522,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                   null,
                   eventArgs
                 );
-
-                if (eventArgs.length > 1 && eventArgs[1]) {
-                  return;
-                }
               }}
               onLoading={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, ["getTask", "loading"]).apply(
                   null,
                   eventArgs
                 );
-
-                if (eventArgs.length > 1 && eventArgs[1]) {
-                  return;
-                }
 
                 (async loading => {
                   const $steps = {};
@@ -4592,10 +4560,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                   null,
                   eventArgs
                 );
-
-                if (eventArgs.length > 1 && eventArgs[1]) {
-                  return;
-                }
               }}
               params={{
                 weekNumber: $state.weeksPregnant + 1,

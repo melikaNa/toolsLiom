@@ -406,10 +406,6 @@ function PlasmicResult__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             open={generateStateValueProp($state, ["modal", "open"])}
             title={null}
@@ -919,7 +915,11 @@ function PlasmicResult__RenderFunc(props: {
                   );
                 }).apply(null, eventArgs);
 
-                if (eventArgs.length > 1 && eventArgs[1]) {
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
                   return;
                 }
               }}
@@ -1490,7 +1490,11 @@ function PlasmicResult__RenderFunc(props: {
                                     ])(eventArgs[0]);
                                   }).apply(null, eventArgs);
 
-                                  if (eventArgs.length > 1 && eventArgs[1]) {
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
                                     return;
                                   }
                                 }
@@ -1655,10 +1659,6 @@ function PlasmicResult__RenderFunc(props: {
                               ["collapse2", __plasmic_idx_0, "open"],
                               AntdSingleCollapse_Helpers
                             ).apply(null, eventArgs);
-
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
                           },
                           open: generateStateValueProp($state, [
                             "collapse2",
@@ -1745,30 +1745,18 @@ function PlasmicResult__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "apiRequest",
                 "loading"
               ]).apply(null, eventArgs);
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             params={(() => {
               try {
@@ -1895,30 +1883,18 @@ function PlasmicResult__RenderFunc(props: {
                     "apiRequest2",
                     "error"
                   ]).apply(null, eventArgs);
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
                 }}
                 onLoading={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "apiRequest2",
                     "loading"
                   ]).apply(null, eventArgs);
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
                 }}
                 onSuccess={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
                     "apiRequest2",
                     "data"
                   ]).apply(null, eventArgs);
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
                 }}
                 url={(() => {
                   try {
@@ -2352,7 +2328,11 @@ function PlasmicResult__RenderFunc(props: {
                 eventArgs
               );
 
-              if (eventArgs.length > 1 && eventArgs[1]) {
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
                 return;
               }
             }}

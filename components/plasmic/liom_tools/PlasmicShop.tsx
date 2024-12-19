@@ -495,10 +495,6 @@ function PlasmicShop__RenderFunc(props: {
                               ["input2", "value"],
                               AntdInput_Helpers
                             ).apply(null, eventArgs);
-
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
                           },
                           placeholder:
                             "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
@@ -564,7 +560,11 @@ function PlasmicShop__RenderFunc(props: {
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
                       }}
@@ -599,7 +599,11 @@ function PlasmicShop__RenderFunc(props: {
                       );
                     }).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -708,30 +712,18 @@ function PlasmicShop__RenderFunc(props: {
                 "fragmentApiRequest",
                 "error"
               ]).apply(null, eventArgs);
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "fragmentApiRequest",
                 "loading"
               ]).apply(null, eventArgs);
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "fragmentApiRequest",
                 "data"
               ]).apply(null, eventArgs);
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           />

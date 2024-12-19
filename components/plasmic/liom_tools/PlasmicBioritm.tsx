@@ -1244,7 +1244,11 @@ function PlasmicBioritm__RenderFunc(props: {
                       );
                     }).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -1347,7 +1351,11 @@ function PlasmicBioritm__RenderFunc(props: {
                       );
                     }).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -4592,7 +4600,11 @@ function PlasmicBioritm__RenderFunc(props: {
                 "click"
               ]).apply(null, eventArgs);
 
-              if (eventArgs.length > 1 && eventArgs[1]) {
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
                 return;
               }
             }}
@@ -4644,7 +4656,11 @@ function PlasmicBioritm__RenderFunc(props: {
                 "click"
               ]).apply(null, eventArgs);
 
-              if (eventArgs.length > 1 && eventArgs[1]) {
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
                 return;
               }
             }}
@@ -4979,7 +4995,11 @@ function PlasmicBioritm__RenderFunc(props: {
                       );
                     }).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -5043,30 +5063,18 @@ function PlasmicBioritm__RenderFunc(props: {
               null,
               eventArgs
             );
-
-            if (eventArgs.length > 1 && eventArgs[1]) {
-              return;
-            }
           }}
           onLoading={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["biorhythm", "loading"]).apply(
               null,
               eventArgs
             );
-
-            if (eventArgs.length > 1 && eventArgs[1]) {
-              return;
-            }
           }}
           onSuccess={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["biorhythm", "data"]).apply(
               null,
               eventArgs
             );
-
-            if (eventArgs.length > 1 && eventArgs[1]) {
-              return;
-            }
 
             (async data => {
               const $steps = {};
@@ -5180,7 +5188,11 @@ function PlasmicBioritm__RenderFunc(props: {
               eventArgs
             );
 
-            if (eventArgs.length > 1 && eventArgs[1]) {
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
               return;
             }
           }}
@@ -5512,7 +5524,11 @@ function PlasmicBioritm__RenderFunc(props: {
                     );
                   }).apply(null, eventArgs);
 
-                  if (eventArgs.length > 1 && eventArgs[1]) {
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
                     return;
                   }
                 }}
@@ -5585,7 +5601,11 @@ function PlasmicBioritm__RenderFunc(props: {
                     );
                   }).apply(null, eventArgs);
 
-                  if (eventArgs.length > 1 && eventArgs[1]) {
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
                     return;
                   }
                 }}
