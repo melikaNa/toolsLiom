@@ -2607,11 +2607,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 (() => {
                                   try {
                                     return {
-                                      amount: $state.shop.data.result.price,
+                                      amount:
+                                        $state.shop.data.result.price * 10,
                                       purchase_id: $state.shop.data.result.id,
-                                      return_link:
-                                        window.location.href +
-                                        `&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`,
+                                      return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`,
                                       title: $state.shop.data.result.title
                                     };
                                   } catch (e) {
@@ -3379,7 +3378,24 @@ function PlasmicSelfTest__RenderFunc(props: {
                           }
                         })() ? (
                           <Paziresh24Button
-                            children2={"\u067e\u0631\u062f\u0627\u062e\u062a "}
+                            children2={
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return "تلاش مجدد";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u067e\u0631\u062f\u0627\u062e\u062a ";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            }
                             className={classNames(
                               "__wab_instance",
                               sty.paziresh24Button__dabzn
@@ -3450,12 +3466,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                                           try {
                                             return {
                                               amount:
-                                                $state.shop.data.result.price,
+                                                $state.shop.data.result.price *
+                                                10,
                                               purchase_id:
                                                 $state.shop.data.result.id,
-                                              return_link:
-                                                window.location.href +
-                                                `&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`,
+                                              return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`,
                                               title:
                                                 $state.shop.data.result.title
                                             };
