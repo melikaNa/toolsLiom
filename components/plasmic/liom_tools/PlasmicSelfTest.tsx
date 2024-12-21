@@ -727,9 +727,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           window.location.href =
                             window.location.href + "&status==OK";
                           return localStorage.removeItem("receipt_id");
-                        } else if (
-                          $steps.invokeGlobalAction?.data?.status == false
-                        ) {
+                        } else if (!$steps.invokeGlobalAction?.data?.status) {
                           window.location.href =
                             window.location.href + "&status==NOK";
                           return localStorage.removeItem("receipt_id");
