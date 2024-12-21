@@ -667,7 +667,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 window.location.search
                               ).get("session_id")
                             },
-                            pt: localStorage.getItem("receipt_id")
+                            id: localStorage.getItem("receipt_id")
                           };
                         } catch (e) {
                           if (
