@@ -536,7 +536,13 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "variable3",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -609,12 +615,14 @@ function PlasmicSelfTest__RenderFunc(props: {
               ? (() => {
                   const actionArgs = {
                     args: [
-                      "POST",
+                      "PUT",
+                      "https://n8n.staas.ir/webhook/selfTestPaymentPasiresh24",
+                      undefined,
                       (() => {
                         try {
-                          return `https://apigw.paziresh24.com/katibe/v1/payments/${localStorage.getItem(
-                            "receipt_id"
-                          )}/verify`;
+                          return {
+                            receipt_id: localStorage.getItem("receipt_id")
+                          };
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -625,14 +633,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           throw e;
                         }
                       })(),
-                      undefined,
-                      undefined,
-                      {
-                        headers: {
-                          token:
-                            "MDb5YJXCtWaLtWXdPERz7C3rJ4gw1uBqa7UKIY5baLc4232WD4pyowQOv4TRFoirqXc55mf8TWC6jWWEUVh4x7ODU4RXzyRW4yrFxyMfCo04Ql3KQyUviW9Lcbqap1eWM2a9A1h0OCqACJo0BpfyGsJboPcrjbeMR6zy9kLDQ5RKVRdQ0w7UGt5DDhLwLU4RtOzYm76Ius24V4gSumEYE2sb9GzTVA46sHfYWJa7LP5PDSFq3h7KrAmr6zUUiz"
-                        }
-                      }
+                      {}
                     ]
                   };
                   return $globalActions["Fragment.apiRequest"]?.apply(null, [
@@ -2600,7 +2601,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               args: [
                                 "POST",
-                                "https://apigw.paziresh24.com/katibe/v1/payments",
+                                "https://n8n.staas.ir/webhook/selfTestPaymentPasiresh24",
                                 undefined,
                                 (() => {
                                   try {
@@ -2623,25 +2624,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     throw e;
                                   }
                                 })(),
-                                (() => {
-                                  try {
-                                    return {
-                                      headers: {
-                                        token:
-                                          "MDb5YJXCtWaLtWXdPERz7C3rJ4gw1uBqa7UKIY5baLc4232WD4pyowQOv4TRFoirqXc55mf8TWC6jWWEUVh4x7ODU4RXzyRW4yrFxyMfCo04Ql3KQyUviW9Lcbqap1eWM2a9A1h0OCqACJo0BpfyGsJboPcrjbeMR6zy9kLDQ5RKVRdQ0w7UGt5DDhLwLU4RtOzYm76Ius24V4gSumEYE2sb9GzTVA46sHfYWJa7LP5PDSFq3h7KrAmr6zUUiz"
-                                      }
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
+                                undefined
                               ]
                             };
                             return $globalActions["Fragment.apiRequest"]?.apply(
@@ -2657,6 +2640,42 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ) {
                         $steps["invokeGlobalAction"] = await $steps[
                           "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["variable3"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction?.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
                         ];
                       }
 
