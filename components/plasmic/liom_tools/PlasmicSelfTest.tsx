@@ -702,16 +702,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                     customFunction: async () => {
                       return (() => {
                         if (window.location.href.includes("?token")) {
-                          window.location.href = window.location.href.replace(
-                            "?token=",
-                            "&token="
-                          );
+                          const url = new URL(window.location.href);
+                          url.search = url.search.replace("?token=", "&token=");
+                          window.history.replaceState(null, "", url.toString());
                         }
-                        var urlParams = new URLSearchParams(
+                        const urlParams = new URLSearchParams(
                           window.location.search
                         );
-                        var app = urlParams.get("app");
-                        var originUserId = urlParams.has("origin_user_id")
+                        const app = urlParams.get("app");
+                        const originUserId = urlParams.has("origin_user_id")
                           ? urlParams.get("origin_user_id")
                           : null;
                         if (app !== "liom" && originUserId === null) {
@@ -720,19 +719,37 @@ function PlasmicSelfTest__RenderFunc(props: {
                           )}`;
                         }
                         if (!urlParams.has("type")) {
-                          window.location.href =
-                            window.location.href + "&type=irregular";
+                          urlParams.set("type", "irregular");
+                          window.history.replaceState(
+                            null,
+                            "",
+                            `${
+                              window.location.pathname
+                            }?${urlParams.toString()}`
+                          );
                         }
-                        if ($steps.invokeGlobalAction?.data?.status == true) {
-                          window.location.href =
-                            window.location.href + "&status=OK";
+                        if ($steps.invokeGlobalAction?.data?.status === true) {
+                          urlParams.set("status", "OK");
+                          window.history.replaceState(
+                            null,
+                            "",
+                            `${
+                              window.location.pathname
+                            }?${urlParams.toString()}`
+                          );
                           return localStorage.removeItem("receipt_id");
                         } else if (
                           $steps.invokeGlobalAction?.data &&
                           !$steps.invokeGlobalAction?.data?.status
                         ) {
-                          window.location.href =
-                            window.location.href + "&status=NOK";
+                          urlParams.set("status", "NOK");
+                          window.history.replaceState(
+                            null,
+                            "",
+                            `${
+                              window.location.pathname
+                            }?${urlParams.toString()}`
+                          );
                           return localStorage.removeItem("receipt_id");
                         }
                       })();
