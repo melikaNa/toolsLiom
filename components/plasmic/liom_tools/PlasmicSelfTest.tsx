@@ -2198,7 +2198,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                         user_id: $state.userId,
                                         session_id: $state.sessionId
                                       },
-                                      redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
+                                      redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`
                                     };
                                   } catch (e) {
                                     if (
@@ -2610,7 +2610,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       amount:
                                         $state.shop.data.result.price * 10,
                                       purchase_id: $state.shop.data.result.id,
-                                      return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`,
+                                      return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`,
                                       title: $state.shop.data.result.title
                                     };
                                   } catch (e) {
@@ -3210,7 +3210,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                                 user_id: $state.userId,
                                                 session_id: $state.sessionId
                                               },
-                                              redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`
+                                              redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`
                                             };
                                           } catch (e) {
                                             if (
@@ -3470,7 +3470,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                                 10,
                                               purchase_id:
                                                 $state.shop.data.result.id,
-                                              return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}`,
+                                              return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`,
                                               title:
                                                 $state.shop.data.result.title
                                             };
@@ -4380,6 +4380,45 @@ function PlasmicSelfTest__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["updateLoading"] =
+                  $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loading"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateLoading"] != null &&
+                  typeof $steps["updateLoading"] === "object" &&
+                  typeof $steps["updateLoading"].then === "function"
+                ) {
+                  $steps["updateLoading"] = await $steps["updateLoading"];
+                }
+              }).apply(null, eventArgs);
             }}
             url={"https://worldtimeapi.org/api/timezone/Asia/Tehran"}
           />
