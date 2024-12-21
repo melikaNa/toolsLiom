@@ -649,78 +649,6 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
             }
 
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        if (window.location.href.includes("?token")) {
-                          const url = new URL(window.location.href);
-                          url.search = url.search.replace("?token=", "&token=");
-                          window.history.replaceState(null, "", url.toString());
-                        }
-                        const urlParams = new URLSearchParams(
-                          window.location.search
-                        );
-                        const app = urlParams.get("app");
-                        const originUserId = urlParams.has("origin_user_id")
-                          ? urlParams.get("origin_user_id")
-                          : null;
-                        if (app !== "liom" && originUserId === null) {
-                          window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${encodeURIComponent(
-                            window.location.href
-                          )}`;
-                        }
-                        if (!urlParams.has("type")) {
-                          urlParams.set("type", "irregular");
-                          window.history.replaceState(
-                            null,
-                            "",
-                            `${
-                              window.location.pathname
-                            }?${urlParams.toString()}`
-                          );
-                        }
-                        if ($steps.invokeGlobalAction?.data?.status === true) {
-                          urlParams.set("status", "OK");
-                          window.history.replaceState(
-                            null,
-                            "",
-                            `${
-                              window.location.pathname
-                            }?${urlParams.toString()}`
-                          );
-                          return localStorage.removeItem("receipt_id");
-                        } else if (
-                          $steps.invokeGlobalAction?.data &&
-                          !$steps.invokeGlobalAction?.data?.status
-                        ) {
-                          urlParams.set("status", "NOK");
-                          window.history.replaceState(
-                            null,
-                            "",
-                            `${
-                              window.location.pathname
-                            }?${urlParams.toString()}`
-                          );
-                          return localStorage.removeItem("receipt_id");
-                        }
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-
             $steps["invokeGlobalAction2"] = localStorage.getItem("receipt_id")
               ? (() => {
                   const actionArgs = {
@@ -766,6 +694,61 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["invokeGlobalAction2"] = await $steps[
                 "invokeGlobalAction2"
               ];
+            }
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        if (window.location.href.includes("?token")) {
+                          window.location.href = window.location.href.replace(
+                            "?token=",
+                            "&token="
+                          );
+                        }
+                        var urlParams = new URLSearchParams(
+                          window.location.search
+                        );
+                        var app = urlParams.get("app");
+                        var originUserId = urlParams.has("origin_user_id")
+                          ? urlParams.get("origin_user_id")
+                          : null;
+                        if (app !== "liom" && originUserId === null) {
+                          window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=gozar&state=${encodeURIComponent(
+                            window.location.href
+                          )}`;
+                        }
+                        if (!urlParams.has("type")) {
+                          window.location.href =
+                            window.location.href + "&type=irregular";
+                        }
+                        if ($steps.invokeGlobalAction?.data?.status == true) {
+                          window.location.href =
+                            window.location.href + "&status=OK";
+                          return localStorage.removeItem("receipt_id");
+                        } else if (
+                          $steps.invokeGlobalAction?.data &&
+                          !$steps.invokeGlobalAction?.data?.status
+                        ) {
+                          window.location.href =
+                            window.location.href + "&status=NOK";
+                          return localStorage.removeItem("receipt_id");
+                        }
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
             }
           }}
         >
