@@ -896,6 +896,23 @@
   right: auto;
   transform: none;
 }
+.paziresh24Button__dabzn:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg__fn3J {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__fsFc2 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
 .freeBox__bEXdF {
   display: flex;
   flex-direction: column;
