@@ -649,53 +649,6 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
             }
 
-            $steps["invokeGlobalAction2"] = localStorage.getItem("receipt_id")
-              ? (() => {
-                  const actionArgs = {
-                    args: [
-                      "POST",
-                      "https://n8n.staas.ir/webhook/selfTestPayment",
-                      undefined,
-                      (() => {
-                        try {
-                          return {
-                            status:
-                              $steps.invokeGlobalAction.data.status || false,
-                            extra: {
-                              user_id: localStorage.getItem("user_id"),
-                              session_id: new URLSearchParams(
-                                window.location.search
-                              ).get("session_id")
-                            },
-                            id: localStorage.getItem("receipt_id")
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()
-                    ]
-                  };
-                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                    ...actionArgs.args
-                  ]);
-                })()
-              : undefined;
-            if (
-              $steps["invokeGlobalAction2"] != null &&
-              typeof $steps["invokeGlobalAction2"] === "object" &&
-              typeof $steps["invokeGlobalAction2"].then === "function"
-            ) {
-              $steps["invokeGlobalAction2"] = await $steps[
-                "invokeGlobalAction2"
-              ];
-            }
-
             $steps["runCode"] = true
               ? (() => {
                   const actionArgs = {
@@ -766,6 +719,53 @@ function PlasmicSelfTest__RenderFunc(props: {
               typeof $steps["runCode"].then === "function"
             ) {
               $steps["runCode"] = await $steps["runCode"];
+            }
+
+            $steps["invokeGlobalAction2"] = localStorage.getItem("receipt_id")
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "POST",
+                      "https://n8n.staas.ir/webhook/selfTestPayment",
+                      undefined,
+                      (() => {
+                        try {
+                          return {
+                            status:
+                              $steps.invokeGlobalAction.data.status || false,
+                            extra: {
+                              user_id: localStorage.getItem("user_id"),
+                              session_id: new URLSearchParams(
+                                window.location.search
+                              ).get("session_id")
+                            },
+                            id: localStorage.getItem("receipt_id")
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction2"] != null &&
+              typeof $steps["invokeGlobalAction2"] === "object" &&
+              typeof $steps["invokeGlobalAction2"].then === "function"
+            ) {
+              $steps["invokeGlobalAction2"] = await $steps[
+                "invokeGlobalAction2"
+              ];
             }
           }}
         >
