@@ -659,8 +659,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                       (() => {
                         try {
                           return {
-                            status:
-                              $steps.invokeGlobalAction.data.status || false,
+                            status: $steps.invokeGlobalAction.data.status
+                              ? "OK"
+                              : "NOK",
                             extra: {
                               user_id: localStorage.getItem("user_id"),
                               session_id: new URLSearchParams(
@@ -3791,7 +3792,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                             }
 
                             $steps["runCode"] =
-                              $steps.invokeGlobalAction?.data?.statusBuy == "OK"
+                              $steps.invokeGlobalAction?.data?.statusBuy ==
+                                "OK" ||
+                              $steps.invokeGlobalAction?.data?.statusBuy == "ok"
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
@@ -3817,7 +3820,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                             }
 
                             $steps["runCode2"] =
-                              $steps.invokeGlobalAction?.data?.statusBuy != "OK"
+                              $steps.invokeGlobalAction?.data?.statusBuy !=
+                                "OK" ||
+                              $steps.invokeGlobalAction?.data?.statusBuy != "ok"
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
