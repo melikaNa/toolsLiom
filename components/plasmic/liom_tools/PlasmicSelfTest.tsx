@@ -725,14 +725,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                         }
                         if ($steps.invokeGlobalAction?.data?.status == true) {
                           window.location.href =
-                            window.location.href + "&status==OK";
+                            window.location.href + "&status=OK";
                           return localStorage.removeItem("receipt_id");
                         } else if (
                           $steps.invokeGlobalAction?.data &&
                           !$steps.invokeGlobalAction?.data?.status
                         ) {
                           window.location.href =
-                            window.location.href + "&status==NOK";
+                            window.location.href + "&status=NOK";
                           return localStorage.removeItem("receipt_id");
                         }
                       })();
