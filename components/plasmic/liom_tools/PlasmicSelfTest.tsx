@@ -1153,7 +1153,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                     $state.testChat[$state.testChat.length - 1].options !=
                       null &&
                     !($state.variable.question.lock == 1 && !$ctx.query.buy) &&
-                    $state.nextQuesionId != -1
+                    $state.nextQuesionId != -1 &&
+                    $state.status == ""
                   );
                 } catch (e) {
                   if (
