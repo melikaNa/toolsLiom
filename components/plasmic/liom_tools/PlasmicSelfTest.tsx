@@ -4363,41 +4363,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                 ) {
                   $steps["runCode4"] = await $steps["runCode4"];
                 }
-
-                $steps["updateLoading"] =
-                  $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loading"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["updateLoading"] != null &&
-                  typeof $steps["updateLoading"] === "object" &&
-                  typeof $steps["updateLoading"].then === "function"
-                ) {
-                  $steps["updateLoading"] = await $steps["updateLoading"];
-                }
               }).apply(null, eventArgs);
             }}
             onSuccess={async (...eventArgs: any) => {
@@ -4408,6 +4373,24 @@ function PlasmicSelfTest__RenderFunc(props: {
 
               (async data => {
                 const $steps = {};
+
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = { args: [2000] };
+                      return $globalActions["Fragment.wait"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
 
                 $steps["updateLoading"] =
                   $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
