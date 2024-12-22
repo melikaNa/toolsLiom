@@ -3819,26 +3819,28 @@ function PlasmicSelfTest__RenderFunc(props: {
                               ];
                             }
 
-                            $steps["runCode"] =
-                              $steps.invokeGlobalAction?.data?.statusBuy.toupercase() ===
-                              "OK"
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          var url = window.location.href;
-                                          window.location.href =
-                                            url.split("&status")[0] +
-                                            "&buy=true";
-                                          return ($state.status = "");
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
+                            $steps["runCode"] = (
+                              $steps.invokeGlobalAction?.data?.statusBuy
+                                ? $steps.invokeGlobalAction.data.statusBuy.toUpperCase() ===
+                                  "OK"
+                                : false
+                            )
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        var url = window.location.href;
+                                        window.location.href =
+                                          url.split("&status")[0] + "&buy=true";
+                                        return ($state.status = "");
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                             if (
                               $steps["runCode"] != null &&
                               typeof $steps["runCode"] === "object" &&
