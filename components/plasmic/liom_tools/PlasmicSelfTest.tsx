@@ -2005,24 +2005,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__r8DyR
+                          sty.text__vCmVm
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.shop.data.result.text;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0627\u06af\u0647 \u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u06af\u0641\u062a\u06af\u0648 \u0631\u0648 \u0627\u062f\u0627\u0645\u0647 \u0628\u062f\u06cc\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0647\u0632\u06cc\u0646\u0647 \u0631\u0648 \u067e\u0631\u062f\u0627\u062e\u062a \u06a9\u0646. ";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                        {
+                          "\u0628\u0627 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0641\u0647\u0645\u06cc \u0686\u0631\u0627 \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0646\u0627\u0645\u0646\u0638\u0645\u0647 \u0648 \u06af\u0627\u0645\u200c\u0647\u0627\u06cc \u0644\u0627\u0632\u0645 \u0631\u0648 \u0628\u0631\u0627\u06cc \u0628\u0647\u0628\u0648\u062f \u0628\u0631\u062f\u0627\u0631\u06cc."
+                        }
                       </div>
                     </div>
                     <div
@@ -2051,82 +2039,96 @@ function PlasmicSelfTest__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                      {(() => {
-                        try {
-                          return $state.shop.data?.result?.fullPrice;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__g3NvD
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.shop.data.result.fullPrice.toLocaleString();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "120000000";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      ) : null}
                       <Stack__
                         as={"div"}
                         hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__diIpI
+                          sty.freeBox__fzriJ
                         )}
                       >
-                        <div
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__jwgTd
+                            sty.freeBox__lw1Sg
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  $state.shop.data.result.price.toLocaleString() +
-                                  " تومان "
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "300000 \u062a\u0648\u0645\u0627\u0646";
-                                }
-                                throw e;
+                          {(() => {
+                            try {
+                              return $state.shop.data?.result?.fullPrice;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__jM7SQ
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (
+                                      $state.shop.data.result.fullPrice.toLocaleString() +
+                                      " تومان "
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "120000000";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__dkBnr
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    $state.shop.data.result.price.toLocaleString() +
+                                    " تومان "
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "300000 \u062a\u0648\u0645\u0627\u0646";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </Stack__>
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__aIs2K
+                            sty.text__cdaYx
                           )}
                         >
                           {"50%"}
@@ -2401,10 +2403,9 @@ function PlasmicSelfTest__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    ($state.variable.question?.lock == 1 &&
-                      !$ctx.query.buy &&
-                      $ctx.query.app != "liom") ||
-                    true
+                    $state.variable.question?.lock == 1 &&
+                    !$ctx.query.buy &&
+                    $ctx.query.app != "liom"
                   );
                 } catch (e) {
                   if (
@@ -2436,21 +2437,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                           sty.text__vsD4A
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.shop.data.result.text;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0627\u06af\u0647 \u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u06af\u0641\u062a\u06af\u0648 \u0631\u0648 \u0627\u062f\u0627\u0645\u0647 \u0628\u062f\u06cc\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0647\u0632\u06cc\u0646\u0647 \u0631\u0648 \u067e\u0631\u062f\u0627\u062e\u062a \u06a9\u0646. ";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                        {
+                          "\u0628\u0627 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0641\u0647\u0645\u06cc \u0686\u0631\u0627 \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0646\u0627\u0645\u0646\u0638\u0645\u0647 \u0648 \u06af\u0627\u0645\u200c\u0647\u0627\u06cc \u0644\u0627\u0632\u0645 \u0631\u0648 \u0628\u0631\u0627\u06cc \u0628\u0647\u0628\u0648\u062f \u0628\u0631\u062f\u0627\u0631\u06cc."
+                        }
                       </div>
                     </div>
                     <div
@@ -2482,46 +2471,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                      {(() => {
-                        try {
-                          return $state.shop.data?.result?.fullPrice;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___34E
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  $state.shop.data.result.fullPrice.toLocaleString() +
-                                  " تومان "
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "120000000";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      ) : null}
                       <Stack__
                         as={"div"}
                         hasGap={true}
@@ -2530,32 +2479,83 @@ function PlasmicSelfTest__RenderFunc(props: {
                           sty.freeBox__tu96O
                         )}
                       >
-                        <div
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__gr2AA
+                            sty.freeBox__fLmCw
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  $state.shop.data.result.price.toLocaleString() +
-                                  " تومان "
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "300000 \u062a\u0648\u0645\u0627\u0646";
-                                }
-                                throw e;
+                          {(() => {
+                            try {
+                              return $state.shop.data?.result?.fullPrice;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___34E
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (
+                                      $state.shop.data.result.fullPrice.toLocaleString() +
+                                      " تومان "
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "120000000";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__gr2AA
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    $state.shop.data.result.price.toLocaleString() +
+                                    " تومان "
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "300000 \u062a\u0648\u0645\u0627\u0646";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </Stack__>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -3020,7 +3020,7 @@ function PlasmicSelfTest__RenderFunc(props: {
           </div>
           {(() => {
             try {
-              return $state.status != "";
+              return $state.status != "" || true;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3677,7 +3677,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 ) : null}
                 {(() => {
                   try {
-                    return $state.status.toUpperCase() === "OK";
+                    return $state.status.toUpperCase() === "OK" || true;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
