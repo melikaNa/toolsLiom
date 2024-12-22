@@ -880,7 +880,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                     })()}
                     loadingMessage={(() => {
                       try {
-                        return currentItem.text == "loading";
+                        return currentItem.loading == true;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -1378,6 +1378,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   });
                                 }
                                 $state.testChat.push({
+                                  loading: true,
                                   text: "loading",
                                   from: "system"
                                 });

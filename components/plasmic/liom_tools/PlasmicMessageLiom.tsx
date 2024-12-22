@@ -96,13 +96,11 @@ export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
 
 export type PlasmicMessageLiom__ArgsType = {
   children?: React.ReactNode;
-  children2?: React.ReactNode;
   slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicMessageLiom__ArgsType;
 export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
   "children",
-  "children2",
   "slot"
 );
 
@@ -114,7 +112,6 @@ export type PlasmicMessageLiom__OverridesType = {
 
 export interface DefaultMessageLiomProps {
   children?: React.ReactNode;
-  children2?: React.ReactNode;
   slot?: React.ReactNode;
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
   liomAnswer?: SingleBooleanChoiceArg<"liomAnswer">;
@@ -282,70 +279,45 @@ function PlasmicMessageLiom__RenderFunc(props: {
             )
           })}
         >
-          {(
-            hasVariant($state, "loadingMessage", "loadingMessage")
-              ? false
-              : true
-          )
-            ? renderPlasmicSlot({
-                defaultContents: "             ",
-                value: args.children,
-                className: classNames(sty.slotTargetChildren, {
-                  [sty.slotTargetChildrenendMessege]: hasVariant(
-                    $state,
-                    "endMessege",
-                    "endMessege"
-                  ),
-                  [sty.slotTargetChildrenliomAnswer]: hasVariant(
-                    $state,
-                    "liomAnswer",
-                    "liomAnswer"
-                  ),
-                  [sty.slotTargetChildrenloadingMessage]: hasVariant(
-                    $state,
-                    "loadingMessage",
-                    "loadingMessage"
-                  ),
-                  [sty.slotTargetChildrenpazireshAnswer]: hasVariant(
-                    $state,
-                    "pazireshAnswer",
-                    "pazireshAnswer"
-                  )
-                })
-              })
-            : null}
-          {(
-            hasVariant($state, "loadingMessage", "loadingMessage")
-              ? true
-              : false
-          )
-            ? renderPlasmicSlot({
-                defaultContents: "             ",
-                value: args.children2,
-                className: classNames(sty.slotTargetChildren2, {
-                  [sty.slotTargetChildren2endMessege]: hasVariant(
-                    $state,
-                    "endMessege",
-                    "endMessege"
-                  ),
-                  [sty.slotTargetChildren2liomAnswer]: hasVariant(
-                    $state,
-                    "liomAnswer",
-                    "liomAnswer"
-                  ),
-                  [sty.slotTargetChildren2loadingMessage]: hasVariant(
-                    $state,
-                    "loadingMessage",
-                    "loadingMessage"
-                  ),
-                  [sty.slotTargetChildren2pazireshAnswer]: hasVariant(
-                    $state,
-                    "pazireshAnswer",
-                    "pazireshAnswer"
-                  )
-                })
-              })
-            : null}
+          {renderPlasmicSlot({
+            defaultContents: "             ",
+            value: args.children,
+            className: classNames(sty.slotTargetChildren, {
+              [sty.slotTargetChildrenendMessege]: hasVariant(
+                $state,
+                "endMessege",
+                "endMessege"
+              ),
+              [sty.slotTargetChildrenendMessege_pazireshAnswer]:
+                hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+                hasVariant($state, "endMessege", "endMessege"),
+              [sty.slotTargetChildrenliomAnswer]: hasVariant(
+                $state,
+                "liomAnswer",
+                "liomAnswer"
+              ),
+              [sty.slotTargetChildrenloadingMessage]: hasVariant(
+                $state,
+                "loadingMessage",
+                "loadingMessage"
+              ),
+              [sty.slotTargetChildrenloadingMessage_endMessege]:
+                hasVariant($state, "endMessege", "endMessege") &&
+                hasVariant($state, "loadingMessage", "loadingMessage"),
+              [sty.slotTargetChildrenloadingMessage_endMessege_pazireshAnswer]:
+                hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+                hasVariant($state, "loadingMessage", "loadingMessage") &&
+                hasVariant($state, "endMessege", "endMessege"),
+              [sty.slotTargetChildrenloadingMessage_pazireshAnswer]:
+                hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+                hasVariant($state, "loadingMessage", "loadingMessage"),
+              [sty.slotTargetChildrenpazireshAnswer]: hasVariant(
+                $state,
+                "pazireshAnswer",
+                "pazireshAnswer"
+              )
+            })
+          })}
           <LoadingCompopnentGray
             data-plasmic-name={"loadingCompopnentGray"}
             data-plasmic-override={overrides.loadingCompopnentGray}
