@@ -291,6 +291,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 defaultContents: "             ",
                 value: args.children,
                 className: classNames(sty.slotTargetChildren, {
+                  [sty.slotTargetChildrenendMessege]: hasVariant(
+                    $state,
+                    "endMessege",
+                    "endMessege"
+                  ),
                   [sty.slotTargetChildrenliomAnswer]: hasVariant(
                     $state,
                     "liomAnswer",
@@ -318,6 +323,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 defaultContents: "             ",
                 value: args.children2,
                 className: classNames(sty.slotTargetChildren2, {
+                  [sty.slotTargetChildren2endMessege]: hasVariant(
+                    $state,
+                    "endMessege",
+                    "endMessege"
+                  ),
                   [sty.slotTargetChildren2liomAnswer]: hasVariant(
                     $state,
                     "liomAnswer",
@@ -340,6 +350,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
             data-plasmic-name={"loadingCompopnentGray"}
             data-plasmic-override={overrides.loadingCompopnentGray}
             className={classNames("__wab_instance", sty.loadingCompopnentGray, {
+              [sty.loadingCompopnentGrayendMessege]: hasVariant(
+                $state,
+                "endMessege",
+                "endMessege"
+              ),
               [sty.loadingCompopnentGrayloadingMessage]: hasVariant(
                 $state,
                 "loadingMessage",
