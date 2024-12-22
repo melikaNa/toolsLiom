@@ -1151,6 +1151,9 @@
   font-weight: 400;
   font-size: var(--token-podr231_9RBN);
   color: var(--token-P7bIEG7op5AV);
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   text-transform: none;
@@ -1158,7 +1161,6 @@
   letter-spacing: normal;
   white-space: pre-wrap;
   min-width: 0;
-  padding: 20px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__b4Mg3 {
