@@ -543,6 +543,27 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "status",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.status == "" || $ctx.query.status == null
+                ? ""
+                : $ctx.query.status;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -725,15 +746,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                             window.location.href + "&type=irregular";
                         }
                         if ($steps.invokeGlobalAction?.data?.status == true) {
-                          window.location.href =
-                            window.location.href + "&status=OK";
+                          $state.status = "OK";
                           return localStorage.removeItem("receipt_id");
                         } else if (
                           $steps.invokeGlobalAction?.data &&
                           !$steps.invokeGlobalAction?.data?.status
                         ) {
-                          window.location.href =
-                            window.location.href + "&status=NOK";
+                          $state.status = "NOK";
                           return localStorage.removeItem("receipt_id");
                         }
                       })();
@@ -2992,7 +3011,7 @@ function PlasmicSelfTest__RenderFunc(props: {
           </div>
           {(() => {
             try {
-              return $ctx.query.status != null;
+              return $state.status != "";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3012,7 +3031,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               >
                 {(() => {
                   try {
-                    return $ctx.query.status == "NOK";
+                    return $state.status.toUpperCase() == "NOK";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -3649,7 +3668,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 ) : null}
                 {(() => {
                   try {
-                    return $ctx.query.status == "OK";
+                    return $state.status.toUpperCase() === "OK";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -3792,14 +3811,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                             }
 
                             $steps["runCode"] =
-                              $steps.invokeGlobalAction?.data?.statusBuy ==
-                                "OK" ||
-                              $steps.invokeGlobalAction?.data?.statusBuy == "ok"
+                              $steps.invokeGlobalAction?.data?.statusBuy.toupercase() ===
+                              "OK"
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
                                           var url = window.location.href;
+                                          $state.status = "";
                                           return (window.location.href =
                                             url.split("&status")[0] +
                                             "&buy=true");
@@ -3820,14 +3839,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                             }
 
                             $steps["runCode2"] =
-                              $steps.invokeGlobalAction?.data?.statusBuy !=
-                                "OK" ||
-                              $steps.invokeGlobalAction?.data?.statusBuy != "ok"
+                              $steps.invokeGlobalAction?.data?.statusBuy.toUpperCase() !==
+                              "OK"
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
                                           var url = window.location.href;
+                                          $state.status = "NOK";
                                           return (window.location.href =
                                             url.split("&status")[0] +
                                             "&status=NOK");
