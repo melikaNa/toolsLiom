@@ -745,12 +745,16 @@ function PlasmicSelfTest__RenderFunc(props: {
                           window.location.href =
                             window.location.href + "&type=irregular";
                         }
-                        if ($steps.invokeGlobalAction?.data?.status == true) {
+                        if (
+                          $steps.invokeGlobalAction?.data?.status == true &&
+                          localStorage.getItem("receipt_id")
+                        ) {
                           $state.status = "OK";
                           return localStorage.removeItem("receipt_id");
                         } else if (
                           $steps.invokeGlobalAction?.data &&
-                          !$steps.invokeGlobalAction?.data?.status
+                          !$steps.invokeGlobalAction?.data?.status &&
+                          localStorage.getItem("receipt_id")
                         ) {
                           $state.status = "NOK";
                           return localStorage.removeItem("receipt_id");
@@ -4450,7 +4454,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                 }
 
                 $steps["updateLoading"] =
-                  $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
+                  $ctx.query.app === "liom" ||
+                  $ctx.query.origin_user_id !== null
                     ? (() => {
                         const actionArgs = {
                           variable: {
