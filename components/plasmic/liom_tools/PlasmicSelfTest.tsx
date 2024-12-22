@@ -4110,11 +4110,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                           var inputBox = document.getElementById("selectBox");
                           var textBox = document.getElementById("messegeBox");
                           if (inputBox.style.display === "none") {
-                            return (textBox.style.paddingBottom = "8px");
+                            return (textBox.style.paddingBottom = "1px");
                           } else {
-                            return (textBox.style.paddingBottom = `${
-                              inputBox.offsetHeight + 20
-                            }px`);
+                            return (textBox.style.paddingBottom = "1px");
                           }
                         })();
                       }
