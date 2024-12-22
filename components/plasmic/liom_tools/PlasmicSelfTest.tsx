@@ -536,7 +536,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "variable3",
@@ -2401,9 +2401,10 @@ function PlasmicSelfTest__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    $state.variable.question?.lock == 1 &&
-                    !$ctx.query.buy &&
-                    $ctx.query.app != "liom"
+                    ($state.variable.question?.lock == 1 &&
+                      !$ctx.query.buy &&
+                      $ctx.query.app != "liom") ||
+                    true
                   );
                 } catch (e) {
                   if (
@@ -2504,7 +2505,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return $state.shop.data.result.fullPrice.toLocaleString();
+                                return (
+                                  $state.shop.data.result.fullPrice.toLocaleString() +
+                                  " تومان "
+                                );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -3823,10 +3827,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       customFunction: async () => {
                                         return (() => {
                                           var url = window.location.href;
-                                          $state.status = "";
-                                          return (window.location.href =
+                                          window.location.href =
                                             url.split("&status")[0] +
-                                            "&buy=true");
+                                            "&buy=true";
+                                          return ($state.status = "");
                                         })();
                                       }
                                     };
@@ -3843,26 +3847,29 @@ function PlasmicSelfTest__RenderFunc(props: {
                               $steps["runCode"] = await $steps["runCode"];
                             }
 
-                            $steps["runCode2"] =
-                              $steps.invokeGlobalAction?.data?.statusBuy.toUpperCase() !==
-                              "OK"
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          var url = window.location.href;
-                                          $state.status = "NOK";
-                                          return (window.location.href =
-                                            url.split("&status")[0] +
-                                            "&status=NOK");
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
+                            $steps["runCode2"] = (
+                              $steps.invokeGlobalAction?.data?.statusBuy
+                                ? $steps.invokeGlobalAction.data.statusBuy.toUpperCase() ===
+                                  "NOK"
+                                : false
+                            )
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        var url = window.location.href;
+                                        window.location.href =
+                                          url.split("&status")[0] +
+                                          "&status=NOK";
+                                        return ($state.status = "NOK");
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                             if (
                               $steps["runCode2"] != null &&
                               typeof $steps["runCode2"] === "object" &&
@@ -4110,9 +4117,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                           var inputBox = document.getElementById("selectBox");
                           var textBox = document.getElementById("messegeBox");
                           if (inputBox.style.display === "none") {
-                            return (textBox.style.paddingBottom = "1px");
+                            return (textBox.style.paddingBottom = "8px");
                           } else {
-                            return (textBox.style.paddingBottom = "1px");
+                            return (textBox.style.paddingBottom = `${
+                              inputBox.offsetHeight + 20
+                            }px`);
                           }
                         })();
                       }
