@@ -223,6 +223,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
             "loadingMessage",
             "loadingMessage"
           ),
+          [sty.rootloadingMessage_endMessege]:
+            hasVariant($state, "endMessege", "endMessege") &&
+            hasVariant($state, "loadingMessage", "loadingMessage"),
           [sty.rootpazireshAnswer]: hasVariant(
             $state,
             "pazireshAnswer",
@@ -331,7 +334,10 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 $state,
                 "loadingMessage",
                 "loadingMessage"
-              )
+              ),
+              [sty.loadingCompopnentGrayloadingMessage_endMessege]:
+                hasVariant($state, "endMessege", "endMessege") &&
+                hasVariant($state, "loadingMessage", "loadingMessage")
             })}
           />
         </div>
