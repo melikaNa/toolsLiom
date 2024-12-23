@@ -240,7 +240,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
           sty.freeBox___7TlWy,
           hasVariant($state, "endMessege", "endMessege")
             ? "text-box"
-            : undefined,
+            : "text-box",
           {
             [sty.freeBoxendMessege___7TlWyTjzqg]: hasVariant(
               $state,
@@ -291,28 +291,39 @@ function PlasmicMessageLiom__RenderFunc(props: {
         }
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__fCi1Q, {
-            [sty.freeBoxendMessege__fCi1Qtjzqg]: hasVariant(
-              $state,
-              "endMessege",
-              "endMessege"
-            ),
-            [sty.freeBoxliomAnswer__fCi1Q6WM5Z]: hasVariant(
-              $state,
-              "liomAnswer",
-              "liomAnswer"
-            ),
-            [sty.freeBoxloadingMessage__fCi1QNjKFm]: hasVariant(
-              $state,
-              "loadingMessage",
-              "loadingMessage"
-            ),
-            [sty.freeBoxpazireshAnswer__fCi1QyPoRs]: hasVariant(
-              $state,
-              "pazireshAnswer",
-              "pazireshAnswer"
-            )
-          })}
+          className={classNames(
+            projectcss.all,
+            sty.freeBox__fCi1Q,
+            "text-box",
+            {
+              [sty.freeBoxendMessege__fCi1Qtjzqg]: hasVariant(
+                $state,
+                "endMessege",
+                "endMessege"
+              ),
+              [sty.freeBoxliomAnswer__fCi1Q6WM5Z]: hasVariant(
+                $state,
+                "liomAnswer",
+                "liomAnswer"
+              ),
+              [sty.freeBoxloadingMessage__fCi1QNjKFm]: hasVariant(
+                $state,
+                "loadingMessage",
+                "loadingMessage"
+              ),
+              [sty.freeBoxpazireshAnswer__fCi1QyPoRs]: hasVariant(
+                $state,
+                "pazireshAnswer",
+                "pazireshAnswer"
+              )
+            }
+          )}
+          style={{
+            display: "inline-block",
+            width: "auto",
+            height: "auto",
+            "overflow-wrap": " break-word"
+          }}
         >
           {renderPlasmicSlot({
             defaultContents: "             ",

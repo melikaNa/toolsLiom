@@ -1117,8 +1117,20 @@ function PlasmicSelfTest__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___91S8B
+                        sty.text___91S8B,
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "text-box "
+                          : undefined
                       )}
+                      style={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? {
+                              display: "inline-block",
+                              width: "auto",
+                              "overflow-wrap": "break-word"
+                            }
+                          : undefined
+                      }
                     >
                       <React.Fragment>
                         {(() => {
