@@ -235,28 +235,51 @@ function PlasmicMessageLiom__RenderFunc(props: {
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox___7TlWy, {
-          [sty.freeBoxendMessege___7TlWyTjzqg]: hasVariant(
-            $state,
-            "endMessege",
-            "endMessege"
-          ),
-          [sty.freeBoxliomAnswer___7TlWy6WM5Z]: hasVariant(
-            $state,
-            "liomAnswer",
-            "liomAnswer"
-          ),
-          [sty.freeBoxloadingMessage___7TlWyNjKFm]: hasVariant(
-            $state,
-            "loadingMessage",
-            "loadingMessage"
-          ),
-          [sty.freeBoxpazireshAnswer___7TlWyyPoRs]: hasVariant(
-            $state,
-            "pazireshAnswer",
-            "pazireshAnswer"
-          )
-        })}
+        className={classNames(
+          projectcss.all,
+          sty.freeBox___7TlWy,
+          hasVariant($state, "endMessege", "endMessege")
+            ? "text-box"
+            : undefined,
+          {
+            [sty.freeBoxendMessege___7TlWyTjzqg]: hasVariant(
+              $state,
+              "endMessege",
+              "endMessege"
+            ),
+            [sty.freeBoxliomAnswer___7TlWy6WM5Z]: hasVariant(
+              $state,
+              "liomAnswer",
+              "liomAnswer"
+            ),
+            [sty.freeBoxliomAnswer_loadingMessage___7TlWy6WM5ZNjKFm]:
+              hasVariant($state, "liomAnswer", "liomAnswer") &&
+              hasVariant($state, "loadingMessage", "loadingMessage"),
+            [sty.freeBoxliomAnswer_pazireshAnswer___7TlWy6WM5ZYPoRs]:
+              hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+              hasVariant($state, "liomAnswer", "liomAnswer"),
+            [sty.freeBoxloadingMessage___7TlWyNjKFm]: hasVariant(
+              $state,
+              "loadingMessage",
+              "loadingMessage"
+            ),
+            [sty.freeBoxloadingMessage_endMessege___7TlWyNjKFmTjzqg]:
+              hasVariant($state, "loadingMessage", "loadingMessage") &&
+              hasVariant($state, "endMessege", "endMessege"),
+            [sty.freeBoxpazireshAnswer___7TlWyyPoRs]: hasVariant(
+              $state,
+              "pazireshAnswer",
+              "pazireshAnswer"
+            )
+          }
+        )}
+        style={{
+          display: "inline-block",
+          width: "auto",
+          height: "auto",
+          "overflow-wrap": " break-word",
+          transition: "all 0.3s ease"
+        }}
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__fCi1Q, {

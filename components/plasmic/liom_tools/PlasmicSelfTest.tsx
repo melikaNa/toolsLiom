@@ -1638,6 +1638,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                                             .options[0].id
                                         ]
                                       : [];
+                                  var textBoxes =
+                                    document.querySelectorAll(".text-box");
+                                  textBoxes.forEach(textBox => {
+                                    textBox.style.display = "none";
+                                    textBox.offsetWidth;
+                                    textBox.style.display = "inline-block";
+                                  });
                                   return window.scrollTo({
                                     top: document.body.scrollHeight,
                                     behavior: "smooth"
@@ -1693,6 +1700,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                                             .options[0].id
                                         ]
                                       : [];
+                                  var textBoxes =
+                                    document.querySelectorAll(".text-box");
+                                  textBoxes.forEach(textBox => {
+                                    textBox.style.display = "none";
+                                    textBox.offsetWidth;
+                                    textBox.style.display = "inline-block";
+                                  });
                                   return window.scrollTo({
                                     top: document.body.scrollHeight,
                                     behavior: "smooth"
