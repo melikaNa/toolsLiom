@@ -1379,7 +1379,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 }
                                 $state.testChat.push({
                                   loading: true,
-                                  text: "                                    ",
+                                  text: "  ",
                                   from: "system"
                                 });
                                 return window.scrollTo({
