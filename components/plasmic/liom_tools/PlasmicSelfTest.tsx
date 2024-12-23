@@ -1379,7 +1379,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 }
                                 $state.testChat.push({
                                   loading: true,
-                                  text: "  ",
+                                  text: "   ",
                                   from: "system"
                                 });
                                 return window.scrollTo({
@@ -1626,8 +1626,18 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     options:
                                       $steps.invokeGlobalAction.data.options
                                   };
-                                  $state.testChat[$state.testChat.length - 1] =
-                                    a;
+                                  if (
+                                    navigator.userAgent.includes("Mac") ||
+                                    navigator.userAgent.includes("iPhone") ||
+                                    navigator.userAgent.includes("iPad")
+                                  ) {
+                                    $state.testChat.pop();
+                                    $state.testChat.push(a);
+                                  } else {
+                                    $state.testChat[
+                                      $state.testChat.length - 1
+                                    ] = a;
+                                  }
                                   $state.sessionId =
                                     $steps.invokeGlobalAction.data.session_id;
                                   $state.testOptionsLiom.selectedIDs =
@@ -1683,8 +1693,18 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     options:
                                       $steps.invokeGlobalAction2.data.options
                                   };
-                                  $state.testChat[$state.testChat.length - 1] =
-                                    a;
+                                  if (
+                                    navigator.userAgent.includes("Mac") ||
+                                    navigator.userAgent.includes("iPhone") ||
+                                    navigator.userAgent.includes("iPad")
+                                  ) {
+                                    $state.testChat.pop();
+                                    $state.testChat.push(a);
+                                  } else {
+                                    $state.testChat[
+                                      $state.testChat.length - 1
+                                    ] = a;
+                                  }
                                   $state.testOptionsLiom.selectedIDs =
                                     $steps.invokeGlobalAction2.data.options
                                       .length == 1
