@@ -1379,7 +1379,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 }
                                 $state.testChat.push({
                                   loading: true,
-                                  text: "   ",
+                                  text: "       ",
                                   from: "system"
                                 });
                                 return window.scrollTo({
@@ -1490,11 +1490,24 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  $state.testChat[$state.testChat.length - 1] =
-                                    {
+                                  if (
+                                    navigator.userAgent.includes("Mac") ||
+                                    navigator.userAgent.includes("iPhone") ||
+                                    navigator.userAgent.includes("iPad")
+                                  ) {
+                                    $state.testChat.pop();
+                                    $state.testChat.push({
+                                      text: "سوالات خودتشخیصی به اتمام رسید\u060C حالا روی دکمه دیدن نتیجه کلیک کنید تا وضعیت شما آنالیز شود.",
+                                      from: "system"
+                                    });
+                                  } else {
+                                    $state.testChat[
+                                      $state.testChat.length - 1
+                                    ] = {
                                       text: "سوالات خودتشخیصی به اتمام رسید\u060C حالا روی دکمه دیدن نتیجه کلیک کنید تا وضعیت شما آنالیز شود.",
                                       from: "system"
                                     };
+                                  }
                                   $state.numberTest = $state.totalTest;
                                   return window.scrollTo({
                                     top: document.body.scrollHeight,
@@ -1611,7 +1624,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  let a = {
+                                  var a = {
                                     question:
                                       $steps.invokeGlobalAction.data.question,
                                     text: $steps.invokeGlobalAction.data
@@ -1678,7 +1691,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  let a = {
+                                  var a = {
                                     question:
                                       $steps.invokeGlobalAction2.data.question,
                                     text: $steps.invokeGlobalAction2.data
@@ -1742,11 +1755,24 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  $state.testChat[$state.testChat.length - 1] =
-                                    {
+                                  if (
+                                    navigator.userAgent.includes("Mac") ||
+                                    navigator.userAgent.includes("iPhone") ||
+                                    navigator.userAgent.includes("iPad")
+                                  ) {
+                                    $state.testChat.pop();
+                                    $state.testChat.push({
+                                      text: "ممنون که تا اینجا همراه من بودی! برای ادامه گفت‌وگو و دریافت خدمات بیشتر\u060C لطفاً هزینه مربوطه را پرداخت کن. ما در تلاشیم بهترین تجربه را برایت فراهم کنیم.",
+                                      from: "system"
+                                    });
+                                  } else {
+                                    $state.testChat[
+                                      $state.testChat.length - 1
+                                    ] = {
                                       text: "ممنون که تا اینجا همراه من بودی! برای ادامه گفت‌وگو و دریافت خدمات بیشتر\u060C لطفاً هزینه مربوطه را پرداخت کن. ما در تلاشیم بهترین تجربه را برایت فراهم کنیم.",
                                       from: "system"
                                     };
+                                  }
                                   $state.variable = {
                                     question:
                                       $steps.invokeGlobalAction2.data.question,
