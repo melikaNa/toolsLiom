@@ -6,11 +6,7 @@
   height: auto;
   justify-content: flex-start;
   align-items: flex-end;
-  transition-property: all;
-  transition-duration: 1s;
   min-width: 0;
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 1s;
 }
 .rootpazireshAnswer {
   align-items: flex-start;
@@ -77,32 +73,6 @@
 .slotTargetChildren {
   font-size: var(--token-podr231_9RBN);
   color: var(--token-aWDgJo5BrkPj);
-}
-.slotTargetChildren > *,
-.slotTargetChildren > :global(.__wab_slot) > *,
-.slotTargetChildren > :global(.__wab_slot) > :global(.__wab_slot) > *,
-.slotTargetChildren
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > *,
-.slotTargetChildren > picture > img,
-.slotTargetChildren > :global(.__wab_slot) > picture > img,
-.slotTargetChildren
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > picture
-  > img,
-.slotTargetChildren
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  transition-property: all;
-  transition-duration: 1s;
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 1s;
 }
 .slotTargetChildrenpazireshAnswer {
   color: var(--token-Yq556PvPjGii);
