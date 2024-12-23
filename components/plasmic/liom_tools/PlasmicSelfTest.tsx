@@ -2464,7 +2464,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 try {
                   return (
                     $state.variable.question?.lock == 1 &&
-                    !$ctx.query.buy &&
+                    $state.buy == false &&
                     $ctx.query.app != "liom"
                   );
                 } catch (e) {
