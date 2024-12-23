@@ -273,13 +273,23 @@ function PlasmicMessageLiom__RenderFunc(props: {
             )
           }
         )}
-        style={{
-          display: "inline-block",
-          width: "auto",
-          height: "auto",
-          "overflow-wrap": " break-word",
-          transition: "all 0.3s ease"
-        }}
+        style={
+          hasVariant($state, "endMessege", "endMessege")
+            ? {
+                display: "inline-block",
+                width: "auto",
+                height: "auto",
+                "overflow-wrap": " break-word",
+                transition: "all 0.3s ease"
+              }
+            : {
+                display: "flex",
+                width: "auto",
+                height: "auto",
+                "overflow-wrap": " break-word",
+                transition: "all 0.3s ease"
+              }
+        }
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__fCi1Q, {

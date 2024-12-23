@@ -40,10 +40,6 @@
   margin-top: var(--token-KVcr9NiMwFLr);
   margin-right: var(--token-KVcr9NiMwFLr);
   margin-left: var(--token-KVcr9NiMwFLr);
-  transition-property: all;
-  transition-duration: 1s;
-  -webkit-transition-property: all;
-  -webkit-transition-duration: 1s;
   border-radius: var(--token-rjo2t_xMK-6Z);
   padding: var(--token-omrXvBNBcWTN) var(--token-KVcr9NiMwFLr);
 }
