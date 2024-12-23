@@ -1644,6 +1644,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     textBox.style.display = "none";
                                     textBox.offsetWidth;
                                     textBox.style.display = "inline-block";
+                                    requestAnimationFrame(() => {
+                                      textBox.style.display = "inline-block";
+                                    });
                                   });
                                   return window.scrollTo({
                                     top: document.body.scrollHeight,
@@ -1706,6 +1709,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     textBox.style.display = "none";
                                     textBox.offsetWidth;
                                     textBox.style.display = "inline-block";
+                                    requestAnimationFrame(() => {
+                                      textBox.style.display = "inline-block";
+                                    });
                                   });
                                   return window.scrollTo({
                                     top: document.body.scrollHeight,

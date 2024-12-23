@@ -286,8 +286,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 display: "flex",
                 width: "auto",
                 height: "auto",
-                "overflow-wrap": " break-word",
-                transition: "all 0.3s ease"
+                "overflow-wrap": " break-word"
               }
         }
       >
