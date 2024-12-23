@@ -240,6 +240,10 @@ function PlasmicMessageLiom__RenderFunc(props: {
           sty.freeBox___7TlWy,
           hasVariant($state, "endMessege", "endMessege")
             ? "text-box"
+            : hasVariant($state, "liomAnswer", "liomAnswer")
+            ? ``
+            : hasVariant($state, "pazireshAnswer", "pazireshAnswer")
+            ? ``
             : "text-box",
           {
             [sty.freeBoxendMessege___7TlWyTjzqg]: hasVariant(

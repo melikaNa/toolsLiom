@@ -115,9 +115,9 @@
   flex-shrink: 0;
 }
 .svgpazireshAnswer {
-  right: -11px;
   width: var(--token-RPGjJxLh3tUl);
   height: var(--token-RPGjJxLh3tUl);
+  right: -11px;
   flex-shrink: 0;
   display: block;
 }
