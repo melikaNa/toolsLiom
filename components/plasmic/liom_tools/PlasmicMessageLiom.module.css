@@ -57,6 +57,9 @@
   align-items: center;
   background: var(--token-QR8ATjORhQqO);
 }
+.freeBoxendMessege___7TlWyTjzqg {
+  width: auto;
+}
 .freeBox__fCi1Q {
   width: auto;
   height: auto;
@@ -70,6 +73,10 @@
   overflow: hidden;
   flex-shrink: 0;
   padding: 1%;
+}
+.freeBoxendMessege__fCi1Qtjzqg {
+  width: 100%;
+  min-width: 0;
 }
 .slotTargetChildren {
   font-size: var(--token-podr231_9RBN);
