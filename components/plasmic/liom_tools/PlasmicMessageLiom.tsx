@@ -359,6 +359,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
+              [sty.svgendMessege_pazireshAnswer]:
+                hasVariant($state, "endMessege", "endMessege") &&
+                hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
               [sty.svgliomAnswer]: hasVariant(
                 $state,
                 "liomAnswer",
@@ -378,6 +381,24 @@ function PlasmicMessageLiom__RenderFunc(props: {
         ) : null}
         <div
           className={classNames(projectcss.all, sty.freeBox__q3Toq, {
+            [sty.freeBoxendMessege__q3ToqTjzqg]: hasVariant(
+              $state,
+              "endMessege",
+              "endMessege"
+            ),
+            [sty.freeBoxliomAnswer__q3Toq6WM5Z]: hasVariant(
+              $state,
+              "liomAnswer",
+              "liomAnswer"
+            ),
+            [sty.freeBoxliomAnswer_pazireshAnswer__q3Toq6WM5ZYPoRs]:
+              hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+              hasVariant($state, "liomAnswer", "liomAnswer"),
+            [sty.freeBoxloadingMessage__q3ToqNjKFm]: hasVariant(
+              $state,
+              "loadingMessage",
+              "loadingMessage"
+            ),
             [sty.freeBoxpazireshAnswer__q3ToqyPoRs]: hasVariant(
               $state,
               "pazireshAnswer",

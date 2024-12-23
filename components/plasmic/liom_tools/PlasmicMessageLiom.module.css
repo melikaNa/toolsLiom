@@ -174,10 +174,22 @@
   display: block;
 }
 .freeBox__q3Toq {
-  display: flex;
   position: relative;
   left: auto;
   bottom: auto;
+  display: none;
+}
+.freeBoxpazireshAnswer__q3ToqyPoRs {
+  display: flex;
+}
+.freeBoxliomAnswer__q3Toq6WM5Z {
+  display: flex;
+}
+.freeBoxloadingMessage__q3ToqNjKFm {
+  display: none;
+}
+.freeBoxendMessege__q3ToqTjzqg {
+  display: none;
 }
 .svg__l4GC {
   object-fit: cover;
