@@ -69,6 +69,7 @@ import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJ
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
+import LoadingCompopnentGray from "../../LoadingCompopnentGray"; // plasmic-import: OUwywVcxKl5x/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -118,6 +119,7 @@ export type PlasmicSelfTest__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   peyPardakht24?: Flex__<"div">;
   apiRequest2?: Flex__<typeof ApiRequest>;
+  loadingCompopnentGray?: Flex__<typeof LoadingCompopnentGray>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   button3?: Flex__<typeof ButtonLiom>;
   progress?: Flex__<typeof AntdProgress>;
@@ -3155,58 +3157,16 @@ function PlasmicSelfTest__RenderFunc(props: {
                           sty.freeBox__sl2Gb
                         )}
                       >
-                        {(() => {
-                          try {
-                            return (() => {
-                              var urlParams = new URLSearchParams(
-                                window.location.search
-                              );
-                              return urlParams.get("app") != "liom";
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
+                        <LoadingCompopnentGray
+                          data-plasmic-name={"loadingCompopnentGray"}
+                          data-plasmic-override={
+                            overrides.loadingCompopnentGray
                           }
-                        })() ? (
-                          <Icon111Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__j0Vdc
-                            )}
-                            role={"img"}
-                          />
-                        ) : null}
-                        {(() => {
-                          try {
-                            return (() => {
-                              var urlParams = new URLSearchParams(
-                                window.location.search
-                              );
-                              return urlParams.get("app") == "liom";
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <Icon111Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__yxuPb
-                            )}
-                            role={"img"}
-                          />
-                        ) : null}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.loadingCompopnentGray
+                          )}
+                        />
                       </div>
                     }
                     method={"GET"}
@@ -4828,6 +4788,7 @@ const PlasmicDescendants = {
     "buttonLiom",
     "peyPardakht24",
     "apiRequest2",
+    "loadingCompopnentGray",
     "buttonLiom2",
     "button3",
     "progress",
@@ -4843,7 +4804,13 @@ const PlasmicDescendants = {
   peyliom: ["peyliom", "buttonLiom"],
   buttonLiom: ["buttonLiom"],
   peyPardakht24: ["peyPardakht24"],
-  apiRequest2: ["apiRequest2", "buttonLiom2", "button3"],
+  apiRequest2: [
+    "apiRequest2",
+    "loadingCompopnentGray",
+    "buttonLiom2",
+    "button3"
+  ],
+  loadingCompopnentGray: ["loadingCompopnentGray"],
   buttonLiom2: ["buttonLiom2"],
   button3: ["button3"],
   progress: ["progress"],
@@ -4865,6 +4832,7 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   peyPardakht24: "div";
   apiRequest2: typeof ApiRequest;
+  loadingCompopnentGray: typeof LoadingCompopnentGray;
   buttonLiom2: typeof ButtonLiom;
   button3: typeof ButtonLiom;
   progress: typeof AntdProgress;
@@ -4967,6 +4935,7 @@ export const PlasmicSelfTest = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     peyPardakht24: makeNodeComponent("peyPardakht24"),
     apiRequest2: makeNodeComponent("apiRequest2"),
+    loadingCompopnentGray: makeNodeComponent("loadingCompopnentGray"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     button3: makeNodeComponent("button3"),
     progress: makeNodeComponent("progress"),

@@ -714,20 +714,10 @@
   min-width: 0;
   padding: var(--token-QMEhwYzwsf71);
 }
-.svg__j0Vdc {
-  object-fit: cover;
+.loadingCompopnentGray:global(.__wab_instance) {
   max-width: 100%;
   width: 80px;
   height: 80px;
-  color: var(--token-VzWdrvFHnhlm);
-  flex-shrink: 0;
-}
-.svg__yxuPb {
-  object-fit: cover;
-  max-width: 100%;
-  width: 80px;
-  height: 80px;
-  color: var(--token-QR8ATjORhQqO);
   flex-shrink: 0;
 }
 .freeBox___60P5P {
