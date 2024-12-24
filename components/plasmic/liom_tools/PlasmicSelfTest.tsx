@@ -2028,23 +2028,43 @@ function PlasmicSelfTest__RenderFunc(props: {
                   ) : null}
                 </TestOptionsLiom>
               ) : null}
-              {(() => {
-                try {
-                  return (
-                    $state.variable.question?.lock == 1 &&
-                    !$ctx.query.buy &&
-                    $ctx.query.app == "liom"
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
+              {(
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? (() => {
+                      try {
+                        return (
+                          $state.variable.question?.lock == 1 &&
+                          !$ctx.query.buy &&
+                          $ctx.query.app == "liom"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : (() => {
+                      try {
+                        return (
+                          $state.variable.question?.lock == 1 &&
+                          !$ctx.query.buy &&
+                          $ctx.query.app == "liom"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+              ) ? (
                 <Stack__
                   as={"div"}
                   data-plasmic-name={"peyliom"}
@@ -2460,23 +2480,43 @@ function PlasmicSelfTest__RenderFunc(props: {
                   </ButtonLiom>
                 </Stack__>
               ) : null}
-              {(() => {
-                try {
-                  return (
-                    $state.variable.question?.lock == 1 &&
-                    $state.buy == false &&
-                    $ctx.query.app != "liom"
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
+              {(
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? (() => {
+                      try {
+                        return (
+                          $state.variable.question?.lock == 1 &&
+                          $state.buy == false &&
+                          $ctx.query.app != "liom"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : (() => {
+                      try {
+                        return (
+                          $state.variable.question?.lock == 1 &&
+                          $state.buy == false &&
+                          $ctx.query.app != "liom"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+              ) ? (
                 <Stack__
                   as={"div"}
                   data-plasmic-name={"peyPardakht24"}
