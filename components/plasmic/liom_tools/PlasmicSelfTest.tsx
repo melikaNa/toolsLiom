@@ -3527,7 +3527,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                                   user_id: $state.userId,
                                                   session_id: $state.sessionId
                                                 },
-                                                redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`
+                                                redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$ctx.query.nextQuesion_id}&session_id=${$state.sessionId}`
                                               };
                                             } catch (e) {
                                               if (
@@ -3791,7 +3791,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                                     .price * 10,
                                                 purchase_id:
                                                   $state.shop.data.result.id,
-                                                return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`,
+                                                return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$ctx.query.nextQuesion_id}&session_id=${$state.sessionId}`,
                                                 title:
                                                   $state.shop.data.result.title
                                               };
