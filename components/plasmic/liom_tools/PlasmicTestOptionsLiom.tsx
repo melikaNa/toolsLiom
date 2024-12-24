@@ -234,7 +234,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
       <div className={classNames(projectcss.all, sty.freeBox__rHKq5)}>
         {renderPlasmicSlot({
           defaultContents:
-            "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u067e\u0627\u0633\u062e ! \u0644\u0637\u0641\u0627 \u06af\u0632\u06cc\u0646\u0647 \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.",
+            "\u062f\u0631\u062d\u0627\u0644 \u0648\u06cc\u0631\u0627\u06cc\u0634 \u067e\u0627\u0633\u062e ! \u0644\u0637\u0641\u0627 \u06af\u0632\u06cc\u0646\u0647 \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.",
           value: args.children,
           className: classNames(sty.slotTargetChildren)
         })}

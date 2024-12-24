@@ -1531,7 +1531,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 return (() => {
                                   $state.testChat[$state.testChat.length - 1] =
                                     {
-                                      text: "سوالات خودتشخیصی به اتمام رسید\u060C حالا روی دکمه دیدن نتیجه کلیک کنید تا وضعیت شما آنالیز شود.",
+                                      text: "سوالات به اتمام رسید\u060C حالا روی دکمه دیدن نتیجه کلیک کنید تا وضعیت شما آنالیز شود.",
                                       from: "system"
                                     };
                                   $state.numberTest = $state.totalTest;
@@ -1783,7 +1783,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 return (() => {
                                   $state.testChat[$state.testChat.length - 1] =
                                     {
-                                      text: "ممنون که تا اینجا همراه من بودی! برای ادامه گفت‌وگو و دریافت خدمات بیشتر\u060C لطفاً هزینه مربوطه را پرداخت کن. ما در تلاشیم بهترین تجربه را برایت فراهم کنیم.",
+                                      text: "ممنون که تا اینجا همراه من بودی! برای ادامه گفت‌وگو و بررسی دلیل نامنظمی قاعدگی\u060C لطفاً هزینه مربوطه را پرداخت کن. ما در تلاشیم بهترین تجربه را برایت فراهم کنیم.",
                                       from: "system"
                                     };
                                   $state.variable = {
