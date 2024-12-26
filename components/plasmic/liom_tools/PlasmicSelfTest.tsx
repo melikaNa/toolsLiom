@@ -1600,6 +1600,58 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ];
                     }
 
+                    $steps["invokeGlobalAction5"] =
+                      $state.ferst == false
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      userId: $state.userId,
+                                      pageName: "self-test",
+                                      action: "Start-test",
+                                      extraData: { sessionId: $state.sessionId }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                {
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                  }
+                                }
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction5"] != null &&
+                      typeof $steps["invokeGlobalAction5"] === "object" &&
+                      typeof $steps["invokeGlobalAction5"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction5"] = await $steps[
+                        "invokeGlobalAction5"
+                      ];
+                    }
+
                     $steps["invokeGlobalAction2"] =
                       $state.ferst == true
                         ? (() => {
@@ -1639,6 +1691,60 @@ function PlasmicSelfTest__RenderFunc(props: {
                     ) {
                       $steps["invokeGlobalAction2"] = await $steps[
                         "invokeGlobalAction2"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction6"] =
+                      $state.ferst == true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      userId: $state.userId,
+                                      pageName: "self-test",
+                                      action: "Do-a-test",
+                                      extraData: {
+                                        sessionId: $state.sessionId
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                {
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                  }
+                                }
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction6"] != null &&
+                      typeof $steps["invokeGlobalAction6"] === "object" &&
+                      typeof $steps["invokeGlobalAction6"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction6"] = await $steps[
+                        "invokeGlobalAction6"
                       ];
                     }
 
@@ -3013,6 +3119,59 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ) {
                         $steps["updateLoadinkBotten"] = await $steps[
                           "updateLoadinkBotten"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      userId: $state.userId,
+                                      pageName: "self-test",
+                                      action: "Test-result",
+                                      extraData: {
+                                        sessionId: $state.sessionId
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                {
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                  }
+                                }
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
                         ];
                       }
 

@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -76,14 +78,16 @@ createPlasmicElementProxy;
 export type PlasmicLoadingConclusion__VariantMembers = {
   fouse: "fouse";
   selected: "selected";
+  color: "green" | "grey";
 };
 export type PlasmicLoadingConclusion__VariantsArgs = {
   fouse?: SingleBooleanChoiceArg<"fouse">;
   selected?: SingleBooleanChoiceArg<"selected">;
+  color?: SingleChoiceArg<"green" | "grey">;
 };
 type VariantPropType = keyof PlasmicLoadingConclusion__VariantsArgs;
 export const PlasmicLoadingConclusion__VariantProps =
-  new Array<VariantPropType>("fouse", "selected");
+  new Array<VariantPropType>("fouse", "selected", "color");
 
 export type PlasmicLoadingConclusion__ArgsType = {
   children?: React.ReactNode;
@@ -103,6 +107,7 @@ export interface DefaultLoadingConclusionProps {
   children?: React.ReactNode;
   fouse?: SingleBooleanChoiceArg<"fouse">;
   selected?: SingleBooleanChoiceArg<"selected">;
+  color?: SingleChoiceArg<"green" | "grey">;
   className?: string;
 }
 
@@ -159,6 +164,12 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.selected
+      },
+      {
+        path: "color",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
       }
     ],
     [$props, $ctx, $refs]
@@ -168,6 +179,10 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsyg4Uf6WCaaLe()
   });
 
   return (
@@ -189,6 +204,8 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
         plasmic_paziresh_24_design_system_css.plasmic_tokens,
         sty.root,
         {
+          [sty.rootcolor_green]: hasVariant($state, "color", "green"),
+          [sty.rootcolor_grey]: hasVariant($state, "color", "grey"),
           [sty.rootfouse]: hasVariant($state, "fouse", "fouse"),
           [sty.rootselected]: hasVariant($state, "selected", "selected")
         }
@@ -205,7 +222,18 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
             : Icon105Icon
         }
         className={classNames(projectcss.all, sty.svg, {
+          [sty.svgcolor_green]: hasVariant($state, "color", "green"),
+          [sty.svgcolor_green_selected]:
+            hasVariant($state, "color", "green") &&
+            hasVariant($state, "selected", "selected"),
+          [sty.svgcolor_grey]: hasVariant($state, "color", "grey"),
+          [sty.svgcolor_grey_selected]:
+            hasVariant($state, "color", "grey") &&
+            hasVariant($state, "selected", "selected"),
           [sty.svgfouse]: hasVariant($state, "fouse", "fouse"),
+          [sty.svgfouse_color_green]:
+            hasVariant($state, "color", "green") &&
+            hasVariant($state, "fouse", "fouse"),
           [sty.svgselected]: hasVariant($state, "selected", "selected")
         })}
         role={"img"}

@@ -70,6 +70,7 @@ import ضصث from "../../\u0636\u0635\u062B"; // plasmic-import: Wp2hMbrqceGU/c
 import Task from "../../Task"; // plasmic-import: tjopq3d9TECK/component
 import Footer from "../../Footer"; // plasmic-import: AFZenyV8x-fk/component
 import Asd from "../../Asd"; // plasmic-import: H8mpq1F0WK9O/component
+import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
@@ -108,6 +109,8 @@ export type PlasmicTodoApp__OverridesType = {
   footer?: Flex__<typeof Footer>;
   fakeStack?: Flex__<"div">;
   asd?: Flex__<typeof Asd>;
+  lineClomp?: Flex__<typeof LineClomp>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultTodoAppProps {}
@@ -167,6 +170,12 @@ function PlasmicTodoApp__RenderFunc(props: {
         path: "footer.shownType",
         type: "private",
         variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "lineClomp.line",
+        type: "private",
+        variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -453,6 +462,39 @@ function PlasmicTodoApp__RenderFunc(props: {
             data-plasmic-override={overrides.asd}
             className={classNames("__wab_instance", sty.asd)}
           />
+
+          <LineClomp
+            data-plasmic-name={"lineClomp"}
+            data-plasmic-override={overrides.lineClomp}
+            className={classNames("__wab_instance", sty.lineClomp)}
+            numberOfLine={2}
+            onLineChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["lineClomp", "line"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          >
+            <div
+              data-plasmic-name={"text"}
+              data-plasmic-override={overrides.text}
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text
+              )}
+            >
+              {""}
+            </div>
+          </LineClomp>
         </div>
       </div>
     </React.Fragment>
@@ -470,7 +512,9 @@ const PlasmicDescendants = {
     "task",
     "footer",
     "fakeStack",
-    "asd"
+    "asd",
+    "lineClomp",
+    "text"
   ],
   appTitle: ["appTitle"],
   appBody: [
@@ -487,7 +531,9 @@ const PlasmicDescendants = {
   task: ["task"],
   footer: ["footer"],
   fakeStack: ["fakeStack"],
-  asd: ["asd"]
+  asd: ["asd"],
+  lineClomp: ["lineClomp", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -503,6 +549,8 @@ type NodeDefaultElementType = {
   footer: typeof Footer;
   fakeStack: "div";
   asd: typeof Asd;
+  lineClomp: typeof LineClomp;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -599,6 +647,8 @@ export const PlasmicTodoApp = Object.assign(
     footer: makeNodeComponent("footer"),
     fakeStack: makeNodeComponent("fakeStack"),
     asd: makeNodeComponent("asd"),
+    lineClomp: makeNodeComponent("lineClomp"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicTodoApp
     internalVariantProps: PlasmicTodoApp__VariantProps,

@@ -2282,6 +2282,86 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicAlert.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "RlsH9qDdUc17",
+          "name": "SelfMedication",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedication.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-medication.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedication.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-medication"
+        },
+        {
+          "id": "UJhKrwaiZx_G",
+          "name": "LinearCalendar",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicLinearCalendar.tsx",
+          "importSpec": {
+            "modulePath": "LinearCalendar.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicLinearCalendar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "5lKm1nUlkjS8",
+          "name": "Lock",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicLock.tsx",
+          "importSpec": {
+            "modulePath": "Lock.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicLock.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "VHAYS5YHy7AC",
+          "name": "LineClomp",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicLineClomp.tsx",
+          "importSpec": {
+            "modulePath": "LineClomp.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicLineClomp.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "0RvDxrGTp6lz",
+          "name": "SelfMedicationStep",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-medication-step.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-medication-step"
+        },
+        {
+          "id": "usfpaVkTXFYE",
+          "name": "StepsLayout",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicStepsLayout.tsx",
+          "importSpec": {
+            "modulePath": "StepsLayout.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicStepsLayout.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3104,6 +3184,31 @@
           "id": "JdBtCI53tCN5",
           "name": "Icon119Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon119.tsx"
+        },
+        {
+          "id": "rHEPm0TFpII6",
+          "name": "Icon120Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon120.tsx"
+        },
+        {
+          "id": "frPGzgYLVDc_",
+          "name": "Icon121Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon121.tsx"
+        },
+        {
+          "id": "7szDnb8vqxXD",
+          "name": "Icon122Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon122.tsx"
+        },
+        {
+          "id": "mgjK9QACkSZF",
+          "name": "Icon123Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon123.tsx"
+        },
+        {
+          "id": "gcJesfCMo05Y",
+          "name": "Icon124Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon124.tsx"
         }
       ],
       "images": [

@@ -45,6 +45,16 @@
   transform: scaleX(1.1) scaleY(1.1) scaleZ(1);
   color: #ffffff;
 }
+.svgcolor_green {
+  color: var(--token-SH2GlK2U7a6u);
+  opacity: 1;
+}
+.svgcolor_grey {
+  color: var(--token-NXlEQg0VOw-c);
+}
+.svgcolor_green_selected {
+  opacity: 1;
+}
 .freeBox {
   position: relative;
   width: auto;
