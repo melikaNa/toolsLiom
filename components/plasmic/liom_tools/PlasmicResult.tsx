@@ -2596,81 +2596,96 @@ function PlasmicResult__RenderFunc(props: {
               />
             </Stack__>
           ) : null}
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
-            <div
-              className={classNames(projectcss.all, sty.freeBox__jD9Ih)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return $$.copyToClipboard(
-                            window.location.href + "&Share=true"
-                          );
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-
-                $steps["invokeGlobalAction"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "success",
-                          "\u0644\u06cc\u0646\u06a9 \u0646\u062a\u06cc\u062c\u0647 \u06a9\u067e\u06cc \u0634\u062f.",
-                          "top-left"
-                        ]
-                      };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["invokeGlobalAction"] != null &&
-                  typeof $steps["invokeGlobalAction"] === "object" &&
-                  typeof $steps["invokeGlobalAction"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
-                }
-              }}
+          {(() => {
+            try {
+              return $state.level == 3;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <section
+              data-plasmic-name={"section"}
+              data-plasmic-override={overrides.section}
+              className={classNames(projectcss.all, sty.section)}
             >
-              <Icon124Icon
-                className={classNames(projectcss.all, sty.svg__hbaUd)}
-                role={"img"}
-              />
-
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ggpNh
-                )}
+                className={classNames(projectcss.all, sty.freeBox__jD9Ih)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return $$.copyToClipboard(
+                              window.location.href + "&Share=true"
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "success",
+                            "\u0644\u06cc\u0646\u06a9 \u0646\u062a\u06cc\u062c\u0647 \u06a9\u067e\u06cc \u0634\u062f.",
+                            "top-left"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+                }}
               >
-                {
-                  " \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc \u0646\u062a\u06cc\u062c\u0647"
-                }
+                <Icon124Icon
+                  className={classNames(projectcss.all, sty.svg__hbaUd)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ggpNh
+                  )}
+                >
+                  {
+                    " \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc \u0646\u062a\u06cc\u062c\u0647"
+                  }
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
