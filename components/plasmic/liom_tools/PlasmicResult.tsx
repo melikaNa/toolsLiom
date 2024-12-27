@@ -2854,7 +2854,11 @@ function PlasmicResult__RenderFunc(props: {
                         }}
                         outline={true}
                         showStartIcon={true}
-                        size={"compact"}
+                        size={
+                          hasVariant(globalVariants, "screen", "mobileOnly")
+                            ? "compact"
+                            : "compact"
+                        }
                         startIcon={
                           <Icon125Icon
                             className={classNames(
@@ -2937,6 +2941,11 @@ function PlasmicResult__RenderFunc(props: {
                     }
                   }}
                   showStartIcon={true}
+                  size={
+                    hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? "compact"
+                      : undefined
+                  }
                   startIcon={
                     <Icon124Icon
                       className={classNames(projectcss.all, sty.svg__tuUmR)}

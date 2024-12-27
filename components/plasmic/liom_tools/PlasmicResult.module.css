@@ -11,7 +11,7 @@
   background: var(--token-riOO7VGd6zgE);
   grid-row-gap: var(--token-6eH8UjLOmr7v);
   padding-top: 100px;
-  padding-bottom: var(--token-KDnC5QlJdkgq);
+  padding-bottom: 40px;
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -27,7 +27,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .root {
-    padding: 80px var(--token-6eH8UjLOmr7v) var(--token-6eH8UjLOmr7v);
+    padding: 80px var(--token-6eH8UjLOmr7v) 40px;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -1208,8 +1208,15 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__cgHuj {
     width: 100%;
+    padding-bottom: var(--token-3WxvfyIdJppy);
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__cgHuj > :global(.__wab_flex-container) {
+    justify-content: center;
+    align-items: center;
   }
 }
 .freeBox___3N9Cr {
@@ -1224,11 +1231,22 @@
   background: var(--token-jgohepLVeKvh);
   border-radius: var(--token-KVcr9NiMwFLr);
   padding: 0px;
+  border: 1px solid var(--token-s_XuzePAGmOh);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___3N9Cr {
+    width: auto;
+  }
 }
 .paziresh24Button__bQwg:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
   min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .paziresh24Button__bQwg:global(.__wab_instance) {
+    width: auto;
+  }
 }
 .svg__oiRsc {
   object-fit: cover;
@@ -1257,10 +1275,20 @@
   font-size: var(--token-KUiXUfHPkqkm);
   color: var(--token-s_XuzePAGmOh);
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__fcfJr {
+    font-size: 0.7rem;
+  }
+}
 .text__xiqgZ {
   font-weight: 700;
   font-size: 0.6rem;
   color: var(--token-VzWdrvFHnhlm);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__xiqgZ {
+    font-size: 0.45rem;
+  }
 }
 .svg__ycWz4 {
   object-fit: cover;
@@ -1276,6 +1304,13 @@
   max-width: 100%;
   width: 50%;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .paziresh24Button__wlNh:global(.__wab_instance) {
+    width: auto;
+    height: 100%;
+    min-height: 0;
+  }
+}
 .svg__tuUmR {
   position: relative;
   object-fit: cover;
@@ -1287,6 +1322,11 @@
 .text__srDi8 {
   font-size: var(--token-podr231_9RBN);
   color: var(--token-jgohepLVeKvh);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__srDi8 {
+    font-size: var(--token-KUiXUfHPkqkm);
+  }
 }
 .svg__aC61O {
   position: relative;
