@@ -1849,7 +1849,6 @@ function PlasmicResult__RenderFunc(props: {
                                     ];
                                   }
                                 }}
-                                size={"compact"}
                                 startIcon={
                                   <Icon125Icon
                                     className={classNames(
@@ -2851,233 +2850,246 @@ function PlasmicResult__RenderFunc(props: {
                     }
                     throw e;
                   }
-                })() ? (
-                  <Paziresh24Button
-                    children2={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__sizyW
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__fcfJr
-                          )}
-                        >
-                          {
-                            "\u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0622\u0646\u0644\u0627\u06cc\u0646"
+                })()
+                  ? (_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return (() => {
+                            const filteredItems =
+                              $state.apiRequest.data.details.filter(
+                                item =>
+                                  item.advice_text != null && item.action != ""
+                              );
+                            if (filteredItems.length > 0) {
+                              const randomIndex = Math.floor(
+                                Math.random() * filteredItems.length
+                              );
+                              return filteredItems[randomIndex];
+                            }
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
                           }
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__xiqgZ
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  const filteredItems =
-                                    $state.apiRequest.data.details.filter(
-                                      item =>
-                                        item.advice_text != null &&
-                                        item.action != ""
-                                    );
-                                  if (filteredItems.length > 0) {
-                                    const randomIndex = Math.floor(
-                                      Math.random() * filteredItems.length
-                                    );
-                                    return (
-                                      "  (جهت موضوع " +
-                                      filteredItems[randomIndex]
-                                        .option_metric_fa +
-                                      ")  "
-                                    );
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0622\u0646\u0644\u0627\u06cc\u0646";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </div>
-                    }
-                    className={classNames(
-                      "__wab_instance",
-                      sty.paziresh24Button__bQwg
-                    )}
-                    endIcon={
-                      <Icon125Icon
-                        className={classNames(projectcss.all, sty.svg__ycWz4)}
-                        role={"img"}
-                      />
-                    }
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["action"]
-                              },
-                              operation: 0,
-                              value: (() => {
-                                const filteredItems =
-                                  $state.apiRequest.data.details.filter(
-                                    item =>
-                                      item.advice_text != null &&
-                                      item.action != ""
-                                  );
-                                if (filteredItems.length > 0) {
-                                  const randomIndex = Math.floor(
-                                    Math.random() * filteredItems.length
-                                  );
-                                  return filteredItems[randomIndex].action;
-                                }
-                              })()
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateAction"] != null &&
-                        typeof $steps["updateAction"] === "object" &&
-                        typeof $steps["updateAction"].then === "function"
-                      ) {
-                        $steps["updateAction"] = await $steps["updateAction"];
-                      }
-
-                      $steps["updateDialogOpen"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["dialog", "open"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateDialogOpen"] != null &&
-                        typeof $steps["updateDialogOpen"] === "object" &&
-                        typeof $steps["updateDialogOpen"].then === "function"
-                      ) {
-                        $steps["updateDialogOpen"] = await $steps[
-                          "updateDialogOpen"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://api.liom.app/service/log",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      userId: $ctx.query.user_id,
-                                      pageName: "result",
-                                      action: "Doctor-visit",
-                                      extraData: {
-                                        sessionId: $ctx.query.session_id,
-                                        action: $state.action
-                                      }
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <Paziresh24Button
+                          children2={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__sizyW
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__fcfJr
+                                )}
+                              >
                                 {
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                                  }
+                                  "\u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0622\u0646\u0644\u0627\u06cc\u0646"
                                 }
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-                    }}
-                    showStartIcon={true}
-                    size={
-                      hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? "compact"
-                        : "compact"
-                    }
-                    startIcon={
-                      <Icon125Icon
-                        className={classNames(projectcss.all, sty.svg__oiRsc)}
-                        role={"img"}
-                      />
-                    }
-                  />
-                ) : null}
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__xiqgZ
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        "  (جهت موضوع " +
+                                        currentItem.option_metric_fa +
+                                        ")  "
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0622\u0646\u0644\u0627\u06cc\u0646";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          }
+                          className={classNames(
+                            "__wab_instance",
+                            sty.paziresh24Button__bQwg
+                          )}
+                          endIcon={
+                            <Icon125Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__ycWz4
+                              )}
+                              role={"img"}
+                            />
+                          }
+                          key={currentIndex}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["action"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem.action
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateAction"] != null &&
+                              typeof $steps["updateAction"] === "object" &&
+                              typeof $steps["updateAction"].then === "function"
+                            ) {
+                              $steps["updateAction"] = await $steps[
+                                "updateAction"
+                              ];
+                            }
+
+                            $steps["updateDialogOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dialog", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDialogOpen"] != null &&
+                              typeof $steps["updateDialogOpen"] === "object" &&
+                              typeof $steps["updateDialogOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDialogOpen"] = await $steps[
+                                "updateDialogOpen"
+                              ];
+                            }
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId: $ctx.query.user_id,
+                                            pageName: "result",
+                                            action: "Doctor-visit",
+                                            extraData: {
+                                              sessionId: $ctx.query.session_id,
+                                              action: $state.action
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                        }
+                                      }
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+                          }}
+                          showStartIcon={true}
+                          startIcon={
+                            <Icon125Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__oiRsc
+                              )}
+                              role={"img"}
+                            />
+                          }
+                        />
+                      );
+                    })
+                  : null}
                 <Paziresh24Button
                   children2={
                     <Icon124Icon
