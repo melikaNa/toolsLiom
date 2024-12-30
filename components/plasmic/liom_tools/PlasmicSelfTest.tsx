@@ -72,6 +72,7 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import LoadingCompopnentGray from "../../LoadingCompopnentGray"; // plasmic-import: OUwywVcxKl5x/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -127,6 +128,7 @@ export type PlasmicSelfTest__OverridesType = {
   timer?: Flex__<typeof Timer>;
   apiRequest?: Flex__<typeof ApiRequest>;
   shop?: Flex__<typeof ApiRequest>;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultSelfTestProps {}
@@ -4930,6 +4932,15 @@ function PlasmicSelfTest__RenderFunc(props: {
             }}
             url={"https://n8n.staas.ir/webhook/selfTest/shop"}
           />
+
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              "<!-- Hotjar Tracking Code for tools.liom.app -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5253188,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -4954,7 +4965,8 @@ const PlasmicDescendants = {
     "user",
     "timer",
     "apiRequest",
-    "shop"
+    "shop",
+    "embedHtml"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -4976,7 +4988,8 @@ const PlasmicDescendants = {
   user: ["user"],
   timer: ["timer"],
   apiRequest: ["apiRequest"],
-  shop: ["shop"]
+  shop: ["shop"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4999,6 +5012,7 @@ type NodeDefaultElementType = {
   timer: typeof Timer;
   apiRequest: typeof ApiRequest;
   shop: typeof ApiRequest;
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5102,6 +5116,7 @@ export const PlasmicSelfTest = Object.assign(
     timer: makeNodeComponent("timer"),
     apiRequest: makeNodeComponent("apiRequest"),
     shop: makeNodeComponent("shop"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicSelfTest
     internalVariantProps: PlasmicSelfTest__VariantProps,
