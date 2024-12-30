@@ -69,6 +69,11 @@ import Seen from "../../Seen"; // plasmic-import: 0oGpc6YoPalA/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { Dialog } from "@plasmicpkgs/radix-ui";
+import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
+import { DialogContent } from "@plasmicpkgs/radix-ui";
+import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import { DialogClose } from "@plasmicpkgs/radix-ui";
 
 import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
 
@@ -83,6 +88,9 @@ import sty from "./PlasmicNewPage2.module.css"; // plasmic-import: PlwkepYp-mue/
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
 import Icon100Icon from "./icons/PlasmicIcon__Icon100"; // plasmic-import: 2D6zlhfqx1AB/icon
 import Icon93Icon from "./icons/PlasmicIcon__Icon93"; // plasmic-import: zelbblG0Cx3b/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: 3GJi3NV2X6Zg/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: TQjz9x9XivBx/icon
 
 import __lib_dayjs from "dayjs";
 
@@ -104,10 +112,15 @@ export type PlasmicNewPage2__OverridesType = {
   massage?: Flex__<typeof Massage>;
   helloDoctorIBel?: Flex__<"div">;
   seen?: Flex__<typeof Seen>;
-  text?: Flex__<"div">;
   bottomInput?: Flex__<"div">;
   textArea?: Flex__<typeof AntdTextArea>;
   embedHtml?: Flex__<typeof Embed>;
+  dialog3?: Flex__<typeof Dialog>;
+  buttonLiom?: Flex__<typeof ButtonLiom>;
+  dialogContent?: Flex__<typeof DialogContent>;
+  dialogTitle?: Flex__<typeof DialogTitle>;
+  h5?: Flex__<"h5">;
+  dialogClose?: Flex__<typeof DialogClose>;
 };
 
 export interface DefaultNewPage2Props {}
@@ -189,6 +202,18 @@ function PlasmicNewPage2__RenderFunc(props: {
           },
           { massege: "salam", person: "mdfdfdfde", time: "11405-555-55 10:30" }
         ]
+      },
+      {
+        path: "dialog3.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "buttonLiom.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -335,12 +360,10 @@ function PlasmicNewPage2__RenderFunc(props: {
                             />
 
                             <div
-                              data-plasmic-name={"text"}
-                              data-plasmic-override={overrides.text}
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text
+                                sty.text__l1S8
                               )}
                             >
                               <React.Fragment>
@@ -615,6 +638,139 @@ function PlasmicNewPage2__RenderFunc(props: {
                 }
               />
             </Stack__>
+            <Dialog
+              data-plasmic-name={"dialog3"}
+              data-plasmic-override={overrides.dialog3}
+              className={classNames("__wab_instance", sty.dialog3)}
+              defaultOpen={true}
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["dialog3", "open"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              open={generateStateValueProp($state, ["dialog3", "open"])}
+              themeResetClass={classNames(
+                projectcss.root_reset,
+                projectcss.plasmic_default_styles,
+                projectcss.plasmic_mixins,
+                projectcss.plasmic_tokens,
+                plasmic_antd_5_hostless_css.plasmic_tokens,
+                plasmic_plasmic_rich_components_css.plasmic_tokens,
+                plasmic_paziresh_24_design_system_css.plasmic_tokens
+              )}
+              triggerSlot={
+                <ButtonLiom
+                  data-plasmic-name={"buttonLiom"}
+                  data-plasmic-override={overrides.buttonLiom}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom",
+                    "color"
+                  ])}
+                  endIcon={
+                    <ChevronLeftIcon
+                      className={classNames(projectcss.all, sty.svg__vuD5Y)}
+                      role={"img"}
+                    />
+                  }
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  startIcon={
+                    <ChevronRightIcon
+                      className={classNames(projectcss.all, sty.svg___4Qafx)}
+                      role={"img"}
+                    />
+                  }
+                />
+              }
+            >
+              <DialogContent
+                data-plasmic-name={"dialogContent"}
+                data-plasmic-override={overrides.dialogContent}
+                className={classNames("__wab_instance", sty.dialogContent)}
+                enterAnimations={["slide-in-from-bottom"]}
+                themeResetClass={classNames(
+                  projectcss.root_reset,
+                  projectcss.plasmic_default_styles,
+                  projectcss.plasmic_mixins,
+                  projectcss.plasmic_tokens,
+                  plasmic_antd_5_hostless_css.plasmic_tokens,
+                  plasmic_plasmic_rich_components_css.plasmic_tokens,
+                  plasmic_paziresh_24_design_system_css.plasmic_tokens
+                )}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__gXa3)}
+                  dir={"rtl"}
+                >
+                  <DialogTitle
+                    data-plasmic-name={"dialogTitle"}
+                    data-plasmic-override={overrides.dialogTitle}
+                    className={classNames("__wab_instance", sty.dialogTitle)}
+                  >
+                    <h5
+                      data-plasmic-name={"h5"}
+                      data-plasmic-override={overrides.h5}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        sty.h5
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__lp0BO
+                        )}
+                      >
+                        {"Dialog title"}
+                      </div>
+                    </h5>
+                  </DialogTitle>
+                </Stack__>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__x52Vy)}
+                  dir={"rtl"}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__a4Rie
+                    )}
+                  >
+                    {"You can insert dialog body content here in this slot."}
+                  </div>
+                </div>
+                <DialogClose
+                  data-plasmic-name={"dialogClose"}
+                  data-plasmic-override={overrides.dialogClose}
+                  className={classNames("__wab_instance", sty.dialogClose)}
+                >
+                  <XIcon
+                    className={classNames(projectcss.all, sty.svg__lkZkF)}
+                    role={"img"}
+                  />
+                </DialogClose>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
@@ -630,10 +786,15 @@ const PlasmicDescendants = {
     "massage",
     "helloDoctorIBel",
     "seen",
-    "text",
     "bottomInput",
     "textArea",
-    "embedHtml"
+    "embedHtml",
+    "dialog3",
+    "buttonLiom",
+    "dialogContent",
+    "dialogTitle",
+    "h5",
+    "dialogClose"
   ],
   chat: [
     "chat",
@@ -641,19 +802,36 @@ const PlasmicDescendants = {
     "massage",
     "helloDoctorIBel",
     "seen",
-    "text",
     "bottomInput",
     "textArea",
-    "embedHtml"
+    "embedHtml",
+    "dialog3",
+    "buttonLiom",
+    "dialogContent",
+    "dialogTitle",
+    "h5",
+    "dialogClose"
   ],
   headerLiom: ["headerLiom"],
-  massage: ["massage", "helloDoctorIBel", "seen", "text"],
+  massage: ["massage", "helloDoctorIBel", "seen"],
   helloDoctorIBel: ["helloDoctorIBel"],
   seen: ["seen"],
-  text: ["text"],
   bottomInput: ["bottomInput", "textArea", "embedHtml"],
   textArea: ["textArea"],
-  embedHtml: ["embedHtml"]
+  embedHtml: ["embedHtml"],
+  dialog3: [
+    "dialog3",
+    "buttonLiom",
+    "dialogContent",
+    "dialogTitle",
+    "h5",
+    "dialogClose"
+  ],
+  buttonLiom: ["buttonLiom"],
+  dialogContent: ["dialogContent", "dialogTitle", "h5", "dialogClose"],
+  dialogTitle: ["dialogTitle", "h5"],
+  h5: ["h5"],
+  dialogClose: ["dialogClose"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -665,10 +843,15 @@ type NodeDefaultElementType = {
   massage: typeof Massage;
   helloDoctorIBel: "div";
   seen: typeof Seen;
-  text: "div";
   bottomInput: "div";
   textArea: typeof AntdTextArea;
   embedHtml: typeof Embed;
+  dialog3: typeof Dialog;
+  buttonLiom: typeof ButtonLiom;
+  dialogContent: typeof DialogContent;
+  dialogTitle: typeof DialogTitle;
+  h5: "h5";
+  dialogClose: typeof DialogClose;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -761,10 +944,15 @@ export const PlasmicNewPage2 = Object.assign(
     massage: makeNodeComponent("massage"),
     helloDoctorIBel: makeNodeComponent("helloDoctorIBel"),
     seen: makeNodeComponent("seen"),
-    text: makeNodeComponent("text"),
     bottomInput: makeNodeComponent("bottomInput"),
     textArea: makeNodeComponent("textArea"),
     embedHtml: makeNodeComponent("embedHtml"),
+    dialog3: makeNodeComponent("dialog3"),
+    buttonLiom: makeNodeComponent("buttonLiom"),
+    dialogContent: makeNodeComponent("dialogContent"),
+    dialogTitle: makeNodeComponent("dialogTitle"),
+    h5: makeNodeComponent("h5"),
+    dialogClose: makeNodeComponent("dialogClose"),
 
     // Metadata about props expected for PlasmicNewPage2
     internalVariantProps: PlasmicNewPage2__VariantProps,

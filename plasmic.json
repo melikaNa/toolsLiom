@@ -2362,6 +2362,32 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicStepsLayout.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "XbG3MnD64yeT",
+          "name": "Dialog",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicDialog.tsx",
+          "importSpec": {
+            "modulePath": "Dialog.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicDialog.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "SGcDMhQhzZo0",
+          "name": "Dialog2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicDialog2.tsx",
+          "importSpec": {
+            "modulePath": "Dialog2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicDialog2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3214,6 +3240,11 @@
           "id": "b8AgXrwwp9nu",
           "name": "Icon125Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon125.tsx"
+        },
+        {
+          "id": "TQjz9x9XivBx",
+          "name": "XIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__X.tsx"
         }
       ],
       "images": [
