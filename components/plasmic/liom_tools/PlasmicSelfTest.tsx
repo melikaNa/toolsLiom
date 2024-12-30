@@ -191,16 +191,24 @@ function PlasmicSelfTest__RenderFunc(props: {
                 ) {
                   return [
                     {
-                      text: "سلام \uD83D\uDC4B امیدوارم روح و جسم شما همیشه سالم باشد\u2764️",
+                      text: "سلام\uD83D\uDC4B\n لیوم هستم\u060C پریود ترکر و  دستیار سلامت بانوان که بصورت تخصصی روی نامنظمی قاعدگی کار میکنم.",
                       from: "system",
                       type: "answer"
                     },
                     {
-                      text: "من به شما کمک میکنم بتوانید در کمتر از چند دقیقه از سلامت خود اطمینان حاصل کنید.",
+                      text: "از آنجایی که نامنظم شدن پریود یک مشکل رایج در بین بانوان است\u060C  تلاش کردم تا به کمک متخصصین و پزشکان یک ویزیت واقعی را شبیه سازی کنم",
                       from: "system"
                     },
                     {
-                      text: "من به کمک دانش متخصصین و پزشکان یک ویزیت واقعی را شبیه سازی کرده‌ام.",
+                      text: "تا شما در کمتر از چند دقیقه علت نامنظم شدن پریود خود را بدانید.",
+                      from: "system"
+                    },
+                    {
+                      text: "اگر متوجه بشویم که علت نامنظمی شما  نگران کننده است در انتهای این ویزیت\u060C پزشک  مربوطه را معرفی میکنم تا  به ایشان مراجعه کنید",
+                      from: "system"
+                    },
+                    {
+                      text: "سلامت و راحتی شما  دغدغه اصلی لیوم و پذیرش ۲۴ است\u2764️\uD83E\uDD1D\uD83C\uDFFB.",
                       from: "system"
                     },
                     {
@@ -613,7 +621,7 @@ function PlasmicSelfTest__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicSelfTest.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -624,6 +632,31 @@ function PlasmicSelfTest__RenderFunc(props: {
           key="twitter:title"
           name="twitter:title"
           content={PlasmicSelfTest.pageMetadata.title}
+        />
+        <meta
+          key="description"
+          name="description"
+          content={PlasmicSelfTest.pageMetadata.description}
+        />
+        <meta
+          key="og:description"
+          property="og:description"
+          content={PlasmicSelfTest.pageMetadata.description}
+        />
+        <meta
+          key="twitter:description"
+          name="twitter:description"
+          content={PlasmicSelfTest.pageMetadata.description}
+        />
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicSelfTest.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicSelfTest.pageMetadata.ogImageSrc}
         />
       </Head>
 
@@ -5124,9 +5157,11 @@ export const PlasmicSelfTest = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "دستیار سلامت",
-      description: "",
-      ogImageSrc: "",
+      title: "تشخیص سریع دلیل نامنظمی قاعدگی",
+      description:
+        "از دلایل عقب جلو شدن پریود خود،  در کمتر از چند دقیقه و بدون انتظار برای پزشک آگاه شوید",
+      ogImageSrc:
+        "https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico",
       canonical: ""
     }
   }
