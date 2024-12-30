@@ -129,6 +129,7 @@ export type PlasmicSelfTest__OverridesType = {
   apiRequest?: Flex__<typeof ApiRequest>;
   shop?: Flex__<typeof ApiRequest>;
   embedHtml?: Flex__<typeof Embed>;
+  favicon?: Flex__<typeof Embed>;
 };
 
 export interface DefaultSelfTestProps {}
@@ -4974,6 +4975,15 @@ function PlasmicSelfTest__RenderFunc(props: {
               "<!-- Hotjar Tracking Code for tools.liom.app -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5253188,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
             }
           />
+
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -4999,7 +5009,8 @@ const PlasmicDescendants = {
     "timer",
     "apiRequest",
     "shop",
-    "embedHtml"
+    "embedHtml",
+    "favicon"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -5022,7 +5033,8 @@ const PlasmicDescendants = {
   timer: ["timer"],
   apiRequest: ["apiRequest"],
   shop: ["shop"],
-  embedHtml: ["embedHtml"]
+  embedHtml: ["embedHtml"],
+  favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5046,6 +5058,7 @@ type NodeDefaultElementType = {
   apiRequest: typeof ApiRequest;
   shop: typeof ApiRequest;
   embedHtml: typeof Embed;
+  favicon: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5150,6 +5163,7 @@ export const PlasmicSelfTest = Object.assign(
     apiRequest: makeNodeComponent("apiRequest"),
     shop: makeNodeComponent("shop"),
     embedHtml: makeNodeComponent("embedHtml"),
+    favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicSelfTest
     internalVariantProps: PlasmicSelfTest__VariantProps,

@@ -82,6 +82,7 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
 import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import {
@@ -89,6 +90,7 @@ import {
   useUnnamedGlobalGroupOfVariants
 } from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants"; // plasmic-import: gDFLJp69n7ET/globalVariant
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
+import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -147,6 +149,7 @@ export type PlasmicResult__OverridesType = {
   paziresh24LineClamp?: Flex__<typeof Paziresh24LineClamp>;
   cardSubtitle?: Flex__<"span">;
   section?: Flex__<"section">;
+  favicon?: Flex__<typeof Embed>;
 };
 
 export interface DefaultResultProps {}
@@ -324,7 +327,8 @@ function PlasmicResult__RenderFunc(props: {
   const globalVariants = ensureGlobalVariants({
     theme: useTheme(),
     unnamedGlobalGroupOfVariants: useUnnamedGlobalGroupOfVariants(),
-    screen: useScreenVariantsqiBuxNlixBgQ()
+    screen: useScreenVariantsqiBuxNlixBgQ(),
+    screen: useScreenVariantsyg4Uf6WCaaLe()
   });
 
   return (
@@ -3161,6 +3165,14 @@ function PlasmicResult__RenderFunc(props: {
               </Stack__>
             </section>
           ) : null}
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3190,7 +3202,8 @@ const PlasmicDescendants = {
     "h2",
     "paziresh24LineClamp",
     "cardSubtitle",
-    "section"
+    "section",
+    "favicon"
   ],
   modal: ["modal", "backgrond", "reveal", "loadingConclusion"],
   backgrond: ["backgrond", "reveal", "loadingConclusion"],
@@ -3225,7 +3238,8 @@ const PlasmicDescendants = {
   h2: ["h2"],
   paziresh24LineClamp: ["paziresh24LineClamp", "cardSubtitle"],
   cardSubtitle: ["cardSubtitle"],
-  section: ["section"]
+  section: ["section"],
+  favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3253,6 +3267,7 @@ type NodeDefaultElementType = {
   paziresh24LineClamp: typeof Paziresh24LineClamp;
   cardSubtitle: "span";
   section: "section";
+  favicon: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3361,6 +3376,7 @@ export const PlasmicResult = Object.assign(
     paziresh24LineClamp: makeNodeComponent("paziresh24LineClamp"),
     cardSubtitle: makeNodeComponent("cardSubtitle"),
     section: makeNodeComponent("section"),
+    favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicResult
     internalVariantProps: PlasmicResult__VariantProps,
@@ -3368,7 +3384,7 @@ export const PlasmicResult = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "نتیجه تست",
+      title: "نتیجه دلیل نامنظمی قاعدگی",
       description: "",
       ogImageSrc: "",
       canonical: ""
