@@ -357,7 +357,9 @@ function PlasmicClinic__RenderFunc(props: {
               <div
                 data-plasmic-name={"rectangle2"}
                 data-plasmic-override={overrides.rectangle2}
-                className={classNames(projectcss.all, sty.rectangle2)}
+                className={classNames(projectcss.all, sty.rectangle2, {
+                  [sty.rectangle2_1_docter]: hasVariant($state, "_1", "docter")
+                })}
               >
                 <Stack__
                   as={"div"}

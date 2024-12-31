@@ -393,6 +393,55 @@ function PlasmicResult__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
+
+            $steps["invokeGlobalAction"] = true
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "POST",
+                      "https://api.liom.app/service/log",
+                      undefined,
+                      (() => {
+                        try {
+                          return {
+                            userId: new URLSearchParams(
+                              window.location.search
+                            ).get("user-id"),
+                            pageName: "result",
+                            action: "onLoad",
+                            extraData: {}
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })(),
+                      {
+                        headers: {
+                          "Content-Type": "application/json",
+                          Authorization:
+                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                        }
+                      }
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction"] != null &&
+              typeof $steps["invokeGlobalAction"] === "object" &&
+              typeof $steps["invokeGlobalAction"].then === "function"
+            ) {
+              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
           }}
         >
           <AntdModal
