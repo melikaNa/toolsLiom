@@ -4665,12 +4665,21 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   email: "",
                                   name: "",
                                   origin:
-                                    $ctx.query.origin ||
-                                    $ctx.query.app ||
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("origin") ||
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("app") ||
                                     "liomSite",
                                   origin_user_id:
-                                    $ctx.query.user_id ||
-                                    $ctx.query.origin_user_id
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("user_id") ||
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("origin_user_id") ||
+                                    null
                                 };
                               } catch (e) {
                                 if (
@@ -4906,6 +4915,41 @@ function PlasmicSelfTest__RenderFunc(props: {
                     "invokeGlobalAction2"
                   ];
                 }
+
+                $steps["updateLoading"] =
+                  $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loading"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateLoading"] != null &&
+                  typeof $steps["updateLoading"] === "object" &&
+                  typeof $steps["updateLoading"].then === "function"
+                ) {
+                  $steps["updateLoading"] = await $steps["updateLoading"];
+                }
               }).apply(null, eventArgs);
             }}
             onSuccess={async (...eventArgs: any) => {
@@ -5013,6 +5057,63 @@ function PlasmicSelfTest__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = { args: [2000] };
+                      return $globalActions["Fragment.wait"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+
+                $steps["updateLoading"] =
+                  $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loading"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateLoading"] != null &&
+                  typeof $steps["updateLoading"] === "object" &&
+                  typeof $steps["updateLoading"].then === "function"
+                ) {
+                  $steps["updateLoading"] = await $steps["updateLoading"];
+                }
+              }).apply(null, eventArgs);
             }}
             url={"https://n8n.staas.ir/webhook/selfTest/shop"}
           />
