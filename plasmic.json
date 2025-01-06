@@ -2388,6 +2388,33 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicDialog2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "hvJ9-klQN7Ze",
+          "name": "Pay",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicPay.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/pay.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicPay.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/pay"
+        },
+        {
+          "id": "Kh0l77Kj0PNL",
+          "name": "Subscription2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSubscription2.tsx",
+          "importSpec": {
+            "modulePath": "Subscription2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSubscription2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3552,6 +3579,26 @@
           "id": "aALIjCsUEN49",
           "name": "image 34",
           "filePath": "../public/plasmic/liom_tools/images/image34.png"
+        },
+        {
+          "id": "dTmEYWcJeccE",
+          "name": "image 56",
+          "filePath": "../public/plasmic/liom_tools/images/image56.jpg"
+        },
+        {
+          "id": "KnYiXFPjpRuX",
+          "name": "image 59",
+          "filePath": "../public/plasmic/liom_tools/images/image59.png"
+        },
+        {
+          "id": "0cceASgJY0NX",
+          "name": "image 57",
+          "filePath": "../public/plasmic/liom_tools/images/image57.png"
+        },
+        {
+          "id": "ViIZZ1zES8Qy",
+          "name": "image 58",
+          "filePath": "../public/plasmic/liom_tools/images/image58.png"
         }
       ],
       "indirect": false,
