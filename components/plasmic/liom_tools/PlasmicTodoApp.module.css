@@ -153,35 +153,3 @@
   max-width: 100%;
   padding: 8px;
 }
-.asd:global(.__wab_instance) {
-  position: relative;
-}
-.lineClomp:global(.__wab_instance) {
-  max-width: 100%;
-}
-.text {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  color: var(--token-Yq556PvPjGii);
-  text-align: center;
-  align-self: center;
-  font-size: 18px;
-  font-weight: 400;
-  font-style: normal;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  user-select: text;
-  text-decoration-line: none !important;
-  text-overflow: clip !important;
-  font-family: "Roboto", sans-serif;
-  min-width: 0;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .text {
-    font-size: 14px;
-  }
-}

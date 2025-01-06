@@ -799,11 +799,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                         var originUserId = urlParams.has("origin_user_id")
                           ? urlParams.get("origin_user_id")
                           : null;
-                        if (app !== "liom" && originUserId == null) {
-                          window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&client_idp=liom&skip_prompt=true&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&redirect_idp=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&kc_idp_hint=gozar&state=${encodeURIComponent(
-                            window.location.href
-                          )}`;
-                        }
                         if (!urlParams.has("type")) {
                           window.location.href =
                             window.location.href + "&type=irregular";
@@ -4648,10 +4643,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                 const $steps = {};
 
                 $steps["invokeGlobalAction"] =
-                  ($ctx.query.app != "liom" &&
-                    !$ctx.query.origin_user_id &&
-                    !localStorage.getItem("user_id")) ||
-                  (!localStorage.getItem("user_id") && $ctx.query.app == "liom")
+                  //$ctx.query.app != "liom" && !$ctx.query.origin_user_id && !localStorage.getItem("user_id") ||
+                  !localStorage.getItem("user_id") //&& $ctx.query.app == "liom"
                     ? (() => {
                         const actionArgs = {
                           args: [
@@ -4916,33 +4909,32 @@ function PlasmicSelfTest__RenderFunc(props: {
                   ];
                 }
 
-                $steps["updateLoading"] =
-                  $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loading"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
+                $steps["updateLoading"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["loading"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
                   $steps["updateLoading"] != null &&
                   typeof $steps["updateLoading"] === "object" &&
@@ -4979,33 +4971,32 @@ function PlasmicSelfTest__RenderFunc(props: {
                   ];
                 }
 
-                $steps["updateLoading"] =
-                  $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loading"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
+                $steps["updateLoading"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["loading"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
                   $steps["updateLoading"] != null &&
                   typeof $steps["updateLoading"] === "object" &&
@@ -5079,33 +5070,32 @@ function PlasmicSelfTest__RenderFunc(props: {
                   ];
                 }
 
-                $steps["updateLoading"] =
-                  $ctx.query.app == "liom" || $ctx.query.origin_user_id != null
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loading"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
+                $steps["updateLoading"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["loading"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
                   $steps["updateLoading"] != null &&
                   typeof $steps["updateLoading"] === "object" &&
