@@ -75,7 +75,7 @@
   justify-self: flex-start;
   overflow: auto;
   min-width: 0;
-  padding: 8px 8px 80px;
+  padding: 8px 8px 100px;
 }
 .freeBox__g86X {
   display: flex;
@@ -359,6 +359,8 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .text__diITz {
     background: none;
+    font-size: 16px;
+    height: auto;
   }
 }
 .freeBox__slOek {
@@ -448,6 +450,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .text___4YRqq {
     font-size: 16px;
+    color: var(--token-mIaQ7cfg3AGq);
   }
 }
 .text__z1VHi {

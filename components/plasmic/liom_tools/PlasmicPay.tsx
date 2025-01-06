@@ -767,7 +767,7 @@ function PlasmicPay__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return `https://pay.liom.app/p/${$ctx.query.p}`;
+                              return `https://pay.liom.app/p/${$ctx.query.p}_30-34`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
