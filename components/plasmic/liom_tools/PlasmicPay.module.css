@@ -435,12 +435,11 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  padding-top: 6px;
   font-size: 17px;
   font-family: "Roboto", sans-serif;
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
-  color: #535353;
+  color: var(--token-mIaQ7cfg3AGq);
   text-transform: none;
   line-height: 1.5;
   letter-spacing: normal;
@@ -456,7 +455,7 @@
 .text__z1VHi {
   text-align: right;
   font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   color: #535353;
@@ -464,11 +463,8 @@
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre-wrap;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .text__z1VHi {
-    display: block;
-  }
+  width: 100%;
+  min-width: 0;
 }
 .freeBox__aAnLz {
   display: flex;
@@ -549,9 +545,9 @@
   text-align: right;
   font-size: 17px;
   font-family: "Roboto", sans-serif;
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
-  color: #535353;
+  color: #7444bc;
   text-transform: none;
   line-height: 1.5;
   letter-spacing: normal;
@@ -566,7 +562,7 @@
 .text__wvGzv {
   text-align: right;
   font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   color: #535353;
@@ -574,11 +570,8 @@
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre-wrap;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .text__wvGzv {
-    display: block;
-  }
+  width: 100%;
+  min-width: 0;
 }
 .freeBox__uQxQo {
   display: flex;
@@ -701,7 +694,7 @@
   padding-top: 6px;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
   color: #535353;
   text-transform: none;

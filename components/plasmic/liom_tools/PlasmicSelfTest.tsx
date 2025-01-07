@@ -4642,56 +4642,54 @@ function PlasmicSelfTest__RenderFunc(props: {
               (async loading => {
                 const $steps = {};
 
-                $steps["invokeGlobalAction"] =
-                  //$ctx.query.app != "liom" && !$ctx.query.origin_user_id && !localStorage.getItem("user_id") ||
-                  !localStorage.getItem("user_id") //&& $ctx.query.app == "liom"
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "POST",
-                            "https://n8n.staas.ir/webhook/selfTestUser",
-                            undefined,
-                            (() => {
-                              try {
-                                return {
-                                  mobile: "",
-                                  email: "",
-                                  name: "",
-                                  origin:
-                                    new URLSearchParams(
-                                      window.location.search
-                                    ).get("origin") ||
-                                    new URLSearchParams(
-                                      window.location.search
-                                    ).get("app") ||
-                                    "liomSite",
-                                  origin_user_id:
-                                    new URLSearchParams(
-                                      window.location.search
-                                    ).get("user_id") ||
-                                    new URLSearchParams(
-                                      window.location.search
-                                    ).get("origin_user_id") ||
-                                    null
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
+                $steps["invokeGlobalAction"] = !localStorage.getItem("user_id")
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/selfTestUser",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                mobile: "",
+                                email: "",
+                                name: "",
+                                origin:
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("origin") ||
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("app") ||
+                                  "liomSite",
+                                origin_user_id:
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("user_id") ||
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("origin_user_id") ||
+                                  "null"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
                               }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
                 if (
                   $steps["invokeGlobalAction"] != null &&
                   typeof $steps["invokeGlobalAction"] === "object" &&
