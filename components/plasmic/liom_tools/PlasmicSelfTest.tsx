@@ -127,8 +127,8 @@ export type PlasmicSelfTest__OverridesType = {
   user?: Flex__<typeof ApiRequest>;
   timer?: Flex__<typeof Timer>;
   apiRequest?: Flex__<typeof ApiRequest>;
-  shop?: Flex__<typeof ApiRequest>;
   embedHtml?: Flex__<typeof Embed>;
+  shop?: Flex__<typeof ApiRequest>;
   favicon?: Flex__<typeof Embed>;
 };
 
@@ -5007,6 +5007,15 @@ function PlasmicSelfTest__RenderFunc(props: {
             url={"https://worldtimeapi.org/api/timezone/Asia/Tehran"}
           />
 
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              "<!-- Hotjar Tracking Code for tools.liom.app -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5253188,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
+            }
+          />
+
           <ApiRequest
             data-plasmic-name={"shop"}
             data-plasmic-override={overrides.shop}
@@ -5107,15 +5116,6 @@ function PlasmicSelfTest__RenderFunc(props: {
           />
 
           <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
-            code={
-              "<!-- Hotjar Tracking Code for tools.liom.app -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5253188,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
-            }
-          />
-
-          <Embed
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon)}
@@ -5147,8 +5147,8 @@ const PlasmicDescendants = {
     "user",
     "timer",
     "apiRequest",
-    "shop",
     "embedHtml",
+    "shop",
     "favicon"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
@@ -5171,8 +5171,8 @@ const PlasmicDescendants = {
   user: ["user"],
   timer: ["timer"],
   apiRequest: ["apiRequest"],
-  shop: ["shop"],
   embedHtml: ["embedHtml"],
+  shop: ["shop"],
   favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -5195,8 +5195,8 @@ type NodeDefaultElementType = {
   user: typeof ApiRequest;
   timer: typeof Timer;
   apiRequest: typeof ApiRequest;
-  shop: typeof ApiRequest;
   embedHtml: typeof Embed;
+  shop: typeof ApiRequest;
   favicon: typeof Embed;
 };
 
@@ -5300,8 +5300,8 @@ export const PlasmicSelfTest = Object.assign(
     user: makeNodeComponent("user"),
     timer: makeNodeComponent("timer"),
     apiRequest: makeNodeComponent("apiRequest"),
-    shop: makeNodeComponent("shop"),
     embedHtml: makeNodeComponent("embedHtml"),
+    shop: makeNodeComponent("shop"),
     favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicSelfTest
