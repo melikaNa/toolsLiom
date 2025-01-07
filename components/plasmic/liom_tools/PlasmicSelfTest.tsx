@@ -4652,8 +4652,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                           (() => {
                             try {
                               return {
-                                mobile: "",
-                                email: "",
+                                mobile: null,
+                                email: null,
                                 name: "",
                                 origin:
                                   new URLSearchParams(
