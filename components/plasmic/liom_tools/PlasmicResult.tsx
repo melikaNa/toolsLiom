@@ -342,7 +342,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "dialog2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "textArea2.value",
