@@ -82,16 +82,23 @@ export const PlasmicStar2__VariantProps = new Array<VariantPropType>("action");
 
 export type PlasmicStar2__ArgsType = {
   onClick?: (event: any) => void;
+  children?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicStar2__ArgsType;
-export const PlasmicStar2__ArgProps = new Array<ArgPropType>("onClick");
+export const PlasmicStar2__ArgProps = new Array<ArgPropType>(
+  "onClick",
+  "children"
+);
 
 export type PlasmicStar2__OverridesType = {
-  root?: Flex__<"svg">;
+  root?: Flex__<"div">;
+  svg?: Flex__<"svg">;
+  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultStar2Props {
   onClick?: (event: any) => void;
+  children?: React.ReactNode;
   action?: SingleBooleanChoiceArg<"action">;
   className?: string;
 }
@@ -155,7 +162,7 @@ function PlasmicStar2__RenderFunc(props: {
   });
 
   return (
-    <Icon77Icon
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
@@ -172,20 +179,44 @@ function PlasmicStar2__RenderFunc(props: {
         sty.root,
         { [sty.rootaction]: hasVariant($state, "action", "action") }
       )}
-      onClick={args.onClick}
-      role={"img"}
-    />
+    >
+      <Icon77Icon
+        data-plasmic-name={"svg"}
+        data-plasmic-override={overrides.svg}
+        className={classNames(projectcss.all, sty.svg, {
+          [sty.svgaction]: hasVariant($state, "action", "action")
+        })}
+        onClick={args.onClick}
+        role={"img"}
+      />
+
+      <div
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        className={classNames(projectcss.all, sty.freeBox)}
+      >
+        {renderPlasmicSlot({
+          defaultContents: "Enter some text",
+          value: args.children,
+          className: classNames(sty.slotTargetChildren)
+        })}
+      </div>
+    </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "svg", "freeBox"],
+  svg: ["svg"],
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
-  root: "svg";
+  root: "div";
+  svg: "svg";
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -248,6 +279,8 @@ export const PlasmicStar2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    svg: makeNodeComponent("svg"),
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicStar2
     internalVariantProps: PlasmicStar2__VariantProps,
