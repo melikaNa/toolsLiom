@@ -1221,32 +1221,60 @@
   width: auto;
   height: 1em;
 }
+.paziresh24Button__wwEhB:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg__lcy4S {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__hs7Et {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.freeBox__xqVc8 {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  right: 0;
+  background: #00000033;
+  min-height: 0;
+  padding: 8px;
+}
+.svg__vXrcx {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-s_XuzePAGmOh);
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
 .dialog2:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
+  z-index: 20;
   min-width: 0;
 }
-.paziresh24Button__fadE:global(.__wab_instance) {
-  width: 100%;
-}
-.text__vnBoo {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.svg__cZwBo {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.svg__mDhoq {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
+@media (min-width: 0px) and (max-width: 768px) {
+  .dialog2:global(.__wab_instance):global(.__wab_instance) {
+    width: 100%;
+    grid-column-start: 3 !important;
+    grid-column-end: -3 !important;
+  }
 }
 .text__uh7JZ {
   text-align: center;
@@ -1258,11 +1286,10 @@
   background: var(--token-jgohepLVeKvh);
   max-width: 100%;
   height: auto;
-  width: 100%;
+  width: auto;
   flex-direction: column;
   display: flex;
   justify-self: auto;
-  min-width: 0;
   border-radius: var(--token-KVcr9NiMwFLr);
   padding: 0px;
 }
@@ -1270,7 +1297,6 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  min-width: 0;
   margin-top: calc(0px - var(--token-omrXvBNBcWTN));
   height: calc(100% + var(--token-omrXvBNBcWTN));
 }
@@ -1289,9 +1315,10 @@
   flex-direction: row;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   min-width: 0;
+  min-height: 0;
   padding: 0px;
 }
 .freeBox__kvMlB > :global(.__wab_flex-container) {
@@ -1299,8 +1326,9 @@
   align-items: stretch;
   justify-content: center;
   min-width: 0;
-  margin-left: calc(0px - var(--token-3WxvfyIdJppy));
-  width: calc(100% + var(--token-3WxvfyIdJppy));
+  min-height: 0;
+  margin-left: calc(0px - var(--token-RPGjJxLh3tUl));
+  width: calc(100% + var(--token-RPGjJxLh3tUl));
 }
 .freeBox__kvMlB > :global(.__wab_flex-container) > *,
 .freeBox__kvMlB > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -1310,7 +1338,7 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-left: var(--token-3WxvfyIdJppy);
+  margin-left: var(--token-RPGjJxLh3tUl);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__kvMlB > :global(.__wab_flex-container) {
@@ -1336,15 +1364,15 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  padding: 0rem;
+  padding: 0px;
 }
 .freeBox__jorx2 > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: stretch;
-  justify-content: center;
+  justify-content: space-evenly;
   min-width: 0;
-  margin-left: calc(0px - 130px);
-  width: calc(100% + 130px);
+  margin-left: calc(0px - var(--token-RPGjJxLh3tUl));
+  width: calc(100% + var(--token-RPGjJxLh3tUl));
 }
 .freeBox__jorx2 > :global(.__wab_flex-container) > *,
 .freeBox__jorx2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -1354,7 +1382,7 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-left: 130px;
+  margin-left: var(--token-RPGjJxLh3tUl);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__jorx2 {
@@ -1451,31 +1479,6 @@
   object-fit: cover;
   width: auto;
   height: 1em;
-}
-.freeBox__xqVc8 {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: 100%;
-  max-width: 100%;
-  left: 0;
-  top: 0;
-  z-index: 50;
-  right: 0;
-  background: #00000033;
-  min-height: 0;
-  padding: 8px;
-}
-.svg__vXrcx {
-  object-fit: cover;
-  max-width: 100%;
-  color: var(--token-s_XuzePAGmOh);
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
 }
 .dialog:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
