@@ -1319,16 +1319,16 @@
   max-width: 100%;
   min-width: 0;
   min-height: 0;
-  padding: 0px;
+  padding: 0px 100px;
 }
 .freeBox__kvMlB > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: stretch;
-  justify-content: center;
+  justify-content: space-evenly;
   min-width: 0;
   min-height: 0;
-  margin-left: calc(0px - var(--token-RPGjJxLh3tUl));
-  width: calc(100% + var(--token-RPGjJxLh3tUl));
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
 }
 .freeBox__kvMlB > :global(.__wab_flex-container) > *,
 .freeBox__kvMlB > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -1338,11 +1338,28 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-left: var(--token-RPGjJxLh3tUl);
+  margin-left: 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__kvMlB > :global(.__wab_flex-container) {
     justify-content: space-evenly;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+    margin-top: calc(0px - 0px);
+    height: calc(100% + 0px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__kvMlB > :global(.__wab_flex-container) > *,
+  .freeBox__kvMlB > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__kvMlB > :global(.__wab_flex-container) > picture > img,
+  .freeBox__kvMlB
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+    margin-top: 0px;
   }
 }
 .star2__tCwO:global(.__wab_instance) {
@@ -1369,10 +1386,10 @@
 .freeBox__jorx2 > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: stretch;
-  justify-content: space-evenly;
+  justify-content: space-around;
   min-width: 0;
-  margin-left: calc(0px - var(--token-RPGjJxLh3tUl));
-  width: calc(100% + var(--token-RPGjJxLh3tUl));
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
 }
 .freeBox__jorx2 > :global(.__wab_flex-container) > *,
 .freeBox__jorx2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -1382,12 +1399,11 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-left: var(--token-RPGjJxLh3tUl);
+  margin-left: 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__jorx2 {
-    padding-right: var(--token-KDnC5QlJdkgq);
-    padding-left: var(--token-KDnC5QlJdkgq);
+    padding: 0px 24px;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
