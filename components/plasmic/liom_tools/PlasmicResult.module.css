@@ -1769,11 +1769,11 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .dialog2:global(.__wab_instance):global(.__wab_instance) {
     z-index: 50;
-    left: 0;
+    left: auto;
     top: auto;
-    position: fixed;
-    right: 0;
-    bottom: 0;
+    position: relative;
+    right: auto;
+    bottom: auto;
   }
 }
 .text__xrMfl {
