@@ -1,13 +1,13 @@
 .root {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  position: relative;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  min-width: 0;
+  justify-self: flex-start;
+  position: relative;
   padding: 0px;
 }
 .svg {
@@ -16,14 +16,16 @@
   color: var(--token-Pxe4wDL2kJpb);
   transition-property: all;
   transition-duration: 0.3s;
-  width: 30px;
-  height: 30px;
+  width: var(--token-rjo2t_xMK-6Z);
+  height: var(--token-rjo2t_xMK-6Z);
+  transition-timing-function: ease-in-out;
   flex-shrink: 0;
   -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
   -webkit-transition-duration: 0.3s;
 }
-.svgaction {
-  color: var(--token-bHHJuMx2zyxz);
+.svgactiv {
+  color: var(--token-47ovROB-Xr2C);
 }
 .freeBox {
   position: relative;
@@ -35,10 +37,19 @@
   min-width: 0;
 }
 .slotTargetChildren {
+  font-family: "Roboto", sans-serif;
+  font-size: var(--token-KUiXUfHPkqkm);
+  font-weight: normal;
+  font-style: normal;
   color: var(--token-Le07ngBUPl2h);
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .slotTargetChildren {
-    font-size: 12px;
+    font-size: var(--token-P2saABvfDCPH);
   }
 }

@@ -79,7 +79,7 @@ import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
-import Star2 from "../../Star2"; // plasmic-import: V5-vE9vskAlK/component
+import Stars from "../../Stars"; // plasmic-import: wwNNSLKePNyr/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
@@ -342,7 +342,8 @@ function PlasmicResult__RenderFunc(props: {
         path: "dialog2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobileOnly") ? false : false
       },
       {
         path: "textArea2.value",
@@ -2697,37 +2698,21 @@ function PlasmicResult__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <Star2
-                      action={
-                        hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? (() => {
-                              try {
-                                return currentItem <= $state.rate;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          : (() => {
-                              try {
-                                return currentItem <= $state.rate;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                      }
-                      className={classNames("__wab_instance", sty.star2__l7Fwx)}
+                    <Stars
+                      activ={(() => {
+                        try {
+                          return currentItem <= $state.rate;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      className={classNames("__wab_instance", sty.stars__vI9Lj)}
                       key={currentIndex}
                       onClick={async event => {
                         const $steps = {};
@@ -2822,7 +2807,7 @@ function PlasmicResult__RenderFunc(props: {
                           }
                         })()}
                       </React.Fragment>
-                    </Star2>
+                    </Stars>
                   );
                 })}
               </Stack__>
@@ -3049,7 +3034,17 @@ function PlasmicResult__RenderFunc(props: {
               />
 
               <Paziresh24Button
-                children2={"\u062b\u0628\u062a \u0646\u0638\u0631"}
+                children2={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__n4XQf
+                    )}
+                  >
+                    {"\u062b\u0628\u062a \u0646\u0638\u0631"}
+                  </div>
+                }
                 className={classNames(
                   "__wab_instance",
                   sty.paziresh24Button__wwEhB
@@ -4084,41 +4079,23 @@ function PlasmicResult__RenderFunc(props: {
                     const currentItem = __plasmic_item_0;
                     const currentIndex = __plasmic_idx_0;
                     return (
-                      <Star2
-                        action={
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? (() => {
-                                try {
-                                  return currentItem <= $state.rate;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            : (() => {
-                                try {
-                                  return currentItem <= $state.rate;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                        }
+                      <Stars
+                        activ={(() => {
+                          try {
+                            return currentItem <= $state.rate;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
                         className={classNames(
                           "__wab_instance",
-                          sty.star2__yMv3B
+                          sty.stars__yNjou
                         )}
                         key={currentIndex}
                         onClick={async event => {
@@ -4178,7 +4155,7 @@ function PlasmicResult__RenderFunc(props: {
                             }
                           })()}
                         </React.Fragment>
-                      </Star2>
+                      </Stars>
                     );
                   })}
                 </Stack__>
@@ -4225,7 +4202,17 @@ function PlasmicResult__RenderFunc(props: {
                   })()}
                 </div>
                 <Paziresh24Button
-                  children2={"\u062b\u0628\u062a"}
+                  children2={
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__m9Tgg
+                      )}
+                    >
+                      {"\u062b\u0628\u062a"}
+                    </div>
+                  }
                   className={classNames(
                     "__wab_instance",
                     sty.paziresh24Button__aiJcb

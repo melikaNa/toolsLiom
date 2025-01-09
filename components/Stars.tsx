@@ -2,9 +2,9 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import {
-  PlasmicStar2,
-  DefaultStar2Props
-} from "./plasmic/liom_tools/PlasmicStar2";
+  PlasmicStars,
+  DefaultStarsProps
+} from "./plasmic/liom_tools/PlasmicStars";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
 // Your component props start with props for variants and slots you defined
@@ -14,32 +14,32 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // If you don't want to expose certain variants or slots as a prop, you can use
 // Omit to hide them:
 //
-// interface Star2Props extends Omit<DefaultStar2Props, "hideProps1"|"hideProp2"> {
+// interface StarsProps extends Omit<DefaultStarsProps, "hideProps1"|"hideProp2"> {
 //   // etc.
 // }
 //
-// You can also stop extending from DefaultStar2Props altogether and have
+// You can also stop extending from DefaultStarsProps altogether and have
 // total control over the props for your component.
-export interface Star2Props extends DefaultStar2Props {}
+export interface StarsProps extends DefaultStarsProps {}
 
-function Star2_(props: Star2Props, ref: HTMLElementRefOf<"svg">) {
-  // Use PlasmicStar2 to render this component as it was
+function Stars_(props: StarsProps, ref: HTMLElementRefOf<"div">) {
+  // Use PlasmicStars to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicStar2 are:
+  // Props you can pass into PlasmicStars are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, we are just piping all Star2Props here, but feel free
+  // By default, we are just piping all StarsProps here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicStar2 root={{ ref }} {...props} />;
+  return <PlasmicStars root={{ ref }} {...props} />;
 }
 
-const Star2 = React.forwardRef(Star2_);
-export default Star2;
+const Stars = React.forwardRef(Stars_);
+export default Stars;
