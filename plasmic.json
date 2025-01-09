@@ -3272,6 +3272,16 @@
           "id": "TQjz9x9XivBx",
           "name": "XIcon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__X.tsx"
+        },
+        {
+          "id": "9cydxn0okIKX",
+          "name": "Icon126Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon126.tsx"
+        },
+        {
+          "id": "HCowqgxIwEnQ",
+          "name": "Icon127Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon127.tsx"
         }
       ],
       "images": [
