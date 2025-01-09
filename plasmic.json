@@ -2415,6 +2415,19 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicSubscription2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "V5-vE9vskAlK",
+          "name": "Star2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicStar2.tsx",
+          "importSpec": {
+            "modulePath": "Star2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicStar2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

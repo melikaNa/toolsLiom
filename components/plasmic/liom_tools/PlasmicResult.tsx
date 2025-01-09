@@ -79,6 +79,9 @@ import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
+import Star2 from "../../Star2"; // plasmic-import: V5-vE9vskAlK/component
+import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
 import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
@@ -142,6 +145,8 @@ export type PlasmicResult__OverridesType = {
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   collapse3?: Flex__<typeof AntdSingleCollapse>;
   apiRequest?: Flex__<typeof ApiRequest>;
+  star2?: Flex__<typeof Star2>;
+  textArea?: Flex__<typeof AntdTextArea>;
   dialog?: Flex__<typeof Paziresh24Dialog>;
   apiRequest2?: Flex__<typeof ApiRequest>;
   link?: Flex__<"a"> & Partial<LinkProps>;
@@ -311,6 +316,26 @@ function PlasmicResult__RenderFunc(props: {
         variableType: "boolean",
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "textArea.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``,
+
+        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
+      },
+      {
+        path: "rate",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "loadbtn",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2553,6 +2578,368 @@ function PlasmicResult__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
+              return (
+                $state.apiRequest.data && $state.apiRequest.data.our_message
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__h7NwZ)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__zspZ6
+                )}
+              >
+                {
+                  "\u0622\u06cc\u0627 \u0627\u0632 \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc \u061f"
+                }
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox___64XU)}>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return [5, 4, 3, 2, 1];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <Star2
+                      data-plasmic-name={"star2"}
+                      data-plasmic-override={overrides.star2}
+                      action={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? (() => {
+                              try {
+                                return currentItem <= $state.rate;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          : (() => {
+                              try {
+                                return currentItem <= $state.rate;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                      }
+                      className={classNames("__wab_instance", sty.star2)}
+                      key={currentIndex}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateRate"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["rate"]
+                                },
+                                operation: 0,
+                                value: currentItem
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateRate"] != null &&
+                          typeof $steps["updateRate"] === "object" &&
+                          typeof $steps["updateRate"].then === "function"
+                        ) {
+                          $steps["updateRate"] = await $steps["updateRate"];
+                        }
+                      }}
+                    />
+                  );
+                })}
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox___1ESl1)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__pcT2R
+                  )}
+                >
+                  {"\u062e\u06cc\u0644\u06cc \u0632\u06cc\u0627\u062f"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__xA457
+                  )}
+                >
+                  {"\u0646\u0647 \u0627\u0635\u0644\u0627 "}
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__xlHjm)}>
+                {(() => {
+                  const child$Props = {
+                    autoSize: true,
+                    className: classNames("__wab_instance", sty.textArea),
+                    onChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "value",
+                        ["textArea", "value"],
+                        AntdTextArea_Helpers
+                      ).apply(null, eventArgs);
+                    },
+                    placeholder:
+                      "\u062e\u0648\u0634\u062d\u0627\u0644 \u0645\u06cc\u200c\u0634\u0645 \u0646\u0638\u0631\u062a\u0648 \u0628\u062f\u0648\u0646\u0645 ...",
+                    value: generateStateValueProp($state, ["textArea", "value"])
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "value",
+                        plasmicStateName: "textArea.value"
+                      }
+                    ],
+                    [],
+                    AntdTextArea_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <AntdTextArea
+                      data-plasmic-name={"textArea"}
+                      data-plasmic-override={overrides.textArea}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+              </div>
+              <Paziresh24Button
+                children2={"\u062b\u0628\u062a"}
+                className={classNames(
+                  "__wab_instance",
+                  sty.paziresh24Button__kDEph
+                )}
+                isDisabled={(() => {
+                  try {
+                    return $state.loadbtn;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
+                loading={(() => {
+                  try {
+                    return $state.loadbtn;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateLoadbtn"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loadbtn"]
+                          },
+                          operation: 4
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoadbtn"] != null &&
+                    typeof $steps["updateLoadbtn"] === "object" &&
+                    typeof $steps["updateLoadbtn"].then === "function"
+                  ) {
+                    $steps["updateLoadbtn"] = await $steps["updateLoadbtn"];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "PUT",
+                            "https://n8n.staas.ir/webhook/selfTest_comments",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  user_id: $ctx.query.user_id,
+                                  session_id: $ctx.query.session_id,
+                                  comment: $state.textArea.value || "",
+                                  rate: $state.rate
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
+                    ?.data?.success
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "success",
+                            "\u062e\u06cc\u0644\u06cc \u062e\u0648\u0634\u062d\u0627\u0644 \u0634\u062f\u06cc\u0645 \u06a9\u0647 \u0646\u0638\u0631\u062a\u0648 \u0628\u0627\u0647\u0627\u0645\u0648\u0646 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0634\u062a\u06cc!"
+                          ]
+                        };
+                        return $globalActions[
+                          "plasmic-antd5-config-provider.showNotification"
+                        ]?.apply(null, [...actionArgs.args]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction2"] != null &&
+                    typeof $steps["invokeGlobalAction2"] === "object" &&
+                    typeof $steps["invokeGlobalAction2"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction2"] = await $steps[
+                      "invokeGlobalAction2"
+                    ];
+                  }
+
+                  $steps["updateLoading2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loadbtn"]
+                          },
+                          operation: 4
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoading2"] != null &&
+                    typeof $steps["updateLoading2"] === "object" &&
+                    typeof $steps["updateLoading2"].then === "function"
+                  ) {
+                    $steps["updateLoading2"] = await $steps["updateLoading2"];
+                  }
+                }}
+                size={
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "compact"
+                    : undefined
+                }
+              />
+            </Stack__>
+          ) : null}
+          {(() => {
+            try {
               return $state.loading;
             } catch (e) {
               if (
@@ -3522,6 +3909,8 @@ const PlasmicDescendants = {
     "buttonLiom3",
     "collapse3",
     "apiRequest",
+    "star2",
+    "textArea",
     "dialog",
     "apiRequest2",
     "link",
@@ -3544,6 +3933,8 @@ const PlasmicDescendants = {
   buttonLiom3: ["buttonLiom3"],
   collapse3: ["collapse3"],
   apiRequest: ["apiRequest"],
+  star2: ["star2"],
+  textArea: ["textArea"],
   dialog: [
     "dialog",
     "apiRequest2",
@@ -3584,6 +3975,8 @@ type NodeDefaultElementType = {
   buttonLiom3: typeof ButtonLiom;
   collapse3: typeof AntdSingleCollapse;
   apiRequest: typeof ApiRequest;
+  star2: typeof Star2;
+  textArea: typeof AntdTextArea;
   dialog: typeof Paziresh24Dialog;
   apiRequest2: typeof ApiRequest;
   link: "a";
@@ -3692,6 +4085,8 @@ export const PlasmicResult = Object.assign(
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     collapse3: makeNodeComponent("collapse3"),
     apiRequest: makeNodeComponent("apiRequest"),
+    star2: makeNodeComponent("star2"),
+    textArea: makeNodeComponent("textArea"),
     dialog: makeNodeComponent("dialog"),
     apiRequest2: makeNodeComponent("apiRequest2"),
     link: makeNodeComponent("link"),

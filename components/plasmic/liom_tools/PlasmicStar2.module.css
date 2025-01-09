@@ -1,0 +1,14 @@
+.root {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-Pxe4wDL2kJpb);
+  position: relative;
+  transition-property: all;
+  transition-duration: 0.3s;
+  height: 1em;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 0.3s;
+}
+.rootaction {
+  color: var(--token-bHHJuMx2zyxz);
+}
