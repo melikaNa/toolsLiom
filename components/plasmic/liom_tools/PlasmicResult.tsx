@@ -1152,6 +1152,25 @@ function PlasmicResult__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__sy1Ij)}
                       key={currentIndex}
+                      style={(() => {
+                        try {
+                          return {
+                            border:
+                              currentItem.option_metric == "endometriosis" ||
+                              currentItem.option_metric == "uterineFibroids"
+                                ? "solid 1px #FAAD14"
+                                : ""
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                     >
                       <Stack__
                         as={"div"}
@@ -1840,7 +1859,7 @@ function PlasmicResult__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__xRm4
+                                sty.text___7BxPb
                               )}
                             >
                               <div
@@ -1848,7 +1867,20 @@ function PlasmicResult__RenderFunc(props: {
                                 dangerouslySetInnerHTML={{
                                   __html: (() => {
                                     try {
-                                      return currentItem.hint;
+                                      return (() => {
+                                        if (
+                                          currentItem.option_metric ==
+                                            "endometriosis" ||
+                                          currentItem.option_metric ==
+                                            "uterineFibroids"
+                                        )
+                                          return (
+                                            currentItem.hint +
+                                            " . " +
+                                            `<b  style="color: #D48806;"> تشخیص این بیماری با سونوگرافی ممکن است، برای اطمینان انجام دهید. </b>`
+                                          );
+                                        else return currentItem.hint;
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||

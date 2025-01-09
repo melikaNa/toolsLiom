@@ -11,7 +11,7 @@
   background: var(--token-riOO7VGd6zgE);
   grid-row-gap: var(--token-6eH8UjLOmr7v);
   padding-top: 100px;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -27,7 +27,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .root {
-    padding: 80px var(--token-6eH8UjLOmr7v) 40px;
+    padding: 80px var(--token-6eH8UjLOmr7v) 70px;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -628,7 +628,7 @@
   font-size: 12px;
   min-width: 0;
 }
-.text__xRm4 {
+.text___7BxPb {
   position: relative;
   width: 100%;
   height: auto;
