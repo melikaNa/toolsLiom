@@ -799,6 +799,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                         var originUserId = urlParams.has("origin_user_id")
                           ? urlParams.get("origin_user_id")
                           : null;
+                        if (app !== "liom" && originUserId == null) {
+                          window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&client_idp=liom&skip_prompt=true&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&redirect_idp=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&kc_idp_hint=gozar&state=${encodeURIComponent(
+                            window.location.href
+                          )}`;
+                        }
                         if (!urlParams.has("type")) {
                           window.location.href =
                             window.location.href + "&type=irregular";
