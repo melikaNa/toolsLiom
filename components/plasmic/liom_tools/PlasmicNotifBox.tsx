@@ -107,10 +107,10 @@ export type PlasmicNotifBox__ArgsType = {
   onDateChange?: (val: string) => void;
   open?: boolean;
   onChange?: (activeIds: any) => void;
-  children?: React.ReactNode;
   onClick?: (event: any) => void;
-  button2?: React.ReactNode;
   onDeletChange?: (val: any) => void;
+  children?: React.ReactNode;
+  button2?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicNotifBox__ArgsType;
 export const PlasmicNotifBox__ArgProps = new Array<ArgPropType>(
@@ -123,10 +123,10 @@ export const PlasmicNotifBox__ArgProps = new Array<ArgPropType>(
   "onDateChange",
   "open",
   "onChange",
-  "children",
   "onClick",
-  "button2",
-  "onDeletChange"
+  "onDeletChange",
+  "children",
+  "button2"
 );
 
 export type PlasmicNotifBox__OverridesType = {
@@ -144,10 +144,10 @@ export interface DefaultNotifBoxProps {
   onDateChange?: (val: string) => void;
   open?: boolean;
   onChange?: (activeIds: any) => void;
-  children?: React.ReactNode;
   onClick?: (event: any) => void;
-  button2?: React.ReactNode;
   onDeletChange?: (val: any) => void;
+  children?: React.ReactNode;
+  button2?: React.ReactNode;
   seen?: SingleBooleanChoiceArg<"seen">;
   forAll?: SingleBooleanChoiceArg<"forAll">;
   delet?: SingleBooleanChoiceArg<"delet">;

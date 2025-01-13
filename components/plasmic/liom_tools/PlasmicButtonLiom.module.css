@@ -102,6 +102,9 @@
   border-width: 2px;
   border-color: var(--token-QR8ATjORhQqO);
 }
+.rootunnamedVariant {
+  padding: 8px;
+}
 .rootshowStartIcon_shape_rounded {
   padding-left: 16px;
 }
@@ -458,6 +461,21 @@
 }
 .rootcolor_link:active .slotTargetChildrencolor_link {
   color: #006adc;
+}
+.text__hlkC6 {
+  display: none;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-ieogzVSSyrRx);
+  width: 50px;
+  height: 40px;
+  flex-shrink: 0;
+  display: none;
+}
+.svgunnamedVariant {
+  display: block;
 }
 .endIconContainer {
   display: flex;

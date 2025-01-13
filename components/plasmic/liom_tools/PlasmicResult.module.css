@@ -386,6 +386,9 @@
   width: auto;
   height: 1em;
 }
+.text__uWta2 {
+  display: none;
+}
 .svg__xZnC3 {
   object-fit: cover;
   max-width: 100%;

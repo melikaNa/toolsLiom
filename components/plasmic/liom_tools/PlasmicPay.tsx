@@ -176,6 +176,12 @@ function PlasmicPay__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "loadingBtn",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -759,8 +765,57 @@ function PlasmicPay__RenderFunc(props: {
                 data-plasmic-override={overrides.button}
                 className={classNames("__wab_instance", sty.button)}
                 color={generateStateValueProp($state, ["button", "color"])}
+                isDisabled={(() => {
+                  try {
+                    return $state.loadingBtn;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
                 onClick={async event => {
                   const $steps = {};
+
+                  $steps["updateLoadingBtn"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loadingBtn"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoadingBtn"] != null &&
+                    typeof $steps["updateLoadingBtn"] === "object" &&
+                    typeof $steps["updateLoadingBtn"].then === "function"
+                  ) {
+                    $steps["updateLoadingBtn"] = await $steps[
+                      "updateLoadingBtn"
+                    ];
+                  }
 
                   $steps["goToPage"] = true
                     ? (() => {
@@ -800,6 +855,42 @@ function PlasmicPay__RenderFunc(props: {
                   ) {
                     $steps["goToPage"] = await $steps["goToPage"];
                   }
+
+                  $steps["updateLoadingBtn2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loadingBtn"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoadingBtn2"] != null &&
+                    typeof $steps["updateLoadingBtn2"] === "object" &&
+                    typeof $steps["updateLoadingBtn2"].then === "function"
+                  ) {
+                    $steps["updateLoadingBtn2"] = await $steps[
+                      "updateLoadingBtn2"
+                    ];
+                  }
                 }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
@@ -816,6 +907,19 @@ function PlasmicPay__RenderFunc(props: {
                     return;
                   }
                 }}
+                unnamedVariant={(() => {
+                  try {
+                    return $state.loadingBtn;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "unnamedVariant";
+                    }
+                    throw e;
+                  }
+                })()}
               >
                 <div
                   className={classNames(
