@@ -3509,9 +3509,12 @@ function PlasmicResult__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return currentItem.display_expertise.replace(
-                                            /([^،])،([^،])/g,
-                                            "$1، $2"
+                                          return (
+                                            currentItem.expertises[0].degree
+                                              .name +
+                                            " - " +
+                                            currentItem.expertises[0]
+                                              .expertise_groups[0].name
                                           );
                                         } catch (e) {
                                           if (
