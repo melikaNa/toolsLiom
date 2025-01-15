@@ -1904,7 +1904,7 @@ function PlasmicResult__RenderFunc(props: {
                   (() => {
                     try {
                       return $state.apiRequest.data.details.filter(
-                        item => item.advice_text != null
+                        item => item.advice_text != null && item.task != ""
                       );
                     } catch (e) {
                       if (
