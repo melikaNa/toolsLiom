@@ -352,6 +352,12 @@ function PlasmicResult__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ``,
 
         onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
+      },
+      {
+        path: "disable",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -4191,11 +4197,63 @@ function PlasmicResult__RenderFunc(props: {
                     );
                   })}
                 </Stack__>
-                <div className={classNames(projectcss.all, sty.freeBox__mApC)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__mApC)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDisable"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["disable"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDisable"] != null &&
+                      typeof $steps["updateDisable"] === "object" &&
+                      typeof $steps["updateDisable"].then === "function"
+                    ) {
+                      $steps["updateDisable"] = await $steps["updateDisable"];
+                    }
+                  }}
+                >
                   {(() => {
                     const child$Props = {
                       autoSize: true,
                       className: classNames("__wab_instance", sty.textArea2),
+                      disabled: (() => {
+                        try {
+                          return $state.disable;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })(),
                       onChange: async (...eventArgs: any) => {
                         generateStateOnChangePropForCodeComponents(
                           $state,
