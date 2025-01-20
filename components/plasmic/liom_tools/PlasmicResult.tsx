@@ -390,9 +390,8 @@ function PlasmicResult__RenderFunc(props: {
                 var a = $state.apiRequest.data.details.filter(
                   item => item.advice_text != null && item.task !== ""
                 );
-                const tempArray = [];
-                for (let i = 0; i < a.length; i++) {
-                  let item = a[i];
+                var newItem = [];
+                a.forEach(item => {
                   let result = $state.apiRequest.data.extras.find(
                     a => a.type === item.option_metric
                   );
@@ -401,21 +400,16 @@ function PlasmicResult__RenderFunc(props: {
                     result.isDone !== undefined &&
                     result.isDone !== 1
                   ) {
-                    const newItem = {
+                    newItem.push({
                       ...item,
-                      task: `تست تکمیلی ${item.option_metric_fa} را انجام دهید`,
+                      task: `برای اطمینان بیشتر، تست تکمیلی ${item.option_metric_fa} را انجام دهید`,
                       option_metric: item.option_metric + "1"
-                    };
-                    tempArray.push({
-                      index: i + 1,
-                      item: newItem
                     });
                   }
-                }
-                for (let i = tempArray.length - 1; i >= 0; i--) {
-                  const { index, item } = tempArray[i];
-                  a.splice(index, 0, item);
-                }
+                });
+                newItem.forEach(item => {
+                  a.unshift(item);
+                });
                 return a;
               })();
             } catch (e) {
@@ -2243,13 +2237,17 @@ function PlasmicResult__RenderFunc(props: {
                                               return window.open(
                                                 `https://tools.liom.app/self-test?user_id=${
                                                   $ctx.query.user_id
-                                                }&type=${
-                                                  currentItem.option_metric
-                                                }&nextQuesion_id=${
+                                                }&type=${currentItem.option_metric.option_metric.slice(
+                                                  0,
+                                                  -1
+                                                )}&nextQuesion_id=${
                                                   $state.apiRequest.data.extras.find(
                                                     a =>
                                                       a.type ==
-                                                      currentItem.option_metric
+                                                      currentItem.option_metric.option_metric.slice(
+                                                        0,
+                                                        -1
+                                                      )
                                                   ).next_question_id
                                                 }&session_id=${
                                                   $ctx.query.session_id
@@ -3597,13 +3595,29 @@ function PlasmicResult__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return (
-                                            currentItem.expertises[1].degree
-                                              .name +
-                                            " " +
-                                            currentItem.expertises[1].expertise
-                                              .name
-                                          );
+                                          return (() => {
+                                            if (
+                                              !currentItem.expertises[1].degree.name.includes(
+                                                "ساب"
+                                              )
+                                            ) {
+                                              return (
+                                                currentItem.expertises[1].degree
+                                                  .name +
+                                                " " +
+                                                currentItem.expertises[1]
+                                                  .expertise.name
+                                              );
+                                            } else {
+                                              return (
+                                                currentItem.expertises[0].degree
+                                                  .name +
+                                                "-" +
+                                                currentItem.expertises[0]
+                                                  .expertise.name
+                                              );
+                                            }
+                                          })();
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||

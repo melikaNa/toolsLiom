@@ -197,15 +197,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                       type: "answer"
                     },
                     {
-                      text: "از آنجایی که نامنظم شدن پریود یک مشکل رایج در بین بانوان است\u060C  تلاش کردم تا به کمک متخصصین و پزشکان یک ویزیت واقعی را شبیه سازی کنم",
-                      from: "system"
-                    },
-                    {
-                      text: "تا شما در کمتر از چند دقیقه علت نامنظم شدن پریود خود را بدانید.",
-                      from: "system"
-                    },
-                    {
-                      text: "اگر متوجه بشویم که علت نامنظمی شما  نگران کننده است در انتهای این ویزیت\u060C پزشک  مربوطه را معرفی میکنم تا  به ایشان مراجعه کنید",
+                      text: "شما با پاسخ به 30 سوال میتوانید در کمتر از 5 دقیقه علت نامنظم شدن پریود خود را بدانید و در صورت نیاز به پزشک مراجعه کنید.",
                       from: "system"
                     },
                     {
@@ -1336,6 +1328,31 @@ function PlasmicSelfTest__RenderFunc(props: {
                               }}
                               role={"img"}
                             />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__m641N
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return "ویرایش پاسخ";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
                           </div>
                         ) : null}
                       </React.Fragment>
@@ -3431,45 +3448,21 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ) {
                         $steps["runCode2"] = await $steps["runCode2"];
                       }
-
-                      $steps["updateLoadinkBotten2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadinkBotten"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadinkBotten2"] != null &&
-                        typeof $steps["updateLoadinkBotten2"] === "object" &&
-                        typeof $steps["updateLoadinkBotten2"].then ===
-                          "function"
-                      ) {
-                        $steps["updateLoadinkBotten2"] = await $steps[
-                          "updateLoadinkBotten2"
-                        ];
-                      }
                     }}
                     showEndIcon={(() => {
+                      try {
+                        return $state.loadinkBotten;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    space={(() => {
                       try {
                         return $state.loadinkBotten;
                       } catch (e) {

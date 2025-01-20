@@ -126,9 +126,9 @@
 }
 .freeBox__t3OzC {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
-  width: 25px;
+  width: auto;
   height: 25px;
   max-width: 100%;
   justify-content: flex-start;
@@ -137,7 +137,7 @@
   left: auto;
   bottom: auto;
   background: #ffffff82;
-  border-radius: 100%;
+  border-radius: 100px;
   padding: 3px;
 }
 .svg__o5Pbm {
@@ -148,6 +148,13 @@
   height: 20px;
   transform: translateX(-1px) translateY(0px) translateZ(0px);
   flex-shrink: 0;
+}
+.text__m641N {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 .freeBox__ssEaT {
   display: flex;
