@@ -64,7 +64,6 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import LinearCalendar from "../../LinearCalendar"; // plasmic-import: UJhKrwaiZx_G/component
-import Lock from "../../Lock"; // plasmic-import: 5lKm1nUlkjS8/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
@@ -98,7 +97,6 @@ export type PlasmicSelfMedication__OverridesType = {
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   img?: Flex__<typeof PlasmicImg__>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
-  lock?: Flex__<typeof Lock>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
   svg?: Flex__<"svg">;
 };
@@ -144,6 +142,330 @@ function PlasmicSelfMedication__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "calenderList",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            "\u0647\u0641\u062a\u0647": 1,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 1"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 2,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 2"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 3,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 3"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 4,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 4"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 5,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 5"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 6,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 6"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 7,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 7"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 8,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 8"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 9,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 9"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 10,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 10"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 11,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 11"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 12,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 12"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 13,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 13"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 14,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 14"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 15,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 15"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 16,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 16"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 17,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 17"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 18,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 18"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 19,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 19"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 20,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 20"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 21,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 21"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 22,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 22"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 23,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 23"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 24,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 24"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 25,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 25"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 26,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 26"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 27,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 27"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 28,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 28"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 29,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 29"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 30,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 30"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 31,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 31"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 32,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 32"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 33,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 33"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 34,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 34"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 35,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 35"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 36,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 36"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 37,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 37"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 38,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 38"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 39,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 39"
+          },
+          {
+            "\u0647\u0641\u062a\u0647": 40,
+            isEnable: true,
+            isLock: false,
+            isVip: false,
+            title: "\u0647\u0641\u062a\u0647 40"
+          }
+        ]
+      },
+      {
+        path: "detailsList",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            title: "\u0645\u0633\u0627\u0641\u0631\u062a",
+            onClick: "dangerOrNot_travel"
+          },
+          { title: "\u0648\u0631\u0632\u0634", onClick: "dangerOrNot_sport" },
+          {
+            title: "\u0632\u06cc\u0628\u0627\u06cc\u06cc",
+            onClick: "dangerOrNot_beauty"
+          },
+          {
+            title: "\u062a\u063a\u0630\u06cc\u0647",
+            onClick: "dangerOrNot_food"
+          },
+          {
+            title: "\u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc",
+            onClick: "dangerOrNot_sex"
+          },
+          { title: "\u062e\u0648\u0627\u0628", onClick: "dangerOrNot_spleep" }
+        ]
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqiBuxNlixBgQ()
@@ -230,7 +552,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
-                    return [2, 3, 4, 5];
+                    return $state.calenderList.length > 0
+                      ? $state.calenderList
+                      : [];
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -249,64 +573,103 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     data-plasmic-name={"linearCalendar"}
                     data-plasmic-override={overrides.linearCalendar}
                     className={classNames("__wab_instance", sty.linearCalendar)}
-                    click={
-                      hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? undefined
-                        : true
-                    }
-                    key={currentIndex}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__w2GNm)}
-                    >
-                      <Lock
-                        data-plasmic-name={"lock"}
-                        data-plasmic-override={overrides.lock}
-                        className={classNames("__wab_instance", sty.lock)}
-                        open={
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? undefined
-                            : true
+                    isEnable={(() => {
+                      try {
+                        return currentItem.isEnable;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
                         }
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__lrAvx
-                        )}
-                      >
-                        {"\u0631\u0648\u0632 1"}
-                      </div>
-                    </Stack__>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__eTvSk
-                      )}
-                    >
-                      {"27 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a"}
-                    </div>
-                  </LinearCalendar>
+                        throw e;
+                      }
+                    })()}
+                    isLock={(() => {
+                      try {
+                        return currentItem.isLock;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    isShowDate={(() => {
+                      try {
+                        return $ctx.query.type != "dangerOrNot";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    key={currentIndex}
+                    title={(() => {
+                      try {
+                        return currentItem.title;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
                 );
               })}
             </Stack__>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__psCpo
-              )}
-            >
-              {"\u0631\u0648\u0632 1 \u0627\u0632 30"}
-            </div>
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
-              2, 3, 4
-            ]).map((__plasmic_item_0, __plasmic_idx_0) => {
+            {(() => {
+              try {
+                return $ctx.query.type != "dangerOrNot";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__psCpo
+                )}
+              >
+                {"\u0631\u0648\u0632 1 \u0627\u0632 30"}
+              </div>
+            ) : null}
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return $state.detailsList.length > 0
+                    ? $state.detailsList
+                    : [];
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
               const currentItem = __plasmic_item_0;
               const currentIndex = __plasmic_idx_0;
               return (
@@ -320,42 +683,55 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     <LoadingConclusion
                       data-plasmic-name={"loadingConclusion"}
                       data-plasmic-override={overrides.loadingConclusion}
-                      children={null}
                       className={classNames(
                         "__wab_instance",
                         sty.loadingConclusion
                       )}
-                      color={"green"}
+                      color={(() => {
+                        try {
+                          return $ctx.query.type == "dangerOrNot"
+                            ? undefined
+                            : true;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "grey";
+                          }
+                          throw e;
+                        }
+                      })()}
                       fouse={true}
                       selected={true}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__ksZwP
-                      )}
                     >
                       <div
-                        className={projectcss.__wab_expr_html_text}
-                        dangerouslySetInnerHTML={{
-                          __html: (() => {
-                            try {
-                              return currentItem;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647";
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ksZwP
+                        )}
+                      >
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return currentItem.title;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        }}
-                      />
-                    </div>
+                            })()
+                          }}
+                        />
+                      </div>
+                    </LoadingConclusion>
                     <ChevronLeftIcon
                       data-plasmic-name={"svg"}
                       data-plasmic-override={overrides.svg}
@@ -381,7 +757,6 @@ const PlasmicDescendants = {
     "paziresh24Avatar",
     "img",
     "linearCalendar",
-    "lock",
     "loadingConclusion",
     "svg"
   ],
@@ -389,8 +764,7 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
   img: ["img"],
-  linearCalendar: ["linearCalendar", "lock"],
-  lock: ["lock"],
+  linearCalendar: ["linearCalendar"],
   loadingConclusion: ["loadingConclusion"],
   svg: ["svg"]
 } as const;
@@ -404,7 +778,6 @@ type NodeDefaultElementType = {
   paziresh24Avatar: typeof Paziresh24Avatar;
   img: typeof PlasmicImg__;
   linearCalendar: typeof LinearCalendar;
-  lock: typeof Lock;
   loadingConclusion: typeof LoadingConclusion;
   svg: "svg";
 };
@@ -499,7 +872,6 @@ export const PlasmicSelfMedication = Object.assign(
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     img: makeNodeComponent("img"),
     linearCalendar: makeNodeComponent("linearCalendar"),
-    lock: makeNodeComponent("lock"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
     svg: makeNodeComponent("svg"),
 

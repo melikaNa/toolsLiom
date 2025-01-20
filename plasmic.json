@@ -2428,6 +2428,19 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicStars.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "1fNx7Q7E4s-Q",
+          "name": "Icons",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicIcons.tsx",
+          "importSpec": {
+            "modulePath": "Icons.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicIcons.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3295,6 +3308,31 @@
           "id": "HCowqgxIwEnQ",
           "name": "Icon127Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon127.tsx"
+        },
+        {
+          "id": "d2qG9_uIS6xq",
+          "name": "Icon128Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon128.tsx"
+        },
+        {
+          "id": "N_CK0d27LJGY",
+          "name": "Icon129Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon129.tsx"
+        },
+        {
+          "id": "7rJAKteHPYaH",
+          "name": "Icon130Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon130.tsx"
+        },
+        {
+          "id": "7X7cEzxwbg12",
+          "name": "Icon131Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon131.tsx"
+        },
+        {
+          "id": "6P3_ocT7yalm",
+          "name": "Icon132Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon132.tsx"
         }
       ],
       "images": [

@@ -216,11 +216,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                       text: "آماده ای شروع کنیم\u061F",
                       question: { lock: 0 },
                       from: "system",
-                      btnText: "شروع کنیم.",
+                      btnText: "شروع کنیم",
                       options: [
                         {
                           id: 1,
-                          text: "شروع کنیم."
+                          text: "شروع کنیم"
                         }
                       ]
                     }
@@ -468,7 +468,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "totalTest",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 40
+        initFunc: ({ $props, $state, $queries, $ctx }) => 35
       },
       {
         path: "retestTest",
@@ -799,11 +799,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                         var originUserId = urlParams.has("origin_user_id")
                           ? urlParams.get("origin_user_id")
                           : null;
-                        if (app !== "liom" && originUserId == null) {
-                          window.location.href = `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&client_idp=liom&skip_prompt=true&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&redirect_idp=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&kc_idp_hint=gozar&state=${encodeURIComponent(
-                            window.location.href
-                          )}`;
-                        }
                         if (!urlParams.has("type")) {
                           window.location.href =
                             window.location.href + "&type=irregular";
@@ -850,9 +845,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.paziresh24Avatar)}
                 src={(() => {
                   try {
-                    return $ctx.query.app == "liom"
-                      ? "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png"
-                      : "https://www.paziresh24.com/_next/static/media/logo.5e03fe79.svg";
+                    return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -925,6 +918,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    hint={(() => {
+                      try {
+                        return currentItem.tip;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     key={currentIndex}
                     liomAnswer={(() => {
                       try {
@@ -968,63 +974,39 @@ function PlasmicSelfTest__RenderFunc(props: {
                       }
                     })()}
                     slot={
-                      (() => {
-                        try {
-                          return (() => {
-                            const lastUserMessage =
-                              $state.testChat
-                                .slice()
-                                .reverse()
-                                .find(item => item.from === "user") || false;
-                            return (
-                              lastUserMessage &&
-                              lastUserMessage.id === currentItem.id &&
-                              currentItem.text != "شروع کنیم." &&
-                              currentItem.text != "ادامه گفتگو" &&
-                              $state.retestTest == true
-                            );
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__c1Ue
-                          )}
-                        >
-                          {(() => {
-                            try {
-                              return (() => {
-                                const lastUserMessage =
-                                  $state.testChat
-                                    .slice()
-                                    .reverse()
-                                    .find(item => item.from === "user") ||
-                                  false;
-                                return (
-                                  lastUserMessage &&
-                                  lastUserMessage.id === currentItem.id &&
-                                  currentItem.text != "شروع کنیم."
-                                );
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              const lastUserMessage =
+                                $state.testChat
+                                  .slice()
+                                  .reverse()
+                                  .find(item => item.from === "user") || false;
+                              return (
+                                lastUserMessage &&
+                                lastUserMessage.id === currentItem.id &&
+                                currentItem.text != "شروع کنیم" &&
+                                currentItem.text != "ادامه گفتگو" &&
+                                $state.retestTest == true
+                              );
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
                             }
-                          })() ? (
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__c1Ue
+                            )}
+                          >
                             <Icon119Icon
                               className={classNames(
                                 projectcss.all,
@@ -1171,9 +1153,192 @@ function PlasmicSelfTest__RenderFunc(props: {
                               }}
                               role={"img"}
                             />
-                          ) : null}
-                        </div>
-                      ) : null
+                          </div>
+                        ) : null}
+                        {(() => {
+                          try {
+                            return (() => {
+                              const lastUserMessage =
+                                $state.testChat
+                                  .slice()
+                                  .reverse()
+                                  .find(
+                                    item =>
+                                      item.from === "system" && item.tip == true
+                                  ) || false;
+                              return (
+                                lastUserMessage &&
+                                lastUserMessage.id === currentItem.id &&
+                                currentItem.text != "شروع کنیم" &&
+                                currentItem.text != "ادامه گفتگو" &&
+                                $state.retestTest == true
+                              );
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__t3OzC
+                            )}
+                          >
+                            <Icon119Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__o5Pbm
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateEdit"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["edit"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateEdit"] != null &&
+                                  typeof $steps["updateEdit"] === "object" &&
+                                  typeof $steps["updateEdit"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateEdit"] = await $steps[
+                                    "updateEdit"
+                                  ];
+                                }
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            const reversedIndex =
+                                              $state.testChat
+                                                .slice()
+                                                .reverse()
+                                                .findIndex(
+                                                  item => item.question
+                                                );
+                                            if (reversedIndex !== -1) {
+                                              const originalIndex =
+                                                $state.testChat.length -
+                                                1 -
+                                                reversedIndex;
+                                              const previousReversedIndex =
+                                                $state.testChat
+                                                  .slice(0, originalIndex)
+                                                  .reverse()
+                                                  .findIndex(
+                                                    item => item.question
+                                                  );
+                                              if (
+                                                previousReversedIndex !== -1
+                                              ) {
+                                                const previousOriginalIndex =
+                                                  originalIndex -
+                                                  1 -
+                                                  previousReversedIndex;
+                                                return $state.testChat.splice(
+                                                  previousOriginalIndex + 1
+                                                );
+                                              }
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["invokeGlobalAction"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "PUT",
+                                          "https://n8n.staas.ir/webhook/selfTestLogs",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                session_id: $state.sessionId,
+                                                question_id:
+                                                  $state.testChat[
+                                                    $state.testChat.length - 1
+                                                  ].question.id
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] = await $steps[
+                                    "invokeGlobalAction"
+                                  ];
+                                }
+                              }}
+                              role={"img"}
+                            />
+                          </div>
+                        ) : null}
+                      </React.Fragment>
                     }
                   >
                     <div
@@ -1440,6 +1605,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     ) {
                                       $state.testChat.push({
                                         text: selectedOption.advice,
+                                        from: "system"
+                                      });
+                                    }
+                                    if (selectedOption && selectedOption.tip) {
+                                      $state.testChat.push({
+                                        text: selectedOption.tip,
+                                        tip: true,
                                         from: "system"
                                       });
                                     }
@@ -4834,7 +5006,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           return (() => {
                             const type = $ctx.query.type || "";
                             if (type === "irregular") {
-                              $state.totalTest = 50;
+                              $state.totalTest = 35;
                               $state.numberTest = 0;
                               if (
                                 $ctx.query.nextQuesion_id != null &&

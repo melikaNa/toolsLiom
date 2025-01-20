@@ -79,19 +79,22 @@ export type PlasmicMessageLiom__VariantMembers = {
   liomAnswer: "liomAnswer";
   loadingMessage: "loadingMessage";
   endMessege: "endMessege";
+  hint: "hint";
 };
 export type PlasmicMessageLiom__VariantsArgs = {
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
   liomAnswer?: SingleBooleanChoiceArg<"liomAnswer">;
   loadingMessage?: SingleBooleanChoiceArg<"loadingMessage">;
   endMessege?: SingleBooleanChoiceArg<"endMessege">;
+  hint?: SingleBooleanChoiceArg<"hint">;
 };
 type VariantPropType = keyof PlasmicMessageLiom__VariantsArgs;
 export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
   "pazireshAnswer",
   "liomAnswer",
   "loadingMessage",
-  "endMessege"
+  "endMessege",
+  "hint"
 );
 
 export type PlasmicMessageLiom__ArgsType = {
@@ -117,6 +120,7 @@ export interface DefaultMessageLiomProps {
   liomAnswer?: SingleBooleanChoiceArg<"liomAnswer">;
   loadingMessage?: SingleBooleanChoiceArg<"loadingMessage">;
   endMessege?: SingleBooleanChoiceArg<"endMessege">;
+  hint?: SingleBooleanChoiceArg<"hint">;
   className?: string;
 }
 
@@ -185,6 +189,12 @@ function PlasmicMessageLiom__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.endMessege
+      },
+      {
+        path: "hint",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.hint
       }
     ],
     [$props, $ctx, $refs]
@@ -214,7 +224,14 @@ function PlasmicMessageLiom__RenderFunc(props: {
         sty.root,
         {
           [sty.rootendMessege]: hasVariant($state, "endMessege", "endMessege"),
+          [sty.rootendMessege_hint]:
+            hasVariant($state, "hint", "hint") &&
+            hasVariant($state, "endMessege", "endMessege"),
+          [sty.roothint]: hasVariant($state, "hint", "hint"),
           [sty.rootliomAnswer]: hasVariant($state, "liomAnswer", "liomAnswer"),
+          [sty.rootliomAnswer_hint]:
+            hasVariant($state, "hint", "hint") &&
+            hasVariant($state, "liomAnswer", "liomAnswer"),
           [sty.rootliomAnswer_pazireshAnswer]:
             hasVariant($state, "liomAnswer", "liomAnswer") &&
             hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
@@ -251,11 +268,18 @@ function PlasmicMessageLiom__RenderFunc(props: {
               "endMessege",
               "endMessege"
             ),
+            [sty.freeBoxendMessege_hint___7TlWyTjzqgETAel]:
+              hasVariant($state, "hint", "hint") &&
+              hasVariant($state, "endMessege", "endMessege"),
+            [sty.freeBoxhint___7TlWyeTAel]: hasVariant($state, "hint", "hint"),
             [sty.freeBoxliomAnswer___7TlWy6WM5Z]: hasVariant(
               $state,
               "liomAnswer",
               "liomAnswer"
             ),
+            [sty.freeBoxliomAnswer_hint___7TlWy6WM5ZETAel]:
+              hasVariant($state, "hint", "hint") &&
+              hasVariant($state, "liomAnswer", "liomAnswer"),
             [sty.freeBoxliomAnswer_loadingMessage___7TlWy6WM5ZNjKFm]:
               hasVariant($state, "liomAnswer", "liomAnswer") &&
               hasVariant($state, "loadingMessage", "loadingMessage"),
@@ -305,6 +329,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
+              [sty.freeBoxhint__fCi1QeTAel]: hasVariant($state, "hint", "hint"),
               [sty.freeBoxliomAnswer__fCi1Q6WM5Z]: hasVariant(
                 $state,
                 "liomAnswer",
@@ -338,9 +363,13 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
+              [sty.slotTargetChildrenendMessege_hint]:
+                hasVariant($state, "hint", "hint") &&
+                hasVariant($state, "endMessege", "endMessege"),
               [sty.slotTargetChildrenendMessege_pazireshAnswer]:
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
                 hasVariant($state, "endMessege", "endMessege"),
+              [sty.slotTargetChildrenhint]: hasVariant($state, "hint", "hint"),
               [sty.slotTargetChildrenliomAnswer]: hasVariant(
                 $state,
                 "liomAnswer",
@@ -413,9 +442,13 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
+              [sty.svgendMessege_hint]:
+                hasVariant($state, "hint", "hint") &&
+                hasVariant($state, "endMessege", "endMessege"),
               [sty.svgendMessege_pazireshAnswer]:
                 hasVariant($state, "endMessege", "endMessege") &&
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
+              [sty.svghint]: hasVariant($state, "hint", "hint"),
               [sty.svgliomAnswer]: hasVariant(
                 $state,
                 "liomAnswer",
@@ -440,11 +473,15 @@ function PlasmicMessageLiom__RenderFunc(props: {
               "endMessege",
               "endMessege"
             ),
+            [sty.freeBoxhint__q3ToqeTAel]: hasVariant($state, "hint", "hint"),
             [sty.freeBoxliomAnswer__q3Toq6WM5Z]: hasVariant(
               $state,
               "liomAnswer",
               "liomAnswer"
             ),
+            [sty.freeBoxliomAnswer_hint__q3Toq6WM5ZETAel]:
+              hasVariant($state, "hint", "hint") &&
+              hasVariant($state, "liomAnswer", "liomAnswer"),
             [sty.freeBoxliomAnswer_pazireshAnswer__q3Toq6WM5ZYPoRs]:
               hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
               hasVariant($state, "liomAnswer", "liomAnswer"),

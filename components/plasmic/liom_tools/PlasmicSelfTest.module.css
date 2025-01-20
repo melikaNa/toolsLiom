@@ -124,6 +124,31 @@
   transform: translateX(-1px) translateY(0px) translateZ(0px);
   flex-shrink: 0;
 }
+.freeBox__t3OzC {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  top: auto;
+  left: auto;
+  bottom: auto;
+  background: #ffffff82;
+  border-radius: 100%;
+  padding: 3px;
+}
+.svg__o5Pbm {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token--fsPf0hcXOpA);
+  width: 20px;
+  height: 20px;
+  transform: translateX(-1px) translateY(0px) translateZ(0px);
+  flex-shrink: 0;
+}
 .freeBox__ssEaT {
   display: flex;
   flex-direction: row;

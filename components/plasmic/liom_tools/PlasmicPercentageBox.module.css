@@ -23,6 +23,12 @@
 .rootunnamedGroupOfVariants_oreng {
   background: #ff710080;
 }
+.rootunnamedGroupOfVariants_unnamedVariant {
+  background: none;
+}
+.rootshape_square {
+  border-radius: var(--token-KVcr9NiMwFLr);
+}
 .freeBox {
   position: relative;
   width: 100%;

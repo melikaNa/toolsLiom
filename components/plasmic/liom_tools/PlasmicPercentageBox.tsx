@@ -70,14 +70,24 @@ import sty from "./PlasmicPercentageBox.module.css"; // plasmic-import: twduJO0v
 createPlasmicElementProxy;
 
 export type PlasmicPercentageBox__VariantMembers = {
-  unnamedGroupOfVariants: "red" | "yellow" | "blue" | "oreng";
+  unnamedGroupOfVariants:
+    | "red"
+    | "yellow"
+    | "blue"
+    | "oreng"
+    | "unnamedVariant";
+  shape: "round" | "square";
 };
 export type PlasmicPercentageBox__VariantsArgs = {
-  unnamedGroupOfVariants?: SingleChoiceArg<"red" | "yellow" | "blue" | "oreng">;
+  unnamedGroupOfVariants?: SingleChoiceArg<
+    "red" | "yellow" | "blue" | "oreng" | "unnamedVariant"
+  >;
+  shape?: SingleChoiceArg<"round" | "square">;
 };
 type VariantPropType = keyof PlasmicPercentageBox__VariantsArgs;
 export const PlasmicPercentageBox__VariantProps = new Array<VariantPropType>(
-  "unnamedGroupOfVariants"
+  "unnamedGroupOfVariants",
+  "shape"
 );
 
 export type PlasmicPercentageBox__ArgsType = {
@@ -95,7 +105,10 @@ export type PlasmicPercentageBox__OverridesType = {
 
 export interface DefaultPercentageBoxProps {
   children?: React.ReactNode;
-  unnamedGroupOfVariants?: SingleChoiceArg<"red" | "yellow" | "blue" | "oreng">;
+  unnamedGroupOfVariants?: SingleChoiceArg<
+    "red" | "yellow" | "blue" | "oreng" | "unnamedVariant"
+  >;
+  shape?: SingleChoiceArg<"round" | "square">;
   className?: string;
 }
 
@@ -147,6 +160,12 @@ function PlasmicPercentageBox__RenderFunc(props: {
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           $props.unnamedGroupOfVariants
+      },
+      {
+        path: "shape",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.shape
       }
     ],
     [$props, $ctx, $refs]
@@ -175,6 +194,7 @@ function PlasmicPercentageBox__RenderFunc(props: {
         plasmic_paziresh_24_design_system_css.plasmic_tokens,
         sty.root,
         {
+          [sty.rootshape_square]: hasVariant($state, "shape", "square"),
           [sty.rootunnamedGroupOfVariants_blue]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -189,6 +209,11 @@ function PlasmicPercentageBox__RenderFunc(props: {
             $state,
             "unnamedGroupOfVariants",
             "red"
+          ),
+          [sty.rootunnamedGroupOfVariants_unnamedVariant]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "unnamedVariant"
           ),
           [sty.rootunnamedGroupOfVariants_yellow]: hasVariant(
             $state,
@@ -207,6 +232,11 @@ function PlasmicPercentageBox__RenderFunc(props: {
           defaultContents: "Enter some text",
           value: args.children,
           className: classNames(sty.slotTargetChildren, {
+            [sty.slotTargetChildrenshape_round]: hasVariant(
+              $state,
+              "shape",
+              "round"
+            ),
             [sty.slotTargetChildrenunnamedGroupOfVariants_blue]: hasVariant(
               $state,
               "unnamedGroupOfVariants",
