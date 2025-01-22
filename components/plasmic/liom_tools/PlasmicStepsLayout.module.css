@@ -794,6 +794,7 @@
   min-width: 0;
 }
 .freeBox__fczet {
+  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;

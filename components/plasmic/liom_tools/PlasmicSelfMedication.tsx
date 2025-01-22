@@ -63,6 +63,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import LinearCalendar from "../../LinearCalendar"; // plasmic-import: UJhKrwaiZx_G/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
 
@@ -96,6 +97,8 @@ export type PlasmicSelfMedication__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   img?: Flex__<typeof PlasmicImg__>;
+  getStep?: Flex__<typeof ApiRequest>;
+  getItem?: Flex__<typeof ApiRequest>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
   svg?: Flex__<"svg">;
@@ -141,321 +144,78 @@ function PlasmicSelfMedication__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "calenderList",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            "\u0647\u0641\u062a\u0647": 1,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 1"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 2,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 2"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 3,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 3"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 4,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 4"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 5,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 5"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 6,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 6"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 7,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 7"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 8,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 8"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 9,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 9"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 10,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 10"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 11,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 11"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 12,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 12"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 13,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 13"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 14,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 14"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 15,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 15"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 16,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 16"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 17,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 17"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 18,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 18"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 19,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 19"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 20,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 20"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 21,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 21"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 22,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 22"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 23,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 23"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 24,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 24"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 25,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 25"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 26,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 26"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 27,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 27"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 28,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 28"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 29,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 29"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 30,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 30"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 31,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 31"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 32,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 32"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 33,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 33"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 34,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 34"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 35,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 35"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 36,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 36"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 37,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 37"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 38,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 38"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 39,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 39"
-          },
-          {
-            "\u0647\u0641\u062a\u0647": 40,
-            isEnable: true,
-            isLock: false,
-            isVip: false,
-            title: "\u0647\u0641\u062a\u0647 40"
-          }
-        ]
-      },
-      {
         path: "detailsList",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            title: "\u0645\u0633\u0627\u0641\u0631\u062a",
-            onClick: "dangerOrNot_travel"
-          },
-          { title: "\u0648\u0631\u0632\u0634", onClick: "dangerOrNot_sport" },
-          {
-            title: "\u0632\u06cc\u0628\u0627\u06cc\u06cc",
-            onClick: "dangerOrNot_beauty"
-          },
-          {
-            title: "\u062a\u063a\u0630\u06cc\u0647",
-            onClick: "dangerOrNot_food"
-          },
-          {
-            title: "\u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc",
-            onClick: "dangerOrNot_sex"
-          },
-          { title: "\u062e\u0648\u0627\u0628", onClick: "dangerOrNot_spleep" }
-        ]
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "getStep.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getStep.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getStep.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "selectedStep",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "getItem.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getItem.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getItem.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "itemLoading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -544,95 +304,399 @@ function PlasmicSelfMedication__RenderFunc(props: {
               }}
             />
 
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___5D4Eu)}
+            <ApiRequest
+              data-plasmic-name={"getStep"}
+              data-plasmic-override={overrides.getStep}
+              className={classNames("__wab_instance", sty.getStep)}
+              errorDisplay={null}
+              loadingDisplay={null}
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getStep", "error"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getStep", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getStep", "data"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              params={(() => {
+                try {
+                  return {
+                    type: $ctx.query.type
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/getStep"}
             >
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
+              <ApiRequest
+                data-plasmic-name={"getItem"}
+                data-plasmic-override={overrides.getItem}
+                className={classNames("__wab_instance", sty.getItem)}
+                errorDisplay={null}
+                loadingDisplay={null}
+                method={"GET"}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getItem", "error"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "getItem",
+                    "loading"
+                  ]).apply(null, eventArgs);
+                }}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getItem", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["updateDetailsList"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["detailsList"]
+                            },
+                            operation: 0,
+                            value: $state.getItem.data
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDetailsList"] != null &&
+                      typeof $steps["updateDetailsList"] === "object" &&
+                      typeof $steps["updateDetailsList"].then === "function"
+                    ) {
+                      $steps["updateDetailsList"] = await $steps[
+                        "updateDetailsList"
+                      ];
+                    }
+
+                    $steps["updateDetailsList2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["itemLoading"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDetailsList2"] != null &&
+                      typeof $steps["updateDetailsList2"] === "object" &&
+                      typeof $steps["updateDetailsList2"].then === "function"
+                    ) {
+                      $steps["updateDetailsList2"] = await $steps[
+                        "updateDetailsList2"
+                      ];
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                params={(() => {
                   try {
-                    return $state.calenderList.length > 0
-                      ? $state.calenderList
-                      : [];
+                    return {
+                      stepId: $state.getStep.data[$state.selectedStep].id
+                    };
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return [];
+                      return undefined;
                     }
                     throw e;
                   }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <LinearCalendar
-                    data-plasmic-name={"linearCalendar"}
-                    data-plasmic-override={overrides.linearCalendar}
-                    className={classNames("__wab_instance", sty.linearCalendar)}
-                    isEnable={(() => {
-                      try {
-                        return currentItem.isEnable;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    isLock={(() => {
-                      try {
-                        return currentItem.isLock;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    isShowDate={(() => {
-                      try {
-                        return $ctx.query.type != "dangerOrNot";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    key={currentIndex}
-                    title={(() => {
-                      try {
-                        return currentItem.title;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                  />
-                );
-              })}
-            </Stack__>
+                })()}
+                url={"https://n8n.staas.ir/webhook/selfTreatment"}
+              />
+            </ApiRequest>
             {(() => {
               try {
-                return $ctx.query.type != "dangerOrNot";
+                return !$state.getStep.loading;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })() ? (
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___5D4Eu)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.getStep.data.length > 0
+                        ? $state.getStep.data
+                        : [];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___1NlzI
+                      )}
+                      key={currentIndex}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateSelectedStep"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["selectedStep"]
+                                },
+                                operation: 0,
+                                value: currentIndex
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSelectedStep"] != null &&
+                          typeof $steps["updateSelectedStep"] === "object" &&
+                          typeof $steps["updateSelectedStep"].then ===
+                            "function"
+                        ) {
+                          $steps["updateSelectedStep"] = await $steps[
+                            "updateSelectedStep"
+                          ];
+                        }
+
+                        $steps["updateDetailsList"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["detailsList"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction.data
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDetailsList"] != null &&
+                          typeof $steps["updateDetailsList"] === "object" &&
+                          typeof $steps["updateDetailsList"].then === "function"
+                        ) {
+                          $steps["updateDetailsList"] = await $steps[
+                            "updateDetailsList"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "https://n8n.staas.ir/webhook/selfTreatment",
+                                  (() => {
+                                    try {
+                                      return {
+                                        stepId:
+                                          $state.getStep.data[
+                                            $state.selectedStep
+                                          ].id
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
+                    >
+                      <LinearCalendar
+                        data-plasmic-name={"linearCalendar"}
+                        data-plasmic-override={overrides.linearCalendar}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.linearCalendar
+                        )}
+                        click={(() => {
+                          try {
+                            return currentIndex == $state.selectedStep;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        isLock={(() => {
+                          try {
+                            return currentItem.isLock;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        isShowDate={(() => {
+                          try {
+                            return $ctx.query.type != "doOrNot";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        title={(() => {
+                          try {
+                            return currentItem.name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </div>
+                  );
+                })}
+              </Stack__>
+            ) : null}
+            {(() => {
+              try {
+                return $ctx.query.type != "doOrNot";
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -653,95 +717,236 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 {"\u0631\u0648\u0632 1 \u0627\u0632 30"}
               </div>
             ) : null}
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-              (() => {
-                try {
-                  return $state.detailsList.length > 0
-                    ? $state.detailsList
-                    : [];
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
+            {(() => {
+              try {
+                return $state.getStep.loading;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
                 }
-              })()
-            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__hSeqy)}
-                  key={currentIndex}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___5QdKl)}
-                  >
-                    <LoadingConclusion
-                      data-plasmic-name={"loadingConclusion"}
-                      data-plasmic-override={overrides.loadingConclusion}
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__qfPX)}>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return [2, 3, 4, 5, 6, 7, 8, 9, 10];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
                       className={classNames(
-                        "__wab_instance",
-                        sty.loadingConclusion
+                        projectcss.all,
+                        sty.freeBox__yh9Um,
+                        "shimmer"
                       )}
-                      color={(() => {
-                        try {
-                          return $ctx.query.type == "dangerOrNot"
-                            ? undefined
-                            : true;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "grey";
-                          }
-                          throw e;
+                      key={currentIndex}
+                    />
+                  );
+                })}
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return !$state.getItem.loading;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()
+              ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.detailsList.length > 0
+                        ? $state.detailsList
+                        : [];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__hSeqy)}
+                      key={currentIndex}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return (
+                                      "https://apps.liom.app/weekByWeek/?secId=" +
+                                      currentItem.id +
+                                      "&stepId=" +
+                                      currentItem.stepId +
+                                      "&style=" +
+                                      currentItem.styleType
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
                         }
-                      })()}
-                      fouse={true}
-                      selected={true}
+                      }}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__ksZwP
+                          sty.freeBox___5QdKl
                         )}
                       >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: (() => {
-                              try {
-                                return currentItem.title;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647";
-                                }
-                                throw e;
+                        <LoadingConclusion
+                          data-plasmic-name={"loadingConclusion"}
+                          data-plasmic-override={overrides.loadingConclusion}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.loadingConclusion
+                          )}
+                          color={(() => {
+                            try {
+                              return $ctx.query.type == "dangerOrNot"
+                                ? undefined
+                                : true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "grey";
                               }
-                            })()
-                          }}
+                              throw e;
+                            }
+                          })()}
+                          fouse={true}
+                          selected={true}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ksZwP
+                            )}
+                          >
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: currentItem.title
+                              }}
+                            />
+                          </div>
+                        </LoadingConclusion>
+                        <ChevronLeftIcon
+                          data-plasmic-name={"svg"}
+                          data-plasmic-override={overrides.svg}
+                          className={classNames(projectcss.all, sty.svg)}
+                          role={"img"}
                         />
                       </div>
-                    </LoadingConclusion>
-                    <ChevronLeftIcon
-                      data-plasmic-name={"svg"}
-                      data-plasmic-override={overrides.svg}
-                      className={classNames(projectcss.all, sty.svg)}
-                      role={"img"}
+                    </div>
+                  );
+                })
+              : null}
+            {(() => {
+              try {
+                return $state.getItem.loading;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()
+              ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return [2, 3, 4, 5, 6, 7];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__xObKs,
+                        "shimmer"
+                      )}
+                      key={currentIndex}
                     />
-                  </div>
-                </div>
-              );
-            })}
+                  );
+                })
+              : null}
           </Stack__>
         </div>
       </div>
@@ -756,6 +961,8 @@ const PlasmicDescendants = {
     "headerLiom",
     "paziresh24Avatar",
     "img",
+    "getStep",
+    "getItem",
     "linearCalendar",
     "loadingConclusion",
     "svg"
@@ -764,6 +971,8 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
   img: ["img"],
+  getStep: ["getStep", "getItem"],
+  getItem: ["getItem"],
   linearCalendar: ["linearCalendar"],
   loadingConclusion: ["loadingConclusion"],
   svg: ["svg"]
@@ -777,6 +986,8 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
   img: typeof PlasmicImg__;
+  getStep: typeof ApiRequest;
+  getItem: typeof ApiRequest;
   linearCalendar: typeof LinearCalendar;
   loadingConclusion: typeof LoadingConclusion;
   svg: "svg";
@@ -871,6 +1082,8 @@ export const PlasmicSelfMedication = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     img: makeNodeComponent("img"),
+    getStep: makeNodeComponent("getStep"),
+    getItem: makeNodeComponent("getItem"),
     linearCalendar: makeNodeComponent("linearCalendar"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
     svg: makeNodeComponent("svg"),

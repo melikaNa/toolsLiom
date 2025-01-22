@@ -83,14 +83,12 @@ export const PlasmicLinearCalendar__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicLinearCalendar__ArgsType = {
-  isEnable?: boolean;
   isLock?: boolean;
   title?: string;
   isShowDate?: boolean;
 };
 type ArgPropType = keyof PlasmicLinearCalendar__ArgsType;
 export const PlasmicLinearCalendar__ArgProps = new Array<ArgPropType>(
-  "isEnable",
   "isLock",
   "title",
   "isShowDate"
@@ -102,7 +100,6 @@ export type PlasmicLinearCalendar__OverridesType = {
 };
 
 export interface DefaultLinearCalendarProps {
-  isEnable?: boolean;
   isLock?: boolean;
   title?: string;
   isShowDate?: boolean;
@@ -131,7 +128,6 @@ function PlasmicLinearCalendar__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          isEnable: false,
           isLock: false,
           isShowDate: false
         },
@@ -193,7 +189,7 @@ function PlasmicLinearCalendar__RenderFunc(props: {
     >
       {(() => {
         try {
-          return !$props.isEnable;
+          return undefined;
         } catch (e) {
           if (
             e instanceof TypeError ||
@@ -219,7 +215,7 @@ function PlasmicLinearCalendar__RenderFunc(props: {
               e instanceof TypeError ||
               e?.plasmicType === "PlasmicUndefinedDataError"
             ) {
-              return true;
+              return false;
             }
             throw e;
           }
