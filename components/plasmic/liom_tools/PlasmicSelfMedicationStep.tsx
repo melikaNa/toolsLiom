@@ -102,7 +102,6 @@ export type PlasmicSelfMedicationStep__OverridesType = {
   stepsLayout?: Flex__<typeof StepsLayout>;
   lineClomp?: Flex__<typeof LineClomp>;
   img?: Flex__<typeof PlasmicImg__>;
-  svg?: Flex__<"svg">;
   lineClomp3?: Flex__<typeof LineClomp>;
   lineClomp4?: Flex__<typeof LineClomp>;
   apiRequest?: Flex__<typeof ApiRequest>;
@@ -257,8 +256,112 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.paziresh24Avatar)}
                 />
               }
+              slot2={
+                <Icon22Icon
+                  className={classNames(projectcss.all, sty.svg__oSkb7)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return (
+                                  "https://tools.liom.app/self-medication/?type=" +
+                                  $ctx.query.type
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
+                  role={"img"}
+                />
+              }
             >
-              {"\u0645\u0633\u06cc\u0631 \u0633\u0644\u0627\u0645\u062a"}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__gD5Nw
+                )}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToPage"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return (
+                                "https://tools.liom.app/self-medication/?type=" +
+                                $ctx.query.type
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
+                  ) {
+                    $steps["goToPage"] = await $steps["goToPage"];
+                  }
+                }}
+              >
+                {"\u0645\u0633\u06cc\u0631 \u0633\u0644\u0627\u0645\u062a"}
+              </div>
             </HeaderLiom>
           </section>
           <Stack__
@@ -316,21 +419,35 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       }
                     }}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__sJdcq
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobileOnly") ? (
-                        "sddddddddddddddddddddddddddddddddddddddd\u0633\u062a\u0628\u0647\u0633\u0627\u06cc\u0647\u0639\u0628\u0627\u0647\u06cc\u0639\u0633\u0627\u0628\u0647\u0627\u0647 \u0627\u06cc\u0633 \u062f\u0633\u062e\u06cc\u062a\u0633\u0639\u0647\u0627\u0647\u0639\u06cc\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0628 \u0633\u062a\u06cc\u0647\u062e\u0639\u062a\u0639\u0647\u062a\u0647\u0639\u062e\u062a\u0633\u062e\u062a\u062e\u062a\u0628 \u0633\u062f\u0627\u0639\u06cc\u0647\u0627\u0647\u0639\u0627\u0628\u0647\u0639\u0627\u0628\u0647\u0627\u0627\u0647\u0639\u0633\u0627 \u062f\u0633\u062e\u06cc\u0627\u0639\u062e\u0647\u0627\u0633\u0639\u0627\u0628\u0627\u0639\u0647\u06cc\u0633\u0627\u0628\u0639\u0647\u0633\u0627\u0628\u0633"
-                      ) : (
-                        <React.Fragment>
-                          {$state.apiRequest.data?.[0]?.text}
-                        </React.Fragment>
-                      )}
-                    </div>
+                    {(() => {
+                      try {
+                        return $state.apiRequest.data?.[0]?.text != "";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__sJdcq
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobileOnly") ? (
+                          "sddddddddddddddddddddddddddddddddddddddd\u0633\u062a\u0628\u0647\u0633\u0627\u06cc\u0647\u0639\u0628\u0627\u0647\u06cc\u0639\u0633\u0627\u0628\u0647\u0627\u0647 \u0627\u06cc\u0633 \u062f\u0633\u062e\u06cc\u062a\u0633\u0639\u0647\u0627\u0647\u0639\u06cc\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0628 \u0633\u062a\u06cc\u0647\u062e\u0639\u062a\u0639\u0647\u062a\u0647\u0639\u062e\u062a\u0633\u062e\u062a\u062e\u062a\u0628 \u0633\u062f\u0627\u0639\u06cc\u0647\u0627\u0647\u0639\u0627\u0628\u0647\u0639\u0627\u0628\u0647\u0627\u0627\u0647\u0639\u0633\u0627 \u062f\u0633\u062e\u06cc\u0627\u0639\u062e\u0647\u0627\u0633\u0639\u0627\u0628\u0627\u0639\u0647\u06cc\u0633\u0627\u0628\u0639\u0647\u0633\u0627\u0628\u0633"
+                        ) : (
+                          <React.Fragment>
+                            {$state.apiRequest.data?.[0]?.text}
+                          </React.Fragment>
+                        )}
+                      </div>
+                    ) : null}
                   </LineClomp>
                   <Stack__
                     as={"div"}
@@ -574,9 +691,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       {"Enter some text"}
                     </div>
                     <Icon77Icon
-                      data-plasmic-name={"svg"}
-                      data-plasmic-override={overrides.svg}
-                      className={classNames(projectcss.all, sty.svg)}
+                      className={classNames(projectcss.all, sty.svg__vK1Xl)}
                       role={"img"}
                     />
 
@@ -730,7 +845,6 @@ const PlasmicDescendants = {
     "stepsLayout",
     "lineClomp",
     "img",
-    "svg",
     "lineClomp3",
     "lineClomp4",
     "apiRequest"
@@ -738,17 +852,9 @@ const PlasmicDescendants = {
   section: ["section", "headerLiom", "paziresh24Avatar"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
-  stepsLayout: [
-    "stepsLayout",
-    "lineClomp",
-    "img",
-    "svg",
-    "lineClomp3",
-    "lineClomp4"
-  ],
+  stepsLayout: ["stepsLayout", "lineClomp", "img", "lineClomp3", "lineClomp4"],
   lineClomp: ["lineClomp"],
   img: ["img"],
-  svg: ["svg"],
   lineClomp3: ["lineClomp3"],
   lineClomp4: ["lineClomp4"],
   apiRequest: ["apiRequest"]
@@ -764,7 +870,6 @@ type NodeDefaultElementType = {
   stepsLayout: typeof StepsLayout;
   lineClomp: typeof LineClomp;
   img: typeof PlasmicImg__;
-  svg: "svg";
   lineClomp3: typeof LineClomp;
   lineClomp4: typeof LineClomp;
   apiRequest: typeof ApiRequest;
@@ -861,7 +966,6 @@ export const PlasmicSelfMedicationStep = Object.assign(
     stepsLayout: makeNodeComponent("stepsLayout"),
     lineClomp: makeNodeComponent("lineClomp"),
     img: makeNodeComponent("img"),
-    svg: makeNodeComponent("svg"),
     lineClomp3: makeNodeComponent("lineClomp3"),
     lineClomp4: makeNodeComponent("lineClomp4"),
     apiRequest: makeNodeComponent("apiRequest"),

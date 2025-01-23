@@ -811,7 +811,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                       "&stepId=" +
                                       currentItem.stepId +
                                       "&style=" +
-                                      currentItem.styleType
+                                      currentItem.styleType +
+                                      "&type=" +
+                                      $ctx.query.type
                                     );
                                   } catch (e) {
                                     if (
