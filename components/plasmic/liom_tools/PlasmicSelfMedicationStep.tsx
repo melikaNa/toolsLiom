@@ -507,7 +507,12 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return currentItem.title;
+                                    return (
+                                      currentItem.title +
+                                      " (" +
+                                      currentItem.type +
+                                      ") "
+                                    );
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
