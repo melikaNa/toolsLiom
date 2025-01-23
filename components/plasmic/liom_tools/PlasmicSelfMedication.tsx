@@ -806,7 +806,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 destination: (() => {
                                   try {
                                     return (
-                                      "https://apps.liom.app/weekByWeek/?secId=" +
+                                      "https://tools.liom.app/self-medication-step/?secId=" +
                                       currentItem.id +
                                       "&stepId=" +
                                       currentItem.stepId +
