@@ -66,6 +66,7 @@ import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-T
 import StepsLayout from "../../StepsLayout"; // plasmic-import: usfpaVkTXFYE/component
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
@@ -292,7 +293,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     )}
                   >
                     <React.Fragment>
-                      {$state.apiRequest.data[0].title}
+                      {$state.apiRequest.data?.[0]?.title}
                     </React.Fragment>
                   </div>
                   <LineClomp
@@ -326,7 +327,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         "sddddddddddddddddddddddddddddddddddddddd\u0633\u062a\u0628\u0647\u0633\u0627\u06cc\u0647\u0639\u0628\u0627\u0647\u06cc\u0639\u0633\u0627\u0628\u0647\u0627\u0647 \u0627\u06cc\u0633 \u062f\u0633\u062e\u06cc\u062a\u0633\u0639\u0647\u0627\u0647\u0639\u06cc\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0628 \u0633\u062a\u06cc\u0647\u062e\u0639\u062a\u0639\u0647\u062a\u0647\u0639\u062e\u062a\u0633\u062e\u062a\u062e\u062a\u0628 \u0633\u062f\u0627\u0639\u06cc\u0647\u0627\u0647\u0639\u0627\u0628\u0647\u0639\u0627\u0628\u0647\u0627\u0627\u0647\u0639\u0633\u0627 \u062f\u0633\u062e\u06cc\u0627\u0639\u062e\u0647\u0627\u0633\u0639\u0627\u0628\u0627\u0639\u0647\u06cc\u0633\u0627\u0628\u0639\u0647\u0633\u0627\u0628\u0633"
                       ) : (
                         <React.Fragment>
-                          {$state.apiRequest.data[0].text}
+                          {$state.apiRequest.data?.[0]?.text}
                         </React.Fragment>
                       )}
                     </div>
@@ -665,7 +666,15 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 (async data => {
                   const $steps = {};
 
-                  $steps["updateListDetails"] = true
+                  $steps["updateListDetails"] = (() => {
+                    if (
+                      typeof $state.apiRequest?.data?.[0]?.data !== "undefined"
+                    ) {
+                      return true;
+                    } else {
+                      return false;
+                    }
+                  })()
                     ? (() => {
                         const actionArgs = {
                           variable: {
@@ -673,7 +682,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             variablePath: ["listDetails"]
                           },
                           operation: 0,
-                          value: JSON.parse($state.apiRequest.data[0].data).data
+                          value: JSON.parse($state.apiRequest?.data?.[0]?.data)
+                            ?.data
                         };
                         return (({
                           variable,
