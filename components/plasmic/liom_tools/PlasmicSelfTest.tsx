@@ -4846,12 +4846,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 name:
                                   new URLSearchParams(
                                     window.location.search
-                                  ).get("origin") == "eata"
-                                    ? window.Eitaa.WebApp.initDataUnsafe.user
-                                        .first_name +
-                                      " " +
-                                      window.Eitaa.WebApp.initDataUnsafe.user
-                                        .last_name
+                                  ).get("origin") === "eata"
+                                    ? window.Eitaa?.WebApp?.initDataUnsafe?.user
+                                        ?.first_name +
+                                        " " +
+                                        window.Eitaa?.WebApp?.initDataUnsafe
+                                          ?.user?.last_name || ""
                                     : "",
                                 origin:
                                   new URLSearchParams(
@@ -4864,10 +4864,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 origin_user_id:
                                   new URLSearchParams(
                                     window.location.search
-                                  ).get("origin") == "eata"
-                                    ? window.Eitaa.WebApp.initDataUnsafe.user.id
-                                    : "" ||
-                                      new URLSearchParams(
+                                  ).get("origin") === "eata"
+                                    ? window.Eitaa?.WebApp?.initDataUnsafe?.user
+                                        ?.id || ""
+                                    : new URLSearchParams(
                                         window.location.search
                                       ).get("user_id") ||
                                       new URLSearchParams(
