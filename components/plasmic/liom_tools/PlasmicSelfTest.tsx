@@ -5618,7 +5618,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `/result/?session_id=${currentItem.id}&user_id=${currentItem.user_id}&Share=true`;
+                                    return `https://tools.liom.app/result/?session_id=${currentItem.id}&user_id=${currentItem.user_id}&Share=true`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -5699,7 +5699,73 @@ function PlasmicSelfTest__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return `نتیجه تست نامنظمی قاعدگی شماره   ${currentItem.id}`;
+                                return (() => {
+                                  var birthDate = currentItem.timestamp
+                                    .split(" ")[0]
+                                    .split("-");
+                                  let gy = parseInt(birthDate[0]);
+                                  let gm = parseInt(birthDate[1]);
+                                  let gd = parseInt(birthDate[2]);
+                                  let shamsiMonthDays = [
+                                    31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30,
+                                    29
+                                  ];
+
+                                  let miladiDaysInMonth = [
+                                    31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30,
+                                    31
+                                  ];
+
+                                  let isLeapYear =
+                                    gy % 4 === 0 &&
+                                    (gy % 100 !== 0 || gy % 400 === 0);
+                                  if (isLeapYear) {
+                                    miladiDaysInMonth[1] = 29;
+                                  }
+                                  let daysPassedMiladi = gd;
+                                  for (let i = 0; i < gm - 1; i++) {
+                                    daysPassedMiladi += miladiDaysInMonth[i];
+                                  }
+                                  let shamsiNewYearDay = new Date(gy, 2, 21);
+                                  let shamsiStartDayInMiladi = Math.floor(
+                                    (shamsiNewYearDay - new Date(gy, 0, 1)) /
+                                      (1000 * 60 * 60 * 24)
+                                  );
+                                  let daysPassedInShamsiYear =
+                                    daysPassedMiladi - shamsiStartDayInMiladi;
+                                  if (daysPassedInShamsiYear < 0) {
+                                    gy--;
+                                    shamsiNewYearDay = new Date(gy, 2, 21);
+                                    shamsiStartDayInMiladi = Math.floor(
+                                      (shamsiNewYearDay - new Date(gy, 0, 1)) /
+                                        (1000 * 60 * 60 * 24)
+                                    );
+                                    daysPassedInShamsiYear =
+                                      daysPassedMiladi +
+                                      (365 - shamsiStartDayInMiladi);
+                                    if (isLeapYear) {
+                                      daysPassedInShamsiYear++;
+                                    }
+                                  }
+                                  let jy = gy - 621;
+                                  let jm = 0;
+                                  let jd = daysPassedInShamsiYear;
+                                  for (
+                                    let i = 0;
+                                    i < shamsiMonthDays.length;
+                                    i++
+                                  ) {
+                                    if (jd <= shamsiMonthDays[i]) {
+                                      jm = i + 1;
+                                      break;
+                                    } else {
+                                      jd -= shamsiMonthDays[i];
+                                    }
+                                  }
+                                  let formattedMonth = jm < 10 ? `0${jm}` : jm;
+                                  let formattedDay = jd < 10 ? `0${jd}` : jd;
+                                  return `نتیجه تست نامنظمی قاعدگی تاریخ : ${jy}/${formattedMonth}/${formattedDay}`;
+                                })();
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
