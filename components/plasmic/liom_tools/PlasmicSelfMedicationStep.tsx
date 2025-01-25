@@ -509,12 +509,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return (
-                                      currentItem.title +
-                                      " (" +
-                                      currentItem.type +
-                                      ") "
-                                    );
+                                    return currentItem.title;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -903,6 +898,43 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   ) {
                     $steps["updateListDetails"] = await $steps[
                       "updateListDetails"
+                    ];
+                  }
+
+                  $steps["updateListDetails2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["listDetails"]
+                          },
+                          operation: 0,
+                          value: JSON.parse($state.apiRequest.data?.[0]?.data)
+                            ?.data
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateListDetails2"] != null &&
+                    typeof $steps["updateListDetails2"] === "object" &&
+                    typeof $steps["updateListDetails2"].then === "function"
+                  ) {
+                    $steps["updateListDetails2"] = await $steps[
+                      "updateListDetails2"
                     ];
                   }
                 }).apply(null, eventArgs);

@@ -4843,7 +4843,16 @@ function PlasmicSelfTest__RenderFunc(props: {
                               return {
                                 mobile: null,
                                 email: null,
-                                name: "",
+                                name:
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("origin") == "eata"
+                                    ? window.Eitaa.WebApp.initDataUnsafe.user
+                                        .first_name +
+                                      " " +
+                                      window.Eitaa.WebApp.initDataUnsafe.user
+                                        .last_name
+                                    : "",
                                 origin:
                                   new URLSearchParams(
                                     window.location.search
@@ -4855,11 +4864,16 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 origin_user_id:
                                   new URLSearchParams(
                                     window.location.search
-                                  ).get("user_id") ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("origin_user_id") ||
-                                  "null"
+                                  ).get("origin") == "eata"
+                                    ? window.Eitaa.WebApp.initDataUnsafe.user.id
+                                    : "" ||
+                                      new URLSearchParams(
+                                        window.location.search
+                                      ).get("user_id") ||
+                                      new URLSearchParams(
+                                        window.location.search
+                                      ).get("origin_user_id") ||
+                                      "null"
                               };
                             } catch (e) {
                               if (
@@ -5312,44 +5326,6 @@ function PlasmicSelfTest__RenderFunc(props: {
               "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\"></script>\r\n\r\n\r\n"
             }
           />
-
-          {(() => {
-            try {
-              return $state.userId == "252";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__mq3YR
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return JSON.stringify($state.eitaa).toString();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
-          ) : null}
         </div>
       </div>
     </React.Fragment>
