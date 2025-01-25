@@ -987,7 +987,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           $steps["runCode"] = await $steps["runCode"];
                         }
 
-                        $steps["invokeGlobalAction"] = (
+                        $steps["showToast"] = (
                           $ctx.query.inApp == "false" && currentItem.vip == 1
                             ? true
                             : false
@@ -1005,14 +1005,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             })()
                           : undefined;
                         if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
+                          $steps["showToast"] != null &&
+                          typeof $steps["showToast"] === "object" &&
+                          typeof $steps["showToast"].then === "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["showToast"] = await $steps["showToast"];
                         }
                       }}
                     >
