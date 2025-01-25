@@ -143,6 +143,10 @@
 .img__asFD > picture > img {
   object-fit: cover;
 }
+.getUser:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .getStep:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

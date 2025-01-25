@@ -4851,68 +4851,114 @@ function PlasmicSelfTest__RenderFunc(props: {
                   ];
                 }
 
-                $steps["invokeGlobalAction"] = !localStorage.getItem("user_id")
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://n8n.staas.ir/webhook/selfTestUser",
-                          undefined,
-                          (() => {
-                            try {
-                              return {
-                                mobile: null,
-                                email: null,
-                                name:
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("origin") === "eata"
-                                    ? window.Eitaa?.WebApp?.initDataUnsafe?.user
-                                        ?.first_name +
-                                        " " +
-                                        window.Eitaa?.WebApp?.initDataUnsafe
-                                          ?.user?.last_name || ""
-                                    : "",
-                                origin:
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("origin") ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("app") ||
-                                  "liomSite",
-                                origin_user_id:
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("origin") === "eata"
-                                    ? window.Eitaa?.WebApp?.initDataUnsafe?.user
-                                        ?.id || ""
-                                    : new URLSearchParams(
-                                        window.location.search
-                                      ).get("user_id") ||
-                                      new URLSearchParams(
-                                        window.location.search
-                                      ).get("origin_user_id") ||
-                                      "null"
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
+                $steps["invokeGlobalAction4"] =
+                  !localStorage.getItem("user_id") &&
+                  new URLSearchParams(window.location.search).get("origin") ===
+                    "eata"
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "https://n8n.staas.ir/webhook/selfTestUser",
+                            (() => {
+                              try {
+                                return {
+                                  origin_user_id:
+                                    window.Eitaa?.WebApp?.initDataUnsafe?.user
+                                      ?.id
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return { origin_user_id: "" };
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                if (
+                  $steps["invokeGlobalAction4"] != null &&
+                  typeof $steps["invokeGlobalAction4"] === "object" &&
+                  typeof $steps["invokeGlobalAction4"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction4"] = await $steps[
+                    "invokeGlobalAction4"
+                  ];
+                }
+
+                $steps["invokeGlobalAction"] =
+                  $steps.invokeGlobalAction?.data?.success != true &&
+                  !localStorage.getItem("user_id")
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://n8n.staas.ir/webhook/selfTestUser",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  mobile: null,
+                                  email: null,
+                                  name:
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("origin") === "eata"
+                                      ? window.Eitaa?.WebApp?.initDataUnsafe
+                                          ?.user?.first_name +
+                                          " " +
+                                          window.Eitaa?.WebApp?.initDataUnsafe
+                                            ?.user?.last_name || ""
+                                      : "",
+                                  origin:
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("origin") ||
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("app") ||
+                                    "liomSite",
+                                  origin_user_id:
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("origin") === "eata"
+                                      ? window.Eitaa?.WebApp?.initDataUnsafe
+                                          ?.user?.id || ""
+                                      : new URLSearchParams(
+                                          window.location.search
+                                        ).get("user_id") ||
+                                        new URLSearchParams(
+                                          window.location.search
+                                        ).get("origin_user_id") ||
+                                        "null"
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
                 if (
                   $steps["invokeGlobalAction"] != null &&
                   typeof $steps["invokeGlobalAction"] === "object" &&
@@ -4924,13 +4970,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                 }
 
                 $steps["runCode"] =
-                  $steps.invokeGlobalAction?.data?.success == true
+                  $steps.invokeGlobalAction?.data?.success == true ||
+                  $steps.invokeGlobalAction4?.data?.success == true
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
                             return localStorage.setItem(
                               "user_id",
-                              $steps.invokeGlobalAction.data.user_id
+                              $steps.invokeGlobalAction?.data?.user_id ||
+                                $steps.invokeGlobalAction4?.data?.user_id
                             );
                           }
                         };

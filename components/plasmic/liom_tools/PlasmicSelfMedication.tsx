@@ -96,6 +96,7 @@ export type PlasmicSelfMedication__OverridesType = {
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
+  getUser?: Flex__<typeof ApiRequest>;
   getStep?: Flex__<typeof ApiRequest>;
   getItem?: Flex__<typeof ApiRequest>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
@@ -215,6 +216,24 @@ function PlasmicSelfMedication__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "getUser.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getUser.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getUser.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -302,26 +321,26 @@ function PlasmicSelfMedication__RenderFunc(props: {
             />
 
             <ApiRequest
-              data-plasmic-name={"getStep"}
-              data-plasmic-override={overrides.getStep}
-              className={classNames("__wab_instance", sty.getStep)}
+              data-plasmic-name={"getUser"}
+              data-plasmic-override={overrides.getUser}
+              className={classNames("__wab_instance", sty.getUser)}
               errorDisplay={null}
               loadingDisplay={null}
               method={"GET"}
               onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getStep", "error"]).apply(
+                generateStateOnChangeProp($state, ["getUser", "error"]).apply(
                   null,
                   eventArgs
                 );
               }}
               onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getStep", "loading"]).apply(
+                generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
                   null,
                   eventArgs
                 );
               }}
               onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getStep", "data"]).apply(
+                generateStateOnChangeProp($state, ["getUser", "data"]).apply(
                   null,
                   eventArgs
                 );
@@ -329,7 +348,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
               params={(() => {
                 try {
                   return {
-                    type: $ctx.query.type
+                    token: $ctx.query.token
                   };
                 } catch (e) {
                   if (
@@ -341,113 +360,37 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              url={"https://n8n.staas.ir/webhook/getStep"}
+              url={"https://n8n.staas.ir/webhook/userInfo"}
             >
               <ApiRequest
-                data-plasmic-name={"getItem"}
-                data-plasmic-override={overrides.getItem}
-                className={classNames("__wab_instance", sty.getItem)}
+                data-plasmic-name={"getStep"}
+                data-plasmic-override={overrides.getStep}
+                className={classNames("__wab_instance", sty.getStep)}
                 errorDisplay={null}
                 loadingDisplay={null}
                 method={"GET"}
                 onError={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getItem", "error"]).apply(
+                  generateStateOnChangeProp($state, ["getStep", "error"]).apply(
                     null,
                     eventArgs
                   );
                 }}
                 onLoading={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
-                    "getItem",
+                    "getStep",
                     "loading"
                   ]).apply(null, eventArgs);
                 }}
                 onSuccess={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getItem", "data"]).apply(
+                  generateStateOnChangeProp($state, ["getStep", "data"]).apply(
                     null,
                     eventArgs
                   );
-
-                  (async data => {
-                    const $steps = {};
-
-                    $steps["updateDetailsList"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["detailsList"]
-                            },
-                            operation: 0,
-                            value: $state.getItem.data
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDetailsList"] != null &&
-                      typeof $steps["updateDetailsList"] === "object" &&
-                      typeof $steps["updateDetailsList"].then === "function"
-                    ) {
-                      $steps["updateDetailsList"] = await $steps[
-                        "updateDetailsList"
-                      ];
-                    }
-
-                    $steps["updateDetailsList2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["itemLoading"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDetailsList2"] != null &&
-                      typeof $steps["updateDetailsList2"] === "object" &&
-                      typeof $steps["updateDetailsList2"].then === "function"
-                    ) {
-                      $steps["updateDetailsList2"] = await $steps[
-                        "updateDetailsList2"
-                      ];
-                    }
-                  }).apply(null, eventArgs);
                 }}
                 params={(() => {
                   try {
                     return {
-                      stepId: $state.getStep.data[$state.selectedStep].id
+                      type: $ctx.query.type
                     };
                   } catch (e) {
                     if (
@@ -459,8 +402,127 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                url={"https://n8n.staas.ir/webhook/selfTreatment"}
-              />
+                url={"https://n8n.staas.ir/webhook/getStep"}
+              >
+                <ApiRequest
+                  data-plasmic-name={"getItem"}
+                  data-plasmic-override={overrides.getItem}
+                  className={classNames("__wab_instance", sty.getItem)}
+                  errorDisplay={null}
+                  loadingDisplay={null}
+                  method={"GET"}
+                  onError={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "getItem",
+                      "error"
+                    ]).apply(null, eventArgs);
+                  }}
+                  onLoading={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "getItem",
+                      "loading"
+                    ]).apply(null, eventArgs);
+                  }}
+                  onSuccess={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "getItem",
+                      "data"
+                    ]).apply(null, eventArgs);
+
+                    (async data => {
+                      const $steps = {};
+
+                      $steps["updateDetailsList"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["detailsList"]
+                              },
+                              operation: 0,
+                              value: $state.getItem.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDetailsList"] != null &&
+                        typeof $steps["updateDetailsList"] === "object" &&
+                        typeof $steps["updateDetailsList"].then === "function"
+                      ) {
+                        $steps["updateDetailsList"] = await $steps[
+                          "updateDetailsList"
+                        ];
+                      }
+
+                      $steps["updateDetailsList2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["itemLoading"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDetailsList2"] != null &&
+                        typeof $steps["updateDetailsList2"] === "object" &&
+                        typeof $steps["updateDetailsList2"].then === "function"
+                      ) {
+                        $steps["updateDetailsList2"] = await $steps[
+                          "updateDetailsList2"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
+                  }}
+                  params={(() => {
+                    try {
+                      return {
+                        stepId: $state.getStep.data[$state.selectedStep].id
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  url={"https://n8n.staas.ir/webhook/selfTreatment"}
+                />
+              </ApiRequest>
             </ApiRequest>
             {(() => {
               try {
@@ -797,7 +859,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["goToPage"] = true
+                        $steps["goToPage"] = (() => {
+                          const allowance =
+                            $state?.getUser?.data?.[0]?.result?.allowance || [];
+                          const filteredItem = allowance.find(
+                            item => item.type === "doOrNot"
+                          );
+                          const active = filteredItem
+                            ? filteredItem.active
+                            : false;
+                          return active;
+                        })()
                           ? (() => {
                               const actionArgs = {
                                 destination: (() => {
@@ -844,6 +916,26 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           typeof $steps["goToPage"].then === "function"
                         ) {
                           $steps["goToPage"] = await $steps["goToPage"];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {})();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
                     >
@@ -999,6 +1091,7 @@ const PlasmicDescendants = {
     "section",
     "headerLiom",
     "paziresh24Avatar",
+    "getUser",
     "getStep",
     "getItem",
     "linearCalendar",
@@ -1008,6 +1101,7 @@ const PlasmicDescendants = {
   section: ["section", "headerLiom", "paziresh24Avatar"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
+  getUser: ["getUser", "getStep", "getItem"],
   getStep: ["getStep", "getItem"],
   getItem: ["getItem"],
   linearCalendar: ["linearCalendar"],
@@ -1022,6 +1116,7 @@ type NodeDefaultElementType = {
   section: "section";
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
+  getUser: typeof ApiRequest;
   getStep: typeof ApiRequest;
   getItem: typeof ApiRequest;
   linearCalendar: typeof LinearCalendar;
@@ -1117,6 +1212,7 @@ export const PlasmicSelfMedication = Object.assign(
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
+    getUser: makeNodeComponent("getUser"),
     getStep: makeNodeComponent("getStep"),
     getItem: makeNodeComponent("getItem"),
     linearCalendar: makeNodeComponent("linearCalendar"),
