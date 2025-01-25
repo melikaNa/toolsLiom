@@ -96,7 +96,6 @@ export type PlasmicSelfMedication__OverridesType = {
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
-  img?: Flex__<typeof PlasmicImg__>;
   getStep?: Flex__<typeof ApiRequest>;
   getItem?: Flex__<typeof ApiRequest>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
@@ -285,10 +284,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
             className={classNames(projectcss.all, sty.freeBox__uJv)}
           >
             <PlasmicImg__
-              data-plasmic-name={"img"}
-              data-plasmic-override={overrides.img}
               alt={""}
-              className={classNames(sty.img)}
+              className={classNames(sty.img__asFD)}
               displayHeight={"auto"}
               displayMaxHeight={"none"}
               displayMaxWidth={"300%"}
@@ -881,20 +878,60 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           fouse={true}
                           selected={true}
                         >
-                          <div
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__ksZwP
+                              sty.freeBox___8Kyoi
                             )}
                           >
                             <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: currentItem.title
-                              }}
-                            />
-                          </div>
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ksZwP
+                              )}
+                            >
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: currentItem.title
+                                }}
+                              />
+                            </div>
+                            {(() => {
+                              try {
+                                return currentItem.vip == 1;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img___9Cd58)}
+                                displayHeight={"auto"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"18px"}
+                                loading={"lazy"}
+                                src={{
+                                  src: "/plasmic/liom_tools/images/image36.svg",
+                                  fullWidth: 22,
+                                  fullHeight: 20,
+                                  aspectRatio: 1.1
+                                }}
+                              />
+                            ) : null}
+                          </Stack__>
                         </LoadingConclusion>
                         <ChevronLeftIcon
                           data-plasmic-name={"svg"}
@@ -962,7 +999,6 @@ const PlasmicDescendants = {
     "section",
     "headerLiom",
     "paziresh24Avatar",
-    "img",
     "getStep",
     "getItem",
     "linearCalendar",
@@ -972,7 +1008,6 @@ const PlasmicDescendants = {
   section: ["section", "headerLiom", "paziresh24Avatar"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
-  img: ["img"],
   getStep: ["getStep", "getItem"],
   getItem: ["getItem"],
   linearCalendar: ["linearCalendar"],
@@ -987,7 +1022,6 @@ type NodeDefaultElementType = {
   section: "section";
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
-  img: typeof PlasmicImg__;
   getStep: typeof ApiRequest;
   getItem: typeof ApiRequest;
   linearCalendar: typeof LinearCalendar;
@@ -1083,7 +1117,6 @@ export const PlasmicSelfMedication = Object.assign(
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
-    img: makeNodeComponent("img"),
     getStep: makeNodeComponent("getStep"),
     getItem: makeNodeComponent("getItem"),
     linearCalendar: makeNodeComponent("linearCalendar"),

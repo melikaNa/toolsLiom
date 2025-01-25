@@ -4831,6 +4831,26 @@ function PlasmicSelfTest__RenderFunc(props: {
               (async loading => {
                 const $steps = {};
 
+                $steps["invokeGlobalAction3"] =
+                  new URLSearchParams(window.location.search).get("origin") ===
+                  "eata"
+                    ? (() => {
+                        const actionArgs = { args: [3000] };
+                        return $globalActions["Fragment.wait"]?.apply(null, [
+                          ...actionArgs.args
+                        ]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["invokeGlobalAction3"] != null &&
+                  typeof $steps["invokeGlobalAction3"] === "object" &&
+                  typeof $steps["invokeGlobalAction3"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction3"] = await $steps[
+                    "invokeGlobalAction3"
+                  ];
+                }
+
                 $steps["invokeGlobalAction"] = !localStorage.getItem("user_id")
                   ? (() => {
                       const actionArgs = {

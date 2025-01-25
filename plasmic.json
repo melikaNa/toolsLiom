@@ -3660,6 +3660,16 @@
           "id": "ViIZZ1zES8Qy",
           "name": "image 58",
           "filePath": "../public/plasmic/liom_tools/images/image58.png"
+        },
+        {
+          "id": "1mn_Mu4r93nm",
+          "name": "image 35",
+          "filePath": "../public/plasmic/liom_tools/images/image35.svg"
+        },
+        {
+          "id": "07VRIJsiu1en",
+          "name": "image 36",
+          "filePath": "../public/plasmic/liom_tools/images/image36.svg"
         }
       ],
       "indirect": false,
