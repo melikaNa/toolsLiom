@@ -54,6 +54,15 @@
     height: var(--token-QMEhwYzwsf71);
   }
 }
+.text__ldtvg {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: none;
+  color: var(--token-DbGdjBpQ6R_X);
+  opacity: 0.8;
+}
 .freeBox__fwEj {
   display: flex;
   flex-direction: column;
