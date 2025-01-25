@@ -65,6 +65,7 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/compo
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import StepsLayout from "../../StepsLayout"; // plasmic-import: usfpaVkTXFYE/component
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
+import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -103,6 +104,7 @@ export type PlasmicSelfMedicationStep__OverridesType = {
   lineClomp?: Flex__<typeof LineClomp>;
   img?: Flex__<typeof PlasmicImg__>;
   lineClomp3?: Flex__<typeof LineClomp>;
+  percentageBox?: Flex__<typeof PercentageBox>;
   lineClomp4?: Flex__<typeof LineClomp>;
   apiRequest?: Flex__<typeof ApiRequest>;
 };
@@ -526,6 +528,72 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
+                            <PercentageBox
+                              data-plasmic-name={"percentageBox"}
+                              data-plasmic-override={overrides.percentageBox}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.percentageBox
+                              )}
+                              shape={"round"}
+                              unnamedGroupOfVariants={(() => {
+                                try {
+                                  return (() => {
+                                    switch (currentItem.type) {
+                                      case "safe":
+                                        return "";
+                                      case "warning":
+                                        return "yellow";
+                                      case "danger":
+                                        return "red";
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__sb8JN
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        switch (currentItem.type) {
+                                          case "safe":
+                                            return " امن ";
+                                          case "warning":
+                                            return " احتیاط ";
+                                          case "danger":
+                                            return " خطرناک ";
+                                        }
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </PercentageBox>
                           </Stack__>
                           <div
                             className={classNames(
@@ -541,6 +609,13 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 sty.freeBox__xi91K
                               )}
                             >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__cy3R7
+                                )}
+                              />
+
                               <Stack__
                                 as={"div"}
                                 hasGap={true}
@@ -851,16 +926,25 @@ const PlasmicDescendants = {
     "lineClomp",
     "img",
     "lineClomp3",
+    "percentageBox",
     "lineClomp4",
     "apiRequest"
   ],
   section: ["section", "headerLiom", "paziresh24Avatar"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
-  stepsLayout: ["stepsLayout", "lineClomp", "img", "lineClomp3", "lineClomp4"],
+  stepsLayout: [
+    "stepsLayout",
+    "lineClomp",
+    "img",
+    "lineClomp3",
+    "percentageBox",
+    "lineClomp4"
+  ],
   lineClomp: ["lineClomp"],
   img: ["img"],
   lineClomp3: ["lineClomp3"],
+  percentageBox: ["percentageBox"],
   lineClomp4: ["lineClomp4"],
   apiRequest: ["apiRequest"]
 } as const;
@@ -876,6 +960,7 @@ type NodeDefaultElementType = {
   lineClomp: typeof LineClomp;
   img: typeof PlasmicImg__;
   lineClomp3: typeof LineClomp;
+  percentageBox: typeof PercentageBox;
   lineClomp4: typeof LineClomp;
   apiRequest: typeof ApiRequest;
 };
@@ -972,6 +1057,7 @@ export const PlasmicSelfMedicationStep = Object.assign(
     lineClomp: makeNodeComponent("lineClomp"),
     img: makeNodeComponent("img"),
     lineClomp3: makeNodeComponent("lineClomp3"),
+    percentageBox: makeNodeComponent("percentageBox"),
     lineClomp4: makeNodeComponent("lineClomp4"),
     apiRequest: makeNodeComponent("apiRequest"),
 

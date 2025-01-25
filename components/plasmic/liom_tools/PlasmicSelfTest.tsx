@@ -871,40 +871,9 @@ function PlasmicSelfTest__RenderFunc(props: {
             }
             slot2={null}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__mJlZs
-              )}
-            >
-              {
-                "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a"
-              }
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ldtvg
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return localStorage.getItem("user_id");
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
+            {
+              "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a"
+            }
           </HeaderLiom>
           <div
             className={classNames(projectcss.all, sty.freeBox__fwEj, ``)}
@@ -5343,6 +5312,44 @@ function PlasmicSelfTest__RenderFunc(props: {
               "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\"></script>\r\n\r\n\r\n"
             }
           />
+
+          {(() => {
+            try {
+              return $state.userId == "252";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__mq3YR
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return JSON.stringify($state.eitaa).toString();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
