@@ -622,24 +622,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "showgreen",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return [];
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [
-                  { id: 200, user_id: 32, timestamp: "2024-12-15 07:19:59" },
-                  { id: 204, user_id: 32, timestamp: "2024-12-26 07:30:31" },
-                  { id: 205, user_id: 32, timestamp: "2024-12-26 11:26:00" }
-                ];
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "dialog.open",
@@ -5588,7 +5571,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon)}
             code={
-              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\nwindow.Eitaa.WebApp.expand();\r\n</script>\r\n\r\n\r\n"
+              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\nwindow.Eitaa.WebApp.expand();\r\nwindow.Eitaa.WebApp.setHeaderColor(\"#f3f3f3\");\r\n\r\n</script>\r\n\r\n\r\n"
             }
           />
 

@@ -897,7 +897,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           const active = filteredItem
                             ? filteredItem.active
                             : false;
-                          return active;
+                          return active || !currentItem.vip;
                         })()
                           ? (() => {
                               const actionArgs = {
@@ -960,7 +960,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           const active = filteredItem
                             ? filteredItem.active
                             : false;
-                          return $ctx.query.inApp == "true" && !active;
+                          return (
+                            $ctx.query.inApp == "true" &&
+                            !active &&
+                            currentItem.vip == 1
+                          );
                         })()
                           ? (() => {
                               const actionArgs = {
@@ -984,7 +988,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         }
 
                         $steps["invokeGlobalAction"] = (
-                          $ctx.query.inApp == "false" ? true : false
+                          $ctx.query.inApp == "false" && currentItem.vip == 1
+                            ? true
+                            : false
                         )
                           ? (() => {
                               const actionArgs = {
