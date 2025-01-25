@@ -267,22 +267,13 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     $steps["goToPage"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return (
-                                  "https://tools.liom.app/self-medication/?type=" +
-                                  $ctx.query.type
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
+                            destination:
+                              "https://tools.liom.app/self-medication/?type=" +
+                              $ctx.query.type +
+                              "&inApp=" +
+                              $ctx.query.inApp +
+                              "&token=" +
+                              $ctx.query.token
                           };
                           return (({ destination }) => {
                             if (
@@ -326,7 +317,11 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             try {
                               return (
                                 "https://tools.liom.app/self-medication/?type=" +
-                                $ctx.query.type
+                                $ctx.query.type +
+                                "&inApp=" +
+                                $ctx.query.inApp +
+                                "&token=" +
+                                $ctx.query.token
                               );
                             } catch (e) {
                               if (
@@ -362,7 +357,16 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   }
                 }}
               >
-                {"\u0645\u0633\u06cc\u0631 \u0633\u0644\u0627\u0645\u062a"}
+                <React.Fragment>
+                  {(() => {
+                    switch ($ctx.query.type) {
+                      case "danger":
+                        return "خطرناکه یانه";
+                      default:
+                        return "مسیر سلامت";
+                    }
+                  })()}
+                </React.Fragment>
               </div>
             </HeaderLiom>
           </section>

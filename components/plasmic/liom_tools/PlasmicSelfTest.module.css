@@ -1419,3 +1419,56 @@
   max-width: 100%;
   object-fit: cover;
 }
+.dialog:global(.__wab_instance):global(.__wab_instance) {
+  max-width: 100%;
+}
+.text__k70Z {
+  width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+.freeBox__rymi9 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__rymi9 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.freeBox__rymi9 > :global(.__wab_flex-container) > *,
+.freeBox__rymi9 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__rymi9 > :global(.__wab_flex-container) > picture > img,
+.freeBox__rymi9
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.buttonLiom3:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg__nFwca {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg___6Nd0F {
+  object-fit: cover;
+  max-width: 100%;
+  width: 150%;
+  height: 150%;
+}

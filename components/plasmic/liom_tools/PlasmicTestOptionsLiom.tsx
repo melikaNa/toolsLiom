@@ -95,6 +95,8 @@ export type PlasmicTestOptionsLiom__ArgsType = {
   retestTest?: boolean;
   app?: string;
   children?: React.ReactNode;
+  onResulr?: (event: any) => void;
+  showgreen?: boolean;
 };
 type ArgPropType = keyof PlasmicTestOptionsLiom__ArgsType;
 export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
@@ -105,7 +107,9 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
   "ferst",
   "retestTest",
   "app",
-  "children"
+  "children",
+  "onResulr",
+  "showgreen"
 );
 
 export type PlasmicTestOptionsLiom__OverridesType = {
@@ -113,6 +117,7 @@ export type PlasmicTestOptionsLiom__OverridesType = {
   optionItemLiom?: Flex__<typeof OptionItemLiom>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   button?: Flex__<typeof ButtonLiom>;
+  button2?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultTestOptionsLiomProps {
@@ -124,6 +129,8 @@ export interface DefaultTestOptionsLiomProps {
   retestTest?: boolean;
   app?: string;
   children?: React.ReactNode;
+  onResulr?: (event: any) => void;
+  showgreen?: boolean;
   className?: string;
 }
 
@@ -162,7 +169,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             ]
           },
           ferst: true,
-          retestTest: true
+          retestTest: true,
+          showgreen: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -198,6 +206,12 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
 
         valueProp: "selectedIDs",
         onChangeProp: "onSelectedIDsChange"
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "green"
       }
     ],
     [$props, $ctx, $refs]
@@ -595,15 +609,68 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           </React.Fragment>
         </ButtonLiom>
       ) : null}
+      {(() => {
+        try {
+          return $props.showgreen;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <ButtonLiom
+          data-plasmic-name={"button2"}
+          data-plasmic-override={overrides.button2}
+          className={classNames("__wab_instance", sty.button2)}
+          color={generateStateValueProp($state, ["button2", "color"])}
+          onClick={args.onResulr}
+          onColorChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button2", "color"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return "دیدن نتایج قبلی";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "Button";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </ButtonLiom>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "optionItemLiom", "paziresh24Button", "button"],
+  root: ["root", "optionItemLiom", "paziresh24Button", "button", "button2"],
   optionItemLiom: ["optionItemLiom"],
   paziresh24Button: ["paziresh24Button"],
-  button: ["button"]
+  button: ["button"],
+  button2: ["button2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -613,6 +680,7 @@ type NodeDefaultElementType = {
   optionItemLiom: typeof OptionItemLiom;
   paziresh24Button: typeof Paziresh24Button;
   button: typeof ButtonLiom;
+  button2: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -678,6 +746,7 @@ export const PlasmicTestOptionsLiom = Object.assign(
     optionItemLiom: makeNodeComponent("optionItemLiom"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     button: makeNodeComponent("button"),
+    button2: makeNodeComponent("button2"),
 
     // Metadata about props expected for PlasmicTestOptionsLiom
     internalVariantProps: PlasmicTestOptionsLiom__VariantProps,

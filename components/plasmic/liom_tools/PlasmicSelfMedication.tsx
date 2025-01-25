@@ -96,12 +96,11 @@ export type PlasmicSelfMedication__OverridesType = {
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
-  getUser?: Flex__<typeof ApiRequest>;
   getStep?: Flex__<typeof ApiRequest>;
   getItem?: Flex__<typeof ApiRequest>;
+  getUser?: Flex__<typeof ApiRequest>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultSelfMedicationProps {}
@@ -293,8 +292,37 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.paziresh24Avatar)}
                 />
               }
+              slot2={
+                (() => {
+                  try {
+                    return $ctx.query.token.length > 0;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Icon22Icon
+                    className={classNames(projectcss.all, sty.svg__nBoN)}
+                    role={"img"}
+                  />
+                ) : null
+              }
             >
-              {"\u0645\u0633\u06cc\u0631 \u0633\u0644\u0627\u0645\u062a"}
+              <React.Fragment>
+                {(() => {
+                  switch ($ctx.query.type) {
+                    case "danger":
+                      return "خطرناکه یانه";
+                    default:
+                      return "مسیر سلامت";
+                  }
+                })()}
+              </React.Fragment>
             </HeaderLiom>
           </section>
           <Stack__
@@ -310,19 +338,181 @@ function PlasmicSelfMedication__RenderFunc(props: {
               displayMaxWidth={"300%"}
               displayMinHeight={"0"}
               displayMinWidth={"0"}
-              displayWidth={"300px"}
+              displayWidth={"350px"}
               loading={"lazy"}
               src={{
-                src: "/plasmic/liom_tools/images/医疗工作的男医生矢量扁平插画0918果冻画板1.png",
-                fullWidth: 888,
-                fullHeight: 705,
+                src: "/plasmic/liom_tools/images/image37.png",
+                fullWidth: 639,
+                fullHeight: 450,
                 aspectRatio: undefined
               }}
             />
 
             <ApiRequest
+              data-plasmic-name={"getStep"}
+              data-plasmic-override={overrides.getStep}
+              className={classNames("__wab_instance", sty.getStep)}
+              errorDisplay={null}
+              loadingDisplay={null}
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getStep", "error"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getStep", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getStep", "data"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              params={(() => {
+                try {
+                  return {
+                    type: $ctx.query.type
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/getStep"}
+            >
+              <ApiRequest
+                data-plasmic-name={"getItem"}
+                data-plasmic-override={overrides.getItem}
+                className={classNames("__wab_instance", sty.getItem)}
+                errorDisplay={null}
+                loadingDisplay={null}
+                method={"GET"}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getItem", "error"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "getItem",
+                    "loading"
+                  ]).apply(null, eventArgs);
+                }}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getItem", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["updateDetailsList"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["detailsList"]
+                            },
+                            operation: 0,
+                            value: $state.getItem.data
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDetailsList"] != null &&
+                      typeof $steps["updateDetailsList"] === "object" &&
+                      typeof $steps["updateDetailsList"].then === "function"
+                    ) {
+                      $steps["updateDetailsList"] = await $steps[
+                        "updateDetailsList"
+                      ];
+                    }
+
+                    $steps["updateDetailsList2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["itemLoading"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDetailsList2"] != null &&
+                      typeof $steps["updateDetailsList2"] === "object" &&
+                      typeof $steps["updateDetailsList2"].then === "function"
+                    ) {
+                      $steps["updateDetailsList2"] = await $steps[
+                        "updateDetailsList2"
+                      ];
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                params={(() => {
+                  try {
+                    return {
+                      stepId: $state.getStep.data[$state.selectedStep].id
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                url={"https://n8n.staas.ir/webhook/selfTreatment"}
+              />
+            </ApiRequest>
+            <ApiRequest
               data-plasmic-name={"getUser"}
               data-plasmic-override={overrides.getUser}
+              children={null}
               className={classNames("__wab_instance", sty.getUser)}
               errorDisplay={null}
               loadingDisplay={null}
@@ -361,169 +551,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 }
               })()}
               url={"https://n8n.staas.ir/webhook/userInfo"}
-            >
-              <ApiRequest
-                data-plasmic-name={"getStep"}
-                data-plasmic-override={overrides.getStep}
-                className={classNames("__wab_instance", sty.getStep)}
-                errorDisplay={null}
-                loadingDisplay={null}
-                method={"GET"}
-                onError={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getStep", "error"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                onLoading={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "getStep",
-                    "loading"
-                  ]).apply(null, eventArgs);
-                }}
-                onSuccess={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getStep", "data"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                params={(() => {
-                  try {
-                    return {
-                      type: $ctx.query.type
-                    };
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                url={"https://n8n.staas.ir/webhook/getStep"}
-              >
-                <ApiRequest
-                  data-plasmic-name={"getItem"}
-                  data-plasmic-override={overrides.getItem}
-                  className={classNames("__wab_instance", sty.getItem)}
-                  errorDisplay={null}
-                  loadingDisplay={null}
-                  method={"GET"}
-                  onError={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "getItem",
-                      "error"
-                    ]).apply(null, eventArgs);
-                  }}
-                  onLoading={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "getItem",
-                      "loading"
-                    ]).apply(null, eventArgs);
-                  }}
-                  onSuccess={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "getItem",
-                      "data"
-                    ]).apply(null, eventArgs);
+            />
 
-                    (async data => {
-                      const $steps = {};
-
-                      $steps["updateDetailsList"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["detailsList"]
-                              },
-                              operation: 0,
-                              value: $state.getItem.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateDetailsList"] != null &&
-                        typeof $steps["updateDetailsList"] === "object" &&
-                        typeof $steps["updateDetailsList"].then === "function"
-                      ) {
-                        $steps["updateDetailsList"] = await $steps[
-                          "updateDetailsList"
-                        ];
-                      }
-
-                      $steps["updateDetailsList2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["itemLoading"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateDetailsList2"] != null &&
-                        typeof $steps["updateDetailsList2"] === "object" &&
-                        typeof $steps["updateDetailsList2"].then === "function"
-                      ) {
-                        $steps["updateDetailsList2"] = await $steps[
-                          "updateDetailsList2"
-                        ];
-                      }
-                    }).apply(null, eventArgs);
-                  }}
-                  params={(() => {
-                    try {
-                      return {
-                        stepId: $state.getStep.data[$state.selectedStep].id
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  url={"https://n8n.staas.ir/webhook/selfTreatment"}
-                />
-              </ApiRequest>
-            </ApiRequest>
             {(() => {
               try {
                 return !$state.getStep.loading;
@@ -723,7 +752,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         })()}
                         isShowDate={(() => {
                           try {
-                            return $ctx.query.type != "doOrNot";
+                            return $ctx.query.type != "danger";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -755,7 +784,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
             ) : null}
             {(() => {
               try {
-                return $ctx.query.type != "doOrNot";
+                return $ctx.query.type != "danger";
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -863,7 +892,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           const allowance =
                             $state?.getUser?.data?.[0]?.result?.allowance || [];
                           const filteredItem = allowance.find(
-                            item => item.type === "doOrNot"
+                            item => item.type === "danger"
                           );
                           const active = filteredItem
                             ? filteredItem.active
@@ -882,7 +911,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                       "&style=" +
                                       currentItem.styleType +
                                       "&type=" +
-                                      $ctx.query.type
+                                      $ctx.query.type +
+                                      "&token=" +
+                                      $ctx.query.token +
+                                      "&inApp=" +
+                                      $ctx.query.inApp
                                     );
                                   } catch (e) {
                                     if (
@@ -918,11 +951,23 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           $steps["goToPage"] = await $steps["goToPage"];
                         }
 
-                        $steps["runCode"] = true
+                        $steps["runCode"] = (() => {
+                          const allowance =
+                            $state?.getUser?.data?.[0]?.result?.allowance || [];
+                          const filteredItem = allowance.find(
+                            item => item.type === "danger"
+                          );
+                          const active = filteredItem
+                            ? filteredItem.active
+                            : false;
+                          return $ctx.query.inApp == "true" && !active;
+                        })()
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return (() => {})();
+                                  return window.FlutterChannel.postMessage(
+                                    "#healthSubscription"
+                                  );
                                 }
                               };
                               return (({ customFunction }) => {
@@ -936,6 +981,32 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           typeof $steps["runCode"].then === "function"
                         ) {
                           $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction"] = (
+                          $ctx.query.inApp == "false" ? true : false
+                        )
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
                         }
                       }}
                     >
@@ -1026,9 +1097,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           </Stack__>
                         </LoadingConclusion>
                         <ChevronLeftIcon
-                          data-plasmic-name={"svg"}
-                          data-plasmic-override={overrides.svg}
-                          className={classNames(projectcss.all, sty.svg)}
+                          className={classNames(projectcss.all, sty.svg__lmQ55)}
                           role={"img"}
                         />
                       </div>
@@ -1091,22 +1160,20 @@ const PlasmicDescendants = {
     "section",
     "headerLiom",
     "paziresh24Avatar",
-    "getUser",
     "getStep",
     "getItem",
+    "getUser",
     "linearCalendar",
-    "loadingConclusion",
-    "svg"
+    "loadingConclusion"
   ],
   section: ["section", "headerLiom", "paziresh24Avatar"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
-  getUser: ["getUser", "getStep", "getItem"],
   getStep: ["getStep", "getItem"],
   getItem: ["getItem"],
+  getUser: ["getUser"],
   linearCalendar: ["linearCalendar"],
-  loadingConclusion: ["loadingConclusion"],
-  svg: ["svg"]
+  loadingConclusion: ["loadingConclusion"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1116,12 +1183,11 @@ type NodeDefaultElementType = {
   section: "section";
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
-  getUser: typeof ApiRequest;
   getStep: typeof ApiRequest;
   getItem: typeof ApiRequest;
+  getUser: typeof ApiRequest;
   linearCalendar: typeof LinearCalendar;
   loadingConclusion: typeof LoadingConclusion;
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1212,12 +1278,11 @@ export const PlasmicSelfMedication = Object.assign(
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
-    getUser: makeNodeComponent("getUser"),
     getStep: makeNodeComponent("getStep"),
     getItem: makeNodeComponent("getItem"),
+    getUser: makeNodeComponent("getUser"),
     linearCalendar: makeNodeComponent("linearCalendar"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicSelfMedication
     internalVariantProps: PlasmicSelfMedication__VariantProps,
