@@ -11,6 +11,8 @@ export default function Document() {
           src="https://hamdast.paziresh24.com/sdk/hamdast.js"
           strategy="beforeInteractive"
         />
+        <Script src="https://developer.eitaa.com/eitaa-web-app.js">
+        />
       </Head>
       <body>
         <Main />
