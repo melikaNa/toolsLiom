@@ -866,36 +866,53 @@ function PlasmicSelfTest__RenderFunc(props: {
             }
           }}
         >
-          <HeaderLiom
-            data-plasmic-name={"headerLiom"}
-            data-plasmic-override={overrides.headerLiom}
-            className={classNames("__wab_instance", sty.headerLiom)}
-            slot={
-              <Paziresh24Avatar
-                data-plasmic-name={"paziresh24Avatar"}
-                data-plasmic-override={overrides.paziresh24Avatar}
-                className={classNames("__wab_instance", sty.paziresh24Avatar)}
-                src={(() => {
-                  try {
-                    return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
+          {(() => {
+            try {
+              return (
+                new URLSearchParams(window.location.search).get("origin") !=
+                "eata"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+              slot={
+                <Paziresh24Avatar
+                  data-plasmic-name={"paziresh24Avatar"}
+                  data-plasmic-override={overrides.paziresh24Avatar}
+                  className={classNames("__wab_instance", sty.paziresh24Avatar)}
+                  src={(() => {
+                    try {
+                      return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              />
-            }
-            slot2={null}
-          >
-            {
-              "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a"
-            }
-          </HeaderLiom>
+                  })()}
+                />
+              }
+              slot2={null}
+            >
+              {
+                "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a"
+              }
+            </HeaderLiom>
+          ) : null}
           <div
             className={classNames(projectcss.all, sty.freeBox__fwEj, ``)}
             id={"messegeBox"}
@@ -3530,10 +3547,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
-                                return window.open(
-                                  `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}&app=${$ctx.query.app}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}`,
-                                  "_self"
-                                );
+                                return (() => {
+                                  return window.open(
+                                    `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}&app=${$ctx.query.app}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&origin=${$ctx.query.origin}`,
+                                    "_self"
+                                  );
+                                })();
                               }
                             };
                             return (({ customFunction }) => {
@@ -4628,47 +4647,63 @@ function PlasmicSelfTest__RenderFunc(props: {
               </Reveal>
             </div>
           ) : null}
-          <AntdProgress
-            data-plasmic-name={"progress"}
-            data-plasmic-override={overrides.progress}
-            className={classNames("__wab_instance", sty.progress)}
-            gradient={[]}
-            percent={(() => {
-              try {
-                return $state.numberTest / ($state.totalTest / 100) - 0.1;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return 0;
-                }
-                throw e;
+          {(() => {
+            try {
+              return (
+                new URLSearchParams(window.location.search).get("origin") !=
+                "eata"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-            })()}
-            showInfo={false}
-            strokeColor={(() => {
-              try {
-                return (() => {
-                  if ($ctx.query.app == "liom") return "#EF6FB7";
-                })();
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            strokeWidth={
-              hasVariant(globalVariants, "screen", "mobileOnly") ? 5 : 6
+              throw e;
             }
-            successPercent={undefined}
-            type={"line"}
-          />
-
+          })() ? (
+            <AntdProgress
+              data-plasmic-name={"progress"}
+              data-plasmic-override={overrides.progress}
+              className={classNames("__wab_instance", sty.progress)}
+              gradient={[]}
+              percent={(() => {
+                try {
+                  return $state.numberTest / ($state.totalTest / 100) - 0.1;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 0;
+                  }
+                  throw e;
+                }
+              })()}
+              showInfo={false}
+              strokeColor={(() => {
+                try {
+                  return (() => {
+                    if ($ctx.query.app == "liom") return "#EF6FB7";
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              strokeWidth={
+                hasVariant(globalVariants, "screen", "mobileOnly") ? 5 : 6
+              }
+              successPercent={undefined}
+              type={"line"}
+            />
+          ) : null}
           {(() => {
             try {
               return $ctx.query.token;
@@ -5571,7 +5606,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon)}
             code={
-              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\nwindow.Eitaa.WebApp.expand();\r\nwindow.Eitaa.WebApp.setHeaderColor(\"#f3f3f3\");\r\n\r\n</script>\r\n\r\n\r\n"
+              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled\t=true;\r\n</script>\r\n\r\n\r\n"
             }
           />
 
@@ -5618,7 +5653,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `https://tools.liom.app/result/?session_id=${currentItem.id}&user_id=${currentItem.user_id}&Share=true`;
+                                    return `https://tools.liom.app/result/?session_id=${currentItem.id}&user_id=${currentItem.user_id}&Share=true&app=${$ctx.query.app}&origin=${$ctx.query.origin}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||

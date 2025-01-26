@@ -86,7 +86,6 @@ import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
 import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import {
@@ -152,7 +151,6 @@ export type PlasmicResult__OverridesType = {
   paziresh24LineClamp?: Flex__<typeof Paziresh24LineClamp>;
   cardSubtitle?: Flex__<"span">;
   section?: Flex__<"section">;
-  favicon?: Flex__<typeof Embed>;
   dialog2?: Flex__<typeof Paziresh24Dialog>;
   textArea2?: Flex__<typeof AntdTextArea>;
 };
@@ -855,35 +853,52 @@ function PlasmicResult__RenderFunc(props: {
               </div>
             </Backgrond>
           </AntdModal>
-          <HeaderLiom
-            data-plasmic-name={"headerLiom"}
-            data-plasmic-override={overrides.headerLiom}
-            className={classNames("__wab_instance", sty.headerLiom)}
-            slot={
-              <Paziresh24Avatar
-                className={classNames(
-                  "__wab_instance",
-                  sty.paziresh24Avatar__etGjv
-                )}
-                src={(() => {
-                  try {
-                    return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-              />
+          {(() => {
+            try {
+              return (
+                new URLSearchParams(window.location.search).get("origin") !=
+                "eata"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
             }
-            slot2={null}
-          >
-            {"\u0646\u062a\u06cc\u062c\u0647  \u0634\u0645\u0627"}
-          </HeaderLiom>
+          })() ? (
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+              slot={
+                <Paziresh24Avatar
+                  className={classNames(
+                    "__wab_instance",
+                    sty.paziresh24Avatar__etGjv
+                  )}
+                  src={(() => {
+                    try {
+                      return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+              }
+              slot2={null}
+            >
+              {"\u0646\u062a\u06cc\u062c\u0647  \u0634\u0645\u0627"}
+            </HeaderLiom>
+          ) : null}
           <Timer
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
@@ -4305,15 +4320,6 @@ function PlasmicResult__RenderFunc(props: {
               </Stack__>
             </section>
           ) : null}
-          <Embed
-            data-plasmic-name={"favicon"}
-            data-plasmic-override={overrides.favicon}
-            className={classNames("__wab_instance", sty.favicon)}
-            code={
-              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\"></script>\r\n"
-            }
-          />
-
           <Paziresh24Dialog
             data-plasmic-name={"dialog2"}
             data-plasmic-override={overrides.dialog2}
@@ -4814,7 +4820,6 @@ const PlasmicDescendants = {
     "paziresh24LineClamp",
     "cardSubtitle",
     "section",
-    "favicon",
     "dialog2",
     "textArea2"
   ],
@@ -4848,7 +4853,6 @@ const PlasmicDescendants = {
   paziresh24LineClamp: ["paziresh24LineClamp", "cardSubtitle"],
   cardSubtitle: ["cardSubtitle"],
   section: ["section"],
-  favicon: ["favicon"],
   dialog2: ["dialog2", "textArea2"],
   textArea2: ["textArea2"]
 } as const;
@@ -4874,7 +4878,6 @@ type NodeDefaultElementType = {
   paziresh24LineClamp: typeof Paziresh24LineClamp;
   cardSubtitle: "span";
   section: "section";
-  favicon: typeof Embed;
   dialog2: typeof Paziresh24Dialog;
   textArea2: typeof AntdTextArea;
 };
@@ -4981,7 +4984,6 @@ export const PlasmicResult = Object.assign(
     paziresh24LineClamp: makeNodeComponent("paziresh24LineClamp"),
     cardSubtitle: makeNodeComponent("cardSubtitle"),
     section: makeNodeComponent("section"),
-    favicon: makeNodeComponent("favicon"),
     dialog2: makeNodeComponent("dialog2"),
     textArea2: makeNodeComponent("textArea2"),
 
