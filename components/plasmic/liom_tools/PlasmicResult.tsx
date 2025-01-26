@@ -2830,8 +2830,12 @@ function PlasmicResult__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  session_id: $ctx.query.session_id,
-                  user_id: $ctx.query.user_id
+                  session_id: new URLSearchParams(window.location.search).get(
+                    "session_id"
+                  ),
+                  user_id: new URLSearchParams(window.location.search).get(
+                    "user_id"
+                  )
                 };
               } catch (e) {
                 if (

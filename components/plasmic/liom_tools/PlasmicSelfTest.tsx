@@ -3451,6 +3451,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    loading={(() => {
+                      try {
+                        return $state.loadinkBotten;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "loading";
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async event => {
                       const $steps = {};
 
@@ -3503,9 +3516,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       userId: $state.userId,
                                       pageName: "self-test",
                                       action: "Test-result",
-                                      extraData: {
-                                        sessionId: $state.sessionId
-                                      }
+                                      extraData: { sessionId: $state.sessionId }
                                     };
                                   } catch (e) {
                                     if (
@@ -3543,29 +3554,44 @@ function PlasmicSelfTest__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["runCode"] = true
+                      $steps["goToPage"] = true
                         ? (() => {
                             const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  return window.open(
-                                    `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}&app=${$ctx.query.app}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&origin=${$ctx.query.origin}`,
-                                    "_self"
-                                  );
-                                })();
-                              }
+                              destination: (() => {
+                                try {
+                                  return `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}&app=${$ctx.query.app}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&origin=${$ctx.query.origin}`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
                             };
-                            return (({ customFunction }) => {
-                              return customFunction();
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
                       ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
 
                       $steps["runCode2"] = true
@@ -3594,19 +3620,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                         $steps["runCode2"] = await $steps["runCode2"];
                       }
                     }}
-                    showEndIcon={(() => {
-                      try {
-                        return $state.loadinkBotten;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
                     space={(() => {
                       try {
                         return $state.loadinkBotten;
@@ -5606,7 +5619,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon)}
             code={
-              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled\t=true;\r\n</script>\r\n\r\n\r\n"
+              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled\t=true;\r\n  window.Eitaa.WebApp.MainButton.text=\"                   \u0634\u0631\u0648\u0639                   \";\r\n</script>\r\n\r\n\r\n"
             }
           />
 
