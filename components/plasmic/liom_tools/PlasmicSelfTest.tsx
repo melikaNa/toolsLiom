@@ -88,14 +88,15 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
+import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicSelfTest.module.css"; // plasmic-import: 5IOCSv5V9vzY/css
 
 import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
-import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
-import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: 3GJi3NV2X6Zg/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: frqiW1UAlfdr/icon
 import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: VTuVNgeUH3X6/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
@@ -615,6 +616,18 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "buttonLiom3[].color",
         type: "private",
         variableType: "text"
+      },
+      {
+        path: "authCode",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "data",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -695,6 +708,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             plasmic_paziresh_24_design_system_css.plasmic_tokens,
+            plasmic_hamdast_sdk_css.plasmic_tokens,
             sty.root,
             {
               [sty.rootglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
@@ -3131,6 +3145,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                       "__wab_instance",
                       sty.paziresh24Button__qwVsn
                     )}
+                    endIcon={
+                      <ChevronLeftIcon
+                        className={classNames(projectcss.all, sty.svg__zlFcS)}
+                        role={"img"}
+                      />
+                    }
                     loading={(() => {
                       try {
                         return $state.loadinkBotten;
@@ -3359,6 +3379,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                         ];
                       }
                     }}
+                    startIcon={
+                      <ChevronRightIcon
+                        className={classNames(projectcss.all, sty.svg__pDjh)}
+                        role={"img"}
+                      />
+                    }
                   />
                 </Stack__>
               ) : null}
@@ -3614,6 +3640,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    startIcon={
+                      <ChevronRightIcon
+                        className={classNames(projectcss.all, sty.svg__k8MFy)}
+                        role={"img"}
+                      />
+                    }
                   />
                 </Stack__>
               ) : null}
@@ -4179,6 +4211,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.paziresh24Button__dabzn
                               )}
+                              endIcon={
+                                <ChevronLeftIcon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__fsFc2
+                                  )}
+                                  role={"img"}
+                                />
+                              }
                               loading={(() => {
                                 try {
                                   return $state.loadinkBotten;
@@ -4422,6 +4463,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   ];
                                 }
                               }}
+                              startIcon={
+                                <ChevronRightIcon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__fn3J
+                                  )}
+                                  role={"img"}
+                                />
+                              }
                             />
                           ) : null}
                         </Stack__>
@@ -5072,9 +5122,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       : new URLSearchParams(
                                           window.location.search
                                         ).get("user_id") ||
-                                        new URLSearchParams(
-                                          window.location.search
-                                        ).get("origin_user_id") ||
+                                        $state.data.userId ||
                                         "null"
                                 };
                               } catch (e) {
@@ -5565,7 +5613,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                           variablePath: ["loading"]
                         },
                         operation: 0,
-                        value: false
+                        value:
+                          $steps.invokeGlobalAction?.data?.success == true ||
+                          $steps.invokeGlobalAction4?.data?.success == true
                       };
                       return (({
                         variable,
@@ -5600,7 +5650,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon)}
             code={
-              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled\t=true;\r\n  window.Eitaa.WebApp.MainButton.text=\"\u0634\u0631\u0648\u0639\";\r\n  window.Eitaa.WebApp.MainButton.color=\"#7444BC\";\r\n  window.Eitaa.WebApp.MainButton.textColor=\"#ffffff\";\r\n  window.Eitaa.WebApp.MainButton.isVisible=true;\r\n  window.Eitaa.WebApp.MainButton.show()\t\r\n\r\n  // window.Eitaa.WebApp.MainButton({\r\n  //       style: {\r\n  //           width: '100%', // \u0639\u0631\u0636 \u062f\u06a9\u0645\u0647 \u0628\u0647 \u0635\u0648\u0631\u062a \u062a\u0645\u0627\u0645 \u0639\u0631\u0636\r\n  //           margin: 0, // \u062d\u0630\u0641 margin\r\n  //           padding: '10px' // \u062a\u0646\u0638\u06cc\u0645 padding\r\n  //       }\r\n  //   });\r\n</script>\r\n\r\n\r\n"
+              '<script>\r\n(function() {\r\n    var link = document.querySelector("link[rel=\'icon\']");\r\n    if (!link) {\r\n        link = document.createElement(\'link\');\r\n        link.rel = \'icon\';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = \'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico\';\r\n})();\r\n</script>\r\n<script src="https://developer.eitaa.com/eitaa-web-app.js">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled\t=true;\r\n  window.Eitaa.WebApp.MainButton.text="\u0634\u0631\u0648\u0639";\r\n  window.Eitaa.WebApp.MainButton.color="#7444BC";\r\n  window.Eitaa.WebApp.MainButton.textColor="#ffffff";\r\n  window.Eitaa.WebApp.MainButton.isVisible=true;\r\n  window.Eitaa.WebApp.MainButton.show();\r\n\r\n</script>\r\n\r\n\r\n'
             }
           />
 

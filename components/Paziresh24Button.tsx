@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   PlasmicPaziresh24Button,
   DefaultPaziresh24ButtonProps
-} from "./plasmic/paziresh_24_design_system/PlasmicPaziresh24Button";
+} from "./plasmic/hamdast_sdk/PlasmicPaziresh24Button";
 
 import {
   ButtonRef,

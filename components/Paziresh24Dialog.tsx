@@ -4,7 +4,7 @@ import * as React from "react";
 import {
   PlasmicPaziresh24Dialog,
   DefaultPaziresh24DialogProps
-} from "./plasmic/paziresh_24_design_system/PlasmicPaziresh24Dialog";
+} from "./plasmic/hamdast_sdk/PlasmicPaziresh24Dialog";
 
 // Your component props start with props for variants and slots you defined
 // in Plasmic, but you can add more here, like event handlers that you can

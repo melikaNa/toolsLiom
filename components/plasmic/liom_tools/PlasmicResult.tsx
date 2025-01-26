@@ -100,15 +100,16 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
+import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicResult.module.css"; // plasmic-import: AcKRuy7PeRlH/css
 
-import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
-import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: 3GJi3NV2X6Zg/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
-import ChevronDownIcon from "../fragment_icons/icons/PlasmicIcon__ChevronDown"; // plasmic-import: aC_QFogxt1Ko/icon
-import ChevronUpIcon from "../fragment_icons/icons/PlasmicIcon__ChevronUp"; // plasmic-import: YXreB8gS3SjV/icon
+import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: Us1K_hl1D5h1/icon
+import ChevronUpIcon from "./icons/PlasmicIcon__ChevronUp"; // plasmic-import: s9eeF5PzS4-y/icon
 import Icon125Icon from "./icons/PlasmicIcon__Icon125"; // plasmic-import: b8AgXrwwp9nu/icon
 import Icon127Icon from "./icons/PlasmicIcon__Icon127"; // plasmic-import: HCowqgxIwEnQ/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
@@ -478,6 +479,7 @@ function PlasmicResult__RenderFunc(props: {
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             plasmic_paziresh_24_design_system_css.plasmic_tokens,
+            plasmic_hamdast_sdk_css.plasmic_tokens,
             sty.root,
             {
               [sty.rootglobal_theme_dark]: hasVariant(
@@ -565,7 +567,8 @@ function PlasmicResult__RenderFunc(props: {
               projectcss.plasmic_tokens,
               plasmic_antd_5_hostless_css.plasmic_tokens,
               plasmic_plasmic_rich_components_css.plasmic_tokens,
-              plasmic_paziresh_24_design_system_css.plasmic_tokens
+              plasmic_paziresh_24_design_system_css.plasmic_tokens,
+              plasmic_hamdast_sdk_css.plasmic_tokens
             )}
             hideFooter={true}
             maskClosable={false}
@@ -952,6 +955,18 @@ function PlasmicResult__RenderFunc(props: {
                 "__wab_instance",
                 sty.paziresh24Button___2SVaX
               )}
+              endIcon={
+                <ChevronLeftIcon
+                  className={classNames(projectcss.all, sty.svg__eRGxr)}
+                  role={"img"}
+                />
+              }
+              startIcon={
+                <ChevronRightIcon
+                  className={classNames(projectcss.all, sty.svg__pGoTa)}
+                  role={"img"}
+                />
+              }
             />
 
             <ButtonLiom
@@ -3128,6 +3143,12 @@ function PlasmicResult__RenderFunc(props: {
                   "__wab_instance",
                   sty.paziresh24Button__kDEph
                 )}
+                endIcon={
+                  <ChevronLeftIcon
+                    className={classNames(projectcss.all, sty.svg__guVn)}
+                    role={"img"}
+                  />
+                }
                 isDisabled={(() => {
                   try {
                     return $state.loadbtn;
@@ -3298,6 +3319,12 @@ function PlasmicResult__RenderFunc(props: {
                     ? "compact"
                     : "compact"
                 }
+                startIcon={
+                  <ChevronRightIcon
+                    className={classNames(projectcss.all, sty.svg___1LpBj)}
+                    role={"img"}
+                  />
+                }
               />
 
               <Paziresh24Button
@@ -3316,6 +3343,12 @@ function PlasmicResult__RenderFunc(props: {
                   "__wab_instance",
                   sty.paziresh24Button__wwEhB
                 )}
+                endIcon={
+                  <ChevronLeftIcon
+                    className={classNames(projectcss.all, sty.svg__hs7Et)}
+                    role={"img"}
+                  />
+                }
                 onClick={async event => {
                   const $steps = {};
 
@@ -3360,6 +3393,12 @@ function PlasmicResult__RenderFunc(props: {
                   hasVariant(globalVariants, "screen", "mobileOnly")
                     ? "compact"
                     : undefined
+                }
+                startIcon={
+                  <ChevronRightIcon
+                    className={classNames(projectcss.all, sty.svg__lcy4S)}
+                    role={"img"}
+                  />
                 }
               />
             </Stack__>
@@ -3762,6 +3801,15 @@ function PlasmicResult__RenderFunc(props: {
                             "__wab_instance",
                             sty.paziresh24Button__hZeLs
                           )}
+                          endIcon={
+                            <ChevronLeftIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__s56Rl
+                              )}
+                              role={"img"}
+                            />
+                          }
                           onClick={async event => {
                             const $steps = {};
 
@@ -3805,6 +3853,15 @@ function PlasmicResult__RenderFunc(props: {
                               $steps["goToPage"] = await $steps["goToPage"];
                             }
                           }}
+                          startIcon={
+                            <ChevronRightIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__v05S
+                              )}
+                              role={"img"}
+                            />
+                          }
                         />
 
                         <Paziresh24Button
@@ -3816,6 +3873,15 @@ function PlasmicResult__RenderFunc(props: {
                             sty.paziresh24Button___3Plz2
                           )}
                           color={"text"}
+                          endIcon={
+                            <ChevronLeftIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__n6DEw
+                              )}
+                              role={"img"}
+                            />
+                          }
                           onClick={async event => {
                             const $steps = {};
 
@@ -3859,6 +3925,15 @@ function PlasmicResult__RenderFunc(props: {
                               ];
                             }
                           }}
+                          startIcon={
+                            <ChevronRightIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__xDfIk
+                              )}
+                              role={"img"}
+                            />
+                          }
                         />
                       </Stack__>
                     );
@@ -3966,6 +4041,12 @@ function PlasmicResult__RenderFunc(props: {
                 }}
                 shape={"rounded"}
                 showEndIcon={true}
+                startIcon={
+                  <ChevronRightIcon
+                    className={classNames(projectcss.all, sty.svg__nziFq)}
+                    role={"img"}
+                  />
+                }
               />
             </Stack__>
           ) : null}
@@ -4264,6 +4345,12 @@ function PlasmicResult__RenderFunc(props: {
                     "__wab_instance",
                     sty.paziresh24Button__wlNh
                   )}
+                  endIcon={
+                    <ChevronLeftIcon
+                      className={classNames(projectcss.all, sty.svg__aC61O)}
+                      role={"img"}
+                    />
+                  }
                   onClick={async event => {
                     const $steps = {};
 
@@ -4563,6 +4650,12 @@ function PlasmicResult__RenderFunc(props: {
                     "__wab_instance",
                     sty.paziresh24Button__aiJcb
                   )}
+                  endIcon={
+                    <ChevronLeftIcon
+                      className={classNames(projectcss.all, sty.svg__sayga)}
+                      role={"img"}
+                    />
+                  }
                   isDisabled={(() => {
                     try {
                       return $state.loadbtn;
@@ -4764,6 +4857,12 @@ function PlasmicResult__RenderFunc(props: {
                       ];
                     }
                   }}
+                  startIcon={
+                    <ChevronRightIcon
+                      className={classNames(projectcss.all, sty.svg___7J47C)}
+                      role={"img"}
+                    />
+                  }
                 />
               </Stack__>
             }
