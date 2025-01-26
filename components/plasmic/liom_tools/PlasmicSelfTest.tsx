@@ -600,25 +600,6 @@ function PlasmicSelfTest__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "eitaa",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return window.Eitaa.WebApp;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return {};
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "showgreen",
         type: "private",
         variableType: "array",
@@ -5619,7 +5600,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon)}
             code={
-              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled\t=false;\r\n    window.Eitaa.WebApp.MainButton.isVisible=true;\r\n  window.Eitaa.WebApp.MainButton({\r\n        style: {\r\n            width: '100%', // \u0639\u0631\u0636 \u062f\u06a9\u0645\u0647 \u0628\u0647 \u0635\u0648\u0631\u062a \u062a\u0645\u0627\u0645 \u0639\u0631\u0636\r\n            margin: 0, // \u062d\u0630\u0641 margin\r\n            padding: '10px' // \u062a\u0646\u0638\u06cc\u0645 padding\r\n        }\r\n    });\r\n  window.Eitaa.WebApp.MainButton.text=\"\u0634\u0631\u0648\u0639\";\r\n  window.Eitaa.WebApp.MainButton.color=\"#7444BC\";\r\n  window.Eitaa.WebApp.MainButton.textColor=\"#ffffff\";\r\n   window.Eitaa.WebApp.showConfirm('\u0622\u06cc\u0627 \u0645\u0637\u0645\u0626\u0646 \u0647\u0633\u062a\u06cc\u062f \u06a9\u0647 \u0645\u06cc\u200c\u062e\u0648\u0627\u0647\u06cc\u062f \u0628\u0631\u0646\u0627\u0645\u06a9 \u0631\u0627 \u0628\u0628\u0646\u062f\u06cc\u062f\u061f', (confirmed) => {\r\n        if (confirmed) {\r\n            // \u0627\u06af\u0631 \u06a9\u0627\u0631\u0628\u0631 \u062a\u0623\u06cc\u06cc\u062f \u06a9\u0631\u062f\u060c \u0628\u0631\u0646\u0627\u0645\u06a9 \u0631\u0627 \u0628\u0628\u0646\u062f\u06cc\u062f\r\n            eitaa.close();\r\n        } else {\r\n        }\r\n    });\r\n</script>\r\n\r\n\r\n"
+              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled\t=true;\r\n  window.Eitaa.WebApp.MainButton.text=\"\u0634\u0631\u0648\u0639\";\r\n  window.Eitaa.WebApp.MainButton.color=\"#7444BC\";\r\n  window.Eitaa.WebApp.MainButton.textColor=\"#ffffff\";\r\n  window.Eitaa.WebApp.MainButton.isVisible=true;\r\n  window.Eitaa.WebApp.MainButton.show()\t\r\n\r\n  // window.Eitaa.WebApp.MainButton({\r\n  //       style: {\r\n  //           width: '100%', // \u0639\u0631\u0636 \u062f\u06a9\u0645\u0647 \u0628\u0647 \u0635\u0648\u0631\u062a \u062a\u0645\u0627\u0645 \u0639\u0631\u0636\r\n  //           margin: 0, // \u062d\u0630\u0641 margin\r\n  //           padding: '10px' // \u062a\u0646\u0638\u06cc\u0645 padding\r\n  //       }\r\n  //   });\r\n</script>\r\n\r\n\r\n"
             }
           />
 
