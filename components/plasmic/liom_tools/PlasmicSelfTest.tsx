@@ -5536,9 +5536,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            window.Eitaa.WebApp.MainButton.text =
-                              "     khjjkjjkj";
-                            window.Eitaa.WebApp.MainButton.color = "#f3f3f3";
+                            window.Eitaa.WebApp.MainButton.text = "لیوم";
+                            window.Eitaa.WebApp.MainButton.disable();
+                            window.Eitaa.WebApp.MainButton.color = "#ffffff";
                             window.Eitaa.WebApp.MainButton.textColor =
                               "#ffffff";
                             return window.Eitaa.WebApp.MainButton.show();
