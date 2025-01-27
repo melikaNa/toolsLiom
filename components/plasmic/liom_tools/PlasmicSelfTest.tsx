@@ -5536,7 +5536,17 @@ function PlasmicSelfTest__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            return window.Eitaa.WebApp.MainButton.show();
+                            if (window.Eitaa && window.Eitaa.WebApp) {
+                              window.Eitaa.WebApp.ready();
+                              window.Eitaa.WebApp.expand();
+                              window.Eitaa.WebApp.isClosingConfirmationEnabled =
+                                true;
+                              window.Eitaa.WebApp.MainButton.text = "شروع";
+                              window.Eitaa.WebApp.MainButton.color = "#7444BC";
+                              window.Eitaa.WebApp.MainButton.textColor =
+                                "#ffffff";
+                              return window.Eitaa.WebApp.MainButton.show();
+                            }
                           })();
                         }
                       };
@@ -5672,7 +5682,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon)}
             code={
-              '<script>\r\n(function() {\r\n    var link = document.querySelector("link[rel=\'icon\']");\r\n    if (!link) {\r\n        link = document.createElement(\'link\');\r\n        link.rel = \'icon\';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = \'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico\';\r\n})();\r\n</script>\r\n<script src="https://developer.eitaa.com/eitaa-web-app.js">\r\n</script>\r\n<script>\r\n  if (window.Eitaa && window.Eitaa.WebApp){\r\n   window.Eitaa.WebApp.ready();\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled\t=true;\r\n  window.Eitaa.WebApp.MainButton.text="\u0634\u0631\u0648\u0639";\r\n  window.Eitaa.WebApp.MainButton.color="#7444BC";\r\n  window.Eitaa.WebApp.MainButton.textColor="#ffffff";\r\n\r\n}\r\n</script>\r\n\r\n\r\n'
+              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\n</script>\r\n"
             }
           />
 
