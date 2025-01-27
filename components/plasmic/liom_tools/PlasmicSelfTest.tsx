@@ -5541,8 +5541,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                               window.Eitaa.WebApp.expand();
                               window.Eitaa.WebApp.isClosingConfirmationEnabled =
                                 true;
-                              window.Eitaa.WebApp.MainButton.text = "شروع";
-                              window.Eitaa.WebApp.MainButton.color = "#7444BC";
+                              window.Eitaa.WebApp.MainButton.text = "";
+                              window.Eitaa.WebApp.MainButton.color = "#ffffff";
                               window.Eitaa.WebApp.MainButton.textColor =
                                 "#ffffff";
                               return window.Eitaa.WebApp.MainButton.show();
