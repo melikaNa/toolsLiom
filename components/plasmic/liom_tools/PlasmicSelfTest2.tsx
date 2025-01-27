@@ -923,7 +923,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         undefined,
                         (() => {
                           try {
-                            return { code: authCode };
+                            return { code: authCode.toString() };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
