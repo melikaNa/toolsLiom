@@ -879,6 +879,41 @@ function PlasmicSelfTest2__RenderFunc(props: {
             onSuccess={async authCode => {
               const $steps = {};
 
+              $steps["invokeGlobalAction3"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        (() => {
+                          try {
+                            return authCode;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction3"] != null &&
+                typeof $steps["invokeGlobalAction3"] === "object" &&
+                typeof $steps["invokeGlobalAction3"].then === "function"
+              ) {
+                $steps["invokeGlobalAction3"] = await $steps[
+                  "invokeGlobalAction3"
+                ];
+              }
+
               $steps["invokeGlobalAction"] = true
                 ? (() => {
                     const actionArgs = {
@@ -945,7 +980,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 $steps["updateData"] = await $steps["updateData"];
               }
 
-              $steps["invokeGlobalAction2"] = true
+              $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction?.data
+                ?.success
                 ? (() => {
                     const actionArgs = {
                       args: [
