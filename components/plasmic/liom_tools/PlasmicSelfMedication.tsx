@@ -102,6 +102,7 @@ export type PlasmicSelfMedication__OverridesType = {
   getUser?: Flex__<typeof ApiRequest>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
+  getName?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSelfMedicationProps {}
@@ -231,6 +232,24 @@ function PlasmicSelfMedication__RenderFunc(props: {
       },
       {
         path: "getUser.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getName.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getName.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getName.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -390,7 +409,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              url={"https://n8n.staas.ir/webhook/getStep"}
+              url={"https://n8n.staas.ir/webhook/info"}
             >
               <ApiRequest
                 data-plasmic-name={"getItem"}
@@ -647,7 +666,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   variablePath: ["detailsList"]
                                 },
                                 operation: 0,
-                                value: $steps.invokeGlobalAction.data
+                                value: $steps.invokeGlobalAction?.data ?? []
                               };
                               return (({
                                 variable,
@@ -754,7 +773,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         })()}
                         isShowDate={(() => {
                           try {
-                            return $ctx.query.type != "danger";
+                            return false;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -804,7 +823,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   sty.text__psCpo
                 )}
               >
-                {"\u0631\u0648\u0632 1 \u0627\u0632 30"}
+                <React.Fragment>
+                  {"روز " +
+                    ($state.selectedStep + 1) +
+                    " از " +
+                    $state.getStep.data.length}
+                </React.Fragment>
               </div>
             ) : null}
             {(() => {
@@ -1152,6 +1176,68 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   );
                 })
               : null}
+            <ApiRequest
+              data-plasmic-name={"getName"}
+              data-plasmic-override={overrides.getName}
+              body={(() => {
+                try {
+                  return {
+                    type: $ctx.query.type
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              className={classNames("__wab_instance", sty.getName)}
+              errorDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___3DVh
+                  )}
+                >
+                  {"Error fetching data"}
+                </div>
+              }
+              loadingDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__r54Dp
+                  )}
+                >
+                  {"Loading..."}
+                </div>
+              }
+              method={"POST"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getName", "error"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getName", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getName", "data"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              url={"https://n8n.staas.ir/webhook-test/info"}
+            />
           </Stack__>
         </div>
       </div>
@@ -1169,7 +1255,8 @@ const PlasmicDescendants = {
     "getItem",
     "getUser",
     "linearCalendar",
-    "loadingConclusion"
+    "loadingConclusion",
+    "getName"
   ],
   section: ["section", "headerLiom", "paziresh24Avatar"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
@@ -1178,7 +1265,8 @@ const PlasmicDescendants = {
   getItem: ["getItem"],
   getUser: ["getUser"],
   linearCalendar: ["linearCalendar"],
-  loadingConclusion: ["loadingConclusion"]
+  loadingConclusion: ["loadingConclusion"],
+  getName: ["getName"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1193,6 +1281,7 @@ type NodeDefaultElementType = {
   getUser: typeof ApiRequest;
   linearCalendar: typeof LinearCalendar;
   loadingConclusion: typeof LoadingConclusion;
+  getName: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1288,6 +1377,7 @@ export const PlasmicSelfMedication = Object.assign(
     getUser: makeNodeComponent("getUser"),
     linearCalendar: makeNodeComponent("linearCalendar"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
+    getName: makeNodeComponent("getName"),
 
     // Metadata about props expected for PlasmicSelfMedication
     internalVariantProps: PlasmicSelfMedication__VariantProps,

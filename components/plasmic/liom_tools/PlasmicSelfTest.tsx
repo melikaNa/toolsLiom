@@ -135,6 +135,7 @@ export type PlasmicSelfTest__OverridesType = {
   favicon?: Flex__<typeof Embed>;
   dialog?: Flex__<typeof Paziresh24Dialog>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
+  info?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSelfTestProps {}
@@ -195,33 +196,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                   $ctx.query.nextQuesion_id == "" ||
                   $ctx.query.nextQuesion_id == null
                 ) {
-                  return [
-                    {
-                      text: "سلام\uD83D\uDC4B\n لیوم هستم\u060C پریود ترکر و  دستیار سلامت بانوان که بصورت تخصصی روی نامنظمی قاعدگی کار میکنم.",
-                      from: "system",
-                      type: "answer"
-                    },
-                    {
-                      text: "شما با پاسخ به 30 سوال میتوانید در کمتر از 5 دقیقه علت نامنظم شدن پریود خود را بدانید و در صورت نیاز به پزشک مراجعه کنید.",
-                      from: "system"
-                    },
-                    {
-                      text: "سلامت و راحتی شما  دغدغه اصلی لیوم و پذیرش ۲۴ است\u2764️\uD83E\uDD1D\uD83C\uDFFB.",
-                      from: "system"
-                    },
-                    {
-                      text: "آماده ای شروع کنیم\u061F",
-                      question: { lock: 0 },
-                      from: "system",
-                      btnText: "شروع کنیم",
-                      options: [
-                        {
-                          id: 1,
-                          text: "شروع کنیم"
-                        }
-                      ]
-                    }
-                  ];
+                  return $state.info.data.festText;
                 } else {
                   return JSON.parse(localStorage.getItem("test"));
                 }
@@ -628,6 +603,24 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "info.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "info.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "info.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -5283,8 +5276,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                         customFunction: async () => {
                           return (() => {
                             const type = $ctx.query.type || "";
-                            if (type === "irregular") {
-                              $state.totalTest = 35;
+                            if (
+                              type === "irregular" ||
+                              type === "pregnantOrNot"
+                            ) {
+                              $state.totalTest =
+                                $state.info.data.numberOfquestion;
                               $state.numberTest = 0;
                               if (
                                 $ctx.query.nextQuesion_id != null &&
@@ -5921,6 +5918,116 @@ function PlasmicSelfTest__RenderFunc(props: {
             }
             trigger={null}
           />
+
+          <ApiRequest
+            data-plasmic-name={"info"}
+            data-plasmic-override={overrides.info}
+            className={classNames("__wab_instance", sty.info)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___0Lj06
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__s5Mlf
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["info", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["info", "loading"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["info", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["updateTestChat"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["testChat"]
+                        },
+                        operation: 0,
+                        value: (() => {
+                          if (
+                            $ctx.query.nextQuesion_id == "" ||
+                            $ctx.query.nextQuesion_id == null
+                          ) {
+                            return $state.info.data.festText;
+                          } else {
+                            return JSON.parse(localStorage.getItem("test"));
+                          }
+                        })()
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTestChat"] != null &&
+                  typeof $steps["updateTestChat"] === "object" &&
+                  typeof $steps["updateTestChat"].then === "function"
+                ) {
+                  $steps["updateTestChat"] = await $steps["updateTestChat"];
+                }
+              }).apply(null, eventArgs);
+            }}
+            params={(() => {
+              try {
+                return {
+                  type: new URLSearchParams(window.location.search).get("type")
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return { type: "" };
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/addUserSelfTest"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -5949,7 +6056,8 @@ const PlasmicDescendants = {
     "shop",
     "favicon",
     "dialog",
-    "buttonLiom3"
+    "buttonLiom3",
+    "info"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -5975,7 +6083,8 @@ const PlasmicDescendants = {
   shop: ["shop"],
   favicon: ["favicon"],
   dialog: ["dialog", "buttonLiom3"],
-  buttonLiom3: ["buttonLiom3"]
+  buttonLiom3: ["buttonLiom3"],
+  info: ["info"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -6002,6 +6111,7 @@ type NodeDefaultElementType = {
   favicon: typeof Embed;
   dialog: typeof Paziresh24Dialog;
   buttonLiom3: typeof ButtonLiom;
+  info: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -6109,6 +6219,7 @@ export const PlasmicSelfTest = Object.assign(
     favicon: makeNodeComponent("favicon"),
     dialog: makeNodeComponent("dialog"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
+    info: makeNodeComponent("info"),
 
     // Metadata about props expected for PlasmicSelfTest
     internalVariantProps: PlasmicSelfTest__VariantProps,
