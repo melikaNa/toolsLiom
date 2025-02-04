@@ -334,7 +334,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 ) : null
               }
             >
-              <React.Fragment>{$state.getName.data[0].name}</React.Fragment>
+              <React.Fragment>
+                {$state?.getName?.data?.[0]?.name ?? ""}
+              </React.Fragment>
             </HeaderLiom>
           </section>
           <ApiRequest
@@ -602,7 +604,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
               loading={"lazy"}
               src={(() => {
                 try {
-                  return $state.getName.data[0].icon;
+                  return $state?.getName?.data?.[0]?.icon ?? "";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

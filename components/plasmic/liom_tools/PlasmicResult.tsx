@@ -364,9 +364,13 @@ function PlasmicResult__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data.details.filter(
-                item => item.score > 80 ?? item.score > 0
-              );
+              return (() => {
+                if ($state.apiRequest.data.details.length > 2)
+                  return $state.apiRequest.data.details.filter(
+                    item => item.score > 80 ?? item.score > 0
+                  );
+                else return $state.apiRequest.data.details;
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1019,7 +1023,7 @@ function PlasmicResult__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627\u060c \u062a\u0634\u062e\u06cc\u0635 \u0645\u0627 \u0628\u0631\u0627\u06cc \u0639\u0644\u062a \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc\u062a\u0627\u0646 \u0645\u0648\u0627\u0631\u062f \u0632\u06cc\u0631 \u0627\u0633\u062a:"
+                  "\u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627\u060c \u062a\u0634\u062e\u06cc\u0635 \u0645\u0627 \u0645\u0648\u0627\u0631\u062f \u0632\u06cc\u0631 \u0627\u0633\u062a:"
                 }
               </div>
               <div
@@ -1227,7 +1231,7 @@ function PlasmicResult__RenderFunc(props: {
                       ) : null}
                       {(() => {
                         try {
-                          return !currentItem.more;
+                          return currentItem.hint;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -1245,6 +1249,20 @@ function PlasmicResult__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.collapse3
                               ),
+                              disabled: (() => {
+                                try {
+                                  return !currentItem.advice_text;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
                               expandIcon: (
                                 <React.Fragment>
                                   {(() => {
@@ -2845,12 +2863,14 @@ function PlasmicResult__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  session_id: new URLSearchParams(window.location.search).get(
-                    "session_id"
-                  ),
-                  user_id: new URLSearchParams(window.location.search).get(
-                    "user_id"
-                  )
+                  session_id:
+                    $ctx.query.session_id ||
+                    new URLSearchParams(window.location.search).get(
+                      "session_id"
+                    ),
+                  user_id:
+                    $ctx.query.user_id ||
+                    new URLSearchParams(window.location.search).get("user_id")
                 };
               } catch (e) {
                 if (
@@ -5096,7 +5116,7 @@ export const PlasmicResult = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "نتیجه دلیل نامنظمی قاعدگی",
+      title: "لیوم | نتیجه تست",
       description: "",
       ogImageSrc: "",
       canonical: ""
