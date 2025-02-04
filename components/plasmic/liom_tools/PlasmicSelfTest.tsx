@@ -6360,7 +6360,7 @@ export const PlasmicSelfTest = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "تشخیص سریع دلیل نامنظمی قاعدگی",
+      title: "لیوم | دستیار سلامت",
       description:
         "از دلایل عقب جلو شدن پریود خود،  در کمتر از چند دقیقه و بدون انتظار برای پزشک آگاه شوید",
       ogImageSrc:

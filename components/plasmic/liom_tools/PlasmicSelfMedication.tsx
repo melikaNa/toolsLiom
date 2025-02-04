@@ -97,12 +97,12 @@ export type PlasmicSelfMedication__OverridesType = {
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
+  getName?: Flex__<typeof ApiRequest>;
   getStep?: Flex__<typeof ApiRequest>;
   getItem?: Flex__<typeof ApiRequest>;
   getUser?: Flex__<typeof ApiRequest>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
-  getName?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSelfMedicationProps {}
@@ -334,41 +334,51 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 ) : null
               }
             >
-              <React.Fragment>
-                {(() => {
-                  switch ($ctx.query.type) {
-                    case "danger":
-                      return "خطرناکه یانه";
-                    default:
-                      return "مسیر سلامت";
-                  }
-                })()}
-              </React.Fragment>
+              <React.Fragment>{$state.getName.data[0].name}</React.Fragment>
             </HeaderLiom>
           </section>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__uJv)}
+          <ApiRequest
+            data-plasmic-name={"getName"}
+            data-plasmic-override={overrides.getName}
+            body={(() => {
+              try {
+                return {
+                  type: $ctx.query.type
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.getName)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"POST"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getName", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getName", "loading"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getName", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            url={"https://n8n.staas.ir/webhook/info"}
           >
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__asFD)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"300%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"350px"}
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_tools/images/image37.png",
-                fullWidth: 639,
-                fullHeight: 450,
-                aspectRatio: undefined
-              }}
-            />
-
             <ApiRequest
               data-plasmic-name={"getStep"}
               data-plasmic-override={overrides.getStep}
@@ -530,48 +540,84 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 url={"https://n8n.staas.ir/webhook/selfTreatment"}
               />
             </ApiRequest>
-            <ApiRequest
-              data-plasmic-name={"getUser"}
-              data-plasmic-override={overrides.getUser}
-              children={null}
-              className={classNames("__wab_instance", sty.getUser)}
-              errorDisplay={null}
-              loadingDisplay={null}
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getUser", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getUser", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              params={(() => {
+          </ApiRequest>
+          <ApiRequest
+            data-plasmic-name={"getUser"}
+            data-plasmic-override={overrides.getUser}
+            children={null}
+            className={classNames("__wab_instance", sty.getUser)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUser", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUser", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            params={(() => {
+              try {
+                return {
+                  token: $ctx.query.token
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/userInfo"}
+          />
+
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__uJv)}
+          >
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__asFD)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"300%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"400px"}
+              loading={"lazy"}
+              src={(() => {
                 try {
-                  return {
-                    token: $ctx.query.token
-                  };
+                  return $state.getName.data[0].icon;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return undefined;
+                    return {
+                      src: "/plasmic/liom_tools/images/loading3SvgrepoComSvg2.svg",
+                      fullWidth: 512,
+                      fullHeight: 512,
+                      aspectRatio: 1
+                    };
                   }
                   throw e;
                 }
               })()}
-              url={"https://n8n.staas.ir/webhook/userInfo"}
             />
 
             {(() => {
@@ -1176,68 +1222,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   );
                 })
               : null}
-            <ApiRequest
-              data-plasmic-name={"getName"}
-              data-plasmic-override={overrides.getName}
-              body={(() => {
-                try {
-                  return {
-                    type: $ctx.query.type
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              className={classNames("__wab_instance", sty.getName)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___3DVh
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__r54Dp
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
-              method={"POST"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getName", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getName", "loading"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getName", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              url={"https://n8n.staas.ir/webhook-test/info"}
-            />
           </Stack__>
         </div>
       </div>
@@ -1251,22 +1235,22 @@ const PlasmicDescendants = {
     "section",
     "headerLiom",
     "paziresh24Avatar",
+    "getName",
     "getStep",
     "getItem",
     "getUser",
     "linearCalendar",
-    "loadingConclusion",
-    "getName"
+    "loadingConclusion"
   ],
   section: ["section", "headerLiom", "paziresh24Avatar"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
+  getName: ["getName", "getStep", "getItem"],
   getStep: ["getStep", "getItem"],
   getItem: ["getItem"],
   getUser: ["getUser"],
   linearCalendar: ["linearCalendar"],
-  loadingConclusion: ["loadingConclusion"],
-  getName: ["getName"]
+  loadingConclusion: ["loadingConclusion"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1276,12 +1260,12 @@ type NodeDefaultElementType = {
   section: "section";
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
+  getName: typeof ApiRequest;
   getStep: typeof ApiRequest;
   getItem: typeof ApiRequest;
   getUser: typeof ApiRequest;
   linearCalendar: typeof LinearCalendar;
   loadingConclusion: typeof LoadingConclusion;
-  getName: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1372,12 +1356,12 @@ export const PlasmicSelfMedication = Object.assign(
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
+    getName: makeNodeComponent("getName"),
     getStep: makeNodeComponent("getStep"),
     getItem: makeNodeComponent("getItem"),
     getUser: makeNodeComponent("getUser"),
     linearCalendar: makeNodeComponent("linearCalendar"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
-    getName: makeNodeComponent("getName"),
 
     // Metadata about props expected for PlasmicSelfMedication
     internalVariantProps: PlasmicSelfMedication__VariantProps,

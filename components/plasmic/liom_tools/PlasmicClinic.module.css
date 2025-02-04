@@ -1119,6 +1119,12 @@
   width: 150%;
   height: 150%;
 }
+.text__tvRzp {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
 .freeBox__hHlGe {
   flex-direction: column;
   position: relative;
