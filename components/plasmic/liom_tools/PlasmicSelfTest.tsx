@@ -64,13 +64,13 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
+import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/component
 import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJCAy9/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import LoadingCompopnentGray from "../../LoadingCompopnentGray"; // plasmic-import: OUwywVcxKl5x/component
-import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
@@ -118,6 +118,7 @@ export type PlasmicSelfTest__OverridesType = {
   info?: Flex__<typeof ApiRequest>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
+  progress?: Flex__<typeof AntdProgress>;
   messageLiom?: Flex__<typeof MessageLiom>;
   testOptionsLiom?: Flex__<typeof TestOptionsLiom>;
   peyliom?: Flex__<"div">;
@@ -127,7 +128,6 @@ export type PlasmicSelfTest__OverridesType = {
   loadingCompopnentGray?: Flex__<typeof LoadingCompopnentGray>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   button3?: Flex__<typeof ButtonLiom>;
-  progress?: Flex__<typeof AntdProgress>;
   user?: Flex__<typeof ApiRequest>;
   timer?: Flex__<typeof Timer>;
   apiRequest?: Flex__<typeof ApiRequest>;
@@ -882,7 +882,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
-                $steps["updateTestChat"] = true
+                $steps["updateTestChat"] = $state.info?.data?.festText
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -895,7 +895,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             $ctx.query.nextQuesion_id == "" ||
                             $ctx.query.nextQuesion_id == null
                           ) {
-                            return JSON.parse($state.info.data.festText);
+                            return JSON.parse($state.info.data?.festText);
                           } else {
                             return JSON.parse(localStorage.getItem("test"));
                           }
@@ -924,12 +924,48 @@ function PlasmicSelfTest__RenderFunc(props: {
                 ) {
                   $steps["updateTestChat"] = await $steps["updateTestChat"];
                 }
+
+                $steps["updateTestChat2"] = $state.info?.data?.numberOfquestion
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["totalTest"]
+                        },
+                        operation: 0,
+                        value: $state.info?.data?.numberOfquestion
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTestChat2"] != null &&
+                  typeof $steps["updateTestChat2"] === "object" &&
+                  typeof $steps["updateTestChat2"].then === "function"
+                ) {
+                  $steps["updateTestChat2"] = await $steps["updateTestChat2"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
               try {
                 return {
-                  type: new URLSearchParams(window.location.search).get("type")
+                  type:
+                    $ctx.query.type ||
+                    new URLSearchParams(window.location.search).get("type")
                 };
               } catch (e) {
                 if (
@@ -992,6 +1028,63 @@ function PlasmicSelfTest__RenderFunc(props: {
                   "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a"
                 }
               </HeaderLiom>
+            ) : null}
+            {(() => {
+              try {
+                return (
+                  new URLSearchParams(window.location.search).get("origin") !=
+                  "eata"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <AntdProgress
+                data-plasmic-name={"progress"}
+                data-plasmic-override={overrides.progress}
+                className={classNames("__wab_instance", sty.progress)}
+                gradient={[]}
+                percent={(() => {
+                  try {
+                    return $state.numberTest / ($state.totalTest / 100) - 0.1;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return 0;
+                    }
+                    throw e;
+                  }
+                })()}
+                showInfo={false}
+                strokeColor={(() => {
+                  try {
+                    return (() => {
+                      if ($ctx.query.app == "liom") return "#EF6FB7";
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                strokeWidth={
+                  hasVariant(globalVariants, "screen", "mobileOnly") ? 5 : 6
+                }
+                successPercent={undefined}
+                type={"line"}
+              />
             ) : null}
             <div
               className={classNames(projectcss.all, sty.freeBox__fwEj, ``)}
@@ -4860,63 +4953,6 @@ function PlasmicSelfTest__RenderFunc(props: {
             ) : null}
             {(() => {
               try {
-                return (
-                  new URLSearchParams(window.location.search).get("origin") !=
-                  "eata"
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <AntdProgress
-                data-plasmic-name={"progress"}
-                data-plasmic-override={overrides.progress}
-                className={classNames("__wab_instance", sty.progress)}
-                gradient={[]}
-                percent={(() => {
-                  try {
-                    return $state.numberTest / ($state.totalTest / 100) - 0.1;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return 0;
-                    }
-                    throw e;
-                  }
-                })()}
-                showInfo={false}
-                strokeColor={(() => {
-                  try {
-                    return (() => {
-                      if ($ctx.query.app == "liom") return "#EF6FB7";
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                strokeWidth={
-                  hasVariant(globalVariants, "screen", "mobileOnly") ? 5 : 6
-                }
-                successPercent={undefined}
-                type={"line"}
-              />
-            ) : null}
-            {(() => {
-              try {
                 return $ctx.query.token;
               } catch (e) {
                 if (
@@ -5104,68 +5140,6 @@ function PlasmicSelfTest__RenderFunc(props: {
               runWhileEditing={false}
             />
 
-            {(() => {
-              try {
-                return $state.loading;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox___1Hpgz)}>
-                {(() => {
-                  try {
-                    return (() => {
-                      var urlParams = new URLSearchParams(
-                        window.location.search
-                      );
-                      return urlParams.get("app") != "liom";
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <Icon111Icon
-                    className={classNames(projectcss.all, sty.svg__uaLit)}
-                    role={"img"}
-                  />
-                ) : null}
-                {(() => {
-                  try {
-                    return (() => {
-                      var urlParams = new URLSearchParams(
-                        window.location.search
-                      );
-                      return urlParams.get("app") == "liom";
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <Icon111Icon
-                    className={classNames(projectcss.all, sty.svg__kgnAq)}
-                    role={"img"}
-                  />
-                ) : null}
-              </div>
-            ) : null}
             <ApiRequest
               data-plasmic-name={"apiRequest"}
               data-plasmic-override={overrides.apiRequest}
@@ -5463,7 +5437,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 type === "pregnantOrNot"
                               ) {
                                 $state.totalTest =
-                                  $state.info.data.numberOfquestion;
+                                  $state.info?.data?.numberOfquestion || 35;
                                 $state.numberTest = 0;
                                 if (
                                   $ctx.query.nextQuesion_id != null &&
@@ -6107,6 +6081,64 @@ function PlasmicSelfTest__RenderFunc(props: {
               trigger={null}
             />
           </ApiRequest>
+          {(() => {
+            try {
+              return $state.loading && !$state.info.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox___1Hpgz)}>
+              {(() => {
+                try {
+                  return (() => {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get("app") != "liom";
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Icon111Icon
+                  className={classNames(projectcss.all, sty.svg__uaLit)}
+                  role={"img"}
+                />
+              ) : null}
+              {(() => {
+                try {
+                  return (() => {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get("app") == "liom";
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Icon111Icon
+                  className={classNames(projectcss.all, sty.svg__kgnAq)}
+                  role={"img"}
+                />
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -6119,6 +6151,7 @@ const PlasmicDescendants = {
     "info",
     "headerLiom",
     "paziresh24Avatar",
+    "progress",
     "messageLiom",
     "testOptionsLiom",
     "peyliom",
@@ -6128,7 +6161,6 @@ const PlasmicDescendants = {
     "loadingCompopnentGray",
     "buttonLiom2",
     "button3",
-    "progress",
     "user",
     "timer",
     "apiRequest",
@@ -6142,6 +6174,7 @@ const PlasmicDescendants = {
     "info",
     "headerLiom",
     "paziresh24Avatar",
+    "progress",
     "messageLiom",
     "testOptionsLiom",
     "peyliom",
@@ -6151,7 +6184,6 @@ const PlasmicDescendants = {
     "loadingCompopnentGray",
     "buttonLiom2",
     "button3",
-    "progress",
     "user",
     "timer",
     "apiRequest",
@@ -6163,6 +6195,7 @@ const PlasmicDescendants = {
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
+  progress: ["progress"],
   messageLiom: ["messageLiom"],
   testOptionsLiom: ["testOptionsLiom"],
   peyliom: ["peyliom", "buttonLiom"],
@@ -6177,7 +6210,6 @@ const PlasmicDescendants = {
   loadingCompopnentGray: ["loadingCompopnentGray"],
   buttonLiom2: ["buttonLiom2"],
   button3: ["button3"],
-  progress: ["progress"],
   user: ["user"],
   timer: ["timer"],
   apiRequest: ["apiRequest"],
@@ -6195,6 +6227,7 @@ type NodeDefaultElementType = {
   info: typeof ApiRequest;
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
+  progress: typeof AntdProgress;
   messageLiom: typeof MessageLiom;
   testOptionsLiom: typeof TestOptionsLiom;
   peyliom: "div";
@@ -6204,7 +6237,6 @@ type NodeDefaultElementType = {
   loadingCompopnentGray: typeof LoadingCompopnentGray;
   buttonLiom2: typeof ButtonLiom;
   button3: typeof ButtonLiom;
-  progress: typeof AntdProgress;
   user: typeof ApiRequest;
   timer: typeof Timer;
   apiRequest: typeof ApiRequest;
@@ -6303,6 +6335,7 @@ export const PlasmicSelfTest = Object.assign(
     info: makeNodeComponent("info"),
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
+    progress: makeNodeComponent("progress"),
     messageLiom: makeNodeComponent("messageLiom"),
     testOptionsLiom: makeNodeComponent("testOptionsLiom"),
     peyliom: makeNodeComponent("peyliom"),
@@ -6312,7 +6345,6 @@ export const PlasmicSelfTest = Object.assign(
     loadingCompopnentGray: makeNodeComponent("loadingCompopnentGray"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     button3: makeNodeComponent("button3"),
-    progress: makeNodeComponent("progress"),
     user: makeNodeComponent("user"),
     timer: makeNodeComponent("timer"),
     apiRequest: makeNodeComponent("apiRequest"),
