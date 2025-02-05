@@ -27,45 +27,6 @@
     grid-column: 4;
   }
 }
-.getName:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.getStep:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.getItem:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.getUser:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.section {
-  display: grid;
-  position: fixed;
-  align-content: flex-start;
-  justify-items: center;
-  width: auto;
-  padding-left: 0;
-  padding-right: 0;
-  left: 0;
-  top: 0;
-  z-index: 1;
-  right: 0;
-  grid-template-columns:
-    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
-    min(
-      var(--plsmc-standard-width),
-      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
-    )
-    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
-}
-.section > * {
-  grid-column: 4;
-}
 .headerLiom:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -90,6 +51,22 @@
 .paziresh24Avatar:global(.__wab_instance) {
   max-width: 100%;
   display: none;
+}
+.getName:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.getStep:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.getItem:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.getUser:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }
 .freeBox__uJv {
   display: flex;
@@ -151,6 +128,18 @@
     margin-top: var(--token-KVcr9NiMwFLr);
   }
 }
+.freeBox__imEyz {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
 .img__asFD {
   object-fit: cover;
   max-width: 300%;
@@ -158,6 +147,19 @@
 }
 .img__asFD > picture > img {
   object-fit: cover;
+}
+.freeBox__nRced {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 8px;
 }
 .freeBox___5D4Eu {
   display: flex;

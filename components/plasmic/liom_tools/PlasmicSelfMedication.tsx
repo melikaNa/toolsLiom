@@ -60,15 +60,10 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
-import {
-  executePlasmicDataOp,
-  usePlasmicDataOp,
-  usePlasmicInvalidate
-} from "@plasmicapp/react-web/lib/data-sources";
 
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import LinearCalendar from "../../LinearCalendar"; // plasmic-import: UJhKrwaiZx_G/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
 
@@ -99,13 +94,12 @@ export const PlasmicSelfMedication__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSelfMedication__OverridesType = {
   root?: Flex__<"div">;
+  headerLiom?: Flex__<typeof HeaderLiom>;
+  paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   getName?: Flex__<typeof ApiRequest>;
   getStep?: Flex__<typeof ApiRequest>;
   getItem?: Flex__<typeof ApiRequest>;
   getUser?: Flex__<typeof ApiRequest>;
-  section?: Flex__<"section">;
-  headerLiom?: Flex__<typeof HeaderLiom>;
-  paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
 };
@@ -268,8 +262,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
     $queries: {},
     $refs
   });
-  const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqiBuxNlixBgQ()
@@ -304,13 +296,51 @@ function PlasmicSelfMedication__RenderFunc(props: {
             sty.root
           )}
         >
+          <HeaderLiom
+            data-plasmic-name={"headerLiom"}
+            data-plasmic-override={overrides.headerLiom}
+            className={classNames("__wab_instance", sty.headerLiom)}
+            slot={
+              <Paziresh24Avatar
+                data-plasmic-name={"paziresh24Avatar"}
+                data-plasmic-override={overrides.paziresh24Avatar}
+                className={classNames("__wab_instance", sty.paziresh24Avatar)}
+              />
+            }
+            slot2={
+              (() => {
+                try {
+                  return $ctx.query.token.length > 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Icon22Icon
+                  className={classNames(projectcss.all, sty.svg__nBoN)}
+                  role={"img"}
+                />
+              ) : null
+            }
+          >
+            <React.Fragment>
+              {$state?.getName?.data?.[0]?.name ?? ""}
+            </React.Fragment>
+          </HeaderLiom>
           <ApiRequest
             data-plasmic-name={"getName"}
             data-plasmic-override={overrides.getName}
             body={(() => {
               try {
                 return {
-                  type: $ctx.query.type
+                  type:
+                    $ctx.query.type ||
+                    new URLSearchParams(window.location.search).get("type")
                 };
               } catch (e) {
                 if (
@@ -347,27 +377,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
               (async data => {
                 const $steps = {};
-
-                $steps["refreshData"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        queryInvalidation: ["plasmic_refresh_all"]
-                      };
-                      return (async ({ queryInvalidation }) => {
-                        if (!queryInvalidation) {
-                          return;
-                        }
-                        await plasmicInvalidate(queryInvalidation);
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["refreshData"] != null &&
-                  typeof $steps["refreshData"] === "object" &&
-                  typeof $steps["refreshData"].then === "function"
-                ) {
-                  $steps["refreshData"] = await $steps["refreshData"];
-                }
 
                 $steps["runCode"] = true
                   ? (() => {
@@ -420,11 +429,40 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            console.log("step");
+                            return console.log($state?.getStep?.data);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }).apply(null, eventArgs);
             }}
             params={(() => {
               try {
                 return {
-                  type: $ctx.query.type
+                  type:
+                    $ctx.query.type ||
+                    new URLSearchParams(window.location.search).get("type")
                 };
               } catch (e) {
                 if (
@@ -586,7 +624,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  token: $ctx.query.token
+                  token:
+                    $ctx.query.token ||
+                    new URLSearchParams(window.location.search).get("token")
                 };
               } catch (e) {
                 if (
@@ -601,83 +641,77 @@ function PlasmicSelfMedication__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/userInfo"}
           />
 
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
-            <HeaderLiom
-              data-plasmic-name={"headerLiom"}
-              data-plasmic-override={overrides.headerLiom}
-              className={classNames("__wab_instance", sty.headerLiom)}
-              slot={
-                <Paziresh24Avatar
-                  data-plasmic-name={"paziresh24Avatar"}
-                  data-plasmic-override={overrides.paziresh24Avatar}
-                  className={classNames("__wab_instance", sty.paziresh24Avatar)}
-                />
-              }
-              slot2={
-                (() => {
-                  try {
-                    return $ctx.query.token.length > 0;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <Icon22Icon
-                    className={classNames(projectcss.all, sty.svg__nBoN)}
-                    role={"img"}
-                  />
-                ) : null
-              }
-            >
-              <React.Fragment>
-                {$state?.getName?.data?.[0]?.name ?? ""}
-              </React.Fragment>
-            </HeaderLiom>
-          </section>
           <Stack__
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__uJv)}
           >
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__asFD)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"300%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"400px"}
-              loading={"lazy"}
-              src={(() => {
+            <div className={classNames(projectcss.all, sty.freeBox__imEyz)}>
+              {(() => {
                 try {
-                  return $state?.getName?.data?.[0]?.icon ?? "";
+                  return !$state.getName.loading;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return {
-                      src: "/plasmic/liom_tools/images/loading3SvgrepoComSvg2.svg",
-                      fullWidth: 512,
-                      fullHeight: 512,
-                      aspectRatio: 1
-                    };
+                    return false;
                   }
                   throw e;
                 }
-              })()}
-            />
-
+              })() ? (
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__asFD)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"300%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"400px"}
+                  loading={"lazy"}
+                  src={(() => {
+                    try {
+                      return $state?.getName?.data?.[0]?.icon ?? "";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return {
+                          src: "/plasmic/liom_tools/images/loading3SvgrepoComSvg2.svg",
+                          fullWidth: 512,
+                          fullHeight: 512,
+                          aspectRatio: 1
+                        };
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+              ) : null}
+              {(() => {
+                try {
+                  return $state.getName.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__nRced,
+                    "shimmer"
+                  )}
+                />
+              ) : null}
+            </div>
             {(() => {
               try {
                 return !$state.getStep.loading;
@@ -1285,23 +1319,21 @@ function PlasmicSelfMedication__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "headerLiom",
+    "paziresh24Avatar",
     "getName",
     "getStep",
     "getItem",
     "getUser",
-    "section",
-    "headerLiom",
-    "paziresh24Avatar",
     "linearCalendar",
     "loadingConclusion"
   ],
+  headerLiom: ["headerLiom", "paziresh24Avatar"],
+  paziresh24Avatar: ["paziresh24Avatar"],
   getName: ["getName"],
   getStep: ["getStep", "getItem"],
   getItem: ["getItem"],
   getUser: ["getUser"],
-  section: ["section", "headerLiom", "paziresh24Avatar"],
-  headerLiom: ["headerLiom", "paziresh24Avatar"],
-  paziresh24Avatar: ["paziresh24Avatar"],
   linearCalendar: ["linearCalendar"],
   loadingConclusion: ["loadingConclusion"]
 } as const;
@@ -1310,13 +1342,12 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  headerLiom: typeof HeaderLiom;
+  paziresh24Avatar: typeof Paziresh24Avatar;
   getName: typeof ApiRequest;
   getStep: typeof ApiRequest;
   getItem: typeof ApiRequest;
   getUser: typeof ApiRequest;
-  section: "section";
-  headerLiom: typeof HeaderLiom;
-  paziresh24Avatar: typeof Paziresh24Avatar;
   linearCalendar: typeof LinearCalendar;
   loadingConclusion: typeof LoadingConclusion;
 };
@@ -1406,13 +1437,12 @@ export const PlasmicSelfMedication = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    headerLiom: makeNodeComponent("headerLiom"),
+    paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     getName: makeNodeComponent("getName"),
     getStep: makeNodeComponent("getStep"),
     getItem: makeNodeComponent("getItem"),
     getUser: makeNodeComponent("getUser"),
-    section: makeNodeComponent("section"),
-    headerLiom: makeNodeComponent("headerLiom"),
-    paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     linearCalendar: makeNodeComponent("linearCalendar"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
 
