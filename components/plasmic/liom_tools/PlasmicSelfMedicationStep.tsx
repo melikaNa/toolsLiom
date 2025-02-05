@@ -262,159 +262,173 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
             sty.root
           )}
         >
-          <HeaderLiom
-            data-plasmic-name={"headerLiom"}
-            data-plasmic-override={overrides.headerLiom}
-            className={classNames("__wab_instance", sty.headerLiom)}
-            slot={
-              <Paziresh24Avatar
-                data-plasmic-name={"paziresh24Avatar"}
-                data-plasmic-override={overrides.paziresh24Avatar}
-                className={classNames("__wab_instance", sty.paziresh24Avatar)}
-              />
-            }
-            slot2={
-              <Icon22Icon
-                className={classNames(projectcss.all, sty.svg__oSkb7)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination:
-                            "https://tools.liom.app/self-medication/?type=" +
-                            $ctx.query.type +
-                            "&inApp=" +
-                            $ctx.query.inApp +
-                            "&token=" +
-                            $ctx.query.token
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-                role={"img"}
-              />
-            }
-          >
-            {(() => {
-              try {
-                return !$state.getName.loading;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
+          {(() => {
+            try {
+              return $ctx.query.inApp == "true";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-            })() ? (
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__gD5Nw
-                )}
-                onClick={async event => {
-                  const $steps = {};
+              throw e;
+            }
+          })() ? (
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+              slot={
+                <Paziresh24Avatar
+                  data-plasmic-name={"paziresh24Avatar"}
+                  data-plasmic-override={overrides.paziresh24Avatar}
+                  className={classNames("__wab_instance", sty.paziresh24Avatar)}
+                />
+              }
+              slot2={
+                <Icon22Icon
+                  className={classNames(projectcss.all, sty.svg__oSkb7)}
+                  onClick={async event => {
+                    const $steps = {};
 
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return (
-                                "https://tools.liom.app/self-medication/?type=" +
-                                $ctx.query.type +
-                                "&inApp=" +
-                                $ctx.query.inApp +
-                                "&token=" +
-                                $ctx.query.token
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination:
+                              "https://tools.liom.app/self-medication/?type=" +
+                              $ctx.query.type +
+                              "&inApp=" +
+                              $ctx.query.inApp +
+                              "&token=" +
+                              $ctx.query.token
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
                             }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-              >
-                <React.Fragment>
-                  {$state?.getName?.data?.[0]?.name ?? ""}
-                </React.Fragment>
-              </div>
-            ) : null}
-            {(() => {
-              try {
-                return $state.getName.loading;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
+                  role={"img"}
+                />
               }
-            })() ? (
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___5RfI,
-                  "shimmer"
-                )}
-              >
-                {""}
-              </div>
-            ) : null}
-          </HeaderLiom>
+            >
+              {(() => {
+                try {
+                  return !$state.getName.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__gD5Nw
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return (
+                                  "https://tools.liom.app/self-medication/?type=" +
+                                  $ctx.query.type +
+                                  "&inApp=" +
+                                  $ctx.query.inApp +
+                                  "&token=" +
+                                  $ctx.query.token
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
+                >
+                  <React.Fragment>
+                    {$state?.getName?.data?.[0]?.name ?? ""}
+                  </React.Fragment>
+                </div>
+              ) : null}
+              {(() => {
+                try {
+                  return $state.getName.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___5RfI,
+                    "shimmer"
+                  )}
+                >
+                  {""}
+                </div>
+              ) : null}
+            </HeaderLiom>
+          ) : null}
           <Stack__
             as={"div"}
             hasGap={true}
@@ -465,29 +479,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
 
                 (async data => {
                   const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              console.log("name");
-                              return console.log($state.getName.data);
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
                 }).apply(null, eventArgs);
               }}
               url={"https://n8n.staas.ir/webhook/info"}
@@ -584,31 +575,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   ) {
                     $steps["updateListDetails"] = await $steps[
                       "updateListDetails"
-                    ];
-                  }
-
-                  $steps["updateListDetails2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              console.log("data");
-                              return console.log($state.getData.data);
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateListDetails2"] != null &&
-                    typeof $steps["updateListDetails2"] === "object" &&
-                    typeof $steps["updateListDetails2"].then === "function"
-                  ) {
-                    $steps["updateListDetails2"] = await $steps[
-                      "updateListDetails2"
                     ];
                   }
                 }).apply(null, eventArgs);

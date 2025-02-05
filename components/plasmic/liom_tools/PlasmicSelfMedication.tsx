@@ -60,6 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
@@ -262,6 +267,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqiBuxNlixBgQ()
@@ -295,43 +302,81 @@ function PlasmicSelfMedication__RenderFunc(props: {
             plasmic_hamdast_sdk_css.plasmic_tokens,
             sty.root
           )}
+          onLoad={async event => {
+            const $steps = {};
+
+            $steps["refreshData"] = true
+              ? (() => {
+                  const actionArgs = {
+                    queryInvalidation: ["plasmic_refresh_all"]
+                  };
+                  return (async ({ queryInvalidation }) => {
+                    if (!queryInvalidation) {
+                      return;
+                    }
+                    await plasmicInvalidate(queryInvalidation);
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["refreshData"] != null &&
+              typeof $steps["refreshData"] === "object" &&
+              typeof $steps["refreshData"].then === "function"
+            ) {
+              $steps["refreshData"] = await $steps["refreshData"];
+            }
+          }}
         >
-          <HeaderLiom
-            data-plasmic-name={"headerLiom"}
-            data-plasmic-override={overrides.headerLiom}
-            className={classNames("__wab_instance", sty.headerLiom)}
-            slot={
-              <Paziresh24Avatar
-                data-plasmic-name={"paziresh24Avatar"}
-                data-plasmic-override={overrides.paziresh24Avatar}
-                className={classNames("__wab_instance", sty.paziresh24Avatar)}
-              />
+          {(() => {
+            try {
+              return $ctx.query.inApp == "true";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
             }
-            slot2={
-              (() => {
-                try {
-                  return $ctx.query.token.length > 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <Icon22Icon
-                  className={classNames(projectcss.all, sty.svg__nBoN)}
-                  role={"img"}
+          })() ? (
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+              slot={
+                <Paziresh24Avatar
+                  data-plasmic-name={"paziresh24Avatar"}
+                  data-plasmic-override={overrides.paziresh24Avatar}
+                  className={classNames("__wab_instance", sty.paziresh24Avatar)}
                 />
-              ) : null
-            }
-          >
-            <React.Fragment>
-              {$state?.getName?.data?.[0]?.name ?? ""}
-            </React.Fragment>
-          </HeaderLiom>
+              }
+              slot2={
+                (() => {
+                  try {
+                    return $ctx.query.token.length > 0;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Icon22Icon
+                    className={classNames(projectcss.all, sty.svg__nBoN)}
+                    role={"img"}
+                  />
+                ) : null
+              }
+            >
+              <React.Fragment>
+                {$state?.getName?.data?.[0]?.name ?? ""}
+              </React.Fragment>
+            </HeaderLiom>
+          ) : null}
           <ApiRequest
             data-plasmic-name={"getName"}
             data-plasmic-override={overrides.getName}
