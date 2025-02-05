@@ -365,11 +365,21 @@ function PlasmicResult__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($state.apiRequest.data.details.length > 2)
-                  return $state.apiRequest.data.details.filter(
-                    item => item.score > 80 ?? item.score > 0
-                  );
-                else return $state.apiRequest.data.details;
+                const details = $state.apiRequest.data.details;
+                const maxScore = Math.max(
+                  ...details.map(item => parseInt(item.score) || 0)
+                );
+                const filteredItems =
+                  details.filter(item => item.score > 80).length > 0
+                    ? details.filter(item => item.score > 80)
+                    : details.filter(item => item.score > 70).length > 0
+                    ? details.filter(item => item.score > 70)
+                    : details.filter(item => item.score > 60).length > 0
+                    ? details.filter(item => item.score > 60)
+                    : details.filter(item => item.score > 50).length > 0
+                    ? details.filter(item => item.score > 50)
+                    : details.filter(item => parseInt(item.score) === maxScore);
+                return filteredItems;
               })();
             } catch (e) {
               if (
@@ -1578,21 +1588,19 @@ function PlasmicResult__RenderFunc(props: {
                               },
                               operation: 0,
                               value: (() => {
-                                var highScores =
+                                const highScores = $state.resultlist;
+                                const lowScores =
                                   $state.apiRequest.data.details.filter(
-                                    item => item.score > 80
+                                    item =>
+                                      !highScores.some(
+                                        highItem => highItem.id === item.id
+                                      )
                                   );
-                                var lowScores =
-                                  $state.apiRequest.data.details.filter(
-                                    item => item.score <= 80
-                                  );
-                                const resultArray = [
+                                return [
                                   ...highScores,
                                   { more: true },
                                   ...lowScores
                                 ];
-
-                                return resultArray;
                               })()
                             };
                             return (({
@@ -1674,9 +1682,32 @@ function PlasmicResult__RenderFunc(props: {
                                 variablePath: ["resultlist"]
                               },
                               operation: 0,
-                              value: $state.apiRequest.data.details.filter(
-                                item => item.score > 80 ?? item.score > 0
-                              )
+                              value: (() => {
+                                const details = $state.apiRequest.data.details;
+                                const maxScore = Math.max(
+                                  ...details.map(
+                                    item => parseInt(item.score) || 0
+                                  )
+                                );
+                                const filteredItems =
+                                  details.filter(item => item.score > 80)
+                                    .length > 0
+                                    ? details.filter(item => item.score > 80)
+                                    : details.filter(item => item.score > 70)
+                                        .length > 0
+                                    ? details.filter(item => item.score > 70)
+                                    : details.filter(item => item.score > 60)
+                                        .length > 0
+                                    ? details.filter(item => item.score > 60)
+                                    : details.filter(item => item.score > 50)
+                                        .length > 0
+                                    ? details.filter(item => item.score > 50)
+                                    : details.filter(
+                                        item =>
+                                          parseInt(item.score) === maxScore
+                                      );
+                                return filteredItems;
+                              })()
                             };
                             return (({
                               variable,
@@ -2463,9 +2494,9 @@ function PlasmicResult__RenderFunc(props: {
                 try {
                   return $state.apiRequest.data.details.filter(
                     item => parseInt(item.score) >= 80
-                  )
-                    ? false
-                    : true;
+                  ).length == 0
+                    ? true
+                    : false;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -2509,9 +2540,9 @@ function PlasmicResult__RenderFunc(props: {
                 try {
                   return $state.apiRequest.data.details.filter(
                     item => parseInt(item.score) >= 80
-                  )
-                    ? true
-                    : false;
+                  ).length == 0
+                    ? false
+                    : true;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||

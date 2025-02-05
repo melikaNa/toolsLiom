@@ -67,6 +67,7 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import StepsLayout from "../../StepsLayout"; // plasmic-import: usfpaVkTXFYE/component
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-/component
+import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
@@ -84,6 +85,8 @@ import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuw
 import Icon77Icon from "./icons/PlasmicIcon__Icon77"; // plasmic-import: YKE8ylWcPDbP/icon
 import Icon122Icon from "./icons/PlasmicIcon__Icon122"; // plasmic-import: 7szDnb8vqxXD/icon
 import Icon87Icon from "./icons/PlasmicIcon__Icon87"; // plasmic-import: vRe8tZ7-wlww/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 
 createPlasmicElementProxy;
 
@@ -109,6 +112,7 @@ export type PlasmicSelfMedicationStep__OverridesType = {
   lineClomp3?: Flex__<typeof LineClomp>;
   percentageBox?: Flex__<typeof PercentageBox>;
   lineClomp4?: Flex__<typeof LineClomp>;
+  buttonLiom?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultSelfMedicationStepProps {}
@@ -218,6 +222,12 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         path: "getName.loading",
         type: "private",
         variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "buttonLiom.color",
+        type: "private",
+        variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -604,7 +614,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
-                      return true;
+                      return ($state.getData.data?.[0]?.title ?? "") != "";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -623,7 +633,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       )}
                     >
                       <React.Fragment>
-                        {$state.getData.data[0].title}
+                        {$state.getData.data?.[0]?.title}
                       </React.Fragment>
                     </div>
                   ) : null}
@@ -648,17 +658,31 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       }
                     }}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__ysfHe
-                      )}
-                    >
-                      <React.Fragment>
-                        {$state.getData.data[0].text}
-                      </React.Fragment>
-                    </div>
+                    {(() => {
+                      try {
+                        return ($state.getData.data?.[0]?.text ?? "") != "";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ysfHe
+                        )}
+                      >
+                        <React.Fragment>
+                          {$state.getData.data?.[0]?.text}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
                   </LineClomp>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
@@ -860,7 +884,19 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           "sddddddddddddddddddddddddddddddddddddddd\u0633\u062a\u0628\u0647\u0633\u0627\u06cc\u0647\u0639\u0628\u0627\u0647\u06cc\u0639\u0633\u0627\u0628\u0647\u0627\u0647 \u0627\u06cc\u0633 \u062f\u0633\u062e\u06cc\u062a\u0633\u0639\u0647\u0627\u0647\u0639\u06cc\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0628 \u0633\u062a\u06cc\u0647\u062e\u0639\u062a\u0639\u0647\u062a\u0647\u0639\u062e\u062a\u0633\u062e\u062a\u062e\u062a\u0628 \u0633\u062f\u0627\u0639\u06cc\u0647\u0627\u0647\u0639\u0627\u0628\u0647\u0639\u0627\u0628\u0647\u0627\u0627\u0647\u0639\u0633\u0627 \u062f\u0633\u062e\u06cc\u0627\u0639\u062e\u0647\u0627\u0633\u0639\u0627\u0628\u0627\u0639\u0647\u06cc\u0633\u0627\u0628\u0639\u0647\u0633\u0627\u0628\u0633"
                         ) : (
                           <React.Fragment>
-                            {$state.getData.data[0].text}
+                            {(() => {
+                              try {
+                                return undefined;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "sddddddddddddddddddddddddddddddddddddddd\u0633\u062a\u0628\u0647\u0633\u0627\u06cc\u0647\u0639\u0628\u0627\u0647\u06cc\u0639\u0633\u0627\u0628\u0647\u0627\u0647 \u0627\u06cc\u0633 \u062f\u0633\u062e\u06cc\u062a\u0633\u0639\u0647\u0627\u0647\u0639\u06cc\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0628 \u0633\u062a\u06cc\u0647\u062e\u0639\u062a\u0639\u0647\u062a\u0647\u0639\u062e\u062a\u0633\u062e\u062a\u062e\u062a\u0628 \u0633\u062f\u0627\u0639\u06cc\u0647\u0627\u0647\u0639\u0627\u0628\u0647\u0639\u0627\u0628\u0647\u0627\u0627\u0647\u0639\u0633\u0627 \u062f\u0633\u062e\u06cc\u0627\u0639\u062e\u0647\u0627\u0633\u0639\u0627\u0628\u0627\u0639\u0647\u06cc\u0633\u0627\u0628\u0639\u0647\u0633\u0627\u0628\u0633";
+                                }
+                                throw e;
+                              }
+                            })()}
                           </React.Fragment>
                         )}
                       </div>
@@ -1419,6 +1455,37 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 );
               })}
             </StepsLayout>
+            <ButtonLiom
+              data-plasmic-name={"buttonLiom"}
+              data-plasmic-override={overrides.buttonLiom}
+              className={classNames("__wab_instance", sty.buttonLiom)}
+              color={generateStateValueProp($state, ["buttonLiom", "color"])}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["buttonLiom", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__rqj6X
+                )}
+              >
+                {"\u0627\u0646\u062c\u0627\u0645 \u0634\u062f"}
+              </div>
+            </ButtonLiom>
           </Stack__>
         </div>
       </div>
@@ -1438,7 +1505,8 @@ const PlasmicDescendants = {
     "lineClomp2",
     "lineClomp3",
     "percentageBox",
-    "lineClomp4"
+    "lineClomp4",
+    "buttonLiom"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -1456,7 +1524,8 @@ const PlasmicDescendants = {
   lineClomp2: ["lineClomp2"],
   lineClomp3: ["lineClomp3"],
   percentageBox: ["percentageBox"],
-  lineClomp4: ["lineClomp4"]
+  lineClomp4: ["lineClomp4"],
+  buttonLiom: ["buttonLiom"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1473,6 +1542,7 @@ type NodeDefaultElementType = {
   lineClomp3: typeof LineClomp;
   percentageBox: typeof PercentageBox;
   lineClomp4: typeof LineClomp;
+  buttonLiom: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1570,6 +1640,7 @@ export const PlasmicSelfMedicationStep = Object.assign(
     lineClomp3: makeNodeComponent("lineClomp3"),
     percentageBox: makeNodeComponent("percentageBox"),
     lineClomp4: makeNodeComponent("lineClomp4"),
+    buttonLiom: makeNodeComponent("buttonLiom"),
 
     // Metadata about props expected for PlasmicSelfMedicationStep
     internalVariantProps: PlasmicSelfMedicationStep__VariantProps,
