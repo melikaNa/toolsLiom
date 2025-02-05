@@ -329,7 +329,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
         >
           {(() => {
             try {
-              return $ctx.query.inApp == "true";
+              return $ctx.query.inApp == "false";
             } catch (e) {
               if (
                 e instanceof TypeError ||

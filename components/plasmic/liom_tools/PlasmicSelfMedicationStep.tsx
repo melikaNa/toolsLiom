@@ -264,13 +264,13 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         >
           {(() => {
             try {
-              return $ctx.query.inApp == "true";
+              return $ctx.query.inApp == "false";
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return true;
+                return false;
               }
               throw e;
             }
