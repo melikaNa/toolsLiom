@@ -418,6 +418,18 @@
   height: 20px;
   flex-shrink: 0;
 }
+.svg__oQf9O {
+  object-fit: cover;
+  max-width: 100%;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
 .text__vbVG {
   position: relative;
   width: 100%;

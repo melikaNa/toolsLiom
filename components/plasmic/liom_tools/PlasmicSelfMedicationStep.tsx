@@ -83,6 +83,7 @@ import sty from "./PlasmicSelfMedicationStep.module.css"; // plasmic-import: 0Rv
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
 import Icon77Icon from "./icons/PlasmicIcon__Icon77"; // plasmic-import: YKE8ylWcPDbP/icon
 import Icon122Icon from "./icons/PlasmicIcon__Icon122"; // plasmic-import: 7szDnb8vqxXD/icon
+import Icon87Icon from "./icons/PlasmicIcon__Icon87"; // plasmic-import: vRe8tZ7-wlww/icon
 
 createPlasmicElementProxy;
 
@@ -621,7 +622,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         sty.text__r0Nsc
                       )}
                     >
-                      {"sjdiuhvv"}
+                      <React.Fragment>
+                        {$state.getData.data[0].title}
+                      </React.Fragment>
                     </div>
                   ) : null}
                   <LineClomp
@@ -652,60 +655,138 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         sty.text__ysfHe
                       )}
                     >
-                      {
-                        "sddddddddddddddddddddddddddddddddddddddd\u0633\u062a\u0628\u0647\u0633\u0627\u06cc\u0647\u0639\u0628\u0627\u0647\u06cc\u0639\u0633\u0627\u0628\u0647\u0627\u0647 \u0627\u06cc\u0633\u0647\u0639\u062e\u0627\u0628\u0647\u0639\u0627\u0633\u06cc\u0647\u0639\u0628\u0627\u0647\u0627\u0647\u0627\u0647\u0627\u0628 \u062f\u0633\u062e\u06cc\u062a\u0633\u0639\u0647\u0627\u0647\u0639\u06cc\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0628 \u0633\u062a\u06cc\u0647\u062e\u0639\u062a\u0639\u0647\u062a\u0647\u0639\u062e\u062a\u0633\u062e\u062a\u062e\u062a\u0628 \u0633\u062f\u0627\u0639\u06cc\u0647\u0627\u0647\u0639\u0627\u0628\u0647\u0639\u0627\u0628\u0647\u0627\u0627\u0647\u0639\u0633\u0627 \u062f\u0633\u062e\u06cc\u0627\u0639\u062e\u0647\u0627\u0633\u0639\u0627\u0628\u0627\u0639\u0647\u06cc\u0633\u0627\u0628\u0639\u0647\u0633\u0627\u0628\u0633"
-                      }
+                      <React.Fragment>
+                        {$state.getData.data[0].text}
+                      </React.Fragment>
                     </div>
                   </LineClomp>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__yynGv)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__tzrPi)}
-                    >
-                      <PlasmicImg__
-                        alt={""}
-                        className={classNames(sty.img__v1Qa6)}
-                        displayHeight={"8rem"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"13.5rem"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/liom_tools/images/newProject1Png.png",
-                          fullWidth: 1080,
-                          fullHeight: 764,
-                          aspectRatio: undefined
-                        }}
-                      />
-
-                      <div
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $state?.listDetails?.length > 0
+                          ? $state.listDetails
+                          : [];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___7IOuu
+                          sty.freeBox__yynGv
                         )}
+                        key={currentIndex}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__jyTm4
+                            sty.freeBox__tzrPi
                           )}
                         >
-                          <Icon122Icon
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__v1Qa6)}
+                            displayHeight={"8rem"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"13.5rem"}
+                            loading={"lazy"}
+                            src={(() => {
+                              try {
+                                return currentItem.cover;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return {
+                                    src: "/plasmic/liom_tools/images/newProject1Png.png",
+                                    fullWidth: 1080,
+                                    fullHeight: 764,
+                                    aspectRatio: undefined
+                                  };
+                                }
+                                throw e;
+                              }
+                            })()}
+                          />
+
+                          <div
                             className={classNames(
                               projectcss.all,
-                              sty.svg__wTnQm
+                              sty.freeBox___7IOuu
                             )}
-                            role={"img"}
-                          />
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__jyTm4
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return currentItem.mediaType == "image";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <Icon122Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__wTnQm
+                                  )}
+                                  role={"img"}
+                                />
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return currentItem.mediaType == "video";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <Icon87Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__oQf9O
+                                  )}
+                                  role={"img"}
+                                />
+                              ) : null}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Stack__>
+                      </Stack__>
+                    );
+                  })}
                 </React.Fragment>
               }
               slot2={
