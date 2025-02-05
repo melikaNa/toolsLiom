@@ -52,6 +52,11 @@
   max-width: 100%;
   display: none;
 }
+.text___5RfI {
+  width: 180px;
+  height: 25px;
+  border-radius: 8px;
+}
 .freeBox__zomNf {
   display: flex;
   flex-direction: column;
@@ -121,20 +126,6 @@
 .getData:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-}
-.text__xqirC {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.text__udrV8 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
 }
 .stepsLayout:global(.__wab_instance) {
   max-width: 100%;
