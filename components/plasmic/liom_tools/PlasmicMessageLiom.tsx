@@ -545,7 +545,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
       </div>
       {(() => {
         try {
-          return $props.origin == "eata" && $props.origin == "paziresh24";
+          return $props.origin == "eata" || $props.origin == "paziresh24";
         } catch (e) {
           if (
             e instanceof TypeError ||

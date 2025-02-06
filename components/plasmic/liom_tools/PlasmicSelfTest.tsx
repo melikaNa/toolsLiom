@@ -1036,7 +1036,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                     top: ["eata", "paziresh24"].includes(
                       new URLSearchParams(window.location.search).get("origin")
                     )
-                      ? "0px"
+                      ? "-5px"
                       : ""
                   };
                 } catch (e) {
