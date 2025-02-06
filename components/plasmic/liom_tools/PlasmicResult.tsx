@@ -4362,19 +4362,7 @@ function PlasmicResult__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return (() => {
-                        const filteredItems =
-                          $state.apiRequest.data.details.filter(
-                            item =>
-                              item.advice_text != null && item.action != ""
-                          );
-                        if (filteredItems.length > 0) {
-                          const randomIndex = Math.floor(
-                            Math.random() * filteredItems.length
-                          );
-                          return filteredItems[randomIndex];
-                        }
-                      })();
+                      return [0];
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -4405,7 +4393,7 @@ function PlasmicResult__RenderFunc(props: {
                             )}
                           >
                             {
-                              "\u0622\u06cc\u0627 \u0627\u0632 \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc \u061f"
+                              " \u0627\u0645\u062a\u06cc\u0627\u0632\u062f\u0647\u06cc \u0628\u0647 \u062a\u0633\u062a"
                             }
                           </div>
                         </div>
