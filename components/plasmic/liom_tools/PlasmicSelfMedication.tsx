@@ -103,8 +103,8 @@ export type PlasmicSelfMedication__OverridesType = {
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   getName?: Flex__<typeof ApiRequest>;
   getStep?: Flex__<typeof ApiRequest>;
-  getItem?: Flex__<typeof ApiRequest>;
   getUser?: Flex__<typeof ApiRequest>;
+  getItem?: Flex__<typeof ApiRequest>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
 };
@@ -476,110 +476,36 @@ function PlasmicSelfMedication__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/info"}
           >
             <ApiRequest
-              data-plasmic-name={"getItem"}
-              data-plasmic-override={overrides.getItem}
-              className={classNames("__wab_instance", sty.getItem)}
+              data-plasmic-name={"getUser"}
+              data-plasmic-override={overrides.getUser}
+              className={classNames("__wab_instance", sty.getUser)}
               errorDisplay={null}
               loadingDisplay={null}
               method={"GET"}
               onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getItem", "error"]).apply(
+                generateStateOnChangeProp($state, ["getUser", "error"]).apply(
                   null,
                   eventArgs
                 );
               }}
               onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getItem", "loading"]).apply(
+                generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
                   null,
                   eventArgs
                 );
               }}
               onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getItem", "data"]).apply(
+                generateStateOnChangeProp($state, ["getUser", "data"]).apply(
                   null,
                   eventArgs
                 );
-
-                (async data => {
-                  const $steps = {};
-
-                  $steps["updateDetailsList"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["detailsList"]
-                          },
-                          operation: 0,
-                          value: $state.getItem.data
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateDetailsList"] != null &&
-                    typeof $steps["updateDetailsList"] === "object" &&
-                    typeof $steps["updateDetailsList"].then === "function"
-                  ) {
-                    $steps["updateDetailsList"] = await $steps[
-                      "updateDetailsList"
-                    ];
-                  }
-
-                  $steps["updateDetailsList2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["itemLoading"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateDetailsList2"] != null &&
-                    typeof $steps["updateDetailsList2"] === "object" &&
-                    typeof $steps["updateDetailsList2"].then === "function"
-                  ) {
-                    $steps["updateDetailsList2"] = await $steps[
-                      "updateDetailsList2"
-                    ];
-                  }
-                }).apply(null, eventArgs);
               }}
               params={(() => {
                 try {
                   return {
-                    stepId: $state.getStep.data[$state.selectedStep].id
+                    token:
+                      $ctx.query.token ||
+                      new URLSearchParams(window.location.search).get("token")
                   };
                 } catch (e) {
                   if (
@@ -591,55 +517,129 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              url={"https://n8n.staas.ir/webhook/selfTreatment"}
-            />
-          </ApiRequest>
-          <ApiRequest
-            data-plasmic-name={"getUser"}
-            data-plasmic-override={overrides.getUser}
-            children={null}
-            className={classNames("__wab_instance", sty.getUser)}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"GET"}
-            onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getUser", "error"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getUser", "data"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            params={(() => {
-              try {
-                return {
-                  token:
-                    $ctx.query.token ||
-                    new URLSearchParams(window.location.search).get("token")
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            url={"https://n8n.staas.ir/webhook/userInfo"}
-          />
+              url={"https://n8n.staas.ir/webhook/userInfo"}
+            >
+              <ApiRequest
+                data-plasmic-name={"getItem"}
+                data-plasmic-override={overrides.getItem}
+                className={classNames("__wab_instance", sty.getItem)}
+                errorDisplay={null}
+                loadingDisplay={null}
+                method={"GET"}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getItem", "error"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "getItem",
+                    "loading"
+                  ]).apply(null, eventArgs);
+                }}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getItem", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
 
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["updateDetailsList"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["detailsList"]
+                            },
+                            operation: 0,
+                            value: $state.getItem.data
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDetailsList"] != null &&
+                      typeof $steps["updateDetailsList"] === "object" &&
+                      typeof $steps["updateDetailsList"].then === "function"
+                    ) {
+                      $steps["updateDetailsList"] = await $steps[
+                        "updateDetailsList"
+                      ];
+                    }
+
+                    $steps["updateDetailsList2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["itemLoading"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDetailsList2"] != null &&
+                      typeof $steps["updateDetailsList2"] === "object" &&
+                      typeof $steps["updateDetailsList2"].then === "function"
+                    ) {
+                      $steps["updateDetailsList2"] = await $steps[
+                        "updateDetailsList2"
+                      ];
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                params={(() => {
+                  try {
+                    return {
+                      stepId: $state.getStep.data[$state.selectedStep].id,
+                      userId: $state.getUser.data[0].r
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                url={"https://n8n.staas.ir/webhook/selfTreatment"}
+              />
+            </ApiRequest>
+          </ApiRequest>
           <Stack__
             as={"div"}
             hasGap={true}
@@ -1322,17 +1322,17 @@ const PlasmicDescendants = {
     "paziresh24Avatar",
     "getName",
     "getStep",
-    "getItem",
     "getUser",
+    "getItem",
     "linearCalendar",
     "loadingConclusion"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
   getName: ["getName"],
-  getStep: ["getStep", "getItem"],
+  getStep: ["getStep", "getUser", "getItem"],
+  getUser: ["getUser", "getItem"],
   getItem: ["getItem"],
-  getUser: ["getUser"],
   linearCalendar: ["linearCalendar"],
   loadingConclusion: ["loadingConclusion"]
 } as const;
@@ -1345,8 +1345,8 @@ type NodeDefaultElementType = {
   paziresh24Avatar: typeof Paziresh24Avatar;
   getName: typeof ApiRequest;
   getStep: typeof ApiRequest;
-  getItem: typeof ApiRequest;
   getUser: typeof ApiRequest;
+  getItem: typeof ApiRequest;
   linearCalendar: typeof LinearCalendar;
   loadingConclusion: typeof LoadingConclusion;
 };
@@ -1440,8 +1440,8 @@ export const PlasmicSelfMedication = Object.assign(
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     getName: makeNodeComponent("getName"),
     getStep: makeNodeComponent("getStep"),
-    getItem: makeNodeComponent("getItem"),
     getUser: makeNodeComponent("getUser"),
+    getItem: makeNodeComponent("getItem"),
     linearCalendar: makeNodeComponent("linearCalendar"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
 

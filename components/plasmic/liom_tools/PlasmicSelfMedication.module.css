@@ -60,11 +60,11 @@
   max-width: 100%;
   object-fit: cover;
 }
-.getItem:global(.__wab_instance) {
+.getUser:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
-.getUser:global(.__wab_instance) {
+.getItem:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
