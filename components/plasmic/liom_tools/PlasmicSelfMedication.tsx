@@ -624,7 +624,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   try {
                     return {
                       stepId: $state.getStep.data[$state.selectedStep].id,
-                      userId: $state.getUser.data[0].r
+                      userId: $state.getUser.data[0].result.user.id
                     };
                   } catch (e) {
                     if (
@@ -1050,7 +1050,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           const allowance =
                             $state?.getUser?.data?.[0]?.result?.allowance || [];
                           const filteredItem = allowance.find(
-                            item => item.type === "danger"
+                            item => item.type === $ctx.query.type
                           );
                           const active = filteredItem
                             ? filteredItem.active
@@ -1073,7 +1073,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                       "&token=" +
                                       $ctx.query.token +
                                       "&inApp=" +
-                                      $ctx.query.inApp
+                                      $ctx.query.inApp +
+                                      "&userId=" +
+                                      $state.getUser.data[0].result.user.id
                                     );
                                   } catch (e) {
                                     if (
@@ -1113,7 +1115,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           const allowance =
                             $state?.getUser?.data?.[0]?.result?.allowance || [];
                           const filteredItem = allowance.find(
-                            item => item.type === "danger"
+                            item => item.type === $ctx.query.type
                           );
                           const active = filteredItem
                             ? filteredItem.active
@@ -1146,7 +1148,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         }
 
                         $steps["showToast"] = (
-                          $ctx.query.inApp == "false" && currentItem.vip == 1
+                          ($ctx.query.inApp == "false" && currentItem.vip) == 1
                             ? true
                             : false
                         )
@@ -1154,7 +1156,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               const actionArgs = {
                                 args: [
                                   "error",
-                                  "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f"
+                                  "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f",
+                                  "bottom-center"
                                 ]
                               };
                               return $globalActions[
@@ -1188,13 +1191,15 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             try {
                               return $ctx.query.type == "dangerOrNot"
                                 ? undefined
+                                : currentItem.isDone == 1
+                                ? "green"
                                 : true;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return "grey";
+                                return [];
                               }
                               throw e;
                             }
