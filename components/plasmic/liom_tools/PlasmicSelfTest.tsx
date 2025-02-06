@@ -4020,19 +4020,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                           $steps["runCode2"] = await $steps["runCode2"];
                         }
                       }}
-                      space={(() => {
-                        try {
-                          return $state.loadinkBotten;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
                       startIcon={
                         <ChevronRightIcon
                           className={classNames(projectcss.all, sty.svg__k8MFy)}

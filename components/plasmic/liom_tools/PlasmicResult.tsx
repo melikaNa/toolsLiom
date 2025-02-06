@@ -60,11 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
-import {
-  executePlasmicDataOp,
-  usePlasmicDataOp,
-  usePlasmicInvalidate
-} from "@plasmicapp/react-web/lib/data-sources";
 
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import Backgrond from "../../Backgrond"; // plasmic-import: nqaGqDTn_cay/component
@@ -244,7 +239,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 3
       },
       {
         path: "buttonLiom.color",
@@ -447,8 +442,6 @@ function PlasmicResult__RenderFunc(props: {
     $queries: {},
     $refs
   });
-  const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     theme: useTheme(),
@@ -2573,7 +2566,15 @@ function PlasmicResult__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__se2Ul
+                    sty.text__se2Ul,
+                    {
+                      [sty.textglobal_unnamedGlobalGroupOfVariants_unnamedVariant__se2UlYcZU]:
+                        hasVariant(
+                          globalVariants,
+                          "unnamedGlobalGroupOfVariants",
+                          "unnamedVariant"
+                        )
+                    }
                   )}
                 >
                   <React.Fragment>
@@ -4076,25 +4077,26 @@ function PlasmicResult__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["refreshData"] = true
+                  $steps["runCode"] = true
                     ? (() => {
                         const actionArgs = {
-                          queryInvalidation: ["plasmic_refresh_all"]
-                        };
-                        return (async ({ queryInvalidation }) => {
-                          if (!queryInvalidation) {
-                            return;
+                          customFunction: async () => {
+                            return (() => {
+                              return window.location.reload();
+                            })();
                           }
-                          await plasmicInvalidate(queryInvalidation);
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
-                    $steps["refreshData"] != null &&
-                    typeof $steps["refreshData"] === "object" &&
-                    typeof $steps["refreshData"].then === "function"
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
                   ) {
-                    $steps["refreshData"] = await $steps["refreshData"];
+                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }}
                 shape={"rounded"}
