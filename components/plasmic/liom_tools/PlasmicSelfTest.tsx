@@ -981,11 +981,8 @@ function PlasmicSelfTest__RenderFunc(props: {
           >
             {(() => {
               try {
-                return (
-                  new URLSearchParams(window.location.search).get("origin") !=
-                    "eata" &&
-                  new URLSearchParams(window.location.search).get("origin") !=
-                    "paziresh24"
+                return !["eata", "paziresh24"].includes(
+                  new URLSearchParams(window.location.search).get("origin")
                 );
               } catch (e) {
                 if (
@@ -1031,22 +1028,28 @@ function PlasmicSelfTest__RenderFunc(props: {
                 }
               </HeaderLiom>
             ) : null}
-            {(() => {
-              try {
-                return (
-                  new URLSearchParams(window.location.search).get("origin") !=
-                  "eata"
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
+            <div
+              className={classNames(projectcss.all, sty.freeBox__eKo7V)}
+              style={(() => {
+                try {
+                  return {
+                    top: ["eata", "paziresh24"].includes(
+                      new URLSearchParams(window.location.search).get("origin")
+                    )
+                      ? "0px"
+                      : ""
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })() ? (
+              })()}
+            >
               <AntdProgress
                 data-plasmic-name={"progress"}
                 data-plasmic-override={overrides.progress}
@@ -1087,7 +1090,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 successPercent={undefined}
                 type={"line"}
               />
-            ) : null}
+            </div>
             <div
               className={classNames(projectcss.all, sty.freeBox__fwEj, ``)}
               id={"messegeBox"}
@@ -1187,9 +1190,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                       })()}
                       origin={(() => {
                         try {
-                          return new URLSearchParams(
-                            window.location.search
-                          ).get("origin");
+                          return $ctx.query.origin;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
