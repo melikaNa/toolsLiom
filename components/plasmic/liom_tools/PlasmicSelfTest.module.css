@@ -52,6 +52,7 @@
     left: 0;
     top: 0;
     right: 0;
+    display: flex;
   }
 }
 .paziresh24Avatar:global(.__wab_instance) {
@@ -1506,7 +1507,7 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  width: auto;
+  width: 100%;
   height: 100vh;
   max-width: 100%;
   justify-content: center;
@@ -1516,6 +1517,8 @@
   z-index: 1;
   background: var(--token-jgohepLVeKvh);
   right: 0;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
   padding: 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -1528,7 +1531,7 @@
 .svg__uaLit {
   object-fit: cover;
   max-width: 100%;
-  width: 80px;
+  width: 30px;
   height: 80px;
   color: var(--token-PvZN5zHgaOeZ);
   flex-shrink: 0;

@@ -979,26 +979,47 @@ function PlasmicSelfTest__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/addUserSelfTest"}
           >
-            {(() => {
-              try {
-                return (
-                  !["eata", "paziresh24"].includes(
-                    new URLSearchParams(window.location.search).get("origin")
-                  ) ||
-                  !["paziresh24"].includes(
-                    new URLSearchParams(window.location.search).get("app")
-                  )
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
+            {(
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? (() => {
+                    try {
+                      return (
+                        !window.location.href.includes("paziresh24") &&
+                        !window.location.href.includes("eata")
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return (
+                        !["eata", "paziresh24"].includes(
+                          new URLSearchParams(window.location.search).get(
+                            "origin"
+                          )
+                        ) ||
+                        !["paziresh24"].includes(
+                          new URLSearchParams(window.location.search).get("app")
+                        )
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+            ) ? (
               <HeaderLiom
                 data-plasmic-name={"headerLiom"}
                 data-plasmic-override={overrides.headerLiom}
@@ -1035,31 +1056,55 @@ function PlasmicSelfTest__RenderFunc(props: {
             ) : null}
             <div
               className={classNames(projectcss.all, sty.freeBox__eKo7V)}
-              style={(() => {
-                try {
-                  return {
-                    top:
-                      ["eata", "paziresh24"].includes(
-                        new URLSearchParams(window.location.search).get(
-                          "origin"
-                        )
-                      ) ||
-                      ["paziresh24"].includes(
-                        new URLSearchParams(window.location.search).get("app")
-                      )
-                        ? "-10px"
-                        : ""
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
+              style={
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? (() => {
+                      try {
+                        return {
+                          top:
+                            window.location.href.includes("paziresh24") &&
+                            window.location.href.includes("eata")
+                              ? "-9px"
+                              : ""
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : (() => {
+                      try {
+                        return {
+                          top:
+                            ["eata", "paziresh24"].includes(
+                              new URLSearchParams(window.location.search).get(
+                                "origin"
+                              )
+                            ) ||
+                            ["paziresh24"].includes(
+                              new URLSearchParams(window.location.search).get(
+                                "app"
+                              )
+                            )
+                              ? "-10px"
+                              : ""
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+              }
             >
               <AntdProgress
                 data-plasmic-name={"progress"}
