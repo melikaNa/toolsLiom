@@ -981,8 +981,13 @@ function PlasmicSelfTest__RenderFunc(props: {
           >
             {(() => {
               try {
-                return !["eata", "paziresh24"].includes(
-                  new URLSearchParams(window.location.search).get("origin")
+                return (
+                  !["eata", "paziresh24"].includes(
+                    new URLSearchParams(window.location.search).get("origin")
+                  ) ||
+                  !["paziresh24"].includes(
+                    new URLSearchParams(window.location.search).get("app")
+                  )
                 );
               } catch (e) {
                 if (
@@ -1033,11 +1038,17 @@ function PlasmicSelfTest__RenderFunc(props: {
               style={(() => {
                 try {
                   return {
-                    top: ["eata", "paziresh24"].includes(
-                      new URLSearchParams(window.location.search).get("origin")
-                    )
-                      ? "-5px"
-                      : ""
+                    top:
+                      ["eata", "paziresh24"].includes(
+                        new URLSearchParams(window.location.search).get(
+                          "origin"
+                        )
+                      ) ||
+                      ["paziresh24"].includes(
+                        new URLSearchParams(window.location.search).get("app")
+                      )
+                        ? "-10px"
+                        : ""
                   };
                 } catch (e) {
                   if (
@@ -1190,7 +1201,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                       })()}
                       origin={(() => {
                         try {
-                          return $ctx.query.origin;
+                          return $ctx.query.origin || $ctx.query.app;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
