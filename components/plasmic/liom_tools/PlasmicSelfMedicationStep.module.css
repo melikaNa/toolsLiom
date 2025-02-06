@@ -293,14 +293,16 @@
   min-width: 0;
 }
 .text__zQlOt {
-  position: relative;
-  width: 100%;
+  width: 90px;
   height: auto;
-  max-width: 100%;
-  text-align: right;
-  color: var(--token-QR8ATjORhQqO);
+  text-align: center;
+  color: var(--token-0jflij2Drauk);
   font-size: 13px;
-  min-width: 0;
+  position: relative;
+  background: var(--token-MjYUWCcX38Uk);
+  border-radius: 8px;
+  padding: 0px;
+  border: 1px solid var(--token-0jflij2Drauk);
 }
 .text__r0Nsc {
   position: relative;

@@ -726,6 +726,32 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           sty.freeBox__yynGv
                         )}
                         key={currentIndex}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] =
+                            (currentItem?.action ?? "") != ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.FlutterChannel.postMessage(
+                                        currentItem.action
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
                       >
                         <div
                           className={classNames(
@@ -1275,20 +1301,21 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return window.FlutterChannel.postMessage(
-                                  currentItem.action
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                      $steps["runCode"] =
+                        (currentItem?.action ?? "") != ""
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return window.FlutterChannel.postMessage(
+                                    currentItem.action
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                       if (
                         $steps["runCode"] != null &&
                         typeof $steps["runCode"] === "object" &&
@@ -1453,17 +1480,31 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__zQlOt
-                        )}
-                      >
-                        {
-                          "\u0645\u0634\u0627\u0647\u062f\u0647 \u0628\u06cc\u0634\u062a\u0631 ..."
+                      {(() => {
+                        try {
+                          return (currentItem?.action ?? "") != "";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
                         }
-                      </div>
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__zQlOt
+                          )}
+                        >
+                          {
+                            "\u0631\u0641\u062a\u0646 \u0628\u0647 \u067e\u0633\u062a"
+                          }
+                        </div>
+                      ) : null}
                     </Stack__>
                   </Stack__>
                 );

@@ -5270,6 +5270,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                                         : new URLSearchParams(
                                             window.location.search
                                           ).get("user_id") ||
+                                          new URLSearchParams(
+                                            window.location.search
+                                          ).get("userId") ||
                                           $state.data.userId ||
                                           "null"
                                   };
