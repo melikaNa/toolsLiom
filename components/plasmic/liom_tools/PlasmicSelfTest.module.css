@@ -79,7 +79,7 @@
     top: 50px;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: auto;
   }
 }
 .freeBox__fwEj {
@@ -150,7 +150,21 @@
   width: 20px;
   height: 20px;
   transform: translateX(-1px) translateY(0px) translateZ(0px);
+  cursor: pointer;
   flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .svg__fCcuL {
+    z-index: 0;
+    left: auto;
+    top: auto;
+    position: relative;
+    width: 20px;
+    bottom: auto;
+    right: auto;
+    height: 20px;
+    flex-shrink: 0;
+  }
 }
 .freeBox__t3OzC {
   display: flex;
@@ -176,6 +190,11 @@
   height: 20px;
   transform: translateX(-1px) translateY(0px) translateZ(0px);
   flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .svg__o5Pbm {
+    z-index: 20;
+  }
 }
 .text__m641N {
   position: relative;

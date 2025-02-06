@@ -424,7 +424,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   }}
                 >
                   <React.Fragment>
-                    {$state?.getName?.data?.[0]?.name ?? ""}
+                    {($state?.getName?.data?.[0]?.name ?? "") +
+                      " - " +
+                      ($state?.getData.data[0].title ?? "")}
                   </React.Fragment>
                 </div>
               ) : null}

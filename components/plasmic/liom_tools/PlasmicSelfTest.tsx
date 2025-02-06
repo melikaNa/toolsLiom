@@ -1230,6 +1230,99 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 projectcss.all,
                                 sty.freeBox__c1Ue
                               )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateEdit"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["edit"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateEdit"] != null &&
+                                  typeof $steps["updateEdit"] === "object" &&
+                                  typeof $steps["updateEdit"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateEdit"] = await $steps[
+                                    "updateEdit"
+                                  ];
+                                }
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            const reversedIndex =
+                                              $state.testChat
+                                                .slice()
+                                                .reverse()
+                                                .findIndex(
+                                                  item => item.question
+                                                );
+                                            if (reversedIndex !== -1) {
+                                              const originalIndex =
+                                                $state.testChat.length -
+                                                1 -
+                                                reversedIndex;
+                                              const previousReversedIndex =
+                                                $state.testChat
+                                                  .slice(0, originalIndex)
+                                                  .reverse()
+                                                  .findIndex(
+                                                    item => item.question
+                                                  );
+                                              if (
+                                                previousReversedIndex !== -1
+                                              ) {
+                                                const previousOriginalIndex =
+                                                  originalIndex -
+                                                  1 -
+                                                  previousReversedIndex;
+                                                return $state.testChat.splice(
+                                                  previousOriginalIndex + 1
+                                                );
+                                              }
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+                              }}
                             >
                               <Icon119Icon
                                 className={classNames(
