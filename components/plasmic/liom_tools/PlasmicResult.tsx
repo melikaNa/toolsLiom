@@ -86,6 +86,7 @@ import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
 import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
+import HamdastUtilsOpenLink from "../../HamdastUtilsOpenLink"; // plasmic-import: RRKFlqCHeJfP/component
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import {
@@ -2310,12 +2311,12 @@ function PlasmicResult__RenderFunc(props: {
                                       ];
                                     }
 
-                                    $steps["runCode"] = true
+                                    $steps["goToPage"] = true
                                       ? (() => {
                                           const actionArgs = {
-                                            customFunction: async () => {
-                                              return window.open(
-                                                `https://tools.liom.app/self-test?user_id=${
+                                            destination: (() => {
+                                              try {
+                                                return `/self-test?user_id=${
                                                   $ctx.query.user_id
                                                 }&type=${currentItem.option_metric.option_metric.slice(
                                                   0,
@@ -2331,24 +2332,45 @@ function PlasmicResult__RenderFunc(props: {
                                                   ).next_question_id
                                                 }&session_id=${
                                                   $ctx.query.session_id
-                                                }&app=${$ctx.query.app}`,
-                                                "_self"
-                                              );
-                                            }
+                                                }&app=${$ctx.query.app}`;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
                                           };
-                                          return (({ customFunction }) => {
-                                            return customFunction();
+                                          return (({ destination }) => {
+                                            if (
+                                              typeof destination === "string" &&
+                                              destination.startsWith("#")
+                                            ) {
+                                              document
+                                                .getElementById(
+                                                  destination.substr(1)
+                                                )
+                                                .scrollIntoView({
+                                                  behavior: "smooth"
+                                                });
+                                            } else {
+                                              __nextRouter?.push(destination);
+                                            }
                                           })?.apply(null, [actionArgs]);
                                         })()
                                       : undefined;
                                     if (
-                                      $steps["runCode"] != null &&
-                                      typeof $steps["runCode"] === "object" &&
-                                      typeof $steps["runCode"].then ===
+                                      $steps["goToPage"] != null &&
+                                      typeof $steps["goToPage"] === "object" &&
+                                      typeof $steps["goToPage"].then ===
                                         "function"
                                     ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
+                                      $steps["goToPage"] = await $steps[
+                                        "goToPage"
                                       ];
                                     }
 
@@ -3830,163 +3852,108 @@ function PlasmicResult__RenderFunc(props: {
                             }
                           />
                         </div>
-                        <Paziresh24Button
-                          children2={
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return `گفتگو با ${currentItem.display_name}`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "Button";
+                        <HamdastUtilsOpenLink
+                          className={classNames(
+                            "__wab_instance",
+                            sty.hamdastUtilsOpenLink__nMdwz
+                          )}
+                          destination={(() => {
+                            try {
+                              return `https://www.paziresh24.com/booking/${currentItem.slug}/?centerId=5532&skipTimeSelectStep=true`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                          openInNewTab={true}
+                        >
+                          <Paziresh24Button
+                            children2={
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return `گفتگو با ${currentItem.display_name}`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "Button";
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          }
+                                })()}
+                              </React.Fragment>
+                            }
+                            className={classNames(
+                              "__wab_instance",
+                              sty.paziresh24Button__hZeLs
+                            )}
+                            endIcon={
+                              <ChevronLeftIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__s56Rl
+                                )}
+                                role={"img"}
+                              />
+                            }
+                            startIcon={
+                              <ChevronRightIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__v05S
+                                )}
+                                role={"img"}
+                              />
+                            }
+                          />
+                        </HamdastUtilsOpenLink>
+                        <HamdastUtilsOpenLink
                           className={classNames(
                             "__wab_instance",
-                            sty.paziresh24Button__hZeLs
+                            sty.hamdastUtilsOpenLink__bfpXh
                           )}
-                          endIcon={
-                            <ChevronLeftIcon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__s56Rl
-                              )}
-                              role={"img"}
-                            />
+                          destination={
+                            "https://www.paziresh24.com/consult?from_recommend_section=1"
                           }
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["goToPage"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
-                                      try {
-                                        return `https://www.paziresh24.com/booking/${currentItem.slug}/?centerId=5532&skipTimeSelectStep=true`;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["goToPage"] != null &&
-                              typeof $steps["goToPage"] === "object" &&
-                              typeof $steps["goToPage"].then === "function"
-                            ) {
-                              $steps["goToPage"] = await $steps["goToPage"];
+                          openInNewTab={true}
+                        >
+                          <Paziresh24Button
+                            children2={
+                              "\u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0627\u06cc\u0631 \u067e\u0632\u0634\u06a9\u0627\u0646 \u0622\u0646\u0644\u0627\u06cc\u0646"
                             }
-                          }}
-                          startIcon={
-                            <ChevronRightIcon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__v05S
-                              )}
-                              role={"img"}
-                            />
-                          }
-                        />
-
-                        <Paziresh24Button
-                          children2={
-                            "\u0645\u0634\u0627\u0647\u062f\u0647 \u0633\u0627\u06cc\u0631 \u067e\u0632\u0634\u06a9\u0627\u0646 \u0622\u0646\u0644\u0627\u06cc\u0646"
-                          }
-                          className={classNames(
-                            "__wab_instance",
-                            sty.paziresh24Button___3Plz2
-                          )}
-                          color={"text"}
-                          endIcon={
-                            <ChevronLeftIcon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__n6DEw
-                              )}
-                              role={"img"}
-                            />
-                          }
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps[
-                              "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
-                            ] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination:
-                                      "https://www.paziresh24.com/consult?from_recommend_section=1"
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps[
-                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
-                              ] != null &&
-                              typeof $steps[
-                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
-                              ] === "object" &&
-                              typeof $steps[
-                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
-                              ].then === "function"
-                            ) {
-                              $steps[
-                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
-                              ] = await $steps[
-                                "goToHttpsWwwPaziresh24ComConsultFromRecommendSection1"
-                              ];
+                            className={classNames(
+                              "__wab_instance",
+                              sty.paziresh24Button___3Plz2
+                            )}
+                            color={"text"}
+                            endIcon={
+                              <ChevronLeftIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__n6DEw
+                                )}
+                                role={"img"}
+                              />
                             }
-                          }}
-                          startIcon={
-                            <ChevronRightIcon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__xDfIk
-                              )}
-                              role={"img"}
-                            />
-                          }
-                        />
+                            startIcon={
+                              <ChevronRightIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__xDfIk
+                                )}
+                                role={"img"}
+                              />
+                            }
+                          />
+                        </HamdastUtilsOpenLink>
                       </Stack__>
                     );
                   })}
