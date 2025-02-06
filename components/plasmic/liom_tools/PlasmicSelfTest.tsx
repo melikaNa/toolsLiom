@@ -983,7 +983,9 @@ function PlasmicSelfTest__RenderFunc(props: {
               try {
                 return (
                   new URLSearchParams(window.location.search).get("origin") !=
-                  "eata"
+                    "eata" &&
+                  new URLSearchParams(window.location.search).get("origin") !=
+                    "paziresh24"
                 );
               } catch (e) {
                 if (
@@ -1179,6 +1181,21 @@ function PlasmicSelfTest__RenderFunc(props: {
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
                             return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      origin={(() => {
+                        try {
+                          return new URLSearchParams(
+                            window.location.search
+                          ).get("origin");
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
                           }
                           throw e;
                         }

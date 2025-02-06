@@ -61,6 +61,8 @@ import {
 
 import LoadingCompopnentGray from "../../LoadingCompopnentGray"; // plasmic-import: OUwywVcxKl5x/component
 
+import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -99,11 +101,13 @@ export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicMessageLiom__ArgsType = {
+  origin?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicMessageLiom__ArgsType;
 export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
+  "origin",
   "children",
   "slot"
 );
@@ -112,9 +116,11 @@ export type PlasmicMessageLiom__OverridesType = {
   root?: Flex__<"div">;
   loadingCompopnentGray?: Flex__<typeof LoadingCompopnentGray>;
   svg?: Flex__<"svg">;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultMessageLiomProps {
+  origin?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -207,6 +213,10 @@ function PlasmicMessageLiom__RenderFunc(props: {
     $refs
   });
 
+  const globalVariants = ensureGlobalVariants({
+    theme: useTheme()
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -229,8 +239,14 @@ function PlasmicMessageLiom__RenderFunc(props: {
           [sty.rootendMessege_hint]:
             hasVariant($state, "hint", "hint") &&
             hasVariant($state, "endMessege", "endMessege"),
+          [sty.rootendMessege_pazireshAnswer]:
+            hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+            hasVariant($state, "endMessege", "endMessege"),
           [sty.roothint]: hasVariant($state, "hint", "hint"),
           [sty.rootliomAnswer]: hasVariant($state, "liomAnswer", "liomAnswer"),
+          [sty.rootliomAnswer_endMessege]:
+            hasVariant($state, "endMessege", "endMessege") &&
+            hasVariant($state, "liomAnswer", "liomAnswer"),
           [sty.rootliomAnswer_hint]:
             hasVariant($state, "hint", "hint") &&
             hasVariant($state, "liomAnswer", "liomAnswer"),
@@ -365,12 +381,22 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
+              [sty.slotTargetChildrenendMessege_global_theme_dark]:
+                hasVariant($state, "endMessege", "endMessege") &&
+                hasVariant(globalVariants, "theme", "dark"),
+              [sty.slotTargetChildrenendMessege_global_theme_dark_hint]:
+                hasVariant($state, "endMessege", "endMessege") &&
+                hasVariant($state, "hint", "hint") &&
+                hasVariant(globalVariants, "theme", "dark"),
               [sty.slotTargetChildrenendMessege_hint]:
                 hasVariant($state, "hint", "hint") &&
                 hasVariant($state, "endMessege", "endMessege"),
               [sty.slotTargetChildrenendMessege_pazireshAnswer]:
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
                 hasVariant($state, "endMessege", "endMessege"),
+              [sty.slotTargetChildrenglobal_theme_dark_hint]:
+                hasVariant($state, "hint", "hint") &&
+                hasVariant(globalVariants, "theme", "dark"),
               [sty.slotTargetChildrenhint]: hasVariant($state, "hint", "hint"),
               [sty.slotTargetChildrenliomAnswer]: hasVariant(
                 $state,
@@ -459,6 +485,12 @@ function PlasmicMessageLiom__RenderFunc(props: {
               [sty.svgliomAnswer_pazireshAnswer]:
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
                 hasVariant($state, "liomAnswer", "liomAnswer"),
+              [sty.svgloadingMessage_endMessege]:
+                hasVariant($state, "loadingMessage", "loadingMessage") &&
+                hasVariant($state, "endMessege", "endMessege"),
+              [sty.svgloadingMessage_pazireshAnswer]:
+                hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+                hasVariant($state, "loadingMessage", "loadingMessage"),
               [sty.svgpazireshAnswer]: hasVariant(
                 $state,
                 "pazireshAnswer",
@@ -511,14 +543,91 @@ function PlasmicMessageLiom__RenderFunc(props: {
           })}
         </div>
       </div>
+      {(() => {
+        try {
+          return $props.origin == "eata" && $props.origin == "paziresh24";
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <div
+          className={classNames(projectcss.all, sty.freeBox__cZks, {
+            [sty.freeBoxendMessege__cZksTjzqg]: hasVariant(
+              $state,
+              "endMessege",
+              "endMessege"
+            )
+          })}
+        >
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img, {
+              [sty.imgendMessege]: hasVariant(
+                $state,
+                "endMessege",
+                "endMessege"
+              ),
+              [sty.imgliomAnswer]: hasVariant(
+                $state,
+                "liomAnswer",
+                "liomAnswer"
+              ),
+              [sty.imgpazireshAnswer]: hasVariant(
+                $state,
+                "pazireshAnswer",
+                "pazireshAnswer"
+              )
+            })}
+            displayHeight={"30px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"30px"}
+            height={
+              hasVariant($state, "endMessege", "endMessege") ? "30" : undefined
+            }
+            loading={"lazy"}
+            src={
+              hasVariant($state, "endMessege", "endMessege")
+                ? (() => {
+                    try {
+                      return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : undefined
+            }
+            width={
+              hasVariant($state, "endMessege", "endMessege") ? "30" : undefined
+            }
+          />
+        </div>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "loadingCompopnentGray", "svg"],
+  root: ["root", "loadingCompopnentGray", "svg", "img"],
   loadingCompopnentGray: ["loadingCompopnentGray"],
-  svg: ["svg"]
+  svg: ["svg"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -527,6 +636,7 @@ type NodeDefaultElementType = {
   root: "div";
   loadingCompopnentGray: typeof LoadingCompopnentGray;
   svg: "svg";
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -591,6 +701,7 @@ export const PlasmicMessageLiom = Object.assign(
     // Helper components rendering sub-elements
     loadingCompopnentGray: makeNodeComponent("loadingCompopnentGray"),
     svg: makeNodeComponent("svg"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicMessageLiom
     internalVariantProps: PlasmicMessageLiom__VariantProps,
