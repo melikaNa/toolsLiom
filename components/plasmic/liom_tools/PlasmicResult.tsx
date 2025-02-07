@@ -868,8 +868,8 @@ function PlasmicResult__RenderFunc(props: {
           {(() => {
             try {
               return (
-                new URLSearchParams(window.location.search).get("origin") !=
-                "eata"
+                new URLSearchParams(window.location.search).get("inApp") !=
+                "true"
               );
             } catch (e) {
               if (
@@ -2359,7 +2359,9 @@ function PlasmicResult__RenderFunc(props: {
                                                     ).next_question_id
                                                   }&session_id=${
                                                     $ctx.query.session_id
-                                                  }&app=${$ctx.query.app}`;
+                                                  }&app=${
+                                                    $ctx.query.app
+                                                  }&inApp=${$ctx.query.inApp}`;
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -2982,7 +2984,8 @@ function PlasmicResult__RenderFunc(props: {
           {(() => {
             try {
               return (
-                $state.apiRequest.data && $state.apiRequest.data.our_message
+                $state.apiRequest.data?.our_message &&
+                $state.apiRequest.data?.our_message?.trim() !== ""
               );
             } catch (e) {
               if (
@@ -4514,7 +4517,7 @@ function PlasmicResult__RenderFunc(props: {
                             args: [
                               undefined,
                               "\u0644\u06cc\u0646\u06a9 \u0646\u062a\u06cc\u062c\u0647 \u06a9\u067e\u06cc \u0634\u062f.",
-                              "top-left"
+                              "bottom-left"
                             ]
                           };
                           return $globalActions["Fragment.showToast"]?.apply(

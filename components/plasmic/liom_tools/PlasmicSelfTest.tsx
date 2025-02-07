@@ -1000,14 +1000,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                 : (() => {
                     try {
                       return (
-                        !["eata", "paziresh24"].includes(
-                          new URLSearchParams(window.location.search).get(
-                            "origin"
-                          )
-                        ) ||
-                        !["paziresh24"].includes(
-                          new URLSearchParams(window.location.search).get("app")
-                        )
+                        new URLSearchParams(window.location.search).get(
+                          "inApp"
+                        ) != "true"
                       );
                     } catch (e) {
                       if (
@@ -1081,16 +1076,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                       try {
                         return {
                           top:
-                            ["eata", "paziresh24"].includes(
-                              new URLSearchParams(window.location.search).get(
-                                "origin"
-                              )
-                            ) ||
-                            ["paziresh24"].includes(
-                              new URLSearchParams(window.location.search).get(
-                                "app"
-                              )
-                            )
+                            new URLSearchParams(window.location.search).get(
+                              "inApp"
+                            ) == "true"
                               ? "-10px"
                               : ""
                         };
@@ -1214,6 +1202,23 @@ function PlasmicSelfTest__RenderFunc(props: {
                           throw e;
                         }
                       })()}
+                      inApp={(() => {
+                        try {
+                          return (
+                            new URLSearchParams(window.location.search).get(
+                              "inApp"
+                            ) == "true"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
+                      })()}
                       key={currentIndex}
                       liomAnswer={(() => {
                         try {
@@ -1240,19 +1245,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
                             return [];
-                          }
-                          throw e;
-                        }
-                      })()}
-                      origin={(() => {
-                        try {
-                          return $ctx.query.origin || $ctx.query.app;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
                           }
                           throw e;
                         }
@@ -3155,7 +3147,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                           user_id: $state.userId,
                                           session_id: $state.sessionId
                                         },
-                                        redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`
+                                        redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}&inApp=${$ctx.query.inApp}`
                                       };
                                     } catch (e) {
                                       if (
@@ -3602,7 +3594,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                         amount:
                                           $state.shop.data.result.price * 10,
                                         purchase_id: $state.shop.data.result.id,
-                                        return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}`,
+                                        return_link: `https://tools.liom.app/self-test/?user_id=${$state.userId}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}&inApp=${$ctx.query.inApp}`,
                                         title: $state.shop.data.result.title
                                       };
                                     } catch (e) {
@@ -3959,7 +3951,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}&app=${$ctx.query.app}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&origin=${$ctx.query.origin}`;
+                                    return `https://tools.liom.app/result?session_id=${$state.sessionId}&user_id=${$state.userId}&app=${$ctx.query.app}&token=${$ctx.query.token}&origin_user_id=${$ctx.query.origin_user_id}&origin=${$ctx.query.origin}&inApp=${$ctx.query.inApp}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -6037,7 +6029,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 const actionArgs = {
                                   destination: (() => {
                                     try {
-                                      return `https://tools.liom.app/result/?session_id=${currentItem.id}&user_id=${currentItem.user_id}&Share=true&app=${$ctx.query.app}&origin=${$ctx.query.origin}`;
+                                      return `https://tools.liom.app/result/?session_id=${currentItem.id}&user_id=${currentItem.user_id}&Share=true&app=${$ctx.query.app}&origin=${$ctx.query.origin}&inApp=${$ctx.query.inApp}`;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
