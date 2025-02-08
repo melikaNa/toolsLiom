@@ -508,7 +508,10 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       new URLSearchParams(window.location.search).get("stepId"),
                     sectionId:
                       $ctx.query.secId ||
-                      new URLSearchParams(window.location.search).get("secId")
+                      new URLSearchParams(window.location.search).get("secId"),
+                    userId:
+                      $ctx.query.userId ||
+                      new URLSearchParams(window.location.search).get("userId")
                   };
                 } catch (e) {
                   if (
