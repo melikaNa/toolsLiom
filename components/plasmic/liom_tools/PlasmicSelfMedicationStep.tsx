@@ -1487,7 +1487,10 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
             </StepsLayout>
             {(() => {
               try {
-                return $ctx.query.type != "danger";
+                return (
+                  $state.getData?.data?.[0]?.isDone == 0 &&
+                  $ctx.query.type != "danger"
+                );
               } catch (e) {
                 if (
                   e instanceof TypeError ||
