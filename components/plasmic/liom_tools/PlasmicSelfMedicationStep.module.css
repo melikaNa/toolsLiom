@@ -29,7 +29,12 @@
   }
 }
 .headerLiom:global(.__wab_instance) {
-  max-width: 100%;
+  left: 20%;
+  top: 0px;
+  z-index: 1;
+  position: fixed;
+  width: auto;
+  right: 20%;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .headerLiom:global(.__wab_instance) {

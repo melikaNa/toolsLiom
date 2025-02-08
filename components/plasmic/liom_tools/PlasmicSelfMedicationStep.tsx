@@ -356,7 +356,15 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
             >
               {(() => {
                 try {
-                  return !$state.getName.loading;
+                  return (() => {
+                    if (
+                      !$state.getName.loading &&
+                      ($state?.getName?.data?.[0]?.name ?? "" != "") &&
+                      ($state?.getData.data[0].title ?? "" != "")
+                    )
+                      return true;
+                    else return false;
+                  })();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
