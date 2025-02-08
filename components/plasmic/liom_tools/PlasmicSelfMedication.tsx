@@ -183,7 +183,20 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "selectedStep",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return parseInt($ctx.query?.selectStep ?? "0");
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "getItem.data",
@@ -476,22 +489,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
               (async data => {
                 const $steps = {};
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {};
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
@@ -1149,7 +1146,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                       "&inApp=" +
                                       $ctx.query.inApp +
                                       "&userId=" +
-                                      $state.getUser.data[0].result.user.id
+                                      $state.getUser.data[0].result.user.id +
+                                      "&selectStep=" +
+                                      $ctx.query.selectStep
                                     );
                                   } catch (e) {
                                     if (

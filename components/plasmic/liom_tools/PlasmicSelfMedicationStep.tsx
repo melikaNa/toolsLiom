@@ -326,7 +326,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               "&inApp=" +
                               $ctx.query.inApp +
                               "&token=" +
-                              $ctx.query.token
+                              $ctx.query.token +
+                              "&selectStep=" +
+                              $ctx.query.selectStep
                           };
                           return (({ destination }) => {
                             if (
@@ -436,30 +438,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       " - " +
                       ($state?.getData.data[0].title ?? "")}
                   </React.Fragment>
-                </div>
-              ) : null}
-              {(() => {
-                try {
-                  return $state.getName.loading;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___5RfI,
-                    "shimmer"
-                  )}
-                >
-                  {""}
                 </div>
               ) : null}
             </HeaderLiom>
