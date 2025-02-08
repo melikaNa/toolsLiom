@@ -516,7 +516,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   const $steps = {};
                 }).apply(null, eventArgs);
               }}
-              url={"https://n8n.staas.ir/webhook/info"}
+              url={"https://n8n.staas.ir/webhook/self/info"}
             />
 
             <ApiRequest

@@ -372,9 +372,35 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 ) : null
               }
             >
-              <React.Fragment>
-                {$state?.getName?.data?.[0]?.name ?? ""}
-              </React.Fragment>
+              {(() => {
+                try {
+                  return (() => {
+                    if ($state?.getName?.data?.[0]?.name ?? "" != "")
+                      return true;
+                    else return false;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__cOzkv
+                  )}
+                >
+                  <React.Fragment>
+                    {$state?.getName?.data?.[0]?.name ?? ""}
+                  </React.Fragment>
+                </div>
+              ) : null}
             </HeaderLiom>
           ) : null}
           <ApiRequest
@@ -419,12 +445,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              (async data => {
-                const $steps = {};
-              }).apply(null, eventArgs);
             }}
-            url={"https://n8n.staas.ir/webhook/info"}
+            url={"https://n8n.staas.ir/webhook/self/info"}
           />
 
           <ApiRequest
@@ -454,6 +476,22 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
               (async data => {
                 const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {};
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
@@ -473,7 +511,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 throw e;
               }
             })()}
-            url={"https://n8n.staas.ir/webhook/info"}
+            url={"https://n8n.staas.ir/webhook/self/info"}
           >
             <ApiRequest
               data-plasmic-name={"getUser"}
@@ -499,6 +537,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   null,
                   eventArgs
                 );
+
+                (async data => {
+                  const $steps = {};
+                }).apply(null, eventArgs);
               }}
               params={(() => {
                 try {
@@ -648,7 +690,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
             <div className={classNames(projectcss.all, sty.freeBox__imEyz)}>
               {(() => {
                 try {
-                  return !$state.getName.loading;
+                  return (
+                    !$state.getName.loading &&
+                    ($state.getName.data[0].icon ?? "") != ""
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -871,6 +916,31 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ) {
                           $steps["invokeGlobalAction"] = await $steps[
                             "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["updateDetailsList2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return console.log($state.detailsList);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDetailsList2"] != null &&
+                          typeof $steps["updateDetailsList2"] === "object" &&
+                          typeof $steps["updateDetailsList2"].then ===
+                            "function"
+                        ) {
+                          $steps["updateDetailsList2"] = await $steps[
+                            "updateDetailsList2"
                           ];
                         }
                       }}
