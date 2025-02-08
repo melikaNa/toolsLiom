@@ -4535,6 +4535,36 @@ function PlasmicResult__RenderFunc(props: {
                         "invokeGlobalAction"
                       ];
                     }
+
+                    $steps["runCode2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                if (navigator.share) {
+                                  return navigator.share({
+                                    title: "لیوم | تقویم قاعدگی",
+                                    text:
+                                      "نتیجه تست نامنظمی قاعدگی من:\n" +
+                                      "\n برای مشاهده نتیجه تست قاعدگی خود\u060C به لینک زیر مراجعه کنید:\n",
+                                    url: `${window.location.href}&Share=true`
+                                  });
+                                }
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode2"] != null &&
+                      typeof $steps["runCode2"] === "object" &&
+                      typeof $steps["runCode2"].then === "function"
+                    ) {
+                      $steps["runCode2"] = await $steps["runCode2"];
+                    }
                   }}
                   size={
                     hasVariant(globalVariants, "screen", "mobileOnly")
