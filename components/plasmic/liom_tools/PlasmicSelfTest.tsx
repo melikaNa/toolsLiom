@@ -1395,149 +1395,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   projectcss.all,
                                   sty.svg__fCcuL
                                 )}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["updateEdit"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["edit"]
-                                          },
-                                          operation: 0,
-                                          value: true
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateEdit"] != null &&
-                                    typeof $steps["updateEdit"] === "object" &&
-                                    typeof $steps["updateEdit"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateEdit"] = await $steps[
-                                      "updateEdit"
-                                    ];
-                                  }
-
-                                  $steps["runCode"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return (() => {
-                                              const reversedIndex =
-                                                $state.testChat
-                                                  .slice()
-                                                  .reverse()
-                                                  .findIndex(
-                                                    item => item.question
-                                                  );
-                                              if (reversedIndex !== -1) {
-                                                const originalIndex =
-                                                  $state.testChat.length -
-                                                  1 -
-                                                  reversedIndex;
-                                                const previousReversedIndex =
-                                                  $state.testChat
-                                                    .slice(0, originalIndex)
-                                                    .reverse()
-                                                    .findIndex(
-                                                      item => item.question
-                                                    );
-                                                if (
-                                                  previousReversedIndex !== -1
-                                                ) {
-                                                  const previousOriginalIndex =
-                                                    originalIndex -
-                                                    1 -
-                                                    previousReversedIndex;
-                                                  return $state.testChat.splice(
-                                                    previousOriginalIndex + 1
-                                                  );
-                                                }
-                                              }
-                                            })();
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["runCode"] != null &&
-                                    typeof $steps["runCode"] === "object" &&
-                                    typeof $steps["runCode"].then === "function"
-                                  ) {
-                                    $steps["runCode"] = await $steps["runCode"];
-                                  }
-
-                                  $steps["invokeGlobalAction"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            "PUT",
-                                            "https://n8n.staas.ir/webhook/selfTestLogs",
-                                            undefined,
-                                            (() => {
-                                              try {
-                                                return {
-                                                  session_id: $state.sessionId,
-                                                  question_id:
-                                                    $state.testChat[
-                                                      $state.testChat.length - 1
-                                                    ].question.id
-                                                };
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.apiRequest"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction"] != null &&
-                                    typeof $steps["invokeGlobalAction"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["invokeGlobalAction"] = await $steps[
-                                      "invokeGlobalAction"
-                                    ];
-                                  }
-                                }}
                                 role={"img"}
                               />
                             </div>
@@ -1577,155 +1434,151 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 projectcss.all,
                                 sty.freeBox__t3OzC
                               )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateEdit"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["edit"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateEdit"] != null &&
+                                  typeof $steps["updateEdit"] === "object" &&
+                                  typeof $steps["updateEdit"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateEdit"] = await $steps[
+                                    "updateEdit"
+                                  ];
+                                }
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            const reversedIndex =
+                                              $state.testChat
+                                                .slice()
+                                                .reverse()
+                                                .findIndex(
+                                                  item => item.question
+                                                );
+                                            if (reversedIndex !== -1) {
+                                              const originalIndex =
+                                                $state.testChat.length -
+                                                1 -
+                                                reversedIndex;
+                                              const previousReversedIndex =
+                                                $state.testChat
+                                                  .slice(0, originalIndex)
+                                                  .reverse()
+                                                  .findIndex(
+                                                    item => item.question
+                                                  );
+                                              if (
+                                                previousReversedIndex !== -1
+                                              ) {
+                                                const previousOriginalIndex =
+                                                  originalIndex -
+                                                  1 -
+                                                  previousReversedIndex;
+                                                return $state.testChat.splice(
+                                                  previousOriginalIndex + 1
+                                                );
+                                              }
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["updateTestChat2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "PUT",
+                                          "https://n8n.staas.ir/webhook/selfTestLogs",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                session_id: $state.sessionId,
+                                                question_id:
+                                                  $state.testChat[
+                                                    $state.testChat.length - 1
+                                                  ].question.id
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateTestChat2"] != null &&
+                                  typeof $steps["updateTestChat2"] ===
+                                    "object" &&
+                                  typeof $steps["updateTestChat2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateTestChat2"] = await $steps[
+                                    "updateTestChat2"
+                                  ];
+                                }
+                              }}
                             >
                               <Icon119Icon
                                 className={classNames(
                                   projectcss.all,
                                   sty.svg__o5Pbm
                                 )}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["updateEdit"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["edit"]
-                                          },
-                                          operation: 0,
-                                          value: true
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateEdit"] != null &&
-                                    typeof $steps["updateEdit"] === "object" &&
-                                    typeof $steps["updateEdit"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateEdit"] = await $steps[
-                                      "updateEdit"
-                                    ];
-                                  }
-
-                                  $steps["runCode"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return (() => {
-                                              const reversedIndex =
-                                                $state.testChat
-                                                  .slice()
-                                                  .reverse()
-                                                  .findIndex(
-                                                    item => item.question
-                                                  );
-                                              if (reversedIndex !== -1) {
-                                                const originalIndex =
-                                                  $state.testChat.length -
-                                                  1 -
-                                                  reversedIndex;
-                                                const previousReversedIndex =
-                                                  $state.testChat
-                                                    .slice(0, originalIndex)
-                                                    .reverse()
-                                                    .findIndex(
-                                                      item => item.question
-                                                    );
-                                                if (
-                                                  previousReversedIndex !== -1
-                                                ) {
-                                                  const previousOriginalIndex =
-                                                    originalIndex -
-                                                    1 -
-                                                    previousReversedIndex;
-                                                  return $state.testChat.splice(
-                                                    previousOriginalIndex + 1
-                                                  );
-                                                }
-                                              }
-                                            })();
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["runCode"] != null &&
-                                    typeof $steps["runCode"] === "object" &&
-                                    typeof $steps["runCode"].then === "function"
-                                  ) {
-                                    $steps["runCode"] = await $steps["runCode"];
-                                  }
-
-                                  $steps["invokeGlobalAction"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            "PUT",
-                                            "https://n8n.staas.ir/webhook/selfTestLogs",
-                                            undefined,
-                                            (() => {
-                                              try {
-                                                return {
-                                                  session_id: $state.sessionId,
-                                                  question_id:
-                                                    $state.testChat[
-                                                      $state.testChat.length - 1
-                                                    ].question.id
-                                                };
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.apiRequest"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction"] != null &&
-                                    typeof $steps["invokeGlobalAction"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["invokeGlobalAction"] = await $steps[
-                                      "invokeGlobalAction"
-                                    ];
-                                  }
-                                }}
                                 role={"img"}
                               />
 
