@@ -1495,7 +1495,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           )}
                         >
                           {
-                            "\u0631\u0641\u062a\u0646 \u0628\u0647 \u067e\u0633\u062a"
+                            "\u0645\u0634\u0627\u0647\u062f\u0647 \u0628\u0647 \u067e\u0633\u062a"
                           }
                         </div>
                       ) : null}

@@ -712,7 +712,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   displayMaxWidth={"300%"}
                   displayMinHeight={"0"}
                   displayMinWidth={"0"}
-                  displayWidth={"400px"}
+                  displayWidth={
+                    hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? "60%"
+                      : "40%"
+                  }
                   loading={"lazy"}
                   src={(() => {
                     try {
@@ -1384,53 +1388,70 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 })
               : null}
           </Stack__>
-          <div
-            className={classNames(projectcss.all, sty.freeBox__dnrlo)}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return window.scrollTo({
-                          top: document.body.scrollHeight,
-                          behavior: "smooth"
-                        });
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+          {(() => {
+            try {
+              return (() => {
+                if (window.scrollY <= document.body.scrollHeight) return true;
+                else return false;
+              })();
+            } catch (e) {
               if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                $steps["runCode"] = await $steps["runCode"];
+                return false;
               }
-            }}
-          >
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__m6X9)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"auto"}
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_tools/images/image38.svg",
-                fullWidth: 24,
-                fullHeight: 24,
-                aspectRatio: 1
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__dnrlo)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return window.scrollTo({
+                            top: document.body.scrollHeight,
+                            behavior: "smooth"
+                          });
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
               }}
-            />
-          </div>
+            >
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__m6X9)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_tools/images/image38.svg",
+                  fullWidth: 24,
+                  fullHeight: 24,
+                  aspectRatio: 1
+                }}
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>

@@ -150,10 +150,15 @@
 .img__asFD {
   object-fit: cover;
   max-width: 300%;
-  width: 400px;
+  width: 40%;
 }
 .img__asFD > picture > img {
   object-fit: cover;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__asFD {
+    width: 60%;
+  }
 }
 .freeBox__nRced {
   display: flex;
