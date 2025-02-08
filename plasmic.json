@@ -3699,6 +3699,11 @@
           "id": "MPNZFY3ZIAQh",
           "name": "image 37",
           "filePath": "../public/plasmic/liom_tools/images/image37.png"
+        },
+        {
+          "id": "kGmXbJLUrw5f",
+          "name": "image 38",
+          "filePath": "../public/plasmic/liom_tools/images/image38.svg"
         }
       ],
       "indirect": false,

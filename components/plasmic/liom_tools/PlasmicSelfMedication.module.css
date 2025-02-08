@@ -362,3 +362,35 @@
   border-radius: var(--token-KVcr9NiMwFLr);
   border-width: 1px;
 }
+.freeBox__dnrlo {
+  display: block;
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  max-width: 100%;
+  left: 25%;
+  top: auto;
+  z-index: 1;
+  right: auto;
+  bottom: 5%;
+  background: linear-gradient(214deg, #ef6fb7 0%, #7242ba 100%) 0% 0% / 100%
+    100% repeat;
+  border-radius: 200px;
+  padding: 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__dnrlo {
+    left: 5%;
+  }
+}
+.img__m6X9 {
+  object-fit: cover;
+  max-width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin: 13px;
+}
+.img__m6X9 > picture > img {
+  object-fit: cover;
+}
