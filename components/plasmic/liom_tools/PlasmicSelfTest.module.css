@@ -154,6 +154,7 @@
   left: auto;
   bottom: auto;
   background: #ffffff82;
+  cursor: pointer;
   border-radius: 100%;
   padding: 3px;
 }
@@ -193,6 +194,7 @@
   left: auto;
   bottom: auto;
   background: #ffffff82;
+  cursor: pointer;
   border-radius: 100px;
   padding: 3px;
 }

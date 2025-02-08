@@ -365,8 +365,8 @@
 .freeBox__dnrlo {
   display: block;
   position: fixed;
-  width: 70px;
-  height: 70px;
+  width: 55px;
+  height: 55px;
   max-width: 100%;
   left: 25%;
   top: auto;

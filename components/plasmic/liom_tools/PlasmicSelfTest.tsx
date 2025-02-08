@@ -1388,6 +1388,52 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 ) {
                                   $steps["runCode"] = await $steps["runCode"];
                                 }
+
+                                $steps["invokeGlobalAction"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "PUT",
+                                          "https://n8n.staas.ir/webhook/selfTestLogs",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                session_id: $state.sessionId,
+                                                question_id:
+                                                  $state.testChat[
+                                                    $state.testChat.length - 1
+                                                  ].question.id
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] = await $steps[
+                                    "invokeGlobalAction"
+                                  ];
+                                }
                               }}
                             >
                               <Icon119Icon
