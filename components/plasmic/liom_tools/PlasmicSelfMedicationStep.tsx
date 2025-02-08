@@ -593,44 +593,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       "updateListDetails"
                     ];
                   }
-
-                  $steps["updateListDetails2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            undefined,
-                            (() => {
-                              try {
-                                return $ctx.query.selectStep + "";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            undefined,
-                            undefined
-                          ]
-                        };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateListDetails2"] != null &&
-                    typeof $steps["updateListDetails2"] === "object" &&
-                    typeof $steps["updateListDetails2"].then === "function"
-                  ) {
-                    $steps["updateListDetails2"] = await $steps[
-                      "updateListDetails2"
-                    ];
-                  }
                 }).apply(null, eventArgs);
               }}
               url={"https://n8n.staas.ir/webhook/selfTreatment"}
