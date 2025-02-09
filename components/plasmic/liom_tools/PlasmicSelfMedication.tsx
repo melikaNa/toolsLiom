@@ -495,9 +495,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           },
                           operation: 0,
                           value: (() => {
-                            if ($state.getStep?.data?.todayReady ?? false)
-                              return $state.getStep?.data?.userStep ?? -1;
-                            else return $state.getStep?.data?.userStep ?? 0;
+                            if ($ctx.query.selectStep == -1) {
+                              if ($state.getStep?.data?.todayReady ?? false)
+                                return $state.getStep?.data?.userStep ?? -1;
+                              else return $state.getStep?.data?.userStep ?? 0;
+                            } else return parseInt($ctx.query.selectStep);
                           })()
                         };
                         return (({
@@ -796,7 +798,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         const $steps = {};
 
                         $steps["updateSelectedStep"] = (() => {
-                          if ($state.getStep.data.userStep < currentItem.id)
+                          if ($ctx.query.type == "danger") return true;
+                          else if (
+                            $state.getStep.data.userStep < currentItem.id
+                          )
                             return false;
                           else return true;
                         })()
@@ -837,7 +842,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         }
 
                         $steps["updateDetailsList"] = (() => {
-                          if ($state.getStep.data.userStep < currentItem.id)
+                          if ($ctx.query.type == "danger") return true;
+                          else if (
+                            $state.getStep.data.userStep < currentItem.id
+                          )
                             return false;
                           else return true;
                         })()
@@ -877,7 +885,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         }
 
                         $steps["invokeGlobalAction"] = (() => {
-                          if ($state.getStep.data.userStep < currentItem.id)
+                          if ($ctx.query.type == "danger") return true;
+                          else if (
+                            $state.getStep.data.userStep < currentItem.id
+                          )
                             return false;
                           else return true;
                         })()
@@ -924,7 +935,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         }
 
                         $steps["updateDetailsList4"] = (() => {
-                          if ($state.getStep.data.userStep < currentItem.id)
+                          if ($ctx.query.type == "danger") return false;
+                          else if (
+                            $state.getStep.data.userStep < currentItem.id
+                          )
                             return true;
                           else return false;
                         })()
@@ -1034,7 +1048,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           {(() => {
                             try {
                               return (() => {
-                                if (
+                                if ($ctx.query.type == "danger") return false;
+                                else if (
                                   $state.getStep.data.userStep < currentItem.id
                                 )
                                   return true;
@@ -1059,7 +1074,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           {(() => {
                             try {
                               return (() => {
-                                if (
+                                if ($ctx.query.type == "danger") return false;
+                                else if (
                                   $state.getStep.data.userStep < currentItem.id
                                 )
                                   return false;
