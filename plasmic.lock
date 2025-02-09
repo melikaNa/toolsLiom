@@ -2337,22 +2337,22 @@
         {
           "type": "renderModule",
           "assetId": "RlsH9qDdUc17",
-          "checksum": "051d49838270fb220d511664fadefde9"
+          "checksum": "469696447e0c236b768f6814e71782ed"
         },
         {
           "type": "cssRules",
           "assetId": "RlsH9qDdUc17",
-          "checksum": "051d49838270fb220d511664fadefde9"
+          "checksum": "469696447e0c236b768f6814e71782ed"
         },
         {
           "type": "renderModule",
           "assetId": "UJhKrwaiZx_G",
-          "checksum": "c213e2e92a3854f3f72ea74f941f26b1"
+          "checksum": "f67c488c74c148d75dc240719d1d58c2"
         },
         {
           "type": "cssRules",
           "assetId": "UJhKrwaiZx_G",
-          "checksum": "c213e2e92a3854f3f72ea74f941f26b1"
+          "checksum": "f67c488c74c148d75dc240719d1d58c2"
         },
         {
           "type": "renderModule",
@@ -2377,12 +2377,12 @@
         {
           "type": "renderModule",
           "assetId": "0RvDxrGTp6lz",
-          "checksum": "cc07f5cf59f033679d9c489ea108d485"
+          "checksum": "4e877c81013096b670f0d377b8387061"
         },
         {
           "type": "cssRules",
           "assetId": "0RvDxrGTp6lz",
-          "checksum": "cc07f5cf59f033679d9c489ea108d485"
+          "checksum": "4e877c81013096b670f0d377b8387061"
         },
         {
           "type": "renderModule",
@@ -2588,6 +2588,26 @@
           "assetId": "3zKPdhWckw1SJpPYhK46Bs",
           "type": "projectCss",
           "checksum": "4ca5cebecfcb39a92490fd7f12434ebe"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "kuXIsI5E0lmX",
+          "checksum": "173b4b2a474f45c46d8651daa628c9f9"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "kuXIsI5E0lmX",
+          "checksum": "173b4b2a474f45c46d8651daa628c9f9"
+        },
+        {
+          "type": "image",
+          "assetId": "Puzcn3Mv8MaF",
+          "checksum": "817601f632849cfdaa5cc3bf14f47a2a"
+        },
+        {
+          "type": "image",
+          "assetId": "kOD91d8nMg80",
+          "checksum": "69501d72e1dd2871daa75c244026b1c8"
         }
       ],
       "codegenVersion": "0.0.1"

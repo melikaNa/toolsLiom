@@ -59,19 +59,11 @@
   max-width: 100%;
   display: none;
 }
-.timer:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.getName:global(.__wab_instance) {
+.getUser:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
 .getStep:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.getUser:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
@@ -225,6 +217,64 @@
   .linearCalendar:global(.__wab_instance) {
     flex-shrink: 0;
   }
+}
+.freeBox__yleOh {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__yleOh > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 4px);
+  height: calc(100% + 4px);
+}
+.freeBox__yleOh > :global(.__wab_flex-container) > *,
+.freeBox__yleOh > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__yleOh > :global(.__wab_flex-container) > picture > img,
+.freeBox__yleOh
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 4px;
+}
+.lock:global(.__wab_instance) {
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  right: auto;
+  align-self: center;
+  flex-shrink: 0;
+}
+.text___9IH2 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-weight: 700;
+  font-size: var(--token-7E1YyiP6sAP9);
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  right: auto;
+  text-align: center;
+}
+.text__esHbB {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  display: none;
 }
 .text__psCpo {
   position: relative;

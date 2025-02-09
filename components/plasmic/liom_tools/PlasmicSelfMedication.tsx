@@ -68,9 +68,10 @@ import {
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
-import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import LinearCalendar from "../../LinearCalendar"; // plasmic-import: UJhKrwaiZx_G/component
+import Lock from "../../Lock"; // plasmic-import: 5lKm1nUlkjS8/component
+import Done from "../../Done"; // plasmic-import: kuXIsI5E0lmX/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
@@ -102,12 +103,12 @@ export type PlasmicSelfMedication__OverridesType = {
   root?: Flex__<"div">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
-  timer?: Flex__<typeof Timer>;
-  getName?: Flex__<typeof ApiRequest>;
-  getStep?: Flex__<typeof ApiRequest>;
   getUser?: Flex__<typeof ApiRequest>;
+  getStep?: Flex__<typeof ApiRequest>;
   getItem?: Flex__<typeof ApiRequest>;
   linearCalendar?: Flex__<typeof LinearCalendar>;
+  lock?: Flex__<typeof Lock>;
+  done?: Flex__<typeof Done>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
 };
 
@@ -254,36 +255,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "getName.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "getName.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "getName.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "isTimer",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "info",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -402,7 +373,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
               {(() => {
                 try {
                   return (() => {
-                    if ($state?.info?.[0]?.name ?? "" != "") return true;
+                    if (($state.getStep?.data?.info?.name ?? "") != "")
+                      return true;
                     else return false;
                   })();
                 } catch (e) {
@@ -423,236 +395,33 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   )}
                 >
                   <React.Fragment>
-                    {$state?.info?.[0]?.name ?? ""}
+                    {$state.getStep?.data?.info?.name ?? ""}
                   </React.Fragment>
                 </div>
               ) : null}
             </HeaderLiom>
           ) : null}
-          <Timer
-            data-plasmic-name={"timer"}
-            data-plasmic-override={overrides.timer}
-            className={classNames("__wab_instance", sty.timer)}
-            intervalSeconds={2}
-            isRunning={(() => {
-              try {
-                return !$state.isTimer;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })()}
-            onTick={async () => {
-              const $steps = {};
-
-              $steps["updateIsTimer"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["isTimer"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateIsTimer"] != null &&
-                typeof $steps["updateIsTimer"] === "object" &&
-                typeof $steps["updateIsTimer"].then === "function"
-              ) {
-                $steps["updateIsTimer"] = await $steps["updateIsTimer"];
-              }
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          return fetch(
-                            "https://n8n.staas.ir/webhook/self/info",
-                            {
-                              method: "POST",
-                              headers: { "Content-Type": "application/json" },
-                              body: JSON.stringify({
-                                type:
-                                  $ctx.query.type ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("type")
-                              })
-                            }
-                          )
-                            .then(response => {
-                              const contentType =
-                                response.headers.get("content-type");
-                              if (
-                                contentType &&
-                                contentType.includes("application/json")
-                              ) {
-                                return response.json();
-                              } else {
-                                return response.text().then(text => {
-                                  throw new Error(
-                                    "Invalid JSON response: " + text
-                                  );
-                                });
-                              }
-                            })
-                            .then(data => {
-                              $state.info = data;
-                            })
-                            .catch(error => {
-                              console.error(" Error111:", error);
-                            });
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }}
-            runWhileEditing={true}
-          />
-
           <ApiRequest
-            data-plasmic-name={"getName"}
-            data-plasmic-override={overrides.getName}
-            body={(() => {
-              try {
-                return {
-                  type:
-                    $ctx.query.type ||
-                    new URLSearchParams(window.location.search).get("type")
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            children={null}
-            className={classNames("__wab_instance", sty.getName)}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"POST"}
-            onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getName", "error"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getName", "loading"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getName", "data"]).apply(
-                null,
-                eventArgs
-              );
-
-              (async data => {
-                const $steps = {};
-
-                $steps["updateInfo"] = (() => {
-                  if (($state.getName?.data?.[0]?.id ?? "") == "") return false;
-                  else if (($state.getName?.data?.[0]?.name ?? "") == "")
-                    return false;
-                  else if (($state.getName?.data?.[0]?.icon ?? "") == "")
-                    return false;
-                  else if (($state.getName?.data?.[0]?.type ?? "") == "")
-                    return false;
-                  else return true;
-                })()
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["info"]
-                        },
-                        operation: 0,
-                        value: $state.getName.data
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateInfo"] != null &&
-                  typeof $steps["updateInfo"] === "object" &&
-                  typeof $steps["updateInfo"].then === "function"
-                ) {
-                  $steps["updateInfo"] = await $steps["updateInfo"];
-                }
-              }).apply(null, eventArgs);
-            }}
-            url={"https://n8n.staas.ir/webhook/self/info"}
-          />
-
-          <ApiRequest
-            data-plasmic-name={"getStep"}
-            data-plasmic-override={overrides.getStep}
-            className={classNames("__wab_instance", sty.getStep)}
+            data-plasmic-name={"getUser"}
+            data-plasmic-override={overrides.getUser}
+            className={classNames("__wab_instance", sty.getUser)}
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}
             onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getStep", "error"]).apply(
+              generateStateOnChangeProp($state, ["getUser", "error"]).apply(
                 null,
                 eventArgs
               );
             }}
             onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getStep", "loading"]).apply(
+              generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
                 null,
                 eventArgs
               );
             }}
             onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getStep", "data"]).apply(
+              generateStateOnChangeProp($state, ["getUser", "data"]).apply(
                 null,
                 eventArgs
               );
@@ -664,9 +433,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  type:
-                    $ctx.query.type ||
-                    new URLSearchParams(window.location.search).get("type")
+                  token:
+                    $ctx.query.token ||
+                    new URLSearchParams(window.location.search).get("token")
                 };
               } catch (e) {
                 if (
@@ -678,43 +447,86 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 throw e;
               }
             })()}
-            url={"https://n8n.staas.ir/webhook/self/info"}
+            url={"https://n8n.staas.ir/webhook/userInfo"}
           >
             <ApiRequest
-              data-plasmic-name={"getUser"}
-              data-plasmic-override={overrides.getUser}
-              className={classNames("__wab_instance", sty.getUser)}
+              data-plasmic-name={"getStep"}
+              data-plasmic-override={overrides.getStep}
+              className={classNames("__wab_instance", sty.getStep)}
               errorDisplay={null}
               loadingDisplay={null}
               method={"GET"}
               onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getUser", "error"]).apply(
+                generateStateOnChangeProp($state, ["getStep", "error"]).apply(
                   null,
                   eventArgs
                 );
               }}
               onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
+                generateStateOnChangeProp($state, ["getStep", "loading"]).apply(
                   null,
                   eventArgs
                 );
               }}
               onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getUser", "data"]).apply(
+                generateStateOnChangeProp($state, ["getStep", "data"]).apply(
                   null,
                   eventArgs
                 );
 
                 (async data => {
                   const $steps = {};
+
+                  $steps["updateSelectedStep"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["selectedStep"]
+                          },
+                          operation: 0,
+                          value: (() => {
+                            if ($state.getStep?.data?.todayReady ?? false)
+                              return ($state.getStep?.data?.userStep ?? -1) + 1;
+                            else return $state.getStep?.data?.userStep ?? 0;
+                          })()
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSelectedStep"] != null &&
+                    typeof $steps["updateSelectedStep"] === "object" &&
+                    typeof $steps["updateSelectedStep"].then === "function"
+                  ) {
+                    $steps["updateSelectedStep"] = await $steps[
+                      "updateSelectedStep"
+                    ];
+                  }
                 }).apply(null, eventArgs);
               }}
               params={(() => {
                 try {
                   return {
-                    token:
-                      $ctx.query.token ||
-                      new URLSearchParams(window.location.search).get("token")
+                    type:
+                      $ctx.query.type ||
+                      new URLSearchParams(window.location.search).get("type"),
+                    userId:
+                      $ctx.query.userId ||
+                      new URLSearchParams(window.location.search).get("userId")
                   };
                 } catch (e) {
                   if (
@@ -726,7 +538,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              url={"https://n8n.staas.ir/webhook/userInfo"}
+              url={"https://n8n.staas.ir/webhook/self/info"}
             >
               <ApiRequest
                 data-plasmic-name={"getItem"}
@@ -832,7 +644,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 params={(() => {
                   try {
                     return {
-                      stepId: $state.getStep.data[$state.selectedStep].id,
+                      stepId: $state.getStep.data.data[$state.selectedStep].id,
                       userId: $state.getUser.data[0].result.user.id
                     };
                   } catch (e) {
@@ -858,8 +670,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
               {(() => {
                 try {
                   return (
-                    !$state.getName.loading &&
-                    ($state?.info?.[0]?.icon ?? "") != ""
+                    !$state.getStep.loading &&
+                    ($state.getStep?.data?.info?.icon ?? "") != ""
                   );
                 } catch (e) {
                   if (
@@ -887,7 +699,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   loading={"lazy"}
                   src={(() => {
                     try {
-                      return $state?.info?.[0]?.icon ?? "";
+                      return $state.getStep?.data?.info?.icon ?? "";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -907,7 +719,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
               ) : null}
               {(() => {
                 try {
-                  return $state.getName.loading;
+                  return $state.getStep.loading;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -948,8 +760,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.getStep.data.length > 0
-                        ? $state.getStep.data
+                      return $state.getStep.data.data.length > 0
+                        ? $state.getStep.data.data
                         : [];
                     } catch (e) {
                       if (
@@ -1138,7 +950,20 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         })()}
                         isLock={(() => {
                           try {
-                            return currentItem.isLock;
+                            return (() => {
+                              if (
+                                $state.getStep.data.userStep + 1 <
+                                currentIndex
+                              )
+                                return true;
+                              else if (
+                                $state.getStep.data.userStep + 1 ==
+                                  currentIndex &&
+                                (!$state.getStep?.data?.todayReady ?? false)
+                              )
+                                return true;
+                              else return false;
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1175,7 +1000,124 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             throw e;
                           }
                         })()}
-                      />
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__yleOh
+                          )}
+                        >
+                          {(() => {
+                            try {
+                              return (() => {
+                                if (
+                                  $state.getStep.data.userStep + 1 <
+                                  currentIndex
+                                )
+                                  return true;
+                                else if (
+                                  $state.getStep.data.userStep + 1 ==
+                                    currentIndex &&
+                                  (!$state.getStep?.data?.todayReady ?? false)
+                                )
+                                  return true;
+                                else return false;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <Lock
+                              data-plasmic-name={"lock"}
+                              data-plasmic-override={overrides.lock}
+                              className={classNames("__wab_instance", sty.lock)}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return (() => {
+                                if (
+                                  $state.getStep.data.userStep + 1 <
+                                  currentIndex
+                                )
+                                  return false;
+                                else return true;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <Done
+                              data-plasmic-name={"done"}
+                              data-plasmic-override={overrides.done}
+                              className={classNames("__wab_instance", sty.done)}
+                              currentIndex={currentIndex}
+                              inDone={(() => {
+                                try {
+                                  return (() => {
+                                    if (
+                                      $state.getStep.data.userStep + 1 <
+                                      currentIndex
+                                    )
+                                      return false;
+                                    else if (
+                                      $state.getStep.data.userStep + 1 ==
+                                        currentIndex &&
+                                      (!$state.getStep?.data?.todayReady ??
+                                        false)
+                                    )
+                                      return true;
+                                    else return true;
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+                          ) : null}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___9IH2
+                            )}
+                          >
+                            <React.Fragment>{currentItem.name}</React.Fragment>
+                          </div>
+                        </Stack__>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__esHbB
+                          )}
+                        >
+                          {
+                            "27 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a"
+                          }
+                        </div>
+                      </LinearCalendar>
                     </div>
                   );
                 })}
@@ -1639,22 +1581,22 @@ const PlasmicDescendants = {
     "root",
     "headerLiom",
     "paziresh24Avatar",
-    "timer",
-    "getName",
-    "getStep",
     "getUser",
+    "getStep",
     "getItem",
     "linearCalendar",
+    "lock",
+    "done",
     "loadingConclusion"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
-  timer: ["timer"],
-  getName: ["getName"],
-  getStep: ["getStep", "getUser", "getItem"],
-  getUser: ["getUser", "getItem"],
+  getUser: ["getUser", "getStep", "getItem"],
+  getStep: ["getStep", "getItem"],
   getItem: ["getItem"],
-  linearCalendar: ["linearCalendar"],
+  linearCalendar: ["linearCalendar", "lock", "done"],
+  lock: ["lock"],
+  done: ["done"],
   loadingConclusion: ["loadingConclusion"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1664,12 +1606,12 @@ type NodeDefaultElementType = {
   root: "div";
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
-  timer: typeof Timer;
-  getName: typeof ApiRequest;
-  getStep: typeof ApiRequest;
   getUser: typeof ApiRequest;
+  getStep: typeof ApiRequest;
   getItem: typeof ApiRequest;
   linearCalendar: typeof LinearCalendar;
+  lock: typeof Lock;
+  done: typeof Done;
   loadingConclusion: typeof LoadingConclusion;
 };
 
@@ -1760,12 +1702,12 @@ export const PlasmicSelfMedication = Object.assign(
     // Helper components rendering sub-elements
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
-    timer: makeNodeComponent("timer"),
-    getName: makeNodeComponent("getName"),
-    getStep: makeNodeComponent("getStep"),
     getUser: makeNodeComponent("getUser"),
+    getStep: makeNodeComponent("getStep"),
     getItem: makeNodeComponent("getItem"),
     linearCalendar: makeNodeComponent("linearCalendar"),
+    lock: makeNodeComponent("lock"),
+    done: makeNodeComponent("done"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
 
     // Metadata about props expected for PlasmicSelfMedication

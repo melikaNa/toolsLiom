@@ -2455,6 +2455,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/self-test-2"
+        },
+        {
+          "id": "kuXIsI5E0lmX",
+          "name": "Done",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicDone.tsx",
+          "importSpec": {
+            "modulePath": "Done.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicDone.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3704,6 +3717,16 @@
           "id": "kGmXbJLUrw5f",
           "name": "image 38",
           "filePath": "../public/plasmic/liom_tools/images/image38.svg"
+        },
+        {
+          "id": "Puzcn3Mv8MaF",
+          "name": "image 39",
+          "filePath": "../public/plasmic/liom_tools/images/image39.svg"
+        },
+        {
+          "id": "kOD91d8nMg80",
+          "name": "image 40",
+          "filePath": "../public/plasmic/liom_tools/images/image40.svg"
         }
       ],
       "indirect": false,
