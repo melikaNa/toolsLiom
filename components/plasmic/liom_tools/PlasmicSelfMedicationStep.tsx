@@ -328,7 +328,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               "&token=" +
                               $ctx.query.token +
                               "&selectStep=" +
-                              $ctx.query.selectStep
+                              $ctx.query.selectStep +
+                              "&userId=" +
+                              $ctx.query.userId
                           };
                           return (({ destination }) => {
                             if (

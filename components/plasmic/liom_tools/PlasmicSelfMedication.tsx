@@ -795,7 +795,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["updateSelectedStep"] = true
+                        $steps["updateSelectedStep"] = (() => {
+                          if ($state.getStep.data.userStep < currentItem.id)
+                            return false;
+                          else return true;
+                        })()
                           ? (() => {
                               const actionArgs = {
                                 variable: {
@@ -832,7 +836,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["updateDetailsList"] = true
+                        $steps["updateDetailsList"] = (() => {
+                          if ($state.getStep.data.userStep < currentItem.id)
+                            return false;
+                          else return true;
+                        })()
                           ? (() => {
                               const actionArgs = {
                                 variable: {
@@ -868,7 +876,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["invokeGlobalAction"] = true
+                        $steps["invokeGlobalAction"] = (() => {
+                          if ($state.getStep.data.userStep < currentItem.id)
+                            return false;
+                          else return true;
+                        })()
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -911,28 +923,32 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["updateDetailsList2"] = true
+                        $steps["updateDetailsList4"] = (() => {
+                          if ($state.getStep.data.userStep < currentItem.id)
+                            return true;
+                          else return false;
+                        })()
                           ? (() => {
                               const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return console.log($state.detailsList);
-                                  })();
-                                }
+                                args: [
+                                  "error",
+                                  "\u0642\u062f\u0645 \u0628\u0639\u062f\u06cc \u0686\u0627\u0644\u0634 \u0641\u0631\u062f\u0627 \u0628\u0631\u0627\u062a \u0628\u0627\u0632 \u0645\u06cc\u0634\u0647\u066c \u0644\u0637\u0641\u0627 \u062a\u0627 \u0627\u0648\u0646 \u0645\u0648\u0642\u0639 \u0635\u0628\u0631 \u06a9\u0646 \u0648 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u062a\u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0645\u0631\u0648\u0632\u062a \u0647\u0633\u062a \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 \ud83d\ude0d",
+                                  "bottom-center"
+                                ]
                               };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
                             })()
                           : undefined;
                         if (
-                          $steps["updateDetailsList2"] != null &&
-                          typeof $steps["updateDetailsList2"] === "object" &&
-                          typeof $steps["updateDetailsList2"].then ===
+                          $steps["updateDetailsList4"] != null &&
+                          typeof $steps["updateDetailsList4"] === "object" &&
+                          typeof $steps["updateDetailsList4"].then ===
                             "function"
                         ) {
-                          $steps["updateDetailsList2"] = await $steps[
-                            "updateDetailsList2"
+                          $steps["updateDetailsList4"] = await $steps[
+                            "updateDetailsList4"
                           ];
                         }
                       }}
