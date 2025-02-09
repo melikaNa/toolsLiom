@@ -68,6 +68,7 @@ import {
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import LinearCalendar from "../../LinearCalendar"; // plasmic-import: UJhKrwaiZx_G/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
@@ -101,6 +102,7 @@ export type PlasmicSelfMedication__OverridesType = {
   root?: Flex__<"div">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
+  timer?: Flex__<typeof Timer>;
   getName?: Flex__<typeof ApiRequest>;
   getStep?: Flex__<typeof ApiRequest>;
   getUser?: Flex__<typeof ApiRequest>;
@@ -270,6 +272,18 @@ function PlasmicSelfMedication__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "isTimer",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "info",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -388,8 +402,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
               {(() => {
                 try {
                   return (() => {
-                    if ($state?.getName?.data?.[0]?.name ?? "" != "")
-                      return true;
+                    if ($state?.info?.[0]?.name ?? "" != "") return true;
                     else return false;
                   })();
                 } catch (e) {
@@ -410,12 +423,122 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   )}
                 >
                   <React.Fragment>
-                    {$state?.getName?.data?.[0]?.name ?? ""}
+                    {$state?.info?.[0]?.name ?? ""}
                   </React.Fragment>
                 </div>
               ) : null}
             </HeaderLiom>
           ) : null}
+          <Timer
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer)}
+            intervalSeconds={2}
+            isRunning={(() => {
+              try {
+                return !$state.isTimer;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["updateIsTimer"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["isTimer"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateIsTimer"] != null &&
+                typeof $steps["updateIsTimer"] === "object" &&
+                typeof $steps["updateIsTimer"].then === "function"
+              ) {
+                $steps["updateIsTimer"] = await $steps["updateIsTimer"];
+              }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return fetch(
+                            "https://n8n.staas.ir/webhook/self/info",
+                            {
+                              method: "POST",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({
+                                type:
+                                  $ctx.query.type ||
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("type")
+                              })
+                            }
+                          )
+                            .then(response => {
+                              const contentType =
+                                response.headers.get("content-type");
+                              if (
+                                contentType &&
+                                contentType.includes("application/json")
+                              ) {
+                                return response.json();
+                              } else {
+                                return response.text().then(text => {
+                                  throw new Error(
+                                    "Invalid JSON response: " + text
+                                  );
+                                });
+                              }
+                            })
+                            .then(data => {
+                              $state.info = data;
+                            })
+                            .catch(error => {
+                              console.error(" Error111:", error);
+                            });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+            runWhileEditing={true}
+          />
+
           <ApiRequest
             data-plasmic-name={"getName"}
             data-plasmic-override={overrides.getName}
@@ -458,6 +581,53 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["updateInfo"] = (() => {
+                  if (($state.getName?.data?.[0]?.id ?? "") == "") return false;
+                  else if (($state.getName?.data?.[0]?.name ?? "") == "")
+                    return false;
+                  else if (($state.getName?.data?.[0]?.icon ?? "") == "")
+                    return false;
+                  else if (($state.getName?.data?.[0]?.type ?? "") == "")
+                    return false;
+                  else return true;
+                })()
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["info"]
+                        },
+                        operation: 0,
+                        value: $state.getName.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateInfo"] != null &&
+                  typeof $steps["updateInfo"] === "object" &&
+                  typeof $steps["updateInfo"].then === "function"
+                ) {
+                  $steps["updateInfo"] = await $steps["updateInfo"];
+                }
+              }).apply(null, eventArgs);
             }}
             url={"https://n8n.staas.ir/webhook/self/info"}
           />
@@ -689,7 +859,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 try {
                   return (
                     !$state.getName.loading &&
-                    ($state.getName.data[0].icon ?? "") != ""
+                    ($state?.info?.[0]?.icon ?? "") != ""
                   );
                 } catch (e) {
                   if (
@@ -717,7 +887,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   loading={"lazy"}
                   src={(() => {
                     try {
-                      return $state?.getName?.data?.[0]?.icon ?? "";
+                      return $state?.info?.[0]?.icon ?? "";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -1469,6 +1639,7 @@ const PlasmicDescendants = {
     "root",
     "headerLiom",
     "paziresh24Avatar",
+    "timer",
     "getName",
     "getStep",
     "getUser",
@@ -1478,6 +1649,7 @@ const PlasmicDescendants = {
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
+  timer: ["timer"],
   getName: ["getName"],
   getStep: ["getStep", "getUser", "getItem"],
   getUser: ["getUser", "getItem"],
@@ -1492,6 +1664,7 @@ type NodeDefaultElementType = {
   root: "div";
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
+  timer: typeof Timer;
   getName: typeof ApiRequest;
   getStep: typeof ApiRequest;
   getUser: typeof ApiRequest;
@@ -1587,6 +1760,7 @@ export const PlasmicSelfMedication = Object.assign(
     // Helper components rendering sub-elements
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
+    timer: makeNodeComponent("timer"),
     getName: makeNodeComponent("getName"),
     getStep: makeNodeComponent("getStep"),
     getUser: makeNodeComponent("getUser"),
