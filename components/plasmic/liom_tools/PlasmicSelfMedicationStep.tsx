@@ -1586,6 +1586,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             undefined,
                             {
                               sectionId: $ctx.query.secId,
+                              stepId: $ctx.query.stepId,
                               userId: $ctx.query.userId
                             }
                           ]
