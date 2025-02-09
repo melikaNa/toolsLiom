@@ -73,6 +73,7 @@ import LinearCalendar from "../../LinearCalendar"; // plasmic-import: UJhKrwaiZx
 import Lock from "../../Lock"; // plasmic-import: 5lKm1nUlkjS8/component
 import Done from "../../Done"; // plasmic-import: kuXIsI5E0lmX/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
@@ -189,7 +190,15 @@ function PlasmicSelfMedication__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return parseInt($ctx.query?.selectStep ?? "0");
+              return (() => {
+                if ($ctx.query.type == "danger") return $ctx.query.selectStep;
+                else {
+                  const index = $state.getStep.data.data.findIndex(
+                    item => item.id == $state.getStep.data.userStep
+                  );
+                  return parseInt(index);
+                }
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -487,7 +496,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           operation: 0,
                           value: (() => {
                             if ($state.getStep?.data?.todayReady ?? false)
-                              return ($state.getStep?.data?.userStep ?? -1) + 1;
+                              return $state.getStep?.data?.userStep ?? -1;
                             else return $state.getStep?.data?.userStep ?? 0;
                           })()
                         };
@@ -951,14 +960,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         isLock={(() => {
                           try {
                             return (() => {
-                              if (
-                                $state.getStep.data.userStep + 1 <
-                                currentIndex
-                              )
+                              if ($state.getStep.data.userStep < currentItem.id)
                                 return true;
                               else if (
-                                $state.getStep.data.userStep + 1 ==
-                                  currentIndex &&
+                                $state.getStep.data.userStep ==
+                                  currentItem.id &&
                                 (!$state.getStep?.data?.todayReady ?? false)
                               )
                                 return true;
@@ -1013,14 +1019,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             try {
                               return (() => {
                                 if (
-                                  $state.getStep.data.userStep + 1 <
-                                  currentIndex
-                                )
-                                  return true;
-                                else if (
-                                  $state.getStep.data.userStep + 1 ==
-                                    currentIndex &&
-                                  (!$state.getStep?.data?.todayReady ?? false)
+                                  $state.getStep.data.userStep < currentItem.id
                                 )
                                   return true;
                                 else return false;
@@ -1045,8 +1044,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             try {
                               return (() => {
                                 if (
-                                  $state.getStep.data.userStep + 1 <
-                                  currentIndex
+                                  $state.getStep.data.userStep < currentItem.id
                                 )
                                   return false;
                                 else return true;
@@ -1070,17 +1068,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 try {
                                   return (() => {
                                     if (
-                                      $state.getStep.data.userStep + 1 <
-                                      currentIndex
+                                      $state.getStep.data.userStep <
+                                      currentItem.id
                                     )
                                       return false;
                                     else if (
-                                      $state.getStep.data.userStep + 1 ==
-                                        currentIndex &&
-                                      (!$state.getStep?.data?.todayReady ??
-                                        false)
+                                      $state.getStep.data.userStep ==
+                                        currentItem.id &&
+                                      ($state.getStep?.data?.todayReady ?? 0) ==
+                                        0
                                     )
-                                      return true;
+                                      return false;
                                     else return true;
                                   })();
                                 } catch (e) {
