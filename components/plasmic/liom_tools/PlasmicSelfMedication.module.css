@@ -145,7 +145,6 @@
 }
 .img__asFD {
   object-fit: cover;
-  max-width: 300%;
   width: 40%;
 }
 .img__asFD > picture > img {

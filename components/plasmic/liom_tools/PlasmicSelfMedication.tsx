@@ -699,7 +699,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   className={classNames(sty.img__asFD)}
                   displayHeight={"auto"}
                   displayMaxHeight={"none"}
-                  displayMaxWidth={"300%"}
+                  displayMaxWidth={"none"}
                   displayMinHeight={"0"}
                   displayMinWidth={"0"}
                   displayWidth={
