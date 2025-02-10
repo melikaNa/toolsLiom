@@ -495,7 +495,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           },
                           operation: 0,
                           value: (() => {
-                            if ($ctx.query.type != "danger") {
+                            if ($state.getStep.data.info.type != "danger") {
                               if ($state.getStep?.data?.todayReady ?? false)
                                 return $state.getStep?.data?.userStep ?? -1;
                               else return $state.getStep?.data?.userStep ?? 0;
