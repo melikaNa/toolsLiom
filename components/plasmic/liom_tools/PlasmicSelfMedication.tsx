@@ -650,6 +650,43 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         "updateDetailsList2"
                       ];
                     }
+
+                    $steps["updateDetailsList3"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              (() => {
+                                try {
+                                  return $state.selectedStep + "";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDetailsList3"] != null &&
+                      typeof $steps["updateDetailsList3"] === "object" &&
+                      typeof $steps["updateDetailsList3"].then === "function"
+                    ) {
+                      $steps["updateDetailsList3"] = await $steps[
+                        "updateDetailsList3"
+                      ];
+                    }
                   }).apply(null, eventArgs);
                 }}
                 params={(() => {
