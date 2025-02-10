@@ -239,7 +239,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 3
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "buttonLiom.color",
@@ -3772,26 +3772,39 @@ function PlasmicResult__RenderFunc(props: {
                                         try {
                                           return (() => {
                                             if (
-                                              !currentItem.expertises[1].degree.name.includes(
+                                              currentItem?.expertises?.[1]?.degree?.name?.includes(
                                                 "ساب"
                                               )
+                                            ) {
+                                              return (
+                                                currentItem.expertises[0]
+                                                  ?.degree?.name +
+                                                "-" +
+                                                currentItem.expertises[0]
+                                                  ?.expertise?.name
+                                              );
+                                            } else if (
+                                              currentItem?.expertises?.[1]
                                             ) {
                                               return (
                                                 currentItem.expertises[1].degree
                                                   .name +
                                                 " " +
                                                 currentItem.expertises[1]
-                                                  .expertise.name
+                                                  ?.expertise?.name
                                               );
-                                            } else {
+                                            } else if (
+                                              currentItem?.expertises?.[0]
+                                            ) {
                                               return (
                                                 currentItem.expertises[0].degree
                                                   .name +
-                                                "-" +
+                                                " " +
                                                 currentItem.expertises[0]
-                                                  .expertise.name
+                                                  ?.expertise?.name
                                               );
                                             }
+                                            return "کارشناسی ";
                                           })();
                                         } catch (e) {
                                           if (
@@ -3799,7 +3812,7 @@ function PlasmicResult__RenderFunc(props: {
                                             e?.plasmicType ===
                                               "PlasmicUndefinedDataError"
                                           ) {
-                                            return "\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627\u0633\u0627\u0628 \u062a\u0627\u06cc\u062a\u06cc\u0644 \u067e\u06cc\u0634 \u0641\u0631\u0636 \u062a\u062e\u0635\u0635 \u060c \u0639\u0646\u0648\u0627\u0646 \u0645\u0633\u062a\u0639\u0627\u0631 \u0648 \u062f\u0631\u0645\u0627\u0646 \u0647\u0627";
+                                            return "\u0645\u0634\u0627\u0648\u0631";
                                           }
                                           throw e;
                                         }
