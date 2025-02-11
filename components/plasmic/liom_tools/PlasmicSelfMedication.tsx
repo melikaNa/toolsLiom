@@ -1552,12 +1552,28 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               <PlasmicImg__
                                 alt={""}
                                 className={classNames(sty.img___9Cd58)}
-                                displayHeight={"auto"}
+                                displayHeight={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "15px"
+                                    : "auto"
+                                }
                                 displayMaxHeight={"none"}
                                 displayMaxWidth={"100%"}
                                 displayMinHeight={"0"}
                                 displayMinWidth={"0"}
-                                displayWidth={"18px"}
+                                displayWidth={
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? "15px"
+                                    : "18px"
+                                }
                                 loading={"lazy"}
                                 src={{
                                   src: "/plasmic/liom_tools/images/image36.svg",
