@@ -443,8 +443,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
               try {
                 return {
                   token:
-                    $ctx.query.token ||
-                    new URLSearchParams(window.location.search).get("token")
+                    "123456" +
+                    ($ctx.query.token ||
+                      new URLSearchParams(window.location.search).get(
+                        "token"
+                      )) +
+                    "321"
                 };
               } catch (e) {
                 if (
@@ -497,8 +501,15 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           value: (() => {
                             if ($state.getStep.data.info.type != "danger") {
                               if ($state.getStep?.data?.todayReady ?? false)
-                                return $state.getStep?.data?.userStep ?? -1;
-                              else return $state.getStep?.data?.userStep ?? 0;
+                                return $state.getStep.data.data.findIndex(
+                                  item =>
+                                    item.id == $state.getStep?.data?.userStep
+                                );
+                              else
+                                return $state.getStep.data.data.findIndex(
+                                  item =>
+                                    item.id == $state.getStep?.data?.userStep
+                                );
                             } else return parseInt($ctx.query.selectStep);
                           })()
                         };
