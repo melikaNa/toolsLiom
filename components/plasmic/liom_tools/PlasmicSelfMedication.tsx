@@ -332,39 +332,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
             ) {
               $steps["refreshData"] = await $steps["refreshData"];
             }
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        const list = document.querySelector(".my-scroll-list");
-                        const fourthItem = list.children[$state.selectedStep];
-                        if (fourthItem) {
-                          const itemPosition =
-                            fourthItem.offsetLeft -
-                            list.offsetWidth * 0.35 +
-                            fourthItem.offsetWidth / 2;
-                          return list.scrollTo({
-                            left: itemPosition,
-                            behavior: "smooth"
-                          });
-                        }
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
           }}
         >
           {(() => {
@@ -602,6 +569,44 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     $steps["updateSelectedStep2"] = await $steps[
                       "updateSelectedStep2"
                     ];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              const list =
+                                document.querySelector(".my-scroll-list");
+                              console.log("sss");
+                              console.log(list);
+                              const fourthItem =
+                                list.children[$state.selectedStep];
+                              console.log(fourthItem);
+                              if (fourthItem) {
+                                const itemPosition =
+                                  fourthItem.offsetLeft -
+                                  list.offsetWidth * 0.35 +
+                                  fourthItem.offsetWidth / 2;
+                                return list.scrollTo({
+                                  left: itemPosition,
+                                  behavior: "smooth"
+                                });
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }).apply(null, eventArgs);
               }}
