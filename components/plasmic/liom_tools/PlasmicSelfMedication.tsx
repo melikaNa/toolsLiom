@@ -509,16 +509,16 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 (async data => {
                   const $steps = {};
 
-                  $steps["updateSelectedStep"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["selectedStep"]
-                          },
-                          operation: 0,
-                          value: (() => {
-                            if ($state.getStep.data.info.type != "danger") {
+                  $steps["updateSelectedStep"] =
+                    ($state.getStep?.data?.info?.type ?? "") != "danger"
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["selectedStep"]
+                            },
+                            operation: 0,
+                            value: (() => {
                               if ($state.getStep?.data?.todayReady ?? false)
                                 return $state.getStep.data.data.findIndex(
                                   item =>
@@ -529,25 +529,24 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   item =>
                                     item.id == $state.getStep?.data?.userStep
                                 );
-                            } else return parseInt($ctx.query.selectStep);
-                          })()
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
+                            })()
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                   if (
                     $steps["updateSelectedStep"] != null &&
                     typeof $steps["updateSelectedStep"] === "object" &&
