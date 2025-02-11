@@ -535,7 +535,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             undefined,
                             (() => {
                               try {
-                                return $state.selectedStep;
+                                return "step: " + $state.selectedStep + "";
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
