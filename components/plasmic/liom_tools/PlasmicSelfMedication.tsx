@@ -332,6 +332,39 @@ function PlasmicSelfMedication__RenderFunc(props: {
             ) {
               $steps["refreshData"] = await $steps["refreshData"];
             }
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        const list = document.querySelector(".my-scroll-list");
+                        const fourthItem = list.children[$state.selectedStep];
+                        if (fourthItem) {
+                          const itemPosition =
+                            fourthItem.offsetLeft -
+                            list.offsetWidth * 0.35 +
+                            fourthItem.offsetWidth / 2;
+                          return list.scrollTo({
+                            left: itemPosition,
+                            behavior: "smooth"
+                          });
+                        }
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
           }}
         >
           {(() => {
@@ -437,29 +470,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
               (async data => {
                 const $steps = {};
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            console.log("user get");
-                            return console.log($state.getUser.data);
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
@@ -557,64 +567,41 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     ];
                   }
 
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            undefined,
-                            (() => {
-                              try {
-                                return "step: " + $state.selectedStep + "";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            "top-center"
-                          ]
-                        };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
+                  $steps["updateSelectedStep2"] =
+                    ($state.getStep?.data?.info?.type ?? "") == "danger"
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["selectedStep"]
+                            },
+                            operation: 0,
+                            value: $state.selectedStep - 1
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              console.log("steo get");
-                              return console.log($state.getStep.data);
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                   if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
+                    $steps["updateSelectedStep2"] != null &&
+                    typeof $steps["updateSelectedStep2"] === "object" &&
+                    typeof $steps["updateSelectedStep2"].then === "function"
                   ) {
-                    $steps["runCode"] = await $steps["runCode"];
+                    $steps["updateSelectedStep2"] = await $steps[
+                      "updateSelectedStep2"
+                    ];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -739,31 +726,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         "updateDetailsList2"
                       ];
                     }
-
-                    $steps["updateDetailsList3"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                console.log("item get");
-                                return console.log($state.getItem.data);
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDetailsList3"] != null &&
-                      typeof $steps["updateDetailsList3"] === "object" &&
-                      typeof $steps["updateDetailsList3"].then === "function"
-                    ) {
-                      $steps["updateDetailsList3"] = await $steps[
-                        "updateDetailsList3"
-                      ];
-                    }
                   }).apply(null, eventArgs);
                 }}
                 params={(() => {
@@ -880,7 +842,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___5D4Eu)}
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox___5D4Eu,
+                  "my-scroll-list"
+                )}
               >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
