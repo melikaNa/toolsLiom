@@ -596,6 +596,11 @@
   padding-left: 4px;
   padding-right: 4px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__sb8JN {
+    font-size: 12px;
+  }
+}
 .freeBox__vdjig {
   display: flex;
   flex-direction: column;

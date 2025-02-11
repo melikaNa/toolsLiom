@@ -850,7 +850,10 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
-                      return ($state.getData.data?.[0]?.title ?? "") != "";
+                      return (
+                        ($state.getData.data?.[0]?.title ?? "") != "" &&
+                        $ctx.query.type != "danger"
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
