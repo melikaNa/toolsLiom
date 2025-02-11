@@ -1353,7 +1353,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           const active = filteredItem
                             ? filteredItem.active
                             : false;
-                          return active || !currentItem.vip;
+                          return (
+                            (active || !currentItem.vip) &&
+                            $ctx.query.inApp == "false"
+                          );
                         })()
                           ? (() => {
                               const actionArgs = {
@@ -1478,6 +1481,67 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           typeof $steps["showToast"].then === "function"
                         ) {
                           $steps["showToast"] = await $steps["showToast"];
+                        }
+
+                        $steps["runCode2"] = (() => {
+                          const allowance =
+                            $state?.getUser?.data?.[0]?.result?.allowance || [];
+                          const filteredItem = allowance.find(
+                            item => item.type === $ctx.query.type
+                          );
+                          const active = filteredItem
+                            ? filteredItem.active
+                            : false;
+                          return (
+                            (active || !currentItem.vip) &&
+                            $ctx.query.inApp == "true"
+                          );
+                        })()
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    var link =
+                                      "https://tools.liom.app/self-medication-step/?secId=" +
+                                      currentItem.id +
+                                      "&stepId=" +
+                                      currentItem.stepId +
+                                      "&style=" +
+                                      currentItem.styleType +
+                                      "&type=" +
+                                      $ctx.query.type +
+                                      "&token=" +
+                                      $ctx.query.token +
+                                      "&inApp=" +
+                                      $ctx.query.inApp +
+                                      "&userId=" +
+                                      $state.getUser.data[0].result.user.id +
+                                      "&selectStep=" +
+                                      $state.selectedStep;
+                                    return window.FlutterChannel.postMessage(
+                                      "#inAppWebView**@@**" +
+                                        currentItem.title +
+                                        "|" +
+                                        "هفته " +
+                                        ($state.selectedStep + 1) +
+                                        " اُم" +
+                                        "**@@**" +
+                                        link
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode2"] != null &&
+                          typeof $steps["runCode2"] === "object" &&
+                          typeof $steps["runCode2"].then === "function"
+                        ) {
+                          $steps["runCode2"] = await $steps["runCode2"];
                         }
                       }}
                     >
