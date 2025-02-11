@@ -437,6 +437,29 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
               (async data => {
                 const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            console.log("user get");
+                            return console.log($state.getUser.data);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
@@ -571,6 +594,29 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       "invokeGlobalAction"
                     ];
                   }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              console.log("steo get");
+                              return console.log($state.getStep.data);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
                 }).apply(null, eventArgs);
               }}
               params={(() => {
@@ -692,6 +738,31 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     ) {
                       $steps["updateDetailsList2"] = await $steps[
                         "updateDetailsList2"
+                      ];
+                    }
+
+                    $steps["updateDetailsList3"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                console.log("item get");
+                                return console.log($state.getItem.data);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDetailsList3"] != null &&
+                      typeof $steps["updateDetailsList3"] === "object" &&
+                      typeof $steps["updateDetailsList3"].then === "function"
+                    ) {
+                      $steps["updateDetailsList3"] = await $steps[
+                        "updateDetailsList3"
                       ];
                     }
                   }).apply(null, eventArgs);
