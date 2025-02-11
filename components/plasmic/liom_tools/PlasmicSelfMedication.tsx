@@ -443,12 +443,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
               try {
                 return {
                   token:
-                    "123456" +
-                    ($ctx.query.token ||
-                      new URLSearchParams(window.location.search).get(
-                        "token"
-                      )) +
-                    "321"
+                    $ctx.query.token ||
+                    new URLSearchParams(window.location.search).get("token")
                 };
               } catch (e) {
                 if (
@@ -460,7 +456,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 throw e;
               }
             })()}
-            url={"https://n8n.staas.ir/webhook/userInfo"}
+            url={"https://n8n.staas.ir/webhook/selfTreatment/userInfo"}
           >
             <ApiRequest
               data-plasmic-name={"getStep"}
