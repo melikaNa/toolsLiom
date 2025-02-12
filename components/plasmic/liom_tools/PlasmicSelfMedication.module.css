@@ -366,6 +366,13 @@
   width: 95px;
   flex-shrink: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .linearCalendar2:global(.__wab_instance) {
+    width: 75px;
+    height: 75px;
+    flex-shrink: 0;
+  }
+}
 .text__psCpo {
   position: relative;
   width: 100%;

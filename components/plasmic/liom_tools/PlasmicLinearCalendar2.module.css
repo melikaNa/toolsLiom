@@ -70,6 +70,11 @@
   right: auto;
   text-align: center;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__lLzEd {
+    font-size: var(--token-Pqe-w0mkNkCF);
+  }
+}
 .text__f9Nt {
   position: relative;
   width: auto;
