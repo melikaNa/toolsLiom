@@ -193,11 +193,20 @@ function PlasmicSelfMedication__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($ctx.query.type == "danger") return $ctx.query.selectStep;
-                else {
-                  const index = $state.getStep.data.data.findIndex(
-                    item => item.id == $state.getStep.data.userStep
-                  );
+                if ($ctx.query.type == "danger") {
+                  $ctx.query.selectStep;
+                  return parseInt($ctx.query.selectStep);
+                } else {
+                  var index;
+                  if ($state.getStep?.data?.todayReady == 1)
+                    index =
+                      $state.getStep.data.data.findIndex(
+                        item => item.id == $state.getStep?.data?.userStep
+                      ) + 1;
+                  else
+                    index = $state.getStep.data.data.findIndex(
+                      item => item.id == $state.getStep?.data?.userStep
+                    );
                   return parseInt(index);
                 }
               })();
@@ -498,10 +507,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             },
                             operation: 0,
                             value: (() => {
-                              if ($state.getStep?.data?.todayReady ?? false)
-                                return $state.getStep.data.data.findIndex(
-                                  item =>
-                                    item.id == $state.getStep?.data?.userStep
+                              if ($state.getStep?.data?.todayReady == 1)
+                                return (
+                                  $state.getStep.data.data.findIndex(
+                                    item =>
+                                      item.id == $state.getStep?.data?.userStep
+                                  ) + 1
                                 );
                               else
                                 return $state.getStep.data.data.findIndex(
@@ -1534,11 +1545,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             try {
                               return (() => {
                                 if ($ctx.query.type == "danger") return 0;
-                                else if (
-                                  $state.getStep.data.userStep < currentItem.id
-                                )
+                                else if ($state.selectedStep > currentIndex)
+                                  return 1;
+                                else if ($state.selectedStep < currentIndex)
                                   return 0;
-                                else return 1;
+                                else if ($state.selectedStep == currentIndex) {
+                                  if (
+                                    ($state.getStep?.data?.todayReady ?? 0) == 1
+                                  )
+                                    return 2;
+                                  else return 1;
+                                } else return 2;
                               })();
                             } catch (e) {
                               if (
@@ -1555,8 +1572,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               return (() => {
                                 if ($ctx.query.type == "danger") return false;
                                 else if (
-                                  $state.getStep.data.userStep < currentItem.id
+                                  $state.selectedStep == currentIndex &&
+                                  ($state.getStep?.data?.todayReady ?? 0) == 1
                                 )
+                                  return false;
+                                else if ($state.selectedStep < currentIndex)
                                   return true;
                                 else return false;
                               })();
