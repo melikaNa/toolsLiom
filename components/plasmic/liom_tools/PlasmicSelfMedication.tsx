@@ -573,7 +573,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
                   $steps["invokeGlobalAction"] = true
                     ? (() => {
-                        const actionArgs = { args: [500] };
+                        const actionArgs = { args: [3000] };
                         return $globalActions["Fragment.wait"]?.apply(null, [
                           ...actionArgs.args
                         ]);
