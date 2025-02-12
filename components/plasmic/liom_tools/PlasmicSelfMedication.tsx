@@ -1685,8 +1685,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         $steps["goToPage"] = (() => {
                           const allowance =
                             $state?.getUser?.data?.[0]?.result?.allowance || [];
-                          const filteredItem = allowance.find(
-                            item => item.type === $ctx.query.type
+                          const filteredItem = allowance.find(item =>
+                            item.type.includes($ctx.query.type)
                           );
                           const active = filteredItem
                             ? filteredItem.active
@@ -1755,8 +1755,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         $steps["runCode"] = (() => {
                           const allowance =
                             $state?.getUser?.data?.[0]?.result?.allowance || [];
-                          const filteredItem = allowance.find(
-                            item => item.type === $ctx.query.type
+                          const filteredItem = allowance.find(item =>
+                            item.type.includes($ctx.query.type)
                           );
                           const active = filteredItem
                             ? filteredItem.active
@@ -1795,11 +1795,21 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           $steps["runCode"] = await $steps["runCode"];
                         }
 
-                        $steps["showToast"] = (
-                          ($ctx.query.inApp == "false" && currentItem.vip) == 1
-                            ? true
-                            : false
-                        )
+                        $steps["showToast"] = (() => {
+                          const allowance =
+                            $state?.getUser?.data?.[0]?.result?.allowance || [];
+                          const filteredItem = allowance.find(item =>
+                            item.type.includes($ctx.query.type)
+                          );
+                          const active = filteredItem
+                            ? filteredItem.active
+                            : false;
+                          return (
+                            $ctx.query.inApp == "false" &&
+                            !active &&
+                            currentItem.vip == 1
+                          );
+                        })()
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -1824,8 +1834,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         $steps["runCode2"] = (() => {
                           const allowance =
                             $state?.getUser?.data?.[0]?.result?.allowance || [];
-                          const filteredItem = allowance.find(
-                            item => item.type === $ctx.query.type
+                          const filteredItem = allowance.find(item =>
+                            item.type.includes($ctx.query.type)
                           );
                           const active = filteredItem
                             ? filteredItem.active
