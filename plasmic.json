@@ -2468,6 +2468,32 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicDone.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "TgQ-n3w6yOfs",
+          "name": "TabWeek2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicTabWeek2.tsx",
+          "importSpec": {
+            "modulePath": "TabWeek2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicTabWeek2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "UJN9m2mxrPIu",
+          "name": "LinearCalendar2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicLinearCalendar2.tsx",
+          "importSpec": {
+            "modulePath": "LinearCalendar2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicLinearCalendar2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
