@@ -236,7 +236,20 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         path: "isDone",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getData?.data?.[0]?.isDone == 1 ? false : true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "loading",
@@ -1493,7 +1506,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  $state.getData?.data?.[0]?.isDone == 0 &&
+                  ($state.getData?.data?.[0]?.isDone == 0 ||
+                    $state.isDone == true) &&
                   $ctx.query.type != "danger"
                 );
               } catch (e) {
