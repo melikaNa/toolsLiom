@@ -275,6 +275,48 @@ function PlasmicSelfMedication__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "stepLoading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "userStep",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if ($ctx.query.type == "danger") {
+                  $ctx.query.selectStep;
+                  return parseInt($ctx.query.selectStep);
+                } else {
+                  var index;
+                  if ($state.getStep?.data?.todayReady == 1)
+                    index =
+                      $state.getStep.data.data.findIndex(
+                        item => item.id == $state.getStep?.data?.userStep
+                      ) + 1;
+                  else
+                    index = $state.getStep.data.data.findIndex(
+                      item => item.id == $state.getStep?.data?.userStep
+                    );
+                  return parseInt(index);
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -547,6 +589,54 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     ];
                   }
 
+                  $steps["updateUserStep"] =
+                    ($state.getStep?.data?.info?.type ?? "") != "danger"
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["userStep"]
+                            },
+                            operation: 0,
+                            value: (() => {
+                              if ($state.getStep?.data?.todayReady == 1)
+                                return (
+                                  $state.getStep.data.data.findIndex(
+                                    item =>
+                                      item.id == $state.getStep?.data?.userStep
+                                  ) + 1
+                                );
+                              else
+                                return $state.getStep.data.data.findIndex(
+                                  item =>
+                                    item.id == $state.getStep?.data?.userStep
+                                );
+                            })()
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["updateUserStep"] != null &&
+                    typeof $steps["updateUserStep"] === "object" &&
+                    typeof $steps["updateUserStep"].then === "function"
+                  ) {
+                    $steps["updateUserStep"] = await $steps["updateUserStep"];
+                  }
+
                   $steps["updateSelectedStep2"] =
                     ($state.getStep?.data?.info?.type ?? "") == "danger"
                       ? (() => {
@@ -556,9 +646,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               variablePath: ["selectedStep"]
                             },
                             operation: 0,
-                            value:
-                              //$state.selectedStep - 1
-                              0
+                            value: 0
                           };
                           return (({
                             variable,
@@ -640,6 +728,42 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     typeof $steps["runCode"].then === "function"
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["updateItemLoading"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["itemLoading"]
+                          },
+                          operation: 4
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateItemLoading"] != null &&
+                    typeof $steps["updateItemLoading"] === "object" &&
+                    typeof $steps["updateItemLoading"].then === "function"
+                  ) {
+                    $steps["updateItemLoading"] = await $steps[
+                      "updateItemLoading"
+                    ];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -1533,11 +1657,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             try {
                               return (() => {
                                 if ($ctx.query.type == "danger") return 0;
-                                else if ($state.selectedStep > currentIndex)
+                                else if ($state.userStep > currentIndex)
                                   return 1;
-                                else if ($state.selectedStep < currentIndex)
+                                else if ($state.userStep < currentIndex)
                                   return 0;
-                                else if ($state.selectedStep == currentIndex) {
+                                else if ($state.userStep == currentIndex) {
                                   if (
                                     ($state.getStep?.data?.todayReady ?? 0) == 1
                                   )
@@ -1560,11 +1684,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               return (() => {
                                 if ($ctx.query.type == "danger") return false;
                                 else if (
-                                  $state.selectedStep == currentIndex &&
+                                  $state.userStep == currentIndex &&
                                   ($state.getStep?.data?.todayReady ?? 0) == 1
                                 )
                                   return false;
-                                else if ($state.selectedStep < currentIndex)
+                                else if ($state.userStep < currentIndex)
                                   return true;
                                 else return false;
                               })();
