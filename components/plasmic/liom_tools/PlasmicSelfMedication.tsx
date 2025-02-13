@@ -1352,10 +1352,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
                           $steps["updateSelectedStep"] = (() => {
                             if ($ctx.query.type == "danger") return true;
-                            else if (
-                              $state.getStep.data.userStep < currentItem.id
-                            )
-                              return false;
                             else return true;
                           })()
                             ? (() => {
@@ -1396,10 +1392,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
                           $steps["updateDetailsList"] = (() => {
                             if ($ctx.query.type == "danger") return true;
-                            else if (
-                              $state.getStep.data.userStep < currentItem.id
-                            )
-                              return false;
                             else return true;
                           })()
                             ? (() => {
@@ -1440,10 +1432,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
                           $steps["invokeGlobalAction"] = (() => {
                             if ($ctx.query.type == "danger") return true;
-                            else if (
-                              $state.getStep.data.userStep < currentItem.id
-                            )
-                              return false;
                             else return true;
                           })()
                             ? (() => {
