@@ -507,8 +507,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 (async data => {
                   const $steps = {};
 
-                  $steps["updateSelectedStep"] =
-                    ($state.getStep?.data?.info?.type ?? "") != "danger"
+                  $steps["updateSelectedSteppp"] =
+                    $ctx.query.type != "danger"
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -548,17 +548,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         })()
                       : undefined;
                   if (
-                    $steps["updateSelectedStep"] != null &&
-                    typeof $steps["updateSelectedStep"] === "object" &&
-                    typeof $steps["updateSelectedStep"].then === "function"
+                    $steps["updateSelectedSteppp"] != null &&
+                    typeof $steps["updateSelectedSteppp"] === "object" &&
+                    typeof $steps["updateSelectedSteppp"].then === "function"
                   ) {
-                    $steps["updateSelectedStep"] = await $steps[
-                      "updateSelectedStep"
+                    $steps["updateSelectedSteppp"] = await $steps[
+                      "updateSelectedSteppp"
                     ];
                   }
 
                   $steps["updateUserStep"] =
-                    ($state.getStep?.data?.info?.type ?? "") != "danger"
+                    $ctx.query.type != "danger"
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -606,7 +606,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   }
 
                   $steps["updateSelectedStep2"] =
-                    ($state.getStep?.data?.info?.type ?? "") == "danger"
+                    $ctx.query.type == "danger"
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -2146,7 +2146,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
               <React.Fragment>
                 {(() => {
                   try {
-                    return "u" + $state.userStep + "s" + $state.selectedStep;
+                    return (
+                      "u" +
+                      $state.userStep +
+                      "s" +
+                      $state.selectedStep +
+                      ($state.getStep?.data?.info?.type ?? "")
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

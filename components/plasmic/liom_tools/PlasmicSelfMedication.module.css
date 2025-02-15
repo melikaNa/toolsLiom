@@ -517,6 +517,7 @@
   max-width: 100%;
   color: var(--token-pyhDq7s0RTkz);
   min-width: 0;
+  display: none;
 }
 .freeBox__dnrlo {
   display: block;
