@@ -60,6 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
@@ -239,7 +244,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getData?.data?.[0]?.isDone == 1 ? false : true;
+              return $state.getData?.data?.[0]?.isDone == 1 ? true : false;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -266,6 +271,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqiBuxNlixBgQ()
@@ -1507,7 +1514,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               try {
                 return (
                   ($state.getData?.data?.[0]?.isDone == 0 ||
-                    $state.isDone == true) &&
+                    $state.isDone == false) &&
                   $ctx.query.type != "danger"
                 );
               } catch (e) {
@@ -1659,6 +1666,27 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     typeof $steps["updateLoading2"].then === "function"
                   ) {
                     $steps["updateLoading2"] = await $steps["updateLoading2"];
+                  }
+
+                  $steps["refreshData"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          queryInvalidation: ["plasmic_refresh_all"]
+                        };
+                        return (async ({ queryInvalidation }) => {
+                          if (!queryInvalidation) {
+                            return;
+                          }
+                          await plasmicInvalidate(queryInvalidation);
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["refreshData"] != null &&
+                    typeof $steps["refreshData"] === "object" &&
+                    typeof $steps["refreshData"].then === "function"
+                  ) {
+                    $steps["refreshData"] = await $steps["refreshData"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
