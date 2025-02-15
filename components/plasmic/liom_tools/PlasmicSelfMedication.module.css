@@ -510,6 +510,14 @@
   border-radius: var(--token-KVcr9NiMwFLr);
   border-width: 1px;
 }
+.text__wjqGg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-pyhDq7s0RTkz);
+  min-width: 0;
+}
 .freeBox__dnrlo {
   display: block;
   position: fixed;

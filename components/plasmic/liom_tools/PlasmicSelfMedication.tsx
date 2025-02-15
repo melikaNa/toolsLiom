@@ -642,6 +642,61 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     ];
                   }
 
+                  $steps["wait"] = true
+                    ? (() => {
+                        const actionArgs = { args: [1000] };
+                        return $globalActions["Fragment.wait"]?.apply(null, [
+                          ...actionArgs.args
+                        ]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["wait"] != null &&
+                    typeof $steps["wait"] === "object" &&
+                    typeof $steps["wait"].then === "function"
+                  ) {
+                    $steps["wait"] = await $steps["wait"];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              const list =
+                                document.getElementById("my-scroll-list11");
+                              const list2 = list.children[0];
+                              const fourthItem =
+                                list2.children[$state.selectedStep];
+                              console.log(list);
+                              console.log(list2);
+                              console.log(fourthItem);
+                              if (fourthItem) {
+                                const itemPosition =
+                                  fourthItem.offsetLeft -
+                                  list.offsetWidth * 0.35 +
+                                  fourthItem.offsetWidth / 2;
+                                return list.scrollTo({
+                                  left: itemPosition,
+                                  behavior: "smooth"
+                                });
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
                   $steps["updateItemLoading"] = true
                     ? (() => {
                         const actionArgs = {
@@ -676,58 +731,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     $steps["updateItemLoading"] = await $steps[
                       "updateItemLoading"
                     ];
-                  }
-
-                  $steps["wait"] = true
-                    ? (() => {
-                        const actionArgs = { args: [500] };
-                        return $globalActions["Fragment.wait"]?.apply(null, [
-                          ...actionArgs.args
-                        ]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["wait"] != null &&
-                    typeof $steps["wait"] === "object" &&
-                    typeof $steps["wait"].then === "function"
-                  ) {
-                    $steps["wait"] = await $steps["wait"];
-                  }
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              const list =
-                                document.getElementById("my-scroll-list11");
-                              const list2 = list.children[0];
-                              const fourthItem =
-                                list2.children[$state.selectedStep];
-                              if (fourthItem) {
-                                const itemPosition =
-                                  fourthItem.offsetLeft -
-                                  list.offsetWidth * 0.35 +
-                                  fourthItem.offsetWidth / 2;
-                                return list.scrollTo({
-                                  left: itemPosition,
-                                  behavior: "smooth"
-                                });
-                              }
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -2133,6 +2136,29 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   );
                 })
               : null}
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__wjqGg
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return "u" + $state.userStep + "s" + $state.selectedStep;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
           </Stack__>
           {(() => {
             try {
