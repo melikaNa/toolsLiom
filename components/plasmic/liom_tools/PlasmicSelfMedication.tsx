@@ -60,11 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
-import {
-  executePlasmicDataOp,
-  usePlasmicDataOp,
-  usePlasmicInvalidate
-} from "@plasmicapp/react-web/lib/data-sources";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
@@ -326,8 +321,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
     $queries: {},
     $refs
   });
-  const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsqiBuxNlixBgQ()
@@ -361,30 +354,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
             plasmic_hamdast_sdk_css.plasmic_tokens,
             sty.root
           )}
-          onLoad={async event => {
-            const $steps = {};
-
-            $steps["refreshData"] = true
-              ? (() => {
-                  const actionArgs = {
-                    queryInvalidation: ["plasmic_refresh_all"]
-                  };
-                  return (async ({ queryInvalidation }) => {
-                    if (!queryInvalidation) {
-                      return;
-                    }
-                    await plasmicInvalidate(queryInvalidation);
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["refreshData"] != null &&
-              typeof $steps["refreshData"] === "object" &&
-              typeof $steps["refreshData"].then === "function"
-            ) {
-              $steps["refreshData"] = await $steps["refreshData"];
-            }
-          }}
         >
           {(() => {
             try {
