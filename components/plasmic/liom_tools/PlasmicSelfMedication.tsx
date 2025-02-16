@@ -463,9 +463,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  token:
-                    $ctx.query.token ||
-                    new URLSearchParams(window.location.search).get("token")
+                  token: $ctx.query.token.slice(
+                    6,
+                    (
+                      $ctx.query.token ||
+                      new URLSearchParams(window.location.search).get("token")
+                    ).length - 3
+                  )
                 };
               } catch (e) {
                 if (
@@ -737,12 +741,23 @@ function PlasmicSelfMedication__RenderFunc(props: {
               params={(() => {
                 try {
                   return {
-                    type:
-                      $ctx.query.type ||
-                      new URLSearchParams(window.location.search).get("type"),
-                    userId:
-                      $ctx.query.userId ||
-                      new URLSearchParams(window.location.search).get("userId")
+                    token: $ctx.query.token.slice(
+                      6,
+                      (
+                        $ctx.query.token ||
+                        new URLSearchParams(window.location.search).get("token")
+                      ).length - 3
+                    ),
+                    userId: $ctx.query.userId.slice(
+                      4,
+                      (
+                        $ctx.query.userId ||
+                        new URLSearchParams(window.location.search).get(
+                          "userId"
+                        )
+                      ).length - 4
+                    ),
+                    type: $ctx.query.type
                   };
                 } catch (e) {
                   if (
