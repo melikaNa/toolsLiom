@@ -1302,7 +1302,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       const $steps = {};
 
                       $steps["runCode"] =
-                        (currentItem?.action ?? "") != ""
+                        (currentItem?.action ?? "") != "" &&
+                        $ctx.query.inApp == "true"
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
@@ -1322,6 +1323,48 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         typeof $steps["runCode"].then === "function"
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["goToPage"] =
+                        (currentItem?.action ?? "") != "" &&
+                        $ctx.query.inApp == "false"
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return (() => {})();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
                   >
