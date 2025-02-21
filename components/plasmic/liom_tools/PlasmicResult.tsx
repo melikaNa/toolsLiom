@@ -106,6 +106,7 @@ import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: Us1K_hl1D5h1/icon
 import ChevronUpIcon from "./icons/PlasmicIcon__ChevronUp"; // plasmic-import: s9eeF5PzS4-y/icon
+import Icon136Icon from "./icons/PlasmicIcon__Icon136"; // plasmic-import: e82dJRWQjnC2/icon
 import Icon125Icon from "./icons/PlasmicIcon__Icon125"; // plasmic-import: b8AgXrwwp9nu/icon
 import Icon127Icon from "./icons/PlasmicIcon__Icon127"; // plasmic-import: HCowqgxIwEnQ/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
@@ -138,6 +139,7 @@ export type PlasmicResult__OverridesType = {
   timer?: Flex__<typeof Timer>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   collapse3?: Flex__<typeof AntdSingleCollapse>;
+  buttonLiom2?: Flex__<typeof ButtonLiom>;
   icons?: Flex__<typeof Icons>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
@@ -432,6 +434,12 @@ function PlasmicResult__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "buttonLiom2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "yellow"
       }
     ],
     [$props, $ctx, $refs]
@@ -1749,6 +1757,95 @@ function PlasmicResult__RenderFunc(props: {
                   </Stack__>
                 ) : null}
               </div>
+              <ButtonLiom
+                data-plasmic-name={"buttonLiom2"}
+                data-plasmic-override={overrides.buttonLiom2}
+                className={classNames("__wab_instance", sty.buttonLiom2, {
+                  [sty.buttonLiom2global_theme_dark]: hasVariant(
+                    globalVariants,
+                    "theme",
+                    "dark"
+                  )
+                })}
+                color={generateStateValueProp($state, ["buttonLiom2", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToPage"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return `/self-test?user_id=${$ctx.query.user_id}&type=${$ctx.query.type}&app=${$ctx.query.app}&inApp=${$ctx.query.inApp}`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
+                  ) {
+                    $steps["goToPage"] = await $steps["goToPage"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom2", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                showStartIcon={true}
+                size={"compact"}
+                startIcon={
+                  <Icon136Icon
+                    className={classNames(projectcss.all, sty.svg__zPal3)}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__z8C5
+                  )}
+                >
+                  {
+                    "\u0627\u06af\u0631 \u067e\u0627\u0633\u062e\u200c\u0647\u0627\u06cc \u0642\u0628\u0644\u06cc \u062f\u0642\u06cc\u0642 \u0646\u0628\u0648\u062f\u0646\u062f \u062a\u0633\u062a \u0631\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u06a9\u0631\u0627\u0631 \u06a9\u0646\u06cc\u062f."
+                  }
+                </div>
+              </ButtonLiom>
             </Stack__>
           ) : null}
           {(() => {
@@ -5090,6 +5187,7 @@ const PlasmicDescendants = {
     "timer",
     "buttonLiom",
     "collapse3",
+    "buttonLiom2",
     "icons",
     "buttonLiom4",
     "apiRequest",
@@ -5110,6 +5208,7 @@ const PlasmicDescendants = {
   timer: ["timer"],
   buttonLiom: ["buttonLiom"],
   collapse3: ["collapse3"],
+  buttonLiom2: ["buttonLiom2"],
   icons: ["icons"],
   buttonLiom4: ["buttonLiom4"],
   apiRequest: ["apiRequest"],
@@ -5148,6 +5247,7 @@ type NodeDefaultElementType = {
   timer: typeof Timer;
   buttonLiom: typeof ButtonLiom;
   collapse3: typeof AntdSingleCollapse;
+  buttonLiom2: typeof ButtonLiom;
   icons: typeof Icons;
   buttonLiom4: typeof ButtonLiom;
   apiRequest: typeof ApiRequest;
@@ -5254,6 +5354,7 @@ export const PlasmicResult = Object.assign(
     timer: makeNodeComponent("timer"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     collapse3: makeNodeComponent("collapse3"),
+    buttonLiom2: makeNodeComponent("buttonLiom2"),
     icons: makeNodeComponent("icons"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     apiRequest: makeNodeComponent("apiRequest"),

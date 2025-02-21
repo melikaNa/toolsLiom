@@ -2494,6 +2494,20 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicLinearCalendar2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "Mt1QYXQXllH6",
+          "name": "VideoPlayer",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicVideoPlayer.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/video-player.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicVideoPlayer.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/video-player"
         }
       ],
       "icons": [
@@ -3396,6 +3410,26 @@
           "id": "s9eeF5PzS4-y",
           "name": "ChevronUpIcon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__ChevronUp.tsx"
+        },
+        {
+          "id": "EcTyGzljQZFt",
+          "name": "Icon133Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon133.tsx"
+        },
+        {
+          "id": "DJJUEzZiYzEy",
+          "name": "Icon134Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon134.tsx"
+        },
+        {
+          "id": "VilNriN3hUB0",
+          "name": "Icon135Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon135.tsx"
+        },
+        {
+          "id": "e82dJRWQjnC2",
+          "name": "Icon136Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon136.tsx"
         }
       ],
       "images": [
@@ -3753,6 +3787,11 @@
           "id": "kOD91d8nMg80",
           "name": "image 40",
           "filePath": "../public/plasmic/liom_tools/images/image40.svg"
+        },
+        {
+          "id": "Lhlci3bWRyb-",
+          "name": "image 41",
+          "filePath": "../public/plasmic/liom_tools/images/image41.svg"
         }
       ],
       "indirect": false,

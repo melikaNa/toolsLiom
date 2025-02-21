@@ -89,18 +89,20 @@ export type PlasmicLinearCalendar2__ArgsType = {
   title?: string;
   isShowDate?: boolean;
   done?: number;
+  isVip?: boolean;
 };
 type ArgPropType = keyof PlasmicLinearCalendar2__ArgsType;
 export const PlasmicLinearCalendar2__ArgProps = new Array<ArgPropType>(
   "isLock",
   "title",
   "isShowDate",
-  "done"
+  "done",
+  "isVip"
 );
 
 export type PlasmicLinearCalendar2__OverridesType = {
   root?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
   lock?: Flex__<typeof Lock>;
   done?: Flex__<typeof Done>;
 };
@@ -110,6 +112,7 @@ export interface DefaultLinearCalendar2Props {
   title?: string;
   isShowDate?: boolean;
   done?: number;
+  isVip?: boolean;
   click?: SingleBooleanChoiceArg<"click">;
   className?: string;
 }
@@ -136,7 +139,8 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
       Object.assign(
         {
           isLock: false,
-          isShowDate: false
+          isShowDate: false,
+          isVip: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -195,65 +199,59 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
         { [sty.rootclick]: hasVariant($state, "click", "click") }
       )}
     >
-      <Stack__
-        as={"div"}
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox)}
+      <div
+        className={classNames(projectcss.all, sty.freeBox__wro0, {
+          [sty.freeBoxclick__wro0Jr0Vt]: hasVariant($state, "click", "click")
+        })}
       >
         {(() => {
           try {
-            return $props.isLock;
+            return $props.isVip;
           } catch (e) {
             if (
               e instanceof TypeError ||
               e?.plasmicType === "PlasmicUndefinedDataError"
             ) {
-              return false;
+              return true;
             }
             throw e;
           }
         })() ? (
-          <Lock
-            data-plasmic-name={"lock"}
-            data-plasmic-override={overrides.lock}
-            className={classNames("__wab_instance", sty.lock)}
-            open={(() => {
-              try {
-                return false;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [];
-                }
-                throw e;
-              }
-            })()}
-          />
+          <div className={classNames(projectcss.all, sty.freeBox__ri8Wv)}>
+            <PlasmicImg__
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
+              alt={""}
+              className={classNames(sty.img)}
+              displayHeight={"13px"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"none"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"16px"}
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_tools/images/image36.svg",
+                fullWidth: 22,
+                fullHeight: 20,
+                aspectRatio: 1.1
+              }}
+            />
+          </div>
         ) : null}
-        {(() => {
-          try {
-            return $props.done != 0;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return false;
-            }
-            throw e;
-          }
-        })() ? (
-          <Done
-            data-plasmic-name={"done"}
-            data-plasmic-override={overrides.done}
-            className={classNames("__wab_instance", sty.done)}
-            inDone={(() => {
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__andKa)}
+        >
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__pTv54)}
+          >
+            {(() => {
               try {
-                return $props.done == 1 ? true : false;
+                return $props.isLock;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -263,49 +261,100 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
                 }
                 throw e;
               }
-            })()}
-          />
-        ) : null}
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__lLzEd
-          )}
-        >
-          <React.Fragment>{$props.title}</React.Fragment>
-        </div>
-      </Stack__>
-      {(() => {
-        try {
-          return $props.isShowDate;
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return false;
+            })() ? (
+              <Lock
+                data-plasmic-name={"lock"}
+                data-plasmic-override={overrides.lock}
+                className={classNames("__wab_instance", sty.lock)}
+                open={(() => {
+                  try {
+                    return false;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
+              />
+            ) : null}
+            {(() => {
+              try {
+                return $props.done != 0;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })() ? (
+              <Done
+                data-plasmic-name={"done"}
+                data-plasmic-override={overrides.done}
+                className={classNames("__wab_instance", sty.done)}
+                inDone={(() => {
+                  try {
+                    return $props.done == 1 ? true : false;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })()}
+              />
+            ) : null}
+          </Stack__>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__lLzEd
+            )}
+          >
+            <React.Fragment>{$props.title}</React.Fragment>
+          </div>
+        </Stack__>
+        {(() => {
+          try {
+            return $props.isShowDate;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return false;
+            }
+            throw e;
           }
-          throw e;
-        }
-      })() ? (
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__f9Nt
-          )}
-        >
-          {"27 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a"}
-        </div>
-      ) : null}
+        })() ? (
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__f9Nt
+            )}
+          >
+            {"27 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a"}
+          </div>
+        ) : null}
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "lock", "done"],
-  freeBox: ["freeBox", "lock", "done"],
+  root: ["root", "img", "lock", "done"],
+  img: ["img"],
   lock: ["lock"],
   done: ["done"]
 } as const;
@@ -314,7 +363,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
+  img: typeof PlasmicImg__;
   lock: typeof Lock;
   done: typeof Done;
 };
@@ -379,7 +428,7 @@ export const PlasmicLinearCalendar2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
+    img: makeNodeComponent("img"),
     lock: makeNodeComponent("lock"),
     done: makeNodeComponent("done"),
 

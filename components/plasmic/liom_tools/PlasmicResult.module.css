@@ -606,6 +606,38 @@
   max-width: 100%;
   height: 1em;
 }
+.buttonLiom2:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+  display: none;
+}
+.svg__zPal3 {
+  position: relative;
+  object-fit: cover;
+  width: 25px;
+  height: 25px;
+  color: var(--token-jgohepLVeKvh);
+}
+.text__z8C5 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  background: none;
+  align-self: center;
+  color: var(--token-ieogzVSSyrRx);
+  font-weight: 500;
+  min-width: 0;
+  border-radius: var(--token-KVcr9NiMwFLr);
+  padding: 0px;
+}
+.svg__aOstY {
+  object-fit: cover;
+  max-width: 100%;
+  width: 150%;
+  height: 150%;
+}
 .freeBox__f1R9S {
   position: relative;
   background: var(--token-jgohepLVeKvh);

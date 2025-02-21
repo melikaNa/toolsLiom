@@ -771,6 +771,54 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             projectcss.all,
                             sty.freeBox__tzrPi
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["goToPage"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return (
+                                          "video-player/?title=" +
+                                          $state.getData.data[0].title +
+                                          "&url=" +
+                                          currentItem.url
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return `/video-player`;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["goToPage"] != null &&
+                              typeof $steps["goToPage"] === "object" &&
+                              typeof $steps["goToPage"].then === "function"
+                            ) {
+                              $steps["goToPage"] = await $steps["goToPage"];
+                            }
+                          }}
                         >
                           <PlasmicImg__
                             alt={""}
