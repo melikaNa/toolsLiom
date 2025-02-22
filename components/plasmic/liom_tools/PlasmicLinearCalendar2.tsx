@@ -206,7 +206,7 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
       >
         {(() => {
           try {
-            return $props.isVip || true;
+            return $props.isVip;
           } catch (e) {
             if (
               e instanceof TypeError ||
