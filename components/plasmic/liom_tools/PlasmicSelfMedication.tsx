@@ -1795,7 +1795,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
               {(() => {
                 try {
                   return (() => {
-                    var index;
                     if ($ctx.query.type == "danger") {
                       return false;
                     } else {
@@ -2223,19 +2222,54 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     })
                   : null}
               </Stack__>
-              <div className={classNames(projectcss.all, sty.freeBox__aiGEi)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__uvYnO
-                  )}
-                >
-                  {
-                    "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0645\u062d\u062a\u0648\u0627 \u0644\u0637\u0641\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
+              {(() => {
+                try {
+                  return (() => {
+                    if ($ctx.query.type == "danger") {
+                      return false;
+                    } else {
+                      if (
+                        $state.getStep.data.data[$state.userStep].vip == 1 &&
+                        $state.userStep == $state.selectedStep
+                      ) {
+                        const allowance =
+                          $state?.getUser?.data?.[0]?.result?.allowance || [];
+                        const filteredItem = allowance.find(item =>
+                          item.type.includes($ctx.query.type)
+                        );
+                        const active = filteredItem
+                          ? filteredItem.active
+                          : false;
+                        return !active;
+                      } else {
+                        return false;
+                      }
+                    }
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
                   }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__aiGEi)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__uvYnO
+                    )}
+                  >
+                    {
+                      "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0645\u062d\u062a\u0648\u0627 \u0644\u0637\u0641\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
+                    }
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
             {(() => {
               try {
