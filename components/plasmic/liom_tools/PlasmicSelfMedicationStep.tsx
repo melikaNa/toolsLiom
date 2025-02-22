@@ -387,7 +387,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     //   true
                     // else false
 
-                    $ctx.query.type == "danger"
+                    $ctx.query.type == "danger" &&
+                    ($state?.getData.data[0].title ?? "") != ""
                   );
                 } catch (e) {
                   if (
