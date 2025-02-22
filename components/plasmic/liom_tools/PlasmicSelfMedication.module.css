@@ -284,10 +284,11 @@
   flex-direction: row;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   overflow: auto;
   min-width: 0;
+  min-height: 0;
   padding: 0px;
 }
 .freeBox__s9KiX > :global(.__wab_flex-container) {
@@ -295,6 +296,7 @@
   align-items: stretch;
   justify-content: flex-start;
   min-width: 0;
+  min-height: 0;
   margin-left: calc(0px - 8px);
   width: calc(100% + 8px);
 }
@@ -347,7 +349,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .linearCalendar2:global(.__wab_instance) {
     width: 75px;
-    height: 75px;
+    height: 80px;
     flex-shrink: 0;
   }
 }
@@ -564,6 +566,8 @@
   align-items: center;
   left: 0px;
   top: 0px;
+  z-index: 3;
+  margin-top: 80px;
   min-width: 0;
   padding: 8px;
 }
@@ -572,7 +576,28 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  color: #ffffff;
+  text-align: center;
   min-width: 0;
+}
+.buttonLiom:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__xiAq8 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__smXo4 {
+  font-size: 10px;
+  padding: 2px 8px;
+}
+.svg__hfKwT {
+  object-fit: cover;
+  max-width: 100%;
+  width: 150%;
+  height: 150%;
 }
 .freeBox__xObKs {
   display: flex;

@@ -69,6 +69,7 @@ import Lock from "../../Lock"; // plasmic-import: 5lKm1nUlkjS8/component
 import Done from "../../Done"; // plasmic-import: kuXIsI5E0lmX/component
 import LinearCalendar2 from "../../LinearCalendar2"; // plasmic-import: UJN9m2mxrPIu/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
+import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
@@ -84,6 +85,8 @@ import sty from "./PlasmicSelfMedication.module.css"; // plasmic-import: RlsH9qD
 
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 
 createPlasmicElementProxy;
 
@@ -108,6 +111,7 @@ export type PlasmicSelfMedication__OverridesType = {
   done?: Flex__<typeof Done>;
   linearCalendar2?: Flex__<typeof LinearCalendar2>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
+  buttonLiom?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultSelfMedicationProps {}
@@ -311,6 +315,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "buttonLiom.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -395,6 +405,42 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 })() ? (
                   <Icon22Icon
                     className={classNames(projectcss.all, sty.svg__nBoN)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (
+                                  "https://apps.liom.app/pregnancy/?token=+ " +
+                                  $ctx.query.token +
+                                  "&userId=" +
+                                  $ctx.query.userId +
+                                  "&theme=" +
+                                  $ctx.query.theme +
+                                  "&inAp=" +
+                                  $ctx.query.inApp +
+                                  "&inBot" +
+                                  $ctx.query.inBot +
+                                  "&version=" +
+                                  $ctx.query.versio
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
                     role={"img"}
                   />
                 ) : null
@@ -423,6 +469,42 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text__cOzkv
                   )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (
+                                "https://apps.liom.app/pregnancy/?token=+ " +
+                                $ctx.query.token +
+                                "&userId=" +
+                                $ctx.query.userId +
+                                "&theme=" +
+                                $ctx.query.theme +
+                                "&inAp=" +
+                                $ctx.query.inApp +
+                                "&inBot" +
+                                $ctx.query.inBot +
+                                "&version=" +
+                                $ctx.query.versio
+                              );
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
                 >
                   <React.Fragment>
                     {$state.getStep?.data?.info?.name ?? ""}
@@ -2253,7 +2335,33 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__aiGEi)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__aiGEi)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] =
+                      $ctx.query.inApp == "true"
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return undefined;
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2265,6 +2373,44 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0645\u062d\u062a\u0648\u0627 \u0644\u0637\u0641\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
                     }
                   </div>
+                  <ButtonLiom
+                    data-plasmic-name={"buttonLiom"}
+                    data-plasmic-override={overrides.buttonLiom}
+                    className={classNames("__wab_instance", sty.buttonLiom)}
+                    color={generateStateValueProp($state, [
+                      "buttonLiom",
+                      "color"
+                    ])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    size={"minimal"}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__smXo4
+                      )}
+                    >
+                      {
+                        "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
+                      }
+                    </div>
+                  </ButtonLiom>
                 </div>
               ) : null}
             </div>
@@ -2425,7 +2571,8 @@ const PlasmicDescendants = {
     "lock",
     "done",
     "linearCalendar2",
-    "loadingConclusion"
+    "loadingConclusion",
+    "buttonLiom"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -2436,7 +2583,8 @@ const PlasmicDescendants = {
   lock: ["lock"],
   done: ["done"],
   linearCalendar2: ["linearCalendar2"],
-  loadingConclusion: ["loadingConclusion"]
+  loadingConclusion: ["loadingConclusion"],
+  buttonLiom: ["buttonLiom"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2453,6 +2601,7 @@ type NodeDefaultElementType = {
   done: typeof Done;
   linearCalendar2: typeof LinearCalendar2;
   loadingConclusion: typeof LoadingConclusion;
+  buttonLiom: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2550,6 +2699,7 @@ export const PlasmicSelfMedication = Object.assign(
     done: makeNodeComponent("done"),
     linearCalendar2: makeNodeComponent("linearCalendar2"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
+    buttonLiom: makeNodeComponent("buttonLiom"),
 
     // Metadata about props expected for PlasmicSelfMedication
     internalVariantProps: PlasmicSelfMedication__VariantProps,
