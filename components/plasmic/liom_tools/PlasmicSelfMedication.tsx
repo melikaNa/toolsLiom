@@ -476,20 +476,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return (
-                                "https://apps.liom.app/pregnancy/?token=+ " +
-                                $ctx.query.token +
-                                "&userId=" +
-                                $ctx.query.userId +
-                                "&theme=" +
-                                $ctx.query.theme +
-                                "&inAp=" +
-                                $ctx.query.inApp +
-                                "&inBot" +
-                                $ctx.query.inBot +
-                                "&version=" +
-                                $ctx.query.versio
-                              );
+                              return (() => {
+                                return console.log("ddd");
+                              })();
                             }
                           };
                           return (({ customFunction }) => {
@@ -2345,7 +2334,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
-                                return undefined;
+                                return (() => {
+                                  if ($ctx.query.type == "skinCare")
+                                    return window.FlutterChannel.postMessage(
+                                      "#directDialog-skinCare-sub"
+                                    );
+                                })();
                               }
                             };
                             return (({ customFunction }) => {
