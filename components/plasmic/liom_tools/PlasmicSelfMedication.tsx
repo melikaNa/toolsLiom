@@ -672,9 +672,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               const list2 = list.children[0];
                               const fourthItem =
                                 list2.children[$state.selectedStep];
-                              console.log(list);
-                              console.log(list2);
-                              console.log(fourthItem);
                               if (fourthItem) {
                                 const itemPosition =
                                   fourthItem.offsetLeft -
