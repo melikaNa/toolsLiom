@@ -341,12 +341,13 @@
 .linearCalendar2:global(.__wab_instance) {
   max-width: 100%;
   width: 95px;
+  height: 95px;
   flex-shrink: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .linearCalendar2:global(.__wab_instance) {
     width: 75px;
-    height: auto;
+    height: 75px;
     flex-shrink: 0;
   }
 }

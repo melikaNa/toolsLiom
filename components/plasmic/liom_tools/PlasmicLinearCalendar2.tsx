@@ -244,76 +244,90 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__andKa)}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__pTv54)}
-          >
-            {(() => {
-              try {
-                return $props.isLock;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
+          {(() => {
+            try {
+              return $props.done != 0 || $props.isLock;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
               }
-            })() ? (
-              <Lock
-                data-plasmic-name={"lock"}
-                data-plasmic-override={overrides.lock}
-                className={classNames("__wab_instance", sty.lock)}
-                open={(() => {
-                  try {
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__pTv54)}
+            >
+              {(() => {
+                try {
+                  return $props.isLock;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
                     return false;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
                   }
-                })()}
-              />
-            ) : null}
-            {(() => {
-              try {
-                return $props.done != 0;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
+                  throw e;
                 }
-                throw e;
-              }
-            })() ? (
-              <Done
-                data-plasmic-name={"done"}
-                data-plasmic-override={overrides.done}
-                className={classNames("__wab_instance", sty.done)}
-                inDone={(() => {
-                  try {
-                    return $props.done == 1 ? true : false;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
+              })() ? (
+                <Lock
+                  data-plasmic-name={"lock"}
+                  data-plasmic-override={overrides.lock}
+                  className={classNames("__wab_instance", sty.lock)}
+                  open={(() => {
+                    try {
                       return false;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
                     }
-                    throw e;
+                  })()}
+                />
+              ) : null}
+              {(() => {
+                try {
+                  return $props.done != 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
                   }
-                })()}
-              />
-            ) : null}
-          </Stack__>
+                  throw e;
+                }
+              })() ? (
+                <Done
+                  data-plasmic-name={"done"}
+                  data-plasmic-override={overrides.done}
+                  className={classNames("__wab_instance", sty.done)}
+                  inDone={(() => {
+                    try {
+                      return $props.done == 1 ? true : false;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+              ) : null}
+            </Stack__>
+          ) : null}
           <div
             className={classNames(
               projectcss.all,

@@ -1,6 +1,6 @@
 .root {
-  display: inline-flex;
-  width: auto;
+  display: flex;
+  width: 95px;
   height: 95px;
   max-width: 100%;
   position: relative;
@@ -18,7 +18,7 @@
   height: 100%;
   max-width: 100%;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   background: var(--token-ieogzVSSyrRx);
   position: relative;
   left: auto;
