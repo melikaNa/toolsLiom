@@ -308,6 +308,11 @@
   > img {
   margin-left: 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__s9KiX {
+    height: auto;
+  }
+}
 .freeBox__y9Cbt {
   display: flex;
   flex-direction: row;
@@ -341,7 +346,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .linearCalendar2:global(.__wab_instance) {
     width: 75px;
-    height: 75px;
+    height: auto;
     flex-shrink: 0;
   }
 }

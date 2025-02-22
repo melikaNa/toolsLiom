@@ -206,13 +206,13 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
       >
         {(() => {
           try {
-            return $props.isVip;
+            return $props.isVip || true;
           } catch (e) {
             if (
               e instanceof TypeError ||
               e?.plasmicType === "PlasmicUndefinedDataError"
             ) {
-              return true;
+              return false;
             }
             throw e;
           }
