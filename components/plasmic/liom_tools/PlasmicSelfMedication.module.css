@@ -578,10 +578,18 @@
   max-width: 100%;
   color: #ffffff;
   text-align: center;
+  font-size: 17px;
   min-width: 0;
 }
 .buttonLiom:global(.__wab_instance) {
   max-width: 100%;
+  width: 150px;
+  margin-top: 16px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .buttonLiom:global(.__wab_instance) {
+    width: 200px;
+  }
 }
 .svg__xiAq8 {
   position: relative;
@@ -590,7 +598,7 @@
   height: 1em;
 }
 .text__smXo4 {
-  font-size: 10px;
+  font-size: 14px;
   padding: 2px 8px;
 }
 .svg__hfKwT {
