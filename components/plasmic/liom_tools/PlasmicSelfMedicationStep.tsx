@@ -380,15 +380,15 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
             >
               {(() => {
                 try {
-                  return (() => {
-                    if (
-                      !$state.getName.loading &&
-                      ($state?.getName?.data?.[0]?.name ?? "" != "") &&
-                      ($state?.getData.data[0].title ?? "" != "")
-                    )
-                      return true;
-                    else return false;
-                  })();
+                  return (
+                    // if(!$state.getName.loading &&
+                    // ($state?.getName?.data?.[0]?.name ?? "" != "") &&
+                    // ($state?.getData.data[0].title??"" != ""))
+                    //   true
+                    // else false
+
+                    $ctx.query.type == "danger"
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -456,9 +456,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   }}
                 >
                   <React.Fragment>
-                    {($state?.getName?.data?.[0]?.name ?? "") +
-                      " - " +
-                      ($state?.getData.data[0].title ?? "")}
+                    {$state?.getData.data[0].title ?? ""}
                   </React.Fragment>
                 </div>
               ) : null}
