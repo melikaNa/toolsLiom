@@ -110,6 +110,7 @@ export type PlasmicSelfMedication__OverridesType = {
   lock?: Flex__<typeof Lock>;
   done?: Flex__<typeof Done>;
   linearCalendar2?: Flex__<typeof LinearCalendar2>;
+  loadingConclusion?: Flex__<typeof LoadingConclusion>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
 };
 
@@ -2191,9 +2192,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               )}
                             >
                               <LoadingConclusion
+                                data-plasmic-name={"loadingConclusion"}
+                                data-plasmic-override={
+                                  overrides.loadingConclusion
+                                }
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.loadingConclusion__fjeEu
+                                  sty.loadingConclusion
                                 )}
                                 color={(() => {
                                   try {
@@ -2322,7 +2327,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             const active = filteredItem
                               ? filteredItem.active
                               : false;
-                            return !active;
+                            return (
+                              !active &&
+                              !$state.itemLoading &&
+                              !$state.stepLoading
+                            );
                           } else {
                             return false;
                           }
@@ -2469,414 +2478,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     </div>
                   ) : null}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__iAudQ)}>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__qUtVv)}
-                  >
-                    {(() => {
-                      try {
-                        return !$state.getItem.loading;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()
-                      ? (_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
-                            try {
-                              return $state.detailsList.length > 0
-                                ? $state.detailsList
-                                : [];
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                          const currentItem = __plasmic_item_0;
-                          const currentIndex = __plasmic_idx_0;
-                          return (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___530Ni
-                              )}
-                              id={"parent"}
-                              key={currentIndex}
-                              onClick={async event => {
-                                const $steps = {};
-
-                                $steps["goToPage"] = (() => {
-                                  const allowance =
-                                    $state?.getUser?.data?.[0]?.result
-                                      ?.allowance || [];
-                                  const filteredItem = allowance.find(item =>
-                                    item.type.includes($ctx.query.type)
-                                  );
-                                  const active = filteredItem
-                                    ? filteredItem.active
-                                    : false;
-                                  return (
-                                    (active || !currentItem.vip) &&
-                                    $ctx.query.inApp == "false"
-                                  );
-                                })()
-                                  ? (() => {
-                                      const actionArgs = {
-                                        destination: (() => {
-                                          try {
-                                            return (
-                                              "https://tools.liom.app/self-medication-step/?secId=" +
-                                              currentItem.id +
-                                              "&stepId=" +
-                                              currentItem.stepId +
-                                              "&style=" +
-                                              currentItem.styleType +
-                                              "&type=" +
-                                              $ctx.query.type +
-                                              "&token=" +
-                                              $ctx.query.token +
-                                              "&inApp=" +
-                                              $ctx.query.inApp +
-                                              "&userId=" +
-                                              $state.getUser.data[0].result.user
-                                                .id +
-                                              "&selectStep=" +
-                                              $state.selectedStep +
-                                              "&version=" +
-                                              $ctx.query.version
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      };
-                                      return (({ destination }) => {
-                                        if (
-                                          typeof destination === "string" &&
-                                          destination.startsWith("#")
-                                        ) {
-                                          document
-                                            .getElementById(
-                                              destination.substr(1)
-                                            )
-                                            .scrollIntoView({
-                                              behavior: "smooth"
-                                            });
-                                        } else {
-                                          __nextRouter?.push(destination);
-                                        }
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["goToPage"] != null &&
-                                  typeof $steps["goToPage"] === "object" &&
-                                  typeof $steps["goToPage"].then === "function"
-                                ) {
-                                  $steps["goToPage"] = await $steps["goToPage"];
-                                }
-
-                                $steps["runCode"] = (() => {
-                                  const allowance =
-                                    $state?.getUser?.data?.[0]?.result
-                                      ?.allowance || [];
-                                  const filteredItem = allowance.find(item =>
-                                    item.type.includes($ctx.query.type)
-                                  );
-                                  const active = filteredItem
-                                    ? filteredItem.active
-                                    : false;
-                                  return (
-                                    $ctx.query.inApp == "true" &&
-                                    !active &&
-                                    currentItem.vip == 1
-                                  );
-                                })()
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            if ($ctx.query.type == "danger")
-                                              return window.FlutterChannel.postMessage(
-                                                "#directDialog-pregnancy_danger_sub"
-                                              );
-                                            else
-                                              return window.FlutterChannel.postMessage(
-                                                "#directDialog-skin_care_sub"
-                                              );
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["runCode"] != null &&
-                                  typeof $steps["runCode"] === "object" &&
-                                  typeof $steps["runCode"].then === "function"
-                                ) {
-                                  $steps["runCode"] = await $steps["runCode"];
-                                }
-
-                                $steps["showToast"] = (() => {
-                                  const allowance =
-                                    $state?.getUser?.data?.[0]?.result
-                                      ?.allowance || [];
-                                  const filteredItem = allowance.find(item =>
-                                    item.type.includes($ctx.query.type)
-                                  );
-                                  const active = filteredItem
-                                    ? filteredItem.active
-                                    : false;
-                                  return (
-                                    $ctx.query.inApp == "false" &&
-                                    !active &&
-                                    currentItem.vip == 1
-                                  );
-                                })()
-                                  ? (() => {
-                                      const actionArgs = {
-                                        args: [
-                                          "error",
-                                          "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f",
-                                          "bottom-center"
-                                        ]
-                                      };
-                                      return $globalActions[
-                                        "Fragment.showToast"
-                                      ]?.apply(null, [...actionArgs.args]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["showToast"] != null &&
-                                  typeof $steps["showToast"] === "object" &&
-                                  typeof $steps["showToast"].then === "function"
-                                ) {
-                                  $steps["showToast"] = await $steps[
-                                    "showToast"
-                                  ];
-                                }
-
-                                $steps["runCode2"] = (() => {
-                                  const allowance =
-                                    $state?.getUser?.data?.[0]?.result
-                                      ?.allowance || [];
-                                  const filteredItem = allowance.find(item =>
-                                    item.type.includes($ctx.query.type)
-                                  );
-                                  const active = filteredItem
-                                    ? filteredItem.active
-                                    : false;
-                                  return (
-                                    (active || !currentItem.vip) &&
-                                    $ctx.query.inApp == "true"
-                                  );
-                                })()
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            var link =
-                                              "https://tools.liom.app/self-medication-step/?secId=" +
-                                              currentItem.id +
-                                              "&stepId=" +
-                                              currentItem.stepId +
-                                              "&style=" +
-                                              currentItem.styleType +
-                                              "&type=" +
-                                              $ctx.query.type +
-                                              "&token=" +
-                                              $ctx.query.token +
-                                              "&inApp=" +
-                                              $ctx.query.inApp +
-                                              "&userId=" +
-                                              $state.getUser.data[0].result.user
-                                                .id +
-                                              "&selectStep=" +
-                                              $state.selectedStep +
-                                              "&version=" +
-                                              $ctx.query.version;
-                                            var title;
-                                            if ($ctx.query.type == "danger")
-                                              title =
-                                                currentItem.title +
-                                                "|" +
-                                                "هفته " +
-                                                ($state.selectedStep + 1) +
-                                                " اُم";
-                                            else
-                                              title =
-                                                currentItem.title +
-                                                "|" +
-                                                "روز " +
-                                                ($state.selectedStep + 1) +
-                                                " اُم";
-                                            return window.FlutterChannel.postMessage(
-                                              "#inAppWebView**@@**" +
-                                                title +
-                                                "**@@**" +
-                                                link
-                                            );
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["runCode2"] != null &&
-                                  typeof $steps["runCode2"] === "object" &&
-                                  typeof $steps["runCode2"].then === "function"
-                                ) {
-                                  $steps["runCode2"] = await $steps["runCode2"];
-                                }
-                              }}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__vLkJp
-                                )}
-                              >
-                                <LoadingConclusion
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.loadingConclusion__i1QuI
-                                  )}
-                                  color={(() => {
-                                    try {
-                                      return $ctx.query.type == "dangerOrNot"
-                                        ? undefined
-                                        : currentItem.isDone == 1
-                                        ? "green"
-                                        : true;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                  fouse={true}
-                                  selected={true}
-                                >
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__wj7Fn
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__rOc7U
-                                      )}
-                                    >
-                                      <div
-                                        className={
-                                          projectcss.__wab_expr_html_text
-                                        }
-                                        dangerouslySetInnerHTML={{
-                                          __html: currentItem.title
-                                        }}
-                                      />
-                                    </div>
-                                    {(() => {
-                                      try {
-                                        return currentItem.vip == 1;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return false;
-                                        }
-                                        throw e;
-                                      }
-                                    })() ? (
-                                      <PlasmicImg__
-                                        alt={""}
-                                        className={classNames(sty.img__sWqKr)}
-                                        displayHeight={
-                                          hasVariant(
-                                            globalVariants,
-                                            "screen",
-                                            "mobileOnly"
-                                          )
-                                            ? "15px"
-                                            : "auto"
-                                        }
-                                        displayMaxHeight={"none"}
-                                        displayMaxWidth={"100%"}
-                                        displayMinHeight={"0"}
-                                        displayMinWidth={"0"}
-                                        displayWidth={
-                                          hasVariant(
-                                            globalVariants,
-                                            "screen",
-                                            "mobileOnly"
-                                          )
-                                            ? "15px"
-                                            : "18px"
-                                        }
-                                        loading={"lazy"}
-                                        src={{
-                                          src: "/plasmic/liom_tools/images/image36.svg",
-                                          fullWidth: 22,
-                                          fullHeight: 20,
-                                          aspectRatio: 1.1
-                                        }}
-                                      />
-                                    ) : null}
-                                  </Stack__>
-                                </LoadingConclusion>
-                                <ChevronLeftIcon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__tkvwh
-                                  )}
-                                  role={"img"}
-                                />
-                              </div>
-                            </div>
-                          );
-                        })
-                      : null}
-                  </Stack__>
-                </div>
                 {(() => {
                   try {
                     return $state.getItem.loading;
@@ -2920,35 +2521,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       );
                     })
                   : null}
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__wjqGg
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return (
-                          "u" +
-                          $state.userStep +
-                          "s" +
-                          $state.selectedStep +
-                          ($state.getStep?.data?.info?.type ?? "")
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
               </Stack__>
               {(() => {
                 try {
@@ -3037,6 +2609,7 @@ const PlasmicDescendants = {
     "lock",
     "done",
     "linearCalendar2",
+    "loadingConclusion",
     "buttonLiom"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
@@ -3048,6 +2621,7 @@ const PlasmicDescendants = {
   lock: ["lock"],
   done: ["done"],
   linearCalendar2: ["linearCalendar2"],
+  loadingConclusion: ["loadingConclusion"],
   buttonLiom: ["buttonLiom"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3064,6 +2638,7 @@ type NodeDefaultElementType = {
   lock: typeof Lock;
   done: typeof Done;
   linearCalendar2: typeof LinearCalendar2;
+  loadingConclusion: typeof LoadingConclusion;
   buttonLiom: typeof ButtonLiom;
 };
 
@@ -3161,6 +2736,7 @@ export const PlasmicSelfMedication = Object.assign(
     lock: makeNodeComponent("lock"),
     done: makeNodeComponent("done"),
     linearCalendar2: makeNodeComponent("linearCalendar2"),
+    loadingConclusion: makeNodeComponent("loadingConclusion"),
     buttonLiom: makeNodeComponent("buttonLiom"),
 
     // Metadata about props expected for PlasmicSelfMedication
