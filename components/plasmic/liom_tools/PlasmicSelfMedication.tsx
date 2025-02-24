@@ -1916,430 +1916,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     })}
                   </div>
                 ) : null}
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___3PBkx)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__rMj4)}
-                  >
-                    {(() => {
-                      try {
-                        return !$state.getItem.loading;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()
-                      ? (_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
-                            try {
-                              return $state.detailsList.length > 0
-                                ? $state.detailsList
-                                : [];
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                          const currentItem = __plasmic_item_0;
-                          const currentIndex = __plasmic_idx_0;
-                          return (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__hSeqy
-                              )}
-                              id={"parent"}
-                              key={currentIndex}
-                              onClick={async event => {
-                                const $steps = {};
-
-                                $steps["goToPage"] = (() => {
-                                  const allowance =
-                                    $state?.getUser?.data?.[0]?.result
-                                      ?.allowance || [];
-                                  const filteredItem = allowance.find(item =>
-                                    item.type.includes($ctx.query.type)
-                                  );
-                                  const active = filteredItem
-                                    ? filteredItem.active
-                                    : false;
-                                  return (
-                                    (active || !currentItem.vip) &&
-                                    $ctx.query.inApp == "false"
-                                  );
-                                })()
-                                  ? (() => {
-                                      const actionArgs = {
-                                        destination: (() => {
-                                          try {
-                                            return (
-                                              "https://tools.liom.app/self-medication-step/?secId=" +
-                                              currentItem.id +
-                                              "&stepId=" +
-                                              currentItem.stepId +
-                                              "&style=" +
-                                              currentItem.styleType +
-                                              "&type=" +
-                                              $ctx.query.type +
-                                              "&token=" +
-                                              $ctx.query.token +
-                                              "&inApp=" +
-                                              $ctx.query.inApp +
-                                              "&userId=" +
-                                              $state.getUser.data[0].result.user
-                                                .id +
-                                              "&selectStep=" +
-                                              $state.selectedStep +
-                                              "&version=" +
-                                              $ctx.query.version
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      };
-                                      return (({ destination }) => {
-                                        if (
-                                          typeof destination === "string" &&
-                                          destination.startsWith("#")
-                                        ) {
-                                          document
-                                            .getElementById(
-                                              destination.substr(1)
-                                            )
-                                            .scrollIntoView({
-                                              behavior: "smooth"
-                                            });
-                                        } else {
-                                          __nextRouter?.push(destination);
-                                        }
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["goToPage"] != null &&
-                                  typeof $steps["goToPage"] === "object" &&
-                                  typeof $steps["goToPage"].then === "function"
-                                ) {
-                                  $steps["goToPage"] = await $steps["goToPage"];
-                                }
-
-                                $steps["runCode"] = (() => {
-                                  const allowance =
-                                    $state?.getUser?.data?.[0]?.result
-                                      ?.allowance || [];
-                                  const filteredItem = allowance.find(item =>
-                                    item.type.includes($ctx.query.type)
-                                  );
-                                  const active = filteredItem
-                                    ? filteredItem.active
-                                    : false;
-                                  return (
-                                    $ctx.query.inApp == "true" &&
-                                    !active &&
-                                    currentItem.vip == 1
-                                  );
-                                })()
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            if ($ctx.query.type == "danger")
-                                              return window.FlutterChannel.postMessage(
-                                                "#directDialog-pregnancy_danger_sub"
-                                              );
-                                            else
-                                              return window.FlutterChannel.postMessage(
-                                                "#healthSubscription"
-                                              );
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["runCode"] != null &&
-                                  typeof $steps["runCode"] === "object" &&
-                                  typeof $steps["runCode"].then === "function"
-                                ) {
-                                  $steps["runCode"] = await $steps["runCode"];
-                                }
-
-                                $steps["showToast"] = (() => {
-                                  const allowance =
-                                    $state?.getUser?.data?.[0]?.result
-                                      ?.allowance || [];
-                                  const filteredItem = allowance.find(item =>
-                                    item.type.includes($ctx.query.type)
-                                  );
-                                  const active = filteredItem
-                                    ? filteredItem.active
-                                    : false;
-                                  return (
-                                    $ctx.query.inApp == "false" &&
-                                    !active &&
-                                    currentItem.vip == 1
-                                  );
-                                })()
-                                  ? (() => {
-                                      const actionArgs = {
-                                        args: [
-                                          "error",
-                                          "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f",
-                                          "bottom-center"
-                                        ]
-                                      };
-                                      return $globalActions[
-                                        "Fragment.showToast"
-                                      ]?.apply(null, [...actionArgs.args]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["showToast"] != null &&
-                                  typeof $steps["showToast"] === "object" &&
-                                  typeof $steps["showToast"].then === "function"
-                                ) {
-                                  $steps["showToast"] = await $steps[
-                                    "showToast"
-                                  ];
-                                }
-
-                                $steps["runCode2"] = (() => {
-                                  const allowance =
-                                    $state?.getUser?.data?.[0]?.result
-                                      ?.allowance || [];
-                                  const filteredItem = allowance.find(item =>
-                                    item.type.includes($ctx.query.type)
-                                  );
-                                  const active = filteredItem
-                                    ? filteredItem.active
-                                    : false;
-                                  return (
-                                    (active || !currentItem.vip) &&
-                                    $ctx.query.inApp == "true"
-                                  );
-                                })()
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            var link =
-                                              "https://tools.liom.app/self-medication-step/?secId=" +
-                                              currentItem.id +
-                                              "&stepId=" +
-                                              currentItem.stepId +
-                                              "&style=" +
-                                              currentItem.styleType +
-                                              "&type=" +
-                                              $ctx.query.type +
-                                              "&token=" +
-                                              $ctx.query.token +
-                                              "&inApp=" +
-                                              $ctx.query.inApp +
-                                              "&userId=" +
-                                              $state.getUser.data[0].result.user
-                                                .id +
-                                              "&selectStep=" +
-                                              $state.selectedStep +
-                                              "&version=" +
-                                              $ctx.query.version;
-                                            return window.FlutterChannel.postMessage(
-                                              "#inAppWebView**@@**" +
-                                                currentItem.title +
-                                                "|" +
-                                                "هفته " +
-                                                ($state.selectedStep + 1) +
-                                                " اُم" +
-                                                "**@@**" +
-                                                link
-                                            );
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["runCode2"] != null &&
-                                  typeof $steps["runCode2"] === "object" &&
-                                  typeof $steps["runCode2"].then === "function"
-                                ) {
-                                  $steps["runCode2"] = await $steps["runCode2"];
-                                }
-                              }}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___5QdKl
-                                )}
-                              >
-                                <LoadingConclusion
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.loadingConclusion__fjeEu
-                                  )}
-                                  color={(() => {
-                                    try {
-                                      return $ctx.query.type == "dangerOrNot"
-                                        ? undefined
-                                        : currentItem.isDone == 1
-                                        ? "green"
-                                        : true;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                  fouse={true}
-                                  selected={true}
-                                >
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox___8Kyoi
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__ksZwP
-                                      )}
-                                    >
-                                      <div
-                                        className={
-                                          projectcss.__wab_expr_html_text
-                                        }
-                                        dangerouslySetInnerHTML={{
-                                          __html: currentItem.title
-                                        }}
-                                      />
-                                    </div>
-                                    {(() => {
-                                      try {
-                                        return currentItem.vip == 1;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return false;
-                                        }
-                                        throw e;
-                                      }
-                                    })() ? (
-                                      <PlasmicImg__
-                                        alt={""}
-                                        className={classNames(sty.img___9Cd58)}
-                                        displayHeight={
-                                          hasVariant(
-                                            globalVariants,
-                                            "screen",
-                                            "mobileOnly"
-                                          )
-                                            ? "15px"
-                                            : "auto"
-                                        }
-                                        displayMaxHeight={"none"}
-                                        displayMaxWidth={"100%"}
-                                        displayMinHeight={"0"}
-                                        displayMinWidth={"0"}
-                                        displayWidth={
-                                          hasVariant(
-                                            globalVariants,
-                                            "screen",
-                                            "mobileOnly"
-                                          )
-                                            ? "15px"
-                                            : "18px"
-                                        }
-                                        loading={"lazy"}
-                                        src={{
-                                          src: "/plasmic/liom_tools/images/image36.svg",
-                                          fullWidth: 22,
-                                          fullHeight: 20,
-                                          aspectRatio: 1.1
-                                        }}
-                                      />
-                                    ) : null}
-                                  </Stack__>
-                                </LoadingConclusion>
-                                <ChevronLeftIcon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__lmQ55
-                                  )}
-                                  role={"img"}
-                                />
-                              </div>
-                            </div>
-                          );
-                        })
-                      : null}
-                  </Stack__>
+                <div className={classNames(projectcss.all, sty.freeBox__rMj4)}>
                   {(() => {
                     try {
-                      return (() => {
-                        if ($ctx.query.type == "danger") {
-                          return false;
-                        } else {
-                          if (
-                            $state.getStep.data.data[$state.userStep].vip ==
-                              1 &&
-                            $state.userStep == $state.selectedStep
-                          ) {
-                            const allowance =
-                              $state?.getUser?.data?.[0]?.result?.allowance ||
-                              [];
-                            const filteredItem = allowance.find(item =>
-                              item.type.includes($ctx.query.type)
-                            );
-                            const active = filteredItem
-                              ? filteredItem.active
-                              : false;
-                            return !active;
-                          } else {
-                            return false;
-                          }
-                        }
-                      })();
+                      return !$state.getItem.loading;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -2349,90 +1929,508 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       }
                       throw e;
                     }
-                  })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__aiGEi)}
-                      onClick={async event => {
-                        const $steps = {};
+                  })()
+                    ? (_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.detailsList.length > 0
+                              ? $state.detailsList
+                              : [];
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__hSeqy
+                            )}
+                            id={"parent"}
+                            key={currentIndex}
+                            onClick={async event => {
+                              const $steps = {};
 
-                        $steps["runCode"] =
-                          $ctx.query.inApp == "true"
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      if ($ctx.query.type == "skinCare")
-                                        return window.FlutterChannel.postMessage(
-                                          "#directDialog-skinCare-sub"
-                                        );
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
+                              $steps["goToPage"] = (() => {
+                                const allowance =
+                                  $state?.getUser?.data?.[0]?.result
+                                    ?.allowance || [];
+                                const filteredItem = allowance.find(item =>
+                                  item.type.includes($ctx.query.type)
+                                );
+                                const active = filteredItem
+                                  ? filteredItem.active
+                                  : false;
+                                return (
+                                  (active || !currentItem.vip) &&
+                                  $ctx.query.inApp == "false"
+                                );
                               })()
-                            : undefined;
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return (
+                                            "https://tools.liom.app/self-medication-step/?secId=" +
+                                            currentItem.id +
+                                            "&stepId=" +
+                                            currentItem.stepId +
+                                            "&style=" +
+                                            currentItem.styleType +
+                                            "&type=" +
+                                            $ctx.query.type +
+                                            "&token=" +
+                                            $ctx.query.token +
+                                            "&inApp=" +
+                                            $ctx.query.inApp +
+                                            "&userId=" +
+                                            $state.getUser.data[0].result.user
+                                              .id +
+                                            "&selectStep=" +
+                                            $state.selectedStep +
+                                            "&version=" +
+                                            $ctx.query.version
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
+                              }
+
+                              $steps["runCode"] = (() => {
+                                const allowance =
+                                  $state?.getUser?.data?.[0]?.result
+                                    ?.allowance || [];
+                                const filteredItem = allowance.find(item =>
+                                  item.type.includes($ctx.query.type)
+                                );
+                                const active = filteredItem
+                                  ? filteredItem.active
+                                  : false;
+                                return (
+                                  $ctx.query.inApp == "true" &&
+                                  !active &&
+                                  currentItem.vip == 1
+                                );
+                              })()
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          if ($ctx.query.type == "danger")
+                                            return window.FlutterChannel.postMessage(
+                                              "#directDialog-pregnancy_danger_sub"
+                                            );
+                                          else
+                                            return window.FlutterChannel.postMessage(
+                                              "#healthSubscription"
+                                            );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["showToast"] = (() => {
+                                const allowance =
+                                  $state?.getUser?.data?.[0]?.result
+                                    ?.allowance || [];
+                                const filteredItem = allowance.find(item =>
+                                  item.type.includes($ctx.query.type)
+                                );
+                                const active = filteredItem
+                                  ? filteredItem.active
+                                  : false;
+                                return (
+                                  $ctx.query.inApp == "false" &&
+                                  !active &&
+                                  currentItem.vip == 1
+                                );
+                              })()
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "error",
+                                        "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f",
+                                        "bottom-center"
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.showToast"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["showToast"] != null &&
+                                typeof $steps["showToast"] === "object" &&
+                                typeof $steps["showToast"].then === "function"
+                              ) {
+                                $steps["showToast"] = await $steps["showToast"];
+                              }
+
+                              $steps["runCode2"] = (() => {
+                                const allowance =
+                                  $state?.getUser?.data?.[0]?.result
+                                    ?.allowance || [];
+                                const filteredItem = allowance.find(item =>
+                                  item.type.includes($ctx.query.type)
+                                );
+                                const active = filteredItem
+                                  ? filteredItem.active
+                                  : false;
+                                return (
+                                  (active || !currentItem.vip) &&
+                                  $ctx.query.inApp == "true"
+                                );
+                              })()
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          var link =
+                                            "https://tools.liom.app/self-medication-step/?secId=" +
+                                            currentItem.id +
+                                            "&stepId=" +
+                                            currentItem.stepId +
+                                            "&style=" +
+                                            currentItem.styleType +
+                                            "&type=" +
+                                            $ctx.query.type +
+                                            "&token=" +
+                                            $ctx.query.token +
+                                            "&inApp=" +
+                                            $ctx.query.inApp +
+                                            "&userId=" +
+                                            $state.getUser.data[0].result.user
+                                              .id +
+                                            "&selectStep=" +
+                                            $state.selectedStep +
+                                            "&version=" +
+                                            $ctx.query.version;
+                                          return window.FlutterChannel.postMessage(
+                                            "#inAppWebView**@@**" +
+                                              currentItem.title +
+                                              "|" +
+                                              "هفته " +
+                                              ($state.selectedStep + 1) +
+                                              " اُم" +
+                                              "**@@**" +
+                                              link
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode2"] != null &&
+                                typeof $steps["runCode2"] === "object" &&
+                                typeof $steps["runCode2"].then === "function"
+                              ) {
+                                $steps["runCode2"] = await $steps["runCode2"];
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___5QdKl
+                              )}
+                            >
+                              <LoadingConclusion
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.loadingConclusion__fjeEu
+                                )}
+                                color={(() => {
+                                  try {
+                                    return $ctx.query.type == "dangerOrNot"
+                                      ? undefined
+                                      : currentItem.isDone == 1
+                                      ? "green"
+                                      : true;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                                fouse={true}
+                                selected={true}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___8Kyoi
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__ksZwP
+                                    )}
+                                  >
+                                    <div
+                                      className={
+                                        projectcss.__wab_expr_html_text
+                                      }
+                                      dangerouslySetInnerHTML={{
+                                        __html: currentItem.title
+                                      }}
+                                    />
+                                  </div>
+                                  {(() => {
+                                    try {
+                                      return currentItem.vip == 1;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <PlasmicImg__
+                                      alt={""}
+                                      className={classNames(sty.img___9Cd58)}
+                                      displayHeight={
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobileOnly"
+                                        )
+                                          ? "15px"
+                                          : "auto"
+                                      }
+                                      displayMaxHeight={"none"}
+                                      displayMaxWidth={"100%"}
+                                      displayMinHeight={"0"}
+                                      displayMinWidth={"0"}
+                                      displayWidth={
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobileOnly"
+                                        )
+                                          ? "15px"
+                                          : "18px"
+                                      }
+                                      loading={"lazy"}
+                                      src={{
+                                        src: "/plasmic/liom_tools/images/image36.svg",
+                                        fullWidth: 22,
+                                        fullHeight: 20,
+                                        aspectRatio: 1.1
+                                      }}
+                                    />
+                                  ) : null}
+                                </Stack__>
+                              </LoadingConclusion>
+                              <ChevronLeftIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__lmQ55
+                                )}
+                                role={"img"}
+                              />
+                            </div>
+                          </div>
+                        );
+                      })
+                    : null}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__lHhJz)}
+                  >
+                    {(() => {
+                      try {
+                        return (() => {
+                          if ($ctx.query.type == "danger") {
+                            return false;
+                          } else {
+                            if (
+                              $state.getStep.data.data[$state.userStep].vip ==
+                                1 &&
+                              $state.userStep == $state.selectedStep
+                            ) {
+                              const allowance =
+                                $state?.getUser?.data?.[0]?.result?.allowance ||
+                                [];
+                              const filteredItem = allowance.find(item =>
+                                item.type.includes($ctx.query.type)
+                              );
+                              const active = filteredItem
+                                ? filteredItem.active
+                                : false;
+                              return !active;
+                            } else {
+                              return false;
+                            }
+                          }
+                        })();
+                      } catch (e) {
                         if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          $steps["runCode"] = await $steps["runCode"];
+                          return false;
                         }
-                      }}
-                    >
+                        throw e;
+                      }
+                    })() ? (
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__uvYnO
+                          sty.freeBox__aiGEi
                         )}
-                      >
-                        {
-                          "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0645\u062d\u062a\u0648\u0627 \u0644\u0637\u0641\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
-                        }
-                      </div>
-                      <ButtonLiom
-                        data-plasmic-name={"buttonLiom"}
-                        data-plasmic-override={overrides.buttonLiom}
-                        className={classNames("__wab_instance", sty.buttonLiom)}
-                        color={generateStateValueProp($state, [
-                          "buttonLiom",
-                          "color"
-                        ])}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "buttonLiom",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
+                        onClick={async event => {
+                          const $steps = {};
 
+                          $steps["runCode"] =
+                            $ctx.query.inApp == "true"
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        if ($ctx.query.type == "skinCare")
+                                          return window.FlutterChannel.postMessage(
+                                            "#directDialog-skinCare-sub"
+                                          );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
                           ) {
-                            return;
+                            $steps["runCode"] = await $steps["runCode"];
                           }
                         }}
-                        size={"minimal"}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__smXo4
+                            sty.text__uvYnO
                           )}
                         >
                           {
-                            "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
+                            "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0645\u062d\u062a\u0648\u0627 \u0644\u0637\u0641\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
                           }
                         </div>
-                      </ButtonLiom>
-                    </div>
-                  ) : null}
+                        <ButtonLiom
+                          data-plasmic-name={"buttonLiom"}
+                          data-plasmic-override={overrides.buttonLiom}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.buttonLiom
+                          )}
+                          color={generateStateValueProp($state, [
+                            "buttonLiom",
+                            "color"
+                          ])}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "buttonLiom",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          size={"minimal"}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__smXo4
+                            )}
+                          >
+                            {
+                              "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
+                            }
+                          </div>
+                        </ButtonLiom>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__iAudQ)}>
                   <Stack__
