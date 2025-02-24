@@ -47,7 +47,8 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .headerLiom:global(.__wab_instance) {
     width: 100%;
-    min-width: 0;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
   }
 }
 .svg__nBoN {
@@ -86,6 +87,9 @@
   .freeBox__eyhPa {
     padding-right: 0px;
     padding-left: 0px;
+    width: 100%;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
   }
 }
 .getUser:global(.__wab_instance) {
@@ -171,6 +175,11 @@
   align-items: center;
   min-width: 0;
   padding: 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__imEyz {
+    padding: 0px;
+  }
 }
 .img__asFD {
   object-fit: cover;
@@ -435,6 +444,12 @@
   min-width: 0;
   min-height: 0;
   padding: 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__rMj4 {
+    margin-top: calc(8px + var(--token-KVcr9NiMwFLr)) !important;
+    padding: 0px;
+  }
 }
 .freeBox__hSeqy {
   display: flex;
