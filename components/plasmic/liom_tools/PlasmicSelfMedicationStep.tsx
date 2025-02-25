@@ -420,7 +420,11 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                   "&inApp=" +
                                   $ctx.query.inApp +
                                   "&token=" +
-                                  $ctx.query.token
+                                  $ctx.query.token +
+                                  "&selectStep=" +
+                                  $ctx.query.selectStep +
+                                  "&userId=" +
+                                  $ctx.query.userId
                                 );
                               } catch (e) {
                                 if (
@@ -531,8 +535,18 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       $ctx.query.secId ||
                       new URLSearchParams(window.location.search).get("secId"),
                     userId:
-                      $ctx.query.userId ||
-                      new URLSearchParams(window.location.search).get("userId")
+                      $ctx.query.userId.slice(
+                        4,
+                        $ctx.query.userId.length - 4
+                      ) ||
+                      new URLSearchParams(window.location.search)
+                        .get("userId")
+                        .slice(
+                          4,
+                          new URLSearchParams(window.location.search).get(
+                            "userId"
+                          ).length - 4
+                        )
                   };
                 } catch (e) {
                   if (

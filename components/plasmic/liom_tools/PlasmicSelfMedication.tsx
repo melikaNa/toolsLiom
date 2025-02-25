@@ -1995,8 +1995,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             "&inApp=" +
                                             $ctx.query.inApp +
                                             "&userId=" +
-                                            $state.getUser.data[0].result.user
-                                              .id +
+                                            $ctx.query.userId +
                                             "&selectStep=" +
                                             $state.selectedStep +
                                             "&version=" +
@@ -2152,8 +2151,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             "&inApp=" +
                                             $ctx.query.inApp +
                                             "&userId=" +
-                                            $state.getUser.data[0].result.user
-                                              .id +
+                                            $ctx.query.userId +
                                             "&selectStep=" +
                                             $state.selectedStep +
                                             "&version=" +
