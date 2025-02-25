@@ -368,7 +368,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
           <div className={classNames(projectcss.all, sty.freeBox__chQel)}>
             {(() => {
               try {
-                return $ctx.query.inApp == "false";
+                return $ctx.query.inApp != "true";
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -975,7 +975,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         throw e;
                       }
                     })()}
-                    url={"https://n8n.staas.ir/webhook/selfTreatment"}
+                    url={"https://n8n.staas.ir/webhook-test/selfTreatment"}
                   />
                 </ApiRequest>
               </ApiRequest>

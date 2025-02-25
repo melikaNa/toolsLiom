@@ -309,7 +309,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         >
           {(() => {
             try {
-              return $ctx.query.inApp == "false";
+              return $ctx.query.inApp != "true";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -630,7 +630,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   }
                 }).apply(null, eventArgs);
               }}
-              url={"https://n8n.staas.ir/webhook/selfTreatment"}
+              url={"https://n8n.staas.ir/webhook-test/selfTreatment"}
             />
 
             <StepsLayout
