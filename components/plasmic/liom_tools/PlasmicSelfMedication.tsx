@@ -854,7 +854,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       throw e;
                     }
                   })()}
-                  url={"https://n8n.staas.ir/webhook/self/info"}
+                  url={"https://n8n.staas.ir/webhook-test/self/info"}
                 >
                   <ApiRequest
                     data-plasmic-name={"getItem"}

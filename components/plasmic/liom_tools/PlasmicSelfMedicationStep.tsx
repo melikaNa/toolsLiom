@@ -630,7 +630,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   }
                 }).apply(null, eventArgs);
               }}
-              url={"https://n8n.staas.ir/webhook-test/selfTreatment"}
+              url={"https://n8n.staas.ir/webhook/selfTreatment"}
             />
 
             <StepsLayout
