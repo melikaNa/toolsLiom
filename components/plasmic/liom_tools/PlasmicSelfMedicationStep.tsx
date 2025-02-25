@@ -1717,7 +1717,10 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             {
                               sectionId: $ctx.query.secId,
                               stepId: $ctx.query.stepId,
-                              userId: $ctx.query.userId,
+                              userId: $ctx.query.userId.slice(
+                                4,
+                                $ctx.query.userId.length - 4
+                              ),
                               type: $ctx.query.type
                             }
                           ]
