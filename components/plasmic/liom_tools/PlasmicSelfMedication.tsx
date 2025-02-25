@@ -975,7 +975,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         throw e;
                       }
                     })()}
-                    url={"https://n8n.staas.ir/webhook-test/selfTreatment"}
+                    url={"https://n8n.staas.ir/webhook/selfTreatment"}
                   />
                 </ApiRequest>
               </ApiRequest>
