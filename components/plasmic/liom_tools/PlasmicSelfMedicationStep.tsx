@@ -797,7 +797,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                           $state.getData.data[0].title +
                                           "&url=" +
                                           currentItem.url +
-                                          "secId=" +
+                                          "&secId=" +
                                           currentItem.id +
                                           "&stepId=" +
                                           currentItem.stepId +

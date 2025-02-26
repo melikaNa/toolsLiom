@@ -175,7 +175,7 @@ function PlasmicVideoPlayer__RenderFunc(props: {
                         destination: (() => {
                           try {
                             return (
-                              "https://tools.liom.app/self-medication-step/?secId=" +
+                              "/self-medication-step/?secId=" +
                               $ctx.query.secId +
                               "&stepId=" +
                               $ctx.query.stepId +
