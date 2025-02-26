@@ -219,9 +219,19 @@ function PlasmicVideoPlayer__RenderFunc(props: {
                 data-plasmic-override={overrides.htmlVideo}
                 className={classNames("__wab_instance", sty.htmlVideo)}
                 controls={true}
-                src={
-                  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
-                }
+                src={(() => {
+                  try {
+                    return $ctx.query.url;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               />
             </div>
           </div>
