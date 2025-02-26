@@ -174,7 +174,26 @@ function PlasmicVideoPlayer__RenderFunc(props: {
                       const actionArgs = {
                         destination: (() => {
                           try {
-                            return undefined;
+                            return (
+                              "https://tools.liom.app/self-medication-step/?secId=" +
+                              $ctx.query.secId +
+                              "&stepId=" +
+                              $ctx.query.stepId +
+                              "&style=" +
+                              $ctx.query.style +
+                              "&type=" +
+                              $ctx.query.type +
+                              "&token=" +
+                              $ctx.query.token +
+                              "&inApp=" +
+                              $ctx.query.inApp +
+                              "&userId=" +
+                              $ctx.query.userId +
+                              "&selectStep=" +
+                              $state.selectedStep +
+                              "&version=" +
+                              $ctx.query.version
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
