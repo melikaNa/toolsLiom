@@ -796,7 +796,25 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                           "video-player/?title=" +
                                           $state.getData.data[0].title +
                                           "&url=" +
-                                          currentItem.url
+                                          currentItem.url +
+                                          "secId=" +
+                                          currentItem.id +
+                                          "&stepId=" +
+                                          currentItem.stepId +
+                                          "&style=" +
+                                          currentItem.styleType +
+                                          "&type=" +
+                                          $ctx.query.type +
+                                          "&token=" +
+                                          $ctx.query.token +
+                                          "&inApp=" +
+                                          $ctx.query.inApp +
+                                          "&userId=" +
+                                          $ctx.query.userId +
+                                          "&selectStep=" +
+                                          $state.selectedStep +
+                                          "&version=" +
+                                          $ctx.query.version
                                         );
                                       } catch (e) {
                                         if (
