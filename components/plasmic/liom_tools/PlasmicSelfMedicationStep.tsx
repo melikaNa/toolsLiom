@@ -350,7 +350,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               "&selectStep=" +
                               $ctx.query.selectStep +
                               "&userId=" +
-                              $ctx.query.userId
+                              $ctx.query.userId +
+                              "&version=" +
+                              $ctx.query.version
                           };
                           return (({ destination }) => {
                             if (
@@ -424,7 +426,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                   "&selectStep=" +
                                   $ctx.query.selectStep +
                                   "&userId=" +
-                                  $ctx.query.userId
+                                  $ctx.query.userId +
+                                  "&version=" +
+                                  $ctx.query.version
                                 );
                               } catch (e) {
                                 if (
@@ -798,11 +802,11 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                           "&url=" +
                                           currentItem.url +
                                           "&secId=" +
-                                          currentItem.id +
+                                          $ctx.query.secId +
                                           "&stepId=" +
-                                          currentItem.stepId +
+                                          $ctx.query.stepId +
                                           "&style=" +
-                                          currentItem.styleType +
+                                          $ctx.query.style +
                                           "&type=" +
                                           $ctx.query.type +
                                           "&token=" +
@@ -812,7 +816,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                           "&userId=" +
                                           $ctx.query.userId +
                                           "&selectStep=" +
-                                          $state.selectedStep +
+                                          $ctx.query.selectStep +
                                           "&version=" +
                                           $ctx.query.version
                                         );
