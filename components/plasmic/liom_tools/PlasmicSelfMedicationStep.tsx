@@ -871,6 +871,46 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             ) {
                               $steps["runCode"] = await $steps["runCode"];
                             }
+
+                            $steps["updateLoading22"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["loading2"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateLoading22"] != null &&
+                              typeof $steps["updateLoading22"] === "object" &&
+                              typeof $steps["updateLoading22"].then ===
+                                "function"
+                            ) {
+                              $steps["updateLoading22"] = await $steps[
+                                "updateLoading22"
+                              ];
+                            }
                           }}
                         >
                           <PlasmicImg__
