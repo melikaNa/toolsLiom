@@ -1991,20 +1991,20 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               ) : null}
             </div>
           </Stack__>
-          <div className={classNames(projectcss.all, sty.freeBox___5D5I)}>
-            {(() => {
-              try {
-                return $state.loading2;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
+          {(() => {
+            try {
+              return $state.loading2;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
-            })() ? (
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox___5D5I)}>
               <LottieWrapper
                 data-plasmic-name={"lottie"}
                 data-plasmic-override={overrides.lottie}
@@ -2512,8 +2512,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 }}
                 className={classNames("__wab_instance", sty.lottie)}
               />
-            ) : null}
-          </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
