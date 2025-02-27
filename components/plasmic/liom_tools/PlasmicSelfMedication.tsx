@@ -1751,7 +1751,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   customFunction: async () => {
                                     return (() => {
                                       return window.FlutterChannel.postMessage(
-                                        "#toast-warning-قدم بعدی چالش فردا برات باز میشه\u066C لطفا تا اون موقع صبر کن و کارهایی که تو برنامه امروزت هست رو انجام بده \uD83D\uDE0D"
+                                        "#toast-قدم بعدی چالش فردا برات باز میشه\u066C لطفا تا اون موقع صبر کن و کارهایی که تو برنامه امروزت هست رو انجام بده \uD83D\uDE0D-warning"
                                       );
                                     })();
                                   }

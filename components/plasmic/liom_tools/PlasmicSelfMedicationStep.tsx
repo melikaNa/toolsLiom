@@ -1275,7 +1275,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   )}
                 >
                   <React.Fragment>
-                    {$state.getData.data[0].title}
+                    {$state.getData.data[0].title + $state.isDone}
                   </React.Fragment>
                 </div>
               ) : null}
@@ -1637,39 +1637,53 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateListDetails"] = true
+                  $steps["invokeGlobalAction2"] =
+                    $ctx.query.inApp != "true"
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              "\u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                  if (
+                    $steps["invokeGlobalAction2"] != null &&
+                    typeof $steps["invokeGlobalAction2"] === "object" &&
+                    typeof $steps["invokeGlobalAction2"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction2"] = await $steps[
+                      "invokeGlobalAction2"
+                    ];
+                  }
+
+                  $steps["runCode"] = true
                     ? (() => {
                         const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["listDetails"]
-                          },
-                          operation: 0
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
+                          customFunction: async () => {
+                            return (() => {
+                              return window.FlutterChannel.postMessage(
+                                "#toast-با موفقیت انجام شد\uD83D\uDE0D-confirm"
+                              );
+                            })();
                           }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
-                    $steps["updateListDetails"] != null &&
-                    typeof $steps["updateListDetails"] === "object" &&
-                    typeof $steps["updateListDetails"].then === "function"
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
                   ) {
-                    $steps["updateListDetails"] = await $steps[
-                      "updateListDetails"
-                    ];
+                    $steps["runCode"] = await $steps["runCode"];
                   }
 
                   $steps["updateLoading"] = true
