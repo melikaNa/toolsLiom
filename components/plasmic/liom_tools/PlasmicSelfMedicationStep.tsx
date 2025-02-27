@@ -756,32 +756,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           sty.freeBox__yynGv
                         )}
                         key={currentIndex}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["runCode"] =
-                            (currentItem?.action ?? "") != ""
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return window.FlutterChannel.postMessage(
-                                        currentItem.action
-                                      );
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        }}
                       >
                         <div
                           className={classNames(
@@ -791,67 +765,93 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
-                            $steps["goToPage"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
-                                      try {
-                                        return (
-                                          "video-player/?title=" +
-                                          $state.getData.data[0].title +
-                                          "&url=" +
-                                          currentItem.url +
-                                          "&secId=" +
-                                          $ctx.query.secId +
-                                          "&stepId=" +
-                                          $ctx.query.stepId +
-                                          "&style=" +
-                                          $ctx.query.style +
-                                          "&type=" +
-                                          $ctx.query.type +
-                                          "&token=" +
-                                          $ctx.query.token +
-                                          "&inApp=" +
-                                          $ctx.query.inApp +
-                                          "&userId=" +
-                                          $ctx.query.userId +
-                                          "&selectStep=" +
-                                          $ctx.query.selectStep +
-                                          "&version=" +
-                                          $ctx.query.version
-                                        );
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return `/video-player`;
+                            $steps["goToPage"] =
+                              $ctx.query.inApp != "true"
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return (
+                                            "video-player/?title=" +
+                                            $state.getData.data[0].title +
+                                            "&url=" +
+                                            currentItem.url +
+                                            "&secId=" +
+                                            $ctx.query.secId +
+                                            "&stepId=" +
+                                            $ctx.query.stepId +
+                                            "&style=" +
+                                            $ctx.query.style +
+                                            "&type=" +
+                                            $ctx.query.type +
+                                            "&token=" +
+                                            $ctx.query.token +
+                                            "&inApp=" +
+                                            $ctx.query.inApp +
+                                            "&userId=" +
+                                            $ctx.query.userId +
+                                            "&selectStep=" +
+                                            $ctx.query.selectStep +
+                                            "&version=" +
+                                            $ctx.query.version
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return `/video-player`;
+                                          }
+                                          throw e;
                                         }
-                                        throw e;
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
                                       }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["goToPage"] != null &&
                               typeof $steps["goToPage"] === "object" &&
                               typeof $steps["goToPage"].then === "function"
                             ) {
                               $steps["goToPage"] = await $steps["goToPage"];
+                            }
+
+                            $steps["runCode"] =
+                              $ctx.query.inApp == "true"
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return window.FlutterChannel.postMessage(
+                                          currentItem.action
+                                        );
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
                             }
                           }}
                         >
@@ -1415,7 +1415,13 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return (() => {})();
+                                    return (
+                                      "https://liom.app/social?post=" +
+                                      currentItem.action.slice(
+                                        6,
+                                        currentItem.action.length
+                                      )
+                                    );
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1627,7 +1633,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           )}
                         >
                           {
-                            "\u0645\u0634\u0627\u0647\u062f\u0647 \u0628\u0647 \u067e\u0633\u062a"
+                            "\u0645\u0634\u0627\u0647\u062f\u0647 \u067e\u0633\u062a"
                           }
                         </div>
                       ) : null}
