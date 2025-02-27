@@ -750,7 +750,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                       objRoot: $state,
                                       variablePath: ["loading2"]
                                     },
-                                    operation: 4
+                                    operation: 0,
+                                    value: true
                                   };
                                   return (({
                                     variable,
@@ -763,12 +764,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                     }
                                     const { objRoot, variablePath } = variable;
 
-                                    const oldValue = $stateGet(
-                                      objRoot,
-                                      variablePath
-                                    );
-                                    $stateSet(objRoot, variablePath, !oldValue);
-                                    return !oldValue;
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
                                   })?.apply(null, [actionArgs]);
                                 })()
                               : undefined;
@@ -879,7 +876,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                       objRoot: $state,
                                       variablePath: ["loading2"]
                                     },
-                                    operation: 4
+                                    operation: 0,
+                                    value: false
                                   };
                                   return (({
                                     variable,
@@ -892,12 +890,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                     }
                                     const { objRoot, variablePath } = variable;
 
-                                    const oldValue = $stateGet(
-                                      objRoot,
-                                      variablePath
-                                    );
-                                    $stateSet(objRoot, variablePath, !oldValue);
-                                    return !oldValue;
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
                                   })?.apply(null, [actionArgs]);
                                 })()
                               : undefined;
@@ -1449,7 +1443,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 objRoot: $state,
                                 variablePath: ["loading2"]
                               },
-                              operation: 4
+                              operation: 0,
+                              value: true
                             };
                             return (({
                               variable,
@@ -1462,9 +1457,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               }
                               const { objRoot, variablePath } = variable;
 
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
@@ -1548,6 +1542,42 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         typeof $steps["goToPage"].then === "function"
                       ) {
                         $steps["goToPage"] = await $steps["goToPage"];
+                      }
+
+                      $steps["updateLoading22"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loading2"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoading22"] != null &&
+                        typeof $steps["updateLoading22"] === "object" &&
+                        typeof $steps["updateLoading22"].then === "function"
+                      ) {
+                        $steps["updateLoading22"] = await $steps[
+                          "updateLoading22"
+                        ];
                       }
                     }}
                   >
@@ -1787,7 +1817,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             const actionArgs = {
                               args: [
                                 undefined,
-                                "\u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f"
+                                "\u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f",
+                                "bottom-center"
                               ]
                             };
                             return $globalActions["Fragment.showToast"]?.apply(
