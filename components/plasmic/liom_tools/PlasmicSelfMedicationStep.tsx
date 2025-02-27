@@ -411,56 +411,26 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] = true
+                    $steps["runCode"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return (
-                                  "https://tools.liom.app/self-medication/?type=" +
-                                  $ctx.query.type +
-                                  "&inApp=" +
-                                  $ctx.query.inApp +
-                                  "&token=" +
-                                  $ctx.query.token +
-                                  "&selectStep=" +
-                                  $ctx.query.selectStep +
-                                  "&userId=" +
-                                  $ctx.query.userId +
-                                  "&version=" +
-                                  $ctx.query.version
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
+                            customFunction: async () => {
+                              return (() => {
+                                return window.history.back();
+                              })();
                             }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
                     ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                 >
@@ -1666,6 +1636,41 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 color={generateStateValueProp($state, ["buttonLiom", "color"])}
                 onClick={async event => {
                   const $steps = {};
+
+                  $steps["updateListDetails"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["listDetails"]
+                          },
+                          operation: 0
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateListDetails"] != null &&
+                    typeof $steps["updateListDetails"] === "object" &&
+                    typeof $steps["updateListDetails"].then === "function"
+                  ) {
+                    $steps["updateListDetails"] = await $steps[
+                      "updateListDetails"
+                    ];
+                  }
 
                   $steps["updateLoading"] = true
                     ? (() => {
