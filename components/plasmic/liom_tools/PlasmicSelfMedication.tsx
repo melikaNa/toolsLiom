@@ -241,20 +241,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "itemLoading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return true;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "getUser.data",
@@ -278,7 +265,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "stepLoading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "userStep",
@@ -784,12 +771,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         $steps["runCode"] = await $steps["runCode"];
                       }
 
-                      $steps["updateItemLoading"] = true
+                      $steps["updateStepLoading"] = true
                         ? (() => {
                             const actionArgs = {
                               variable: {
                                 objRoot: $state,
-                                variablePath: ["itemLoading"]
+                                variablePath: ["stepLoading"]
                               },
                               operation: 4
                             };
@@ -811,12 +798,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           })()
                         : undefined;
                       if (
-                        $steps["updateItemLoading"] != null &&
-                        typeof $steps["updateItemLoading"] === "object" &&
-                        typeof $steps["updateItemLoading"].then === "function"
+                        $steps["updateStepLoading"] != null &&
+                        typeof $steps["updateStepLoading"] === "object" &&
+                        typeof $steps["updateStepLoading"].then === "function"
                       ) {
-                        $steps["updateItemLoading"] = await $steps[
-                          "updateItemLoading"
+                        $steps["updateStepLoading"] = await $steps[
+                          "updateStepLoading"
                         ];
                       }
                     }).apply(null, eventArgs);
@@ -954,6 +941,46 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ) {
                           $steps["updateDetailsList2"] = await $steps[
                             "updateDetailsList2"
+                          ];
+                        }
+
+                        $steps["updateDetailsList3"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["itemLoading"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDetailsList3"] != null &&
+                          typeof $steps["updateDetailsList3"] === "object" &&
+                          typeof $steps["updateDetailsList3"].then ===
+                            "function"
+                        ) {
+                          $steps["updateDetailsList3"] = await $steps[
+                            "updateDetailsList3"
                           ];
                         }
                       }).apply(null, eventArgs);
@@ -2329,7 +2356,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               !active &&
                               !$state.itemLoading &&
                               !$state.stepLoading &&
-                              !$state.getItem.loading
+                              !$state.getItem.loading &&
+                              !$state.getStep.loading
                             );
                           } else {
                             return false;
