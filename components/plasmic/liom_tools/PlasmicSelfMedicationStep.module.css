@@ -59,6 +59,11 @@
   max-width: 100%;
   display: none;
 }
+.text__gD5Nw {
+  white-space: pre;
+  text-overflow: ellipsis !important;
+  overflow: hidden;
+}
 .freeBox__zomNf {
   display: flex;
   flex-direction: column;
