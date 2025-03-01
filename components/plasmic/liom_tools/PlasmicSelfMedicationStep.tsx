@@ -349,19 +349,22 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     $steps["goToPage"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination:
-                              "https://tools.liom.app/self-medication/?type=" +
-                              $ctx.query.type +
-                              "&inApp=" +
-                              $ctx.query.inApp +
-                              "&token=" +
-                              $ctx.query.token +
-                              "&selectStep=" +
-                              $ctx.query.selectStep +
-                              "&userId=" +
-                              $ctx.query.userId +
-                              "&version=" +
-                              $ctx.query.version
+                            destination: (() => {
+                              return (
+                                "https://tools.liom.app/self-medication/?type=" +
+                                $ctx.query.type +
+                                +"&inApp=" +
+                                $ctx.query.inApp +
+                                "&token=" +
+                                $ctx.query.token +
+                                "&selectStep=" +
+                                $ctx.query.selectStep +
+                                "&userId=" +
+                                ($ctx?.query?.userId ?? "") +
+                                "&version=" +
+                                $ctx.query.version
+                              );
+                            })()
                           };
                           return (({ destination }) => {
                             if (
@@ -425,7 +428,20 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                return window.history.back();
+                                return (
+                                  "https://tools.liom.app/self-medication/?type=" +
+                                  $ctx.query.type +
+                                  +"&inApp=" +
+                                  $ctx.query.inApp +
+                                  "&token=" +
+                                  $ctx.query.token +
+                                  "&selectStep=" +
+                                  $ctx.query.selectStep +
+                                  "&userId=" +
+                                  ($ctx?.query?.userId ?? "") +
+                                  "&version=" +
+                                  $ctx.query.version
+                                );
                               })();
                             }
                           };
