@@ -90,6 +90,7 @@ import sty from "./PlasmicSelfMedicationStep.module.css"; // plasmic-import: 0Rv
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
 import Icon77Icon from "./icons/PlasmicIcon__Icon77"; // plasmic-import: YKE8ylWcPDbP/icon
 import Icon122Icon from "./icons/PlasmicIcon__Icon122"; // plasmic-import: 7szDnb8vqxXD/icon
+import Icon91Icon from "./icons/PlasmicIcon__Icon91"; // plasmic-import: iDYQIL8FCsiP/icon
 import Icon87Icon from "./icons/PlasmicIcon__Icon87"; // plasmic-import: vRe8tZ7-wlww/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
@@ -709,9 +710,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
-                        return $state?.listDetails?.length > 0
-                          ? $state.listDetails
-                          : [];
+                        return [0];
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -735,267 +734,306 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         )}
                         key={currentIndex}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__tzrPi
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateLoading2"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["loading2"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateLoading2"] != null &&
-                              typeof $steps["updateLoading2"] === "object" &&
-                              typeof $steps["updateLoading2"].then ===
-                                "function"
-                            ) {
-                              $steps["updateLoading2"] = await $steps[
-                                "updateLoading2"
-                              ];
-                            }
-
-                            $steps["goToPage"] =
-                              $ctx.query.inApp != "true"
-                                ? (() => {
-                                    const actionArgs = {
-                                      destination: (() => {
-                                        try {
-                                          return (
-                                            "video-player/?title=" +
-                                            $state.getData.data[0].title +
-                                            "&url=" +
-                                            currentItem.url +
-                                            "&secId=" +
-                                            $ctx.query.secId +
-                                            "&stepId=" +
-                                            $ctx.query.stepId +
-                                            "&style=" +
-                                            $ctx.query.style +
-                                            "&type=" +
-                                            $ctx.query.type +
-                                            "&token=" +
-                                            $ctx.query.token +
-                                            "&inApp=" +
-                                            $ctx.query.inApp +
-                                            "&userId=" +
-                                            $ctx.query.userId +
-                                            "&selectStep=" +
-                                            $ctx.query.selectStep +
-                                            "&version=" +
-                                            $ctx.query.version
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return `/video-player`;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    };
-                                    return (({ destination }) => {
-                                      if (
-                                        typeof destination === "string" &&
-                                        destination.startsWith("#")
-                                      ) {
-                                        document
-                                          .getElementById(destination.substr(1))
-                                          .scrollIntoView({
-                                            behavior: "smooth"
-                                          });
-                                      } else {
-                                        __nextRouter?.push(destination);
-                                      }
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["goToPage"] != null &&
-                              typeof $steps["goToPage"] === "object" &&
-                              typeof $steps["goToPage"].then === "function"
-                            ) {
-                              $steps["goToPage"] = await $steps["goToPage"];
-                            }
-
-                            $steps["runCode"] =
-                              $ctx.query.inApp == "true"
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return window.FlutterChannel.postMessage(
-                                          currentItem.action
-                                        );
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-
-                            $steps["updateLoading22"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["loading2"]
-                                    },
-                                    operation: 0,
-                                    value: false
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateLoading22"] != null &&
-                              typeof $steps["updateLoading22"] === "object" &&
-                              typeof $steps["updateLoading22"].then ===
-                                "function"
-                            ) {
-                              $steps["updateLoading22"] = await $steps[
-                                "updateLoading22"
-                              ];
-                            }
-                          }}
-                        >
-                          <PlasmicImg__
-                            alt={""}
-                            className={classNames(sty.img__v1Qa6)}
-                            displayHeight={"8rem"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"13.5rem"}
-                            loading={"lazy"}
-                            src={(() => {
-                              try {
-                                return currentItem.cover;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return {
-                                    src: "/plasmic/liom_tools/images/newProject1Png.png",
-                                    fullWidth: 1080,
-                                    fullHeight: 764,
-                                    aspectRatio: undefined
-                                  };
-                                }
-                                throw e;
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state?.listDetails?.length > 0
+                                ? $state.listDetails
+                                : [];
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
                               }
-                            })()}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___7IOuu
-                            )}
-                          >
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                          const currentItem = __plasmic_item_1;
+                          const currentIndex = __plasmic_idx_1;
+                          return (
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__jyTm4
+                                sty.freeBox__tzrPi
                               )}
+                              key={currentIndex}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateLoading2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["loading2"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateLoading2"] != null &&
+                                  typeof $steps["updateLoading2"] ===
+                                    "object" &&
+                                  typeof $steps["updateLoading2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateLoading2"] = await $steps[
+                                    "updateLoading2"
+                                  ];
+                                }
+
+                                $steps["goToPage"] =
+                                  $ctx.query.inApp != "true"
+                                    ? (() => {
+                                        const actionArgs = {
+                                          destination: (() => {
+                                            try {
+                                              return (
+                                                "video-player/?title=" +
+                                                $state.getData.data[0].title +
+                                                "&url=" +
+                                                currentItem.url +
+                                                "&secId=" +
+                                                $ctx.query.secId +
+                                                "&stepId=" +
+                                                $ctx.query.stepId +
+                                                "&style=" +
+                                                $ctx.query.style +
+                                                "&type=" +
+                                                $ctx.query.type +
+                                                "&token=" +
+                                                $ctx.query.token +
+                                                "&inApp=" +
+                                                $ctx.query.inApp +
+                                                "&userId=" +
+                                                $ctx.query.userId +
+                                                "&selectStep=" +
+                                                $ctx.query.selectStep +
+                                                "&version=" +
+                                                $ctx.query.version
+                                              );
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return `/video-player`;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        };
+                                        return (({ destination }) => {
+                                          if (
+                                            typeof destination === "string" &&
+                                            destination.startsWith("#")
+                                          ) {
+                                            document
+                                              .getElementById(
+                                                destination.substr(1)
+                                              )
+                                              .scrollIntoView({
+                                                behavior: "smooth"
+                                              });
+                                          } else {
+                                            __nextRouter?.push(destination);
+                                          }
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["goToPage"] != null &&
+                                  typeof $steps["goToPage"] === "object" &&
+                                  typeof $steps["goToPage"].then === "function"
+                                ) {
+                                  $steps["goToPage"] = await $steps["goToPage"];
+                                }
+
+                                $steps["runCode"] =
+                                  $ctx.query.inApp == "true"
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return window.FlutterChannel.postMessage(
+                                              currentItem.action
+                                            );
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["updateLoading22"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["loading2"]
+                                        },
+                                        operation: 0,
+                                        value: false
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateLoading22"] != null &&
+                                  typeof $steps["updateLoading22"] ===
+                                    "object" &&
+                                  typeof $steps["updateLoading22"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateLoading22"] = await $steps[
+                                    "updateLoading22"
+                                  ];
+                                }
+                              }}
                             >
-                              {(() => {
-                                try {
-                                  return currentItem.mediaType == "image";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return false;
-                                  }
-                                  throw e;
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__v1Qa6)}
+                                displayHeight={"8rem"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"13.5rem"}
+                                loading={"lazy"}
+                                src={
+                                  (currentItem.cover ?? "") == ""
+                                    ? currentItem.url
+                                    : currentItem.cover
                                 }
-                              })() ? (
-                                <Icon122Icon
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___7IOuu
+                                )}
+                              >
+                                <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__wTnQm
+                                    sty.freeBox__jyTm4
                                   )}
-                                  role={"img"}
-                                />
-                              ) : null}
-                              {(() => {
-                                try {
-                                  return currentItem.mediaType == "video";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return false;
-                                  }
-                                  throw e;
-                                }
-                              })() ? (
-                                <Icon87Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__oQf9O
-                                  )}
-                                  role={"img"}
-                                />
-                              ) : null}
+                                >
+                                  {(() => {
+                                    try {
+                                      return currentItem.mediaType == "image";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <Icon122Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__wTnQm
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ) : null}
+                                  {(() => {
+                                    try {
+                                      return currentItem.mediaType == "mp3";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <Icon91Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__nPhAa
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ) : null}
+                                  {(() => {
+                                    try {
+                                      return currentItem.mediaType == "video";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <Icon87Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__oQf9O
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ) : null}
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                        </div>
+                          );
+                        })}
                       </Stack__>
                     );
                   })}
