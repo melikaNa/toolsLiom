@@ -1151,7 +1151,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             </div>
                             {(() => {
                               try {
-                                return currentItem.type != "";
+                                return (currentItem.type ?? "") != "";
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -2070,7 +2070,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return true;
+                return false;
               }
               throw e;
             }
