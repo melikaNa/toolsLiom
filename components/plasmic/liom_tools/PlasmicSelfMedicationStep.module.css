@@ -361,6 +361,7 @@
   max-width: 100%;
   background: none;
   position: relative;
+  overflow: auto;
   min-width: 0;
   border-radius: var(--token-KVcr9NiMwFLr);
   padding: var(--token-KVcr9NiMwFLr);
