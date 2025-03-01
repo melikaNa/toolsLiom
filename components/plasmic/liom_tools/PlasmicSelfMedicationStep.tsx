@@ -353,7 +353,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               return (
                                 "https://tools.liom.app/self-medication/?type=" +
                                 $ctx.query.type +
-                                +"&inApp=" +
+                                "&inApp=" +
                                 $ctx.query.inApp +
                                 "&token=" +
                                 $ctx.query.token +
@@ -431,7 +431,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 return (
                                   "https://tools.liom.app/self-medication/?type=" +
                                   $ctx.query.type +
-                                  +"&inApp=" +
+                                  "&inApp=" +
                                   $ctx.query.inApp +
                                   "&token=" +
                                   $ctx.query.token +
