@@ -5,6 +5,7 @@
   text-align: right;
   font-weight: 500;
   position: relative;
+  font-size: var(--token-podr231_9RBN);
   min-width: 0;
   padding: 4px;
 }
