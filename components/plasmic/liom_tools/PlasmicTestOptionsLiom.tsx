@@ -60,8 +60,9 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import OptionItemLiom from "../../OptionItemLiom"; // plasmic-import: 1NgrC_ROspzJ/component
-import { Select } from "@plasmicpkgs/antd/skinny/registerSelect";
-import { Option } from "@plasmicpkgs/antd/skinny/registerOption";
+import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
+import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
+import Selection from "../../Selection"; // plasmic-import: pIDdRrLwM58N/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 
@@ -76,6 +77,7 @@ import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicTestOptionsLiom.module.css"; // plasmic-import: DvUx8-VJCAy9/css
 
+import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: Us1K_hl1D5h1/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: 3GJi3NV2X6Zg/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
@@ -118,8 +120,8 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
 export type PlasmicTestOptionsLiom__OverridesType = {
   root?: Flex__<"div">;
   optionItemLiom?: Flex__<typeof OptionItemLiom>;
-  antdSelect?: Flex__<typeof Select>;
-  antdOption?: Flex__<typeof Option>;
+  antdInput?: Flex__<typeof Input>;
+  selection?: Flex__<typeof Selection>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   button?: Flex__<typeof ButtonLiom>;
   button2?: Flex__<typeof ButtonLiom>;
@@ -227,16 +229,12 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => "green"
       },
       {
-        path: "antdSelect.value",
+        path: "antdInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "antdSelect.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -542,179 +540,248 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             throw e;
           }
         })() ? (
-          <Select
-            data-plasmic-name={"antdSelect"}
-            data-plasmic-override={overrides.antdSelect}
-            bordered={true}
-            className={classNames("__wab_instance", sty.antdSelect)}
-            listHeight={150}
-            loading={true}
-            onChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["antdSelect", "value"]).apply(
-                null,
-                eventArgs
-              );
-
-              (async (value, option) => {
-                const $steps = {};
-
-                $steps["updateSelectedIDs"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["selectedIDs"]
-                        },
-                        operation: 0,
-                        value: [$state.antdSelect.value]
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateSelectedIDs"] != null &&
-                  typeof $steps["updateSelectedIDs"] === "object" &&
-                  typeof $steps["updateSelectedIDs"].then === "function"
-                ) {
-                  $steps["updateSelectedIDs"] = await $steps[
-                    "updateSelectedIDs"
-                  ];
-                }
-
-                $steps["runOnClick24"] = true
-                  ? (() => {
-                      const actionArgs = { eventRef: $props["onClick24"] };
-                      return (({ eventRef, args }) => {
-                        return eventRef?.(...(args ?? []));
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runOnClick24"] != null &&
-                  typeof $steps["runOnClick24"] === "object" &&
-                  typeof $steps["runOnClick24"].then === "function"
-                ) {
-                  $steps["runOnClick24"] = await $steps["runOnClick24"];
-                }
-              }).apply(null, eventArgs);
-            }}
-            onDropdownVisibleChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["antdSelect", "open"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            open={generateStateValueProp($state, ["antdSelect", "open"])}
-            placeholder={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__j3PD
-                )}
-              >
-                {
-                  "\u067e\u0627\u0633\u062e \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f"
-                }
-              </div>
-            }
-            showArrow={false}
-            showSearch={true}
-            size={"large"}
-            value={generateStateValueProp($state, ["antdSelect", "value"])}
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__oklJv)}
           >
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-              (() => {
-                try {
-                  return $props.data.options.length > 1
-                    ? $props.data.options
-                    : [];
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
+            <div className={classNames(projectcss.all, sty.freeBox__vzHch)}>
+              {(() => {
+                const child$Props = {
+                  bordered: false,
+                  className: classNames("__wab_instance", sty.antdInput),
+                  disabled: true,
+                  id: "inputMobile",
+                  onChange: async (...eventArgs: any) => {
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "value",
+                      ["antdInput", "value"],
+                      Input_Helpers
+                    ).apply(null, eventArgs);
+
+                    (async event => {
+                      const $steps = {};
+
+                      $steps["updateButtonColor"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["button", "color"]
+                              },
+                              operation: 0
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateButtonColor"] != null &&
+                        typeof $steps["updateButtonColor"] === "object" &&
+                        typeof $steps["updateButtonColor"].then === "function"
+                      ) {
+                        $steps["updateButtonColor"] = await $steps[
+                          "updateButtonColor"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
+                  },
+                  placeholder: (() => {
+                    try {
+                      return $props.data.text;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })(),
+                  size: "middle",
+                  value: generateStateValueProp($state, ["antdInput", "value"])
+                };
+                initializeCodeComponentStates(
+                  $state,
+                  [
+                    {
+                      name: "value",
+                      plasmicStateName: "antdInput.value"
+                    }
+                  ],
+                  [],
+                  Input_Helpers ?? {},
+                  child$Props
+                );
+
+                return (
+                  <Input
+                    data-plasmic-name={"antdInput"}
+                    data-plasmic-override={overrides.antdInput}
+                    {...child$Props}
+                  />
+                );
+              })()}
+              <ChevronDownIcon
+                className={classNames(projectcss.all, sty.svg__rQE3)}
+                role={"img"}
+              />
+
+              <div className={classNames(projectcss.all, sty.freeBox__yLm2N)} />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__eiRtl)}>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $props.data.options.length > 1
+                      ? $props.data.options
+                      : [];
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
-                <Option
-                  data-plasmic-name={"antdOption"}
-                  data-plasmic-override={overrides.antdOption}
-                  className={classNames("__wab_instance", sty.antdOption)}
-                  key={currentIndex}
-                  title={(() => {
-                    try {
-                      return currentItem.text;
-                    } catch (e) {
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <Selection
+                    data-plasmic-name={"selection"}
+                    data-plasmic-override={overrides.selection}
+                    className={classNames("__wab_instance", sty.selection)}
+                    currentItem={currentItem}
+                    key={currentIndex}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateAntdInputValue"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["antdInput", "value"]
+                              },
+                              operation: 0,
+                              value: currentItem.text
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
+                        $steps["updateAntdInputValue"] != null &&
+                        typeof $steps["updateAntdInputValue"] === "object" &&
+                        typeof $steps["updateAntdInputValue"].then ===
+                          "function"
                       ) {
-                        return undefined;
+                        $steps["updateAntdInputValue"] = await $steps[
+                          "updateAntdInputValue"
+                        ];
                       }
-                      throw e;
-                    }
-                  })()}
-                  value={(() => {
-                    try {
-                      return currentItem.id;
-                    } catch (e) {
+
+                      $steps["updateSelectedIDs"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["selectedIDs"]
+                              },
+                              operation: 0,
+                              value: [currentItem.id]
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
+                        $steps["updateSelectedIDs"] != null &&
+                        typeof $steps["updateSelectedIDs"] === "object" &&
+                        typeof $steps["updateSelectedIDs"].then === "function"
                       ) {
-                        return undefined;
+                        $steps["updateSelectedIDs"] = await $steps[
+                          "updateSelectedIDs"
+                        ];
                       }
-                      throw e;
-                    }
-                  })()}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__w5ARs
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return currentItem.text;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "Option";
-                          }
-                          throw e;
+
+                      $steps["runOnClick24"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              eventRef: $props["onClick24"]
+                            };
+                            return (({ eventRef, args }) => {
+                              return eventRef?.(...(args ?? []));
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runOnClick24"] != null &&
+                        typeof $steps["runOnClick24"] === "object" &&
+                        typeof $steps["runOnClick24"].then === "function"
+                      ) {
+                        $steps["runOnClick24"] = await $steps["runOnClick24"];
+                      }
+                    }}
+                    select={(() => {
+                      try {
+                        return currentItem.id == $state.selectedIDs[0];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
                         }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </Option>
-              );
-            })}
-          </Select>
+                        throw e;
+                      }
+                    })()}
+                  />
+                );
+              })}
+            </div>
+          </Stack__>
         ) : null}
       </div>
       {(() => {
@@ -912,15 +979,15 @@ const PlasmicDescendants = {
   root: [
     "root",
     "optionItemLiom",
-    "antdSelect",
-    "antdOption",
+    "antdInput",
+    "selection",
     "paziresh24Button",
     "button",
     "button2"
   ],
   optionItemLiom: ["optionItemLiom"],
-  antdSelect: ["antdSelect", "antdOption"],
-  antdOption: ["antdOption"],
+  antdInput: ["antdInput"],
+  selection: ["selection"],
   paziresh24Button: ["paziresh24Button"],
   button: ["button"],
   button2: ["button2"]
@@ -931,8 +998,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   optionItemLiom: typeof OptionItemLiom;
-  antdSelect: typeof Select;
-  antdOption: typeof Option;
+  antdInput: typeof Input;
+  selection: typeof Selection;
   paziresh24Button: typeof Paziresh24Button;
   button: typeof ButtonLiom;
   button2: typeof ButtonLiom;
@@ -999,8 +1066,8 @@ export const PlasmicTestOptionsLiom = Object.assign(
   {
     // Helper components rendering sub-elements
     optionItemLiom: makeNodeComponent("optionItemLiom"),
-    antdSelect: makeNodeComponent("antdSelect"),
-    antdOption: makeNodeComponent("antdOption"),
+    antdInput: makeNodeComponent("antdInput"),
+    selection: makeNodeComponent("selection"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),

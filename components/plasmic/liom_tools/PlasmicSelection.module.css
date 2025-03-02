@@ -1,0 +1,19 @@
+.root {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-weight: 500;
+  position: relative;
+  min-width: 0;
+  padding: 4px;
+}
+.rootselect {
+  background: var(--token-_a8xNcbsYOO0);
+  font-size: var(--token-podr231_9RBN);
+  border-radius: var(--token-KVcr9NiMwFLr);
+}
+.root:hover {
+  background: var(--token-naOKKZC5rCrA);
+  border-radius: var(--token-KVcr9NiMwFLr);
+}

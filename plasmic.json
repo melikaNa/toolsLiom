@@ -2559,6 +2559,19 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicMenuPopover.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "pIDdRrLwM58N",
+          "name": "Selection",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelection.tsx",
+          "importSpec": {
+            "modulePath": "Selection.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelection.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

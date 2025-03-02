@@ -12,7 +12,7 @@
   background: var(--token-naOKKZC5rCrA);
 }
 .root[data-selected]:global(.__wab_instance) {
-  background: var(--token-dg296SDgGzTR);
+  background: var(--token-dhekOSlmbKIe);
 }
 .root[data-disabled]:global(.__wab_instance) {
   cursor: not-allowed;
