@@ -633,7 +633,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             }
             showArrow={false}
             showSearch={true}
-            size={"middle"}
+            size={"large"}
             value={generateStateValueProp($state, ["antdSelect", "value"])}
           >
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
