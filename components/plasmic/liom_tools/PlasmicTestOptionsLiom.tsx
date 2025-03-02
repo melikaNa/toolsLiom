@@ -77,7 +77,6 @@ import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicTestOptionsLiom.module.css"; // plasmic-import: DvUx8-VJCAy9/css
 
-import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: Us1K_hl1D5h1/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: 3GJi3NV2X6Zg/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
@@ -636,11 +635,6 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                   />
                 );
               })()}
-              <ChevronDownIcon
-                className={classNames(projectcss.all, sty.svg__rQE3)}
-                role={"img"}
-              />
-
               <div className={classNames(projectcss.all, sty.freeBox__yLm2N)} />
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__eiRtl)}>
