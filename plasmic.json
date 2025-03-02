@@ -2443,20 +2443,6 @@
           "componentType": "component"
         },
         {
-          "id": "dKxJpWkOSOVr",
-          "name": "SelfTest2",
-          "type": "managed",
-          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/self-test-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/self-test-2"
-        },
-        {
           "id": "kuXIsI5E0lmX",
           "name": "Done",
           "type": "managed",
@@ -4381,7 +4367,8 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {
