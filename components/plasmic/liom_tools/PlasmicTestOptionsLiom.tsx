@@ -60,8 +60,8 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import OptionItemLiom from "../../OptionItemLiom"; // plasmic-import: 1NgrC_ROspzJ/component
-import Select from "../../Select"; // plasmic-import: uQVwMkRh-lrd/component
-import MenuItem from "../../MenuItem"; // plasmic-import: qBbuWys2VSyE/component
+import { Select } from "@plasmicpkgs/antd/skinny/registerSelect";
+import { Option } from "@plasmicpkgs/antd/skinny/registerOption";
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 
@@ -118,8 +118,8 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
 export type PlasmicTestOptionsLiom__OverridesType = {
   root?: Flex__<"div">;
   optionItemLiom?: Flex__<typeof OptionItemLiom>;
-  select?: Flex__<typeof Select>;
-  menuItem?: Flex__<typeof MenuItem>;
+  antdSelect?: Flex__<typeof Select>;
+  antdOption?: Flex__<typeof Option>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   button?: Flex__<typeof ButtonLiom>;
   button2?: Flex__<typeof ButtonLiom>;
@@ -167,6 +167,12 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             btnText: "confirm",
             selectAll: false,
             options: [
+              { id: 1, text: "gozineh1" },
+              { id: 12, text: "gozinehdddd1" },
+              { id: 31, text: "gozineh1asdsfsdfdsf" },
+              { id: 51, text: "gozineh1   rergregrg" },
+              { id: 12, text: "gozinehdddd1" },
+              { id: 31, text: "gozineh1asdsfsdfdsf" },
               { id: 1, text: "gozineh1" },
               { id: 12, text: "gozinehdddd1" },
               { id: 31, text: "gozineh1asdsfsdfdsf" },
@@ -221,9 +227,15 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => "green"
       },
       {
-        path: "select.value",
+        path: "antdSelect.value",
         type: "private",
         variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "antdSelect.open",
+        type: "private",
+        variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -531,79 +543,19 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           }
         })() ? (
           <Select
-            data-plasmic-name={"select"}
-            data-plasmic-override={overrides.select}
-            className={classNames("__wab_instance", sty.select)}
-            description={null}
-            items={(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-              (() => {
-                try {
-                  return $props.data.options.length > 1
-                    ? $props.data.options
-                    : [];
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
-                }
-              })()
-            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
-                <MenuItem
-                  data-plasmic-name={"menuItem"}
-                  data-plasmic-override={overrides.menuItem}
-                  key={currentIndex}
-                  label={(() => {
-                    try {
-                      return currentItem.text;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  value={(() => {
-                    try {
-                      return currentItem.id;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                />
-              );
-            })}
-            label={null}
+            data-plasmic-name={"antdSelect"}
+            data-plasmic-override={overrides.antdSelect}
+            bordered={true}
+            className={classNames("__wab_instance", sty.antdSelect)}
+            listHeight={150}
+            loading={true}
             onChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["select", "value"]).apply(
+              generateStateOnChangeProp($state, ["antdSelect", "value"]).apply(
                 null,
                 eventArgs
               );
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-
-              (async val => {
+              (async (value, option) => {
                 const $steps = {};
 
                 $steps["updateSelectedIDs"] = true
@@ -614,7 +566,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                           variablePath: ["selectedIDs"]
                         },
                         operation: 0,
-                        value: [parseInt($state.select.value)]
+                        value: [$state.antdSelect.value]
                       };
                       return (({
                         variable,
@@ -659,11 +611,110 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
+            onDropdownVisibleChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["antdSelect", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["antdSelect", "open"])}
             placeholder={
-              "\u067e\u0627\u0633\u062e \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f"
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__j3PD
+                )}
+              >
+                {
+                  "\u067e\u0627\u0633\u062e \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f"
+                }
+              </div>
             }
-            type={"soft"}
-          />
+            showArrow={false}
+            showSearch={true}
+            size={"middle"}
+            value={generateStateValueProp($state, ["antdSelect", "value"])}
+          >
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return $props.data.options.length > 1
+                    ? $props.data.options
+                    : [];
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <Option
+                  data-plasmic-name={"antdOption"}
+                  data-plasmic-override={overrides.antdOption}
+                  className={classNames("__wab_instance", sty.antdOption)}
+                  key={currentIndex}
+                  title={(() => {
+                    try {
+                      return currentItem.text;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  value={(() => {
+                    try {
+                      return currentItem.id;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__w5ARs
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return currentItem.text;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "Option";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </Option>
+              );
+            })}
+          </Select>
         ) : null}
       </div>
       {(() => {
@@ -861,15 +912,15 @@ const PlasmicDescendants = {
   root: [
     "root",
     "optionItemLiom",
-    "select",
-    "menuItem",
+    "antdSelect",
+    "antdOption",
     "paziresh24Button",
     "button",
     "button2"
   ],
   optionItemLiom: ["optionItemLiom"],
-  select: ["select", "menuItem"],
-  menuItem: ["menuItem"],
+  antdSelect: ["antdSelect", "antdOption"],
+  antdOption: ["antdOption"],
   paziresh24Button: ["paziresh24Button"],
   button: ["button"],
   button2: ["button2"]
@@ -880,8 +931,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   optionItemLiom: typeof OptionItemLiom;
-  select: typeof Select;
-  menuItem: typeof MenuItem;
+  antdSelect: typeof Select;
+  antdOption: typeof Option;
   paziresh24Button: typeof Paziresh24Button;
   button: typeof ButtonLiom;
   button2: typeof ButtonLiom;
@@ -948,8 +999,8 @@ export const PlasmicTestOptionsLiom = Object.assign(
   {
     // Helper components rendering sub-elements
     optionItemLiom: makeNodeComponent("optionItemLiom"),
-    select: makeNodeComponent("select"),
-    menuItem: makeNodeComponent("menuItem"),
+    antdSelect: makeNodeComponent("antdSelect"),
+    antdOption: makeNodeComponent("antdOption"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
