@@ -60,6 +60,8 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import OptionItemLiom from "../../OptionItemLiom"; // plasmic-import: 1NgrC_ROspzJ/component
+import Select from "../../Select"; // plasmic-import: uQVwMkRh-lrd/component
+import MenuItem from "../../MenuItem"; // plasmic-import: qBbuWys2VSyE/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 
@@ -116,6 +118,8 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
 export type PlasmicTestOptionsLiom__OverridesType = {
   root?: Flex__<"div">;
   optionItemLiom?: Flex__<typeof OptionItemLiom>;
+  select?: Flex__<typeof Select>;
+  menuItem?: Flex__<typeof MenuItem>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   button?: Flex__<typeof ButtonLiom>;
   button2?: Flex__<typeof ButtonLiom>;
@@ -163,10 +167,12 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             btnText: "confirm",
             selectAll: false,
             options: [
-              { id: 1, t1: "gozineh1" },
-              { id: 12, t1: "gozinehdddd1" },
-              { id: 31, t1: "gozineh1asdsfsdfdsf" },
-              { id: 51, t1: "gozineh1   rergregrg" }
+              { id: 1, text: "gozineh1" },
+              { id: 12, text: "gozinehdddd1" },
+              { id: 31, text: "gozineh1asdsfsdfdsf" },
+              { id: 51, text: "gozineh1   rergregrg" },
+              { id: 12, text: "gozinehdddd1" },
+              { id: 31, text: "gozineh1asdsfsdfdsf" }
             ]
           },
           ferst: true,
@@ -213,6 +219,12 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "green"
+      },
+      {
+        path: "select.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -256,32 +268,27 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         })}
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__yDt3R)}>
-        {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-          (() => {
-            try {
-              return $props.data.options.length > 1 ? $props.data.options : [];
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
+        {(() => {
+          try {
+            return (
+              $props.data.options.length > 1 && $props.data.options.length < 7
+            );
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
             }
-          })()
-        ).map((__plasmic_item_0, __plasmic_idx_0) => {
-          const currentItem = __plasmic_item_0;
-          const currentIndex = __plasmic_idx_0;
-          return (
-            <OptionItemLiom
-              data-plasmic-name={"optionItemLiom"}
-              data-plasmic-override={overrides.optionItemLiom}
-              className={classNames("__wab_instance", sty.optionItemLiom)}
-              key={currentIndex}
-              noLine={(() => {
+            throw e;
+          }
+        })()
+          ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
                 try {
-                  return currentIndex == $props.data.options.length - 1;
+                  return $props.data.options.length > 1
+                    ? $props.data.options
+                    : [];
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -291,9 +298,312 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                   }
                   throw e;
                 }
-              })()}
-              onClick={args.onClick24}
-              onMouseDown={async event => {
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <OptionItemLiom
+                  data-plasmic-name={"optionItemLiom"}
+                  data-plasmic-override={overrides.optionItemLiom}
+                  className={classNames("__wab_instance", sty.optionItemLiom)}
+                  key={currentIndex}
+                  noLine={(() => {
+                    try {
+                      return currentIndex == $props.data.options.length - 1;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                  onClick={args.onClick24}
+                  onMouseDown={async event => {
+                    const $steps = {};
+
+                    $steps["updateSelectedIDs"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["selectedIDs"]
+                            },
+                            operation: 0,
+                            value: [currentItem.id]
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSelectedIDs"] != null &&
+                      typeof $steps["updateSelectedIDs"] === "object" &&
+                      typeof $steps["updateSelectedIDs"].then === "function"
+                    ) {
+                      $steps["updateSelectedIDs"] = await $steps[
+                        "updateSelectedIDs"
+                      ];
+                    }
+
+                    $steps["runOnClick24"] = true
+                      ? (() => {
+                          const actionArgs = { eventRef: $props["onClick24"] };
+                          return (({ eventRef, args }) => {
+                            return eventRef?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runOnClick24"] != null &&
+                      typeof $steps["runOnClick24"] === "object" &&
+                      typeof $steps["runOnClick24"].then === "function"
+                    ) {
+                      $steps["runOnClick24"] = await $steps["runOnClick24"];
+                    }
+                  }}
+                  onTouchStart={async event => {
+                    const $steps = {};
+
+                    $steps["updateSelectedIDs"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["selectedIDs"]
+                            },
+                            operation: 0,
+                            value: [currentItem.id]
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSelectedIDs"] != null &&
+                      typeof $steps["updateSelectedIDs"] === "object" &&
+                      typeof $steps["updateSelectedIDs"].then === "function"
+                    ) {
+                      $steps["updateSelectedIDs"] = await $steps[
+                        "updateSelectedIDs"
+                      ];
+                    }
+
+                    $steps["runOnClick24"] = true
+                      ? (() => {
+                          const actionArgs = { eventRef: $props["onClick24"] };
+                          return (({ eventRef, args }) => {
+                            return eventRef?.(...(args ?? []));
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runOnClick24"] != null &&
+                      typeof $steps["runOnClick24"] === "object" &&
+                      typeof $steps["runOnClick24"].then === "function"
+                    ) {
+                      $steps["runOnClick24"] = await $steps["runOnClick24"];
+                    }
+                  }}
+                  selctedOptionLiom={(() => {
+                    try {
+                      return (
+                        $state.selectedIDs.indexOf(currentItem.id) != -1 &&
+                        $props.app == "liom"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                  selctedOptionPaziresh={(() => {
+                    try {
+                      return (
+                        $state.selectedIDs.indexOf(currentItem.id) != -1 &&
+                        $props.app != "liom"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__p0O
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateSelectedIDs"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["selectedIDs"]
+                              },
+                              operation: 0,
+                              value: [currentItem.id]
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateSelectedIDs"] != null &&
+                        typeof $steps["updateSelectedIDs"] === "object" &&
+                        typeof $steps["updateSelectedIDs"].then === "function"
+                      ) {
+                        $steps["updateSelectedIDs"] = await $steps[
+                          "updateSelectedIDs"
+                        ];
+                      }
+                    }}
+                  >
+                    <React.Fragment>{currentItem.text}</React.Fragment>
+                  </div>
+                </OptionItemLiom>
+              );
+            })
+          : null}
+        {(() => {
+          try {
+            return $props.data.options.length > 6;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })() ? (
+          <Select
+            data-plasmic-name={"select"}
+            data-plasmic-override={overrides.select}
+            className={classNames("__wab_instance", sty.select)}
+            description={null}
+            items={(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return $props.data.options.length > 1
+                    ? $props.data.options
+                    : [];
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <MenuItem
+                  data-plasmic-name={"menuItem"}
+                  data-plasmic-override={overrides.menuItem}
+                  key={currentIndex}
+                  label={(() => {
+                    try {
+                      return currentItem.text;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  value={(() => {
+                    try {
+                      return currentItem.id;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+              );
+            })}
+            label={null}
+            onChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["select", "value"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+
+              (async val => {
                 const $steps = {};
 
                 $steps["updateSelectedIDs"] = true
@@ -304,7 +614,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                           variablePath: ["selectedIDs"]
                         },
                         operation: 0,
-                        value: [currentItem.id]
+                        value: [parseInt($state.select.value)]
                       };
                       return (({
                         variable,
@@ -347,146 +657,14 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                 ) {
                   $steps["runOnClick24"] = await $steps["runOnClick24"];
                 }
-              }}
-              onTouchStart={async event => {
-                const $steps = {};
-
-                $steps["updateSelectedIDs"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["selectedIDs"]
-                        },
-                        operation: 0,
-                        value: [currentItem.id]
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateSelectedIDs"] != null &&
-                  typeof $steps["updateSelectedIDs"] === "object" &&
-                  typeof $steps["updateSelectedIDs"].then === "function"
-                ) {
-                  $steps["updateSelectedIDs"] = await $steps[
-                    "updateSelectedIDs"
-                  ];
-                }
-
-                $steps["runOnClick24"] = true
-                  ? (() => {
-                      const actionArgs = { eventRef: $props["onClick24"] };
-                      return (({ eventRef, args }) => {
-                        return eventRef?.(...(args ?? []));
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runOnClick24"] != null &&
-                  typeof $steps["runOnClick24"] === "object" &&
-                  typeof $steps["runOnClick24"].then === "function"
-                ) {
-                  $steps["runOnClick24"] = await $steps["runOnClick24"];
-                }
-              }}
-              selctedOptionLiom={(() => {
-                try {
-                  return (
-                    $state.selectedIDs.indexOf(currentItem.id) != -1 &&
-                    $props.app == "liom"
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
-                }
-              })()}
-              selctedOptionPaziresh={(() => {
-                try {
-                  return (
-                    $state.selectedIDs.indexOf(currentItem.id) != -1 &&
-                    $props.app != "liom"
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
-                  }
-                  throw e;
-                }
-              })()}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__p0O
-                )}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateSelectedIDs"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["selectedIDs"]
-                          },
-                          operation: 0,
-                          value: [currentItem.id]
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateSelectedIDs"] != null &&
-                    typeof $steps["updateSelectedIDs"] === "object" &&
-                    typeof $steps["updateSelectedIDs"].then === "function"
-                  ) {
-                    $steps["updateSelectedIDs"] = await $steps[
-                      "updateSelectedIDs"
-                    ];
-                  }
-                }}
-              >
-                <React.Fragment>{currentItem.text}</React.Fragment>
-              </div>
-            </OptionItemLiom>
-          );
-        })}
+              }).apply(null, eventArgs);
+            }}
+            placeholder={
+              "\u067e\u0627\u0633\u062e \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f"
+            }
+            type={"soft"}
+          />
+        ) : null}
       </div>
       {(() => {
         try {
@@ -680,8 +858,18 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "optionItemLiom", "paziresh24Button", "button", "button2"],
+  root: [
+    "root",
+    "optionItemLiom",
+    "select",
+    "menuItem",
+    "paziresh24Button",
+    "button",
+    "button2"
+  ],
   optionItemLiom: ["optionItemLiom"],
+  select: ["select", "menuItem"],
+  menuItem: ["menuItem"],
   paziresh24Button: ["paziresh24Button"],
   button: ["button"],
   button2: ["button2"]
@@ -692,6 +880,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   optionItemLiom: typeof OptionItemLiom;
+  select: typeof Select;
+  menuItem: typeof MenuItem;
   paziresh24Button: typeof Paziresh24Button;
   button: typeof ButtonLiom;
   button2: typeof ButtonLiom;
@@ -758,6 +948,8 @@ export const PlasmicTestOptionsLiom = Object.assign(
   {
     // Helper components rendering sub-elements
     optionItemLiom: makeNodeComponent("optionItemLiom"),
+    select: makeNodeComponent("select"),
+    menuItem: makeNodeComponent("menuItem"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),

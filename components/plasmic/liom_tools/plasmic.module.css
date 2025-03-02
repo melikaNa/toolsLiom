@@ -81,6 +81,48 @@
   --plasmic-token-golden: var(--token-txtIJoASUNtv);
   --token-ieogzVSSyrRx: #ffffff;
   --plasmic-token-basic-container-background: var(--token-ieogzVSSyrRx);
+  --token-QlibYU2ZEF3q: 0.25rem;
+  --plasmic-token-size-4: var(--token-QlibYU2ZEF3q);
+  --token-YgundgIw-wwU: 0.375rem;
+  --plasmic-token-size-6: var(--token-YgundgIw-wwU);
+  --token-4aPuAYbF3VsF: 0.625rem;
+  --plasmic-token-size-10: var(--token-4aPuAYbF3VsF);
+  --token-dhekOSlmbKIe: #d1d5db;
+  --plasmic-token-basic-border: var(--token-dhekOSlmbKIe);
+  --token-s5B1n5jFAIZn: 0.125rem;
+  --plasmic-token-size-2: var(--token-s5B1n5jFAIZn);
+  --token-RweFaeFLMIES: #2563eb;
+  --plasmic-token-brand-brand: var(--token-RweFaeFLMIES);
+  --token-1S9ocvls-LDz: 1rem;
+  --plasmic-token-font-md: var(--token-1S9ocvls-LDz);
+  --token-m4nn0EScIQfq: 1.25;
+  --plasmic-token-line-height-md: var(--token-m4nn0EScIQfq);
+  --token-M1MB1tnabti6: #6b7280;
+  --plasmic-token-basic-text-secondary: var(--token-M1MB1tnabti6);
+  --token-JvMUb9Ckm3n1: 1rem;
+  --plasmic-token-size-16: var(--token-JvMUb9Ckm3n1);
+  --token-16zuNC9DmE3-: #030712;
+  --plasmic-token-basic-text-primary: var(--token-16zuNC9DmE3-);
+  --token-NjYpxvgkr9XR: Inter;
+  --plasmic-token-sans-serif: var(--token-NjYpxvgkr9XR);
+  --token-Z2KSlolINemb: 0.75rem;
+  --plasmic-token-font-sm: var(--token-Z2KSlolINemb);
+  --token-qkxlliCzK7Dj: 1;
+  --plasmic-token-line-height-sm: var(--token-qkxlliCzK7Dj);
+  --token-yPdZh3caz4YD: 1.25rem;
+  --plasmic-token-font-lg: var(--token-yPdZh3caz4YD);
+  --token-jTnKN3OuYcLr: 1.4;
+  --plasmic-token-line-height-lg: var(--token-jTnKN3OuYcLr);
+  --token-jIJbQUPw_oHQ: #dc2626;
+  --plasmic-token-destructive-destructive: var(--token-jIJbQUPw_oHQ);
+  --token-_a8xNcbsYOO0: #e5e7eb;
+  --plasmic-token-muted-muted-border: var(--token-_a8xNcbsYOO0);
+  --token-naOKKZC5rCrA: #f3f4f6;
+  --plasmic-token-muted-muted-soft: var(--token-naOKKZC5rCrA);
+  --token-dg296SDgGzTR: #dbeafe;
+  --plasmic-token-brand-brand-soft: var(--token-dg296SDgGzTR);
+  --token-v9UFcd2_ClYT: 0.5rem;
+  --plasmic-token-size-8: var(--token-v9UFcd2_ClYT);
 }
 
 @media (max-width: 640px) {
