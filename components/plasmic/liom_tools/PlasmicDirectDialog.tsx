@@ -66,8 +66,6 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Subscription3 from "../../Subscription3"; // plasmic-import: EB9cfatW1AEN/component
 
-import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -95,13 +93,17 @@ export type PlasmicDirectDialog__ArgsType = {
   token?: string;
   desc?: string;
   redirectUrl?: string;
+  open?: boolean;
+  onOpenChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicDirectDialog__ArgsType;
 export const PlasmicDirectDialog__ArgProps = new Array<ArgPropType>(
   "type",
   "token",
   "desc",
-  "redirectUrl"
+  "redirectUrl",
+  "open",
+  "onOpenChange"
 );
 
 export type PlasmicDirectDialog__OverridesType = {
@@ -115,7 +117,7 @@ export type PlasmicDirectDialog__OverridesType = {
   p?: Flex__<"p">;
   dialog2?: Flex__<typeof Dialog3>;
   subscription3?: Flex__<typeof Subscription3>;
-  button11?: Flex__<typeof ButtonLiom>;
+  button9?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultDirectDialogProps {
@@ -123,6 +125,8 @@ export interface DefaultDirectDialogProps {
   token?: string;
   desc?: string;
   redirectUrl?: string;
+  open?: boolean;
+  onOpenChange?: (val: string) => void;
   className?: string;
 }
 
@@ -176,10 +180,50 @@ function PlasmicDirectDialog__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
+        path: "loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.shopDialog.data.result.shopList.find(
+                item => item.selected == 1
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
+      },
+      {
         path: "dialog.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.open;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "shopDialog.data",
@@ -251,22 +295,18 @@ function PlasmicDirectDialog__RenderFunc(props: {
         variableType: "number"
       },
       {
-        path: "button11.color",
+        path: "button9.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "loading",
-        type: "private",
+        path: "open",
+        type: "writable",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "selectShop",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+
+        valueProp: "open",
+        onChangeProp: "onOpenChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -276,10 +316,6 @@ function PlasmicDirectDialog__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
-  });
-
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqiBuxNlixBgQ()
   });
 
   return (
@@ -346,16 +382,16 @@ function PlasmicDirectDialog__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__cEpzk
+                sty.text__mCyPz
               )}
             >
               {"Error fetching data"}
             </div>
           }
           loadingDisplay={
-            <div className={classNames(projectcss.all, sty.freeBox__r2Ntn)}>
+            <div className={classNames(projectcss.all, sty.freeBox___4Z7L6)}>
               <Icon111Icon
-                className={classNames(projectcss.all, sty.svg__h9Pmx)}
+                className={classNames(projectcss.all, sty.svg__i2ZfI)}
                 role={"img"}
               />
             </div>
@@ -381,18 +417,18 @@ function PlasmicDirectDialog__RenderFunc(props: {
           }}
           url={"https://n8n.staas.ir/webhook/rest/shop/list"}
         >
-          <div className={classNames(projectcss.all, sty.freeBox___6RpcN)}>
+          <div className={classNames(projectcss.all, sty.freeBox__y0Qik)}>
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__y96Jr)}
+              className={classNames(projectcss.all, sty.freeBox___7M4Vv)}
               dir={"rtl"}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__bD5US
+                  sty.text__nLsG
                 )}
               >
                 <React.Fragment>
@@ -418,7 +454,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__m9GO2
+                  sty.text__f8Fql
                 )}
               >
                 <React.Fragment>
@@ -440,7 +476,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__efAy0)}
+                className={classNames(projectcss.all, sty.freeBox__nNvcc)}
               >
                 <PlasmicImg__
                   data-plasmic-name={"img"}
@@ -466,7 +502,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__etxjv
+                    sty.text__xuCyc
                   )}
                 >
                   <React.Fragment>
@@ -490,70 +526,52 @@ function PlasmicDirectDialog__RenderFunc(props: {
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___3J86W)}
+              className={classNames(projectcss.all, sty.freeBox___1D3Kf)}
               dir={"rtl"}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__uyqyu)}>
+              <div className={classNames(projectcss.all, sty.freeBox__a7L8L)}>
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__wZri)}
+                  className={classNames(projectcss.all, sty.freeBox__qaKgd)}
                 >
-                  {(() => {
-                    try {
-                      return $state.shopDialog.data.result.shopList.find(
-                        item => item.selected == 1
-                      ).topBadge
-                        ? true
-                        : false;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__zv8Ri)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__wBozO
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.shopDialog.data.result.shopList.find(
-                                item => item.selected == 1
-                              ).topBadge;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </div>
-                  ) : null}
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__u0Myj)}
+                    className={classNames(projectcss.all, sty.freeBox__ofSU)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___897TH
+                        sty.text__olHnh
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.shopDialog.data.result.shopList.find(
+                              item => item.selected == 1
+                            ).topBadge;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__mSv1U)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__cy5D7
                       )}
                     >
                       <React.Fragment>
@@ -575,13 +593,13 @@ function PlasmicDirectDialog__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__mdLtj)}
+                      className={classNames(projectcss.all, sty.freeBox__oJ3Rd)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__y8AFg
+                          sty.text__pI9W3
                         )}
                       >
                         <React.Fragment>
@@ -606,7 +624,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__wqUsu
+                          sty.text__o6ZSf
                         )}
                       >
                         <React.Fragment>
@@ -630,62 +648,41 @@ function PlasmicDirectDialog__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     </div>
-                    {(() => {
-                      try {
-                        return $state.shopDialog.data.result.shopList.find(
-                          item => item.selected == 1
-                        ).badge
-                          ? true
-                          : false;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__iQt1Y)}
+                    >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__zfAeB
+                          projectcss.__wab_text,
+                          sty.text__wAa5P
                         )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__vq4Kc
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.shopDialog.data.result.shopList.find(
-                                  item => item.selected == 1
-                                ).badge;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.shopDialog.data.result.shopList.find(
+                                item => item.selected == 1
+                              ).badge;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
                       </div>
-                    ) : null}
+                    </div>
                   </div>
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__yxNer
+                      sty.text__ivHqX
                     )}
                   >
                     {
@@ -695,42 +692,18 @@ function PlasmicDirectDialog__RenderFunc(props: {
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__t1CFr)}
+                    className={classNames(projectcss.all, sty.freeBox__exxwy)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__dwhkp)}
+                      className={classNames(projectcss.all, sty.freeBox__iEtP)}
                     >
                       {(() => {
                         const child$Props = {
-                          allowClear: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "mobileOnly"
-                          )
-                            ? false
-                            : false,
-                          autoFocus: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "mobileOnly"
-                          )
-                            ? false
-                            : false,
-                          bordered: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "mobileOnly"
-                          )
-                            ? false
-                            : false,
+                          allowClear: false,
+                          autoFocus: false,
+                          bordered: false,
                           className: classNames("__wab_instance", sty.input4),
-                          disabled: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "mobileOnly"
-                          )
-                            ? false
-                            : false,
+                          disabled: false,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -745,26 +718,14 @@ function PlasmicDirectDialog__RenderFunc(props: {
                             <Icon10Icon
                               className={classNames(
                                 projectcss.all,
-                                sty.svg___010DW
+                                sty.svg__yEr11
                               )}
                               role={"img"}
                             />
                           ),
 
-                          readOnly: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "mobileOnly"
-                          )
-                            ? false
-                            : false,
-                          size: hasVariant(
-                            globalVariants,
-                            "screen",
-                            "mobileOnly"
-                          )
-                            ? "small"
-                            : "small",
+                          readOnly: false,
+                          size: "small",
                           suffix: null,
                           value: generateStateValueProp($state, [
                             "input4",
@@ -795,7 +756,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__y08Ow
+                          sty.freeBox__xEbM6
                         )}
                       />
                     </div>
@@ -828,7 +789,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__yvxA
+                          sty.text___86DEd
                         )}
                       >
                         {"\u062a\u0627\u06cc\u06cc\u062f"}
@@ -842,7 +803,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                     color={generateStateValueProp($state, ["button8", "color"])}
                     endIcon={
                       <Icon12Icon
-                        className={classNames(projectcss.all, sty.svg__zmeO)}
+                        className={classNames(projectcss.all, sty.svg__ozmpK)}
                         role={"img"}
                       />
                     }
@@ -1083,81 +1044,66 @@ function PlasmicDirectDialog__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__revGe
+                        sty.text___0Cok
                       )}
                     >
                       {"\u067e\u0631\u062f\u0627\u062e\u062a"}
                     </div>
                   </ButtonLiom>
-                  {(() => {
-                    try {
-                      return $state.shopDialog.data.result.shopList.length > 1;
-                    } catch (e) {
+                  <p
+                    data-plasmic-name={"p"}
+                    data-plasmic-override={overrides.p}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.p,
+                      projectcss.__wab_text,
+                      sty.p
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDialog2Opendialog"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog2", "opendialog"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
+                        $steps["updateDialog2Opendialog"] != null &&
+                        typeof $steps["updateDialog2Opendialog"] === "object" &&
+                        typeof $steps["updateDialog2Opendialog"].then ===
+                          "function"
                       ) {
-                        return true;
+                        $steps["updateDialog2Opendialog"] = await $steps[
+                          "updateDialog2Opendialog"
+                        ];
                       }
-                      throw e;
+                    }}
+                  >
+                    {
+                      "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                     }
-                  })() ? (
-                    <p
-                      data-plasmic-name={"p"}
-                      data-plasmic-override={overrides.p}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.p,
-                        projectcss.__wab_text,
-                        sty.p
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateDialog2Opendialog"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dialog2", "opendialog"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateDialog2Opendialog"] != null &&
-                          typeof $steps["updateDialog2Opendialog"] ===
-                            "object" &&
-                          typeof $steps["updateDialog2Opendialog"].then ===
-                            "function"
-                        ) {
-                          $steps["updateDialog2Opendialog"] = await $steps[
-                            "updateDialog2Opendialog"
-                          ];
-                        }
-                      }}
-                    >
-                      {
-                        "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
-                      }
-                    </p>
-                  ) : null}
+                  </p>
                 </Stack__>
               </div>
             </Stack__>
@@ -1188,13 +1134,17 @@ function PlasmicDirectDialog__RenderFunc(props: {
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__t3Wyg)}
+              className={classNames(projectcss.all, sty.freeBox__abnMs)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__zduoz)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___8UgJd)}
+              >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return $state.shopDialog.data.result.shopList[1];
+                      return $state.shopDialog.data.result.shopList;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -1230,6 +1180,45 @@ function PlasmicDirectDialog__RenderFunc(props: {
                         "fullprice"
                       ]),
                       key: currentIndex,
+                      onClick: async event => {
+                        const $steps = {};
+
+                        $steps["updateSelectShop"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["selectShop"]
+                                },
+                                operation: 0,
+                                value: currentItem
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSelectShop"] != null &&
+                          typeof $steps["updateSelectShop"] === "object" &&
+                          typeof $steps["updateSelectShop"].then === "function"
+                        ) {
+                          $steps["updateSelectShop"] = await $steps[
+                            "updateSelectShop"
+                          ];
+                        }
+                      },
                       onClickitemChange: async (...eventArgs: any) => {
                         generateStateOnChangeProp($state, [
                           "subscription3",
@@ -1322,7 +1311,20 @@ function PlasmicDirectDialog__RenderFunc(props: {
                       [
                         {
                           name: "subscription3[].clickitem",
-                          initFunc: ({ $props, $state, $queries }) => true
+                          initFunc: ({ $props, $state, $queries }) =>
+                            (() => {
+                              try {
+                                return currentItem.id == $state.selectShop.id;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })()
                         },
                         {
                           name: "subscription3[].title",
@@ -1401,48 +1403,30 @@ function PlasmicDirectDialog__RenderFunc(props: {
                         data-plasmic-override={overrides.subscription3}
                         {...child$Props}
                       >
-                        {(
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? (() => {
-                                try {
-                                  return currentItem.topBadge ? true : false;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            : (() => {
-                                try {
-                                  return currentItem.topBadge ? true : false;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                        ) ? (
+                        {(() => {
+                          try {
+                            return currentItem.topBadge ? true : false;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__n089
+                              sty.freeBox__ynxsp
                             )}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__jPuS5
+                                sty.text__bpcQi
                               )}
                             >
                               <React.Fragment>
@@ -1468,21 +1452,218 @@ function PlasmicDirectDialog__RenderFunc(props: {
                     );
                   })();
                 })}
-              </div>
+              </Stack__>
               <ButtonLiom
-                data-plasmic-name={"button11"}
-                data-plasmic-override={overrides.button11}
-                className={classNames("__wab_instance", sty.button11)}
-                color={generateStateValueProp($state, ["button11", "color"])}
+                data-plasmic-name={"button9"}
+                data-plasmic-override={overrides.button9}
+                className={classNames("__wab_instance", sty.button9)}
+                color={generateStateValueProp($state, ["button9", "color"])}
                 endIcon={
                   <Icon12Icon
-                    className={classNames(projectcss.all, sty.svg___8YLt5)}
+                    className={classNames(projectcss.all, sty.svg__dAe3B)}
                     role={"img"}
                   />
                 }
+                isDisabled={(() => {
+                  try {
+                    return $state.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateLoading"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loading"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoading"] != null &&
+                    typeof $steps["updateLoading"] === "object" &&
+                    typeof $steps["updateLoading"].then === "function"
+                  ) {
+                    $steps["updateLoading"] = await $steps["updateLoading"];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://n8n.staas.ir/webhook/rest/shop/list",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  id: $state.selectShop.id,
+                                  offCode: "",
+                                  redirectUrl: $props.redirectUrl,
+                                  authorization: $props.token
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["updateDialogOpendialog2"] =
+                    $steps.invokeGlobalAction?.data?.success == true &&
+                    $steps.invokeGlobalAction?.data?.result != false
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return $steps.invokeGlobalAction.data.result;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["updateDialogOpendialog2"] != null &&
+                    typeof $steps["updateDialogOpendialog2"] === "object" &&
+                    typeof $steps["updateDialogOpendialog2"].then === "function"
+                  ) {
+                    $steps["updateDialogOpendialog2"] = await $steps[
+                      "updateDialogOpendialog2"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction2"] =
+                    $steps.invokeGlobalAction?.data?.success == false ||
+                    $steps.invokeGlobalAction?.data?.result == false
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "error",
+                              "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                              "bottom-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                  if (
+                    $steps["invokeGlobalAction2"] != null &&
+                    typeof $steps["invokeGlobalAction2"] === "object" &&
+                    typeof $steps["invokeGlobalAction2"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction2"] = await $steps[
+                      "invokeGlobalAction2"
+                    ];
+                  }
+
+                  $steps["updateLoading2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loading"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoading2"] != null &&
+                    typeof $steps["updateLoading2"] === "object" &&
+                    typeof $steps["updateLoading2"].then === "function"
+                  ) {
+                    $steps["updateLoading2"] = await $steps["updateLoading2"];
+                  }
+                }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button11", "color"])(
+                    generateStateOnChangeProp($state, ["button9", "color"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -1495,12 +1676,25 @@ function PlasmicDirectDialog__RenderFunc(props: {
                     return;
                   }
                 }}
+                unnamedVariant={(() => {
+                  try {
+                    return $state.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
               >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___2Hapa
+                    sty.text__yMIip
                   )}
                 >
                   {"\u067e\u0631\u062f\u0627\u062e\u062a"}
@@ -1526,7 +1720,7 @@ const PlasmicDescendants = {
     "p",
     "dialog2",
     "subscription3",
-    "button11"
+    "button9"
   ],
   dialog: [
     "dialog",
@@ -1538,7 +1732,7 @@ const PlasmicDescendants = {
     "p",
     "dialog2",
     "subscription3",
-    "button11"
+    "button9"
   ],
   shopDialog: [
     "shopDialog",
@@ -1549,16 +1743,16 @@ const PlasmicDescendants = {
     "p",
     "dialog2",
     "subscription3",
-    "button11"
+    "button9"
   ],
   img: ["img"],
   input4: ["input4"],
   button12: ["button12"],
   button8: ["button8"],
   p: ["p"],
-  dialog2: ["dialog2", "subscription3", "button11"],
+  dialog2: ["dialog2", "subscription3", "button9"],
   subscription3: ["subscription3"],
-  button11: ["button11"]
+  button9: ["button9"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1574,7 +1768,7 @@ type NodeDefaultElementType = {
   p: "p";
   dialog2: typeof Dialog3;
   subscription3: typeof Subscription3;
-  button11: typeof ButtonLiom;
+  button9: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1646,7 +1840,7 @@ export const PlasmicDirectDialog = Object.assign(
     p: makeNodeComponent("p"),
     dialog2: makeNodeComponent("dialog2"),
     subscription3: makeNodeComponent("subscription3"),
-    button11: makeNodeComponent("button11"),
+    button9: makeNodeComponent("button9"),
 
     // Metadata about props expected for PlasmicDirectDialog
     internalVariantProps: PlasmicDirectDialog__VariantProps,

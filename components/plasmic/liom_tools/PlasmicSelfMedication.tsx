@@ -70,6 +70,7 @@ import Done from "../../Done"; // plasmic-import: kuXIsI5E0lmX/component
 import LinearCalendar2 from "../../LinearCalendar2"; // plasmic-import: UJN9m2mxrPIu/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
+import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
@@ -112,6 +113,7 @@ export type PlasmicSelfMedication__OverridesType = {
   linearCalendar2?: Flex__<typeof LinearCalendar2>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
+  directDialog?: Flex__<typeof DirectDialog>;
 };
 
 export interface DefaultSelfMedicationProps {}
@@ -308,6 +310,28 @@ function PlasmicSelfMedication__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "directDialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (
+                $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) ==
+                "4ddd1fab-100c-49f0-b843-e70bff8add34"
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -2624,6 +2648,62 @@ function PlasmicSelfMedication__RenderFunc(props: {
               ) : null}
             </div>
           </div>
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.directDialog),
+              onOpenChange: async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "directDialog",
+                  "open"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              },
+              open: generateStateValueProp($state, ["directDialog", "open"])
+            };
+
+            initializePlasmicStates(
+              $state,
+              [
+                {
+                  name: "directDialog.open",
+                  initFunc: ({ $props, $state, $queries }) =>
+                    (() => {
+                      try {
+                        return (
+                          $ctx.query.userId.slice(
+                            4,
+                            $ctx.query.userId.length - 4
+                          ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()
+                }
+              ],
+              []
+            );
+            return (
+              <DirectDialog
+                data-plasmic-name={"directDialog"}
+                data-plasmic-override={overrides.directDialog}
+                {...child$Props}
+              />
+            );
+          })()}
         </div>
       </div>
     </React.Fragment>
@@ -2643,7 +2723,8 @@ const PlasmicDescendants = {
     "done",
     "linearCalendar2",
     "loadingConclusion",
-    "buttonLiom"
+    "buttonLiom",
+    "directDialog"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -2655,7 +2736,8 @@ const PlasmicDescendants = {
   done: ["done"],
   linearCalendar2: ["linearCalendar2"],
   loadingConclusion: ["loadingConclusion"],
-  buttonLiom: ["buttonLiom"]
+  buttonLiom: ["buttonLiom"],
+  directDialog: ["directDialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2673,6 +2755,7 @@ type NodeDefaultElementType = {
   linearCalendar2: typeof LinearCalendar2;
   loadingConclusion: typeof LoadingConclusion;
   buttonLiom: typeof ButtonLiom;
+  directDialog: typeof DirectDialog;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2771,6 +2854,7 @@ export const PlasmicSelfMedication = Object.assign(
     linearCalendar2: makeNodeComponent("linearCalendar2"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
     buttonLiom: makeNodeComponent("buttonLiom"),
+    directDialog: makeNodeComponent("directDialog"),
 
     // Metadata about props expected for PlasmicSelfMedication
     internalVariantProps: PlasmicSelfMedication__VariantProps,
