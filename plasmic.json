@@ -2572,6 +2572,45 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicSelection.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "GJ5eKNtJs574",
+          "name": "DirectDialog",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicDirectDialog.tsx",
+          "importSpec": {
+            "modulePath": "DirectDialog.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicDirectDialog.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "UHX61U1xmtjA",
+          "name": "Dialog3",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicDialog3.tsx",
+          "importSpec": {
+            "modulePath": "Dialog3.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicDialog3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "EB9cfatW1AEN",
+          "name": "Subscription3",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSubscription3.tsx",
+          "importSpec": {
+            "modulePath": "Subscription3.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSubscription3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
