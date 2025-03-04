@@ -742,6 +742,42 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["updateStepLoading"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["stepLoading"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateStepLoading"] != null &&
+                        typeof $steps["updateStepLoading"] === "object" &&
+                        typeof $steps["updateStepLoading"].then === "function"
+                      ) {
+                        $steps["updateStepLoading"] = await $steps[
+                          "updateStepLoading"
+                        ];
+                      }
+
                       $steps["wait"] = true
                         ? (() => {
                             const actionArgs = { args: [1000] };
@@ -796,42 +832,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         typeof $steps["runCode"].then === "function"
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
-                      }
-
-                      $steps["updateStepLoading"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["stepLoading"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateStepLoading"] != null &&
-                        typeof $steps["updateStepLoading"] === "object" &&
-                        typeof $steps["updateStepLoading"].then === "function"
-                      ) {
-                        $steps["updateStepLoading"] = await $steps[
-                          "updateStepLoading"
-                        ];
                       }
                     }).apply(null, eventArgs);
                   }}
