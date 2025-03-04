@@ -79,12 +79,12 @@ createPlasmicElementProxy;
 export type PlasmicLoadingConclusion__VariantMembers = {
   fouse: "fouse";
   selected: "selected";
-  color: "green" | "grey";
+  color: "green" | "grey" | "trasparent";
 };
 export type PlasmicLoadingConclusion__VariantsArgs = {
   fouse?: SingleBooleanChoiceArg<"fouse">;
   selected?: SingleBooleanChoiceArg<"selected">;
-  color?: SingleChoiceArg<"green" | "grey">;
+  color?: SingleChoiceArg<"green" | "grey" | "trasparent">;
 };
 type VariantPropType = keyof PlasmicLoadingConclusion__VariantsArgs;
 export const PlasmicLoadingConclusion__VariantProps =
@@ -108,7 +108,7 @@ export interface DefaultLoadingConclusionProps {
   children?: React.ReactNode;
   fouse?: SingleBooleanChoiceArg<"fouse">;
   selected?: SingleBooleanChoiceArg<"selected">;
-  color?: SingleChoiceArg<"green" | "grey">;
+  color?: SingleChoiceArg<"green" | "grey" | "trasparent">;
   className?: string;
 }
 
@@ -208,6 +208,7 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
         {
           [sty.rootcolor_green]: hasVariant($state, "color", "green"),
           [sty.rootcolor_grey]: hasVariant($state, "color", "grey"),
+          [sty.rootcolor_trasparent]: hasVariant($state, "color", "trasparent"),
           [sty.rootfouse]: hasVariant($state, "fouse", "fouse"),
           [sty.rootselected]: hasVariant($state, "selected", "selected")
         }
@@ -232,6 +233,7 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
           [sty.svgcolor_grey_selected]:
             hasVariant($state, "color", "grey") &&
             hasVariant($state, "selected", "selected"),
+          [sty.svgcolor_trasparent]: hasVariant($state, "color", "trasparent"),
           [sty.svgfouse]: hasVariant($state, "fouse", "fouse"),
           [sty.svgfouse_color_green]:
             hasVariant($state, "color", "green") &&
@@ -253,6 +255,16 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
           defaultContents: "jsgcsgdcgsgcgscgs",
           value: args.children,
           className: classNames(sty.slotTargetChildren, {
+            [sty.slotTargetChildrencolor_green]: hasVariant(
+              $state,
+              "color",
+              "green"
+            ),
+            [sty.slotTargetChildrencolor_grey]: hasVariant(
+              $state,
+              "color",
+              "grey"
+            ),
             [sty.slotTargetChildrenfouse]: hasVariant($state, "fouse", "fouse"),
             [sty.slotTargetChildrenselected]: hasVariant(
               $state,

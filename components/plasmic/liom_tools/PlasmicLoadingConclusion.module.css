@@ -52,6 +52,9 @@
 .svgcolor_grey {
   color: var(--token-NXlEQg0VOw-c);
 }
+.svgcolor_trasparent {
+  display: none;
+}
 .svgcolor_green_selected {
   opacity: 1;
 }

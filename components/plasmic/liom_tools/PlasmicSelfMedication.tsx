@@ -74,6 +74,7 @@ import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/c
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
+import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -91,10 +92,16 @@ import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSD
 
 createPlasmicElementProxy;
 
-export type PlasmicSelfMedication__VariantMembers = {};
-export type PlasmicSelfMedication__VariantsArgs = {};
+export type PlasmicSelfMedication__VariantMembers = {
+  darkMod: "darkMod";
+};
+export type PlasmicSelfMedication__VariantsArgs = {
+  darkMod?: SingleBooleanChoiceArg<"darkMod">;
+};
 type VariantPropType = keyof PlasmicSelfMedication__VariantsArgs;
-export const PlasmicSelfMedication__VariantProps = new Array<VariantPropType>();
+export const PlasmicSelfMedication__VariantProps = new Array<VariantPropType>(
+  "darkMod"
+);
 
 export type PlasmicSelfMedication__ArgsType = {};
 type ArgPropType = keyof PlasmicSelfMedication__ArgsType;
@@ -316,6 +323,25 @@ function PlasmicSelfMedication__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "darkMod",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.theme == "dark";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.darkMod
       }
     ],
     [$props, $ctx, $refs]
@@ -328,7 +354,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
   });
 
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqiBuxNlixBgQ()
+    screen: useScreenVariantsqiBuxNlixBgQ(),
+    theme: useTheme()
   });
 
   return (
@@ -357,10 +384,19 @@ function PlasmicSelfMedication__RenderFunc(props: {
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             plasmic_paziresh_24_design_system_css.plasmic_tokens,
             plasmic_hamdast_sdk_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            { [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod") }
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__chQel)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__chQel, {
+              [sty.freeBoxdarkMod__chQeLtta2T]: hasVariant(
+                $state,
+                "darkMod",
+                "darkMod"
+              )
+            })}
+          >
             {(() => {
               try {
                 return $ctx.query.inApp != "true";
@@ -377,7 +413,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
               <HeaderLiom
                 data-plasmic-name={"headerLiom"}
                 data-plasmic-override={overrides.headerLiom}
-                className={classNames("__wab_instance", sty.headerLiom)}
+                className={classNames("__wab_instance", sty.headerLiom, {
+                  [sty.headerLiomdarkMod]: hasVariant(
+                    $state,
+                    "darkMod",
+                    "darkMod"
+                  )
+                })}
                 slot={
                   <Paziresh24Avatar
                     data-plasmic-name={"paziresh24Avatar"}
@@ -466,7 +508,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__cOzkv
+                      sty.text__cOzkv,
+                      {
+                        [sty.textdarkMod__cOzkvtta2T]: hasVariant(
+                          $state,
+                          "darkMod",
+                          "darkMod"
+                        )
+                      }
                     )}
                     onClick={async event => {
                       const $steps = {};
@@ -501,7 +550,15 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 ) : null}
               </HeaderLiom>
             ) : null}
-            <div className={classNames(projectcss.all, sty.freeBox__eyhPa)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__eyhPa, {
+                [sty.freeBoxdarkMod__eyhPatta2T]: hasVariant(
+                  $state,
+                  "darkMod",
+                  "darkMod"
+                )
+              })}
+            >
               <ApiRequest
                 data-plasmic-name={"getUser"}
                 data-plasmic-override={overrides.getUser}
@@ -1782,7 +1839,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           data-plasmic-override={overrides.linearCalendar2}
                           className={classNames(
                             "__wab_instance",
-                            sty.linearCalendar2
+                            sty.linearCalendar2,
+                            {
+                              [sty.linearCalendar2darkMod]: hasVariant(
+                                $state,
+                                "darkMod",
+                                "darkMod"
+                              )
+                            }
                           )}
                           click={(() => {
                             try {
@@ -1797,6 +1861,24 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               throw e;
                             }
                           })()}
+                          dark={
+                            hasVariant($state, "darkMod", "darkMod")
+                              ? (() => {
+                                  try {
+                                    return $ctx.query.theme == "dark";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : undefined
+                          }
                           done={(() => {
                             try {
                               return (() => {
@@ -1948,7 +2030,15 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     })}
                   </div>
                 ) : null}
-                <div className={classNames(projectcss.all, sty.freeBox__rMj4)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__rMj4, {
+                    [sty.freeBoxdarkMod__rMj4Tta2T]: hasVariant(
+                      $state,
+                      "darkMod",
+                      "darkMod"
+                    )
+                  })}
+                >
                   {(() => {
                     try {
                       return !$state.getItem.loading;
@@ -1986,7 +2076,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__hSeqy
+                              sty.freeBox__hSeqy,
+                              {
+                                [sty.freeBoxdarkMod__hSeqytta2T]: hasVariant(
+                                  $state,
+                                  "darkMod",
+                                  "darkMod"
+                                )
+                              }
                             )}
                             id={"parent"}
                             key={currentIndex}
@@ -2217,7 +2314,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox___5QdKl
+                                sty.freeBox___5QdKl,
+                                {
+                                  [sty.freeBoxdarkMod___5QdKltta2T]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
+                                }
                               )}
                             >
                               <LoadingConclusion
@@ -2227,42 +2331,109 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 }
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.loadingConclusion
-                                )}
-                                color={(() => {
-                                  try {
-                                    return $ctx.query.type == "dangerOrNot"
-                                      ? undefined
-                                      : currentItem.isDone == 1
-                                      ? "green"
-                                      : true;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return [];
-                                    }
-                                    throw e;
+                                  sty.loadingConclusion,
+                                  {
+                                    [sty.loadingConclusiondarkMod]: hasVariant(
+                                      $state,
+                                      "darkMod",
+                                      "darkMod"
+                                    ),
+                                    [sty.loadingConclusionglobal_theme_dark]:
+                                      hasVariant(
+                                        globalVariants,
+                                        "theme",
+                                        "dark"
+                                      ),
+                                    [sty.loadingConclusionglobal_theme_dark_darkMod]:
+                                      hasVariant(
+                                        $state,
+                                        "darkMod",
+                                        "darkMod"
+                                      ) &&
+                                      hasVariant(
+                                        globalVariants,
+                                        "theme",
+                                        "dark"
+                                      )
                                   }
-                                })()}
-                                fouse={true}
-                                selected={true}
+                                )}
+                                color={
+                                  hasVariant($state, "darkMod", "darkMod")
+                                    ? (() => {
+                                        try {
+                                          return $ctx.query.type ==
+                                            "dangerOrNot"
+                                            ? undefined
+                                            : currentItem.isDone == 1
+                                            ? "green"
+                                            : "trasparent";
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    : (() => {
+                                        try {
+                                          return $ctx.query.type ==
+                                            "dangerOrNot"
+                                            ? undefined
+                                            : currentItem.isDone == 1
+                                            ? "green"
+                                            : "trasparent";
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                }
+                                fouse={
+                                  hasVariant($state, "darkMod", "darkMod")
+                                    ? true
+                                    : true
+                                }
+                                selected={
+                                  hasVariant($state, "darkMod", "darkMod")
+                                    ? true
+                                    : true
+                                }
                               >
                                 <Stack__
                                   as={"div"}
                                   hasGap={true}
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox___8Kyoi
+                                    sty.freeBox___8Kyoi,
+                                    {
+                                      [sty.freeBoxdarkMod___8Kyoitta2T]:
+                                        hasVariant($state, "darkMod", "darkMod")
+                                    }
                                   )}
                                 >
                                   <div
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__ksZwP
+                                      sty.text__ksZwP,
+                                      {
+                                        [sty.textdarkMod__ksZwPtta2T]:
+                                          hasVariant(
+                                            $state,
+                                            "darkMod",
+                                            "darkMod"
+                                          )
+                                      }
                                     )}
                                   >
                                     <div
@@ -2327,7 +2498,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               <ChevronLeftIcon
                                 className={classNames(
                                   projectcss.all,
-                                  sty.svg__lmQ55
+                                  sty.svg__lmQ55,
+                                  {
+                                    [sty.svgdarkMod__lmQ55Tta2T]: hasVariant(
+                                      $state,
+                                      "darkMod",
+                                      "darkMod"
+                                    )
+                                  }
                                 )}
                                 role={"img"}
                               />
@@ -2379,7 +2557,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__lHhJz)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__lHhJz,
+                        {
+                          [sty.freeBoxdarkMod__lHhJZtta2T]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          )
+                        }
+                      )}
                     >
                       {(() => {
                         try {

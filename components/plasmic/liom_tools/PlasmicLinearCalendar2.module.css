@@ -32,6 +32,9 @@
   border-style: solid;
   border-color: var(--token-QR8ATjORhQqO);
 }
+.freeBoxdark__wro0RiNjQ {
+  background: var(--token-aAR23Q6LT5jS);
+}
 .freeBox__ri8Wv {
   display: flex;
   flex-direction: column;
@@ -85,6 +88,9 @@
   > img {
   margin-top: 4px;
 }
+.freeBoxdark__andKaRiNjQ {
+  background: var(--token-aAR23Q6LT5jS);
+}
 .freeBox__pTv54 {
   display: flex;
   flex-direction: row;
@@ -136,11 +142,15 @@
   bottom: auto;
   right: auto;
   text-align: center;
+  color: #535353;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__lLzEd {
     font-size: var(--token-Pqe-w0mkNkCF);
   }
+}
+.textdark__lLzEdRiNjQ {
+  color: var(--token-Pxe4wDL2kJpb);
 }
 .text__f9Nt {
   position: relative;

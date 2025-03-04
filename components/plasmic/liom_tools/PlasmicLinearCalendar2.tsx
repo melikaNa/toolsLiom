@@ -75,13 +75,16 @@ createPlasmicElementProxy;
 
 export type PlasmicLinearCalendar2__VariantMembers = {
   click: "click";
+  dark: "dark";
 };
 export type PlasmicLinearCalendar2__VariantsArgs = {
   click?: SingleBooleanChoiceArg<"click">;
+  dark?: SingleBooleanChoiceArg<"dark">;
 };
 type VariantPropType = keyof PlasmicLinearCalendar2__VariantsArgs;
 export const PlasmicLinearCalendar2__VariantProps = new Array<VariantPropType>(
-  "click"
+  "click",
+  "dark"
 );
 
 export type PlasmicLinearCalendar2__ArgsType = {
@@ -114,6 +117,7 @@ export interface DefaultLinearCalendar2Props {
   done?: number;
   isVip?: boolean;
   click?: SingleBooleanChoiceArg<"click">;
+  dark?: SingleBooleanChoiceArg<"dark">;
   className?: string;
 }
 
@@ -168,6 +172,12 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.click
+      },
+      {
+        path: "dark",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.dark
       }
     ],
     [$props, $ctx, $refs]
@@ -201,7 +211,8 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
     >
       <div
         className={classNames(projectcss.all, sty.freeBox__wro0, {
-          [sty.freeBoxclick__wro0Jr0Vt]: hasVariant($state, "click", "click")
+          [sty.freeBoxclick__wro0Jr0Vt]: hasVariant($state, "click", "click"),
+          [sty.freeBoxdark__wro0RiNjQ]: hasVariant($state, "dark", "dark")
         })}
       >
         {(() => {
@@ -242,7 +253,9 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
         <Stack__
           as={"div"}
           hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__andKa)}
+          className={classNames(projectcss.all, sty.freeBox__andKa, {
+            [sty.freeBoxdark__andKaRiNjQ]: hasVariant($state, "dark", "dark")
+          })}
         >
           {(() => {
             try {
@@ -260,7 +273,13 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__pTv54)}
+              className={classNames(projectcss.all, sty.freeBox__pTv54, {
+                [sty.freeBoxdark__pTv54RiNjQ]: hasVariant(
+                  $state,
+                  "dark",
+                  "dark"
+                )
+              })}
             >
               {(() => {
                 try {
@@ -332,7 +351,8 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__lLzEd
+              sty.text__lLzEd,
+              { [sty.textdark__lLzEdRiNjQ]: hasVariant($state, "dark", "dark") }
             )}
           >
             <React.Fragment>{$props.title}</React.Fragment>
