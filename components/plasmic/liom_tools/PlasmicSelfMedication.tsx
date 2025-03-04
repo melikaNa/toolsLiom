@@ -971,52 +971,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["updateDetailsList3"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["itemLoading"]
-                                },
-                                operation: 4
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateDetailsList3"] != null &&
-                          typeof $steps["updateDetailsList3"] === "object" &&
-                          typeof $steps["updateDetailsList3"].then ===
-                            "function"
-                        ) {
-                          $steps["updateDetailsList3"] = await $steps[
-                            "updateDetailsList3"
-                          ];
-                        }
-
                         $steps["updateDetailsList4"] = true
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return (() => {
-                                    return console.log($state.itemLoading);
+                                    return console.log(
+                                      "iten loading:" + $state.itemLoading
+                                    );
                                   })();
                                 }
                               };
