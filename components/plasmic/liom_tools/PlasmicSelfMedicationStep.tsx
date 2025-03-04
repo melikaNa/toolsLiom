@@ -799,43 +799,14 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               $ctx.query.inApp != "true"
                                 ? (() => {
                                     const actionArgs = {
-                                      destination: (() => {
-                                        try {
-                                          return (
-                                            "video-player/?title=" +
-                                            $state.getData.data[0].title +
-                                            "&url=" +
-                                            currentItem.url +
-                                            "&secId=" +
-                                            $ctx.query.secId +
-                                            "&stepId=" +
-                                            $ctx.query.stepId +
-                                            "&style=" +
-                                            $ctx.query.style +
-                                            "&type=" +
-                                            $ctx.query.type +
-                                            "&token=" +
-                                            $ctx.query.token +
-                                            "&inApp=" +
-                                            $ctx.query.inApp +
-                                            "&userId=" +
-                                            $ctx.query.userId +
-                                            "&selectStep=" +
-                                            $ctx.query.selectStep +
-                                            "&version=" +
-                                            $ctx.query.version
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return `/video-player`;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
+                                      destination:
+                                        //"video-player/?title=" + $state.getData.data[0].title + "&url=" + currentItem.url + "&secId=" + $ctx.query.secId + "&stepId=" + $ctx.query.stepId + "&style=" + $ctx.query.style + "&type=" + $ctx.query.type + "&token=" + $ctx.query.token + "&inApp=" + $ctx.query.inApp + "&userId=" + $ctx.query.userId + "&selectStep=" + $ctx.query.selectStep + "&version=" + $ctx.query.version
+
+                                        "https://old.liom.app/social?post=" +
+                                        currentItem.action.slice(
+                                          6,
+                                          currentItem.action.length
+                                        )
                                     };
                                     return (({ destination }) => {
                                       if (
@@ -1381,7 +1352,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   )}
                 >
                   <React.Fragment>
-                    {$state.getData.data[0].title + $state.isDone}
+                    {$state.getData.data[0].title}
                   </React.Fragment>
                 </div>
               ) : null}
