@@ -319,8 +319,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
           (() => {
             try {
               return (
-                $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) ==
-                "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                //$ctx.query.userId.slice(4, $ctx.query.userId.length - 4) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                false
               );
             } catch (e) {
               if (
@@ -764,6 +764,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
+                                  console.log(
+                                    "step loading:" + $state.stepLoading
+                                  );
                                   const list =
                                     document.getElementById("my-scroll-list11");
                                   const list2 = list.children[0];
@@ -802,7 +805,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 objRoot: $state,
                                 variablePath: ["stepLoading"]
                               },
-                              operation: 4
+                              operation: 0,
+                              value: false
                             };
                             return (({
                               variable,
@@ -815,9 +819,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               }
                               const { objRoot, variablePath } = variable;
 
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
@@ -1005,6 +1008,31 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ) {
                           $steps["updateDetailsList3"] = await $steps[
                             "updateDetailsList3"
+                          ];
+                        }
+
+                        $steps["updateDetailsList4"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return console.log($state.itemLoading);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDetailsList4"] != null &&
+                          typeof $steps["updateDetailsList4"] === "object" &&
+                          typeof $steps["updateDetailsList4"].then ===
+                            "function"
+                        ) {
+                          $steps["updateDetailsList4"] = await $steps[
+                            "updateDetailsList4"
                           ];
                         }
                       }).apply(null, eventArgs);
@@ -2648,62 +2676,27 @@ function PlasmicSelfMedication__RenderFunc(props: {
               ) : null}
             </div>
           </div>
-          {(() => {
-            const child$Props = {
-              className: classNames("__wab_instance", sty.directDialog),
-              onOpenChange: async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "directDialog",
-                  "open"
-                ]).apply(null, eventArgs);
+          <DirectDialog
+            data-plasmic-name={"directDialog"}
+            data-plasmic-override={overrides.directDialog}
+            className={classNames("__wab_instance", sty.directDialog)}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["directDialog", "open"]).apply(
+                null,
+                eventArgs
+              );
 
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              },
-              open: generateStateValueProp($state, ["directDialog", "open"])
-            };
-
-            initializePlasmicStates(
-              $state,
-              [
-                {
-                  name: "directDialog.open",
-                  initFunc: ({ $props, $state, $queries }) =>
-                    (() => {
-                      try {
-                        return (
-                          $ctx.query.userId.slice(
-                            4,
-                            $ctx.query.userId.length - 4
-                          ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()
-                }
-              ],
-              []
-            );
-            return (
-              <DirectDialog
-                data-plasmic-name={"directDialog"}
-                data-plasmic-override={overrides.directDialog}
-                {...child$Props}
-              />
-            );
-          })()}
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, ["directDialog", "open"])}
+            token={$ctx.query.token.slice(6, $ctx.query.token.length - 3)}
+          />
         </div>
       </div>
     </React.Fragment>
