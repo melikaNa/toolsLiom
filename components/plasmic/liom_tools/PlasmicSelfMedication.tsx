@@ -315,23 +315,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "directDialog.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (
-                //$ctx.query.userId.slice(4, $ctx.query.userId.length - 4) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                false
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2466,6 +2450,47 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             ) {
                               $steps["runCode"] = await $steps["runCode"];
                             }
+
+                            $steps["updateDirectDialogOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["directDialog", "open"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDirectDialogOpen"] != null &&
+                              typeof $steps["updateDirectDialogOpen"] ===
+                                "object" &&
+                              typeof $steps["updateDirectDialogOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDirectDialogOpen"] = await $steps[
+                                "updateDirectDialogOpen"
+                              ];
+                            }
                           }}
                         >
                           <div
@@ -2658,6 +2683,28 @@ function PlasmicSelfMedication__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["directDialog", "open"])}
             token={$ctx.query.token.slice(6, $ctx.query.token.length - 3)}
+            type={(() => {
+              try {
+                return (() => {
+                  switch ($ctx.query.type) {
+                    case "skinCare":
+                      return "skin_care_sub";
+                    case "danger":
+                      return "pregnancy_danger_sub";
+                    case "irregular":
+                      return "irregular";
+                  }
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
         </div>
       </div>
