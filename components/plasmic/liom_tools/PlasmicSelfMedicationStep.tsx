@@ -405,77 +405,53 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 />
               }
             >
-              {(() => {
-                try {
-                  return (
-                    // if(!$state.getName.loading &&
-                    // ($state?.getName?.data?.[0]?.name ?? "" != "") &&
-                    // ($state?.getData.data[0].title??"" != ""))
-                    //   true
-                    // else false
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__gD5Nw
+                )}
+                onClick={async event => {
+                  const $steps = {};
 
-                    ($state.getData.data?.[0]?.title ?? "") != ""
-                  );
-                } catch (e) {
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return (
+                                "https://tools.liom.app/self-medication/?type=" +
+                                $ctx.query.type +
+                                "&inApp=" +
+                                $ctx.query.inApp +
+                                "&token=" +
+                                $ctx.query.token +
+                                "&selectStep=" +
+                                $ctx.query.selectStep +
+                                "&userId=" +
+                                ($ctx?.query?.userId ?? "") +
+                                "&version=" +
+                                $ctx.query.version
+                              );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
                   if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
                   ) {
-                    return false;
+                    $steps["runCode"] = await $steps["runCode"];
                   }
-                  throw e;
-                }
-              })() ? (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gD5Nw
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return (
-                                  "https://tools.liom.app/self-medication/?type=" +
-                                  $ctx.query.type +
-                                  "&inApp=" +
-                                  $ctx.query.inApp +
-                                  "&token=" +
-                                  $ctx.query.token +
-                                  "&selectStep=" +
-                                  $ctx.query.selectStep +
-                                  "&userId=" +
-                                  ($ctx?.query?.userId ?? "") +
-                                  "&version=" +
-                                  $ctx.query.version
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                >
-                  <React.Fragment>
-                    {$state.getData.data?.[0]?.title}
-                  </React.Fragment>
-                </div>
-              ) : null}
+                }}
+              >
+                <React.Fragment>{$ctx.query.title}</React.Fragment>
+              </div>
             </HeaderLiom>
           ) : null}
           <Stack__

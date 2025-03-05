@@ -607,11 +607,14 @@
   left: 0;
   z-index: 100;
   right: 0;
-  background: #0000005e;
+  background: #000000a6;
   min-height: 0;
   border-radius: 8px;
   padding: 8px;
   margin: 0px;
+}
+.freeBoxdarkMod__lHhJZtta2T {
+  background: #b2abab80;
 }
 .freeBox__aiGEi {
   display: flex;

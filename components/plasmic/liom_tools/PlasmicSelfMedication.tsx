@@ -676,7 +676,15 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 },
                                 operation: 0,
                                 value: (() => {
-                                  if ($state.getStep?.data?.todayReady == 1)
+                                  if (
+                                    $ctx.query.selectStep !== undefined &&
+                                    $ctx.query.selectStep != null &&
+                                    parseInt($ctx.query.selectStep) >= 0
+                                  )
+                                    return parseInt($ctx.query.selectStep);
+                                  else if (
+                                    $state.getStep?.data?.todayReady == 1
+                                  )
                                     return (
                                       $state.getStep.data.data.findIndex(
                                         item =>
@@ -729,7 +737,15 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 },
                                 operation: 0,
                                 value: (() => {
-                                  if ($state.getStep?.data?.todayReady == 1)
+                                  if (
+                                    typeof $ctx?.query?.selectStep !==
+                                      "undefined" &&
+                                    $ctx?.query?.selectStep != null
+                                  )
+                                    return parseInt($ctx.query.selectStep);
+                                  else if (
+                                    $state.getStep?.data?.todayReady == 1
+                                  )
                                     return (
                                       $state.getStep.data.data.findIndex(
                                         item =>
@@ -867,7 +883,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   console.log(
-                                    "step loading:" + $state.stepLoading
+                                    "aa" +
+                                      ($ctx.query.selectStep !== undefined &&
+                                        $ctx.query.selectStep != null &&
+                                        parseInt($ctx.query.selectStep) >= 0)
+                                  );
+                                  console.log(
+                                    "aa2" + parseInt($ctx.query.selectStep)
                                   );
                                   const list =
                                     document.getElementById("my-scroll-list11");
