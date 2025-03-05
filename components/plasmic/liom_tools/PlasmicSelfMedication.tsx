@@ -2974,7 +2974,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
             open={generateStateValueProp($state, ["directDialog", "open"])}
             redirectUrl={(() => {
               try {
-                return `https://tools.liom.app/shopResult?buyId=${$state.directDialog.selectShop.id}&?offCode=&token=${$ctx.query.token}&redirectUrl=${window.location.href}`;
+                return `https://tools.liom.app/shopResult?buyId=${
+                  $state.directDialog.selectShop.id
+                }&?offCode=&token=${
+                  $ctx.query.token
+                }&redirectUrl=${encodeURIComponent(window.location.href)}`;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
