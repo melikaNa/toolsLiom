@@ -882,12 +882,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  console.log(
-                                    "aa" +
-                                      ($ctx.query.selectStep !== undefined &&
-                                        $ctx.query.selectStep != null &&
-                                        parseInt($ctx.query.selectStep) >= 0)
-                                  );
+                                  console.log("aa1" + $state.selectedStep);
                                   console.log(
                                     "aa2" + parseInt($ctx.query.selectStep)
                                   );
