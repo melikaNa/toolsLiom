@@ -47,10 +47,10 @@
 .paziresh24Avatar__qwbcN:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg__yrnGc {
+.svg__ajTyP {
   object-fit: cover;
   max-width: 100%;
-  color: #222b45;
+  color: var(--token-ieogzVSSyrRx);
   width: 25px;
   height: 25px;
   display: block;

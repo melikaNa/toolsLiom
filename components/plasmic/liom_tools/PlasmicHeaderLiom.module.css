@@ -30,10 +30,14 @@
     height: 65px;
   }
 }
+.topdark {
+  background: var(--token-aAR23Q6LT5jS);
+  border-bottom-color: var(--token-aAR23Q6LT5jS);
+}
 .svg__yaa3H {
   object-fit: cover;
   max-width: 100%;
-  color: #222b45;
+  color: var(--token-ieogzVSSyrRx);
   width: 25px;
   height: 25px;
   display: block;
@@ -53,4 +57,7 @@
   text-align: right;
   line-height: 100%;
   letter-spacing: 0.266px;
+}
+.slotTargetChildrendark {
+  color: var(--token-ieogzVSSyrRx);
 }

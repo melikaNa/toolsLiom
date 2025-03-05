@@ -333,6 +333,19 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
+              dark={(() => {
+                try {
+                  return $ctx.query.theme == "dark";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()}
               slot={
                 <Paziresh24Avatar
                   data-plasmic-name={"paziresh24Avatar"}

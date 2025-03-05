@@ -2611,6 +2611,19 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicSubscription3.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "aok8o2KhU8vY",
+          "name": "VigetLiom",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicVigetLiom.tsx",
+          "importSpec": {
+            "modulePath": "VigetLiom.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicVigetLiom.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3538,6 +3551,21 @@
           "id": "BOcy3o8Lah4p",
           "name": "ChevronDown2Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__ChevronDown2.tsx"
+        },
+        {
+          "id": "8DNj9ESCY80y",
+          "name": "Icon153Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon153.tsx"
+        },
+        {
+          "id": "0H63FcZWihXr",
+          "name": "Icon156Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon156.tsx"
+        },
+        {
+          "id": "a_FmExMhN0OI",
+          "name": "Icon155Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon155.tsx"
         }
       ],
       "images": [
@@ -3900,6 +3928,11 @@
           "id": "Lhlci3bWRyb-",
           "name": "image 41",
           "filePath": "../public/plasmic/liom_tools/images/image41.svg"
+        },
+        {
+          "id": "_ProXqkK9g9Y",
+          "name": "image 80",
+          "filePath": "../public/plasmic/liom_tools/images/image80.png"
         }
       ],
       "indirect": false,

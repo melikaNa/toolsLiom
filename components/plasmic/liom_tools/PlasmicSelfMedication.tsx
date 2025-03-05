@@ -420,6 +420,19 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     "darkMod"
                   )
                 })}
+                dark={(() => {
+                  try {
+                    return $ctx.query.theme == "dark";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
                 slot={
                   <Paziresh24Avatar
                     data-plasmic-name={"paziresh24Avatar"}
@@ -445,7 +458,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     }
                   })() ? (
                     <Icon22Icon
-                      className={classNames(projectcss.all, sty.svg__nBoN)}
+                      className={classNames(projectcss.all, sty.svg__nBoN, {
+                        [sty.svgdarkMod__nBoNTta2T]: hasVariant(
+                          $state,
+                          "darkMod",
+                          "darkMod"
+                        )
+                      })}
                       onClick={async event => {
                         const $steps = {};
 
