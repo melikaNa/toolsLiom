@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&display=swap");
 
 .plasmic_tokens {
   --token-3MNJmQstkAEF: rgba(175, 47, 47, 0.15);
@@ -123,6 +123,8 @@
   --plasmic-token-brand-brand-soft: var(--token-dg296SDgGzTR);
   --token-v9UFcd2_ClYT: 0.5rem;
   --plasmic-token-size-8: var(--token-v9UFcd2_ClYT);
+  --token-Yi5YqU3IyFTB: #0a0a0a80;
+  --plasmic-token-basic-overlay-background: var(--token-Yi5YqU3IyFTB);
 }
 
 @media (max-width: 640px) {

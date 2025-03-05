@@ -610,19 +610,20 @@
   background: #0000005e;
   min-height: 0;
   border-radius: 8px;
-  padding: 80px 8px 8px;
+  padding: 8px;
   margin: 0px;
 }
 .freeBox__aiGEi {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
-  padding: 8px;
+  min-height: 0;
+  padding: 80px 8px 8px;
 }
 .text__uvYnO {
   position: relative;

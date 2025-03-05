@@ -93,26 +93,6 @@
   margin-left: 8px;
   margin-top: var(--token-KVcr9NiMwFLr);
 }
-.text__nLsG {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 500;
-  min-width: 0;
-}
-.text__f8Fql {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: right;
-  font-size: 14px;
-  font-weight: 400;
-  min-width: 0;
-}
 .freeBox__nNvcc {
   display: flex;
   flex-direction: row;
@@ -161,6 +141,26 @@
   font-size: 15px;
   font-weight: 700;
   color: var(--token-MAnhFXGh8Ir8);
+  min-width: 0;
+}
+.text__nLsG {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 0;
+}
+.text__f8Fql {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 400;
   min-width: 0;
 }
 .freeBox___1D3Kf {

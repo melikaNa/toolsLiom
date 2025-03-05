@@ -93,6 +93,7 @@ export type PlasmicDirectDialog__ArgsType = {
   token?: string;
   desc?: string;
   redirectUrl?: string;
+  onSelectShopChange?: (val: string) => void;
   open?: boolean;
   onOpenChange?: (val: string) => void;
 };
@@ -102,6 +103,7 @@ export const PlasmicDirectDialog__ArgProps = new Array<ArgPropType>(
   "token",
   "desc",
   "redirectUrl",
+  "onSelectShopChange",
   "open",
   "onOpenChange"
 );
@@ -125,6 +127,7 @@ export interface DefaultDirectDialogProps {
   token?: string;
   desc?: string;
   redirectUrl?: string;
+  onSelectShopChange?: (val: string) => void;
   open?: boolean;
   onOpenChange?: (val: string) => void;
   className?: string;
@@ -187,14 +190,16 @@ function PlasmicDirectDialog__RenderFunc(props: {
       },
       {
         path: "selectShop",
-        type: "private",
+        type: "readonly",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.shopDialog.data.result.shopList.find(
-                item => item.selected == 1
-              );
+              return $state.shopDialog.data.result.shopList.length == 1
+                ? $state.shopDialog.data.result.shopList[0]
+                : $state.shopDialog.data.result.shopList.find(
+                    item => item.selected == 1
+                  );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -204,7 +209,9 @@ function PlasmicDirectDialog__RenderFunc(props: {
               }
               throw e;
             }
-          })()
+          })(),
+
+        onChangeProp: "onSelectShopChange"
       },
       {
         path: "dialog.opendialog",
@@ -447,6 +454,55 @@ function PlasmicDirectDialog__RenderFunc(props: {
               className={classNames(projectcss.all, sty.freeBox___7M4Vv)}
               dir={"rtl"}
             >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__nNvcc)}
+              >
+                <PlasmicImg__
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
+                  alt={""}
+                  className={classNames(sty.img)}
+                  displayHeight={"15px"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/liom_tools/images/image36.svg",
+                    fullWidth: 22,
+                    fullHeight: 20,
+                    aspectRatio: 1.1
+                  }}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__xuCyc
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $props.desc;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </Stack__>
               <div
                 className={classNames(
                   projectcss.all,
@@ -502,55 +558,6 @@ function PlasmicDirectDialog__RenderFunc(props: {
                   }}
                 />
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__nNvcc)}
-              >
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img)}
-                  displayHeight={"15px"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"auto"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_tools/images/image36.svg",
-                    fullWidth: 22,
-                    fullHeight: 20,
-                    aspectRatio: 1.1
-                  }}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xuCyc
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $props.desc;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-              </Stack__>
             </Stack__>
             <Stack__
               as={"div"}
@@ -879,6 +886,42 @@ function PlasmicDirectDialog__RenderFunc(props: {
                     })()}
                     onClick={async event => {
                       const $steps = {};
+
+                      $steps["updateLoading3"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["selectShop"]
+                              },
+                              operation: 0,
+                              value: $state.topShop
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoading3"] != null &&
+                        typeof $steps["updateLoading3"] === "object" &&
+                        typeof $steps["updateLoading3"].then === "function"
+                      ) {
+                        $steps["updateLoading3"] = await $steps[
+                          "updateLoading3"
+                        ];
+                      }
 
                       $steps["updateLoading"] = true
                         ? (() => {

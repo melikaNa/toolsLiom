@@ -342,6 +342,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
               throw e;
             }
           })() ?? $props.darkMod
+      },
+      {
+        path: "directDialog.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2128,26 +2134,38 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                     const actionArgs = {
                                       destination: (() => {
                                         try {
-                                          return (
-                                            "https://tools.liom.app/self-medication-step/?secId=" +
-                                            currentItem.id +
-                                            "&stepId=" +
-                                            currentItem.stepId +
-                                            "&style=" +
-                                            currentItem.styleType +
-                                            "&type=" +
-                                            $ctx.query.type +
-                                            "&token=" +
-                                            $ctx.query.token +
-                                            "&inApp=" +
-                                            $ctx.query.inApp +
-                                            "&userId=" +
-                                            $ctx.query.userId +
-                                            "&selectStep=" +
-                                            $state.selectedStep +
-                                            "&version=" +
-                                            $ctx.query.version
-                                          );
+                                          return (() => {
+                                            var title =
+                                              currentItem.title +
+                                              "|" +
+                                              ($ctx.query.type == "danger"
+                                                ? "هفته "
+                                                : "روز ") +
+                                              ($state.selectedStep + 1) +
+                                              " اُم";
+                                            return (
+                                              "https://tools.liom.app/self-medication-step/?secId=" +
+                                              currentItem.id +
+                                              "&stepId=" +
+                                              currentItem.stepId +
+                                              "&style=" +
+                                              currentItem.styleType +
+                                              "&type=" +
+                                              $ctx.query.type +
+                                              "&token=" +
+                                              $ctx.query.token +
+                                              "&inApp=" +
+                                              $ctx.query.inApp +
+                                              "&userId=" +
+                                              $ctx.query.userId +
+                                              "&selectStep=" +
+                                              $state.selectedStep +
+                                              "&version=" +
+                                              $ctx.query.version +
+                                              "&title=" +
+                                              title
+                                            );
+                                          })();
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -2246,15 +2264,35 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               })()
                                 ? (() => {
                                     const actionArgs = {
-                                      args: [
-                                        "error",
-                                        "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f",
-                                        "bottom-center"
-                                      ]
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["directDialog", "open"]
+                                      },
+                                      operation: 4
                                     };
-                                    return $globalActions[
-                                      "Fragment.showToast"
-                                    ]?.apply(null, [...actionArgs.args]);
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
                               if (
@@ -2307,7 +2345,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             "#inAppWebView**@@**" +
                                               currentItem.title +
                                               "|" +
-                                              "هفته " +
+                                              ($ctx.query.type == "danger"
+                                                ? "هفته "
+                                                : "روز ") +
                                               ($state.selectedStep + 1) +
                                               " اُم" +
                                               "**@@**" +
@@ -2642,6 +2682,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             return window.FlutterChannel.postMessage(
                                               "#directDialog-skinCare-sub"
                                             );
+                                          else if (
+                                            $ctx.query.type == "irregular"
+                                          )
+                                            return window.FlutterChannel.postMessage(
+                                              "#directDialog-irregular"
+                                            );
                                         })();
                                       }
                                     };
@@ -2658,35 +2704,41 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               $steps["runCode"] = await $steps["runCode"];
                             }
 
-                            $steps["updateDirectDialogOpen"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["directDialog", "open"]
-                                    },
-                                    operation: 4
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
+                            $steps["updateDirectDialogOpen"] =
+                              $ctx.query.inApp != "true"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["directDialog", "open"]
+                                      },
+                                      operation: 4
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
 
-                                    const oldValue = $stateGet(
-                                      objRoot,
-                                      variablePath
-                                    );
-                                    $stateSet(objRoot, variablePath, !oldValue);
-                                    return !oldValue;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["updateDirectDialogOpen"] != null &&
                               typeof $steps["updateDirectDialogOpen"] ===
@@ -2888,7 +2940,34 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 return;
               }
             }}
+            onSelectShopChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "directDialog",
+                "selectShop"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
             open={generateStateValueProp($state, ["directDialog", "open"])}
+            redirectUrl={(() => {
+              try {
+                return `https://tools.liom.app/shopResult?buyId=${$state.directDialog.selectShop.id}&?offCode=&token=${$ctx.query.token}&redirectUrl=${window.location.href}`;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             token={$ctx.query.token.slice(6, $ctx.query.token.length - 3)}
             type={(() => {
               try {

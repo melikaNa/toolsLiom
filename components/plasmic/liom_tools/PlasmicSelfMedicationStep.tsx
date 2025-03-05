@@ -414,8 +414,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     //   true
                     // else false
 
-                    $ctx.query.type == "danger" &&
-                    ($state?.getData.data[0].title ?? "") != ""
+                    ($state.getData.data?.[0]?.title ?? "") != ""
                   );
                 } catch (e) {
                   if (
@@ -473,7 +472,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   }}
                 >
                   <React.Fragment>
-                    {$state?.getData.data[0].title ?? ""}
+                    {$state.getData.data?.[0]?.title}
                   </React.Fragment>
                 </div>
               ) : null}
@@ -915,6 +914,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             displayMinHeight={"0"}
                             displayMinWidth={"0"}
                             displayWidth={"100%"}
+                            height={"250"}
                             loading={"lazy"}
                             src={
                               (currentItem.cover ?? "") == ""

@@ -151,6 +151,16 @@
       }
     },
     {
+      "name": "Basic/Overlay-Background",
+      "type": "color",
+      "value": "#0A0A0A80",
+      "category": "color",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "Yi5YqU3IyFTB"
+      }
+    },
+    {
       "name": "Basic/Text-Primary",
       "type": "color",
       "value": "#030712",
