@@ -87,12 +87,14 @@ export const PlasmicStepsLayout__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicStepsLayout__ArgsType = {
+  theme?: string;
   children?: React.ReactNode;
   slot2?: React.ReactNode;
   slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicStepsLayout__ArgsType;
 export const PlasmicStepsLayout__ArgProps = new Array<ArgPropType>(
+  "theme",
   "children",
   "slot2",
   "slot"
@@ -103,6 +105,7 @@ export type PlasmicStepsLayout__OverridesType = {
 };
 
 export interface DefaultStepsLayoutProps {
+  theme?: string;
   children?: React.ReactNode;
   slot2?: React.ReactNode;
   slot?: React.ReactNode;
@@ -130,7 +133,9 @@ function PlasmicStepsLayout__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          theme: "dark"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -228,19 +233,59 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox___1ZYr,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
           <div
-            className={classNames(projectcss.all, sty.freeBox__kZOc, "shimmer")}
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__kZOc,
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            )}
           />
 
           <div
             className={classNames(
               projectcss.all,
               sty.freeBox__zl17C,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -248,7 +293,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__oomJc,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -256,7 +313,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__kTujE,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -264,7 +333,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__bMkaS,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -272,7 +353,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__k4Hdp,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
         </Stack__>
@@ -285,7 +378,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__znupa,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -293,7 +398,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__iInvE,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -301,7 +418,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__a8GHw,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -309,7 +438,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__jRhC2,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -322,7 +463,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 sty.freeBox__jJrUq,
-                "shimmer"
+                (() => {
+                  try {
+                    return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
               )}
             />
 
@@ -330,7 +483,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 sty.freeBox__qhJgz,
-                "shimmer"
+                (() => {
+                  try {
+                    return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
               )}
             />
 
@@ -338,7 +503,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 sty.freeBox__bjlpp,
-                "shimmer"
+                (() => {
+                  try {
+                    return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
               )}
             />
           </Stack__>
@@ -352,7 +529,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__aneze,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -360,7 +549,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox___0E2Ps,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -368,7 +569,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__rZfle,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -376,7 +589,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__vx4Wq,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -384,7 +609,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__k3Iik,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -392,7 +629,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__xJbG3,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
 
@@ -400,7 +649,19 @@ function PlasmicStepsLayout__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               sty.freeBox__x711R,
-              "shimmer"
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
             )}
           />
         </Stack__>

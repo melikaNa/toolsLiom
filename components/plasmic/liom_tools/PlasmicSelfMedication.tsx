@@ -1202,7 +1202,21 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__nRced,
-                        "shimmer"
+                        (() => {
+                          try {
+                            return $ctx.query.theme == "dark"
+                              ? "shimmerDark"
+                              : "shimmer";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
                       )}
                     />
                   ) : null}
@@ -2052,7 +2066,21 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__yh9Um,
-                            "shimmer"
+                            (() => {
+                              try {
+                                return $ctx.query.theme == "dark"
+                                  ? "shimmerDark"
+                                  : "shimmer";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
                           )}
                           key={currentIndex}
                         />
@@ -2854,7 +2882,21 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__xObKs,
-                            "shimmer"
+                            (() => {
+                              try {
+                                return $ctx.query.theme == "dark"
+                                  ? "shimmerDark"
+                                  : "shimmer";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
                           )}
                           key={currentIndex}
                         />

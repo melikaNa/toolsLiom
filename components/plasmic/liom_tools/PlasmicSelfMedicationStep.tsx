@@ -1437,6 +1437,19 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   </Stack__>
                 </React.Fragment>
               }
+              theme={(() => {
+                try {
+                  return $ctx.query.theme;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               {(() => {
                 try {
