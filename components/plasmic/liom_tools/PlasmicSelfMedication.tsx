@@ -205,7 +205,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   return parseInt($ctx.query.selectStep);
                 } else {
                   var index;
-                  if ($state.getStep?.data?.todayReady == 1)
+                  if (
+                    $ctx.query.selectStep !== undefined &&
+                    $ctx.query.selectStep != null &&
+                    parseInt($ctx.query.selectStep) >= 0
+                  )
+                    index = parseInt($ctx.query.selectStep);
+                  else if ($state.getStep?.data?.todayReady == 1)
                     index =
                       $state.getStep.data.data.findIndex(
                         item => item.id == $state.getStep?.data?.userStep
@@ -214,6 +220,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     index = $state.getStep.data.data.findIndex(
                       item => item.id == $state.getStep?.data?.userStep
                     );
+                  console.log("index:" + index);
                   return parseInt(index);
                 }
               })();
@@ -676,28 +683,30 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 },
                                 operation: 0,
                                 value: (() => {
+                                  var index;
                                   if (
                                     $ctx.query.selectStep !== undefined &&
                                     $ctx.query.selectStep != null &&
                                     parseInt($ctx.query.selectStep) >= 0
                                   )
-                                    return parseInt($ctx.query.selectStep);
+                                    index = parseInt($ctx.query.selectStep);
                                   else if (
                                     $state.getStep?.data?.todayReady == 1
                                   )
-                                    return (
+                                    index =
                                       $state.getStep.data.data.findIndex(
                                         item =>
                                           item.id ==
                                           $state.getStep?.data?.userStep
-                                      ) + 1
-                                    );
+                                      ) + 1;
                                   else
-                                    return $state.getStep.data.data.findIndex(
+                                    index = $state.getStep.data.data.findIndex(
                                       item =>
                                         item.id ==
                                         $state.getStep?.data?.userStep
                                     );
+                                  console.log("index2:" + index);
+                                  return index;
                                 })()
                               };
                               return (({
