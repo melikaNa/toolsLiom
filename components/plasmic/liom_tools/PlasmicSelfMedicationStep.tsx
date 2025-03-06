@@ -381,7 +381,13 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               }
               slot2={
                 <Icon22Icon
-                  className={classNames(projectcss.all, sty.svg__oSkb7)}
+                  className={classNames(projectcss.all, sty.svg__oSkb7, {
+                    [sty.svgdark__oSkb75Auqx]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
                   onClick={async event => {
                     const $steps = {};
 
