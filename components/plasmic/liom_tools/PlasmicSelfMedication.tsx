@@ -882,9 +882,15 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  console.log("aa1" + $state.selectedStep);
+                                  console.log("aa1-" + $state.selectedStep);
                                   console.log(
-                                    "aa2" + parseInt($ctx.query.selectStep)
+                                    "aa2-" + parseInt($ctx.query.selectStep)
+                                  );
+                                  console.log(
+                                    "aa3-" + $ctx.query.selectStep !==
+                                      undefined &&
+                                      $ctx.query.selectStep != null &&
+                                      parseInt($ctx.query.selectStep) >= 0
                                   );
                                   const list =
                                     document.getElementById("my-scroll-list11");
@@ -1051,33 +1057,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ) {
                           $steps["updateDetailsList2"] = await $steps[
                             "updateDetailsList2"
-                          ];
-                        }
-
-                        $steps["updateDetailsList4"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return console.log(
-                                      "iten loading:" + $state.itemLoading
-                                    );
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateDetailsList4"] != null &&
-                          typeof $steps["updateDetailsList4"] === "object" &&
-                          typeof $steps["updateDetailsList4"].then ===
-                            "function"
-                        ) {
-                          $steps["updateDetailsList4"] = await $steps[
-                            "updateDetailsList4"
                           ];
                         }
                       }).apply(null, eventArgs);
