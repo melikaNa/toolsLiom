@@ -292,7 +292,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
             try {
               return (() => {
                 if ($ctx.query.type == "danger") {
-                  $ctx.query.selectStep;
                   return parseInt($ctx.query.selectStep);
                 } else {
                   var index;
