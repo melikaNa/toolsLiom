@@ -437,7 +437,14 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__gD5Nw
+                  sty.text__gD5Nw,
+                  {
+                    [sty.textdark__gD5Nw5Auqx]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  }
                 )}
                 onClick={async event => {
                   const $steps = {};
@@ -669,27 +676,38 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               })()}
               slot={
                 <React.Fragment>
-                  {(() => {
-                    try {
-                      return (
-                        //($state.getData.data?.[0]?.title ?? '') != ""
-                        false
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return false;
-                      }
-                      throw e;
-                    }
-                  })() ? (
+                  {(
+                    hasVariant($state, "dark", "dark")
+                      ? true
+                      : (() => {
+                          try {
+                            return (
+                              //($state.getData.data?.[0]?.title ?? '') != ""
+                              false
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__r0Nsc
+                        sty.text__r0Nsc,
+                        {
+                          [sty.textdark__r0Nsc5Auqx]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
                       )}
                     >
                       <React.Fragment>
@@ -942,7 +960,14 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox___7IOuu
+                              sty.freeBox___7IOuu,
+                              {
+                                [sty.freeBoxdark___7IOuu5Auqx]: hasVariant(
+                                  $state,
+                                  "dark",
+                                  "dark"
+                                )
+                              }
                             )}
                           >
                             <div
@@ -1047,7 +1072,14 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__vbVG
+                        sty.text__vbVG,
+                        {
+                          [sty.textdark__vbVG5Auqx]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
                       )}
                     >
                       <React.Fragment>
@@ -1137,7 +1169,14 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__fvjK
+                            sty.freeBox__fvjK,
+                            {
+                              [sty.freeBoxdark__fvjK5Auqx]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
                           )}
                           key={currentIndex}
                         >

@@ -372,6 +372,10 @@
     font-size: var(--token-Pqe-w0mkNkCF);
   }
 }
+.textdark__r0Nsc5Auqx {
+  color: var(--token-ieogzVSSyrRx);
+  display: block;
+}
 .lineClomp2:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -527,6 +531,9 @@
   .text__vbVG {
     font-size: var(--token-Pqe-w0mkNkCF);
   }
+}
+.textdark__vbVG5Auqx {
+  color: var(--token-ieogzVSSyrRx);
 }
 .lineClomp3:global(.__wab_instance) {
   max-width: 100%;
