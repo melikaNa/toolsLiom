@@ -2159,7 +2159,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               "&version=" +
                                               $ctx.query.version +
                                               "&title=" +
-                                              title
+                                              title +
+                                              "&theme=" +
+                                              $ctx.query.theme
                                             );
                                           })();
                                         } catch (e) {
@@ -2336,7 +2338,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             "&selectStep=" +
                                             $state.selectedStep +
                                             "&version=" +
-                                            $ctx.query.version;
+                                            $ctx.query.version +
+                                            "&theme=" +
+                                            $ctx.query.theme;
                                           return window.FlutterChannel.postMessage(
                                             "#inAppWebView**@@**" +
                                               currentItem.title +

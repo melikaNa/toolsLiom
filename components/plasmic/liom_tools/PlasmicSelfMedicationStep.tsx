@@ -401,7 +401,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 "&userId=" +
                                 ($ctx?.query?.userId ?? "") +
                                 "&version=" +
-                                $ctx.query.version
+                                $ctx.query.version +
+                                "&theme=" +
+                                $ctx.query.theme
                               );
                             })()
                           };
@@ -457,7 +459,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 "&userId=" +
                                 ($ctx?.query?.userId ?? "") +
                                 "&version=" +
-                                $ctx.query.version
+                                $ctx.query.version +
+                                "&theme=" +
+                                $ctx.query.theme
                               );
                             })();
                           }
