@@ -1445,7 +1445,10 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               }
               theme={(() => {
                 try {
-                  return $ctx.query.theme;
+                  return (
+                    $ctx.query.theme ||
+                    new URLSearchParams(window.location.search).get("theme")
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
