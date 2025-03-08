@@ -2993,14 +2993,18 @@ function PlasmicSelfMedication__RenderFunc(props: {
               (async val => {
                 const $steps = {};
 
-                $steps["invokeGlobalAction"] = $state.directDialog.open
-                  ? (() => {
-                      const actionArgs = { args: [undefined, "sssfsf"] };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
+                $steps["invokeGlobalAction"] =
+                  $ctx.query.userId == "1234213531234"
+                    ? (() => {
+                        const actionArgs = {
+                          args: [undefined, `sssfsf${$state.directDialog.open}`]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
                 if (
                   $steps["invokeGlobalAction"] != null &&
                   typeof $steps["invokeGlobalAction"] === "object" &&
