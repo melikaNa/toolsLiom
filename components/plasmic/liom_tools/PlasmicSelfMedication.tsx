@@ -456,66 +456,84 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   />
                 }
                 slot2={
-                  (() => {
-                    try {
-                      return $ctx.query.token.length > 0;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return false;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <Icon22Icon
-                      className={classNames(projectcss.all, sty.svg__nBoN, {
-                        [sty.svgdarkMod__nBoNTta2T]: hasVariant(
-                          $state,
-                          "darkMod",
-                          "darkMod"
-                        )
-                      })}
-                      onClick={async event => {
-                        const $steps = {};
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__yuiru)}
+                    onClick={async event => {
+                      const $steps = {};
 
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (
-                                    "https://apps.liom.app/pregnancy/?token=+ " +
-                                    $ctx.query.token +
-                                    "&userId=" +
-                                    $ctx.query.userId +
-                                    "&theme=" +
-                                    $ctx.query.theme +
-                                    "&inAp=" +
-                                    $ctx.query.inApp +
-                                    "&inBot" +
-                                    $ctx.query.inBot +
-                                    "&version=" +
-                                    $ctx.query.versio
-                                  );
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.history.back();
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    {(() => {
+                      try {
+                        return $ctx.query.token.length > 0;
+                      } catch (e) {
                         if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          $steps["runCode"] = await $steps["runCode"];
+                          return false;
                         }
-                      }}
-                      role={"img"}
-                    />
-                  ) : null
+                        throw e;
+                      }
+                    })() ? (
+                      <Icon22Icon
+                        className={classNames(projectcss.all, sty.svg__nBoN, {
+                          [sty.svgdarkMod__nBoNTta2T]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          )
+                        })}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return window.history.back();
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                        role={"img"}
+                      />
+                    ) : null}
+                  </div>
                 }
               >
                 <div
@@ -523,59 +541,26 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] = true
+                    $steps["runCode"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return (() => {
-                                  if ($ctx.query.type == "danger")
-                                    return (
-                                      "https://apps.liom.app/pregnancy/?token=+ " +
-                                      $ctx.query.token +
-                                      "&userId=" +
-                                      $ctx.query.userId +
-                                      "&theme=" +
-                                      $ctx.query.theme +
-                                      "&inAp=" +
-                                      $ctx.query.inApp +
-                                      "&inBot" +
-                                      $ctx.query.inBot +
-                                      "&version=" +
-                                      $ctx.query.versio
-                                    );
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
+                            customFunction: async () => {
+                              return (() => {
+                                return window.history.back();
+                              })();
                             }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
                     ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                 >

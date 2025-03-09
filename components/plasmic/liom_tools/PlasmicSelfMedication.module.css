@@ -57,6 +57,20 @@
     grid-column-end: -1 !important;
   }
 }
+.freeBox__yuiru {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  top: auto;
+  left: auto;
+  min-height: 0;
+  padding: 8px;
+}
 .svg__nBoN {
   object-fit: cover;
   max-width: 100%;
@@ -64,9 +78,7 @@
   width: 25px;
   height: 25px;
   display: block;
-  position: relative;
-  top: auto;
-  left: auto;
+  flex-shrink: 0;
 }
 .svgdarkMod__nBoNTta2T {
   color: #ffffff;
