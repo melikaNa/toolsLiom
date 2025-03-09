@@ -12,6 +12,15 @@
   min-width: 0;
   min-height: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .root {
+    height: 100%;
+    width: 100%;
+    justify-self: flex-start;
+    min-width: 0;
+    min-height: 0;
+  }
+}
 .freeBox__wro0 {
   display: flex;
   flex-direction: column;
@@ -29,6 +38,14 @@
   border-radius: 8px;
   padding: 6px 6px 8px;
   border-width: 1px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__wro0 {
+    height: 100%;
+    width: 100%;
+    min-width: 75px;
+    min-height: 75px;
+  }
 }
 .freeBoxclick__wro0Jr0Vt {
   border-style: solid;
@@ -48,6 +65,12 @@
   align-items: flex-end;
   z-index: 5;
   min-width: 95px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__ri8Wv {
+    width: auto;
+    min-width: 75px;
+  }
 }
 .img {
   object-fit: cover;

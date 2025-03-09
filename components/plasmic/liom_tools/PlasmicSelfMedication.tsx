@@ -1225,39 +1225,42 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["runCode"] = true
+                        $steps["updateDirectDialogOpen"] = true
                           ? (() => {
                               const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    const list =
-                                      document.getElementById("my-scroll-list");
-                                    const fourthItem =
-                                      list.children[$state.selectedStep];
-                                    if (fourthItem) {
-                                      const itemPosition =
-                                        fourthItem.offsetLeft -
-                                        list.offsetWidth * 0.35 +
-                                        fourthItem.offsetWidth / 2;
-                                      return list.scrollTo({
-                                        left: itemPosition,
-                                        behavior: "smooth"
-                                      });
-                                    }
-                                  })();
-                                }
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["directDialog", "open"]
+                                },
+                                operation: 0,
+                                value: true
                               };
-                              return (({ customFunction }) => {
-                                return customFunction();
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                         if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
+                          $steps["updateDirectDialogOpen"] != null &&
+                          typeof $steps["updateDirectDialogOpen"] ===
+                            "object" &&
+                          typeof $steps["updateDirectDialogOpen"].then ===
+                            "function"
                         ) {
-                          $steps["runCode"] = await $steps["runCode"];
+                          $steps["updateDirectDialogOpen"] = await $steps[
+                            "updateDirectDialogOpen"
+                          ];
                         }
                       }}
                       src={(() => {
@@ -3089,18 +3092,16 @@ function PlasmicSelfMedication__RenderFunc(props: {
               (async val => {
                 const $steps = {};
 
-                $steps["invokeGlobalAction"] =
-                  $ctx.query.userId == "1234213531234"
-                    ? (() => {
-                        const actionArgs = {
-                          args: [undefined, `sssfsf${$state.directDialog.open}`]
-                        };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [undefined, `sssfsf${$state.directDialog.open}`]
+                      };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
                 if (
                   $steps["invokeGlobalAction"] != null &&
                   typeof $steps["invokeGlobalAction"] === "object" &&

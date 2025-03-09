@@ -85,6 +85,7 @@ import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSD
 import Icon153Icon from "./icons/PlasmicIcon__Icon153"; // plasmic-import: 8DNj9ESCY80y/icon
 import Icon156Icon from "./icons/PlasmicIcon__Icon156"; // plasmic-import: 0H63FcZWihXr/icon
 import Icon155Icon from "./icons/PlasmicIcon__Icon155"; // plasmic-import: a_FmExMhN0OI/icon
+import Icon104Icon from "./icons/PlasmicIcon__Icon104"; // plasmic-import: kIvBdNtH0rBG/icon
 
 createPlasmicElementProxy;
 
@@ -108,6 +109,8 @@ export type PlasmicTest__OverridesType = {
   button7?: Flex__<typeof ButtonLiom>;
   switchbest?: Flex__<typeof Switchbest>;
   img?: Flex__<typeof PlasmicImg__>;
+  card15?: Flex__<"div">;
+  button9?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultTestProps {}
@@ -179,6 +182,11 @@ function PlasmicTest__RenderFunc(props: {
         path: "switchbest[].isChecked",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "button9[].color",
+        type: "private",
+        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -778,6 +786,129 @@ function PlasmicTest__RenderFunc(props: {
               }}
             />
           </Stack__>
+          <div className={classNames(projectcss.all, sty.freeBox__paCXs)}>
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              []
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"card15"}
+                  data-plasmic-override={overrides.card15}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.card15)}
+                  key={currentIndex}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___39Cwv
+                    )}
+                    style={(() => {
+                      try {
+                        return {
+                          color: currentItem.textColor
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return currentItem.text;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u062c\u0646\u0633\u06cc ";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  {(() => {
+                    const child$Props = {
+                      className: classNames("__wab_instance", sty.button9),
+                      color: generateStateValueProp($state, [
+                        "button9",
+                        __plasmic_idx_0,
+                        "color"
+                      ]),
+                      endIcon: (
+                        <Icon104Icon
+                          className={classNames(projectcss.all, sty.svg__ug4SD)}
+                          role={"img"}
+                        />
+                      ),
+
+                      onColorChange: async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button9",
+                            __plasmic_idx_0,
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      },
+                      showEndIcon: true,
+                      size: "minimal"
+                    };
+
+                    initializePlasmicStates(
+                      $state,
+                      [
+                        {
+                          name: "button9[].color",
+                          initFunc: ({ $props, $state, $queries }) => undefined
+                        }
+                      ],
+                      [__plasmic_idx_0]
+                    );
+                    return (
+                      <ButtonLiom
+                        data-plasmic-name={"button9"}
+                        data-plasmic-override={overrides.button9}
+                        {...child$Props}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__mjh9P
+                          )}
+                        >
+                          {
+                            "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                          }
+                        </div>
+                      </ButtonLiom>
+                    );
+                  })()}
+                </Stack__>
+              );
+            })}
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -795,7 +926,9 @@ const PlasmicDescendants = {
     "button6",
     "button7",
     "switchbest",
-    "img"
+    "img",
+    "card15",
+    "button9"
   ],
   htmlVideo: ["htmlVideo"],
   paziresh24LineClamp: ["paziresh24LineClamp"],
@@ -805,7 +938,9 @@ const PlasmicDescendants = {
   button6: ["button6"],
   button7: ["button7"],
   switchbest: ["switchbest"],
-  img: ["img"]
+  img: ["img"],
+  card15: ["card15", "button9"],
+  button9: ["button9"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -821,6 +956,8 @@ type NodeDefaultElementType = {
   button7: typeof ButtonLiom;
   switchbest: typeof Switchbest;
   img: typeof PlasmicImg__;
+  card15: "div";
+  button9: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -917,6 +1054,8 @@ export const PlasmicTest = Object.assign(
     button7: makeNodeComponent("button7"),
     switchbest: makeNodeComponent("switchbest"),
     img: makeNodeComponent("img"),
+    card15: makeNodeComponent("card15"),
+    button9: makeNodeComponent("button9"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,
