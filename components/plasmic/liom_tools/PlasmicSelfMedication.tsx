@@ -518,67 +518,163 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   ) : null
                 }
               >
-                {(() => {
-                  try {
-                    return (() => {
-                      if (($state.getStep?.data?.info?.name ?? "") != "")
-                        return true;
-                      else return false;
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__cOzkv,
-                      {
-                        [sty.textdarkMod__cOzkvtta2T]: hasVariant(
-                          $state,
-                          "darkMod",
-                          "darkMod"
-                        )
-                      }
-                    )}
-                    onClick={async event => {
-                      const $steps = {};
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__mbOMj)}
+                  onClick={async event => {
+                    const $steps = {};
 
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
                                 return (() => {
-                                  return console.log("ddd");
+                                  if ($ctx.query.type == "danger")
+                                    return (
+                                      "https://apps.liom.app/pregnancy/?token=+ " +
+                                      $ctx.query.token +
+                                      "&userId=" +
+                                      $ctx.query.userId +
+                                      "&theme=" +
+                                      $ctx.query.theme +
+                                      "&inAp=" +
+                                      $ctx.query.inApp +
+                                      "&inBot" +
+                                      $ctx.query.inBot +
+                                      "&version=" +
+                                      $ctx.query.versio
+                                    );
                                 })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
                               }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
+                >
+                  {(() => {
+                    try {
+                      return (() => {
+                        if (($state.getStep?.data?.info?.name ?? "") != "")
+                          return true;
+                        else return false;
+                      })();
+                    } catch (e) {
                       if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                        return false;
                       }
-                    }}
-                  >
-                    <React.Fragment>
-                      {$state.getStep?.data?.info?.name ?? ""}
-                    </React.Fragment>
-                  </div>
-                ) : null}
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__cOzkv,
+                        {
+                          [sty.textdarkMod__cOzkvtta2T]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          )
+                        }
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return (() => {
+                                      if ($ctx.query.type == "danger")
+                                        return (
+                                          "https://apps.liom.app/pregnancy/?token=+ " +
+                                          $ctx.query.token +
+                                          "&userId=" +
+                                          $ctx.query.userId +
+                                          "&theme=" +
+                                          $ctx.query.theme +
+                                          "&inAp=" +
+                                          $ctx.query.inApp +
+                                          "&inBot" +
+                                          $ctx.query.inBot +
+                                          "&version=" +
+                                          $ctx.query.versio
+                                        );
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                    >
+                      <React.Fragment>
+                        {$state.getStep?.data?.info?.name ?? ""}
+                      </React.Fragment>
+                    </div>
+                  ) : null}
+                </div>
               </HeaderLiom>
             ) : null}
             <div

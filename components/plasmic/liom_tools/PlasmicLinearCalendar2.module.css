@@ -1,7 +1,7 @@
 .root {
   display: flex;
-  width: 95px;
-  height: 95px;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   position: relative;
   flex-direction: column;
@@ -9,12 +9,13 @@
   align-items: center;
   justify-content: flex-start;
   justify-self: flex-start;
-  padding: 0px;
+  min-width: 0;
+  min-height: 0;
 }
 .freeBox__wro0 {
   display: flex;
   flex-direction: column;
-  width: 95px;
+  width: 100%;
   height: 100%;
   max-width: 100%;
   justify-content: center;
@@ -23,9 +24,10 @@
   position: relative;
   left: auto;
   top: auto;
-  min-height: 0;
+  min-height: 95px;
+  min-width: 95px;
   border-radius: 8px;
-  padding: 2px;
+  padding: 6px 6px 8px;
   border-width: 1px;
 }
 .freeBoxclick__wro0Jr0Vt {
@@ -45,7 +47,7 @@
   justify-content: flex-start;
   align-items: flex-end;
   z-index: 5;
-  min-width: 0;
+  min-width: 95px;
 }
 .img {
   object-fit: cover;
@@ -143,6 +145,8 @@
   right: auto;
   text-align: center;
   color: #535353;
+  white-space: pre;
+  line-height: 1.1;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__lLzEd {

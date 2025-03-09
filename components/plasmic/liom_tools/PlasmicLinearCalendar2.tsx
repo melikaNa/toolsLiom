@@ -355,7 +355,10 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
               { [sty.textdark__lLzEdRiNjQ]: hasVariant($state, "dark", "dark") }
             )}
           >
-            <React.Fragment>{$props.title}</React.Fragment>
+            <div
+              className={projectcss.__wab_expr_html_text}
+              dangerouslySetInnerHTML={{ __html: $props.title }}
+            />
           </div>
         </Stack__>
         {(() => {
