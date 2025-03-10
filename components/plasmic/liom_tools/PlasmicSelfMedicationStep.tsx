@@ -1991,7 +1991,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     const $steps = {};
 
                     $steps["invokeGlobalAction2"] =
-                      $ctx.query.inApp != "true"
+                      $ctx.query.inApp != "true" || true
                         ? (() => {
                             const actionArgs = {
                               args: [
@@ -2017,8 +2017,16 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     }
 
                     $steps["runCode"] =
-                      $ctx.query.inApp == "true"
-                        ? (() => {
+                      // const params = new URLSearchParams(window.location.search);
+                      // if (params.has("version")) {
+                      //   if($ctx.query.inApp == 'true' && )
+                      //     console.log("stepId موجود است:", params.get("stepId"));
+                      // } else {
+                      //     false
+                      // }
+                      false
+                        ? //$ctx.query.version
+                          (() => {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
