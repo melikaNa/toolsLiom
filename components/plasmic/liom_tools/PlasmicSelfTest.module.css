@@ -263,6 +263,11 @@
   height: auto;
   min-width: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .testOptionsLiom:global(.__wab_instance) {
+    display: flex;
+  }
+}
 .text__m0ODd {
   text-align: right;
   width: 100%;
@@ -1548,9 +1553,9 @@
   max-width: 100%;
   outline-color: var(--token-QR8ATjORhQqO);
   outline-style: solid;
-  outline-width: 0.1rem;
+  outline-width: 1px;
   min-width: 0;
-  border-radius: var(--token-3WxvfyIdJppy);
+  border-radius: 8px;
   padding: 0px;
 }
 .freeBox__tUzJ {
@@ -1587,7 +1592,7 @@
   min-width: 0;
   min-height: 0;
   border-radius: var(--token-3WxvfyIdJppy) var(--token-3WxvfyIdJppy) 0px 0px;
-  padding: var(--token-6eH8UjLOmr7v) var(--token-KVcr9NiMwFLr);
+  padding: 16px 8px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__yczG4 {

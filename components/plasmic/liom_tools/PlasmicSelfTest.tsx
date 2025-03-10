@@ -505,7 +505,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "variable3",
@@ -632,7 +632,8 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "dialog2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobileOnly") ? false : false
       },
       {
         path: "buttonLiom5.color",
@@ -2207,29 +2208,55 @@ function PlasmicSelfTest__RenderFunc(props: {
               direction={"up"}
               triggerOnce={true}
             >
-              {(() => {
-                try {
-                  return (
-                    $state.testChat[$state.testChat.length - 1].options !=
-                      null &&
-                    !(
-                      $state.variable.question?.lock == 1 &&
-                      $state.orginNotLook &&
-                      $state.buy == false
-                    ) &&
-                    $state.nextQuesionId != -1 &&
-                    $state.status == ""
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
+              {(
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? (() => {
+                      try {
+                        return (
+                          $state.testChat[$state.testChat.length - 1].options !=
+                            null &&
+                          !(
+                            $state.variable.question?.lock == 1 &&
+                            $state.orginNotLook &&
+                            $state.buy == false
+                          ) &&
+                          $state.nextQuesionId != -1 &&
+                          $state.status == ""
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : (() => {
+                      try {
+                        return (
+                          $state.testChat[$state.testChat.length - 1].options !=
+                            null &&
+                          !(
+                            $state.variable.question?.lock == 1 &&
+                            $state.orginNotLook &&
+                            $state.buy == false
+                          ) &&
+                          $state.nextQuesionId != -1 &&
+                          $state.status == ""
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()
+              ) ? (
                 <TestOptionsLiom
                   data-plasmic-name={"testOptionsLiom"}
                   data-plasmic-override={overrides.testOptionsLiom}
@@ -2247,6 +2274,45 @@ function PlasmicSelfTest__RenderFunc(props: {
                     }
                   })()}
                   buy={false}
+                  buyClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDialog2Open"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dialog2", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDialog2Open"] != null &&
+                      typeof $steps["updateDialog2Open"] === "object" &&
+                      typeof $steps["updateDialog2Open"].then === "function"
+                    ) {
+                      $steps["updateDialog2Open"] = await $steps[
+                        "updateDialog2Open"
+                      ];
+                    }
+                  }}
                   className={classNames("__wab_instance", sty.testOptionsLiom, {
                     [sty.testOptionsLiomglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
                       hasVariant(
