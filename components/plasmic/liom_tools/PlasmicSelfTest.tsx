@@ -3267,7 +3267,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return true;
+                          return false;
                         }
                         throw e;
                       }
@@ -3528,7 +3528,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                                         "https://n8n.staas.ir/webhook/selfTestPayment",
                                       extraData: {
                                         user_id: $state.userId,
-                                        session_id: $state.sessionId
+                                        session_id: $state.sessionId,
+                                        type: $ctx.query.type
                                       },
                                       redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}&inApp=${$ctx.query.inApp}`
                                     };
@@ -3719,7 +3720,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return true;
+                          return false;
                         }
                         throw e;
                       }
