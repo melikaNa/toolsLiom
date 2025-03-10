@@ -2808,6 +2808,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             return window.FlutterChannel.postMessage(
                                               "#directDialog-irregular"
                                             );
+                                          else if (
+                                            $ctx.query.type == "stretch_marks"
+                                          )
+                                            return window.FlutterChannel.postMessage(
+                                              "#directDialog-stretch_marks_sub"
+                                            );
                                         })();
                                       }
                                     };
@@ -3186,6 +3192,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       return "pregnancy_danger_sub";
                     case "irregular":
                       return "irregular";
+                    case "stretch_marks":
+                      return "stretch_marks_sub";
                   }
                 })();
               } catch (e) {
