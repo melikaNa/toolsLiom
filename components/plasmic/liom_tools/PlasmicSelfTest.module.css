@@ -1644,6 +1644,11 @@
   white-space: pre-wrap;
   min-width: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__xjXfU {
+    font-size: 16px;
+  }
+}
 .text__nYbpm {
   position: relative;
   width: 100%;
@@ -1660,6 +1665,11 @@
   letter-spacing: normal;
   white-space: pre-wrap;
   min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__nYbpm {
+    font-size: 14px;
+  }
 }
 .freeBox__q6Dc0 {
   display: flex;
@@ -1802,6 +1812,12 @@
   text-decoration-line: none;
   text-overflow: clip;
   min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__j7Ur4 {
+    font-size: 14px;
+    align-self: center;
+  }
 }
 .freeBox__zXKx {
   display: flex;

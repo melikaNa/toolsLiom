@@ -6577,7 +6577,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       (() => {
                                         try {
                                           return {
-                                            merchantID: $state.shopId,
+                                            merchantID:
+                                              "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
+                                            id: $state.shopId,
                                             amount:
                                               $state.shop.data.result.price,
                                             type: "selfTest",
@@ -6591,7 +6593,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                               session_id: $state.sessionId,
                                               type: $ctx.query.type
                                             },
-                                            redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&nextQuesion_id=${$state.nextQuesionId}&session_id=${$state.sessionId}&inApp=${$ctx.query.inApp}`
+                                            redirectUrl: `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&session_id=${$state.sessionId}&inApp=${$ctx.query.inApp}`
                                           };
                                         } catch (e) {
                                           if (
