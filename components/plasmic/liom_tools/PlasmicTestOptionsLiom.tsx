@@ -797,7 +797,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           return (
             $props.app !== "liom" &&
             ($props.ferst === false ||
-              ($props.ferst === true && $props.retestTest === false))
+              ($props.ferst === true && $props.retestTest === false)) &&
+            !$props.buy
           );
         } catch (e) {
           if (
@@ -876,7 +877,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           return (
             $props.app == "liom" &&
             ($props.ferst === false ||
-              ($props.ferst === true && $props.retestTest === false))
+              ($props.ferst === true && $props.retestTest === false)) &&
+            !$props.buy
           );
         } catch (e) {
           if (
