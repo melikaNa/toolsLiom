@@ -1444,10 +1444,6 @@
   max-width: 100%;
   object-fit: cover;
 }
-.shop:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .favicon:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -1513,6 +1509,10 @@
   width: 100%;
   text-align: right;
   min-width: 0;
+}
+.shop:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }
 .freeBox___8NHr8 {
   display: flex;

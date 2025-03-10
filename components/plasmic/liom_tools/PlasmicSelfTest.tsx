@@ -135,11 +135,11 @@ export type PlasmicSelfTest__OverridesType = {
   user?: Flex__<typeof ApiRequest>;
   timer?: Flex__<typeof Timer>;
   embedHtml?: Flex__<typeof Embed>;
-  shop?: Flex__<typeof ApiRequest>;
   favicon?: Flex__<typeof Embed>;
   dialog?: Flex__<typeof Paziresh24Dialog>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   dialog2?: Flex__<typeof Paziresh24Dialog>;
+  shop?: Flex__<typeof ApiRequest>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
   img?: Flex__<typeof PlasmicImg__>;
   input4?: Flex__<typeof AntdInput>;
@@ -2255,7 +2255,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return true;
+                          return false;
                         }
                         throw e;
                       }
@@ -2300,7 +2300,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                       throw e;
                     }
                   })()}
-                  buy={true}
+                  buy={false}
                   buyClick={async event => {
                     const $steps = {};
 
@@ -5725,107 +5725,6 @@ function PlasmicSelfTest__RenderFunc(props: {
             }
           />
 
-          <ApiRequest
-            data-plasmic-name={"shop"}
-            data-plasmic-override={overrides.shop}
-            body={(() => {
-              try {
-                return {
-                  shopId: $state.shopId
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            className={classNames("__wab_instance", sty.shop)}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"POST"}
-            onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["shop", "error"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["shop", "loading"]).apply(
-                null,
-                eventArgs
-              );
-            }}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["shop", "data"]).apply(
-                null,
-                eventArgs
-              );
-
-              (async data => {
-                const $steps = {};
-
-                $steps["invokeGlobalAction"] = true
-                  ? (() => {
-                      const actionArgs = { args: [2000] };
-                      return $globalActions["Fragment.wait"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["invokeGlobalAction"] != null &&
-                  typeof $steps["invokeGlobalAction"] === "object" &&
-                  typeof $steps["invokeGlobalAction"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
-                }
-
-                $steps["updateLoading"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["loading"]
-                        },
-                        operation: 0,
-                        value:
-                          $steps.invokeGlobalAction?.data?.success == true ||
-                          $steps.invokeGlobalAction4?.data?.success == true
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateLoading"] != null &&
-                  typeof $steps["updateLoading"] === "object" &&
-                  typeof $steps["updateLoading"].then === "function"
-                ) {
-                  $steps["updateLoading"] = await $steps["updateLoading"];
-                }
-              }).apply(null, eventArgs);
-            }}
-            url={"https://n8n.staas.ir/webhook/selfTest/shop"}
-          />
-
           <Embed
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
@@ -6081,6 +5980,110 @@ function PlasmicSelfTest__RenderFunc(props: {
             data-plasmic-override={overrides.dialog2}
             body={
               <React.Fragment>
+                <ApiRequest
+                  data-plasmic-name={"shop"}
+                  data-plasmic-override={overrides.shop}
+                  body={(() => {
+                    try {
+                      return {
+                        shopId: $state.shopId
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  className={classNames("__wab_instance", sty.shop)}
+                  errorDisplay={null}
+                  loadingDisplay={null}
+                  method={"POST"}
+                  onError={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, ["shop", "error"]).apply(
+                      null,
+                      eventArgs
+                    );
+                  }}
+                  onLoading={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shop",
+                      "loading"
+                    ]).apply(null, eventArgs);
+                  }}
+                  onSuccess={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, ["shop", "data"]).apply(
+                      null,
+                      eventArgs
+                    );
+
+                    (async data => {
+                      const $steps = {};
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = { args: [2000] };
+                            return $globalActions["Fragment.wait"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateLoading"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loading"]
+                              },
+                              operation: 0,
+                              value:
+                                $steps.invokeGlobalAction?.data?.success ==
+                                  true ||
+                                $steps.invokeGlobalAction4?.data?.success ==
+                                  true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoading"] != null &&
+                        typeof $steps["updateLoading"] === "object" &&
+                        typeof $steps["updateLoading"].then === "function"
+                      ) {
+                        $steps["updateLoading"] = await $steps["updateLoading"];
+                      }
+                    }).apply(null, eventArgs);
+                  }}
+                  url={"https://n8n.staas.ir/webhook/selfTest/shop"}
+                />
+
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -7047,11 +7050,11 @@ const PlasmicDescendants = {
     "user",
     "timer",
     "embedHtml",
-    "shop",
     "favicon",
     "dialog",
     "buttonLiom3",
     "dialog2",
+    "shop",
     "buttonLiom5",
     "img",
     "input4",
@@ -7079,11 +7082,19 @@ const PlasmicDescendants = {
   user: ["user"],
   timer: ["timer"],
   embedHtml: ["embedHtml"],
-  shop: ["shop"],
   favicon: ["favicon"],
   dialog: ["dialog", "buttonLiom3"],
   buttonLiom3: ["buttonLiom3"],
-  dialog2: ["dialog2", "buttonLiom5", "img", "input4", "button12", "button8"],
+  dialog2: [
+    "dialog2",
+    "shop",
+    "buttonLiom5",
+    "img",
+    "input4",
+    "button12",
+    "button8"
+  ],
+  shop: ["shop"],
   buttonLiom5: ["buttonLiom5"],
   img: ["img"],
   input4: ["input4"],
@@ -7111,11 +7122,11 @@ type NodeDefaultElementType = {
   user: typeof ApiRequest;
   timer: typeof Timer;
   embedHtml: typeof Embed;
-  shop: typeof ApiRequest;
   favicon: typeof Embed;
   dialog: typeof Paziresh24Dialog;
   buttonLiom3: typeof ButtonLiom;
   dialog2: typeof Paziresh24Dialog;
+  shop: typeof ApiRequest;
   buttonLiom5: typeof ButtonLiom;
   img: typeof PlasmicImg__;
   input4: typeof AntdInput;
@@ -7224,11 +7235,11 @@ export const PlasmicSelfTest = Object.assign(
     user: makeNodeComponent("user"),
     timer: makeNodeComponent("timer"),
     embedHtml: makeNodeComponent("embedHtml"),
-    shop: makeNodeComponent("shop"),
     favicon: makeNodeComponent("favicon"),
     dialog: makeNodeComponent("dialog"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     dialog2: makeNodeComponent("dialog2"),
+    shop: makeNodeComponent("shop"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
     img: makeNodeComponent("img"),
     input4: makeNodeComponent("input4"),
