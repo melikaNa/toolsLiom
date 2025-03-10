@@ -3142,30 +3142,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
               ) {
                 return;
               }
-
-              (async val => {
-                const $steps = {};
-
-                $steps["invokeGlobalAction"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [undefined, `sssfsf${$state.directDialog.open}`]
-                      };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["invokeGlobalAction"] != null &&
-                  typeof $steps["invokeGlobalAction"] === "object" &&
-                  typeof $steps["invokeGlobalAction"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
-                }
-              }).apply(null, eventArgs);
             }}
             onSelectShopChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
