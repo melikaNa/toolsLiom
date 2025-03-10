@@ -439,7 +439,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "buttonLiom2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "yellow"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "sand"
       }
     ],
     [$props, $ctx, $refs]
@@ -1757,95 +1757,98 @@ function PlasmicResult__RenderFunc(props: {
                   </Stack__>
                 ) : null}
               </div>
-              <ButtonLiom
-                data-plasmic-name={"buttonLiom2"}
-                data-plasmic-override={overrides.buttonLiom2}
-                className={classNames("__wab_instance", sty.buttonLiom2, {
-                  [sty.buttonLiom2global_theme_dark]: hasVariant(
-                    globalVariants,
-                    "theme",
-                    "dark"
-                  )
-                })}
-                color={generateStateValueProp($state, ["buttonLiom2", "color"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return `/self-test?user_id=${$ctx.query.user_id}&type=${$ctx.query.type}&app=${$ctx.query.app}&inApp=${$ctx.query.inApp}`;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+              {(() => {
+                try {
+                  return window.history?.length != 0;
+                } catch (e) {
                   if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
+                    return true;
                   }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["buttonLiom2", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                showStartIcon={true}
-                size={"compact"}
-                startIcon={
-                  <Icon136Icon
-                    className={classNames(projectcss.all, sty.svg__zPal3)}
-                    role={"img"}
-                  />
+                  throw e;
                 }
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__z8C5
-                  )}
-                >
-                  {
-                    "\u0627\u06af\u0631 \u067e\u0627\u0633\u062e\u200c\u0647\u0627\u06cc \u0642\u0628\u0644\u06cc \u062f\u0642\u06cc\u0642 \u0646\u0628\u0648\u062f\u0646\u062f \u062a\u0633\u062a \u0631\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u06a9\u0631\u0627\u0631 \u06a9\u0646\u06cc\u062f."
+              })() ? (
+                <ButtonLiom
+                  data-plasmic-name={"buttonLiom2"}
+                  data-plasmic-override={overrides.buttonLiom2}
+                  className={classNames("__wab_instance", sty.buttonLiom2, {
+                    [sty.buttonLiom2global_theme_dark]: hasVariant(
+                      globalVariants,
+                      "theme",
+                      "dark"
+                    )
+                  })}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom2",
+                    "color"
+                  ])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                window.history.back();
+                                return setTimeout(() => {
+                                  location.reload();
+                                }, 100);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom2",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  size={"compact"}
+                  startIcon={
+                    <Icon136Icon
+                      className={classNames(projectcss.all, sty.svg__zPal3)}
+                      role={"img"}
+                    />
                   }
-                </div>
-              </ButtonLiom>
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__z8C5
+                    )}
+                  >
+                    {
+                      " \u0627\u0646\u062c\u0627\u0645 \u0645\u062c\u062f\u062f \u062a\u0633\u062a\r"
+                    }
+                  </div>
+                </ButtonLiom>
+              ) : null}
             </Stack__>
           ) : null}
           {(() => {
