@@ -981,177 +981,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["updateTestChat5"] = await $steps["updateTestChat5"];
               }
 
-              $steps["invokeGlobalAction"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "GET",
-                        "https://n8n.staas.ir/webhook/addUserSelfTest",
-                        (() => {
-                          try {
-                            return {
-                              type:
-                                $ctx.query.type ||
-                                new URLSearchParams(window.location.search).get(
-                                  "type"
-                                )
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
-              }
-
-              $steps["updateTestChat6"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["shopId"]
-                      },
-                      operation: 0,
-                      value: $steps.invokeGlobalAction?.data?.shopId
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateTestChat6"] != null &&
-                typeof $steps["updateTestChat6"] === "object" &&
-                typeof $steps["updateTestChat6"].then === "function"
-              ) {
-                $steps["updateTestChat6"] = await $steps["updateTestChat6"];
-              }
-
-              $steps["updateTestChat7"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["free"]
-                      },
-                      operation: 0,
-                      value: $steps.invokeGlobalAction?.data?.free
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateTestChat7"] != null &&
-                typeof $steps["updateTestChat7"] === "object" &&
-                typeof $steps["updateTestChat7"].then === "function"
-              ) {
-                $steps["updateTestChat7"] = await $steps["updateTestChat7"];
-              }
-
-              $steps["updateTestChat"] = $steps.invokeGlobalAction?.data
-                ?.festText
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["testChat"]
-                      },
-                      operation: 0,
-                      value: (() => {
-                        if (
-                          $ctx.query.nextQuesion_id == "" ||
-                          $ctx.query.nextQuesion_id == null
-                        ) {
-                          return JSON.parse(
-                            $steps.invokeGlobalAction.data.festText
-                          );
-                        } else {
-                          return JSON.parse(localStorage.getItem("test"));
-                        }
-                      })()
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateTestChat"] != null &&
-                typeof $steps["updateTestChat"] === "object" &&
-                typeof $steps["updateTestChat"].then === "function"
-              ) {
-                $steps["updateTestChat"] = await $steps["updateTestChat"];
-              }
-
-              $steps["updateTestChat2"] = $steps.invokeGlobalAction?.data
-                ?.numberOfquestion
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["totalTest"]
-                      },
-                      operation: 0,
-                      value: $steps.invokeGlobalAction?.data?.numberOfquestion
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateTestChat2"] != null &&
-                typeof $steps["updateTestChat2"] === "object" &&
-                typeof $steps["updateTestChat2"].then === "function"
-              ) {
-                $steps["updateTestChat2"] = await $steps["updateTestChat2"];
-              }
-
               $steps["selfTestUser"] =
                 !localStorage.getItem("user_id") &&
                 new URLSearchParams(window.location.search).get("origin") ===
@@ -1292,6 +1121,179 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["localStorag"] = await $steps["localStorag"];
               }
 
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "GET",
+                        "https://n8n.staas.ir/webhook/addUserSelfTest",
+                        (() => {
+                          try {
+                            return {
+                              type:
+                                $ctx.query.type ||
+                                new URLSearchParams(window.location.search).get(
+                                  "type"
+                                ),
+                              user_id: localStorage.getItem("user_id")
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateTestChat6"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["shopId"]
+                      },
+                      operation: 0,
+                      value: $steps.invokeGlobalAction?.data?.info?.shopId
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat6"] != null &&
+                typeof $steps["updateTestChat6"] === "object" &&
+                typeof $steps["updateTestChat6"].then === "function"
+              ) {
+                $steps["updateTestChat6"] = await $steps["updateTestChat6"];
+              }
+
+              $steps["updateTestChat2"] = $steps.invokeGlobalAction?.data?.info
+                ?.numberOfquestion
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["totalTest"]
+                      },
+                      operation: 0,
+                      value:
+                        $steps.invokeGlobalAction?.data?.info.numberOfquestion
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat2"] != null &&
+                typeof $steps["updateTestChat2"] === "object" &&
+                typeof $steps["updateTestChat2"].then === "function"
+              ) {
+                $steps["updateTestChat2"] = await $steps["updateTestChat2"];
+              }
+
+              $steps["updateTestChat7"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["free"]
+                      },
+                      operation: 0,
+                      value: $steps.invokeGlobalAction?.data?.canStart
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat7"] != null &&
+                typeof $steps["updateTestChat7"] === "object" &&
+                typeof $steps["updateTestChat7"].then === "function"
+              ) {
+                $steps["updateTestChat7"] = await $steps["updateTestChat7"];
+              }
+
+              $steps["updateTestChat"] = $steps.invokeGlobalAction?.data?.info
+                ?.festText
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["testChat"]
+                      },
+                      operation: 0,
+                      value: (() => {
+                        if (
+                          $ctx.query.nextQuesion_id == "" ||
+                          $ctx.query.nextQuesion_id == null
+                        ) {
+                          return JSON.parse(
+                            $steps.invokeGlobalAction.data.info.festText
+                          );
+                        } else {
+                          return JSON.parse(localStorage.getItem("test"));
+                        }
+                      })()
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat"] != null &&
+                typeof $steps["updateTestChat"] === "object" &&
+                typeof $steps["updateTestChat"].then === "function"
+              ) {
+                $steps["updateTestChat"] = await $steps["updateTestChat"];
+              }
+
               $steps["retestTest"] =
                 $state.retestTest == false
                   ? (() => {
@@ -1397,11 +1399,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                             ) ||
                             "";
                           if (
-                            $steps.invokeGlobalAction?.data?.numberOfquestion
+                            $steps.invokeGlobalAction?.data?.info
+                              .numberOfquestion
                           ) {
                             $state.totalTest =
-                              $steps.invokeGlobalAction?.data
-                                ?.numberOfquestion || 35;
+                              $steps.invokeGlobalAction?.data?.info
+                                .numberOfquestion || 35;
                             $state.numberTest = 0;
                             if (
                               $ctx.query.nextQuesion_id != null &&
@@ -6024,7 +6027,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0627\u0632 \u062e\u0631\u06cc\u062f\u062a \u0645\u0645\u0646\u0648\u0646\u06cc\u0645! \u06af\u0641\u062a\u06af\u0648 \u0641\u0639\u0627\u0644 \u0634\u062f \u0648 \u062d\u0627\u0644\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0627 \u062e\u06cc\u0627\u0644 \u0631\u0627\u062d\u062a \u062f\u0644\u06cc\u0644 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0631\u0648 \u067e\u06cc\u062f\u0627 \u06a9\u0646\u06cc \u0648 \u0628\u0647 \u0633\u0644\u0627\u0645\u062a\u06cc \u062e\u0648\u062f\u062a \u0631\u0633\u06cc\u062f\u06af\u06cc \u06a9\u0646\u06cc."
+                        "\u0627\u0632 \u062e\u0631\u06cc\u062f\u062a \u0645\u0645\u0646\u0648\u0646\u06cc\u0645! \u06af\u0641\u062a\u06af\u0648 \u0641\u0639\u0627\u0644 \u0634\u062f \u0648 \u062d\u0627\u0644\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647 \u0633\u0648\u0627\u0644\u0627\u062a\u062a \u062f\u0631\u0628\u0627\u0631\u0647 \u0633\u0644\u0627\u0645\u062a \u0648 \u0628\u062f\u0646\u062a \u067e\u0627\u0633\u062e \u0628\u062f\u06cc \u0648  \u0628\u0647 \u0633\u0644\u0627\u0645\u062a\u06cc \u062e\u0648\u062f\u062a \u0631\u0633\u06cc\u062f\u06af\u06cc \u06a9\u0646\u06cc."
                       }
                     </div>
                     <div
