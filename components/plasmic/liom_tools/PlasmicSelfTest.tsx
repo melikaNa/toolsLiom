@@ -5959,7 +5959,9 @@ function PlasmicSelfTest__RenderFunc(props: {
               params={(() => {
                 try {
                   return {
-                    session_id: $state.sessionId,
+                    type:
+                      $ctx.query.type ||
+                      new URLSearchParams(window.location.search).get("type"),
                     user_id: $state.userId
                   };
                 } catch (e) {
