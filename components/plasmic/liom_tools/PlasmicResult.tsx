@@ -1032,17 +1032,6 @@ function PlasmicResult__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__tz4Er
-                )}
-              >
-                {
-                  "\u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627\u060c \u062a\u0634\u062e\u06cc\u0635 \u0645\u0627 \u0628\u0647 \u0635\u0648\u0631\u062a \u0632\u06cc\u0631 \u0627\u0633\u062a:"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
                   sty.text__aSXm
                 )}
               >
@@ -1066,6 +1055,17 @@ function PlasmicResult__RenderFunc(props: {
                     })()
                   }}
                 />
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__tz4Er
+                )}
+              >
+                {
+                  "\u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627\u060c \u062a\u0634\u062e\u06cc\u0635 \u0645\u0627 \u0628\u0647 \u0635\u0648\u0631\u062a \u0632\u06cc\u0631 \u0627\u0633\u062a:"
+                }
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__iiNee)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(

@@ -2793,7 +2793,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             const $steps = {};
 
                             $steps["runCode"] =
-                              $ctx.query.inApp == "true"
+                              $ctx.query.inApp == "true" && false
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
@@ -2831,7 +2831,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             }
 
                             $steps["updateDirectDialogOpen"] =
-                              $ctx.query.inApp != "true"
+                              $ctx.query.inApp != "true" || true
                                 ? (() => {
                                     const actionArgs = {
                                       variable: {
