@@ -1540,9 +1540,12 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       }
                     )}
                   >
-                    <React.Fragment>
-                      {$state.getData.data[0].text}
-                    </React.Fragment>
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: $state.getData.data[0].text
+                      }}
+                    />
                   </div>
                 ) : null}
               </LineClomp>

@@ -241,6 +241,8 @@ function PlasmicDialog3__RenderFunc(props: {
           throw e;
         }
       })()}
+      modal={true}
+      noContain={false}
       onOpenChange={async (...eventArgs: any) => {
         generateStateOnChangeProp($state, ["dialog3", "open"]).apply(
           null,
@@ -305,6 +307,7 @@ function PlasmicDialog3__RenderFunc(props: {
           data-plasmic-override={overrides.button3}
           className={classNames("__wab_instance", sty.button3)}
           color={generateStateValueProp($state, ["button3", "color"])}
+          disabled={false}
           endIcon={
             <ChevronLeftIcon
               className={classNames(projectcss.all, sty.svg__xwxr0)}
