@@ -357,7 +357,10 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
           >
             <div
               className={projectcss.__wab_expr_html_text}
-              dangerouslySetInnerHTML={{ __html: $props.title }}
+              dangerouslySetInnerHTML={{
+                __html: $props.title
+                //+ "<br>" +"gsdfgsdfgdscccgdjgfjfg"
+              }}
             />
           </div>
         </Stack__>
