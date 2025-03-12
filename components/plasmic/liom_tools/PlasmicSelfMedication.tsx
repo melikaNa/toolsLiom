@@ -1362,7 +1362,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             $ctx.query.userId.length - 4
                                           ),
                                           pageName: "mainPage",
-                                          action: "buyDialog-danger",
+                                          action:
+                                            "buyDialog-" + $ctx.query.type,
                                           extraData: {}
                                         };
                                       } catch (e) {
@@ -2425,7 +2426,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           isLock={(() => {
                             try {
                               return (() => {
-                                if ($ctx.query.type == "danger") return false;
+                                if (
+                                  $ctx.query.type == "danger" ||
+                                  $ctx.query.type == "stretch_marks"
+                                )
+                                  return false;
                                 else if (
                                   $state.userStep == currentIndex &&
                                   ($state.getStep?.data?.todayReady ?? 0) == 1
