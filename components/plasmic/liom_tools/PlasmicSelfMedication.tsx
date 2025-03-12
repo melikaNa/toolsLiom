@@ -2150,7 +2150,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           $steps["updateSelectedStep"] = (() => {
                             if (currentIndex == $state.selectedStep)
                               return false;
-                            else if ($ctx.query.type == "danger") return true;
+                            else if (
+                              $ctx.query.type == "danger" ||
+                              $ctx.query.type == "stretch_marks"
+                            )
+                              return true;
                             else if ($state.userStep < currentIndex)
                               return false;
                             else return true;
@@ -2194,7 +2198,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           $steps["updateDetailsList"] = (() => {
                             if (currentIndex == $state.selectedStep)
                               return false;
-                            else if ($ctx.query.type == "danger") return true;
+                            else if (
+                              $ctx.query.type == "danger" ||
+                              $ctx.query.type == "stretch_marks"
+                            )
+                              return true;
                             else if ($state.userStep < currentIndex)
                               return false;
                             else return true;
@@ -2238,7 +2246,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           $steps["invokeGlobalAction"] = (() => {
                             if (currentIndex == $state.selectedStep)
                               return false;
-                            else if ($ctx.query.type == "danger") return true;
+                            else if (
+                              $ctx.query.type == "danger" ||
+                              $ctx.query.type == "stretch_marks"
+                            )
+                              return true;
                             else if ($state.userStep < currentIndex)
                               return false;
                             else return true;
@@ -2286,12 +2298,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           }
 
                           $steps["updateDetailsList4"] = (() => {
-                            if ($ctx.query.inApp == "false") {
-                              if ($ctx.query.type == "danger") return false;
-                              else if ($state.userStep < currentIndex)
-                                return true;
-                              else return false;
-                            } else return false;
+                            if (
+                              $ctx.query.type == "danger" ||
+                              $ctx.query.type == "stretch_marks"
+                            )
+                              return false;
+                            else if ($state.userStep < currentIndex)
+                              return true;
+                            else return false;
                           })()
                             ? (() => {
                                 const actionArgs = {
@@ -2317,29 +2331,33 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["updateDetailsList2"] = (() => {
-                            if ($ctx.query.inApp == "true") {
-                              if ($ctx.query.type == "danger") return false;
-                              else if ($state.userStep < currentIndex)
-                                return true;
-                              else return false;
-                            } else return false;
-                          })()
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      return window.FlutterChannel.postMessage(
-                                        "#toast-قدم بعدی چالش فردا برات باز میشه\u066C لطفا تا اون موقع صبر کن و کارهایی که تو برنامه امروزت هست رو انجام بده \uD83D\uDE0D-warning"
-                                      );
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                          $steps["updateDetailsList2"] =
+                            //parseInt($ctx.query.version) > 286 &&
+                            // if( $ctx.query.inApp == 'true')
+                            // {
+                            // if($ctx.query.type == 'danger')
+                            // false
+                            // else if(($state.userStep) < currentIndex)
+                            //   true
+                            // else
+                            //   false
+                            // } else
+                            false
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return window.FlutterChannel.postMessage(
+                                          "#toast-قدم بعدی چالش فردا برات باز میشه\u066C لطفا تا اون موقع صبر کن و کارهایی که تو برنامه امروزت هست رو انجام بده \uD83D\uDE0D-warning"
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
                             $steps["updateDetailsList2"] != null &&
                             typeof $steps["updateDetailsList2"] === "object" &&
