@@ -2418,7 +2418,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           done={(() => {
                             try {
                               return (() => {
-                                if ($ctx.query.type == "danger") return 0;
+                                if (
+                                  $ctx.query.type == "danger" ||
+                                  $ctx.query.type == "stretch_marks"
+                                )
+                                  return 0;
                                 else if ($state.userStep > currentIndex)
                                   return 1;
                                 else if ($state.userStep < currentIndex)
