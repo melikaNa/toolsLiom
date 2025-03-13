@@ -1971,7 +1971,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         return (
                           $state.isDone == false &&
                           $ctx.query.type != "danger" &&
-                          $ctx.query.type != "skin_cracks"
+                          $ctx.query.type != "stretch_marks"
                         );
                       } catch (e) {
                         if (
