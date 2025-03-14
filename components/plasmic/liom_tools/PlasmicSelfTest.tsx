@@ -1564,8 +1564,18 @@ function PlasmicSelfTest__RenderFunc(props: {
                           try {
                             return {
                               userId: $state.userId,
-                              pageName: "self-test",
-                              action: "onLoad",
+                              pageName: `self-test-${
+                                $ctx.query.type ||
+                                new URLSearchParams(window.location.search).get(
+                                  "type"
+                                )
+                              }`,
+                              action: `onLoad-${
+                                $ctx.query.type ||
+                                new URLSearchParams(window.location.search).get(
+                                  "type"
+                                )
+                              }`,
                               extraData: {}
                             };
                           } catch (e) {
