@@ -100,6 +100,7 @@ import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicResult.module.css"; // plasmic-import: AcKRuy7PeRlH/css
 
+import XIcon from "../hamdast_sdk/icons/PlasmicIcon__X"; // plasmic-import: S0M2VMEAEs7X/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: 3GJi3NV2X6Zg/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
@@ -894,25 +895,71 @@ function PlasmicResult__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
               slot={
-                <Paziresh24Avatar
-                  className={classNames(
-                    "__wab_instance",
-                    sty.paziresh24Avatar__etGjv
-                  )}
-                  src={(() => {
+                <React.Fragment>
+                  {(() => {
                     try {
-                      return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
+                      return window.sessionStorage.getItem("home-page") != null;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
                         e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        return undefined;
+                        return true;
                       }
                       throw e;
                     }
-                  })()}
-                />
+                  })() ? (
+                    <XIcon
+                      className={classNames(projectcss.all, sty.svg___30Ty)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return window.open(
+                                    window.sessionStorage.getItem("home-page"),
+                                    "_self"
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                      role={"img"}
+                    />
+                  ) : null}
+                  <Paziresh24Avatar
+                    className={classNames(
+                      "__wab_instance",
+                      sty.paziresh24Avatar__etGjv
+                    )}
+                    src={(() => {
+                      try {
+                        return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
+                </React.Fragment>
               }
               slot2={null}
             >
