@@ -2459,7 +2459,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                   buy={(() => {
                     try {
                       return (
-                        $ctx.query.buy == "true" && !$state.free && !$state.buy
+                        $ctx.query.buy != "true" && !$state.free && !$state.buy
                       );
                     } catch (e) {
                       if (
