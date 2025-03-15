@@ -72,6 +72,7 @@ import Footer from "../../Footer"; // plasmic-import: AFZenyV8x-fk/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
+import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -197,7 +198,8 @@ function PlasmicTodoApp__RenderFunc(props: {
   }
 
   const globalVariants = ensureGlobalVariants({
-    theme: useTheme()
+    theme: useTheme(),
+    screen: useScreenVariantsqiBuxNlixBgQ()
   });
 
   return (
@@ -447,6 +449,33 @@ function PlasmicTodoApp__RenderFunc(props: {
             ) : null}
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__zvGx)} />
+
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox___9Gu6C)}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__bo8Ul
+              )}
+            >
+              {hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "\u0622\u06cc\u0627 \u0645\u0646 \u062f\u0686\u0627\u0631 \u0632\u0648\u062f\u0627\u0646\u0632\u0627\u0644\u06cc \u0647\u0633\u062a\u0645\u061f"
+                : "--"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__uNWb
+              )}
+            >
+              {"\u0627\u0646\u062c\u0627\u0645 \u062a\u0633\u062a"}
+            </div>
+          </Stack__>
         </div>
       </div>
     </React.Fragment>

@@ -2488,7 +2488,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               return (() => {
                                 if (
                                   $ctx.query.type == "danger" ||
-                                  $ctx.query.type == "stretch_marks"
+                                  $ctx.query.type == "stretch_marks" ||
+                                  $ctx.query.type == "hair_care"
                                 )
                                   return 0;
                                 else if ($state.userStep > currentIndex)
@@ -2518,7 +2519,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               return (() => {
                                 if (
                                   $ctx.query.type == "danger" ||
-                                  $ctx.query.type == "stretch_marks"
+                                  $ctx.query.type == "stretch_marks" ||
+                                  $ctx.query.type == "hair_care"
                                 )
                                   return false;
                                 else if (
