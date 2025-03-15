@@ -1209,12 +1209,16 @@ function PlasmicSelfTest__RenderFunc(props: {
               }
 
               $steps["updateTestChat8"] = (() => {
-                const nextQuestionId =
-                  $ctx.query.nextQuesion_id ||
-                  new URLSearchParams(window.location.search).get(
-                    "nextQuesion_id"
-                  );
-                return nextQuestionId != null && nextQuestionId !== "";
+                try {
+                  const nextQuestionId =
+                    $ctx.query.nextQuesion_id ||
+                    new URLSearchParams(window.location.search).get(
+                      "nextQuesion_id"
+                    );
+                  return nextQuestionId != null && nextQuestionId !== "";
+                } catch {
+                  return false;
+                }
               })()
                 ? (() => {
                     const actionArgs = {
@@ -1246,7 +1250,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["updateTestChat8"] = await $steps["updateTestChat8"];
               }
 
-              $steps["updateTestChat7"] = true
+              $steps["updateTestChat7"] = $steps.invokeGlobalAction?.data
+                ?.canStart
                 ? (() => {
                     const actionArgs = {
                       variable: {
