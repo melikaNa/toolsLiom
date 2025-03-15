@@ -2458,7 +2458,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                   })()}
                   buy={(() => {
                     try {
-                      return !$ctx.query.buy && $state.free && !$state.buy;
+                      return (
+                        $ctx.query.buy == "true" && !$state.free && !$state.buy
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
