@@ -251,7 +251,16 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getData?.data?.[0]?.isDone == 1 ? true : false;
+              return (() => {
+                if (
+                  $ctx.query.type == "danger" ||
+                  $ctx.query.type == "stretch_marks"
+                )
+                  return true;
+                else {
+                  return $state.getData?.data?.[0]?.isDone == 1 ? true : false;
+                }
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
