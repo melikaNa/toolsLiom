@@ -1231,8 +1231,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["updateTestChat2"] = await $steps["updateTestChat2"];
               }
 
-              $steps["updateTestChat7"] = $steps.invokeGlobalAction?.data
-                ?.canStart
+              $steps["updateTestChat7"] = true
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -1440,6 +1439,35 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["numberOfQ"] = await $steps["numberOfQ"];
               }
 
+              $steps["updateTestChat4"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["loading"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat4"] != null &&
+                typeof $steps["updateTestChat4"] === "object" &&
+                typeof $steps["updateTestChat4"].then === "function"
+              ) {
+                $steps["updateTestChat4"] = await $steps["updateTestChat4"];
+              }
+
               $steps["result"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1482,7 +1510,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         variablePath: ["showgreen"]
                       },
                       operation: 0,
-                      value: $steps.result?.data?.data || []
+                      value: $steps.result?.data || []
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -1530,35 +1558,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                 typeof $steps["updateTestChat3"].then === "function"
               ) {
                 $steps["updateTestChat3"] = await $steps["updateTestChat3"];
-              }
-
-              $steps["updateTestChat4"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["loading"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateTestChat4"] != null &&
-                typeof $steps["updateTestChat4"] === "object" &&
-                typeof $steps["updateTestChat4"].then === "function"
-              ) {
-                $steps["updateTestChat4"] = await $steps["updateTestChat4"];
               }
 
               $steps["log"] = true
@@ -5001,7 +5000,31 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   }
                                   let formattedMonth = jm < 10 ? `0${jm}` : jm;
                                   let formattedDay = jd < 10 ? `0${jd}` : jd;
-                                  return `نتیجه تست نامنظمی قاعدگی تاریخ : ${jy}/${formattedMonth}/${formattedDay}`;
+                                  let farsiTranslation;
+                                  switch (currentItem.type) {
+                                    case "irregular":
+                                      farsiTranslation = "نامنظم قاعدگی";
+                                      break;
+                                    case "pregnantOrNot":
+                                      farsiTranslation = "باردارم یا نه";
+                                      break;
+                                    case "prematureEjaculation":
+                                      farsiTranslation = "زودانزالی";
+                                      break;
+                                    case "advancedIrregular":
+                                      farsiTranslation = "نامنظمی پیشرفته";
+                                      break;
+                                    case "chlamydia":
+                                      farsiTranslation = "کلامیدیا";
+                                      break;
+                                    case "skin":
+                                      farsiTranslation = "پوست";
+                                      break;
+                                    default:
+                                      farsiTranslation = "";
+                                      break;
+                                  }
+                                  return `نتیجه تست ${farsiTranslation}  در تاریخ : ${jy}/${formattedMonth}/${formattedDay}`;
                                 })();
                               } catch (e) {
                                 if (
