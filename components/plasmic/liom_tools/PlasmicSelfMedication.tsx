@@ -1263,6 +1263,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             ? filteredItem.active
                             : false;
                           return (
+                            false &&
                             !active &&
                             !$state.itemLoading &&
                             !$state.stepLoading &&
@@ -1635,7 +1636,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     ) : null}
                   </div>
                 ) : null}
-                <div className={classNames(projectcss.all, sty.freeBox__imEyz)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__imEyz)}
+                >
                   {(() => {
                     try {
                       return (
@@ -1727,6 +1732,29 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       })()}
                     />
                   ) : null}
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nIwdU
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.getStep?.data?.info?.text ?? "";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
                   {(() => {
                     try {
                       return $state.getStep.loading;
@@ -1762,7 +1790,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       )}
                     />
                   ) : null}
-                </div>
+                </Stack__>
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -2220,7 +2248,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               return false;
                             else if (
                               $ctx.query.type == "danger" ||
-                              $ctx.query.type == "stretch_marks"
+                              $ctx.query.type == "stretch_marks" ||
+                              $ctx.query.type == "hair_care"
                             )
                               return true;
                             else if ($state.userStep < currentIndex)
@@ -2268,7 +2297,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               return false;
                             else if (
                               $ctx.query.type == "danger" ||
-                              $ctx.query.type == "stretch_marks"
+                              $ctx.query.type == "stretch_marks" ||
+                              $ctx.query.type == "hair_care"
                             )
                               return true;
                             else if ($state.userStep < currentIndex)
@@ -2316,7 +2346,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               return false;
                             else if (
                               $ctx.query.type == "danger" ||
-                              $ctx.query.type == "stretch_marks"
+                              $ctx.query.type == "stretch_marks" ||
+                              $ctx.query.type == "hair_care"
                             )
                               return true;
                             else if ($state.userStep < currentIndex)
@@ -2368,7 +2399,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           $steps["updateDetailsList4"] = (() => {
                             if (
                               $ctx.query.type == "danger" ||
-                              $ctx.query.type == "stretch_marks"
+                              $ctx.query.type == "stretch_marks" ||
+                              $ctx.query.type == "hair_care"
                             )
                               return false;
                             else if ($state.userStep < currentIndex)
@@ -2489,7 +2521,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 if (
                                   $ctx.query.type == "danger" ||
                                   $ctx.query.type == "stretch_marks" ||
-                                  $ctx.query.type == "hair_care"
+                                  $ctx.query.type == "hair_care" ||
+                                  currentItem.orderr == 1
                                 )
                                   return 0;
                                 else if ($state.userStep > currentIndex)
@@ -2520,7 +2553,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 if (
                                   $ctx.query.type == "danger" ||
                                   $ctx.query.type == "stretch_marks" ||
-                                  $ctx.query.type == "hair_care"
+                                  $ctx.query.type == "hair_care" ||
+                                  currentItem.orderr == 1
                                 )
                                   return false;
                                 else if (
@@ -2667,6 +2701,49 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     )
                   })}
                 >
+                  {(() => {
+                    try {
+                      return (
+                        ($state.getStep.data.data[$state.selectedStep].text ??
+                          "") != ""
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__tCh75
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              $state.getStep.data.data[$state.selectedStep]
+                                .text ?? ""
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  ) : null}
                   {(() => {
                     try {
                       return !$state.getItem.loading;

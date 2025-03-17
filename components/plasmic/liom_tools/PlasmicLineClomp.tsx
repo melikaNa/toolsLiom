@@ -161,6 +161,29 @@ function PlasmicLineClomp__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => true,
 
         onChangeProp: "onLineChange"
+      },
+      {
+        path: "number",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const textElement = window.document.getElementById("textWarp");
+                const lineCount = textElement.getClientRects().length;
+                return $props.numberOfLine != lineCount;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -198,6 +221,7 @@ function PlasmicLineClomp__RenderFunc(props: {
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBoxmore]: hasVariant($state, "more", "more")
         })}
+        {...{ "id ": "textWarp" }}
         style={
           hasVariant($state, "more", "more")
             ? (() => {
