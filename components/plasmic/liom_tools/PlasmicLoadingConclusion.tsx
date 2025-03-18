@@ -90,9 +90,7 @@ type VariantPropType = keyof PlasmicLoadingConclusion__VariantsArgs;
 export const PlasmicLoadingConclusion__VariantProps =
   new Array<VariantPropType>("fouse", "selected", "color");
 
-export type PlasmicLoadingConclusion__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicLoadingConclusion__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicLoadingConclusion__ArgsType;
 export const PlasmicLoadingConclusion__ArgProps = new Array<ArgPropType>(
   "children"
@@ -304,15 +302,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicLoadingConclusion__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicLoadingConclusion__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicLoadingConclusion__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicLoadingConclusion__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

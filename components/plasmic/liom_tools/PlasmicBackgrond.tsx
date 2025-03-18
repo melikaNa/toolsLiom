@@ -81,9 +81,7 @@ export const PlasmicBackgrond__VariantProps = new Array<VariantPropType>(
   "liom"
 );
 
-export type PlasmicBackgrond__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicBackgrond__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicBackgrond__ArgsType;
 export const PlasmicBackgrond__ArgProps = new Array<ArgPropType>("children");
 
@@ -205,15 +203,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicBackgrond__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicBackgrond__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicBackgrond__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicBackgrond__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

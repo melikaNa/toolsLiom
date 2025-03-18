@@ -83,9 +83,7 @@ export type PlasmicMassage__VariantsArgs = {
 type VariantPropType = keyof PlasmicMassage__VariantsArgs;
 export const PlasmicMassage__VariantProps = new Array<VariantPropType>("you");
 
-export type PlasmicMassage__ArgsType = {
-  rectangle6?: React.ReactNode;
-};
+export type PlasmicMassage__ArgsType = { rectangle6?: React.ReactNode };
 type ArgPropType = keyof PlasmicMassage__ArgsType;
 export const PlasmicMassage__ArgProps = new Array<ArgPropType>("rectangle6");
 
@@ -260,15 +258,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicMassage__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicMassage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicMassage__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicMassage__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

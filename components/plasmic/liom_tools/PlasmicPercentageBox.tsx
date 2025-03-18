@@ -91,9 +91,7 @@ export const PlasmicPercentageBox__VariantProps = new Array<VariantPropType>(
   "shape"
 );
 
-export type PlasmicPercentageBox__ArgsType = {
-  children?: React.ReactNode;
-};
+export type PlasmicPercentageBox__ArgsType = { children?: React.ReactNode };
 type ArgPropType = keyof PlasmicPercentageBox__ArgsType;
 export const PlasmicPercentageBox__ArgProps = new Array<ArgPropType>(
   "children"
@@ -290,15 +288,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicPercentageBox__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicPercentageBox__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicPercentageBox__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicPercentageBox__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

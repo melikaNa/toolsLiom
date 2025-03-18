@@ -88,9 +88,7 @@ export type PlasmicTask__VariantsArgs = {
 type VariantPropType = keyof PlasmicTask__VariantsArgs;
 export const PlasmicTask__VariantProps = new Array<VariantPropType>("state");
 
-export type PlasmicTask__ArgsType = {
-  task?: any;
-};
+export type PlasmicTask__ArgsType = { task?: any };
 type ArgPropType = keyof PlasmicTask__ArgsType;
 export const PlasmicTask__ArgProps = new Array<ArgPropType>("task");
 
@@ -688,15 +686,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicTask__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicTask__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicTask__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicTask__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

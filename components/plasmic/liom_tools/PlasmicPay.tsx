@@ -59,6 +59,7 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
+
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Subscription2 from "../../Subscription2"; // plasmic-import: Kh0l77Kj0PNL/component
@@ -991,15 +992,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicPay__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicPay__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicPay__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicPay__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;
