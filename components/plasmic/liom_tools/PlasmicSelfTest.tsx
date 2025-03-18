@@ -1446,28 +1446,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["updateTestChat4"] = await $steps["updateTestChat4"];
               }
 
-              $steps["updateTestChat8"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          return console.log($state.testChat);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateTestChat8"] != null &&
-                typeof $steps["updateTestChat8"] === "object" &&
-                typeof $steps["updateTestChat8"].then === "function"
-              ) {
-                $steps["updateTestChat8"] = await $steps["updateTestChat8"];
-              }
-
               $steps["result"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1627,6 +1605,28 @@ function PlasmicSelfTest__RenderFunc(props: {
                 typeof $steps["log"].then === "function"
               ) {
                 $steps["log"] = await $steps["log"];
+              }
+
+              $steps["updateTestChat8"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return console.log($state.testChat);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat8"] != null &&
+                typeof $steps["updateTestChat8"] === "object" &&
+                typeof $steps["updateTestChat8"].then === "function"
+              ) {
+                $steps["updateTestChat8"] = await $steps["updateTestChat8"];
               }
             }}
           />
