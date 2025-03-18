@@ -199,32 +199,55 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "testChat",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            text: "\u0633\u0644\u0627\u0645\ud83d\udc4b\n \u0644\u06cc\u0648\u0645 \u0647\u0633\u062a\u0645\u060c \u067e\u0631\u06cc\u0648\u062f \u062a\u0631\u06a9\u0631 \u0648 \u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a \u0628\u0627\u0646\u0648\u0627\u0646 \u06a9\u0647 \u0628\u0635\u0648\u0631\u062a \u062a\u062e\u0635\u0635\u06cc \u0631\u0648\u06cc \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc \u06a9\u0627\u0631 \u0645\u06cc\u06a9\u0646\u0645.",
-            from: "system"
-          },
-          {
-            text: "\u0634\u0645\u0627 \u0628\u0627 \u067e\u0627\u0633\u062e \u0628\u0647 30 \u0633\u0648\u0627\u0644 \u0645\u06cc\u062a\u0648\u0627\u0646\u06cc\u062f \u062f\u0631 \u06a9\u0645\u062a\u0631 \u0627\u0632 5 \u062f\u0642\u06cc\u0642\u0647 \u0639\u0644\u062a \u0646\u0627\u0645\u0646\u0638\u0645 \u0634\u062f\u0646 \u067e\u0631\u06cc\u0648\u062f \u062e\u0648\u062f \u0631\u0627 \u0628\u062f\u0627\u0646\u06cc\u062f \u0648 \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0645\u0631\u0627\u062c\u0639\u0647 \u06a9\u0646\u06cc\u062f.",
-            from: "system"
-          },
-          {
-            text: "\u0633\u0644\u0627\u0645\u062a \u0648 \u0631\u0627\u062d\u062a\u06cc \u0634\u0645\u0627 \u062f\u063a\u062f\u063a\u0647 \u0627\u0635\u0644\u06cc \u0644\u06cc\u0648\u0645 \u0648 \u067e\u0630\u06cc\u0631\u0634 \u06f2\u06f4 \u0627\u0633\u062a\u2764\ufe0f\ud83e\udd1d\ud83c\udffb.",
-            from: "system"
-          },
-          {
-            text: "\u0622\u0645\u0627\u062f\u0647 \u0627\u06cc \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645\u061f",
-            question: { lock: 0 },
-            from: "system",
-            btnText: "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645",
-            options: [
-              {
-                id: 1,
-                text: "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if (
+                  $ctx.query.nextQuesion_id == "" ||
+                  $ctx.query.nextQuesion_id == null
+                ) {
+                  return [];
+                } else {
+                  return JSON.parse(localStorage.getItem("test"));
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [
+                  {
+                    text: "\u0633\u0644\u0627\u0645\ud83d\udc4b\n \u0644\u06cc\u0648\u0645 \u0647\u0633\u062a\u0645\u060c \u067e\u0631\u06cc\u0648\u062f \u062a\u0631\u06a9\u0631 \u0648 \u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a \u0628\u0627\u0646\u0648\u0627\u0646 \u06a9\u0647 \u0628\u0635\u0648\u0631\u062a \u062a\u062e\u0635\u0635\u06cc \u0631\u0648\u06cc \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc \u06a9\u0627\u0631 \u0645\u06cc\u06a9\u0646\u0645.",
+                    from: "system"
+                  },
+                  {
+                    text: "\u0634\u0645\u0627 \u0628\u0627 \u067e\u0627\u0633\u062e \u0628\u0647 30 \u0633\u0648\u0627\u0644 \u0645\u06cc\u062a\u0648\u0627\u0646\u06cc\u062f \u062f\u0631 \u06a9\u0645\u062a\u0631 \u0627\u0632 5 \u062f\u0642\u06cc\u0642\u0647 \u0639\u0644\u062a \u0646\u0627\u0645\u0646\u0638\u0645 \u0634\u062f\u0646 \u067e\u0631\u06cc\u0648\u062f \u062e\u0648\u062f \u0631\u0627 \u0628\u062f\u0627\u0646\u06cc\u062f \u0648 \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0645\u0631\u0627\u062c\u0639\u0647 \u06a9\u0646\u06cc\u062f.",
+                    from: "system"
+                  },
+                  {
+                    text: "\u0633\u0644\u0627\u0645\u062a \u0648 \u0631\u0627\u062d\u062a\u06cc \u0634\u0645\u0627 \u062f\u063a\u062f\u063a\u0647 \u0627\u0635\u0644\u06cc \u0644\u06cc\u0648\u0645 \u0648 \u067e\u0630\u06cc\u0631\u0634 \u06f2\u06f4 \u0627\u0633\u062a\u2764\ufe0f\ud83e\udd1d\ud83c\udffb.",
+                    from: "system"
+                  },
+                  {
+                    text: "\u0622\u0645\u0627\u062f\u0647 \u0627\u06cc \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645\u061f",
+                    question: { lock: 0 },
+                    from: "system",
+                    btnText:
+                      "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645",
+                    options: [
+                      {
+                        id: 1,
+                        text: "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645"
+                      }
+                    ]
+                  }
+                ];
               }
-            ]
-          }
-        ]
+              throw e;
+            }
+          })()
       },
       {
         path: "testOptionsLiom.selectedIDs",
@@ -796,7 +819,7 @@ function PlasmicSelfTest__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
-            $steps["invokeGlobalAction"] = true
+            $steps["invokeGlobalAction"] = false
               ? (() => {
                   const actionArgs = {
                     args: [
@@ -834,7 +857,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
             }
 
-            $steps["invokeGlobalAction2"] = true
+            $steps["invokeGlobalAction2"] = false
               ? (() => {
                   const actionArgs = {
                     args: [
@@ -1444,28 +1467,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                 typeof $steps["updateTestChat4"].then === "function"
               ) {
                 $steps["updateTestChat4"] = await $steps["updateTestChat4"];
-              }
-
-              $steps["updateTestChat8"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          return console.log($state.testChat);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateTestChat8"] != null &&
-                typeof $steps["updateTestChat8"] === "object" &&
-                typeof $steps["updateTestChat8"].then === "function"
-              ) {
-                $steps["updateTestChat8"] = await $steps["updateTestChat8"];
               }
 
               $steps["result"] = true
