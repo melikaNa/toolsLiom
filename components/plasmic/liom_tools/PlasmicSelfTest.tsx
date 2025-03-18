@@ -796,7 +796,7 @@ function PlasmicSelfTest__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
-            $steps["invokeGlobalAction"] = localStorage.getItem("receipt_id")
+            $steps["invokeGlobalAction"] = true
               ? (() => {
                   const actionArgs = {
                     args: [
@@ -834,7 +834,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
             }
 
-            $steps["invokeGlobalAction2"] = localStorage.getItem("receipt_id")
+            $steps["invokeGlobalAction2"] = true
               ? (() => {
                   const actionArgs = {
                     args: [
@@ -1446,6 +1446,28 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["updateTestChat4"] = await $steps["updateTestChat4"];
               }
 
+              $steps["updateTestChat8"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return console.log($state.testChat);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat8"] != null &&
+                typeof $steps["updateTestChat8"] === "object" &&
+                typeof $steps["updateTestChat8"].then === "function"
+              ) {
+                $steps["updateTestChat8"] = await $steps["updateTestChat8"];
+              }
+
               $steps["result"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1605,28 +1627,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                 typeof $steps["log"].then === "function"
               ) {
                 $steps["log"] = await $steps["log"];
-              }
-
-              $steps["updateTestChat8"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          return console.log($state.testChat);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateTestChat8"] != null &&
-                typeof $steps["updateTestChat8"] === "object" &&
-                typeof $steps["updateTestChat8"].then === "function"
-              ) {
-                $steps["updateTestChat8"] = await $steps["updateTestChat8"];
               }
             }}
           />
@@ -5988,14 +5988,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              if ($state.apiRequest2?.data?.statusBuy != "") {
-                                if (
-                                  $state.apiRequest2.data.statusBuy.toUpperCase() ===
-                                  "OK"
-                                )
-                                  return ($state.status = "OK");
-                                else return ($state.status = "NOK");
-                              } else return ($state.status = "NOK");
+                              if (
+                                $state.apiRequest2?.data?.statusBuy?.toUpperCase() ===
+                                "OK"
+                              ) {
+                                return ($state.status = "OK");
+                              } else {
+                                return ($state.status = "NOK");
+                              }
                             })();
                           }
                         };
@@ -6010,39 +6010,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                     typeof $steps["runCode"].then === "function"
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
-                  }
-
-                  $steps["updateTestChat"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["testChat"]
-                          },
-                          operation: 0
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateTestChat"] != null &&
-                    typeof $steps["updateTestChat"] === "object" &&
-                    typeof $steps["updateTestChat"].then === "function"
-                  ) {
-                    $steps["updateTestChat"] = await $steps["updateTestChat"];
                   }
                 }).apply(null, eventArgs);
               }}
