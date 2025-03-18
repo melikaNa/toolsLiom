@@ -2470,140 +2470,163 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           }
                         }}
                       >
-                        <LinearCalendar2
-                          data-plasmic-name={"linearCalendar2"}
-                          data-plasmic-override={overrides.linearCalendar2}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.linearCalendar2,
-                            {
-                              [sty.linearCalendar2darkMod]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
-                            }
-                          )}
-                          click={(() => {
-                            try {
-                              return currentIndex == $state.selectedStep;
-                            } catch (e) {
+                        {(() => {
+                          try {
+                            return (() => {
                               if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
+                                $state.getUser.data[0].result.user
+                                  .healthStatus != "period" &&
+                                currentItem.orderr == 1
+                              )
+                                return false;
+                              else return true;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
                             }
-                          })()}
-                          dark={
-                            hasVariant($state, "darkMod", "darkMod")
-                              ? (() => {
-                                  try {
-                                    return $ctx.query.theme == "dark";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return [];
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              : undefined
+                            throw e;
                           }
-                          done={(() => {
-                            try {
-                              return (() => {
-                                if (
-                                  $ctx.query.type == "danger" ||
-                                  $ctx.query.type == "stretch_marks" ||
-                                  $ctx.query.type == "hair_care" ||
-                                  currentItem.orderr == 1
+                        })() ? (
+                          <LinearCalendar2
+                            data-plasmic-name={"linearCalendar2"}
+                            data-plasmic-override={overrides.linearCalendar2}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.linearCalendar2,
+                              {
+                                [sty.linearCalendar2darkMod]: hasVariant(
+                                  $state,
+                                  "darkMod",
+                                  "darkMod"
                                 )
-                                  return 0;
-                                else if ($state.userStep > currentIndex)
-                                  return 1;
-                                else if ($state.userStep < currentIndex)
-                                  return 0;
-                                else if ($state.userStep == currentIndex) {
+                              }
+                            )}
+                            click={(() => {
+                              try {
+                                return currentIndex == $state.selectedStep;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
+                            dark={
+                              hasVariant($state, "darkMod", "darkMod")
+                                ? (() => {
+                                    try {
+                                      return $ctx.query.theme == "dark";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                : undefined
+                            }
+                            done={(() => {
+                              try {
+                                return (() => {
                                   if (
+                                    $ctx.query.type == "danger" ||
+                                    $ctx.query.type == "stretch_marks" ||
+                                    $ctx.query.type == "hair_care" ||
+                                    currentItem.orderr == 1
+                                  )
+                                    return 0;
+                                  else if ($state.userStep > currentIndex)
+                                    return 1;
+                                  else if ($state.userStep < currentIndex)
+                                    return 0;
+                                  else if ($state.userStep == currentIndex) {
+                                    if (
+                                      ($state.getStep?.data?.todayReady ?? 0) ==
+                                      1
+                                    )
+                                      return 2;
+                                    else return 1;
+                                  } else return 2;
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                            isLock={(() => {
+                              try {
+                                return (() => {
+                                  if (
+                                    $ctx.query.type == "danger" ||
+                                    $ctx.query.type == "stretch_marks" ||
+                                    $ctx.query.type == "hair_care" ||
+                                    currentItem.orderr == 1
+                                  )
+                                    return false;
+                                  else if (
+                                    $state.userStep == currentIndex &&
                                     ($state.getStep?.data?.todayReady ?? 0) == 1
                                   )
-                                    return 2;
-                                  else return 1;
-                                } else return 2;
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                          isLock={(() => {
-                            try {
-                              return (() => {
+                                    return false;
+                                  else if ($state.userStep < currentIndex)
+                                    return true;
+                                  else return false;
+                                })();
+                              } catch (e) {
                                 if (
-                                  $ctx.query.type == "danger" ||
-                                  $ctx.query.type == "stretch_marks" ||
-                                  $ctx.query.type == "hair_care" ||
-                                  currentItem.orderr == 1
-                                )
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
                                   return false;
-                                else if (
-                                  $state.userStep == currentIndex &&
-                                  ($state.getStep?.data?.todayReady ?? 0) == 1
-                                )
+                                }
+                                throw e;
+                              }
+                            })()}
+                            isShowDate={false}
+                            isVip={(() => {
+                              try {
+                                return currentItem.vip;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
                                   return false;
-                                else if ($state.userStep < currentIndex)
-                                  return true;
-                                else return false;
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                          isShowDate={false}
-                          isVip={(() => {
-                            try {
-                              return currentItem.vip;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
+                            })()}
+                            title={(() => {
+                              try {
+                                return currentItem.name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                          title={(() => {
-                            try {
-                              return currentItem.name;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                        />
+                            })()}
+                          />
+                        ) : null}
                       </Stack__>
                     );
                   })}
