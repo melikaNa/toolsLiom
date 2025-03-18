@@ -1480,7 +1480,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["result"] = await $steps["result"];
               }
 
-              $steps["showgreen"] = true
+              $steps["showgreen"] = ($steps.result?.data ? true : false)
                 ? (() => {
                     const actionArgs = {
                       variable: {
