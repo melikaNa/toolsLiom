@@ -1264,7 +1264,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             ? filteredItem.active
                             : false;
                           return (
-                            false &&
                             !active &&
                             !$state.itemLoading &&
                             !$state.stepLoading &&
