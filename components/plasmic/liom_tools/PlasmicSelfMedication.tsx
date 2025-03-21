@@ -774,6 +774,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             customFunction: async () => {
                               return (() => {
                                 console.log(
+                                  $state.getUser.data[0].result.allowance
+                                );
+                                console.log(
                                   "1:" +
                                     ($state.getStep.data.data[$state.userStep]
                                       .vip == 1 &&
@@ -1309,9 +1312,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           return (
                             !active &&
                             !$state.itemLoading &&
-                            !$state.stepLoading &&
-                            !$state.getItem.loading &&
-                            !$state.getStep.loading
+                            !$state.stepLoading
                           );
                         } else {
                           return false;
