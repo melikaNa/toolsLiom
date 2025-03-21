@@ -782,9 +782,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 const active = filteredItem
                                   ? filteredItem.active
                                   : false;
-                                console.log("2:" + !active);
-                                console.log("3:" + !$state.itemLoading);
-                                return console.log("4:" + !$state.stepLoading);
+                                console.log("1:" + allowance);
+                                console.log("2:" + filteredItem);
+                                return console.log("3:" + active);
                               })();
                             }
                           };
@@ -1073,16 +1073,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  console.log("aa1-" + $state.selectedStep);
-                                  console.log(
-                                    "aa2-" + parseInt($ctx.query.selectStep)
-                                  );
-                                  console.log(
-                                    "aa3-" + $ctx.query.selectStep !==
-                                      undefined &&
-                                      $ctx.query.selectStep != null &&
-                                      parseInt($ctx.query.selectStep) >= 0
-                                  );
                                   const list =
                                     document.getElementById("my-scroll-list11");
                                   const list2 = list.children[0];
