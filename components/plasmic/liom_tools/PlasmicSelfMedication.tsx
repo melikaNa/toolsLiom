@@ -2478,9 +2478,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 $state.getUser.data[0].result.user
                                   .healthStatus != "period" &&
                                 currentItem.orderr == 1
-                              )
+                              ) {
                                 return false;
-                              else return true;
+                              } else {
+                                return true;
+                              }
                             })();
                           } catch (e) {
                             if (

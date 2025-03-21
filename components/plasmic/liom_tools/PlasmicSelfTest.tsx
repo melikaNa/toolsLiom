@@ -138,10 +138,10 @@ export type PlasmicSelfTest__OverridesType = {
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   dialog2?: Flex__<typeof Paziresh24Dialog>;
   shop?: Flex__<typeof ApiRequest>;
-  img?: Flex__<typeof PlasmicImg__>;
   input4?: Flex__<typeof AntdInput>;
   button12?: Flex__<typeof ButtonLiom>;
   buttonLiom6?: Flex__<typeof ButtonLiom>;
+  img?: Flex__<typeof PlasmicImg__>;
   modal?: Flex__<typeof AntdModal>;
   apiRequest2?: Flex__<typeof ApiRequest>;
   button3?: Flex__<typeof ButtonLiom>;
@@ -5198,43 +5198,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__vi1Gs)}
                     dir={"rtl"}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__h1IyH)}
-                    >
-                      <PlasmicImg__
-                        data-plasmic-name={"img"}
-                        data-plasmic-override={overrides.img}
-                        alt={""}
-                        className={classNames(sty.img)}
-                        displayHeight={"15px"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/liom_tools/images/image36.svg",
-                          fullWidth: 22,
-                          fullHeight: 20,
-                          aspectRatio: 1.1
-                        }}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__fbuyw
-                        )}
-                      >
-                        {
-                          "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u0628\u0632\u0627\u0631 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a \u060c \u067e\u0631\u062f\u0627\u062e\u062a \u0631\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0647\u06cc\u062f."
-                        }
-                      </div>
-                    </Stack__>
                     <div
                       className={classNames(
                         projectcss.all,
@@ -5832,6 +5795,43 @@ function PlasmicSelfTest__RenderFunc(props: {
                     </div>
                   </Stack__>
                 </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__h1IyH)}
+                >
+                  <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
+                    alt={""}
+                    className={classNames(sty.img)}
+                    displayHeight={"15px"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_tools/images/image36.svg",
+                      fullWidth: 22,
+                      fullHeight: 20,
+                      aspectRatio: 1.1
+                    }}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fbuyw
+                    )}
+                  >
+                    {
+                      "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u0628\u0632\u0627\u0631 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a \u060c \u067e\u0631\u062f\u0627\u062e\u062a \u0631\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0647\u06cc\u062f."
+                    }
+                  </div>
+                </Stack__>
               </ApiRequest>
             }
             className={classNames("__wab_instance", sty.dialog2)}
@@ -6703,10 +6703,10 @@ const PlasmicDescendants = {
     "buttonLiom3",
     "dialog2",
     "shop",
-    "img",
     "input4",
     "button12",
     "buttonLiom6",
+    "img",
     "modal",
     "apiRequest2",
     "button3",
@@ -6728,12 +6728,12 @@ const PlasmicDescendants = {
   favicon: ["favicon"],
   dialog: ["dialog", "buttonLiom3"],
   buttonLiom3: ["buttonLiom3"],
-  dialog2: ["dialog2", "shop", "img", "input4", "button12", "buttonLiom6"],
-  shop: ["shop", "img", "input4", "button12", "buttonLiom6"],
-  img: ["img"],
+  dialog2: ["dialog2", "shop", "input4", "button12", "buttonLiom6", "img"],
+  shop: ["shop", "input4", "button12", "buttonLiom6", "img"],
   input4: ["input4"],
   button12: ["button12"],
   buttonLiom6: ["buttonLiom6"],
+  img: ["img"],
   modal: ["modal", "apiRequest2", "button3", "shop2", "buttonLiom8"],
   apiRequest2: ["apiRequest2", "button3", "shop2", "buttonLiom8"],
   button3: ["button3"],
@@ -6762,10 +6762,10 @@ type NodeDefaultElementType = {
   buttonLiom3: typeof ButtonLiom;
   dialog2: typeof Paziresh24Dialog;
   shop: typeof ApiRequest;
-  img: typeof PlasmicImg__;
   input4: typeof AntdInput;
   button12: typeof ButtonLiom;
   buttonLiom6: typeof ButtonLiom;
+  img: typeof PlasmicImg__;
   modal: typeof AntdModal;
   apiRequest2: typeof ApiRequest;
   button3: typeof ButtonLiom;
@@ -6875,10 +6875,10 @@ export const PlasmicSelfTest = Object.assign(
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     dialog2: makeNodeComponent("dialog2"),
     shop: makeNodeComponent("shop"),
-    img: makeNodeComponent("img"),
     input4: makeNodeComponent("input4"),
     button12: makeNodeComponent("button12"),
     buttonLiom6: makeNodeComponent("buttonLiom6"),
+    img: makeNodeComponent("img"),
     modal: makeNodeComponent("modal"),
     apiRequest2: makeNodeComponent("apiRequest2"),
     button3: makeNodeComponent("button3"),
