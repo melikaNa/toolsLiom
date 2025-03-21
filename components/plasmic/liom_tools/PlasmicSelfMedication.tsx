@@ -773,15 +773,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                console.log(
-                                  $state.getUser.data[0].result.allowance
-                                );
-                                console.log(
-                                  "1:" +
-                                    ($state.getStep.data.data[$state.userStep]
-                                      .vip == 1 &&
-                                      $state.userStep == $state.selectedStep)
-                                );
                                 const allowance =
                                   $state?.getUser?.data?.[0]?.result
                                     ?.allowance || [];
@@ -793,11 +784,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   : false;
                                 console.log("2:" + !active);
                                 console.log("3:" + !$state.itemLoading);
-                                console.log("4:" + !$state.stepLoading);
-                                console.log("5:" + !$state.getItem.loading);
-                                return console.log(
-                                  "5:" + !$state.getStep.loading
-                                );
+                                return console.log("4:" + !$state.stepLoading);
                               })();
                             }
                           };
