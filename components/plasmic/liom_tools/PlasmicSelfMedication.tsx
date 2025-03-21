@@ -784,7 +784,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   : false;
                                 console.log("1:" + allowance);
                                 console.log("2:" + filteredItem);
-                                return console.log("3:" + active);
+                                console.log("3:" + active);
+                                return console.og("4:" + $ctx.query.type);
                               })();
                             }
                           };
