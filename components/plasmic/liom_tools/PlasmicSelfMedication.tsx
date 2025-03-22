@@ -777,7 +777,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   $state?.getUser?.data?.[0]?.result
                                     ?.allowance || [];
                                 const filteredItem = allowance.find(item =>
-                                  item.type.includes($ctx.query.type)
+                                  item.type.includes(
+                                    $ctx.query.type ||
+                                      new URLSearchParams(
+                                        window.location.search
+                                      ).get("type")
+                                  )
                                 );
                                 const active = filteredItem
                                   ? filteredItem.active
@@ -785,7 +790,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 console.log("1:" + allowance);
                                 console.log("2:" + filteredItem);
                                 console.log("3:" + active);
-                                return console.og("4:" + $ctx.query.type);
+                                return console.og(
+                                  "4:" +
+                                    ($ctx.query.type ||
+                                      new URLSearchParams(
+                                        window.location.search
+                                      ).get("type"))
+                                );
                               })();
                             }
                           };
