@@ -1143,6 +1143,16 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 new URLSearchParams(window.location.search).get(
                                   "type"
                                 ),
+                              origin:
+                                $ctx.query.origin ||
+                                new URLSearchParams(window.location.search).get(
+                                  "origin"
+                                ),
+                              inApp:
+                                $ctx.query.inApp ||
+                                new URLSearchParams(window.location.search).get(
+                                  "inApp"
+                                ),
                               user_id: localStorage.getItem("user_id")
                             };
                           } catch (e) {
@@ -5605,7 +5615,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                             id: $state.shopId,
                                             amount:
                                               $state.shop.data.result.price,
-                                            type: "selfTest",
+                                            type: `selfTest_${$ctx.query.type}`,
                                             text: $state.shop.data.result.title,
                                             value: 1,
                                             userId: $state.userId,
