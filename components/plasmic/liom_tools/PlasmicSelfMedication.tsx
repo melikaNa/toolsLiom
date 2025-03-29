@@ -1142,6 +1142,28 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
                       }
+
+                      $steps["runCode3"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return console.log($state.getStep.data);
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode3"] != null &&
+                        typeof $steps["runCode3"] === "object" &&
+                        typeof $steps["runCode3"].then === "function"
+                      ) {
+                        $steps["runCode3"] = await $steps["runCode3"];
+                      }
                     }).apply(null, eventArgs);
                   }}
                   params={(() => {
