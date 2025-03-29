@@ -1767,9 +1767,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                     try {
                       return {
                         top:
-                          window.location.href.includes("paziresh24") ||
-                          window.location.href.includes("eata")
-                            ? "-9px"
+                          new URLSearchParams(window.location.search).get(
+                            "inApp"
+                          ) == "true"
+                            ? "-10px"
                             : ""
                       };
                     } catch (e) {
