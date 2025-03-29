@@ -800,17 +800,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 }}
                 params={(() => {
                   try {
-                    return {
-                      token: $ctx.query.token.slice(
-                        6,
-                        (
-                          $ctx.query.token ||
-                          new URLSearchParams(window.location.search).get(
-                            "token"
-                          )
-                        ).length - 3
-                      )
-                    };
+                    return (() => {
+                      var token =
+                        $ctx.query.token ||
+                        new URLSearchParams(window.location.search).get(
+                          "token"
+                        );
+                      return { token: token.slice(6, token.length - 3) };
+                    })();
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1168,27 +1165,28 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   }}
                   params={(() => {
                     try {
-                      return {
-                        token: $ctx.query.token.slice(
-                          6,
-                          (
-                            $ctx.query.token ||
-                            new URLSearchParams(window.location.search).get(
-                              "token"
-                            )
-                          ).length - 3
-                        ),
-                        userId: $ctx.query.userId.slice(
-                          4,
-                          (
-                            $ctx.query.userId ||
-                            new URLSearchParams(window.location.search).get(
-                              "userId"
-                            )
-                          ).length - 4
-                        ),
-                        type: $ctx.query.type
-                      };
+                      return (() => {
+                        var token =
+                          $ctx.query.token ||
+                          new URLSearchParams(window.location.search).get(
+                            "token"
+                          );
+                        var userId =
+                          $ctx.query.userId ||
+                          new URLSearchParams(window.location.search).get(
+                            "userId"
+                          );
+                        var type =
+                          $ctx.query.type ||
+                          new URLSearchParams(window.location.search).get(
+                            "type"
+                          );
+                        return {
+                          token: token.slice(6, token.length - 3),
+                          userId: userId.slice(4, userId.length - 4),
+                          type: type
+                        };
+                      })();
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
