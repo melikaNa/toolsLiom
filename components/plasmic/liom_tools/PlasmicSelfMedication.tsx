@@ -384,6 +384,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "healthStatus",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -729,6 +735,48 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   (async data => {
                     const $steps = {};
 
+                    $steps["updateHealthStatus"] =
+                      typeof $state.getUser?.data?.[0]?.result?.user
+                        ?.healthStatus != "undefined" &&
+                      $state.getUser?.data?.[0]?.result?.user?.healthStatus !=
+                        ""
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["healthStatus"]
+                              },
+                              operation: 0,
+                              value:
+                                $state.getUser?.data?.[0]?.result?.user
+                                  ?.healthStatus
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateHealthStatus"] != null &&
+                      typeof $steps["updateHealthStatus"] === "object" &&
+                      typeof $steps["updateHealthStatus"].then === "function"
+                    ) {
+                      $steps["updateHealthStatus"] = await $steps[
+                        "updateHealthStatus"
+                      ];
+                    }
+
                     $steps["invokeGlobalAction"] = true
                       ? (() => {
                           const actionArgs = {
@@ -1043,6 +1091,23 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["wait"] = true
+                        ? (() => {
+                            const actionArgs = { args: [1000] };
+                            return $globalActions["Fragment.wait"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["wait"] != null &&
+                        typeof $steps["wait"] === "object" &&
+                        typeof $steps["wait"].then === "function"
+                      ) {
+                        $steps["wait"] = await $steps["wait"];
+                      }
+
                       $steps["runCode2"] = true
                         ? (() => {
                             const actionArgs = {
@@ -1050,8 +1115,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 return (() => {
                                   let __plasmic_ret = undefined;
                                   if (
-                                    $state.getUser?.data?.[0].result?.user
-                                      ?.healthStatus == "period" &&
+                                    $state.healthStatus == "period" &&
                                     $ctx.query.type == "skinCare"
                                   ) {
                                     for (
@@ -1083,23 +1147,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         typeof $steps["runCode2"].then === "function"
                       ) {
                         $steps["runCode2"] = await $steps["runCode2"];
-                      }
-
-                      $steps["wait"] = true
-                        ? (() => {
-                            const actionArgs = { args: [1000] };
-                            return $globalActions["Fragment.wait"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["wait"] != null &&
-                        typeof $steps["wait"] === "object" &&
-                        typeof $steps["wait"].then === "function"
-                      ) {
-                        $steps["wait"] = await $steps["wait"];
                       }
 
                       $steps["runCode"] = true
