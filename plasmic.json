@@ -2638,6 +2638,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/shopResult"
+        },
+        {
+          "id": "z78G81WEAnKa",
+          "name": "Result2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicResult2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/result-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicResult2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/result-2"
         }
       ],
       "icons": [
@@ -4501,6 +4515,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.336",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.336/dist/plasmic.schema.json"
+  "cliVersion": "0.1.337",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.337/dist/plasmic.schema.json"
 }

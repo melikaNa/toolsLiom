@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -204,6 +204,24 @@ function PlasmicSelfMedication__RenderFunc(props: {
               return (() => {
                 if ($ctx.query.type == "danger") {
                   return parseInt($ctx.query.selectStep);
+                } else if ($ctx.query.type == "skinCare") {
+                  var index;
+                  if (
+                    $ctx.query.selectStep !== undefined &&
+                    $ctx.query.selectStep != null &&
+                    parseInt($ctx.query.selectStep) >= 0
+                  )
+                    index = parseInt($ctx.query.selectStep);
+                  else if ($state.getStep?.data?.todayReady == 1)
+                    index =
+                      $state.getStep.data.data.findIndex(
+                        item => item.id == $state.getStep?.data?.userStep
+                      ) + 1;
+                  else
+                    index = $state.getStep.data.data.findIndex(
+                      item => item.id == $state.getStep?.data?.userStep
+                    );
+                  return parseInt(index);
                 } else {
                   var index;
                   if (
@@ -221,7 +239,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     index = $state.getStep.data.data.findIndex(
                       item => item.id == $state.getStep?.data?.userStep
                     );
-                  console.log("index:" + index);
                   return parseInt(index);
                 }
               })();
@@ -294,6 +311,18 @@ function PlasmicSelfMedication__RenderFunc(props: {
               return (() => {
                 if ($ctx.query.type == "danger") {
                   return parseInt($ctx.query.selectStep);
+                } else if ($ctx.query.type == "skinCare") {
+                  var index;
+                  if ($state.getStep?.data?.todayReady == 1)
+                    index =
+                      $state.getStep.data.data.findIndex(
+                        item => item.id == $state.getStep?.data?.userStep
+                      ) + 1;
+                  else
+                    index = $state.getStep.data.data.findIndex(
+                      item => item.id == $state.getStep?.data?.userStep
+                    );
+                  return parseInt(index);
                 } else {
                   var index;
                   if ($state.getStep?.data?.todayReady == 1)
@@ -767,51 +796,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         "invokeGlobalAction"
                       ];
                     }
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                const allowance =
-                                  $state?.getUser?.data?.[0]?.result
-                                    ?.allowance || [];
-                                const filteredItem = allowance.find(item =>
-                                  item.type.includes(
-                                    $ctx.query.type ||
-                                      new URLSearchParams(
-                                        window.location.search
-                                      ).get("type")
-                                  )
-                                );
-                                const active = filteredItem
-                                  ? filteredItem.active
-                                  : false;
-                                console.log("1:" + allowance);
-                                console.log("2:" + filteredItem);
-                                console.log("3:" + active);
-                                return console.og(
-                                  "4:" +
-                                    ($ctx.query.type ||
-                                      new URLSearchParams(
-                                        window.location.search
-                                      ).get("type"))
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
                   }).apply(null, eventArgs);
                 }}
                 params={(() => {
@@ -899,7 +883,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                         item.id ==
                                         $state.getStep?.data?.userStep
                                     );
-                                  console.log("index2:" + index);
                                   return index;
                                 })()
                               };
@@ -1025,6 +1008,50 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         $steps["updateSelectedStep2"] = await $steps[
                           "updateSelectedStep2"
                         ];
+                      }
+
+                      $steps["runCode2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  let __plasmic_ret = undefined;
+                                  if (
+                                    $state.getUser.data[0].result.user
+                                      .healthStatus !== "period" &&
+                                    $ctx.query.type == "skinCare"
+                                  ) {
+                                    console.log("not presiod");
+                                    for (
+                                      var i = 0;
+                                      i < $state.getStep.data.data.length;
+                                      i++
+                                    ) {
+                                      console.log("+1");
+                                      if (
+                                        $state.getStep.data.data[i].orderr === 1
+                                      ) {
+                                        $state.userStep += 1;
+                                        __plasmic_ret =
+                                          $state.selectedStep += 1;
+                                      }
+                                    }
+                                  }
+                                  return __plasmic_ret;
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode2"] != null &&
+                        typeof $steps["runCode2"] === "object" &&
+                        typeof $steps["runCode2"].then === "function"
+                      ) {
+                        $steps["runCode2"] = await $steps["runCode2"];
                       }
 
                       $steps["updateStepLoading"] = true
