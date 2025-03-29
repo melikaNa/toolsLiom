@@ -1029,50 +1029,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["runCode2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  let __plasmic_ret = undefined;
-                                  if (
-                                    $state.getUser.data[0].result.user
-                                      .healthStatus !== "period" &&
-                                    $ctx.query.type == "skinCare"
-                                  ) {
-                                    console.log("not presiod");
-                                    for (
-                                      var i = 0;
-                                      i < $state.getStep.data.data.length;
-                                      i++
-                                    ) {
-                                      console.log("+1");
-                                      if (
-                                        $state.getStep.data.data[i].orderr === 1
-                                      ) {
-                                        $state.userStep += 1;
-                                        __plasmic_ret =
-                                          $state.selectedStep += 1;
-                                      }
-                                    }
-                                  }
-                                  return __plasmic_ret;
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode2"] != null &&
-                        typeof $steps["runCode2"] === "object" &&
-                        typeof $steps["runCode2"].then === "function"
-                      ) {
-                        $steps["runCode2"] = await $steps["runCode2"];
-                      }
-
                       $steps["updateStepLoading"] = true
                         ? (() => {
                             const actionArgs = {
@@ -1182,6 +1138,50 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         typeof $steps["runCode3"].then === "function"
                       ) {
                         $steps["runCode3"] = await $steps["runCode3"];
+                      }
+
+                      $steps["runCode2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  let __plasmic_ret = undefined;
+                                  if (
+                                    $state.getUser?.data?.[0].result?.user
+                                      ?.healthStatus == "period" &&
+                                    $ctx.query.type == "skinCare"
+                                  ) {
+                                    conslog("presiod");
+                                    for (
+                                      var i = 0;
+                                      i < $state.getStep.data.data.length;
+                                      i++
+                                    ) {
+                                      console.log("+1");
+                                      if (
+                                        $state.getStep.data.data[i].orderr === 1
+                                      ) {
+                                        $state.userStep += 1;
+                                        __plasmic_ret =
+                                          $state.selectedStep += 1;
+                                      }
+                                    }
+                                  }
+                                  return __plasmic_ret;
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode2"] != null &&
+                        typeof $steps["runCode2"] === "object" &&
+                        typeof $steps["runCode2"].then === "function"
+                      ) {
+                        $steps["runCode2"] = await $steps["runCode2"];
                       }
                     }).apply(null, eventArgs);
                   }}
