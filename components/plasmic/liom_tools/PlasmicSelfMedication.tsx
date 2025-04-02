@@ -2951,6 +2951,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 : "روز ") +
                                               ($state.selectedStep + 1) +
                                               " اُم";
+                                            if (
+                                              $ctx.query.type == "stretch_marks"
+                                            )
+                                              title = currentItem.title;
                                             return (
                                               "https://tools.liom.app/self-medication-step/?secId=" +
                                               currentItem.id +
