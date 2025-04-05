@@ -222,6 +222,19 @@ function PlasmicPercentageBox__RenderFunc(props: {
           )
         }
       )}
+      style={(() => {
+        try {
+          return { direction: "ltr" };
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return undefined;
+          }
+          throw e;
+        }
+      })()}
     >
       <div
         data-plasmic-name={"freeBox"}

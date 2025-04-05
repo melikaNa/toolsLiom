@@ -1055,6 +1055,49 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["runCode2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  let __plasmic_ret = undefined;
+                                  if (
+                                    $state.healthStatus != "period" &&
+                                    $ctx.query.type == "skinCare"
+                                  ) {
+                                    for (
+                                      var i = 0;
+                                      i < $state.getStep.data.data.length;
+                                      i++
+                                    ) {
+                                      console.log("u");
+                                      if (
+                                        $state.getStep.data.data[i].orderr == 1
+                                      ) {
+                                        console.log("q");
+                                        $state.userStep += 1;
+                                        __plasmic_ret =
+                                          $state.selectedStep += 1;
+                                      }
+                                    }
+                                  }
+                                  return __plasmic_ret;
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode2"] != null &&
+                        typeof $steps["runCode2"] === "object" &&
+                        typeof $steps["runCode2"].then === "function"
+                      ) {
+                        $steps["runCode2"] = await $steps["runCode2"];
+                      }
+
                       $steps["updateStepLoading"] = true
                         ? (() => {
                             const actionArgs = {
@@ -1106,47 +1149,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         typeof $steps["wait"].then === "function"
                       ) {
                         $steps["wait"] = await $steps["wait"];
-                      }
-
-                      $steps["runCode2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  let __plasmic_ret = undefined;
-                                  if (
-                                    $state.healthStatus == "period" &&
-                                    $ctx.query.type == "skinCare"
-                                  ) {
-                                    for (
-                                      var i = 0;
-                                      i < $state.getStep.data.data.length;
-                                      i++
-                                    ) {
-                                      if (
-                                        $state.getStep.data.data[i].orderr === 1
-                                      ) {
-                                        $state.userStep += 1;
-                                        __plasmic_ret =
-                                          $state.selectedStep += 1;
-                                      }
-                                    }
-                                  }
-                                  return __plasmic_ret;
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode2"] != null &&
-                        typeof $steps["runCode2"] === "object" &&
-                        typeof $steps["runCode2"].then === "function"
-                      ) {
-                        $steps["runCode2"] = await $steps["runCode2"];
                       }
 
                       $steps["runCode"] = true
@@ -3157,15 +3159,21 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             $ctx.query.version +
                                             "&theme=" +
                                             $ctx.query.theme;
+                                          var title =
+                                            currentItem.title +
+                                            "|" +
+                                            ($ctx.query.type == "danger"
+                                              ? "هفته "
+                                              : "روز ") +
+                                            ($state.selectedStep + 1) +
+                                            " اُم";
+                                          if (
+                                            $ctx.query.type == "stretch_marks"
+                                          )
+                                            title = currentItem.title;
                                           return window.FlutterChannel.postMessage(
                                             "#inAppWebView**@@**" +
-                                              currentItem.title +
-                                              "|" +
-                                              ($ctx.query.type == "danger"
-                                                ? "هفته "
-                                                : "روز ") +
-                                              ($state.selectedStep + 1) +
-                                              " اُم" +
+                                              title +
                                               "**@@**" +
                                               link
                                           );
