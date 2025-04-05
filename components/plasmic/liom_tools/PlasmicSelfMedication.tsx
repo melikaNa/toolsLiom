@@ -2948,10 +2948,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             var title =
                                               currentItem.title +
                                               "|" +
-                                              ($ctx.query.type == "danger"
-                                                ? "هفته "
-                                                : "روز ") +
-                                              ($state.selectedStep + 1) +
+                                              $state.getStep.data.data[
+                                                $state.selectedStep
+                                              ].name +
                                               " اُم";
                                             if (
                                               $ctx.query.type == "stretch_marks"
@@ -3162,10 +3161,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                           var title =
                                             currentItem.title +
                                             "|" +
-                                            ($ctx.query.type == "danger"
-                                              ? "هفته "
-                                              : "روز ") +
-                                            ($state.selectedStep + 1) +
+                                            $state.getStep.data.data[
+                                              $state.selectedStep
+                                            ].name +
                                             " اُم";
                                           if (
                                             $ctx.query.type == "stretch_marks"
