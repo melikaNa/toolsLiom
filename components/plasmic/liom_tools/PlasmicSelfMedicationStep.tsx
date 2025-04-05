@@ -258,6 +258,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   $ctx.query.type == "stretch_marks"
                 )
                   return true;
+                else if ($ctx.query.stepId == 121 || $ctx.query.stepId == 122)
+                  return true;
                 else {
                   return $state.getData?.data?.[0]?.isDone == 1 ? true : false;
                 }
