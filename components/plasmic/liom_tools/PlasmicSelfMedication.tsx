@@ -897,17 +897,18 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   var index;
                                   if ($state.getStep?.data?.todayReady == 1)
                                     index =
-                                      $state.getStep.data.data.findIndex(
+                                      $state.getStep?.data?.data.findIndex(
                                         item =>
                                           item.id ==
                                           $state.getStep?.data?.userStep
                                       ) + 1;
                                   else
-                                    index = $state.getStep.data.data.findIndex(
-                                      item =>
-                                        item.id ==
-                                        $state.getStep?.data?.userStep
-                                    );
+                                    index =
+                                      $state.getStep?.data?.data.findIndex(
+                                        item =>
+                                          item.id ==
+                                          $state.getStep?.data?.userStep
+                                      );
                                   return index;
                                 })()
                               };
@@ -950,14 +951,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 value: (() => {
                                   if ($state.getStep?.data?.todayReady == 1)
                                     return (
-                                      $state.getStep.data.data.findIndex(
+                                      $state.getStep?.data?.data.findIndex(
                                         item =>
                                           item.id ==
                                           $state.getStep?.data?.userStep
                                       ) + 1
                                     );
                                   else
-                                    return $state.getStep.data.data.findIndex(
+                                    return $state.getStep?.data?.data.findIndex(
                                       item =>
                                         item.id ==
                                         $state.getStep?.data?.userStep
@@ -1378,8 +1379,18 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             : false;
                           return (
                             !active &&
-                            !$state.itemLoading &&
-                            !$state.stepLoading
+                            ($state.itemLoading !== undefined
+                              ? !$state.itemLoading
+                              : false) &&
+                            ($state.stepLoading !== undefined
+                              ? !$state.stepLoading
+                              : false) &&
+                            ($state.getItem?.loading !== undefined
+                              ? !$state.getItem?.loading
+                              : false) &&
+                            ($state.getStep?.loading !== undefined
+                              ? !$state.getStep?.loading
+                              : false)
                           );
                         } else {
                           return false;
