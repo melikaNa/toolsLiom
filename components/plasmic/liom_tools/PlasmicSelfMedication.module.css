@@ -74,7 +74,7 @@
 .svg__nBoN {
   object-fit: cover;
   max-width: 100%;
-  color: #222b45;
+  color: #8f8f8f;
   width: 25px;
   height: 25px;
   display: block;
@@ -98,6 +98,9 @@
   max-width: 100%;
   min-height: 0;
   padding: 0px 0px 0px 40px;
+}
+.text__cOzkv {
+  color: #8f8f8f;
 }
 .freeBox__eyhPa {
   display: flex;
@@ -139,6 +142,17 @@
 .getItem:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.freeBox__m4WlY {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
 }
 .freeBox__uJv {
   display: flex;

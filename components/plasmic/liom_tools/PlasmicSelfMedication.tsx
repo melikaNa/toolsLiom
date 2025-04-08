@@ -206,13 +206,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   return parseInt($ctx.query.selectStep);
                 } else if ($ctx.query.type == "skinCare") {
                   var index;
-                  if (
-                    $ctx.query.selectStep !== undefined &&
-                    $ctx.query.selectStep != null &&
-                    parseInt($ctx.query.selectStep) >= 0
-                  )
-                    index = parseInt($ctx.query.selectStep);
-                  else if ($state.getStep?.data?.todayReady == 1)
+                  if ($state.getStep?.data?.todayReady == 1)
                     index =
                       $state.getStep.data.data.findIndex(
                         item => item.id == $state.getStep?.data?.userStep
@@ -224,13 +218,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   return parseInt(index);
                 } else {
                   var index;
-                  if (
-                    $ctx.query.selectStep !== undefined &&
-                    $ctx.query.selectStep != null &&
-                    parseInt($ctx.query.selectStep) >= 0
-                  )
-                    index = parseInt($ctx.query.selectStep);
-                  else if ($state.getStep?.data?.todayReady == 1)
+                  if ($state.getStep?.data?.todayReady == 1)
                     index =
                       $state.getStep.data.data.findIndex(
                         item => item.id == $state.getStep?.data?.userStep
@@ -907,15 +895,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 operation: 0,
                                 value: (() => {
                                   var index;
-                                  if (
-                                    $ctx.query.selectStep !== undefined &&
-                                    $ctx.query.selectStep != null &&
-                                    parseInt($ctx.query.selectStep) >= 0
-                                  )
-                                    index = parseInt($ctx.query.selectStep);
-                                  else if (
-                                    $state.getStep?.data?.todayReady == 1
-                                  )
+                                  if ($state.getStep?.data?.todayReady == 1)
                                     index =
                                       $state.getStep.data.data.findIndex(
                                         item =>
@@ -968,15 +948,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                 },
                                 operation: 0,
                                 value: (() => {
-                                  if (
-                                    typeof $ctx?.query?.selectStep !==
-                                      "undefined" &&
-                                    $ctx?.query?.selectStep != null
-                                  )
-                                    return parseInt($ctx.query.selectStep);
-                                  else if (
-                                    $state.getStep?.data?.todayReady == 1
-                                  )
+                                  if ($state.getStep?.data?.todayReady == 1)
                                     return (
                                       $state.getStep.data.data.findIndex(
                                         item =>
@@ -1053,49 +1025,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         $steps["updateSelectedStep2"] = await $steps[
                           "updateSelectedStep2"
                         ];
-                      }
-
-                      $steps["runCode2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  let __plasmic_ret = undefined;
-                                  if (
-                                    $state.healthStatus != "period" &&
-                                    $ctx.query.type == "skinCare"
-                                  ) {
-                                    for (
-                                      var i = 0;
-                                      i < $state.getStep.data.data.length;
-                                      i++
-                                    ) {
-                                      console.log("u");
-                                      if (
-                                        $state.getStep.data.data[i].orderr == 1
-                                      ) {
-                                        console.log("q");
-                                        $state.userStep += 1;
-                                        __plasmic_ret =
-                                          $state.selectedStep += 1;
-                                      }
-                                    }
-                                  }
-                                  return __plasmic_ret;
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode2"] != null &&
-                        typeof $steps["runCode2"] === "object" &&
-                        typeof $steps["runCode2"].then === "function"
-                      ) {
-                        $steps["runCode2"] = await $steps["runCode2"];
                       }
 
                       $steps["updateStepLoading"] = true
@@ -1346,6 +1275,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     url={"https://n8n.staas.ir/webhook/selfTreatment"}
                   />
                 </ApiRequest>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__m4WlY)}
+                />
               </ApiRequest>
               <Stack__
                 as={"div"}
@@ -1419,7 +1351,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               const active = filteredItem
                                 ? filteredItem.active
                                 : false;
-                              return !active;
+                              return (
+                                !active &&
+                                !$state.itemLoading &&
+                                !$state.stepLoading
+                              );
                             } else {
                               return false;
                             }
@@ -1462,6 +1398,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                         )
                                           return window.FlutterChannel.postMessage(
                                             "#directDialog-stretch_marks_sub"
+                                          );
+                                        else if ($ctx.query.type == "hair_care")
+                                          return window.FlutterChannel.postMessage(
+                                            "#directDialog-hair_care_sub"
                                           );
                                       })();
                                     }
@@ -3586,6 +3526,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       return "irregular";
                     case "stretch_marks":
                       return "stretch_marks_sub";
+                    case "hair_care":
+                      return "hair_care_sub";
                   }
                 })();
               } catch (e) {
