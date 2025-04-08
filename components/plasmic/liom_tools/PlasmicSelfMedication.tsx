@@ -1027,6 +1027,80 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["updateSelectedStep"] =
+                        $ctx.query.type == "stretch_marks"
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["selectedStep"]
+                                },
+                                operation: 0,
+                                value: 0
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateSelectedStep"] != null &&
+                        typeof $steps["updateSelectedStep"] === "object" &&
+                        typeof $steps["updateSelectedStep"].then === "function"
+                      ) {
+                        $steps["updateSelectedStep"] = await $steps[
+                          "updateSelectedStep"
+                        ];
+                      }
+
+                      $steps["updateUserStep2"] =
+                        $ctx.query.type == "stretch_marks"
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["userStep"]
+                                },
+                                operation: 0,
+                                value: 0
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateUserStep2"] != null &&
+                        typeof $steps["updateUserStep2"] === "object" &&
+                        typeof $steps["updateUserStep2"].then === "function"
+                      ) {
+                        $steps["updateUserStep2"] = await $steps[
+                          "updateUserStep2"
+                        ];
+                      }
+
                       $steps["updateStepLoading"] = true
                         ? (() => {
                             const actionArgs = {
