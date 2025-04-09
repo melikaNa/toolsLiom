@@ -3653,6 +3653,11 @@
           "id": "JVIIpggBdL39",
           "name": "Icon145Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon145.tsx"
+        },
+        {
+          "id": "SCjS0I71-O6v",
+          "name": "Icon146Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon146.tsx"
         }
       ],
       "images": [

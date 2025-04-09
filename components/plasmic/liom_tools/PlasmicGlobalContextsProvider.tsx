@@ -19,24 +19,19 @@ export interface GlobalContextsProviderProps {
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
-
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   cmsCredentialsProviderProps?: Partial<
     Omit<React.ComponentProps<typeof CmsCredentialsProvider>, "children">
   >;
-
   parallaxProviderWrapperProps?: Partial<
     Omit<React.ComponentProps<typeof ParallaxProviderWrapper>, "children">
   >;
@@ -141,13 +136,13 @@ export default function GlobalContextsProvider(
                 antdConfigProviderProps &&
                 "colorInfo" in antdConfigProviderProps
                   ? antdConfigProviderProps.colorInfo!
-                  : "#1677ff"
+                  : "#7444BC"
               }
               colorPrimary={
                 antdConfigProviderProps &&
                 "colorPrimary" in antdConfigProviderProps
                   ? antdConfigProviderProps.colorPrimary!
-                  : "#327CE4"
+                  : "#8254C6"
               }
               colorSuccess={
                 antdConfigProviderProps &&

@@ -384,6 +384,39 @@ function PlasmicDirectDialog__RenderFunc(props: {
           ) {
             return;
           }
+
+          (async val => {
+            const $steps = {};
+
+            $steps["updateOpen"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["open"]
+                    },
+                    operation: 0,
+                    value: $state.dialog.opendialog
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateOpen"] != null &&
+              typeof $steps["updateOpen"] === "object" &&
+              typeof $steps["updateOpen"].then === "function"
+            ) {
+              $steps["updateOpen"] = await $steps["updateOpen"];
+            }
+          }).apply(null, eventArgs);
         }}
         opendialog={generateStateValueProp($state, ["dialog", "opendialog"])}
       >

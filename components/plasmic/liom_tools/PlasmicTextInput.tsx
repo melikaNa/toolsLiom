@@ -97,8 +97,6 @@ export const PlasmicTextInput__VariantProps = new Array<VariantPropType>(
 
 export type PlasmicTextInput__ArgsType = {
   placeholder?: string;
-  endIcon?: React.ReactNode;
-  startIcon?: React.ReactNode;
   value?: string;
   name?: string;
   required?: boolean;
@@ -116,12 +114,12 @@ export type PlasmicTextInput__ArgsType = {
     | "email"
     | "tel";
   autoFocus?: boolean;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicTextInput__ArgsType;
 export const PlasmicTextInput__ArgProps = new Array<ArgPropType>(
   "placeholder",
-  "endIcon",
-  "startIcon",
   "value",
   "name",
   "required",
@@ -129,7 +127,9 @@ export const PlasmicTextInput__ArgProps = new Array<ArgPropType>(
   "aria-labelledby",
   "onChange",
   "type",
-  "autoFocus"
+  "autoFocus",
+  "startIcon",
+  "endIcon"
 );
 
 export type PlasmicTextInput__OverridesType = {

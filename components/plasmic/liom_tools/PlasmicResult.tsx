@@ -83,6 +83,8 @@ import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
 import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
+import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
+import TextInput from "../../TextInput"; // plasmic-import: aEno43N2WkPr/component
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import {
@@ -118,6 +120,9 @@ import Icon118Icon from "./icons/PlasmicIcon__Icon118"; // plasmic-import: DnG_0
 import Icon117Icon from "./icons/PlasmicIcon__Icon117"; // plasmic-import: v74DW-fSFwuD/icon
 import Icon81Icon from "./icons/PlasmicIcon__Icon81"; // plasmic-import: T-0eOWny5WJq/icon
 import Icon124Icon from "./icons/PlasmicIcon__Icon124"; // plasmic-import: gcJesfCMo05Y/icon
+import ChevronRightIcon2 from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
+import ChevronLeftIcon2 from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: HUASOsr4ah0C/icon
 
 import { random as __lib_lodash__random } from "lodash";
 import __lib_copyToClipboard from "copy-to-clipboard";
@@ -140,6 +145,7 @@ export type PlasmicResult__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   timer?: Flex__<typeof Timer>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
+  buttonLiom3?: Flex__<typeof ButtonLiom>;
   collapse3?: Flex__<typeof AntdSingleCollapse>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   icons?: Flex__<typeof Icons>;
@@ -155,6 +161,13 @@ export type PlasmicResult__OverridesType = {
   section?: Flex__<"section">;
   dialog2?: Flex__<typeof Paziresh24Dialog>;
   textArea2?: Flex__<typeof AntdTextArea>;
+  directDialog?: Flex__<typeof DirectDialog>;
+  profile?: Flex__<typeof Paziresh24Dialog>;
+  textInput?: Flex__<typeof TextInput>;
+  textInput2?: Flex__<typeof TextInput>;
+  textInput3?: Flex__<typeof TextInput>;
+  textInput4?: Flex__<typeof TextInput>;
+  buttonLiom5?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultResultProps {}
@@ -243,7 +256,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 3
       },
       {
         path: "buttonLiom.color",
@@ -442,6 +455,59 @@ function PlasmicResult__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "sand"
+      },
+      {
+        path: "buttonLiom3[].color",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "directDialog.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "directDialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "profile.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "buttonLiom5.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -971,7 +1037,7 @@ function PlasmicResult__RenderFunc(props: {
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
             className={classNames("__wab_instance", sty.timer)}
-            intervalSeconds={5}
+            intervalSeconds={4}
             isRunning={true}
             onTick={async () => {
               const $steps = {};
@@ -1189,33 +1255,117 @@ function PlasmicResult__RenderFunc(props: {
                               sty.freeBox__jSzzL
                             )}
                           >
-                            <div
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
                               className={classNames(
                                 projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text___99TDe
+                                sty.freeBox__yIfMq
                               )}
                             >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.option_metric_fa;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u06a9\u0645 \u062e\u0648\u0646\u06cc";
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___99TDe
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.option_metric_fa;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u06a9\u0645 \u062e\u0648\u0646\u06cc";
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                              {(() => {
+                                try {
+                                  return currentItem.badge != null;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
                                   }
-                                })()}
-                              </React.Fragment>
-                            </div>
+                                  throw e;
+                                }
+                              })() ? (
+                                <PercentageBox
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.percentageBox__wTlKj
+                                  )}
+                                  unnamedGroupOfVariants={(() => {
+                                    try {
+                                      return (() => {
+                                        let score = parseInt(currentItem.score);
+                                        let color =
+                                          score >= 80
+                                            ? "red"
+                                            : score >= 70
+                                            ? "oreng"
+                                            : score >= 60
+                                            ? "yellow"
+                                            : score >= 50
+                                            ? "blue"
+                                            : score >= 40
+                                            ? ""
+                                            : "";
+                                        return color;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "red";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__j0SxV
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentItem.badge;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "99 % ";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                </PercentageBox>
+                              ) : null}
+                            </Stack__>
                             {(() => {
                               try {
-                                return currentItem.badge != null;
+                                return currentItem.score >= 80;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -1225,68 +1375,129 @@ function PlasmicResult__RenderFunc(props: {
                                 }
                                 throw e;
                               }
-                            })() ? (
-                              <PercentageBox
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.percentageBox__wTlKj
-                                )}
-                                unnamedGroupOfVariants={(() => {
-                                  try {
-                                    return (() => {
-                                      let score = parseInt(currentItem.score);
-                                      let color =
-                                        score >= 80
-                                          ? "red"
-                                          : score >= 70
-                                          ? "oreng"
-                                          : score >= 60
-                                          ? "yellow"
-                                          : score >= 50
-                                          ? "blue"
-                                          : score >= 40
-                                          ? ""
-                                          : "";
-                                      return color;
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "red";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__j0SxV
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.badge;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "99 % ";
-                                        }
-                                        throw e;
+                            })()
+                              ? (() => {
+                                  const child$Props = {
+                                    className: classNames(
+                                      "__wab_instance",
+                                      sty.buttonLiom3
+                                    ),
+                                    color: generateStateValueProp($state, [
+                                      "buttonLiom3",
+                                      __plasmic_idx_0,
+                                      "color"
+                                    ]),
+                                    onClick: async event => {
+                                      const $steps = {};
+
+                                      $steps["updateDirectDialogOpen"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: [
+                                                  "directDialog",
+                                                  "open"
+                                                ]
+                                              },
+                                              operation: 0,
+                                              value: true
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updateDirectDialogOpen"] !=
+                                          null &&
+                                        typeof $steps[
+                                          "updateDirectDialogOpen"
+                                        ] === "object" &&
+                                        typeof $steps["updateDirectDialogOpen"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["updateDirectDialogOpen"] =
+                                          await $steps[
+                                            "updateDirectDialogOpen"
+                                          ];
                                       }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              </PercentageBox>
-                            ) : null}
+                                    },
+                                    onColorChange: async (
+                                      ...eventArgs: any
+                                    ) => {
+                                      ((...eventArgs) => {
+                                        generateStateOnChangeProp($state, [
+                                          "buttonLiom3",
+                                          __plasmic_idx_0,
+                                          "color"
+                                        ])(eventArgs[0]);
+                                      }).apply(null, eventArgs);
+
+                                      if (
+                                        eventArgs.length > 1 &&
+                                        eventArgs[1] &&
+                                        eventArgs[1]._plasmic_state_init_
+                                      ) {
+                                        return;
+                                      }
+                                    },
+                                    size: "compact"
+                                  };
+
+                                  initializePlasmicStates(
+                                    $state,
+                                    [
+                                      {
+                                        name: "buttonLiom3[].color",
+                                        initFunc: ({
+                                          $props,
+                                          $state,
+                                          $queries
+                                        }) => "perper"
+                                      }
+                                    ],
+                                    [__plasmic_idx_0]
+                                  );
+                                  return (
+                                    <ButtonLiom
+                                      data-plasmic-name={"buttonLiom3"}
+                                      data-plasmic-override={
+                                        overrides.buttonLiom3
+                                      }
+                                      {...child$Props}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__gRHw
+                                        )}
+                                      >
+                                        {
+                                          "\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0622\u0646\u0644\u0627\u06cc\u0646"
+                                        }
+                                      </div>
+                                    </ButtonLiom>
+                                  );
+                                })()
+                              : null}
                           </Stack__>
                         </Stack__>
                       ) : null}
@@ -2681,16 +2892,18 @@ function PlasmicResult__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__mzAy8)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__fo0X
-                )}
-              >
-                {
-                  "\u0622\u06cc\u0627 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0645\u0631\u0627\u062c\u0639\u0647 \u0641\u0648\u0631\u06cc \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0627\u0633\u062a\u061f "
-                }
+              <div className={classNames(projectcss.all, sty.freeBox__v2LC)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__fo0X
+                  )}
+                >
+                  {
+                    "\u0622\u06cc\u0627 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0645\u0631\u0627\u062c\u0639\u0647 \u0641\u0648\u0631\u06cc \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0627\u0633\u062a\u061f "
+                  }
+                </div>
               </div>
               {(() => {
                 try {
@@ -5203,6 +5416,277 @@ function PlasmicResult__RenderFunc(props: {
             }
             trigger={null}
           />
+
+          <DirectDialog
+            data-plasmic-name={"directDialog"}
+            data-plasmic-override={overrides.directDialog}
+            className={classNames("__wab_instance", sty.directDialog)}
+            desc={
+              "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u0647 \u0627\u06cc\u0646 \u062e\u062f\u0645\u0627\u062a\u060c \u0644\u0637\u0641\u0627\u064b \u0647\u0632\u06cc\u0646\u0647 \u0645\u0631\u0628\u0648\u0637\u0647 \u0631\u0627 \u067e\u0631\u062f\u0627\u062e\u062a \u06a9\u0646\u06cc\u062f."
+            }
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["directDialog", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSelectShopChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "directDialog",
+                "selectShop"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, ["directDialog", "open"])}
+          />
+
+          <Paziresh24Dialog
+            data-plasmic-name={"profile"}
+            data-plasmic-override={overrides.profile}
+            body={
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___1LcnB)}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__axej)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__uFEwt)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zJi4U
+                      )}
+                    >
+                      {"\u0646\u0627\u0645 :"}
+                    </div>
+                    <TextInput
+                      data-plasmic-name={"textInput"}
+                      data-plasmic-override={overrides.textInput}
+                      autoFocus={false}
+                      className={classNames("__wab_instance", sty.textInput)}
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      placeholder={"\u0646\u0627\u0645"}
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__ks4Vm)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__opjTt
+                      )}
+                    >
+                      {
+                        "\u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc:"
+                      }
+                    </div>
+                    <TextInput
+                      data-plasmic-name={"textInput2"}
+                      data-plasmic-override={overrides.textInput2}
+                      autoFocus={false}
+                      className={classNames("__wab_instance", sty.textInput2)}
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput2",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      placeholder={"\u0646\u0627\u0645"}
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput2",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </Stack__>
+                </Stack__>
+                <TextInput
+                  data-plasmic-name={"textInput3"}
+                  data-plasmic-override={overrides.textInput3}
+                  className={classNames("__wab_instance", sty.textInput3)}
+                  onChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "textInput3",
+                        "value"
+                      ])((e => e.target?.value).apply(null, eventArgs));
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  placeholder={"\u06a9\u062f \u0645\u0644\u06cc"}
+                  type={"tel"}
+                  value={
+                    generateStateValueProp($state, ["textInput3", "value"]) ??
+                    ""
+                  }
+                />
+
+                <TextInput
+                  data-plasmic-name={"textInput4"}
+                  data-plasmic-override={overrides.textInput4}
+                  className={classNames("__wab_instance", sty.textInput4)}
+                  onChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "textInput4",
+                        "value"
+                      ])((e => e.target?.value).apply(null, eventArgs));
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  placeholder={
+                    "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                  }
+                  type={"tel"}
+                  value={
+                    generateStateValueProp($state, ["textInput4", "value"]) ??
+                    ""
+                  }
+                />
+
+                <ButtonLiom
+                  data-plasmic-name={"buttonLiom5"}
+                  data-plasmic-override={overrides.buttonLiom5}
+                  className={classNames("__wab_instance", sty.buttonLiom5)}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom5",
+                    "color"
+                  ])}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom5",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zxQqe
+                    )}
+                  >
+                    {
+                      "\u062b\u0628\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                    }
+                  </div>
+                </ButtonLiom>
+              </Stack__>
+            }
+            className={classNames("__wab_instance", sty.profile)}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["profile", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, ["profile", "open"])}
+            title={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__a7Gue
+                )}
+              >
+                {
+                  "\u062a\u06a9\u0645\u06cc\u0644 \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                }
+              </div>
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -5217,6 +5701,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "timer",
     "buttonLiom",
+    "buttonLiom3",
     "collapse3",
     "buttonLiom2",
     "icons",
@@ -5231,13 +5716,21 @@ const PlasmicDescendants = {
     "cardSubtitle",
     "section",
     "dialog2",
-    "textArea2"
+    "textArea2",
+    "directDialog",
+    "profile",
+    "textInput",
+    "textInput2",
+    "textInput3",
+    "textInput4",
+    "buttonLiom5"
   ],
   modal: ["modal", "backgrond"],
   backgrond: ["backgrond"],
   headerLiom: ["headerLiom"],
   timer: ["timer"],
   buttonLiom: ["buttonLiom"],
+  buttonLiom3: ["buttonLiom3"],
   collapse3: ["collapse3"],
   buttonLiom2: ["buttonLiom2"],
   icons: ["icons"],
@@ -5265,7 +5758,21 @@ const PlasmicDescendants = {
   cardSubtitle: ["cardSubtitle"],
   section: ["section"],
   dialog2: ["dialog2", "textArea2"],
-  textArea2: ["textArea2"]
+  textArea2: ["textArea2"],
+  directDialog: ["directDialog"],
+  profile: [
+    "profile",
+    "textInput",
+    "textInput2",
+    "textInput3",
+    "textInput4",
+    "buttonLiom5"
+  ],
+  textInput: ["textInput"],
+  textInput2: ["textInput2"],
+  textInput3: ["textInput3"],
+  textInput4: ["textInput4"],
+  buttonLiom5: ["buttonLiom5"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5277,6 +5784,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   timer: typeof Timer;
   buttonLiom: typeof ButtonLiom;
+  buttonLiom3: typeof ButtonLiom;
   collapse3: typeof AntdSingleCollapse;
   buttonLiom2: typeof ButtonLiom;
   icons: typeof Icons;
@@ -5292,6 +5800,13 @@ type NodeDefaultElementType = {
   section: "section";
   dialog2: typeof Paziresh24Dialog;
   textArea2: typeof AntdTextArea;
+  directDialog: typeof DirectDialog;
+  profile: typeof Paziresh24Dialog;
+  textInput: typeof TextInput;
+  textInput2: typeof TextInput;
+  textInput3: typeof TextInput;
+  textInput4: typeof TextInput;
+  buttonLiom5: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5384,6 +5899,7 @@ export const PlasmicResult = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     timer: makeNodeComponent("timer"),
     buttonLiom: makeNodeComponent("buttonLiom"),
+    buttonLiom3: makeNodeComponent("buttonLiom3"),
     collapse3: makeNodeComponent("collapse3"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     icons: makeNodeComponent("icons"),
@@ -5399,6 +5915,13 @@ export const PlasmicResult = Object.assign(
     section: makeNodeComponent("section"),
     dialog2: makeNodeComponent("dialog2"),
     textArea2: makeNodeComponent("textArea2"),
+    directDialog: makeNodeComponent("directDialog"),
+    profile: makeNodeComponent("profile"),
+    textInput: makeNodeComponent("textInput"),
+    textInput2: makeNodeComponent("textInput2"),
+    textInput3: makeNodeComponent("textInput3"),
+    textInput4: makeNodeComponent("textInput4"),
+    buttonLiom5: makeNodeComponent("buttonLiom5"),
 
     // Metadata about props expected for PlasmicResult
     internalVariantProps: PlasmicResult__VariantProps,
