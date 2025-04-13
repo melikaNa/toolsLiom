@@ -2666,6 +2666,47 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/Result-for-doctor"
+        },
+        {
+          "id": "_EFUknim3Nt6",
+          "name": "Prescription",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicPrescription.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/prescription.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicPrescription.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/prescription"
+        },
+        {
+          "id": "GNjiMipwx0dm",
+          "name": "TextInput2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicTextInput2.tsx",
+          "importSpec": {
+            "modulePath": "TextInput2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicTextInput2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "text-input"
+        },
+        {
+          "id": "oaU2G97TOKr2",
+          "name": "RadioGrop",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicRadioGrop.tsx",
+          "importSpec": {
+            "modulePath": "RadioGrop.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicRadioGrop.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -4531,8 +4572,7 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     }
   ],
   "globalVariants": {

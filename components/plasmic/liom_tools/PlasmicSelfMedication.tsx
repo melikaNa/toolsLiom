@@ -1350,9 +1350,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     url={"https://n8n.staas.ir/webhook/selfTreatment"}
                   />
                 </ApiRequest>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__m4WlY)}
-                />
               </ApiRequest>
               <Stack__
                 as={"div"}
@@ -1379,17 +1376,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             : false;
                           return (
                             !active &&
-                            ($state.itemLoading !== undefined
-                              ? !$state.itemLoading
-                              : false) &&
-                            ($state.stepLoading !== undefined
-                              ? !$state.stepLoading
-                              : false) &&
-                            ($state.getItem?.loading !== undefined
-                              ? !$state.getItem?.loading
-                              : false) &&
-                            ($state.getStep?.loading !== undefined
-                              ? !$state.getStep?.loading
+                            ($state.getUser?.loading !== undefined
+                              ? !$state.getUser?.loading
                               : false)
                           );
                         } else {

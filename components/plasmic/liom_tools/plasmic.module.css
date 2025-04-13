@@ -125,6 +125,8 @@
   --plasmic-token-size-8: var(--token-v9UFcd2_ClYT);
   --token-Yi5YqU3IyFTB: #0a0a0a80;
   --plasmic-token-basic-overlay-background: var(--token-Yi5YqU3IyFTB);
+  --token-AekDIPv7FLCv: #00000033;
+  --plasmic-token-interaction-pressed: var(--token-AekDIPv7FLCv);
 }
 
 @media (max-width: 640px) {

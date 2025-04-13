@@ -872,7 +872,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                               : "NOK",
                             extra: {
                               user_id: localStorage.getItem("user_id"),
-                              session_id: new URLSearchParams(
+                              session_id: new window.URLSearchParams(
                                 window.location.search
                               ).get("session_id")
                             },
@@ -916,7 +916,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             "&token="
                           );
                         }
-                        var urlParams = new URLSearchParams(
+                        var urlParams = new window.URLSearchParams(
                           window.location.search
                         );
                         var app = urlParams.get("app");
@@ -1664,7 +1664,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               : (() => {
                   try {
                     return (
-                      new URLSearchParams(window.location.search).get(
+                      new window.URLSearchParams(window.location.search).get(
                         "inApp"
                       ) != "true"
                     );
@@ -1787,9 +1787,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                     try {
                       return {
                         top:
-                          new URLSearchParams(window.location.search).get(
-                            "inApp"
-                          ) == "true"
+                          new window.URLSearchParams(
+                            window.location.search
+                          ).get("inApp") == "true"
                             ? "-10px"
                             : ""
                       };
@@ -2592,6 +2592,49 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["updateEdit"] = await $steps["updateEdit"];
                     }
 
+                    $steps["invokeGlobalAction6"] = false
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/metricCheck",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    question_id: $state.nextQuesionId,
+                                    session_id: $state.sessionId,
+                                    type: $state.type
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction6"] != null &&
+                      typeof $steps["invokeGlobalAction6"] === "object" &&
+                      typeof $steps["invokeGlobalAction6"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction6"] = await $steps[
+                        "invokeGlobalAction6"
+                      ];
+                    }
+
                     $steps["updateNextQuesionId"] =
                       $state.ferst == true
                         ? (() => {
@@ -2602,13 +2645,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                               },
                               operation: 0,
                               value: (() => {
-                                if ($state.retestTest)
-                                  return $state.variable.options.find(
-                                    option =>
-                                      option.id ===
-                                      $state.testOptionsLiom.selectedIDs[0]
-                                  ).nextQuesion_id;
-                                else return parseInt($ctx.query.nextQuesion_id);
+                                if ($state.retestTest) {
+                                  if ($steps.invokeGlobalAction6?.data) {
+                                    return $steps.invokeGlobalAction6
+                                      ?.nextQuestionId;
+                                  } else {
+                                    return $state.variable.options.find(
+                                      option =>
+                                        option.id ===
+                                        $state.testOptionsLiom.selectedIDs[0]
+                                    ).nextQuesion_id;
+                                  }
+                                } else
+                                  return parseInt($ctx.query.nextQuesion_id);
                               })()
                             };
                             return (({
@@ -3026,13 +3075,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     question:
                                       $steps.invokeGlobalAction2.data.question,
                                     text: $steps.invokeGlobalAction2.data
-                                      .question.question,
+                                      ?.question?.question,
                                     from: "system",
                                     btnText:
-                                      $steps.invokeGlobalAction2.data.options
+                                      $steps.invokeGlobalAction2.data?.options
                                         ?.length == 1
                                         ? $steps.invokeGlobalAction2.data
-                                            .options[0].text
+                                            ?.options[0].text
                                         : "ارسال",
                                     options:
                                       $steps.invokeGlobalAction2.data.options
@@ -3040,11 +3089,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   $state.testChat[$state.testChat.length - 1] =
                                     a;
                                   $state.testOptionsLiom.selectedIDs =
-                                    $steps.invokeGlobalAction2.data.options
-                                      .length == 1
+                                    $steps.invokeGlobalAction2.data?.options
+                                      ?.length == 1
                                       ? [
-                                          $steps.invokeGlobalAction2.data
-                                            .options[0].id
+                                          $steps.invokeGlobalAction2?.data
+                                            ?.options[0].id
                                         ]
                                       : [];
                                   var textBoxes =
@@ -5882,7 +5931,9 @@ function PlasmicSelfTest__RenderFunc(props: {
               {(() => {
                 try {
                   return (() => {
-                    var urlParams = new URLSearchParams(window.location.search);
+                    var urlParams = new window.URLSearchParams(
+                      window.location.search
+                    );
                     return urlParams.get("app") != "liom";
                   })();
                 } catch (e) {
@@ -5903,7 +5954,9 @@ function PlasmicSelfTest__RenderFunc(props: {
               {(() => {
                 try {
                   return (() => {
-                    var urlParams = new URLSearchParams(window.location.search);
+                    var urlParams = new window.URLSearchParams(
+                      window.location.search
+                    );
                     return urlParams.get("app") == "liom";
                   })();
                 } catch (e) {

@@ -143,17 +143,6 @@
   max-width: 100%;
   object-fit: cover;
 }
-.freeBox__m4WlY {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
 .freeBox__uJv {
   display: flex;
   flex-direction: column;

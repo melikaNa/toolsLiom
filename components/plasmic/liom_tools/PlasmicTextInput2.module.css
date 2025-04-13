@@ -16,7 +16,22 @@
 .root___focusVisibleWithin {
   outline: none;
 }
-.freeBox__nkIc {
+.rootshowStartIcon____focusVisibleWithin {
+  outline: none;
+}
+.rootshowEndIcon____focusVisibleWithin {
+  outline: none;
+}
+.rootisDisabled____focusVisibleWithin {
+  outline: none;
+}
+.rootshowEndIcon_showStartIcon____focusVisibleWithin {
+  outline: none;
+}
+.rootshowEndIcon_isDisabled____focusVisibleWithin {
+  outline: none;
+}
+.freeBox__ovRjf {
   position: relative;
   width: 100%;
   height: auto;
@@ -33,50 +48,55 @@
 .slotTargetChildrenerror {
   color: var(--token-mIaQ7cfg3AGq);
 }
-.freeBox__laz28 {
+.freeBox__vBhwd {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   height: auto;
   align-items: center;
   justify-content: flex-start;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
   background: #ffffff;
   min-width: 0;
-  border-radius: 6px;
   padding: 8px 11px;
-  border: 1px solid #dbdbd7;
+  border-style: solid;
+  border-color: #dbdbd7;
 }
-.freeBoxcolor_dark__laz287EHn {
+.freeBoxcolor_dark__vBhwdaE9C5 {
   background: #232320;
   border-color: #717069;
 }
-.freeBoxerror__laz28HIXin {
+.freeBoxerror__vBhwdGhayA {
   border-color: var(--token-mIaQ7cfg3AGq);
 }
-.freeBoxsize_medium__laz28QLn2R {
+.freeBoxsize_medium__vBhwdIRjRs {
   align-items: center;
   justify-content: center;
   height: 45px;
   flex-shrink: 0;
 }
-.freeBoxsize_longh__laz28JzAcp {
+.freeBoxsize_longh__vBhwdA0Gw6 {
   height: 50px;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.root:hover .freeBox__laz28 {
+.root:hover .freeBox__vBhwd {
   border-color: #c8c7c1;
 }
-.root:focus-within .freeBox__laz28 {
-  box-shadow: 0px 0px 0px 1px var(--token-QR8ATjORhQqO);
+.root:focus-within .freeBox__vBhwd {
+  box-shadow: none;
+  border-bottom-width: 2px;
   outline: none;
-  border-radius: 6px;
+  border-color: var(--token-PvbqFVJaOepe);
 }
-.root .freeBox___focusVisibleWithin__laz289XNfi {
-  box-shadow: 0px 0px 0px 1px var(--token-PvbqFVJaOepe);
+.root .freeBox___focusVisibleWithin__vBhwdrx4D {
+  box-shadow: none;
   outline: none;
-  border-radius: 6px;
+  border-color: var(--token-PvbqFVJaOepe);
 }
 .startIconContainer {
   position: relative;
@@ -100,7 +120,7 @@
 .slotTargetStartIconcolor_dark {
   color: #ffffff;
 }
-.svg__zIcxm {
+.svg__wC7Va {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -161,7 +181,7 @@
 .slotTargetEndIconcolor_dark {
   color: #ffffff;
 }
-.svg__sSZuq {
+.svg__iqVy {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -173,10 +193,9 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  padding-top: 4px;
+  padding-top: 8px;
   padding-right: 8px;
   color: var(--token-mIaQ7cfg3AGq);
-  font-size: 13px;
   min-width: 0;
   display: none;
 }

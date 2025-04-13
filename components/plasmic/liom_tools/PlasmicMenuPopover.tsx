@@ -168,26 +168,6 @@ function PlasmicMenuPopover__RenderFunc(props: {
     $refs
   });
 
-  const [$ccVariants, setDollarCcVariants] = React.useState<
-    Record<string, boolean>
-  >({
-    placementTop: false,
-    placementBottom: false,
-    placementLeft: false,
-    placementRight: false
-  });
-  const updateVariant = React.useCallback(
-    (changes: Record<string, boolean>) => {
-      setDollarCcVariants(prev => {
-        if (!Object.keys(changes).some(k => prev[k] !== changes[k])) {
-          return prev;
-        }
-        return { ...prev, ...changes };
-      });
-    },
-    []
-  );
-
   return (
     <BasePopover
       data-plasmic-name={"root"}
@@ -209,7 +189,6 @@ function PlasmicMenuPopover__RenderFunc(props: {
       matchTriggerWidth={true}
       offset={args.offset}
       placement={"bottom"}
-      plasmicUpdateVariant={updateVariant}
       resetClassName={classNames(
         projectcss.root_reset,
         projectcss.plasmic_default_styles,

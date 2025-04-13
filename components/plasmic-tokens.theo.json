@@ -241,6 +241,16 @@
       }
     },
     {
+      "name": "Interaction / Pressed",
+      "type": "color",
+      "value": "#00000033",
+      "category": "color",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "AekDIPv7FLCv"
+      }
+    },
+    {
       "name": "Line-height-LG",
       "type": "lineheight",
       "value": "1.4",
