@@ -255,8 +255,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               return (() => {
                 if (
                   $ctx.query.type == "danger" ||
-                  $ctx.query.type == "stretch_marks" ||
-                  $ctx.query.type == "hair_care"
+                  $ctx.query.type == "stretch_marks"
                 )
                   return true;
                 else if ($ctx.query.stepId == 121 || $ctx.query.stepId == 122)

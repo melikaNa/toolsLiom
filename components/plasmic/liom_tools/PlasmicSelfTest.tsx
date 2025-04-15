@@ -2592,7 +2592,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["updateEdit"] = await $steps["updateEdit"];
                     }
 
-                    $steps["invokeGlobalAction6"] = false
+                    $steps["invokeGlobalAction6"] = (
+                      $state.variable?.question?.metricChecks
+                        ? $state.variable?.question?.metricChecks !== "" &&
+                          $state.variable?.question?.metricChecks !== null
+                        : false
+                    )
                       ? (() => {
                           const actionArgs = {
                             args: [
@@ -2647,17 +2652,18 @@ function PlasmicSelfTest__RenderFunc(props: {
                               value: (() => {
                                 if ($state.retestTest) {
                                   if ($steps.invokeGlobalAction6?.data) {
-                                    return $steps.invokeGlobalAction6
-                                      ?.nextQuestionId;
+                                    return $steps.invokeGlobalAction6?.data
+                                      .nextQuestionId;
                                   } else {
                                     return $state.variable.options.find(
                                       option =>
-                                        option.id ===
+                                        option.id ==
                                         $state.testOptionsLiom.selectedIDs[0]
                                     ).nextQuesion_id;
                                   }
-                                } else
+                                } else {
                                   return parseInt($ctx.query.nextQuesion_id);
+                                }
                               })()
                             };
                             return (({

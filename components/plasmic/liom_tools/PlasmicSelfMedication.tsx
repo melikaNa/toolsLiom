@@ -204,18 +204,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
               return (() => {
                 if ($ctx.query.type == "danger") {
                   return parseInt($ctx.query.selectStep);
-                } else if ($ctx.query.type == "skinCare") {
-                  var index;
-                  if ($state.getStep?.data?.todayReady == 1)
-                    index =
-                      $state.getStep.data.data.findIndex(
-                        item => item.id == $state.getStep?.data?.userStep
-                      ) + 1;
-                  else
-                    index = $state.getStep.data.data.findIndex(
-                      item => item.id == $state.getStep?.data?.userStep
-                    );
-                  return parseInt(index);
                 } else {
                   var index;
                   if ($state.getStep?.data?.todayReady == 1)
@@ -299,18 +287,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
               return (() => {
                 if ($ctx.query.type == "danger") {
                   return parseInt($ctx.query.selectStep);
-                } else if ($ctx.query.type == "skinCare") {
-                  var index;
-                  if ($state.getStep?.data?.todayReady == 1)
-                    index =
-                      $state.getStep.data.data.findIndex(
-                        item => item.id == $state.getStep?.data?.userStep
-                      ) + 1;
-                  else
-                    index = $state.getStep.data.data.findIndex(
-                      item => item.id == $state.getStep?.data?.userStep
-                    );
-                  return parseInt(index);
                 } else {
                   var index;
                   if ($state.getStep?.data?.todayReady == 1)
@@ -700,7 +676,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 data-plasmic-override={overrides.getUser}
                 className={classNames("__wab_instance", sty.getUser)}
                 errorDisplay={null}
-                loadingDisplay={null}
+                loadingDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bdL
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
+                }
                 method={"GET"}
                 onError={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, ["getUser", "error"]).apply(
@@ -884,50 +870,47 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     (async data => {
                       const $steps = {};
 
-                      $steps["updateSelectedSteppp"] =
-                        $ctx.query.type != "danger"
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["selectedStep"]
-                                },
-                                operation: 0,
-                                value: (() => {
-                                  var index;
-                                  if ($state.getStep?.data?.todayReady == 1)
-                                    index =
-                                      $state.getStep?.data?.data.findIndex(
-                                        item =>
-                                          item.id ==
-                                          $state.getStep?.data?.userStep
-                                      ) + 1;
-                                  else
-                                    index =
-                                      $state.getStep?.data?.data.findIndex(
-                                        item =>
-                                          item.id ==
-                                          $state.getStep?.data?.userStep
-                                      );
-                                  return index;
-                                })()
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                      $steps["updateSelectedSteppp"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["selectedStep"]
+                              },
+                              operation: 0,
+                              value: (() => {
+                                var index;
+                                if ($state.getStep?.data?.todayReady == 1)
+                                  index =
+                                    $state.getStep?.data?.data.findIndex(
+                                      item =>
+                                        item.id ==
+                                        $state.getStep?.data?.userStep
+                                    ) + 1;
+                                else
+                                  index = $state.getStep?.data?.data.findIndex(
+                                    item =>
+                                      item.id == $state.getStep?.data?.userStep
+                                  );
+                                return index;
+                              })()
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
                         $steps["updateSelectedSteppp"] != null &&
                         typeof $steps["updateSelectedSteppp"] === "object" &&
@@ -939,48 +922,46 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["updateUserStep"] =
-                        $ctx.query.type != "danger"
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["userStep"]
-                                },
-                                operation: 0,
-                                value: (() => {
-                                  if ($state.getStep?.data?.todayReady == 1)
-                                    return (
-                                      $state.getStep?.data?.data.findIndex(
-                                        item =>
-                                          item.id ==
-                                          $state.getStep?.data?.userStep
-                                      ) + 1
-                                    );
-                                  else
-                                    return $state.getStep?.data?.data.findIndex(
+                      $steps["updateUserStep"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["userStep"]
+                              },
+                              operation: 0,
+                              value: (() => {
+                                if ($state.getStep?.data?.todayReady == 1)
+                                  return (
+                                    $state.getStep?.data?.data.findIndex(
                                       item =>
                                         item.id ==
                                         $state.getStep?.data?.userStep
-                                    );
-                                })()
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                                    ) + 1
+                                  );
+                                else
+                                  return $state.getStep?.data?.data.findIndex(
+                                    item =>
+                                      item.id == $state.getStep?.data?.userStep
+                                  );
+                              })()
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
                         $steps["updateUserStep"] != null &&
                         typeof $steps["updateUserStep"] === "object" &&
@@ -989,6 +970,45 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         $steps["updateUserStep"] = await $steps[
                           "updateUserStep"
                         ];
+                      }
+
+                      $steps["runCode2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  let __plasmic_ret = undefined;
+                                  if ($state.getStep?.data?.userStep == 0) {
+                                    for (
+                                      var i = 0;
+                                      i < $state.getStep.data.data.length;
+                                      i++
+                                    ) {
+                                      if (
+                                        $state.getStep.data.data[i].orderr == 1
+                                      ) {
+                                        $state.selectedStep =
+                                          $state.selectedStep + 1;
+                                        __plasmic_ret = $state.userStep =
+                                          $state.userStep + 1;
+                                      }
+                                    }
+                                  }
+                                  return __plasmic_ret;
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode2"] != null &&
+                        typeof $steps["runCode2"] === "object" &&
+                        typeof $steps["runCode2"].then === "function"
+                      ) {
+                        $steps["runCode2"] = await $steps["runCode2"];
                       }
 
                       $steps["updateSelectedStep2"] =
@@ -2969,6 +2989,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               $ctx.query.type == "stretch_marks"
                                             )
                                               title = currentItem.title;
+                                            if (
+                                              $state.getStep.data.data[
+                                                $state.selectedStep
+                                              ].orderr == 1
+                                            )
+                                              title =
+                                                currentItem.title +
+                                                "|" +
+                                                $state.getStep.data.data[
+                                                  $state.selectedStep
+                                                ].name;
                                             return (
                                               "https://tools.liom.app/self-medication-step/?secId=" +
                                               currentItem.id +
