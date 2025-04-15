@@ -968,7 +968,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               customFunction: async () => {
                                 return (() => {
                                   let __plasmic_ret = undefined;
-                                  if ($state.getStep?.data?.userStep == 0) {
+                                  if (
+                                    $state.getStep?.data?.userStep == 0 &&
+                                    $ctx.query.type == "skinCare"
+                                  ) {
                                     for (
                                       var i = 0;
                                       i < $state.getStep.data.data.length;
