@@ -676,17 +676,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 data-plasmic-override={overrides.getUser}
                 className={classNames("__wab_instance", sty.getUser)}
                 errorDisplay={null}
-                loadingDisplay={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__bdL
-                    )}
-                  >
-                    {"Enter some text"}
-                  </div>
-                }
+                loadingDisplay={null}
                 method={"GET"}
                 onError={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, ["getUser", "error"]).apply(
@@ -2986,7 +2976,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               ].name +
                                               " اُم";
                                             if (
-                                              $ctx.query.type == "stretch_marks"
+                                              $ctx.query.type ==
+                                                "stretch_marks" ||
+                                              $ctx.query.type == "hair_care"
                                             )
                                               title = currentItem.title;
                                             if (
@@ -3210,7 +3202,20 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             ].name +
                                             " اُم";
                                           if (
-                                            $ctx.query.type == "stretch_marks"
+                                            $state.getStep.data.data[
+                                              $state.selectedStep
+                                            ].orderr == 1
+                                          )
+                                            title =
+                                              currentItem.title +
+                                              "|" +
+                                              $state.getStep.data.data[
+                                                $state.selectedStep
+                                              ].name;
+                                          if (
+                                            $ctx.query.type ==
+                                              "stretch_marks" ||
+                                            $ctx.query.type == "hair_care"
                                           )
                                             title = currentItem.title;
                                           return window.FlutterChannel.postMessage(
