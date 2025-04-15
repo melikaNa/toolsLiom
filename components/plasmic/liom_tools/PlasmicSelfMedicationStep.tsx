@@ -71,8 +71,8 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/compo
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import StepsLayout from "../../StepsLayout"; // plasmic-import: usfpaVkTXFYE/component
-import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-/component
+import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -119,9 +119,6 @@ export type PlasmicSelfMedicationStep__OverridesType = {
   getName?: Flex__<typeof ApiRequest>;
   getData?: Flex__<typeof ApiRequest>;
   stepsLayout?: Flex__<typeof StepsLayout>;
-  lineClomp?: Flex__<typeof LineClomp>;
-  lineClomp2?: Flex__<typeof LineClomp>;
-  lineClomp3?: Flex__<typeof LineClomp>;
   percentageBox?: Flex__<typeof PercentageBox>;
   lineClomp4?: Flex__<typeof LineClomp>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
@@ -174,24 +171,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
-      {
-        path: "lineClomp.line",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "lineClomp2.line",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "lineClomp3.line",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
       {
         path: "getData.data",
         type: "private",
@@ -734,60 +713,38 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   ) : null}
-                  <LineClomp
-                    data-plasmic-name={"lineClomp2"}
-                    data-plasmic-override={overrides.lineClomp2}
-                    className={classNames("__wab_instance", sty.lineClomp2)}
-                    more={true}
-                    numberOfLine={2}
-                    onLineChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "lineClomp2",
-                        "line"
-                      ]).apply(null, eventArgs);
-
+                  {(() => {
+                    try {
+                      return ($state.getData.data?.[0]?.text ?? "") != "";
+                    } catch (e) {
                       if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        return;
+                        return false;
                       }
-                    }}
-                  >
-                    {(() => {
-                      try {
-                        return ($state.getData.data?.[0]?.text ?? "") != "";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ysfHe,
+                        {
+                          [sty.textdark__ysfHe5Auqx]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
                         }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__ysfHe,
-                          {
-                            [sty.textdark__ysfHe5Auqx]: hasVariant(
-                              $state,
-                              "dark",
-                              "dark"
-                            )
-                          }
-                        )}
-                      >
-                        <React.Fragment>
-                          {$state.getData.data?.[0]?.text}
-                        </React.Fragment>
-                      </div>
-                    ) : null}
-                  </LineClomp>
+                      )}
+                    >
+                      <React.Fragment>
+                        {$state.getData.data?.[0]?.text}
+                      </React.Fragment>
+                    </div>
+                  ) : null}
                   <Stack__
                     as={"div"}
                     hasGap={true}
@@ -1106,59 +1063,38 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   ) : null}
-                  <LineClomp
-                    data-plasmic-name={"lineClomp3"}
-                    data-plasmic-override={overrides.lineClomp3}
-                    className={classNames("__wab_instance", sty.lineClomp3)}
-                    numberOfLine={2}
-                    onLineChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "lineClomp3",
-                        "line"
-                      ]).apply(null, eventArgs);
-
+                  {(() => {
+                    try {
+                      return ($state.getData.data?.[0]?.text ?? "") != "";
+                    } catch (e) {
                       if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        return;
+                        return false;
                       }
-                    }}
-                  >
-                    {(() => {
-                      try {
-                        return ($state.getData.data?.[0]?.text ?? "") != "";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__u8YQ8,
+                        {
+                          [sty.textdark__u8YQ85Auqx]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
                         }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__u8YQ8,
-                          {
-                            [sty.textdark__u8YQ85Auqx]: hasVariant(
-                              $state,
-                              "dark",
-                              "dark"
-                            )
-                          }
-                        )}
-                      >
-                        <React.Fragment>
-                          {$state.getData.data[0].text}
-                        </React.Fragment>
-                      </div>
-                    ) : null}
-                  </LineClomp>
+                      )}
+                    >
+                      <React.Fragment>
+                        {$state.getData.data[0].text}
+                      </React.Fragment>
+                    </div>
+                  ) : null}
                   <Stack__
                     as={"div"}
                     hasGap={true}
@@ -1505,63 +1441,41 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   </React.Fragment>
                 </div>
               ) : null}
-              <LineClomp
-                data-plasmic-name={"lineClomp"}
-                data-plasmic-override={overrides.lineClomp}
-                className={classNames("__wab_instance", sty.lineClomp)}
-                more={true}
-                numberOfLine={2}
-                onLineChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "lineClomp",
-                    "line"
-                  ]).apply(null, eventArgs);
-
+              {(() => {
+                try {
+                  return ($state.getData.data?.[0]?.text ?? "") != "";
+                } catch (e) {
                   if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return;
+                    return false;
                   }
-                }}
-              >
-                {(() => {
-                  try {
-                    return ($state.getData.data?.[0]?.text ?? "") != "";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__hsqzv,
+                    {
+                      [sty.textdark__hsqzv5Auqx]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
                     }
-                    throw e;
-                  }
-                })() ? (
+                  )}
+                >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__hsqzv,
-                      {
-                        [sty.textdark__hsqzv5Auqx]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    )}
-                  >
-                    <div
-                      className={projectcss.__wab_expr_html_text}
-                      dangerouslySetInnerHTML={{
-                        __html: $state.getData.data[0].text
-                      }}
-                    />
-                  </div>
-                ) : null}
-              </LineClomp>
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: $state.getData.data[0].text
+                    }}
+                  />
+                </div>
+              ) : null}
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -2804,9 +2718,6 @@ const PlasmicDescendants = {
     "getName",
     "getData",
     "stepsLayout",
-    "lineClomp",
-    "lineClomp2",
-    "lineClomp3",
     "percentageBox",
     "lineClomp4",
     "buttonLiom",
@@ -2816,17 +2727,7 @@ const PlasmicDescendants = {
   paziresh24Avatar: ["paziresh24Avatar"],
   getName: ["getName"],
   getData: ["getData"],
-  stepsLayout: [
-    "stepsLayout",
-    "lineClomp",
-    "lineClomp2",
-    "lineClomp3",
-    "percentageBox",
-    "lineClomp4"
-  ],
-  lineClomp: ["lineClomp"],
-  lineClomp2: ["lineClomp2"],
-  lineClomp3: ["lineClomp3"],
+  stepsLayout: ["stepsLayout", "percentageBox", "lineClomp4"],
   percentageBox: ["percentageBox"],
   lineClomp4: ["lineClomp4"],
   buttonLiom: ["buttonLiom"],
@@ -2842,9 +2743,6 @@ type NodeDefaultElementType = {
   getName: typeof ApiRequest;
   getData: typeof ApiRequest;
   stepsLayout: typeof StepsLayout;
-  lineClomp: typeof LineClomp;
-  lineClomp2: typeof LineClomp;
-  lineClomp3: typeof LineClomp;
   percentageBox: typeof PercentageBox;
   lineClomp4: typeof LineClomp;
   buttonLiom: typeof ButtonLiom;
@@ -2941,9 +2839,6 @@ export const PlasmicSelfMedicationStep = Object.assign(
     getName: makeNodeComponent("getName"),
     getData: makeNodeComponent("getData"),
     stepsLayout: makeNodeComponent("stepsLayout"),
-    lineClomp: makeNodeComponent("lineClomp"),
-    lineClomp2: makeNodeComponent("lineClomp2"),
-    lineClomp3: makeNodeComponent("lineClomp3"),
     percentageBox: makeNodeComponent("percentageBox"),
     lineClomp4: makeNodeComponent("lineClomp4"),
     buttonLiom: makeNodeComponent("buttonLiom"),

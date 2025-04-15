@@ -2973,7 +2973,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                           return (() => {
                                             var title =
                                               currentItem.title +
-                                              "|" +
+                                              " | " +
                                               $state.getStep.data.data[
                                                 $state.selectedStep
                                               ].name +
@@ -2991,7 +2991,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             )
                                               title =
                                                 currentItem.title +
-                                                "|" +
+                                                " | " +
                                                 $state.getStep.data.data[
                                                   $state.selectedStep
                                                 ].name;
@@ -3199,7 +3199,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             $ctx.query.theme;
                                           var title =
                                             currentItem.title +
-                                            "|" +
+                                            " | " +
                                             $state.getStep.data.data[
                                               $state.selectedStep
                                             ].name +
@@ -3211,7 +3211,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                           )
                                             title =
                                               currentItem.title +
-                                              "|" +
+                                              " | " +
                                               $state.getStep.data.data[
                                                 $state.selectedStep
                                               ].name;
