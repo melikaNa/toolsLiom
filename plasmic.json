@@ -2707,6 +2707,87 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicRadioGrop.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "zBpg4f-Yi3mN",
+          "name": "SelfTest2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/chat-bot.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/chat-bot"
+        },
+        {
+          "id": "HSNJ0v5oD6xT",
+          "name": "SendIcon",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSendIcon.tsx",
+          "importSpec": {
+            "modulePath": "SendIcon.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSendIcon.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "YAFmtSuqOhn7",
+          "name": "SelfTest3",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest3.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-test-3.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest3.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-test-3"
+        },
+        {
+          "id": "zOZqxY8nkGbN",
+          "name": "SidebarWindow",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSidebarWindow.tsx",
+          "importSpec": {
+            "modulePath": "SidebarWindow.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSidebarWindow.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "o_YvtQ9fhleE",
+          "name": "SelfMedicationStep2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-medication-step-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-medication-step-2"
+        },
+        {
+          "id": "rKKVawIztsLk",
+          "name": "LineClomp2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicLineClomp2.tsx",
+          "importSpec": {
+            "modulePath": "LineClomp2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicLineClomp2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3699,6 +3780,66 @@
           "id": "SCjS0I71-O6v",
           "name": "Icon146Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon146.tsx"
+        },
+        {
+          "id": "yU3FWAJzfOsT",
+          "name": "Icon147Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon147.tsx"
+        },
+        {
+          "id": "WG1t2Z2DYo-A",
+          "name": "Icon148Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon148.tsx"
+        },
+        {
+          "id": "jsdnX88Z30Rv",
+          "name": "Icon149Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon149.tsx"
+        },
+        {
+          "id": "hr_bpY54geRI",
+          "name": "Icon150Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon150.tsx"
+        },
+        {
+          "id": "kvbcBXH9y4_Y",
+          "name": "Icon151Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon151.tsx"
+        },
+        {
+          "id": "aN1J4LeWEqGr",
+          "name": "Icon152Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon152.tsx"
+        },
+        {
+          "id": "_NM36izE9pu5",
+          "name": "Icon154Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon154.tsx"
+        },
+        {
+          "id": "gVaaeTpQZv3W",
+          "name": "Icon157Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon157.tsx"
+        },
+        {
+          "id": "D1UPf1eCmdC-",
+          "name": "Icon158Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon158.tsx"
+        },
+        {
+          "id": "IL7kRYB1zAxE",
+          "name": "Icon159Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon159.tsx"
+        },
+        {
+          "id": "VDxWJe2hoa-8",
+          "name": "Icon160Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon160.tsx"
+        },
+        {
+          "id": "RaOYP4ifjT-P",
+          "name": "Icon161Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon161.tsx"
         }
       ],
       "images": [

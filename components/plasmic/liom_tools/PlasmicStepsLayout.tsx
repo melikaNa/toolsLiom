@@ -134,7 +134,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          theme: "dark"
+          theme: "darkk"
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)

@@ -613,7 +613,9 @@ function PlasmicSelfTest__RenderFunc(props: {
               return (() => {
                 let urlOrigin =
                   $ctx.query.origin ||
-                  new URLSearchParams(window.location.search).get("origin");
+                  new window.URLSearchParams(window.location.search).get(
+                    "origin"
+                  );
                 return !(
                   urlOrigin == "pazireshBlog" ||
                   urlOrigin == "pazireshSearch" ||

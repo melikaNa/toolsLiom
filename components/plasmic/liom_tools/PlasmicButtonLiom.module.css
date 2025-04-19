@@ -199,7 +199,7 @@
   background: #e3e3e0;
 }
 .rootcolor_clear:hover {
-  background: #e9e9e6;
+  background: var(--token-mQuOloHwx25-);
 }
 .rootcolor_clear:active {
   background: #e3e3e0;

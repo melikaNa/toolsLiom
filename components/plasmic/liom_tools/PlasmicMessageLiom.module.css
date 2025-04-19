@@ -67,6 +67,12 @@
   width: 100%;
   min-width: 0;
 }
+.freeBoxbot___7TlWyxxwGw {
+  background: var(--token-ieogzVSSyrRx);
+}
+.freeBoxliomAnswer_bot___7TlWy6WM5ZXxwGw {
+  background: var(--token-QR8ATjORhQqO);
+}
 .freeBox__fCi1Q {
   width: auto;
   height: auto;
@@ -163,6 +169,9 @@
 }
 .svgendMessege_hint {
   color: var(--token-LCC99oGt2mlX);
+}
+.svgendMessege_bot {
+  color: var(--token-ieogzVSSyrRx);
 }
 .freeBox__q3Toq {
   position: relative;
