@@ -647,13 +647,16 @@
 .freeBoxdarkMod__rMj4Tta2T {
   margin-top: calc(8px + var(--token-KVcr9NiMwFLr)) !important;
 }
+.lineClomp:global(.__wab_instance) {
+  max-width: 100%;
+}
 .text__tCh75 {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   min-width: 0;
 }
@@ -728,7 +731,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: var(--token-Gq2ZclrSKBOi);
+  font-size: var(--token-7E1YyiP6sAP9);
   font-weight: 700;
   color: var(--token-84PkxcVKH9-F);
   margin-right: 0px;

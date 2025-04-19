@@ -100,15 +100,21 @@ export const PlasmicSidebarWindow__VariantProps = new Array<VariantPropType>(
 export type PlasmicSidebarWindow__ArgsType = {
   open?: boolean;
   onOpenChange?: (val: string) => void;
-  children?: React.ReactNode;
   newChat?: (event: any) => void;
+  load2?: boolean;
+  onLoad2Change?: (val: string) => void;
+  children?: React.ReactNode;
+  slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicSidebarWindow__ArgsType;
 export const PlasmicSidebarWindow__ArgProps = new Array<ArgPropType>(
   "open",
   "onOpenChange",
+  "newChat",
+  "load2",
+  "onLoad2Change",
   "children",
-  "newChat"
+  "slot"
 );
 
 export type PlasmicSidebarWindow__OverridesType = {
@@ -120,8 +126,11 @@ export type PlasmicSidebarWindow__OverridesType = {
 export interface DefaultSidebarWindowProps {
   open?: boolean;
   onOpenChange?: (val: string) => void;
-  children?: React.ReactNode;
   newChat?: (event: any) => void;
+  load2?: boolean;
+  onLoad2Change?: (val: string) => void;
+  children?: React.ReactNode;
+  slot?: React.ReactNode;
   opening?: SingleBooleanChoiceArg<"opening">;
   className?: string;
 }
@@ -200,6 +209,14 @@ function PlasmicSidebarWindow__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "load2",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "load2",
+        onChangeProp: "onLoad2Change"
       }
     ],
     [$props, $ctx, $refs]
@@ -489,27 +506,161 @@ function PlasmicSidebarWindow__RenderFunc(props: {
           ),
           value: args.children
         })}
+        {(
+          hasVariant($state, "opening", "opening")
+            ? (() => {
+                try {
+                  return $state.load2;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+            : true
+        ) ? (
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__y9T4, {
+              [sty.freeBoxopening__y9T4RPBw2]: hasVariant(
+                $state,
+                "opening",
+                "opening"
+              )
+            })}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__voNiW,
+                hasVariant($state, "opening", "opening")
+                  ? "shimmer"
+                  : undefined,
+                {
+                  [sty.freeBoxopening__voNiWrPBw2]: hasVariant(
+                    $state,
+                    "opening",
+                    "opening"
+                  )
+                }
+              )}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__d8TTs,
+                hasVariant($state, "opening", "opening")
+                  ? "shimmer"
+                  : undefined,
+                {
+                  [sty.freeBoxopening__d8TTsrPBw2]: hasVariant(
+                    $state,
+                    "opening",
+                    "opening"
+                  )
+                }
+              )}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__ag2JC,
+                hasVariant($state, "opening", "opening")
+                  ? "shimmer"
+                  : undefined,
+                {
+                  [sty.freeBoxopening__ag2JCrPBw2]: hasVariant(
+                    $state,
+                    "opening",
+                    "opening"
+                  )
+                }
+              )}
+            />
+          </Stack__>
+        ) : null}
       </Stack__>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__w2Rqc, {
-          [sty.freeBoxopening__w2RqcrPBw2]: hasVariant(
+      <Stack__
+        as={"div"}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox__dvAEo, {
+          [sty.freeBoxopening__dvAEorPBw2]: hasVariant(
             $state,
             "opening",
             "opening"
           )
         })}
       >
-        <Icon157Icon
-          className={classNames(projectcss.all, sty.svg___1DBdT, {
-            [sty.svgopening___1DBdTrPBw2]: hasVariant(
+        <div
+          className={classNames(projectcss.all, sty.freeBox__w2Rqc, {
+            [sty.freeBoxopening__w2RqcrPBw2]: hasVariant(
               $state,
               "opening",
               "opening"
             )
           })}
-          role={"img"}
-        />
-      </div>
+        >
+          <Icon157Icon
+            className={classNames(projectcss.all, sty.svg___1DBdT, {
+              [sty.svgopening___1DBdTrPBw2]: hasVariant(
+                $state,
+                "opening",
+                "opening"
+              )
+            })}
+            role={"img"}
+          />
+        </div>
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__v7Tmw,
+            {
+              [sty.textopening__v7TmwrPBw2]: hasVariant(
+                $state,
+                "opening",
+                "opening"
+              )
+            }
+          )}
+        >
+          {hasVariant($state, "opening", "opening")
+            ? "\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627 :"
+            : "Enter some text"}
+        </div>
+        {(hasVariant($state, "opening", "opening") ? true : false) ? (
+          <div
+            className={classNames(projectcss.all, sty.freeBox__fgeSi, {
+              [sty.freeBoxopening__fgeSirPBw2]: hasVariant(
+                $state,
+                "opening",
+                "opening"
+              )
+            })}
+          >
+            {renderPlasmicSlot({
+              defaultContents:
+                "\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627 :",
+              value: args.slot,
+              className: classNames(sty.slotTargetSlot, {
+                [sty.slotTargetSlotopening]: hasVariant(
+                  $state,
+                  "opening",
+                  "opening"
+                )
+              })
+            })}
+          </div>
+        ) : null}
+      </Stack__>
     </Stack__>
   ) as React.ReactElement | null;
 }

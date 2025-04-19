@@ -204,6 +204,10 @@
 .rootcolor_clear:active {
   background: #e3e3e0;
 }
+.rootcolor_clear:focus-within {
+  background: #7444bc4d;
+  outline: none;
+}
 .rootcolor_link:hover {
   background: #ffffff00;
 }

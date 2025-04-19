@@ -244,6 +244,7 @@ function PlasmicSendIcon__RenderFunc(props: {
         sty.root,
         { [sty.rootdisable]: hasVariant($state, "disable", "disable") }
       )}
+      id={"sendicon"}
       onClick={args.onClick}
       style={
         hasVariant($state, "disable", "disable")

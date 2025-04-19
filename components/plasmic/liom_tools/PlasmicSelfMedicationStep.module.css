@@ -155,11 +155,12 @@
   text-align: right;
   color: var(--token-84PkxcVKH9-F);
   font-weight: 700;
+  font-size: 20px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__wplyh {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 .textdark__wplyh5Auqx {
@@ -171,11 +172,12 @@
   height: auto;
   max-width: 100%;
   text-align: right;
+  font-size: 18px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__hsqzv {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 .textdark__hsqzv5Auqx {
@@ -296,12 +298,13 @@
   font-weight: 700;
   color: var(--token-84PkxcVKH9-F);
   align-self: flex-start;
+  font-size: 18px;
   min-width: 0;
   padding: 0px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__ajOdZ {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 .textdark__ajOdZ5Auqx {
@@ -336,11 +339,12 @@
   height: auto;
   max-width: 100%;
   text-align: right;
+  font-size: 18px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text___2Ln8Y {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 .textdark___2Ln8Y5Auqx {
@@ -370,11 +374,12 @@
   text-align: right;
   color: var(--token-84PkxcVKH9-F);
   font-weight: 700;
+  font-size: 20px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__r0Nsc {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 .textdark__r0Nsc5Auqx {
@@ -387,11 +392,12 @@
   height: auto;
   max-width: 100%;
   text-align: right;
+  font-size: 18px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__ysfHe {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 .textdark__ysfHe5Auqx {
@@ -525,11 +531,12 @@
   max-width: 100%;
   height: auto;
   width: 100%;
+  font-size: 20px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__vbVG {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 .textdark__vbVG5Auqx {
@@ -541,11 +548,12 @@
   height: auto;
   max-width: 100%;
   text-align: right;
+  font-size: 18px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__u8YQ8 {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 .textdark__u8YQ85Auqx {
@@ -644,7 +652,7 @@
   font-weight: 700;
   color: var(--token-84PkxcVKH9-F);
   align-self: center;
-  font-size: 16px;
+  font-size: 18px;
   padding: 0px;
 }
 .percentageBox:global(.__wab_instance) {
@@ -762,12 +770,12 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-size: 16px;
+  font-size: 18px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__ucOvE {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 .textdark__ucOvE5Auqx {
