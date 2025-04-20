@@ -792,10 +792,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             try {
                               return {
                                 origin_user_id:
-                                  $ctx.query.origin_user_id ||
-                                  new URLSearchParams(window.location.href).get(
-                                    "origin_user_id"
-                                  ),
+                                  $ctx.query?.origin_user_id ||
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("origin_user_id"),
                                 bot_name: "period_chat",
                                 mobile: "",
                                 email: "",
@@ -903,7 +903,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             try {
                               return {
                                 topic:
-                                  $ctx.query.topic ||
+                                  $ctx.query?.topic ||
                                   new URLSearchParams(window.location.href).get(
                                     "topic"
                                   )
@@ -3006,6 +3006,32 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             typeof $steps["runCode7"].then === "function"
                           ) {
                             $steps["runCode7"] = await $steps["runCode7"];
+                          }
+
+                          $steps["invokeGlobalAction2"] =
+                            $steps.chat?.data?.message == "credit is empty"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627 \u062a\u0645\u0627\u0645 \u0634\u062f\u0647 \u0648 \u0627\u0645\u06a9\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645 \u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0641\u0639\u0627\u0644 \u0646\u06cc\u0633\u062a.",
+                                      "bottom-center"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction2"] != null &&
+                            typeof $steps["invokeGlobalAction2"] === "object" &&
+                            typeof $steps["invokeGlobalAction2"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction2"] = await $steps[
+                              "invokeGlobalAction2"
+                            ];
                           }
                         }}
                         onDiableChange={async (...eventArgs: any) => {
