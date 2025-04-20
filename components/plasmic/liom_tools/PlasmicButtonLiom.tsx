@@ -385,7 +385,13 @@ function PlasmicButtonLiom__RenderFunc(props: {
             $state,
             "unnamedVariant",
             "unnamedVariant"
-          )
+          ),
+          [sty.rootunnamedVariant_color_clear]:
+            hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+            hasVariant($state, "color", "clear"),
+          [sty.rootunnamedVariant_size_compact]:
+            hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+            hasVariant($state, "size", "compact")
         }
       )}
       disabled={args.disabled}
@@ -635,11 +641,24 @@ function PlasmicButtonLiom__RenderFunc(props: {
           data-plasmic-name={"svg"}
           data-plasmic-override={overrides.svg}
           className={classNames(projectcss.all, sty.svg, {
+            [sty.svgsize_minimal]: hasVariant($state, "size", "minimal"),
             [sty.svgunnamedVariant]: hasVariant(
               $state,
               "unnamedVariant",
               "unnamedVariant"
-            )
+            ),
+            [sty.svgunnamedVariant_color_clear]:
+              hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+              hasVariant($state, "color", "clear"),
+            [sty.svgunnamedVariant_color_line]:
+              hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+              hasVariant($state, "color", "line"),
+            [sty.svgunnamedVariant_size_compact]:
+              hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+              hasVariant($state, "size", "compact"),
+            [sty.svgunnamedVariant_size_minimal]:
+              hasVariant($state, "unnamedVariant", "unnamedVariant") &&
+              hasVariant($state, "size", "minimal")
           })}
           role={"img"}
         />

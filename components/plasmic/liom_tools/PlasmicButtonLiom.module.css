@@ -479,7 +479,23 @@
   display: none;
 }
 .svgunnamedVariant {
+  width: auto;
+  height: 1em;
   display: block;
+}
+.svgunnamedVariant_size_compact {
+  width: auto;
+  height: 1em;
+}
+.svgunnamedVariant_size_minimal {
+  width: auto;
+  height: 1em;
+}
+.svgunnamedVariant_color_clear {
+  color: var(--token-QR8ATjORhQqO);
+}
+.svgunnamedVariant_color_line {
+  color: var(--token-QR8ATjORhQqO);
 }
 .endIconContainer {
   display: flex;

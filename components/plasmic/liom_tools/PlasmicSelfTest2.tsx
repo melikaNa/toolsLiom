@@ -75,7 +75,6 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/compo
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
-import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -118,6 +117,7 @@ export type PlasmicSelfTest2__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   sidebarWindow?: Flex__<typeof SidebarWindow>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
+  chatBoxRef?: Flex__<"div">;
   messageLiom?: Flex__<typeof MessageLiom>;
   bottomInput?: Flex__<"div">;
   sendIcon?: Flex__<typeof SendIcon>;
@@ -131,7 +131,6 @@ export type PlasmicSelfTest2__OverridesType = {
   lineClomp?: Flex__<typeof LineClomp>;
   sidebarWindow2?: Flex__<typeof SidebarWindow>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
-  timer?: Flex__<typeof Timer>;
 };
 
 export interface DefaultSelfTest2Props {}
@@ -1078,6 +1077,35 @@ function PlasmicSelfTest2__RenderFunc(props: {
               ) {
                 $steps["updateTestChat"] = await $steps["updateTestChat"];
               }
+
+              $steps["updateTestChat2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["drawer", "open"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat2"] != null &&
+                typeof $steps["updateTestChat2"] === "object" &&
+                typeof $steps["updateTestChat2"].then === "function"
+              ) {
+                $steps["updateTestChat2"] = await $steps["updateTestChat2"];
+              }
             }}
             onLoad2Change={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
@@ -1402,8 +1430,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   customFunction: async () => {
                                     return (() => {
                                       $state.sessionId = currentItem.id;
-                                      return ($state.botSessionId =
-                                        currentItem.bot_session_id);
+                                      $state.botSessionId =
+                                        currentItem.bot_session_id;
+                                      return ($state.hasMore = true);
                                     })();
                                   }
                                 };
@@ -1482,19 +1511,15 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      return window.document.addEventListener(
-                                        "DOMContentLoaded",
-                                        () => {
-                                          var messageBox =
-                                            window.document.getElementById(
-                                              "messegeBox"
-                                            );
-                                          messageBox.scroll({
-                                            top: messageBox.scrollHeight,
-                                            behavior: "smooth"
-                                          });
-                                        }
-                                      );
+                                      var messageBox =
+                                        window.document.getElementById(
+                                          "chatBox"
+                                        );
+                                      if (messageBox)
+                                        return messageBox.scroll({
+                                          top: messageBox.scrollHeight,
+                                          behavior: "smooth"
+                                        });
                                     })();
                                   }
                                 };
@@ -1599,7 +1624,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
               style={(() => {
                 try {
                   return {
-                    height: $state.testChat?.length == 0 ? "auto" : "80vh",
+                    height: $state.testChat?.length == 0 ? "auto" : "90vh",
                     left: 0,
                     right: 0,
                     bottom: 0
@@ -1615,11 +1640,216 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 }
               })()}
             >
+              {(() => {
+                try {
+                  return $state.isLoading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__rLxvI,
+                    "line-container"
+                  )}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___6FYrn,
+                      "line line-1"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___4PuQy,
+                      "line line-2"
+                    )}
+                  />
+                </div>
+              ) : null}
               <Stack__
                 as={"div"}
+                data-plasmic-name={"chatBoxRef"}
+                data-plasmic-override={overrides.chatBoxRef}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__dAtf, ``)}
-                id={"messageBox"}
+                className={classNames(projectcss.all, sty.chatBoxRef)}
+                id={"chatBox"}
+                onScroll={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = $state.hasMore
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              var scrollTop = event.currentTarget.scrollTop;
+                              var chatBox = event.currentTarget;
+                              window.chatBox = chatBox;
+                              if (scrollTop == 0) {
+                                chatBox.style.overflow = "hidden";
+                                $state.isLoading = true;
+                                return console.log(
+                                  "\u2705 اسکرول رسید به بالا"
+                                );
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["invokeGlobalAction"] = $state.isLoading
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "https://n8n.staas.ir/webhook/chatBotServiceChats",
+                            (() => {
+                              try {
+                                return {
+                                  session_id: $state.sessionId,
+                                  offset: $state.testChat[0].id
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  headers: {
+                                    Authorization: "Bearer " + window.token
+                                  }
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction2"] = $state.isLoading
+                    ? (() => {
+                        const actionArgs = { args: [500] };
+                        return $globalActions["Fragment.wait"]?.apply(null, [
+                          ...actionArgs.args
+                        ]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction2"] != null &&
+                    typeof $steps["invokeGlobalAction2"] === "object" &&
+                    typeof $steps["invokeGlobalAction2"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction2"] = await $steps[
+                      "invokeGlobalAction2"
+                    ];
+                  }
+
+                  $steps["runCode2"] = $state.isLoading
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              $state.isLoading = false;
+                              var newData =
+                                $steps.invokeGlobalAction?.data?.list;
+                              if (!newData || newData.length == 0) {
+                                $state.hasMore = false;
+                              } else {
+                                newData.forEach(item => {
+                                  if (item.isBot === 0) {
+                                    item["from"] = "user";
+                                  } else {
+                                    item["from"] = "system";
+                                  }
+                                });
+                                $state.testChat = newData.concat(
+                                  $state.testChat
+                                );
+                              }
+                              if (window.chatBox) {
+                                return (window.chatBox.style.overflow = "auto");
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode2"] != null &&
+                    typeof $steps["runCode2"] === "object" &&
+                    typeof $steps["runCode2"].then === "function"
+                  ) {
+                    $steps["runCode2"] = await $steps["runCode2"];
+                  }
+                }}
+                style={(() => {
+                  try {
+                    return {
+                      "overflow-y": "auto"
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               >
                 <Reveal
                   big={false}
@@ -1720,12 +1950,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return $state.testChat
-                                  .slice()
-                                  .reverse()
-                                  .find(item => item.from === "user")
-                                  ? true
-                                  : false;
+                                return (() => {})();
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -2757,16 +2982,15 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      window.scrollTo({
-                                        top: window.document.getElementById(
-                                          "messegeBox"
-                                        ).scrollHeight,
-                                        behavior: "smooth"
-                                      });
-                                      return window.scrollTo({
-                                        top: document.body.scrollHeight,
-                                        behavior: "smooth"
-                                      });
+                                      var messageBox =
+                                        window.document.getElementById(
+                                          "chatBox"
+                                        );
+                                      if (messageBox)
+                                        return messageBox.scroll({
+                                          top: messageBox.scrollHeight,
+                                          behavior: "smooth"
+                                        });
                                     })();
                                   }
                                 };
@@ -2824,6 +3048,33 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               ["textArea", "value"],
                               AntdTextArea_Helpers
                             ).apply(null, eventArgs);
+                          },
+                          onPressEnter: async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return window.document
+                                          .getElementById("sendicon")
+                                          .click();
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
                           },
                           placeholder:
                             "\u067e\u06cc\u0627\u0645 \u062e\u0648\u062f \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...",
@@ -3029,6 +3280,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   }
                 }}
                 size={"compact"}
+                unnamedVariant={(() => {
+                  try {
+                    return $state.load;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
               >
                 <div
                   className={classNames(
@@ -3377,6 +3641,40 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 ) {
                   $steps["updateTestChat"] = await $steps["updateTestChat"];
                 }
+
+                $steps["updateTestChat2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["drawer", "open"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTestChat2"] != null &&
+                  typeof $steps["updateTestChat2"] === "object" &&
+                  typeof $steps["updateTestChat2"].then === "function"
+                ) {
+                  $steps["updateTestChat2"] = await $steps["updateTestChat2"];
+                }
               }}
               onLoad2Change={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
@@ -3650,6 +3948,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           throw e;
                                         }
                                       })(),
+                                      undefined,
                                       (() => {
                                         try {
                                           return {
@@ -3763,8 +4062,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     customFunction: async () => {
                                       return (() => {
                                         $state.sessionId = currentItem.id;
-                                        return ($state.botSessionId =
-                                          currentItem.bot_session_id);
+                                        $state.botSessionId =
+                                          currentItem.bot_session_id;
+                                        return ($state.hasMore = true);
                                       })();
                                     }
                                   };
@@ -3948,163 +4248,6 @@ window.typewriter = function() {
             })()}
           />
 
-          <Timer
-            data-plasmic-name={"timer"}
-            data-plasmic-override={overrides.timer}
-            className={classNames("__wab_instance", sty.timer)}
-            intervalSeconds={5}
-            isRunning={true}
-            onTick={async () => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          const messageBox =
-                            window.document.getElementById("messageBox");
-                          console.log(messageBox);
-                          return messageBox.addEventListener("scroll", () => {
-                            if ($state.isLoading || !$state.hasMore) return;
-                            const { scrollTop, scrollHeight, clientHeight } =
-                              messageBox;
-                            const isNearTop = scrollTop <= 50;
-                            if (isNearTop) {
-                              $state.isLoading = true;
-                            }
-                          });
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["invokeGlobalAction"] = $state.isLoading
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/chatBotServiceChats",
-                        (() => {
-                          try {
-                            return {
-                              session_id: $state.sessionId,
-                              offset: $state.testChat[0].id
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              headers: {
-                                Authorization: "Bearer " + window.token
-                              }
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
-              }
-
-              $steps["invokeGlobalAction2"] = true
-                ? (() => {
-                    const actionArgs = { args: [500] };
-                    return $globalActions["Fragment.wait"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction2"] != null &&
-                typeof $steps["invokeGlobalAction2"] === "object" &&
-                typeof $steps["invokeGlobalAction2"].then === "function"
-              ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
-              }
-
-              $steps["runCode2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          $state.isLoading = false;
-                          const newData = $steps.invokeGlobalAction?.data?.list;
-                          if (!newData || newData.length == 0) {
-                            return ($state.hasMore = false);
-                          } else {
-                            newData.forEach(item => {
-                              if (item.isBot === 0) {
-                                item["from"] = "user";
-                              } else {
-                                item["from"] = "system";
-                              }
-                            });
-                            return ($state.testChat = newData.concat(
-                              $state.testChat
-                            ));
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode2"] != null &&
-                typeof $steps["runCode2"] === "object" &&
-                typeof $steps["runCode2"].then === "function"
-              ) {
-                $steps["runCode2"] = await $steps["runCode2"];
-              }
-            }}
-            runWhileEditing={false}
-          />
-
           {(() => {
             try {
               return $state.load;
@@ -4137,6 +4280,7 @@ const PlasmicDescendants = {
     "sideEffect",
     "sidebarWindow",
     "buttonLiom2",
+    "chatBoxRef",
     "messageLiom",
     "bottomInput",
     "sendIcon",
@@ -4149,12 +4293,12 @@ const PlasmicDescendants = {
     "buttonLiom3",
     "lineClomp",
     "sidebarWindow2",
-    "buttonLiom4",
-    "timer"
+    "buttonLiom4"
   ],
   sideEffect: ["sideEffect"],
   sidebarWindow: ["sidebarWindow", "buttonLiom2"],
   buttonLiom2: ["buttonLiom2"],
+  chatBoxRef: ["chatBoxRef", "messageLiom"],
   messageLiom: ["messageLiom"],
   bottomInput: ["bottomInput", "sendIcon", "textArea"],
   sendIcon: ["sendIcon"],
@@ -4173,8 +4317,7 @@ const PlasmicDescendants = {
   buttonLiom3: ["buttonLiom3", "lineClomp"],
   lineClomp: ["lineClomp"],
   sidebarWindow2: ["sidebarWindow2", "buttonLiom4"],
-  buttonLiom4: ["buttonLiom4"],
-  timer: ["timer"]
+  buttonLiom4: ["buttonLiom4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4184,6 +4327,7 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   sidebarWindow: typeof SidebarWindow;
   buttonLiom2: typeof ButtonLiom;
+  chatBoxRef: "div";
   messageLiom: typeof MessageLiom;
   bottomInput: "div";
   sendIcon: typeof SendIcon;
@@ -4197,7 +4341,6 @@ type NodeDefaultElementType = {
   lineClomp: typeof LineClomp;
   sidebarWindow2: typeof SidebarWindow;
   buttonLiom4: typeof ButtonLiom;
-  timer: typeof Timer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4288,6 +4431,7 @@ export const PlasmicSelfTest2 = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     sidebarWindow: makeNodeComponent("sidebarWindow"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
+    chatBoxRef: makeNodeComponent("chatBoxRef"),
     messageLiom: makeNodeComponent("messageLiom"),
     bottomInput: makeNodeComponent("bottomInput"),
     sendIcon: makeNodeComponent("sendIcon"),
@@ -4301,7 +4445,6 @@ export const PlasmicSelfTest2 = Object.assign(
     lineClomp: makeNodeComponent("lineClomp"),
     sidebarWindow2: makeNodeComponent("sidebarWindow2"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
-    timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicSelfTest2
     internalVariantProps: PlasmicSelfTest2__VariantProps,
