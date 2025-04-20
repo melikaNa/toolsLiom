@@ -791,7 +791,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           (() => {
                             try {
                               return {
-                                origin_user_id: $ctx.query.origin_user_id,
+                                origin_user_id:
+                                  $ctx.query.origin_user_id ||
+                                  new URLSearchParams(window.location.href).get(
+                                    "origin_user_id"
+                                  ),
                                 bot_name: "period_chat",
                                 mobile: "",
                                 email: "",
@@ -1516,10 +1520,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           "chatBox"
                                         );
                                       if (messageBox)
-                                        return messageBox.scroll({
-                                          top: messageBox.scrollHeight,
-                                          behavior: "smooth"
-                                        });
+                                        return (messageBox.scroll =
+                                          messageBox.scrollHeight);
                                     })();
                                   }
                                 };
@@ -1838,7 +1840,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 style={(() => {
                   try {
                     return {
-                      "overflow-y": "auto"
+                      "overflow-y": "auto",
+                      "scroll-behavior": "smooth"
                     };
                   } catch (e) {
                     if (
@@ -2977,7 +2980,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             $steps["runCode6"] = await $steps["runCode6"];
                           }
 
-                          $steps["runCode7"] = false
+                          $steps["runCode7"] = true
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
@@ -2987,10 +2990,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           "chatBox"
                                         );
                                       if (messageBox)
-                                        return messageBox.scroll({
-                                          top: messageBox.scrollHeight,
-                                          behavior: "smooth"
-                                        });
+                                        return (messageBox.scroll =
+                                          messageBox.scrollHeight);
                                     })();
                                   }
                                 };
@@ -4118,6 +4119,37 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             ) {
                               $steps["updateTestChat3"] = await $steps[
                                 "updateTestChat3"
+                              ];
+                            }
+
+                            $steps["updateTestChat5"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        var messageBox =
+                                          window.document.getElementById(
+                                            "chatBox"
+                                          );
+                                        if (messageBox)
+                                          return (messageBox.scroll =
+                                            messageBox.scrollHeight);
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateTestChat5"] != null &&
+                              typeof $steps["updateTestChat5"] === "object" &&
+                              typeof $steps["updateTestChat5"].then ===
+                                "function"
+                            ) {
+                              $steps["updateTestChat5"] = await $steps[
+                                "updateTestChat5"
                               ];
                             }
                           },
