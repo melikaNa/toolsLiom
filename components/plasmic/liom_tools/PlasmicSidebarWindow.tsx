@@ -320,7 +320,10 @@ function PlasmicSidebarWindow__RenderFunc(props: {
                 }
               )}
             >
-              {"\u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645"}
+              {hasVariant($state, "opening", "opening") &&
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "\u062a\u0627\u0631\u06cc\u062e\u0686\u062e \u067e\u06cc\u0627\u0645 \u0647\u0627"
+                : "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645"}
             </div>
           </Stack__>
           <AntdTooltip

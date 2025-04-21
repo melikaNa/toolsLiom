@@ -74,6 +74,7 @@ import sty from "./PlasmicMessageLiom.module.css"; // plasmic-import: xCdoITDvZV
 
 import Icon109Icon from "./icons/PlasmicIcon__Icon109"; // plasmic-import: FdWVKA90TGYv/icon
 import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
+import Icon163Icon from "./icons/PlasmicIcon__Icon163"; // plasmic-import: nFq8A5FriXuO/icon
 
 createPlasmicElementProxy;
 
@@ -84,6 +85,7 @@ export type PlasmicMessageLiom__VariantMembers = {
   endMessege: "endMessege";
   hint: "hint";
   bot: "bot";
+  error: "error";
 };
 export type PlasmicMessageLiom__VariantsArgs = {
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -92,6 +94,7 @@ export type PlasmicMessageLiom__VariantsArgs = {
   endMessege?: SingleBooleanChoiceArg<"endMessege">;
   hint?: SingleBooleanChoiceArg<"hint">;
   bot?: SingleBooleanChoiceArg<"bot">;
+  error?: SingleBooleanChoiceArg<"error">;
 };
 type VariantPropType = keyof PlasmicMessageLiom__VariantsArgs;
 export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
@@ -100,7 +103,8 @@ export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
   "loadingMessage",
   "endMessege",
   "hint",
-  "bot"
+  "bot",
+  "error"
 );
 
 export type PlasmicMessageLiom__ArgsType = {
@@ -118,7 +122,7 @@ export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
 export type PlasmicMessageLiom__OverridesType = {
   root?: Flex__<"div">;
   loadingCompopnentGray?: Flex__<typeof LoadingCompopnentGray>;
-  svg?: Flex__<"svg">;
+  text?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
 };
 
@@ -132,6 +136,7 @@ export interface DefaultMessageLiomProps {
   endMessege?: SingleBooleanChoiceArg<"endMessege">;
   hint?: SingleBooleanChoiceArg<"hint">;
   bot?: SingleBooleanChoiceArg<"bot">;
+  error?: SingleBooleanChoiceArg<"error">;
   className?: string;
 }
 
@@ -214,6 +219,12 @@ function PlasmicMessageLiom__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.bot
+      },
+      {
+        path: "error",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.error
       }
     ],
     [$props, $ctx, $refs]
@@ -258,6 +269,22 @@ function PlasmicMessageLiom__RenderFunc(props: {
           [sty.rootendMessege_pazireshAnswer]:
             hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
             hasVariant($state, "endMessege", "endMessege"),
+          [sty.rooterror]: hasVariant($state, "error", "error"),
+          [sty.rooterror_bot]:
+            hasVariant($state, "bot", "bot") &&
+            hasVariant($state, "error", "error"),
+          [sty.rooterror_endMessege]:
+            hasVariant($state, "endMessege", "endMessege") &&
+            hasVariant($state, "error", "error"),
+          [sty.rooterror_hint]:
+            hasVariant($state, "hint", "hint") &&
+            hasVariant($state, "error", "error"),
+          [sty.rooterror_loadingMessage]:
+            hasVariant($state, "error", "error") &&
+            hasVariant($state, "loadingMessage", "loadingMessage"),
+          [sty.rooterror_pazireshAnswer]:
+            hasVariant($state, "error", "error") &&
+            hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
           [sty.roothint]: hasVariant($state, "hint", "hint"),
           [sty.rootliomAnswer]: hasVariant($state, "liomAnswer", "liomAnswer"),
           [sty.rootliomAnswer_bot]:
@@ -295,7 +322,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
         className={classNames(
           projectcss.all,
           sty.freeBox___7TlWy,
-          hasVariant($state, "endMessege", "endMessege")
+          hasVariant($state, "error", "error")
+            ? ``
+            : hasVariant($state, "endMessege", "endMessege")
             ? "text-box"
             : hasVariant($state, "liomAnswer", "liomAnswer")
             ? ``
@@ -315,6 +344,23 @@ function PlasmicMessageLiom__RenderFunc(props: {
             [sty.freeBoxendMessege_hint___7TlWyTjzqgETAel]:
               hasVariant($state, "hint", "hint") &&
               hasVariant($state, "endMessege", "endMessege"),
+            [sty.freeBoxerror___7TlWyNbbwb]: hasVariant(
+              $state,
+              "error",
+              "error"
+            ),
+            [sty.freeBoxerror_bot___7TlWyNbbwbXxwGw]:
+              hasVariant($state, "bot", "bot") &&
+              hasVariant($state, "error", "error"),
+            [sty.freeBoxerror_hint___7TlWyNbbwbETAel]:
+              hasVariant($state, "hint", "hint") &&
+              hasVariant($state, "error", "error"),
+            [sty.freeBoxerror_loadingMessage___7TlWyNbbwbNjKFm]:
+              hasVariant($state, "error", "error") &&
+              hasVariant($state, "loadingMessage", "loadingMessage"),
+            [sty.freeBoxerror_pazireshAnswer___7TlWyNbbwbYPoRs]:
+              hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+              hasVariant($state, "error", "error"),
             [sty.freeBoxhint___7TlWyeTAel]: hasVariant($state, "hint", "hint"),
             [sty.freeBoxliomAnswer___7TlWy6WM5Z]: hasVariant(
               $state,
@@ -376,6 +422,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
+              [sty.freeBoxerror__fCi1Qnbbwb]: hasVariant(
+                $state,
+                "error",
+                "error"
+              ),
               [sty.freeBoxhint__fCi1QeTAel]: hasVariant($state, "hint", "hint"),
               [sty.freeBoxliomAnswer__fCi1Q6WM5Z]: hasVariant(
                 $state,
@@ -424,6 +475,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
               [sty.slotTargetChildrenendMessege_pazireshAnswer]:
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
                 hasVariant($state, "endMessege", "endMessege"),
+              [sty.slotTargetChildrenerror]: hasVariant(
+                $state,
+                "error",
+                "error"
+              ),
               [sty.slotTargetChildrenglobal_theme_dark_hint]:
                 hasVariant($state, "hint", "hint") &&
                 hasVariant(globalVariants, "theme", "dark"),
@@ -464,6 +520,13 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
+              [sty.loadingCompopnentGrayerror_endMessege]:
+                hasVariant($state, "endMessege", "endMessege") &&
+                hasVariant($state, "error", "error"),
+              [sty.loadingCompopnentGrayerror_loadingMessage_endMessege]:
+                hasVariant($state, "loadingMessage", "loadingMessage") &&
+                hasVariant($state, "endMessege", "endMessege") &&
+                hasVariant($state, "error", "error"),
               [sty.loadingCompopnentGrayliomAnswer_endMessege]:
                 hasVariant($state, "endMessege", "endMessege") &&
                 hasVariant($state, "liomAnswer", "liomAnswer"),
@@ -483,7 +546,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
           />
         </div>
         {(
-          hasVariant($state, "endMessege", "endMessege")
+          hasVariant($state, "error", "error")
+            ? true
+            : hasVariant($state, "endMessege", "endMessege")
             ? true
             : hasVariant($state, "liomAnswer", "liomAnswer")
             ? true
@@ -492,39 +557,41 @@ function PlasmicMessageLiom__RenderFunc(props: {
             : false
         ) ? (
           <Icon109Icon
-            data-plasmic-name={"svg"}
-            data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg, {
-              [sty.svgendMessege]: hasVariant(
+            className={classNames(projectcss.all, sty.svg__lOael, {
+              [sty.svgendMessege__lOaeltjzqg]: hasVariant(
                 $state,
                 "endMessege",
                 "endMessege"
               ),
-              [sty.svgendMessege_bot]:
+              [sty.svgendMessege_bot__lOaeltjzqgXxwGw]:
                 hasVariant($state, "bot", "bot") &&
                 hasVariant($state, "endMessege", "endMessege"),
-              [sty.svgendMessege_hint]:
+              [sty.svgendMessege_hint__lOaeltjzqgETAel]:
                 hasVariant($state, "hint", "hint") &&
                 hasVariant($state, "endMessege", "endMessege"),
-              [sty.svgendMessege_pazireshAnswer]:
+              [sty.svgendMessege_pazireshAnswer__lOaeltjzqgYPoRs]:
                 hasVariant($state, "endMessege", "endMessege") &&
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
-              [sty.svghint]: hasVariant($state, "hint", "hint"),
-              [sty.svgliomAnswer]: hasVariant(
+              [sty.svgerror__lOaelnbbwb]: hasVariant($state, "error", "error"),
+              [sty.svgerror_pazireshAnswer__lOaelnbbwbYPoRs]:
+                hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+                hasVariant($state, "error", "error"),
+              [sty.svghint__lOaeLeTAel]: hasVariant($state, "hint", "hint"),
+              [sty.svgliomAnswer__lOael6WM5Z]: hasVariant(
                 $state,
                 "liomAnswer",
                 "liomAnswer"
               ),
-              [sty.svgliomAnswer_pazireshAnswer]:
+              [sty.svgliomAnswer_pazireshAnswer__lOael6WM5ZYPoRs]:
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
                 hasVariant($state, "liomAnswer", "liomAnswer"),
-              [sty.svgloadingMessage_endMessege]:
+              [sty.svgloadingMessage_endMessege__lOaelNjKFmTjzqg]:
                 hasVariant($state, "loadingMessage", "loadingMessage") &&
                 hasVariant($state, "endMessege", "endMessege"),
-              [sty.svgloadingMessage_pazireshAnswer]:
+              [sty.svgloadingMessage_pazireshAnswer__lOaelNjKFmYPoRs]:
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
                 hasVariant($state, "loadingMessage", "loadingMessage"),
-              [sty.svgpazireshAnswer]: hasVariant(
+              [sty.svgpazireshAnswer__lOaeLyPoRs]: hasVariant(
                 $state,
                 "pazireshAnswer",
                 "pazireshAnswer"
@@ -540,6 +607,17 @@ function PlasmicMessageLiom__RenderFunc(props: {
               "endMessege",
               "endMessege"
             ),
+            [sty.freeBoxerror__q3ToqNbbwb]: hasVariant(
+              $state,
+              "error",
+              "error"
+            ),
+            [sty.freeBoxerror_hint__q3ToqNbbwbETAel]:
+              hasVariant($state, "hint", "hint") &&
+              hasVariant($state, "error", "error"),
+            [sty.freeBoxerror_pazireshAnswer__q3ToqNbbwbYPoRs]:
+              hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+              hasVariant($state, "error", "error"),
             [sty.freeBoxhint__q3ToqeTAel]: hasVariant($state, "hint", "hint"),
             [sty.freeBoxliomAnswer__q3Toq6WM5Z]: hasVariant(
               $state,
@@ -575,6 +653,64 @@ function PlasmicMessageLiom__RenderFunc(props: {
             value: args.slot
           })}
         </div>
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__z0D5, {
+            [sty.freeBoxendMessege__z0D5Tjzqg]: hasVariant(
+              $state,
+              "endMessege",
+              "endMessege"
+            ),
+            [sty.freeBoxerror__z0D5Nbbwb]: hasVariant($state, "error", "error"),
+            [sty.freeBoxerror_endMessege__z0D5NbbwbTjzqg]:
+              hasVariant($state, "endMessege", "endMessege") &&
+              hasVariant($state, "error", "error"),
+            [sty.freeBoxliomAnswer__z0D56WM5Z]: hasVariant(
+              $state,
+              "liomAnswer",
+              "liomAnswer"
+            ),
+            [sty.freeBoxliomAnswer_loadingMessage__z0D56WM5ZNjKFm]:
+              hasVariant($state, "liomAnswer", "liomAnswer") &&
+              hasVariant($state, "loadingMessage", "loadingMessage"),
+            [sty.freeBoxloadingMessage__z0D5NjKFm]: hasVariant(
+              $state,
+              "loadingMessage",
+              "loadingMessage"
+            ),
+            [sty.freeBoxloadingMessage_pazireshAnswer__z0D5NjKFmYPoRs]:
+              hasVariant($state, "loadingMessage", "loadingMessage") &&
+              hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
+            [sty.freeBoxpazireshAnswer__z0D5YPoRs]: hasVariant(
+              $state,
+              "pazireshAnswer",
+              "pazireshAnswer"
+            )
+          })}
+        >
+          <Icon163Icon
+            className={classNames(projectcss.all, sty.svg__wa3Pn, {
+              [sty.svgerror__wa3PnNbbwb]: hasVariant($state, "error", "error")
+            })}
+            role={"img"}
+          />
+
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text,
+              { [sty.texterror]: hasVariant($state, "error", "error") }
+            )}
+          >
+            {hasVariant($state, "error", "error")
+              ? "\u067e\u06cc\u0627\u0645 \u0627\u0631\u0633\u0627\u0644 \u0646\u0634\u062f."
+              : "Enter some text"}
+          </div>
+        </Stack__>
       </div>
       {(() => {
         try {
@@ -608,6 +744,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
+              [sty.imgerror]: hasVariant($state, "error", "error"),
               [sty.imgliomAnswer]: hasVariant(
                 $state,
                 "liomAnswer",
@@ -657,9 +794,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "loadingCompopnentGray", "svg", "img"],
+  root: ["root", "loadingCompopnentGray", "text", "img"],
   loadingCompopnentGray: ["loadingCompopnentGray"],
-  svg: ["svg"],
+  text: ["text"],
   img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -668,7 +805,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   loadingCompopnentGray: typeof LoadingCompopnentGray;
-  svg: "svg";
+  text: "div";
   img: typeof PlasmicImg__;
 };
 
@@ -733,7 +870,7 @@ export const PlasmicMessageLiom = Object.assign(
   {
     // Helper components rendering sub-elements
     loadingCompopnentGray: makeNodeComponent("loadingCompopnentGray"),
-    svg: makeNodeComponent("svg"),
+    text: makeNodeComponent("text"),
     img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicMessageLiom

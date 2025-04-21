@@ -3845,6 +3845,11 @@
           "id": "ySm-fx5nxIne",
           "name": "Icon162Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon162.tsx"
+        },
+        {
+          "id": "nFq8A5FriXuO",
+          "name": "Icon163Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon163.tsx"
         }
       ],
       "images": [
