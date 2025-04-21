@@ -65,6 +65,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import SidebarWindow from "../../SidebarWindow"; // plasmic-import: zOZqxY8nkGbN/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
+import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/component
 import SendIcon from "../../SendIcon"; // plasmic-import: HSNJ0v5oD6xT/component
@@ -74,7 +75,6 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
-import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -120,6 +120,7 @@ export type PlasmicSelfTest2__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   sidebarWindow?: Flex__<typeof SidebarWindow>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
+  lineClomp2?: Flex__<typeof LineClomp>;
   chatBoxRef?: Flex__<"div">;
   messageLiom?: Flex__<typeof MessageLiom>;
   bottomInput?: Flex__<"div">;
@@ -132,8 +133,9 @@ export type PlasmicSelfTest2__OverridesType = {
   drawer?: Flex__<typeof AntdDrawer>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   lineClomp?: Flex__<typeof LineClomp>;
-  sidebarWindow2?: Flex__<typeof SidebarWindow>;
-  buttonLiom4?: Flex__<typeof ButtonLiom>;
+  sidebarWindow3?: Flex__<typeof SidebarWindow>;
+  buttonLiom6?: Flex__<typeof ButtonLiom>;
+  lineClomp4?: Flex__<typeof LineClomp>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
 };
 
@@ -616,17 +618,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
         variableType: "boolean"
       },
       {
-        path: "sidebarWindow2.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
-      },
-      {
-        path: "buttonLiom4[][].color",
-        type: "private",
-        variableType: "text"
-      },
-      {
         path: "indexchat",
         type: "private",
         variableType: "number",
@@ -682,16 +673,50 @@ function PlasmicSelfTest2__RenderFunc(props: {
           })()
       },
       {
-        path: "sidebarWindow2.load2",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
         path: "buttonLiom5.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "line"
+      },
+      {
+        path: "lineClomp2[][].line",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "sidebarWindow3.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "sidebarWindow3.load2",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.load;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "buttonLiom6[][].color",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "lineClomp4[][].line",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -1427,7 +1452,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     "https://n8n.staas.ir/webhook/chatBotServiceChats",
                                     (() => {
                                       try {
-                                        return { session_id: currentItem.id };
+                                        return {
+                                          session_id: currentItem.session_id
+                                        };
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -1527,7 +1554,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      $state.sessionId = currentItem.id;
+                                      $state.sessionId = currentItem.session_id;
                                       $state.botSessionId =
                                         currentItem.bot_session_id;
                                       return ($state.hasMore = true);
@@ -1652,7 +1679,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             return;
                           }
                         },
-                        size: "compact"
+                        size: "minimal"
                       };
 
                       initializePlasmicStates(
@@ -1674,26 +1701,59 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__kVxtp
+                              sty.freeBox__xHqUc
                             )}
                           >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return currentItem.bot_session_id;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "Button";
-                                  }
-                                  throw e;
+                            <LineClomp
+                              data-plasmic-name={"lineClomp2"}
+                              data-plasmic-override={overrides.lineClomp2}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.lineClomp2
+                              )}
+                              numberOfLine={1}
+                              onLineChange={async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "lineClomp2",
+                                  __plasmic_idx_0,
+                                  __plasmic_idx_1,
+                                  "line"
+                                ]).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
                                 }
-                              })()}
-                            </React.Fragment>
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__kVxtp
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.text;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "Button";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </LineClomp>
                           </div>
                         </ButtonLiom>
                       );
@@ -3911,11 +3971,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
               })}
             </div>
             <SidebarWindow
-              data-plasmic-name={"sidebarWindow2"}
-              data-plasmic-override={overrides.sidebarWindow2}
-              className={classNames("__wab_instance", sty.sidebarWindow2)}
+              data-plasmic-name={"sidebarWindow3"}
+              data-plasmic-override={overrides.sidebarWindow3}
+              className={classNames("__wab_instance", sty.sidebarWindow3)}
               load2={generateStateValueProp($state, [
-                "sidebarWindow2",
+                "sidebarWindow3",
                 "load2"
               ])}
               newChat={async event => {
@@ -3991,7 +4051,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
               }}
               onLoad2Change={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
-                  "sidebarWindow2",
+                  "sidebarWindow3",
                   "load2"
                 ]).apply(null, eventArgs);
 
@@ -4005,7 +4065,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
               }}
               onOpenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
-                  "sidebarWindow2",
+                  "sidebarWindow3",
                   "open"
                 ]).apply(null, eventArgs);
 
@@ -4016,14 +4076,99 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 ) {
                   return;
                 }
+
+                (async val => {
+                  const $steps = {};
+
+                  $steps["invokeGlobalAction"] =
+                    $state.sidebarWindow3.open == true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "GET",
+                              "https://n8n.staas.ir/webhook/chatBotServiceSession?bot_name=period_chat",
+                              undefined,
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    headers: {
+                                      Authorization: "Bearer " + window.token
+                                    }
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["updateSessions"] = (
+                    $steps.invokeGlobalAction?.data?.list ? true : false
+                  )
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["sessions"]
+                          },
+                          operation: 0,
+                          value: $steps.invokeGlobalAction.data.list
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSessions"] != null &&
+                    typeof $steps["updateSessions"] === "object" &&
+                    typeof $steps["updateSessions"].then === "function"
+                  ) {
+                    $steps["updateSessions"] = await $steps["updateSessions"];
+                  }
+                }).apply(null, eventArgs);
               }}
-              open={generateStateValueProp($state, ["sidebarWindow2", "open"])}
+              open={generateStateValueProp($state, ["sidebarWindow3", "open"])}
               slot={
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__cSu5N
+                    sty.text__qBbq
                   )}
                 >
                   <React.Fragment>
@@ -4035,7 +4180,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return "\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627 :";
+                          return "0";
                         }
                         throw e;
                       }
@@ -4108,14 +4253,14 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__dbu9L)}
+                    className={classNames(projectcss.all, sty.freeBox__eqGpu)}
                     key={currentIndex}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__nodbo
+                        sty.text__onZ9
                       )}
                     >
                       <React.Fragment>
@@ -4156,10 +4301,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         const child$Props = {
                           className: classNames(
                             "__wab_instance",
-                            sty.buttonLiom4
+                            sty.buttonLiom6
                           ),
                           color: generateStateValueProp($state, [
-                            "buttonLiom4",
+                            "buttonLiom6",
                             __plasmic_idx_0,
                             __plasmic_idx_1,
                             "color"
@@ -4168,7 +4313,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           onClick: async event => {
                             const $steps = {};
 
-                            $steps["updateDrawerOpen"] = true
+                            $steps["updateTestChat7"] = true
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
@@ -4195,17 +4340,17 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 })()
                               : undefined;
                             if (
-                              $steps["updateDrawerOpen"] != null &&
-                              typeof $steps["updateDrawerOpen"] === "object" &&
-                              typeof $steps["updateDrawerOpen"].then ===
+                              $steps["updateTestChat7"] != null &&
+                              typeof $steps["updateTestChat7"] === "object" &&
+                              typeof $steps["updateTestChat7"].then ===
                                 "function"
                             ) {
-                              $steps["updateDrawerOpen"] = await $steps[
-                                "updateDrawerOpen"
+                              $steps["updateTestChat7"] = await $steps[
+                                "updateTestChat7"
                               ];
                             }
 
-                            $steps["updateLoading"] = true
+                            $steps["updateTestChat3"] = true
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
@@ -4232,12 +4377,13 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 })()
                               : undefined;
                             if (
-                              $steps["updateLoading"] != null &&
-                              typeof $steps["updateLoading"] === "object" &&
-                              typeof $steps["updateLoading"].then === "function"
+                              $steps["updateTestChat3"] != null &&
+                              typeof $steps["updateTestChat3"] === "object" &&
+                              typeof $steps["updateTestChat3"].then ===
+                                "function"
                             ) {
-                              $steps["updateLoading"] = await $steps[
-                                "updateLoading"
+                              $steps["updateTestChat3"] = await $steps[
+                                "updateTestChat3"
                               ];
                             }
 
@@ -4249,7 +4395,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                       "https://n8n.staas.ir/webhook/chatBotServiceChats",
                                       (() => {
                                         try {
-                                          return { session_id: currentItem.id };
+                                          return {
+                                            session_id: currentItem.session_id
+                                          };
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -4299,7 +4447,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             }
 
                             $steps["updateTestChat"] = (
-                              $steps.chatSession?.data?.list ? true : false
+                              $steps.chatSession?.data ? true : false
                             )
                               ? (() => {
                                   const actionArgs = {
@@ -4347,34 +4495,13 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               ];
                             }
 
-                            $steps["updateTestChat4"] = true
-                              ? (() => {
-                                  const actionArgs = { args: [500] };
-                                  return $globalActions["Fragment.wait"]?.apply(
-                                    null,
-                                    [...actionArgs.args]
-                                  );
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateTestChat4"] != null &&
-                              typeof $steps["updateTestChat4"] === "object" &&
-                              typeof $steps["updateTestChat4"].then ===
-                                "function"
-                            ) {
-                              $steps["updateTestChat4"] = await $steps[
-                                "updateTestChat4"
-                              ];
-                            }
-
-                            $steps["updateTestChat2"] = (
-                              $steps.chatSession?.data ? true : false
-                            )
+                            $steps["updateTestChat2"] = true
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        $state.sessionId = currentItem.id;
+                                        $state.sessionId =
+                                          currentItem.session_id;
                                         $state.botSessionId =
                                           currentItem.bot_session_id;
                                         return ($state.hasMore = true);
@@ -4397,7 +4524,27 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               ];
                             }
 
-                            $steps["updateTestChat3"] = true
+                            $steps["updateTestChat5"] = true
+                              ? (() => {
+                                  const actionArgs = { args: [500] };
+                                  return $globalActions["Fragment.wait"]?.apply(
+                                    null,
+                                    [...actionArgs.args]
+                                  );
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateTestChat5"] != null &&
+                              typeof $steps["updateTestChat5"] === "object" &&
+                              typeof $steps["updateTestChat5"].then ===
+                                "function"
+                            ) {
+                              $steps["updateTestChat5"] = await $steps[
+                                "updateTestChat5"
+                              ];
+                            }
+
+                            $steps["updateTestChat4"] = true
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
@@ -4424,17 +4571,17 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 })()
                               : undefined;
                             if (
-                              $steps["updateTestChat3"] != null &&
-                              typeof $steps["updateTestChat3"] === "object" &&
-                              typeof $steps["updateTestChat3"].then ===
+                              $steps["updateTestChat4"] != null &&
+                              typeof $steps["updateTestChat4"] === "object" &&
+                              typeof $steps["updateTestChat4"].then ===
                                 "function"
                             ) {
-                              $steps["updateTestChat3"] = await $steps[
-                                "updateTestChat3"
+                              $steps["updateTestChat4"] = await $steps[
+                                "updateTestChat4"
                               ];
                             }
 
-                            $steps["updateTestChat5"] = true
+                            $steps["updateTestChat6"] = true
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
@@ -4455,20 +4602,20 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 })()
                               : undefined;
                             if (
-                              $steps["updateTestChat5"] != null &&
-                              typeof $steps["updateTestChat5"] === "object" &&
-                              typeof $steps["updateTestChat5"].then ===
+                              $steps["updateTestChat6"] != null &&
+                              typeof $steps["updateTestChat6"] === "object" &&
+                              typeof $steps["updateTestChat6"].then ===
                                 "function"
                             ) {
-                              $steps["updateTestChat5"] = await $steps[
-                                "updateTestChat5"
+                              $steps["updateTestChat6"] = await $steps[
+                                "updateTestChat6"
                               ];
                             }
                           },
                           onColorChange: async (...eventArgs: any) => {
                             ((...eventArgs) => {
                               generateStateOnChangeProp($state, [
-                                "buttonLiom4",
+                                "buttonLiom6",
                                 __plasmic_idx_0,
                                 __plasmic_idx_1,
                                 "color"
@@ -4483,14 +4630,14 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               return;
                             }
                           },
-                          size: "compact"
+                          size: "minimal"
                         };
 
                         initializePlasmicStates(
                           $state,
                           [
                             {
-                              name: "buttonLiom4[][].color",
+                              name: "buttonLiom6[][].color",
                               initFunc: ({ $props, $state, $queries }) =>
                                 "clear"
                             }
@@ -4499,33 +4646,66 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         );
                         return (
                           <ButtonLiom
-                            data-plasmic-name={"buttonLiom4"}
-                            data-plasmic-override={overrides.buttonLiom4}
+                            data-plasmic-name={"buttonLiom6"}
+                            data-plasmic-override={overrides.buttonLiom6}
                             {...child$Props}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__xyyVg
+                                sty.freeBox__ylDap
                               )}
                             >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.bot_session_id;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Button";
-                                    }
-                                    throw e;
+                              <LineClomp
+                                data-plasmic-name={"lineClomp4"}
+                                data-plasmic-override={overrides.lineClomp4}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.lineClomp4
+                                )}
+                                numberOfLine={1}
+                                onLineChange={async (...eventArgs: any) => {
+                                  generateStateOnChangeProp($state, [
+                                    "lineClomp4",
+                                    __plasmic_idx_0,
+                                    __plasmic_idx_1,
+                                    "line"
+                                  ]).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
                                   }
-                                })()}
-                              </React.Fragment>
+                                }}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__o3S4K
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.text;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "Button";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              </LineClomp>
                             </div>
                           </ButtonLiom>
                         );
@@ -4752,6 +4932,7 @@ const PlasmicDescendants = {
     "sideEffect",
     "sidebarWindow",
     "buttonLiom2",
+    "lineClomp2",
     "chatBoxRef",
     "messageLiom",
     "bottomInput",
@@ -4764,13 +4945,15 @@ const PlasmicDescendants = {
     "drawer",
     "buttonLiom3",
     "lineClomp",
-    "sidebarWindow2",
-    "buttonLiom4",
+    "sidebarWindow3",
+    "buttonLiom6",
+    "lineClomp4",
     "buttonLiom5"
   ],
   sideEffect: ["sideEffect"],
-  sidebarWindow: ["sidebarWindow", "buttonLiom2"],
-  buttonLiom2: ["buttonLiom2"],
+  sidebarWindow: ["sidebarWindow", "buttonLiom2", "lineClomp2"],
+  buttonLiom2: ["buttonLiom2", "lineClomp2"],
+  lineClomp2: ["lineClomp2"],
   chatBoxRef: ["chatBoxRef", "messageLiom"],
   messageLiom: ["messageLiom"],
   bottomInput: ["bottomInput", "sendIcon", "textArea"],
@@ -4784,13 +4967,15 @@ const PlasmicDescendants = {
     "drawer",
     "buttonLiom3",
     "lineClomp",
-    "sidebarWindow2",
-    "buttonLiom4"
+    "sidebarWindow3",
+    "buttonLiom6",
+    "lineClomp4"
   ],
   buttonLiom3: ["buttonLiom3", "lineClomp"],
   lineClomp: ["lineClomp"],
-  sidebarWindow2: ["sidebarWindow2", "buttonLiom4"],
-  buttonLiom4: ["buttonLiom4"],
+  sidebarWindow3: ["sidebarWindow3", "buttonLiom6", "lineClomp4"],
+  buttonLiom6: ["buttonLiom6", "lineClomp4"],
+  lineClomp4: ["lineClomp4"],
   buttonLiom5: ["buttonLiom5"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -4801,6 +4986,7 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   sidebarWindow: typeof SidebarWindow;
   buttonLiom2: typeof ButtonLiom;
+  lineClomp2: typeof LineClomp;
   chatBoxRef: "div";
   messageLiom: typeof MessageLiom;
   bottomInput: "div";
@@ -4813,8 +4999,9 @@ type NodeDefaultElementType = {
   drawer: typeof AntdDrawer;
   buttonLiom3: typeof ButtonLiom;
   lineClomp: typeof LineClomp;
-  sidebarWindow2: typeof SidebarWindow;
-  buttonLiom4: typeof ButtonLiom;
+  sidebarWindow3: typeof SidebarWindow;
+  buttonLiom6: typeof ButtonLiom;
+  lineClomp4: typeof LineClomp;
   buttonLiom5: typeof ButtonLiom;
 };
 
@@ -4906,6 +5093,7 @@ export const PlasmicSelfTest2 = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     sidebarWindow: makeNodeComponent("sidebarWindow"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
+    lineClomp2: makeNodeComponent("lineClomp2"),
     chatBoxRef: makeNodeComponent("chatBoxRef"),
     messageLiom: makeNodeComponent("messageLiom"),
     bottomInput: makeNodeComponent("bottomInput"),
@@ -4918,8 +5106,9 @@ export const PlasmicSelfTest2 = Object.assign(
     drawer: makeNodeComponent("drawer"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     lineClomp: makeNodeComponent("lineClomp"),
-    sidebarWindow2: makeNodeComponent("sidebarWindow2"),
-    buttonLiom4: makeNodeComponent("buttonLiom4"),
+    sidebarWindow3: makeNodeComponent("sidebarWindow3"),
+    buttonLiom6: makeNodeComponent("buttonLiom6"),
+    lineClomp4: makeNodeComponent("lineClomp4"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
 
     // Metadata about props expected for PlasmicSelfTest2

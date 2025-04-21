@@ -55,6 +55,10 @@
 .rootsize_minimal {
   padding: 0px;
 }
+.rootsize_minimal > :global(.__wab_flex-container) {
+  justify-content: flex-start;
+  align-items: center;
+}
 .rootcolor_blue {
   background: #0091ff;
 }

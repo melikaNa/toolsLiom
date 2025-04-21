@@ -680,8 +680,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       : (() => {
                           try {
                             return (
-                              //($state.getData.data?.[0]?.title ?? '') != ""
-                              false
+                              ($state.getData.data?.[0]?.title ?? "") != ""
                             );
                           } catch (e) {
                             if (
