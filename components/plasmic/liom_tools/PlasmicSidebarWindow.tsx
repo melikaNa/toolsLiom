@@ -77,7 +77,7 @@ import sty from "./PlasmicSidebarWindow.module.css"; // plasmic-import: zOZqxY8n
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4LeWEqGr/icon
 import Icon160Icon from "./icons/PlasmicIcon__Icon160"; // plasmic-import: VDxWJe2hoa-8/icon
 import Icon161Icon from "./icons/PlasmicIcon__Icon161"; // plasmic-import: RaOYP4ifjT-P/icon
-import Icon151Icon from "./icons/PlasmicIcon__Icon151"; // plasmic-import: kvbcBXH9y4_Y/icon
+import Icon162Icon from "./icons/PlasmicIcon__Icon162"; // plasmic-import: ySm-fx5nxIne/icon
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: hr_bpY54geRI/icon
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
@@ -333,9 +333,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
             })}
             color={true ? "#0A0A0A80" : undefined}
             placement={"bottom"}
-            titleText={
-              "\u0628\u0627\u0632 \u06a9\u0631\u062f\u0646 \u0645\u0646\u0648"
-            }
+            titleText={"\u062a\u0627\u0631\u06cc\u062e\u0686\u0647"}
           >
             <div
               className={classNames(projectcss.all, sty.freeBox__pSqk)}
@@ -377,7 +375,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
                 }
               }}
             >
-              <Icon151Icon
+              <Icon162Icon
                 className={classNames(projectcss.all, sty.svg___9J0Hc)}
                 role={"img"}
               />

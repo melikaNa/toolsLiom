@@ -3840,6 +3840,11 @@
           "id": "RaOYP4ifjT-P",
           "name": "Icon161Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon161.tsx"
+        },
+        {
+          "id": "ySm-fx5nxIne",
+          "name": "Icon162Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon162.tsx"
         }
       ],
       "images": [
@@ -4713,8 +4718,7 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     }
   ],
   "globalVariants": {
