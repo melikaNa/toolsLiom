@@ -109,6 +109,9 @@
 .rootunnamedVariant {
   padding: 8px;
 }
+.rootselect {
+  background: var(--token-mQuOloHwx25-);
+}
 .rootshowStartIcon_shape_rounded {
   padding-left: 16px;
 }

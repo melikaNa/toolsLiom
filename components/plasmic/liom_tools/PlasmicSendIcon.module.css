@@ -7,6 +7,7 @@
   height: auto;
   max-width: 100%;
   position: relative;
+  cursor: pointer;
   padding: 2px;
 }
 .rootdisable {
@@ -26,8 +27,6 @@
   width: 35px;
   height: 35px;
   color: var(--token-PvbqFVJaOepe);
-  pointer-events: auto;
-  cursor: pointer;
   flex-shrink: 0;
 }
 .root:hover .svg__etqbk {

@@ -307,6 +307,8 @@
   --plasmic-mixin-app-shadow-dark_white-space: var(
     --mixin-SyA9byCVOD_J_white-space
   );
+  --mixin-nmCvpCJNlfiT_white-space: pre-wrap;
+  --plasmic-mixin-select_white-space: var(--mixin-nmCvpCJNlfiT_white-space);
 }
 
 :where(.all) {

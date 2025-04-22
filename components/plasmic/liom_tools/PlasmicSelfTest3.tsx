@@ -554,7 +554,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
         path: "sendIcon.diable",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]

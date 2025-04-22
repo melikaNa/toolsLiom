@@ -130,7 +130,7 @@
   transform: scaleX(4) scaleY(4) scaleZ(1);
   position: absolute;
   left: 0px;
-  top: 2px;
+  top: 4px;
   z-index: 1;
   transition-property: all;
   transition-duration: 1s;

@@ -101,6 +101,7 @@ export type PlasmicButtonLiom__VariantMembers = {
     | "perper"
     | "line";
   unnamedVariant: "unnamedVariant";
+  select: "select";
 };
 export type PlasmicButtonLiom__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
@@ -126,6 +127,7 @@ export type PlasmicButtonLiom__VariantsArgs = {
     | "line"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  select?: SingleBooleanChoiceArg<"select">;
 };
 type VariantPropType = keyof PlasmicButtonLiom__VariantsArgs;
 export const PlasmicButtonLiom__VariantProps = new Array<VariantPropType>(
@@ -135,7 +137,8 @@ export const PlasmicButtonLiom__VariantProps = new Array<VariantPropType>(
   "shape",
   "size",
   "color",
-  "unnamedVariant"
+  "unnamedVariant",
+  "select"
 );
 
 export type PlasmicButtonLiom__ArgsType = {
@@ -193,6 +196,7 @@ export interface DefaultButtonLiomProps extends pp.BaseButtonProps {
     | "line"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
+  select?: SingleBooleanChoiceArg<"select">;
 }
 
 const $$ = {};
@@ -280,6 +284,12 @@ function PlasmicButtonLiom__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
+      },
+      {
+        path: "select",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.select
       }
     ],
     [$props, $ctx, $refs]
@@ -341,6 +351,7 @@ function PlasmicButtonLiom__RenderFunc(props: {
           [sty.rootcolor_white]: hasVariant($state, "color", "white"),
           [sty.rootcolor_yellow]: hasVariant($state, "color", "yellow"),
           [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
+          [sty.rootselect]: hasVariant($state, "select", "select"),
           [sty.rootshape_round]: hasVariant($state, "shape", "round"),
           [sty.rootshape_round_size_compact]:
             hasVariant($state, "shape", "round") &&

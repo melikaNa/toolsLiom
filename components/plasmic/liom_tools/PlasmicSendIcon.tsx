@@ -231,6 +231,9 @@ function PlasmicSendIcon__RenderFunc(props: {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
+      aria-disabled={
+        hasVariant($state, "disable", "disable") ? "true" : undefined
+      }
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
