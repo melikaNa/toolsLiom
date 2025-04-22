@@ -2840,7 +2840,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 ];
                               }
 
-                              $steps["runCode"] = true
+                              $steps["runCode"] = !$state.sendIcon.diable
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
@@ -3045,73 +3045,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             $steps["newSession"] = await $steps["newSession"];
                           }
 
-                          $steps["runCode"] =
-                            $state.text.trim() != ""
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        $state.testChat.push({
-                                          text: $state.textArea.value,
-                                          from: "user"
-                                        });
-                                        return $state.testChat.push({
-                                          text: "              ",
-                                          from: "system",
-                                          loading: true
-                                        });
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-
-                          $steps["updateTextAreaValue"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["textArea", "value"]
-                                  },
-                                  operation: 1
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, undefined);
-                                  return undefined;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateTextAreaValue"] != null &&
-                            typeof $steps["updateTextAreaValue"] === "object" &&
-                            typeof $steps["updateTextAreaValue"].then ===
-                              "function"
-                          ) {
-                            $steps["updateTextAreaValue"] = await $steps[
-                              "updateTextAreaValue"
-                            ];
-                          }
-
                           $steps["runCode2"] = (
                             $steps.newSession?.data?.session_id ? true : false
                           )
@@ -3137,6 +3070,76 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             typeof $steps["runCode2"].then === "function"
                           ) {
                             $steps["runCode2"] = await $steps["runCode2"];
+                          }
+
+                          $steps["runCode"] =
+                            $state.text.trim() != "" && $state.sessionId != ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        $state.testChat.push({
+                                          text: $state.textArea.value,
+                                          from: "user"
+                                        });
+                                        $state.testChat.push({
+                                          text: "              ",
+                                          from: "system",
+                                          loading: true
+                                        });
+                                        return ($state.sendIcon.load = false);
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["updateTextAreaValue"] =
+                            $state.text.trim() != "" && $state.sessionId != ""
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["textArea", "value"]
+                                    },
+                                    operation: 0,
+                                    value: ""
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateTextAreaValue"] != null &&
+                            typeof $steps["updateTextAreaValue"] === "object" &&
+                            typeof $steps["updateTextAreaValue"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextAreaValue"] = await $steps[
+                              "updateTextAreaValue"
+                            ];
                           }
 
                           $steps["runCode7"] = true
@@ -3521,7 +3524,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
               data-plasmic-override={overrides.favicon}
               className={classNames("__wab_instance", sty.favicon)}
               code={
-                '<script>\r\n(function() {\r\n    var link = document.querySelector("link[rel=\'icon\']");\r\n    if (!link) {\r\n        link = document.createElement(\'link\');\r\n        link.rel = \'icon\';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = \'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico\';\r\n})();\r\nlet lastChange = Date.now();\r\n\r\ndocument.addEventListener("visibilitychange", function () {\r\n    if (document.visibilityState === "visible" && Date.now() - lastChange > 1000) {\r\n        console.log("\u0635\u0641\u062d\u0647 \u062f\u0648\u0628\u0627\u0631\u0647 \u0641\u0639\u0627\u0644 \u0634\u062f!");\r\n         location.reload();\r\n        lastChange = Date.now();\r\n    }\r\n});\r\n\r\n\r\n\r\n</script>\r\n<script src="https://developer.eitaa.com/eitaa-web-app.js">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.ready();\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled = true;\r\n</script>\r\n'
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? '<script>\r\n(function() {\r\n    var link = document.querySelector("link[rel=\'icon\']");\r\n    if (!link) {\r\n        link = document.createElement(\'link\');\r\n        link.rel = \'icon\';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = \'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico\';\r\n})();\r\nlet lastChange = Date.now();\r\n\r\ndocument.addEventListener("visibilitychange", function () {\r\n    if (document.visibilityState === "visible" && Date.now() - lastChange > 1000) {\r\n        fetch("https://n8n.staas.ir/webhook/credit", {\r\n            method: "GET", // \u06cc\u0627 "POST" \u0628\u0633\u062a\u0647 \u0628\u0647 \u0646\u06cc\u0627\u0632 \u0634\u0645\u0627\r\n            headers: {\r\n                "Authorization": "Bearer "+window.token,\r\n            }\r\n        })\r\n        .then(response => response.json())\r\n        .then(data => window.credit=data.credit; )\r\n        .catch(error => console.error("\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u062e\u0648\u0627\u0633\u062a:", error));\r\n\r\n        lastChange = Date.now();\r\n    }\r\n});\r\n\r\n\r\n\r\n</script>\r\n<script src="https://developer.eitaa.com/eitaa-web-app.js">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.ready();\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled = true;\r\n</script>\r\n'
+                  : '<script>\r\n(function() {\r\n    var link = document.querySelector("link[rel=\'icon\']");\r\n    if (!link) {\r\n        link = document.createElement(\'link\');\r\n        link.rel = \'icon\';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = \'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico\';\r\n})();\r\nlet lastChange = Date.now();\r\n\r\ndocument.addEventListener("visibilitychange", function () {\r\n    if (document.visibilityState === "visible" && Date.now() - lastChange > 1000) {\r\n        fetch("https://n8n.staas.ir/webhook/credit", {\r\n            method: "GET", // \u06cc\u0627 "POST" \u0628\u0633\u062a\u0647 \u0628\u0647 \u0646\u06cc\u0627\u0632 \u0634\u0645\u0627\r\n            headers: {\r\n                "Authorization": "Bearer "+window.token,\r\n            }\r\n        })\r\n        .then(response => response.json())\r\n        .then(data => {\r\n            window.credit = data.credit; \r\n\r\n            // \u0627\u062c\u0631\u0627\u06cc \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u06cc\u06a9 \u062f\u06a9\u0645\u0647 (\u0645\u062b\u0644\u0627\u064b \u062f\u06a9\u0645\u0647\u200c\u0627\u06cc \u0628\u0627 `id="myButton"`)\r\n            let button = document.getElementById("creditCheck");\r\n            if (button) {\r\n                button.click();\r\n            }\r\n        })        .catch(error => console.error("\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u062e\u0648\u0627\u0633\u062a:", error));\r\n\r\n        lastChange = Date.now();\r\n    }\r\n});\r\n\r\n\r\n\r\n</script>\r\n<script src="https://developer.eitaa.com/eitaa-web-app.js">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.ready();\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled = true;\r\n</script>\r\n'
               }
             />
 
@@ -5393,6 +5398,36 @@ window.typewriter = function() {
               </ButtonLiom>
             </Stack__>
           ) : null}
+          <div
+            className={classNames(projectcss.all, sty.freeBox__loD3O)}
+            id={"creditCheck"}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          $state.infoChat.credit = window.credit;
+                          return console.log("ناازسازاسعهازعهاسزسزسزززسزز");
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
