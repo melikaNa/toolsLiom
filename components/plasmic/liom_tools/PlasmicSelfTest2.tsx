@@ -3393,7 +3393,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   customFunction: async () => {
                                     return (() => {
                                       $state.sendIcon.load = false;
-                                      return ($state.sendIcon.diable = false);
+                                      return ($state.sendIcon.diable =
+                                        $state.textArea.value == "");
                                     })();
                                   }
                                 };
