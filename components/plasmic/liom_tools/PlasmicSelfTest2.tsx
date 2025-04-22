@@ -102,6 +102,7 @@ import Icon162Icon from "./icons/PlasmicIcon__Icon162"; // plasmic-import: ySm-f
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
 import Icon49Icon from "./icons/PlasmicIcon__Icon49"; // plasmic-import: wa3gMbhhdNCC/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: nUOPjtqNxpTk/icon
+import Icon167Icon from "./icons/PlasmicIcon__Icon167"; // plasmic-import: 5eVMEaBbaM21/icon
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: hr_bpY54geRI/icon
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4LeWEqGr/icon
 import Icon161Icon from "./icons/PlasmicIcon__Icon161"; // plasmic-import: RaOYP4ifjT-P/icon
@@ -133,6 +134,7 @@ export type PlasmicSelfTest2__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
+  buttonLiom4?: Flex__<typeof ButtonLiom>;
   drawer?: Flex__<typeof AntdDrawer>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   lineClomp?: Flex__<typeof LineClomp>;
@@ -741,6 +743,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "buttonLiom4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
       }
     ],
     [$props, $ctx, $refs]
@@ -1107,6 +1115,55 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 typeof $steps["updateLoad"].then === "function"
               ) {
                 $steps["updateLoad"] = await $steps["updateLoad"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId: $ctx.query.origin_user_id,
+                              pageName: "chatBot",
+                              action: "Create_user",
+                              extraData: {}
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        {
+                          headers: {
+                            "Content-Type": "application/json",
+                            Authorization:
+                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                          }
+                        }
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
               }
             }}
           />
@@ -3410,6 +3467,161 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           ) {
                             $steps["runCode4"] = await $steps["runCode4"];
                           }
+
+                          $steps["invokeGlobalAction3"] = $steps.newSession
+                            ?.data
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/service/log",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          userId: $ctx.query.origin_user_id,
+                                          pageName: "chatBot",
+                                          action: "new_session",
+                                          extraData: {}
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                      }
+                                    }
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction3"] != null &&
+                            typeof $steps["invokeGlobalAction3"] === "object" &&
+                            typeof $steps["invokeGlobalAction3"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction3"] = await $steps[
+                              "invokeGlobalAction3"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction4"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/service/log",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          userId: $ctx.query.origin_user_id,
+                                          pageName: "chatBot",
+                                          action: "send_message",
+                                          extraData: {}
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                      }
+                                    }
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction4"] != null &&
+                            typeof $steps["invokeGlobalAction4"] === "object" &&
+                            typeof $steps["invokeGlobalAction4"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction4"] = await $steps[
+                              "invokeGlobalAction4"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction5"] =
+                            $steps.chat?.data?.message == "credit is empty"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId: $ctx.query.origin_user_id,
+                                            pageName: "chatBot",
+                                            action: "pay_dialog",
+                                            extraData: {}
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                        }
+                                      }
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction5"] != null &&
+                            typeof $steps["invokeGlobalAction5"] === "object" &&
+                            typeof $steps["invokeGlobalAction5"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction5"] = await $steps[
+                              "invokeGlobalAction5"
+                            ];
+                          }
                         }}
                         onDiableChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
@@ -3966,114 +4178,289 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 ) {
                   $steps["updateSessions"] = await $steps["updateSessions"];
                 }
+
+                $steps["invokeGlobalAction2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/service/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: $ctx.query.origin_user_id,
+                                pageName: "chatBot",
+                                action: "show_sessions",
+                                extraData: {}
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          {
+                            headers: {
+                              "Content-Type": "application/json",
+                              Authorization:
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                            }
+                          }
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction2"] != null &&
+                  typeof $steps["invokeGlobalAction2"] === "object" &&
+                  typeof $steps["invokeGlobalAction2"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction2"] = await $steps[
+                    "invokeGlobalAction2"
+                  ];
+                }
               }}
               role={"img"}
             />
 
-            <div
-              className={classNames(projectcss.all, sty.freeBox___9Q80)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return window.FlutterChannel.postMessage(
-                            "#directDialog-chatBot"
-                          );
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-              }}
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox___2JhaV)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__tC5Q6)}
+              <div
+                className={classNames(projectcss.all, sty.freeBox___9Q80)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return window.FlutterChannel.postMessage(
+                              "#directDialog-chatBot"
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId: $ctx.query.origin_user_id,
+                                  pageName: "chatBot",
+                                  action: "pay_dialog",
+                                  extraData: {}
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                              }
+                            }
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+                }}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__tC5Q6)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__y3LX3
+                    )}
+                  >
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: (() => {
+                          try {
+                            return `اعتبار شما : <b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit} </span></b>`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()
+                      }}
+                    />
+                  </div>
+                  <Icon50Icon
+                    className={classNames(projectcss.all, sty.svg__w3PcR)}
+                    role={"img"}
+                  />
+                </Stack__>
+              </div>
+              <ButtonLiom
+                data-plasmic-name={"buttonLiom4"}
+                data-plasmic-override={overrides.buttonLiom4}
+                className={classNames("__wab_instance", sty.buttonLiom4)}
+                color={generateStateValueProp($state, ["buttonLiom4", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "GET",
+                            "https://n8n.staas.ir/webhook/credit",
+                            undefined,
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  headers: {
+                                    Authorization: "Bearer " + window.token
+                                  }
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["runCode"] = $steps.invokeGlobalAction?.data
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return ($state.infoChat.credit =
+                                $steps.invokeGlobalAction.data.credit);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom4", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                shape={"round"}
+                size={"compact"}
               >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__y3LX3
+                    sty.text__qsT0C
                   )}
                 >
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `اعتبار شما : <b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit} </span></b>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "";
-                          }
-                          throw e;
-                        }
-                      })()
-                    }}
-                  />
+                  {"Button"}
                 </div>
-                <Icon50Icon
-                  className={classNames(projectcss.all, sty.svg__w3PcR)}
+                <Icon167Icon
+                  className={classNames(projectcss.all, sty.svg__iyHcA)}
                   role={"img"}
                 />
-              </Stack__>
-            </div>
+              </ButtonLiom>
+            </Stack__>
             <Icon150Icon
               className={classNames(projectcss.all, sty.svg__tjAsw)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["updateTestChat"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["testChat"]
-                        },
-                        operation: 0,
-                        value: []
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateTestChat"] != null &&
-                  typeof $steps["updateTestChat"] === "object" &&
-                  typeof $steps["updateTestChat"].then === "function"
-                ) {
-                  $steps["updateTestChat"] = await $steps["updateTestChat"];
-                }
-              }}
               role={"img"}
             />
           </div>
@@ -5451,6 +5838,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "paziresh24Avatar",
     "buttonLiom",
+    "buttonLiom4",
     "drawer",
     "buttonLiom3",
     "lineClomp",
@@ -5472,6 +5860,7 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom", "paziresh24Avatar", "buttonLiom"],
   paziresh24Avatar: ["paziresh24Avatar"],
   buttonLiom: ["buttonLiom"],
+  buttonLiom4: ["buttonLiom4"],
   drawer: [
     "drawer",
     "buttonLiom3",
@@ -5505,6 +5894,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
   buttonLiom: typeof ButtonLiom;
+  buttonLiom4: typeof ButtonLiom;
   drawer: typeof AntdDrawer;
   buttonLiom3: typeof ButtonLiom;
   lineClomp: typeof LineClomp;
@@ -5612,6 +6002,7 @@ export const PlasmicSelfTest2 = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     buttonLiom: makeNodeComponent("buttonLiom"),
+    buttonLiom4: makeNodeComponent("buttonLiom4"),
     drawer: makeNodeComponent("drawer"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     lineClomp: makeNodeComponent("lineClomp"),
