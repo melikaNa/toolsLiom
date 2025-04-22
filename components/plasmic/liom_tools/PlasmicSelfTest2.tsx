@@ -4240,6 +4240,16 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 }}
                 role={"img"}
               />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__tHDgz
+                )}
+              >
+                {"Enter some text"}
+              </div>
             </div>
             <Stack__
               as={"div"}
