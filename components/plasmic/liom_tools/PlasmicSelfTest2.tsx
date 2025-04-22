@@ -4570,7 +4570,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   }
                 }}
                 shape={"round"}
-                size={"compact"}
+                size={"minimal"}
               >
                 <div
                   className={classNames(
