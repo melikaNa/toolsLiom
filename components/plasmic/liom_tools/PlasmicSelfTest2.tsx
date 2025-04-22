@@ -748,7 +748,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         path: "buttonLiom4.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "softSand"
       },
       {
         path: "lo",
@@ -4067,177 +4067,180 @@ function PlasmicSelfTest2__RenderFunc(props: {
             </HeaderLiom>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__vcZiy)}>
-            <Icon162Icon
-              className={classNames(projectcss.all, sty.svg__gmTXx)}
-              onClick={async event => {
-                const $steps = {};
+            <div className={classNames(projectcss.all, sty.freeBox__atu6W)}>
+              <Icon162Icon
+                className={classNames(projectcss.all, sty.svg__gmTXx)}
+                onClick={async event => {
+                  const $steps = {};
 
-                $steps["updateDrawerOpen"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["drawer", "open"]
-                        },
-                        operation: 0,
-                        value: true
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateDrawerOpen"] != null &&
-                  typeof $steps["updateDrawerOpen"] === "object" &&
-                  typeof $steps["updateDrawerOpen"].then === "function"
-                ) {
-                  $steps["updateDrawerOpen"] = await $steps["updateDrawerOpen"];
-                }
-
-                $steps["invokeGlobalAction"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "https://n8n.staas.ir/webhook/chatBotServiceSession?bot_name=period_chat",
-                          undefined,
-                          undefined,
-                          (() => {
-                            try {
-                              return {
-                                headers: {
-                                  Authorization: "Bearer " + window.token
-                                }
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-                if (
-                  $steps["invokeGlobalAction"] != null &&
-                  typeof $steps["invokeGlobalAction"] === "object" &&
-                  typeof $steps["invokeGlobalAction"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
-                }
-
-                $steps["updateSessions"] = (
-                  $steps.invokeGlobalAction?.data?.list ? true : false
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["sessions"]
-                        },
-                        operation: 0,
-                        value: $steps.invokeGlobalAction.data.list
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateSessions"] != null &&
-                  typeof $steps["updateSessions"] === "object" &&
-                  typeof $steps["updateSessions"].then === "function"
-                ) {
-                  $steps["updateSessions"] = await $steps["updateSessions"];
-                }
-
-                $steps["invokeGlobalAction2"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://api.liom.app/service/log",
-                          undefined,
-                          (() => {
-                            try {
-                              return {
-                                userId: $ctx.query.origin_user_id,
-                                pageName: "chatBot",
-                                action: "show_sessions",
-                                extraData: {}
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          {
-                            headers: {
-                              "Content-Type": "application/json",
-                              Authorization:
-                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                            }
+                  $steps["updateDrawerOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["drawer", "open"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
                           }
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-                if (
-                  $steps["invokeGlobalAction2"] != null &&
-                  typeof $steps["invokeGlobalAction2"] === "object" &&
-                  typeof $steps["invokeGlobalAction2"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
-                }
-              }}
-              role={"img"}
-            />
+                          const { objRoot, variablePath } = variable;
 
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDrawerOpen"] != null &&
+                    typeof $steps["updateDrawerOpen"] === "object" &&
+                    typeof $steps["updateDrawerOpen"].then === "function"
+                  ) {
+                    $steps["updateDrawerOpen"] = await $steps[
+                      "updateDrawerOpen"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "https://n8n.staas.ir/webhook/chatBotServiceSession?bot_name=period_chat",
+                            undefined,
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  headers: {
+                                    Authorization: "Bearer " + window.token
+                                  }
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["updateSessions"] = (
+                    $steps.invokeGlobalAction?.data?.list ? true : false
+                  )
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["sessions"]
+                          },
+                          operation: 0,
+                          value: $steps.invokeGlobalAction.data.list
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSessions"] != null &&
+                    typeof $steps["updateSessions"] === "object" &&
+                    typeof $steps["updateSessions"].then === "function"
+                  ) {
+                    $steps["updateSessions"] = await $steps["updateSessions"];
+                  }
+
+                  $steps["invokeGlobalAction2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId: $ctx.query.origin_user_id,
+                                  pageName: "chatBot",
+                                  action: "show_sessions",
+                                  extraData: {}
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                              }
+                            }
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction2"] != null &&
+                    typeof $steps["invokeGlobalAction2"] === "object" &&
+                    typeof $steps["invokeGlobalAction2"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction2"] = await $steps[
+                      "invokeGlobalAction2"
+                    ];
+                  }
+                }}
+                role={"img"}
+              />
+            </div>
             <Stack__
               as={"div"}
               hasGap={true}
@@ -4403,6 +4406,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 data-plasmic-override={overrides.buttonLiom4}
                 className={classNames("__wab_instance", sty.buttonLiom4)}
                 color={generateStateValueProp($state, ["buttonLiom4", "color"])}
+                isDisabled={(() => {
+                  try {
+                    return $state.lo;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()}
                 onClick={async event => {
                   const $steps = {};
 

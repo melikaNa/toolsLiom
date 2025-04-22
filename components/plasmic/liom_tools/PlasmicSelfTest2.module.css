@@ -965,7 +965,7 @@
   height: 55px;
   max-width: 100%;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   left: 0;
   top: 0;
   z-index: 3;
@@ -978,6 +978,30 @@
     display: flex;
   }
 }
+.freeBox__atu6W {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  top: auto;
+  left: auto;
+  min-width: 0;
+  padding: 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__atu6W {
+    top: auto;
+    left: auto;
+    width: auto;
+    border-radius: 50px;
+    padding: 4px;
+    border-width: 1px;
+  }
+}
 .svg__gmTXx {
   object-fit: cover;
   max-width: 100%;
@@ -985,34 +1009,30 @@
   width: 30px;
   height: 30px;
   display: block;
-  position: relative;
-  top: auto;
-  left: auto;
   flex-shrink: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .svg__gmTXx {
-    left: auto;
-    top: auto;
-    height: 100%;
-    min-height: 0;
+    height: 20px;
+    width: 20px;
+    flex-shrink: 0;
   }
 }
 .freeBox___2JhaV {
   display: flex;
   flex-direction: row;
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  min-width: 0;
-  padding: 0px;
+  border-radius: 50px;
+  padding: 0px 8px 0px 0px;
+  border-width: 1px;
 }
 .freeBox___2JhaV > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-width: 0;
   margin-left: calc(0px - 8px);
   width: calc(100% + 8px);
 }
@@ -1034,10 +1054,10 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  background: var(--token-ukwKZMvHWx7C);
+  background: none;
   border-bottom-right-radius: 16px;
   border-bottom-left-radius: 16px;
-  padding: 8px;
+  padding: 0px;
 }
 .freeBox__tC5Q6 {
   display: flex;
@@ -1110,7 +1130,7 @@
   max-width: 100%;
   width: 20px;
   height: 20px;
-  color: var(--token-QR8ATjORhQqO);
+  color: var(--token-hb610yGAurc2);
 }
 .svg___0VInR {
   object-fit: cover;
