@@ -548,10 +548,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
-                        return (
-                          " اشتراک " +
-                          $state.shopDialog.data.result.shopList[0].name
-                        );
+                        return $state.topShop.title;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -577,7 +574,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
-                        return $state.shopDialog.data.result.shopList[0].hint;
+                        return $state.topShop.hint.replaceAll("\n", "<br>");
                       } catch (e) {
                         if (
                           e instanceof TypeError ||

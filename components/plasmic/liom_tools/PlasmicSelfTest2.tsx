@@ -5141,7 +5141,7 @@ window.typewriter = function() {
     var aText = [destination.getAttribute('data-text') || destination.textContent];
     
     destination.classList.remove("hide");
-    var iSpeed = 20;
+    var iSpeed = 10;
     var iIndex = 0;
     var iArrLength = aText[0].length;
     var iScrollAt = 20;
