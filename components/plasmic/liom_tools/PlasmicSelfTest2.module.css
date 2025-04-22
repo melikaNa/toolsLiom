@@ -1076,6 +1076,13 @@
   font-size: 14px;
   min-width: 0;
 }
+.svg__ctuGq {
+  object-fit: cover;
+  max-width: 100%;
+  width: 70px;
+  height: 25px;
+  flex-shrink: 0;
+}
 .svg__w3PcR {
   object-fit: cover;
   max-width: 100%;

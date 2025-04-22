@@ -749,6 +749,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      },
+      {
+        path: "lo",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -4320,32 +4326,72 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__tC5Q6)}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__y3LX3
-                    )}
-                  >
-                    <div
-                      className={projectcss.__wab_expr_html_text}
-                      dangerouslySetInnerHTML={{
-                        __html: (() => {
+                  {(
+                    hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? (() => {
                           try {
-                            return `اعتبار شما : <b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit} </span></b>`;
+                            return !$state.lo;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "";
+                              return true;
                             }
                             throw e;
                           }
                         })()
-                      }}
+                      : true
+                  ) ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__y3LX3
+                      )}
+                    >
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return `اعتبار شما : <b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit} </span></b>`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
+                    </div>
+                  ) : null}
+                  {(
+                    hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? (() => {
+                          try {
+                            return $state.lo;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <Icon111Icon
+                      className={classNames(projectcss.all, sty.svg__ctuGq)}
+                      role={"img"}
                     />
-                  </div>
+                  ) : null}
                   <Icon50Icon
                     className={classNames(projectcss.all, sty.svg__w3PcR)}
                     role={"img"}
@@ -4359,6 +4405,40 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 color={generateStateValueProp($state, ["buttonLiom4", "color"])}
                 onClick={async event => {
                   const $steps = {};
+
+                  $steps["updateLo"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["lo"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLo"] != null &&
+                    typeof $steps["updateLo"] === "object" &&
+                    typeof $steps["updateLo"].then === "function"
+                  ) {
+                    $steps["updateLo"] = await $steps["updateLo"];
+                  }
 
                   $steps["invokeGlobalAction"] = true
                     ? (() => {
@@ -4407,10 +4487,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {
-                              return ($state.infoChat.credit =
-                                $steps.invokeGlobalAction.data.credit);
-                            })();
+                            return ($state.infoChat.credit =
+                              $steps.invokeGlobalAction.data.credit);
                           }
                         };
                         return (({ customFunction }) => {
@@ -4424,6 +4502,40 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     typeof $steps["runCode"].then === "function"
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["updateLo2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["lo"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLo2"] != null &&
+                    typeof $steps["updateLo2"] === "object" &&
+                    typeof $steps["updateLo2"].then === "function"
+                  ) {
+                    $steps["updateLo2"] = await $steps["updateLo2"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
