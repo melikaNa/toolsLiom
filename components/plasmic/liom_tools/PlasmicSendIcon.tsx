@@ -245,12 +245,36 @@ function PlasmicSendIcon__RenderFunc(props: {
         plasmic_paziresh_24_design_system_css.plasmic_tokens,
         plasmic_hamdast_sdk_css.plasmic_tokens,
         sty.root,
-        { [sty.rootdisable]: hasVariant($state, "disable", "disable") }
+        {
+          [sty.rootdisable]: hasVariant($state, "disable", "disable"),
+          [sty.rootloading]: hasVariant($state, "loading", "loading"),
+          [sty.rootloading_disable]:
+            hasVariant($state, "disable", "disable") &&
+            hasVariant($state, "loading", "loading")
+        }
       )}
       id={"sendicon"}
       onClick={args.onClick}
       style={
-        hasVariant($state, "disable", "disable")
+        hasVariant($state, "loading", "loading")
+          ? (() => {
+              try {
+                return {
+                  "pointer-events": "none",
+                  "user-select": "none",
+                  cursor: "default"
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()
+          : hasVariant($state, "disable", "disable")
           ? (() => {
               try {
                 return {
