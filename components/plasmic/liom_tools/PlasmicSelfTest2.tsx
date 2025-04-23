@@ -5532,7 +5532,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                                 "chatBox"
                                               );
                                             if (messageBox)
-                                              return (messageBox.scroll =
+                                              return (messageBox.scrollTop =
                                                 messageBox.scrollHeight);
                                           })();
                                         }
