@@ -108,6 +108,8 @@ import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4
 import Icon161Icon from "./icons/PlasmicIcon__Icon161"; // plasmic-import: RaOYP4ifjT-P/icon
 import Icon160Icon from "./icons/PlasmicIcon__Icon160"; // plasmic-import: VDxWJe2hoa-8/icon
 
+import { v4 as __lib_uuid__v4 } from "uuid";
+
 createPlasmicElementProxy;
 
 export type PlasmicSelfTest2__VariantMembers = {};
@@ -146,7 +148,11 @@ export type PlasmicSelfTest2__OverridesType = {
 
 export interface DefaultSelfTest2Props {}
 
-const $$ = {};
+const $$ = {
+  uuid: {
+    v4: __lib_uuid__v4
+  }
+};
 
 function useNextRouter() {
   try {
@@ -640,8 +646,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
       {
         path: "indexchat",
         type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
         path: "isLoading",
@@ -2089,22 +2095,40 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     $steps["runCode2"] = await $steps["runCode2"];
                   }
                 }}
-                style={(() => {
-                  try {
-                    return {
-                      "overflow-y": "auto",
-                      "scroll-behavior": "smooth"
-                    };
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
+                style={
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? (() => {
+                        try {
+                          return {
+                            "overflow-y": "auto"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return {
+                            "overflow-y": "auto",
+                            "scroll-behavior": "smooth"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                }
               >
                 <Reveal
                   big={false}
@@ -2639,8 +2663,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             hasVariant(globalVariants, "screen", "mobileOnly")
                               ? (() => {
                                   try {
-                                    return currentItem.from == "system"
-                                      ? "typedtext" + currentIndex
+                                    return currentItem.id
+                                      ? ""
+                                      : currentItem.from == "system"
+                                      ? "typedtext" + currentItem.animation
                                       : "";
                                   } catch (e) {
                                     if (
@@ -2791,7 +2817,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645 \u0647\u0633\u062a\u0645."
+                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0647\u0633\u062a\u0645."
                         }
                       </div>
                     </Stack__>
@@ -2803,7 +2829,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0686\u06af\u0648\u0646\u0647 \u0645\u06cc \u062a\u0648\u0627\u0646\u0645 \u0628\u0647 \u0634\u0645\u0627 \u06a9\u0645\u06a9 \u06a9\u0646\u0645\u061f"
+                        "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
                       }
                     </div>
                   </Stack__>
@@ -2815,7 +2841,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     )}
                   >
                     {
-                      "\u0686\u06af\u0648\u0646\u0647 \u0645\u06cc \u062a\u0648\u0627\u0646\u0645 \u0628\u0647 \u0634\u0645\u0627 \u06a9\u0645\u06a9 \u06a9\u0646\u0645\u061f"
+                      "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
                     }
                   </div>
                   {(() => {
@@ -3145,11 +3171,14 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           text: $state.textArea.value,
                                           from: "user"
                                         });
-                                        return $state.testChat.push({
+                                        var animation = $$.uuid.v4();
+                                        $state.testChat.push({
                                           text: "              ",
                                           from: "system",
-                                          loading: true
+                                          loading: true,
+                                          animation: animation
                                         });
+                                        return ($state.indexchat = animation);
                                       })();
                                     }
                                   };
@@ -3303,10 +3332,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                         $state.testChat.length - 1
                                       ] = {
                                         text: $steps.chat.data.message,
-                                        from: "system"
+                                        from: "system",
+                                        animation: $state.indexchat
                                       };
-                                      $state.indexchat =
-                                        $state.testChat.length - 1;
                                       $state.infoChat.credit =
                                         $steps.chat.data.credit;
                                       var messageBox =
@@ -3352,11 +3380,13 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["runCode6"] = $steps.chat?.data?.success
+                          $steps["runCode6"] = true
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return window.typewriter();
+                                    return window.typewriter(
+                                      `typedtext${$state.indexchat}`
+                                    );
                                   }
                                 };
                                 return (({ customFunction }) => {
@@ -5683,6 +5713,67 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 ? (() => {
                     try {
                       return `<script>
+window.typewriter = function(elementId) {
+    var destination = document.getElementById(elementId);
+    var aText = [destination.getAttribute('data-text') || destination.textContent];
+    
+    destination.classList.remove("hide");
+    var iSpeed = 10;
+    var iIndex = 0;
+    var iArrLength = aText[0].length;
+    var iScrollAt = 20;
+    var iTextPos = 0;
+    var sContents = '';
+    var iRow = 0;
+    
+    function type() {
+        sContents = ' ';
+        iRow = Math.max(0, iIndex - iScrollAt);
+        
+        while (iRow < iIndex) {
+            sContents += aText[iRow++] + '<br />';
+        }
+        
+        destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "";
+        
+        var messageBox = document.getElementById("chatBox");
+        if (messageBox) {
+            // فقط وقتی کاربر پایین باشه اسکرول کنه
+            if (messageBox.scrollHeight - messageBox.scrollTop <= messageBox.clientHeight + 20) {
+                messageBox.scrollTop = messageBox.scrollHeight;
+            }
+        }
+
+        if (iTextPos++ === iArrLength) {
+            iTextPos = 0;
+            iIndex++;
+            if (iIndex < aText.length) {
+                iArrLength = aText[iIndex].length;
+                setTimeout(type, 100);
+            }
+        } else {
+            setTimeout(type, iSpeed);
+        }
+    }
+    
+    destination.textContent = ""; // پاک کردن محتوا قبل شروع
+    type();
+}
+</script>
+`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return '<script>\r\n \r\nwindow.typewriter=function ()\r\n{\r\n   var destination = document.getElementById("typedtext");\r\n\r\nvar aText = new Array(destination.textContent);\r\n\r\ndestination.innerHTML="";\r\ndestination.classList.remove("hide");\r\nvar iSpeed = 50; // time delay of print out\r\nvar iIndex = 0; // start  array at this posision\r\nvar iArrLength = aText[0].length; // the length of the text array\r\nvar iScrollAt = 20; // start scrolling up at this many lines\r\n \r\nvar iTextPos = 0; // initialise text position\r\nvar sContents = \'\'; // initialise contents variable\r\nvar iRow; // initialise current row\r\n sContents =  \' \';\r\n iRow = Math.max(0, iIndex-iScrollAt);\r\n \r\n while ( iRow < iIndex ) {\r\n  sContents += aText[iRow++] + \'<br />\';\r\n }\r\n destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";\r\n if ( iTextPos++ == iArrLength ) {\r\n  iTextPos = 0;\r\n  iIndex++;\r\n  if ( iIndex != aText.length ) {\r\n   iArrLength = aText[iIndex].length;\r\n   setTimeout("typewriter()", 100\r\n);\r\n  }\r\n } else {\r\n  setTimeout("typewriter()", iSpeed);\r\n }\r\n}\r\n\r\n\r\n</script>';
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return `<script>
 window.typewriter = function() {
     var destination = document.getElementById("typedtext${$state.indexchat}");
     var aText = [destination.getAttribute('data-text') || destination.textContent];
@@ -5708,58 +5799,6 @@ window.typewriter = function() {
                     var messageBox = document.getElementById("chatBox");
                 if (messageBox)
                     messageBox.scrollTop = messageBox.scrollHeight;
-        
-        if (iTextPos++ == iArrLength) {
-            iTextPos = 0;
-            iIndex++;
-            if (iIndex != aText.length) {
-                iArrLength = aText[iIndex].length;
-                setTimeout(type, 100);
-            }
-        } else {
-            setTimeout(type, iSpeed);
-        }
-    }
-    
-    destination.textContent = ""; // پاک کردن محتوا پس از تنظیمات اولیه
-    type();
-}
-</script>`;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return '<script>\r\n \r\nwindow.typewriter=function ()\r\n{\r\n   var destination = document.getElementById("typedtext");\r\n\r\nvar aText = new Array(destination.textContent);\r\n\r\ndestination.innerHTML="";\r\ndestination.classList.remove("hide");\r\nvar iSpeed = 50; // time delay of print out\r\nvar iIndex = 0; // start  array at this posision\r\nvar iArrLength = aText[0].length; // the length of the text array\r\nvar iScrollAt = 20; // start scrolling up at this many lines\r\n \r\nvar iTextPos = 0; // initialise text position\r\nvar sContents = \'\'; // initialise contents variable\r\nvar iRow; // initialise current row\r\n sContents =  \' \';\r\n iRow = Math.max(0, iIndex-iScrollAt);\r\n \r\n while ( iRow < iIndex ) {\r\n  sContents += aText[iRow++] + \'<br />\';\r\n }\r\n destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";\r\n if ( iTextPos++ == iArrLength ) {\r\n  iTextPos = 0;\r\n  iIndex++;\r\n  if ( iIndex != aText.length ) {\r\n   iArrLength = aText[iIndex].length;\r\n   setTimeout("typewriter()", 100\r\n);\r\n  }\r\n } else {\r\n  setTimeout("typewriter()", iSpeed);\r\n }\r\n}\r\n\r\n\r\n</script>';
-                      }
-                      throw e;
-                    }
-                  })()
-                : (() => {
-                    try {
-                      return `<script>
-window.typewriter = function() {
-    var destination = document.getElementById("typedtext${$state.indexchat}");
-    var aText = [destination.getAttribute('data-text') || destination.textContent];
-    
-    destination.classList.remove("hide");
-    var iSpeed = 25;
-    var iIndex = 0;
-    var iArrLength = aText[0].length;
-    var iScrollAt = 20;
-    var iTextPos = 0;
-    var sContents = '';
-    var iRow = 0;
-    
-    function type() {
-        sContents = ' ';
-        iRow = Math.max(0, iIndex - iScrollAt);
-        
-        while (iRow < iIndex) {
-            sContents += aText[iRow++] + '<br />';
-        }
-        
-        destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "|";
         
         if (iTextPos++ == iArrLength) {
             iTextPos = 0;
