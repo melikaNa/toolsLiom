@@ -108,8 +108,6 @@ import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4
 import Icon161Icon from "./icons/PlasmicIcon__Icon161"; // plasmic-import: RaOYP4ifjT-P/icon
 import Icon160Icon from "./icons/PlasmicIcon__Icon160"; // plasmic-import: VDxWJe2hoa-8/icon
 
-import { v4 as __lib_uuid__v4 } from "uuid";
-
 createPlasmicElementProxy;
 
 export type PlasmicSelfTest2__VariantMembers = {};
@@ -148,11 +146,7 @@ export type PlasmicSelfTest2__OverridesType = {
 
 export interface DefaultSelfTest2Props {}
 
-const $$ = {
-  uuid: {
-    v4: __lib_uuid__v4
-  }
-};
+const $$ = {};
 
 function useNextRouter() {
   try {
@@ -3171,7 +3165,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           text: $state.textArea.value,
                                           from: "user"
                                         });
-                                        var animation = $$.uuid.v4();
+                                        var animation = Math.floor(
+                                          Math.random() * 1000
+                                        ).toString();
                                         $state.testChat.push({
                                           text: "              ",
                                           from: "system",
