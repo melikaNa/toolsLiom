@@ -875,7 +875,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   $ctx.query?.origin_user_id ||
                                   new URLSearchParams(
                                     window.location.search
-                                  ).get("origin_user_id"),
+                                  ).get("origin_user_id") ||
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("userId"),
                                 bot_name: "period_chat",
                                 mobile: "",
                                 email: "",
@@ -2627,31 +2630,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             projectcss.__wab_text,
                             sty.text__pPnwC,
                             hasVariant(globalVariants, "screen", "mobileOnly")
-                              ? `text-box  ${
-                                  currentItem.id
-                                    ? ""
-                                    : currentItem["from"] == "system"
-                                    ? "hide"
-                                    : ""
-                                }`
-                              : (() => {
-                                  try {
-                                    return currentItem.id
-                                      ? ""
-                                      : currentItem["from"] == "system"
-                                      ? "hide"
-                                      : "";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
+                              ? `text-box  ${(() => {})()}`
+                              : undefined
                           )}
                           id={
                             hasVariant(globalVariants, "screen", "mobileOnly")
@@ -2659,8 +2639,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   try {
                                     return currentItem.id
                                       ? ""
-                                      : currentItem.from == "system"
-                                      ? "typedtext" + currentItem.animation
+                                      : currentItem.animation
+                                      ? currentItem.animation
                                       : "";
                                   } catch (e) {
                                     if (
@@ -2675,8 +2655,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 })()
                               : (() => {
                                   try {
-                                    return currentItem.from == "system"
-                                      ? "typedtext" + currentIndex
+                                    return currentItem.id
+                                      ? ""
+                                      : currentItem.animation
+                                      ? `typedtext` + currentItem.animation
                                       : "";
                                   } catch (e) {
                                     if (
@@ -2923,15 +2905,33 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 ];
                               }
 
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = { args: [500] };
+                                    return $globalActions[
+                                      "Fragment.wait"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
+
                               $steps["runCode"] = !$state.sendIcon.diable
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
-                                        return (() => {
-                                          return window.document
-                                            .getElementById("sendicon")
-                                            .click();
-                                        })();
+                                        return window.document
+                                          .getElementById("sendicon")
+                                          .click();
                                       }
                                     };
                                     return (({ customFunction }) => {
@@ -3376,7 +3376,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["runCode6"] = true
+                          $steps["runCode6"] = false
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
@@ -5770,8 +5770,8 @@ window.typewriter = function(elementId) {
                 : (() => {
                     try {
                       return `<script>
-window.typewriter = function() {
-    var destination = document.getElementById("typedtext${$state.indexchat}");
+window.typewriter = function(elementId) {
+    var destination = document.getElementById(elementId);
     var aText = [destination.getAttribute('data-text') || destination.textContent];
     
     destination.classList.remove("hide");
@@ -5792,14 +5792,19 @@ window.typewriter = function() {
         }
         
         destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "";
-                    var messageBox = document.getElementById("chatBox");
-                if (messageBox)
-                    messageBox.scrollTop = messageBox.scrollHeight;
         
-        if (iTextPos++ == iArrLength) {
+        var messageBox = document.getElementById("chatBox");
+        if (messageBox) {
+            // فقط وقتی کاربر پایین باشه اسکرول کنه
+            if (messageBox.scrollHeight - messageBox.scrollTop <= messageBox.clientHeight + 20) {
+                messageBox.scrollTop = messageBox.scrollHeight;
+            }
+        }
+
+        if (iTextPos++ === iArrLength) {
             iTextPos = 0;
             iIndex++;
-            if (iIndex != aText.length) {
+            if (iIndex < aText.length) {
                 iArrLength = aText[iIndex].length;
                 setTimeout(type, 100);
             }
@@ -5808,10 +5813,11 @@ window.typewriter = function() {
         }
     }
     
-    destination.textContent = ""; // پاک کردن محتوا پس از تنظیمات اولیه
+    destination.textContent = ""; // پاک کردن محتوا قبل شروع
     type();
 }
-</script>`;
+</script>
+`;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

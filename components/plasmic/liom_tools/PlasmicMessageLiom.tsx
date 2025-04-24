@@ -109,12 +109,14 @@ export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
 
 export type PlasmicMessageLiom__ArgsType = {
   inApp?: boolean;
+  error2?: boolean;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicMessageLiom__ArgsType;
 export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
   "inApp",
+  "error2",
   "children",
   "slot"
 );
@@ -128,6 +130,7 @@ export type PlasmicMessageLiom__OverridesType = {
 
 export interface DefaultMessageLiomProps {
   inApp?: boolean;
+  error2?: boolean;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -161,7 +164,8 @@ function PlasmicMessageLiom__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          inApp: false
+          inApp: false,
+          error2: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
