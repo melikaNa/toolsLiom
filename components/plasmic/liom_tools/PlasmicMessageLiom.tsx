@@ -59,6 +59,9 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
+import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import LoadingCompopnentGray from "../../LoadingCompopnentGray"; // plasmic-import: OUwywVcxKl5x/component
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
@@ -72,9 +75,14 @@ import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plas
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicMessageLiom.module.css"; // plasmic-import: xCdoITDvZVKn/css
 
+import Icon168Icon from "./icons/PlasmicIcon__Icon168"; // plasmic-import: XtX9U6Tq_ez9/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
+import Icon170Icon from "./icons/PlasmicIcon__Icon170"; // plasmic-import: gKuukzM6fAy2/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
+import Icon171Icon from "./icons/PlasmicIcon__Icon171"; // plasmic-import: o5TkWEpPArZM/icon
+import Icon169Icon from "./icons/PlasmicIcon__Icon169"; // plasmic-import: c2LVCJdhSdPN/icon
 import Icon109Icon from "./icons/PlasmicIcon__Icon109"; // plasmic-import: FdWVKA90TGYv/icon
 import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
-import Icon163Icon from "./icons/PlasmicIcon__Icon163"; // plasmic-import: nFq8A5FriXuO/icon
 
 createPlasmicElementProxy;
 
@@ -85,7 +93,6 @@ export type PlasmicMessageLiom__VariantMembers = {
   endMessege: "endMessege";
   hint: "hint";
   bot: "bot";
-  error: "error";
 };
 export type PlasmicMessageLiom__VariantsArgs = {
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -94,7 +101,6 @@ export type PlasmicMessageLiom__VariantsArgs = {
   endMessege?: SingleBooleanChoiceArg<"endMessege">;
   hint?: SingleBooleanChoiceArg<"hint">;
   bot?: SingleBooleanChoiceArg<"bot">;
-  error?: SingleBooleanChoiceArg<"error">;
 };
 type VariantPropType = keyof PlasmicMessageLiom__VariantsArgs;
 export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
@@ -103,13 +109,15 @@ export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
   "loadingMessage",
   "endMessege",
   "hint",
-  "bot",
-  "error"
+  "bot"
 );
 
 export type PlasmicMessageLiom__ArgsType = {
   inApp?: boolean;
   error2?: boolean;
+  resend?: (event: any) => void;
+  _delete?: (event: any) => void;
+  credit?: (event: any) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -117,20 +125,29 @@ type ArgPropType = keyof PlasmicMessageLiom__ArgsType;
 export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
   "inApp",
   "error2",
+  "resend",
+  "_delete",
+  "credit",
   "children",
   "slot"
 );
 
 export type PlasmicMessageLiom__OverridesType = {
   root?: Flex__<"div">;
+  popover?: Flex__<typeof AntdPopover>;
+  buttonLiom2?: Flex__<typeof ButtonLiom>;
+  buttonLiom4?: Flex__<typeof ButtonLiom>;
+  buttonLiom3?: Flex__<typeof ButtonLiom>;
   loadingCompopnentGray?: Flex__<typeof LoadingCompopnentGray>;
-  text?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultMessageLiomProps {
   inApp?: boolean;
   error2?: boolean;
+  resend?: (event: any) => void;
+  _delete?: (event: any) => void;
+  credit?: (event: any) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -139,7 +156,6 @@ export interface DefaultMessageLiomProps {
   endMessege?: SingleBooleanChoiceArg<"endMessege">;
   hint?: SingleBooleanChoiceArg<"hint">;
   bot?: SingleBooleanChoiceArg<"bot">;
-  error?: SingleBooleanChoiceArg<"error">;
   className?: string;
 }
 
@@ -225,10 +241,31 @@ function PlasmicMessageLiom__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.bot
       },
       {
-        path: "error",
+        path: "popover.open",
         type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.error
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "liomAnswer", "liomAnswer") ? "clear" : undefined
+      },
+      {
+        path: "buttonLiom3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "liomAnswer", "liomAnswer") ? "clear" : []
+      },
+      {
+        path: "buttonLiom4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "liomAnswer", "liomAnswer") ? "clear" : undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -273,22 +310,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
           [sty.rootendMessege_pazireshAnswer]:
             hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
             hasVariant($state, "endMessege", "endMessege"),
-          [sty.rooterror]: hasVariant($state, "error", "error"),
-          [sty.rooterror_bot]:
-            hasVariant($state, "bot", "bot") &&
-            hasVariant($state, "error", "error"),
-          [sty.rooterror_endMessege]:
-            hasVariant($state, "endMessege", "endMessege") &&
-            hasVariant($state, "error", "error"),
-          [sty.rooterror_hint]:
-            hasVariant($state, "hint", "hint") &&
-            hasVariant($state, "error", "error"),
-          [sty.rooterror_loadingMessage]:
-            hasVariant($state, "error", "error") &&
-            hasVariant($state, "loadingMessage", "loadingMessage"),
-          [sty.rooterror_pazireshAnswer]:
-            hasVariant($state, "error", "error") &&
-            hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
           [sty.roothint]: hasVariant($state, "hint", "hint"),
           [sty.rootliomAnswer]: hasVariant($state, "liomAnswer", "liomAnswer"),
           [sty.rootliomAnswer_bot]:
@@ -322,13 +343,449 @@ function PlasmicMessageLiom__RenderFunc(props: {
         }
       )}
     >
+      {(
+        hasVariant($state, "loadingMessage", "loadingMessage")
+          ? true
+          : hasVariant($state, "liomAnswer", "liomAnswer")
+          ? (() => {
+              try {
+                return $props.error2;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()
+          : hasVariant($state, "pazireshAnswer", "pazireshAnswer")
+          ? true
+          : false
+      ) ? (
+        <div
+          className={classNames(projectcss.all, sty.freeBox__ega5V, {
+            [sty.freeBoxendMessege__ega5VTjzqg]: hasVariant(
+              $state,
+              "endMessege",
+              "endMessege"
+            ),
+            [sty.freeBoxliomAnswer__ega5V6WM5Z]: hasVariant(
+              $state,
+              "liomAnswer",
+              "liomAnswer"
+            ),
+            [sty.freeBoxliomAnswer_loadingMessage__ega5V6WM5ZNjKFm]:
+              hasVariant($state, "liomAnswer", "liomAnswer") &&
+              hasVariant($state, "loadingMessage", "loadingMessage"),
+            [sty.freeBoxloadingMessage__ega5VNjKFm]: hasVariant(
+              $state,
+              "loadingMessage",
+              "loadingMessage"
+            ),
+            [sty.freeBoxloadingMessage_pazireshAnswer__ega5VNjKFmYPoRs]:
+              hasVariant($state, "loadingMessage", "loadingMessage") &&
+              hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
+            [sty.freeBoxpazireshAnswer__ega5VyPoRs]: hasVariant(
+              $state,
+              "pazireshAnswer",
+              "pazireshAnswer"
+            )
+          })}
+        >
+          <AntdPopover
+            data-plasmic-name={"popover"}
+            data-plasmic-override={overrides.popover}
+            arrow={true}
+            className={classNames("__wab_instance", sty.popover, {
+              [sty.popoverliomAnswer]: hasVariant(
+                $state,
+                "liomAnswer",
+                "liomAnswer"
+              )
+            })}
+            content={
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__gyJtn, {
+                  [sty.freeBoxliomAnswer__gyJtn6WM5Z]: hasVariant(
+                    $state,
+                    "liomAnswer",
+                    "liomAnswer"
+                  )
+                })}
+              >
+                <ButtonLiom
+                  data-plasmic-name={"buttonLiom2"}
+                  data-plasmic-override={overrides.buttonLiom2}
+                  className={classNames("__wab_instance", sty.buttonLiom2, {
+                    [sty.buttonLiom2liomAnswer]: hasVariant(
+                      $state,
+                      "liomAnswer",
+                      "liomAnswer"
+                    )
+                  })}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom2",
+                    "color"
+                  ])}
+                  endIcon={
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant($state, "liomAnswer", "liomAnswer")
+                          ? Icon170Icon
+                          : Icon11Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__tadFy, {
+                        [sty.svgliomAnswer__tadFy6WM5Z]: hasVariant(
+                          $state,
+                          "liomAnswer",
+                          "liomAnswer"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  }
+                  onClick={args.resend}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom2",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  showEndIcon={
+                    hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? true
+                      : undefined
+                  }
+                  size={
+                    hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? "compact"
+                      : undefined
+                  }
+                  startIcon={
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant($state, "liomAnswer", "liomAnswer")
+                          ? Icon170Icon
+                          : CheckSvgIcon
+                      }
+                      className={classNames(projectcss.all, sty.svg__lfWl, {
+                        [sty.svgliomAnswer__lfWl6WM5Z]: hasVariant(
+                          $state,
+                          "liomAnswer",
+                          "liomAnswer"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gYrIx,
+                      {
+                        [sty.textliomAnswer__gYrIx6WM5Z]: hasVariant(
+                          $state,
+                          "liomAnswer",
+                          "liomAnswer"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? "\u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f   "
+                      : "Button"}
+                  </div>
+                </ButtonLiom>
+                <Embed
+                  className={classNames(
+                    "__wab_instance",
+                    sty.embedHtml___0Okd9,
+                    {
+                      [sty.embedHtmlliomAnswer___0Okd96WM5Z]: hasVariant(
+                        $state,
+                        "liomAnswer",
+                        "liomAnswer"
+                      )
+                    }
+                  )}
+                  code={
+                    hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? "<hr></hr>"
+                      : "<div>Paste your embed code via the right sidebar</div>"
+                  }
+                />
+
+                <ButtonLiom
+                  data-plasmic-name={"buttonLiom4"}
+                  data-plasmic-override={overrides.buttonLiom4}
+                  className={classNames("__wab_instance", sty.buttonLiom4, {
+                    [sty.buttonLiom4liomAnswer]: hasVariant(
+                      $state,
+                      "liomAnswer",
+                      "liomAnswer"
+                    )
+                  })}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom4",
+                    "color"
+                  ])}
+                  endIcon={
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant($state, "liomAnswer", "liomAnswer")
+                          ? Icon171Icon
+                          : Icon11Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__edEi7, {
+                        [sty.svgliomAnswer__edEi76WM5Z]: hasVariant(
+                          $state,
+                          "liomAnswer",
+                          "liomAnswer"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  }
+                  onClick={args.credit}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom4",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  showEndIcon={
+                    hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? true
+                      : undefined
+                  }
+                  size={
+                    hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? "compact"
+                      : undefined
+                  }
+                  startIcon={
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant($state, "liomAnswer", "liomAnswer")
+                          ? Icon170Icon
+                          : CheckSvgIcon
+                      }
+                      className={classNames(projectcss.all, sty.svg__urgB5, {
+                        [sty.svgliomAnswer__urgB56WM5Z]: hasVariant(
+                          $state,
+                          "liomAnswer",
+                          "liomAnswer"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__e5X8Q,
+                      {
+                        [sty.textliomAnswer__e5X8Q6WM5Z]: hasVariant(
+                          $state,
+                          "liomAnswer",
+                          "liomAnswer"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? "\u0627\u0641\u0632\u0627\u06cc\u0634 \u0627\u0639\u062a\u0628\u0627\u0631"
+                      : "Button"}
+                  </div>
+                </ButtonLiom>
+                <Embed
+                  className={classNames(
+                    "__wab_instance",
+                    sty.embedHtml___0B8N6,
+                    {
+                      [sty.embedHtmlliomAnswer___0B8N66WM5Z]: hasVariant(
+                        $state,
+                        "liomAnswer",
+                        "liomAnswer"
+                      )
+                    }
+                  )}
+                  code={
+                    hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? "<hr></hr>"
+                      : "<div>Paste your embed code via the right sidebar</div>"
+                  }
+                />
+
+                <ButtonLiom
+                  data-plasmic-name={"buttonLiom3"}
+                  data-plasmic-override={overrides.buttonLiom3}
+                  className={classNames("__wab_instance", sty.buttonLiom3, {
+                    [sty.buttonLiom3liomAnswer]: hasVariant(
+                      $state,
+                      "liomAnswer",
+                      "liomAnswer"
+                    )
+                  })}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom3",
+                    "color"
+                  ])}
+                  endIcon={
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant($state, "liomAnswer", "liomAnswer")
+                          ? Icon169Icon
+                          : Icon11Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__cEcUn, {
+                        [sty.svgliomAnswer__cEcUn6WM5Z]: hasVariant(
+                          $state,
+                          "liomAnswer",
+                          "liomAnswer"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  }
+                  onClick={args._delete}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom3",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  showEndIcon={
+                    hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? true
+                      : undefined
+                  }
+                  size={
+                    hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? "compact"
+                      : undefined
+                  }
+                  startIcon={
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant($state, "liomAnswer", "liomAnswer")
+                          ? Icon170Icon
+                          : CheckSvgIcon
+                      }
+                      className={classNames(projectcss.all, sty.svg__hVaYe, {
+                        [sty.svgliomAnswer__hVaYe6WM5Z]: hasVariant(
+                          $state,
+                          "liomAnswer",
+                          "liomAnswer"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__pryxH,
+                      {
+                        [sty.textliomAnswer__pryxH6WM5Z]: hasVariant(
+                          $state,
+                          "liomAnswer",
+                          "liomAnswer"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "liomAnswer", "liomAnswer")
+                      ? "\u062d\u0630\u0641                          "
+                      : "Button"}
+                  </div>
+                </ButtonLiom>
+              </Stack__>
+            }
+            contentText={"Popover contents"}
+            defaultOpen={false}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens,
+              plasmic_paziresh_24_design_system_css.plasmic_tokens,
+              plasmic_hamdast_sdk_css.plasmic_tokens
+            )}
+            mouseEnterDelay={0}
+            mouseLeaveDelay={0}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["popover", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["popover", "open"])}
+            placement={"bottomRight"}
+            popoverScopeClassName={sty["popover__popover"]}
+            title={null}
+            trigger={"click"}
+          >
+            <Icon168Icon
+              className={classNames(projectcss.all, sty.svg__kvgN3, {
+                [sty.svgliomAnswer__kvgN36WM5Z]: hasVariant(
+                  $state,
+                  "liomAnswer",
+                  "liomAnswer"
+                )
+              })}
+              role={"img"}
+            />
+          </AntdPopover>
+        </div>
+      ) : null}
       <div
         className={classNames(
           projectcss.all,
           sty.freeBox___7TlWy,
-          hasVariant($state, "error", "error")
-            ? ``
-            : hasVariant($state, "endMessege", "endMessege")
+          hasVariant($state, "endMessege", "endMessege")
             ? "text-box"
             : hasVariant($state, "liomAnswer", "liomAnswer")
             ? ``
@@ -348,23 +805,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
             [sty.freeBoxendMessege_hint___7TlWyTjzqgETAel]:
               hasVariant($state, "hint", "hint") &&
               hasVariant($state, "endMessege", "endMessege"),
-            [sty.freeBoxerror___7TlWyNbbwb]: hasVariant(
-              $state,
-              "error",
-              "error"
-            ),
-            [sty.freeBoxerror_bot___7TlWyNbbwbXxwGw]:
-              hasVariant($state, "bot", "bot") &&
-              hasVariant($state, "error", "error"),
-            [sty.freeBoxerror_hint___7TlWyNbbwbETAel]:
-              hasVariant($state, "hint", "hint") &&
-              hasVariant($state, "error", "error"),
-            [sty.freeBoxerror_loadingMessage___7TlWyNbbwbNjKFm]:
-              hasVariant($state, "error", "error") &&
-              hasVariant($state, "loadingMessage", "loadingMessage"),
-            [sty.freeBoxerror_pazireshAnswer___7TlWyNbbwbYPoRs]:
-              hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
-              hasVariant($state, "error", "error"),
             [sty.freeBoxhint___7TlWyeTAel]: hasVariant($state, "hint", "hint"),
             [sty.freeBoxliomAnswer___7TlWy6WM5Z]: hasVariant(
               $state,
@@ -426,11 +866,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
-              [sty.freeBoxerror__fCi1Qnbbwb]: hasVariant(
-                $state,
-                "error",
-                "error"
-              ),
               [sty.freeBoxhint__fCi1QeTAel]: hasVariant($state, "hint", "hint"),
               [sty.freeBoxliomAnswer__fCi1Q6WM5Z]: hasVariant(
                 $state,
@@ -479,11 +914,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
               [sty.slotTargetChildrenendMessege_pazireshAnswer]:
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
                 hasVariant($state, "endMessege", "endMessege"),
-              [sty.slotTargetChildrenerror]: hasVariant(
-                $state,
-                "error",
-                "error"
-              ),
               [sty.slotTargetChildrenglobal_theme_dark_hint]:
                 hasVariant($state, "hint", "hint") &&
                 hasVariant(globalVariants, "theme", "dark"),
@@ -524,13 +954,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
-              [sty.loadingCompopnentGrayerror_endMessege]:
-                hasVariant($state, "endMessege", "endMessege") &&
-                hasVariant($state, "error", "error"),
-              [sty.loadingCompopnentGrayerror_loadingMessage_endMessege]:
-                hasVariant($state, "loadingMessage", "loadingMessage") &&
-                hasVariant($state, "endMessege", "endMessege") &&
-                hasVariant($state, "error", "error"),
               [sty.loadingCompopnentGrayliomAnswer_endMessege]:
                 hasVariant($state, "endMessege", "endMessege") &&
                 hasVariant($state, "liomAnswer", "liomAnswer"),
@@ -550,9 +973,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
           />
         </div>
         {(
-          hasVariant($state, "error", "error")
-            ? true
-            : hasVariant($state, "endMessege", "endMessege")
+          hasVariant($state, "endMessege", "endMessege")
             ? true
             : hasVariant($state, "liomAnswer", "liomAnswer")
             ? true
@@ -576,10 +997,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
               [sty.svgendMessege_pazireshAnswer__lOaeltjzqgYPoRs]:
                 hasVariant($state, "endMessege", "endMessege") &&
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
-              [sty.svgerror__lOaelnbbwb]: hasVariant($state, "error", "error"),
-              [sty.svgerror_pazireshAnswer__lOaelnbbwbYPoRs]:
-                hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
-                hasVariant($state, "error", "error"),
               [sty.svghint__lOaeLeTAel]: hasVariant($state, "hint", "hint"),
               [sty.svgliomAnswer__lOael6WM5Z]: hasVariant(
                 $state,
@@ -611,17 +1028,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
               "endMessege",
               "endMessege"
             ),
-            [sty.freeBoxerror__q3ToqNbbwb]: hasVariant(
-              $state,
-              "error",
-              "error"
-            ),
-            [sty.freeBoxerror_hint__q3ToqNbbwbETAel]:
-              hasVariant($state, "hint", "hint") &&
-              hasVariant($state, "error", "error"),
-            [sty.freeBoxerror_pazireshAnswer__q3ToqNbbwbYPoRs]:
-              hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
-              hasVariant($state, "error", "error"),
             [sty.freeBoxhint__q3ToqeTAel]: hasVariant($state, "hint", "hint"),
             [sty.freeBoxliomAnswer__q3Toq6WM5Z]: hasVariant(
               $state,
@@ -657,19 +1063,13 @@ function PlasmicMessageLiom__RenderFunc(props: {
             value: args.slot
           })}
         </div>
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__z0D5, {
             [sty.freeBoxendMessege__z0D5Tjzqg]: hasVariant(
               $state,
               "endMessege",
               "endMessege"
             ),
-            [sty.freeBoxerror__z0D5Nbbwb]: hasVariant($state, "error", "error"),
-            [sty.freeBoxerror_endMessege__z0D5NbbwbTjzqg]:
-              hasVariant($state, "endMessege", "endMessege") &&
-              hasVariant($state, "error", "error"),
             [sty.freeBoxliomAnswer__z0D56WM5Z]: hasVariant(
               $state,
               "liomAnswer",
@@ -693,28 +1093,21 @@ function PlasmicMessageLiom__RenderFunc(props: {
             )
           })}
         >
-          <Icon163Icon
-            className={classNames(projectcss.all, sty.svg__wa3Pn, {
-              [sty.svgerror__wa3PnNbbwb]: hasVariant($state, "error", "error")
-            })}
+          <svg
+            className={classNames(projectcss.all, sty.svg__wa3Pn)}
             role={"img"}
           />
 
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text,
-              { [sty.texterror]: hasVariant($state, "error", "error") }
+              sty.text__ha5Uh
             )}
           >
-            {hasVariant($state, "error", "error")
-              ? "\u067e\u06cc\u0627\u0645 \u0627\u0631\u0633\u0627\u0644 \u0646\u0634\u062f."
-              : "Enter some text"}
+            {"Enter some text"}
           </div>
-        </Stack__>
+        </div>
       </div>
       {(() => {
         try {
@@ -735,6 +1128,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
               $state,
               "endMessege",
               "endMessege"
+            ),
+            [sty.freeBoxliomAnswer__cZks6WM5Z]: hasVariant(
+              $state,
+              "liomAnswer",
+              "liomAnswer"
             )
           })}
         >
@@ -748,7 +1146,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
-              [sty.imgerror]: hasVariant($state, "error", "error"),
               [sty.imgliomAnswer]: hasVariant(
                 $state,
                 "liomAnswer",
@@ -798,9 +1195,20 @@ function PlasmicMessageLiom__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "loadingCompopnentGray", "text", "img"],
+  root: [
+    "root",
+    "popover",
+    "buttonLiom2",
+    "buttonLiom4",
+    "buttonLiom3",
+    "loadingCompopnentGray",
+    "img"
+  ],
+  popover: ["popover", "buttonLiom2", "buttonLiom4", "buttonLiom3"],
+  buttonLiom2: ["buttonLiom2"],
+  buttonLiom4: ["buttonLiom4"],
+  buttonLiom3: ["buttonLiom3"],
   loadingCompopnentGray: ["loadingCompopnentGray"],
-  text: ["text"],
   img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -808,8 +1216,11 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  popover: typeof AntdPopover;
+  buttonLiom2: typeof ButtonLiom;
+  buttonLiom4: typeof ButtonLiom;
+  buttonLiom3: typeof ButtonLiom;
   loadingCompopnentGray: typeof LoadingCompopnentGray;
-  text: "div";
   img: typeof PlasmicImg__;
 };
 
@@ -873,8 +1284,11 @@ export const PlasmicMessageLiom = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    popover: makeNodeComponent("popover"),
+    buttonLiom2: makeNodeComponent("buttonLiom2"),
+    buttonLiom4: makeNodeComponent("buttonLiom4"),
+    buttonLiom3: makeNodeComponent("buttonLiom3"),
     loadingCompopnentGray: makeNodeComponent("loadingCompopnentGray"),
-    text: makeNodeComponent("text"),
     img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicMessageLiom

@@ -74,6 +74,7 @@ import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
+import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -134,6 +135,7 @@ export type PlasmicSelfTest2__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
+  directDialog?: Flex__<typeof DirectDialog>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   drawer?: Flex__<typeof AntdDrawer>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
@@ -755,6 +757,18 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "directDialog.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "directDialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -876,9 +890,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   new URLSearchParams(
                                     window.location.search
                                   ).get("origin_user_id") ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("userId"),
+                                  new URLSearchParams(window.location.search)
+                                    .get("userId")
+                                    .slice(4, -4),
                                 bot_name: "period_chat",
                                 mobile: "",
                                 email: "",
@@ -1363,6 +1377,45 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   projectcss.__wab_text,
                   sty.text__kSk9
                 )}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateTestChat"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["testChat"]
+                          },
+                          operation: 0,
+                          value: window.FlutterChannel.postMessage(
+                            "#directDialog-chatBot"
+                          )
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateTestChat"] != null &&
+                    typeof $steps["updateTestChat"] === "object" &&
+                    typeof $steps["updateTestChat"].then === "function"
+                  ) {
+                    $steps["updateTestChat"] = await $steps["updateTestChat"];
+                  }
+                }}
               >
                 <React.Fragment>
                   {(() => {
@@ -1504,6 +1557,32 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         key: currentIndex,
                         onClick: async event => {
                           const $steps = {};
+
+                          $steps["updateTestChat7"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      if (window.skipTyping) {
+                                        return window.skipTyping();
+                                      }
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTestChat7"] != null &&
+                            typeof $steps["updateTestChat7"] === "object" &&
+                            typeof $steps["updateTestChat7"].then === "function"
+                          ) {
+                            $steps["updateTestChat7"] = await $steps[
+                              "updateTestChat7"
+                            ];
+                          }
 
                           $steps["updateTestChat3"] = true
                             ? (() => {
@@ -1949,15 +2028,15 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
+                              if (window.skipTyping) {
+                                window.skipTyping();
+                              }
                               var scrollTop = event.currentTarget.scrollTop;
                               var chatBox = event.currentTarget;
                               window.chatBox = chatBox;
                               if (scrollTop == 0) {
                                 chatBox.style.overflow = "hidden";
-                                $state.isLoading = true;
-                                return console.log(
-                                  "\u2705 اسکرول رسید به بالا"
-                                );
+                                return ($state.isLoading = true);
                               }
                             })();
                           }
@@ -2158,11 +2237,64 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       <MessageLiom
                         data-plasmic-name={"messageLiom"}
                         data-plasmic-override={overrides.messageLiom}
+                        _delete={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return ($state.testChat =
+                                        $state.testChat.filter(
+                                          (_, index) => index !== currentIndex
+                                        ));
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
                         bot={true}
                         className={classNames(
                           "__wab_instance",
                           sty.messageLiom
                         )}
+                        credit={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return window.FlutterChannel.postMessage(
+                                      "#directDialog-chatBot"
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
                         endMessege={(() => {
                           try {
                             return (
@@ -2181,24 +2313,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             throw e;
                           }
                         })()}
-                        error={
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? (() => {
-                                try {
-                                  return currentItem.error;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return [];
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            : undefined
-                        }
+                        error2={(() => {
+                          try {
+                            return currentItem.error == true;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()}
                         hint={(() => {
                           try {
                             return currentItem.tip;
@@ -2240,6 +2367,91 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             throw e;
                           }
                         })()}
+                        resend={async event => {
+                          const $steps = {};
+
+                          $steps["updateTextAreaValue"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["textArea", "value"]
+                                  },
+                                  operation: 0,
+                                  value: currentItem.text
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTextAreaValue"] != null &&
+                            typeof $steps["updateTextAreaValue"] === "object" &&
+                            typeof $steps["updateTextAreaValue"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextAreaValue"] = await $steps[
+                              "updateTextAreaValue"
+                            ];
+                          }
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return ($state.testChat =
+                                      $state.testChat.filter(
+                                        (_, index) => index !== currentIndex
+                                      ));
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["runCode2"] = !$state.sendIcon.diable
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return window.document
+                                      .getElementById("sendicon")
+                                      .click();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode2"] != null &&
+                            typeof $steps["runCode2"] === "object" &&
+                            typeof $steps["runCode2"].then === "function"
+                          ) {
+                            $steps["runCode2"] = await $steps["runCode2"];
+                          }
+                        }}
                         slot={
                           <React.Fragment>
                             {(() => {
@@ -2657,8 +2869,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   try {
                                     return currentItem.id
                                       ? ""
-                                      : currentItem.animation
-                                      ? `typedtext` + currentItem.animation
+                                      : currentItem.from == "system"
+                                      ? `typedtext` + currentIndex
                                       : "";
                                   } catch (e) {
                                     if (
@@ -2907,7 +3119,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
 
                               $steps["invokeGlobalAction"] = true
                                 ? (() => {
-                                    const actionArgs = { args: [500] };
+                                    const actionArgs = { args: [300] };
                                     return $globalActions[
                                       "Fragment.wait"
                                     ]?.apply(null, [...actionArgs.args]);
@@ -3165,16 +3377,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           text: $state.textArea.value,
                                           from: "user"
                                         });
-                                        var animation = Math.floor(
-                                          Math.random() * 1000
-                                        ).toString();
-                                        $state.testChat.push({
+                                        return $state.testChat.push({
                                           text: "              ",
                                           from: "system",
-                                          loading: true,
-                                          animation: animation
+                                          loading: true
                                         });
-                                        return ($state.indexchat = animation);
                                       })();
                                     }
                                   };
@@ -3328,18 +3535,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                         $state.testChat.length - 1
                                       ] = {
                                         text: $steps.chat.data.message,
-                                        from: "system",
-                                        animation: $state.indexchat
+                                        from: "system"
                                       };
-                                      $state.infoChat.credit =
-                                        $steps.chat.data.credit;
-                                      var messageBox =
-                                        window.document.getElementById(
-                                          "chatBox"
-                                        );
-                                      if (messageBox)
-                                        return (messageBox.scrollTop =
-                                          messageBox.scrollHeight);
+                                      $state.indexchat =
+                                        $state.testChat.length - 1;
+                                      return ($state.infoChat.credit =
+                                        $steps.chat.data.credit);
                                     })();
                                   }
                                 };
@@ -3356,33 +3557,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             $steps["runCode5"] = await $steps["runCode5"];
                           }
 
-                          $steps["invokeGlobalAction"] = false
-                            ? (() => {
-                                const actionArgs = { args: [500] };
-                                return $globalActions["Fragment.wait"]?.apply(
-                                  null,
-                                  [...actionArgs.args]
-                                );
-                              })()
-                            : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
-                          }
-
-                          $steps["runCode6"] = false
+                          $steps["runCode6"] = true
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return window.typewriter(
-                                      `typedtext${$state.indexchat}`
-                                    );
+                                    return (() => {
+                                      var messageBox =
+                                        window.document.getElementById(
+                                          "chatBox"
+                                        );
+                                      if (messageBox)
+                                        return (messageBox.scrollTop =
+                                          messageBox.scrollHeight);
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {
@@ -3457,9 +3644,15 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return window.FlutterChannel.postMessage(
-                                        "#directDialog-chatBot"
-                                      );
+                                      return (() => {
+                                        if (
+                                          window.FlutterChannel?.postMessage
+                                        ) {
+                                          return window.FlutterChannel.postMessage(
+                                            "#directDialog-chatBot"
+                                          );
+                                        }
+                                      })();
                                     }
                                   };
                                   return (({ customFunction }) => {
@@ -4090,6 +4283,54 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 </ButtonLiom>
               </div>
             </HeaderLiom>
+            <DirectDialog
+              data-plasmic-name={"directDialog"}
+              data-plasmic-override={overrides.directDialog}
+              className={classNames("__wab_instance", sty.directDialog)}
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "directDialog",
+                  "open"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onSelectShopChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "directDialog",
+                  "selectShop"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              open={generateStateValueProp($state, ["directDialog", "open"])}
+              token={(() => {
+                try {
+                  return $state.token;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              type={"chatBot"}
+            />
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__vcZiy)}>
             <Stack__
@@ -5770,8 +6011,10 @@ window.typewriter = function(elementId) {
                 : (() => {
                     try {
                       return `<script>
-window.typewriter = function(elementId) {
-    var destination = document.getElementById(elementId);
+  window.typewriter = function() {
+    var destination = document.getElementById("${`typedtext${$state.indexchat}`}");
+    if (!destination || destination.getAttribute("data-typed") === "true") return;
+
     var aText = [destination.getAttribute('data-text') || destination.textContent];
     
     destination.classList.remove("hide");
@@ -5782,20 +6025,27 @@ window.typewriter = function(elementId) {
     var iTextPos = 0;
     var sContents = '';
     var iRow = 0;
-    
+    var stopTyping = false;
+
+    destination.setAttribute("data-typed", "true");
+
     function type() {
+        if (stopTyping) {
+            destination.innerHTML = aText.join('<br />');
+            return;
+        }
+
         sContents = ' ';
         iRow = Math.max(0, iIndex - iScrollAt);
-        
+
         while (iRow < iIndex) {
             sContents += aText[iRow++] + '<br />';
         }
-        
+
         destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "";
-        
+
         var messageBox = document.getElementById("chatBox");
         if (messageBox) {
-            // فقط وقتی کاربر پایین باشه اسکرول کنه
             if (messageBox.scrollHeight - messageBox.scrollTop <= messageBox.clientHeight + 20) {
                 messageBox.scrollTop = messageBox.scrollHeight;
             }
@@ -5812,12 +6062,16 @@ window.typewriter = function(elementId) {
             setTimeout(type, iSpeed);
         }
     }
-    
-    destination.textContent = ""; // پاک کردن محتوا قبل شروع
+
+    destination.textContent = ""; 
     type();
+
+    window.skipTyping = function() {
+        stopTyping = true;
+        destination.innerHTML = aText.join('<br />');
+    };
 }
-</script>
-`;
+</script>`;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -6033,6 +6287,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "paziresh24Avatar",
     "buttonLiom",
+    "directDialog",
     "buttonLiom4",
     "drawer",
     "buttonLiom3",
@@ -6055,6 +6310,7 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom", "paziresh24Avatar", "buttonLiom"],
   paziresh24Avatar: ["paziresh24Avatar"],
   buttonLiom: ["buttonLiom"],
+  directDialog: ["directDialog"],
   buttonLiom4: ["buttonLiom4"],
   drawer: [
     "drawer",
@@ -6089,6 +6345,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
   buttonLiom: typeof ButtonLiom;
+  directDialog: typeof DirectDialog;
   buttonLiom4: typeof ButtonLiom;
   drawer: typeof AntdDrawer;
   buttonLiom3: typeof ButtonLiom;
@@ -6197,6 +6454,7 @@ export const PlasmicSelfTest2 = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     buttonLiom: makeNodeComponent("buttonLiom"),
+    directDialog: makeNodeComponent("directDialog"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     drawer: makeNodeComponent("drawer"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
