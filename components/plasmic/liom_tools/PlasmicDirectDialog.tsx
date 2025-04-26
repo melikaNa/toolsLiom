@@ -154,7 +154,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
     () =>
       Object.assign(
         {
-          type: "irregular",
+          type: "chatBot",
           token:
             "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmFiYXJrYXRBcHAiLCJpZCI6MjEzNTN9.M8r0SsjS1pvDgQzyvstwPCNgrgZkGFsXTE2vZy-StqlcViL3Km9aM1iCRcAhHq6l5QXmF1rZiAiG4lUqTES2Lw",
           desc: "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0648 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631\u060c \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u0646\u0645\u0627\u06cc\u06cc\u062f."

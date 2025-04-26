@@ -98,9 +98,9 @@ import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: yU3FWAJzfOsT/icon
+import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 import Icon162Icon from "./icons/PlasmicIcon__Icon162"; // plasmic-import: ySm-fx5nxIne/icon
-import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
 import Icon49Icon from "./icons/PlasmicIcon__Icon49"; // plasmic-import: wa3gMbhhdNCC/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: nUOPjtqNxpTk/icon
 import Icon167Icon from "./icons/PlasmicIcon__Icon167"; // plasmic-import: 5eVMEaBbaM21/icon
@@ -131,6 +131,7 @@ export type PlasmicSelfTest2__OverridesType = {
   bottomInput?: Flex__<"div">;
   sendIcon?: Flex__<typeof SendIcon>;
   textArea?: Flex__<typeof AntdTextArea>;
+  buttonLiom7?: Flex__<typeof ButtonLiom>;
   favicon?: Flex__<typeof Embed>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
@@ -769,6 +770,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom7.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ["line", "sand"]
       }
     ],
     [$props, $ctx, $refs]
@@ -3917,7 +3924,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             }
                           },
                           placeholder:
-                            "\u067e\u06cc\u0627\u0645 \u062e\u0648\u062f \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...",
+                            "\u0633\u0648\u0627\u0644 \u062e\u0648\u062f \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...",
                           value: generateStateValueProp($state, [
                             "textArea",
                             "value"
@@ -3946,6 +3953,120 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       })()}
                     </div>
                   </Stack__>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? (() => {
+                          try {
+                            return $state.testChat?.length != 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___4JxQr
+                      )}
+                    >
+                      <ButtonLiom
+                        data-plasmic-name={"buttonLiom7"}
+                        data-plasmic-override={overrides.buttonLiom7}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.buttonLiom7
+                        )}
+                        color={generateStateValueProp($state, [
+                          "buttonLiom7",
+                          "color"
+                        ])}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateTestChat"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["testChat"]
+                                  },
+                                  operation: 0,
+                                  value: []
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTestChat"] != null &&
+                            typeof $steps["updateTestChat"] === "object" &&
+                            typeof $steps["updateTestChat"].then === "function"
+                          ) {
+                            $steps["updateTestChat"] = await $steps[
+                              "updateTestChat"
+                            ];
+                          }
+                        }}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "buttonLiom7",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        shape={"rounded"}
+                        showStartIcon={true}
+                        size={"minimal"}
+                        startIcon={
+                          <Icon158Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__mOyJx
+                            )}
+                            role={"img"}
+                          />
+                        }
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__jhpGr
+                          )}
+                        >
+                          {"\u067e\u06cc\u0627\u0645 \u062c\u062f\u06cc\u062f"}
+                        </div>
+                      </ButtonLiom>
+                    </div>
+                  ) : null}
                 </div>
               </Reveal>
             </section>
@@ -4329,7 +4450,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              type={"chatBot"}
+              type={"hamyarSub"}
             />
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__vcZiy)}>
@@ -4548,9 +4669,13 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return window.FlutterChannel.postMessage(
-                              "#directDialog-chatBot"
-                            );
+                            return (() => {
+                              if (window.FlutterChannel?.postMessage) {
+                                return window.FlutterChannel.postMessage(
+                                  "#directDialog-chatBot"
+                                );
+                              }
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
@@ -6283,6 +6408,7 @@ const PlasmicDescendants = {
     "bottomInput",
     "sendIcon",
     "textArea",
+    "buttonLiom7",
     "favicon",
     "headerLiom",
     "paziresh24Avatar",
@@ -6306,6 +6432,7 @@ const PlasmicDescendants = {
   bottomInput: ["bottomInput", "sendIcon", "textArea"],
   sendIcon: ["sendIcon"],
   textArea: ["textArea"],
+  buttonLiom7: ["buttonLiom7"],
   favicon: ["favicon"],
   headerLiom: ["headerLiom", "paziresh24Avatar", "buttonLiom"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -6341,6 +6468,7 @@ type NodeDefaultElementType = {
   bottomInput: "div";
   sendIcon: typeof SendIcon;
   textArea: typeof AntdTextArea;
+  buttonLiom7: typeof ButtonLiom;
   favicon: typeof Embed;
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
@@ -6450,6 +6578,7 @@ export const PlasmicSelfTest2 = Object.assign(
     bottomInput: makeNodeComponent("bottomInput"),
     sendIcon: makeNodeComponent("sendIcon"),
     textArea: makeNodeComponent("textArea"),
+    buttonLiom7: makeNodeComponent("buttonLiom7"),
     favicon: makeNodeComponent("favicon"),
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),

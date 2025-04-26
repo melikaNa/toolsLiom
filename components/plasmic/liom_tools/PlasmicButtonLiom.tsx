@@ -343,6 +343,9 @@ function PlasmicButtonLiom__RenderFunc(props: {
           [sty.rootcolor_perper]: hasVariant($state, "color", "perper"),
           [sty.rootcolor_red]: hasVariant($state, "color", "red"),
           [sty.rootcolor_sand]: hasVariant($state, "color", "sand"),
+          [sty.rootcolor_sand_color_line]:
+            hasVariant($state, "color", "line") &&
+            hasVariant($state, "color", "sand"),
           [sty.rootcolor_softBlue]: hasVariant($state, "color", "softBlue"),
           [sty.rootcolor_softGreen]: hasVariant($state, "color", "softGreen"),
           [sty.rootcolor_softRed]: hasVariant($state, "color", "softRed"),
