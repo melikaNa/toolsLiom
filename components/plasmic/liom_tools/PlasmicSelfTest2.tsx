@@ -523,7 +523,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return `https://tools.liom.app/chat-bot/?origin_user_id=${$ctx.query.origin_user_id}&app=${$ctx.query.app}&origin=${$ctx.query.origin}`;
+              return `https://tools.liom.app/chat-bot/?origin_user_id=${$ctx.query.origin_user_id}&app=${$ctx.query.app}&topic=${$ctx.query.topic}&origin=${$ctx.query.origin}`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
