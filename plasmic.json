@@ -2788,6 +2788,19 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicLineClomp2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "ySuxtC2bY6yN",
+          "name": "DirectDialogChatbot",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicDirectDialogChatbot.tsx",
+          "importSpec": {
+            "modulePath": "DirectDialogChatbot.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicDirectDialogChatbot.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

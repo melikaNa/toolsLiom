@@ -74,8 +74,10 @@ import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
-import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
+import DirectDialogChatbot from "../../DirectDialogChatbot"; // plasmic-import: ySuxtC2bY6yN/component
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -84,6 +86,7 @@ import {
 } from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants"; // plasmic-import: gDFLJp69n7ET/globalVariant
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
+import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -108,6 +111,9 @@ import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: hr_bp
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4LeWEqGr/icon
 import Icon161Icon from "./icons/PlasmicIcon__Icon161"; // plasmic-import: RaOYP4ifjT-P/icon
 import Icon160Icon from "./icons/PlasmicIcon__Icon160"; // plasmic-import: VDxWJe2hoa-8/icon
+import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: VTuVNgeUH3X6/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
+import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: frqiW1UAlfdr/icon
 
 createPlasmicElementProxy;
 
@@ -136,7 +142,7 @@ export type PlasmicSelfTest2__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
-  directDialog?: Flex__<typeof DirectDialog>;
+  directDialogChatbot?: Flex__<typeof DirectDialogChatbot>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   drawer?: Flex__<typeof AntdDrawer>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
@@ -145,6 +151,10 @@ export type PlasmicSelfTest2__OverridesType = {
   buttonLiom6?: Flex__<typeof ButtonLiom>;
   lineClomp4?: Flex__<typeof LineClomp>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
+  modal?: Flex__<typeof AntdModal>;
+  apiRequest2?: Flex__<typeof ApiRequest>;
+  button3?: Flex__<typeof ButtonLiom>;
+  buttonLiom8?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultSelfTest2Props {}
@@ -296,20 +306,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         path: "userId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return localStorage.getItem("user_id");
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "ferst",
@@ -474,22 +471,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         path: "status",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $ctx.query.status == "" || $ctx.query.status == null
-                ? ""
-                : $ctx.query.status;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "buy",
@@ -541,7 +523,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return `https://tools.liom.app/self-test/?user_id=${$state.userId}&type=${$state.type}&app=${$ctx.query.app}&session_id=${$state.sessionId}&inApp=${$ctx.query.inApp}&origin=${$ctx.query.origin}`;
+              return `https://tools.liom.app/chat-bot/?origin_user_id=${$ctx.query.origin_user_id}&app=${$ctx.query.app}&origin=${$ctx.query.origin}`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -760,22 +742,71 @@ function PlasmicSelfTest2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "directDialog.selectShop",
+        path: "buttonLiom7.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ["line", "sand"]
+      },
+      {
+        path: "directDialogChatbot.selectShop",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "directDialog.open",
+        path: "directDialogChatbot.open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "buttonLiom7.color",
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.status != "";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "apiRequest2.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest2.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button3.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ["line", "sand"]
+        initFunc: ({ $props, $state, $queries, $ctx }) => "green"
+      },
+      {
+        path: "buttonLiom8.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -790,7 +821,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
   const globalVariants = ensureGlobalVariants({
     unnamedGlobalGroupOfVariants: useUnnamedGlobalGroupOfVariants(),
     theme: useTheme(),
-    screen: useScreenVariantsqiBuxNlixBgQ()
+    screen: useScreenVariantsqiBuxNlixBgQ(),
+    screen: useScreenVariantsyg4Uf6WCaaLe()
   });
 
   return (
@@ -903,7 +935,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 bot_name: "period_chat",
                                 mobile: "",
                                 email: "",
-                                name: ""
+                                name: "",
+                                app:
+                                  $ctx.query?.app ||
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("app") ||
+                                  "",
+                                origin:
+                                  $ctx.query?.origin ||
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("origin") ||
+                                  ""
                               };
                             } catch (e) {
                               if (
@@ -937,7 +981,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       customFunction: async () => {
                         return (() => {
                           window.token = $steps.user.data.token;
-                          return ($state.token = $steps.user.data.token);
+                          $state.token = $steps.user.data.token;
+                          return ($state.userId = $steps.user.data.user_id);
                         })();
                       }
                     };
@@ -1118,6 +1163,38 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 $steps["updateInfoChat"] = await $steps["updateInfoChat"];
               }
 
+              $steps["updateStatus"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["status"]
+                      },
+                      operation: 0,
+                      value:
+                        $ctx.query.status == "" || $ctx.query.status == null
+                          ? ""
+                          : $ctx.query.status
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateStatus"] != null &&
+                typeof $steps["updateStatus"] === "object" &&
+                typeof $steps["updateStatus"].then === "function"
+              ) {
+                $steps["updateStatus"] = await $steps["updateStatus"];
+              }
+
               $steps["updateLoad"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1202,6 +1279,36 @@ function PlasmicSelfTest2__RenderFunc(props: {
             data-plasmic-name={"sidebarWindow"}
             data-plasmic-override={overrides.sidebarWindow}
             className={classNames("__wab_instance", sty.sidebarWindow)}
+            creadit={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (window.FlutterChannel?.postMessage) {
+                            return window.FlutterChannel.postMessage(
+                              "#directDialog-chatBot"
+                            );
+                          } else
+                            return ($state.directDialogChatbot.open = true);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
             load2={generateStateValueProp($state, ["sidebarWindow", "load2"])}
             newChat={async event => {
               const $steps = {};
@@ -2284,9 +2391,15 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
-                                    return window.FlutterChannel.postMessage(
-                                      "#directDialog-chatBot"
-                                    );
+                                    return (() => {
+                                      if (window.FlutterChannel?.postMessage) {
+                                        return window.FlutterChannel.postMessage(
+                                          "#directDialog-chatBot"
+                                        );
+                                      } else
+                                        return ($state.directDialogChatbot.open =
+                                          true);
+                                    })();
                                   }
                                 };
                                 return (({ customFunction }) => {
@@ -3658,7 +3771,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           return window.FlutterChannel.postMessage(
                                             "#directDialog-chatBot"
                                           );
-                                        }
+                                        } else
+                                          return ($state.directDialogChatbot.open =
+                                            true);
                                       })();
                                     }
                                   };
@@ -4404,13 +4519,13 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 </ButtonLiom>
               </div>
             </HeaderLiom>
-            <DirectDialog
-              data-plasmic-name={"directDialog"}
-              data-plasmic-override={overrides.directDialog}
-              className={classNames("__wab_instance", sty.directDialog)}
+            <DirectDialogChatbot
+              data-plasmic-name={"directDialogChatbot"}
+              data-plasmic-override={overrides.directDialogChatbot}
+              className={classNames("__wab_instance", sty.directDialogChatbot)}
               onOpenChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
-                  "directDialog",
+                  "directDialogChatbot",
                   "open"
                 ]).apply(null, eventArgs);
 
@@ -4424,7 +4539,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
               }}
               onSelectShopChange={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
-                  "directDialog",
+                  "directDialogChatbot",
                   "selectShop"
                 ]).apply(null, eventArgs);
 
@@ -4436,10 +4551,13 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   return;
                 }
               }}
-              open={generateStateValueProp($state, ["directDialog", "open"])}
-              token={(() => {
+              open={generateStateValueProp($state, [
+                "directDialogChatbot",
+                "open"
+              ])}
+              redirectUrl={(() => {
                 try {
-                  return $state.token;
+                  return $state.redirectUrl;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -4450,7 +4568,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              type={"hamyarSub"}
+              userId={(() => {
+                try {
+                  return $state.userId;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             />
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__vcZiy)}>
@@ -4674,7 +4804,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 return window.FlutterChannel.postMessage(
                                   "#directDialog-chatBot"
                                 );
-                              }
+                              } else
+                                return ($state.directDialogChatbot.open = true);
                             })();
                           }
                         };
@@ -6390,6 +6521,455 @@ window.typewriter = function(elementId) {
               }
             }}
           />
+
+          <AntdModal
+            data-plasmic-name={"modal"}
+            data-plasmic-override={overrides.modal}
+            className={classNames("__wab_instance", sty.modal)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens,
+              plasmic_paziresh_24_design_system_css.plasmic_tokens,
+              plasmic_hamdast_sdk_css.plasmic_tokens
+            )}
+            hideFooter={true}
+            maskClosable={false}
+            modalScopeClassName={sty["modal__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["modal", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["modal", "open"])}
+            title={null}
+            trigger={null}
+          >
+            <ApiRequest
+              data-plasmic-name={"apiRequest2"}
+              data-plasmic-override={overrides.apiRequest2}
+              className={classNames("__wab_instance", sty.apiRequest2)}
+              errorDisplay={null}
+              loadingDisplay={
+                <div className={classNames(projectcss.all, sty.freeBox__zXiyh)}>
+                  <Icon111Icon
+                    className={classNames(projectcss.all, sty.svg__vqRHr)}
+                    role={"img"}
+                  />
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest2",
+                  "error"
+                ]).apply(null, eventArgs);
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest2",
+                  "loading"
+                ]).apply(null, eventArgs);
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest2",
+                  "data"
+                ]).apply(null, eventArgs);
+
+                (async data => {
+                  const $steps = {};
+
+                  $steps["runCode"] = $state.apiRequest2?.data?.success
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              if (
+                                $state.apiRequest2?.data?.statusBuy?.toUpperCase() ===
+                                "OK"
+                              ) {
+                                return ($state.status = "OK");
+                              } else {
+                                return ($state.status = "NOK");
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }).apply(null, eventArgs);
+              }}
+              params={(() => {
+                try {
+                  return {
+                    type: "chatBot",
+                    user_id: $state.userId
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/selfTestPayment"}
+            >
+              {(() => {
+                try {
+                  return $state.status.toUpperCase() === "OK";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__kVfjr)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__xbfW0)}
+                  >
+                    <EmojiHappySquareSvgrepoComSvg2Icon
+                      className={classNames(projectcss.all, sty.svg___3ZIu)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ynBY)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hBytd
+                      )}
+                    >
+                      {
+                        "\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__p12W9
+                      )}
+                    >
+                      {
+                        "\u0627\u0632 \u062e\u0631\u06cc\u062f\u062a \u0645\u0645\u0646\u0648\u0646\u06cc\u0645! \u06af\u0641\u062a\u06af\u0648 \u0641\u0639\u0627\u0644 \u0634\u062f \u0648 \u062d\u0627\u0644\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647 \u0633\u0648\u0627\u0644\u0627\u062a\u062a \u062f\u0631\u0628\u0627\u0631\u0647 \u0633\u0644\u0627\u0645\u062a \u0648 \u0628\u062f\u0646\u062a \u067e\u0627\u0633\u062e \u0628\u062f\u06cc \u0648  \u0628\u0647 \u0633\u0644\u0627\u0645\u062a\u06cc \u062e\u0648\u062f\u062a \u0631\u0633\u06cc\u062f\u06af\u06cc \u06a9\u0646\u06cc."
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__vUfw
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? "\u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc >"
+                        : "Enter some text"}
+                    </div>
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__v3O3A)}
+                  >
+                    <ButtonLiom
+                      data-plasmic-name={"button3"}
+                      data-plasmic-override={overrides.button3}
+                      className={classNames("__wab_instance", sty.button3)}
+                      color={generateStateValueProp($state, [
+                        "button3",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon12Icon
+                          className={classNames(projectcss.all, sty.svg__f7Jce)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateStatus"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["status"]
+                                },
+                                operation: 0,
+                                value: ""
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateStatus"] != null &&
+                          typeof $steps["updateStatus"] === "object" &&
+                          typeof $steps["updateStatus"].then === "function"
+                        ) {
+                          $steps["updateStatus"] = await $steps["updateStatus"];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    const searchParams = new URLSearchParams(
+                                      window.location.search
+                                    );
+                                    searchParams.delete("status");
+                                    searchParams.set("buy", "true");
+                                    const newUrl = `${
+                                      window.location.pathname
+                                    }?${searchParams.toString()}`;
+                                    return window.history.replaceState(
+                                      null,
+                                      "",
+                                      newUrl
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button3",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___4LsGm
+                        )}
+                      >
+                        {"\u062a\u0627\u06cc\u06cc\u062f"}
+                      </div>
+                    </ButtonLiom>
+                  </Stack__>
+                </Stack__>
+              ) : null}
+              {(() => {
+                try {
+                  return $state.status.toUpperCase() === "NOK";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__f0EMg)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___5SxCm)}
+                  >
+                    <EmojiSadSquareSvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__qOw59)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__pNhI)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__oi24J
+                      )}
+                    >
+                      {
+                        "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__nMwrc
+                      )}
+                    >
+                      {
+                        "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f . "
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__lgENm
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? "\u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc >"
+                        : "Enter some text"}
+                    </div>
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__zVyT6)}
+                  >
+                    <ButtonLiom
+                      data-plasmic-name={"buttonLiom8"}
+                      data-plasmic-override={overrides.buttonLiom8}
+                      className={classNames("__wab_instance", sty.buttonLiom8)}
+                      color={generateStateValueProp($state, [
+                        "buttonLiom8",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon111Icon
+                          className={classNames(projectcss.all, sty.svg__lYwgq)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateDirectDialogChatbotOpen"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["directDialogChatbot", "open"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDirectDialogChatbotOpen"] != null &&
+                          typeof $steps["updateDirectDialogChatbotOpen"] ===
+                            "object" &&
+                          typeof $steps["updateDirectDialogChatbotOpen"]
+                            .then === "function"
+                        ) {
+                          $steps["updateDirectDialogChatbotOpen"] =
+                            await $steps["updateDirectDialogChatbotOpen"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "buttonLiom8",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__f9Ec8
+                        )}
+                      >
+                        {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
+                      </div>
+                    </ButtonLiom>
+                  </Stack__>
+                </Stack__>
+              ) : null}
+            </ApiRequest>
+            <div className={classNames(projectcss.all, sty.freeBox__tGf0U)} />
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -6413,7 +6993,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "paziresh24Avatar",
     "buttonLiom",
-    "directDialog",
+    "directDialogChatbot",
     "buttonLiom4",
     "drawer",
     "buttonLiom3",
@@ -6421,7 +7001,11 @@ const PlasmicDescendants = {
     "sidebarWindow3",
     "buttonLiom6",
     "lineClomp4",
-    "buttonLiom5"
+    "buttonLiom5",
+    "modal",
+    "apiRequest2",
+    "button3",
+    "buttonLiom8"
   ],
   sideEffect: ["sideEffect"],
   sidebarWindow: ["sidebarWindow", "buttonLiom2", "lineClomp2"],
@@ -6437,7 +7021,7 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom", "paziresh24Avatar", "buttonLiom"],
   paziresh24Avatar: ["paziresh24Avatar"],
   buttonLiom: ["buttonLiom"],
-  directDialog: ["directDialog"],
+  directDialogChatbot: ["directDialogChatbot"],
   buttonLiom4: ["buttonLiom4"],
   drawer: [
     "drawer",
@@ -6452,7 +7036,11 @@ const PlasmicDescendants = {
   sidebarWindow3: ["sidebarWindow3", "buttonLiom6", "lineClomp4"],
   buttonLiom6: ["buttonLiom6", "lineClomp4"],
   lineClomp4: ["lineClomp4"],
-  buttonLiom5: ["buttonLiom5"]
+  buttonLiom5: ["buttonLiom5"],
+  modal: ["modal", "apiRequest2", "button3", "buttonLiom8"],
+  apiRequest2: ["apiRequest2", "button3", "buttonLiom8"],
+  button3: ["button3"],
+  buttonLiom8: ["buttonLiom8"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -6473,7 +7061,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
   buttonLiom: typeof ButtonLiom;
-  directDialog: typeof DirectDialog;
+  directDialogChatbot: typeof DirectDialogChatbot;
   buttonLiom4: typeof ButtonLiom;
   drawer: typeof AntdDrawer;
   buttonLiom3: typeof ButtonLiom;
@@ -6482,6 +7070,10 @@ type NodeDefaultElementType = {
   buttonLiom6: typeof ButtonLiom;
   lineClomp4: typeof LineClomp;
   buttonLiom5: typeof ButtonLiom;
+  modal: typeof AntdModal;
+  apiRequest2: typeof ApiRequest;
+  button3: typeof ButtonLiom;
+  buttonLiom8: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -6583,7 +7175,7 @@ export const PlasmicSelfTest2 = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     buttonLiom: makeNodeComponent("buttonLiom"),
-    directDialog: makeNodeComponent("directDialog"),
+    directDialogChatbot: makeNodeComponent("directDialogChatbot"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     drawer: makeNodeComponent("drawer"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
@@ -6592,6 +7184,10 @@ export const PlasmicSelfTest2 = Object.assign(
     buttonLiom6: makeNodeComponent("buttonLiom6"),
     lineClomp4: makeNodeComponent("lineClomp4"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
+    modal: makeNodeComponent("modal"),
+    apiRequest2: makeNodeComponent("apiRequest2"),
+    button3: makeNodeComponent("button3"),
+    buttonLiom8: makeNodeComponent("buttonLiom8"),
 
     // Metadata about props expected for PlasmicSelfTest2
     internalVariantProps: PlasmicSelfTest2__VariantProps,

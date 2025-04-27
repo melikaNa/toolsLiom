@@ -70,7 +70,6 @@ import LinearCalendar from "../../LinearCalendar"; // plasmic-import: UJhKrwaiZx
 import Lock from "../../Lock"; // plasmic-import: 5lKm1nUlkjS8/component
 import Done from "../../Done"; // plasmic-import: kuXIsI5E0lmX/component
 import LinearCalendar2 from "../../LinearCalendar2"; // plasmic-import: UJN9m2mxrPIu/component
-import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
 import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -121,7 +120,6 @@ export type PlasmicSelfMedication__OverridesType = {
   lock?: Flex__<typeof Lock>;
   done?: Flex__<typeof Done>;
   linearCalendar2?: Flex__<typeof LinearCalendar2>;
-  lineClomp?: Flex__<typeof LineClomp>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
   directDialog?: Flex__<typeof DirectDialog>;
 };
@@ -356,12 +354,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "lineClomp.line",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2386,9 +2378,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             if (currentIndex == $state.selectedStep)
                               return false;
                             else if (
-                              $ctx.query.type == "danger" ||
-                              $ctx.query.type == "stretch_marks" ||
-                              $ctx.query.type == "hair_care"
+                              $state.getStep?.data?.info?.unlockMode ==
+                              "openAll"
                             )
                               return true;
                             else if ($state.userStep < currentIndex)
@@ -2435,9 +2426,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             if (currentIndex == $state.selectedStep)
                               return false;
                             else if (
-                              $ctx.query.type == "danger" ||
-                              $ctx.query.type == "stretch_marks" ||
-                              $ctx.query.type == "hair_care"
+                              $state.getStep?.data?.info?.unlockMode ==
+                              "openAll"
                             )
                               return true;
                             else if ($state.userStep < currentIndex)
@@ -2537,9 +2527,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
                           $steps["updateDetailsList4"] = (() => {
                             if (
-                              $ctx.query.type == "danger" ||
-                              $ctx.query.type == "stretch_marks" ||
-                              $ctx.query.type == "hair_care"
+                              $state.getStep?.data?.info?.unlockMode ==
+                              "openAll"
                             )
                               return false;
                             else if ($state.userStep < currentIndex)
@@ -2681,9 +2670,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               try {
                                 return (() => {
                                   if (
-                                    $ctx.query.type == "danger" ||
-                                    $ctx.query.type == "stretch_marks" ||
-                                    $ctx.query.type == "hair_care" ||
+                                    $state.getStep?.data?.info?.unlockMode ==
+                                      "openAll" ||
                                     currentItem.orderr == 1
                                   )
                                     return 0;
@@ -2714,9 +2702,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               try {
                                 return (() => {
                                   if (
-                                    $ctx.query.type == "danger" ||
-                                    $ctx.query.type == "stretch_marks" ||
-                                    $ctx.query.type == "hair_care" ||
+                                    $state.getStep?.data?.info?.unlockMode ==
+                                      "openAll" ||
                                     currentItem.orderr == 1
                                   )
                                     return false;
@@ -2865,71 +2852,49 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     )
                   })}
                 >
-                  <LineClomp
-                    data-plasmic-name={"lineClomp"}
-                    data-plasmic-override={overrides.lineClomp}
-                    className={classNames("__wab_instance", sty.lineClomp)}
-                    more={true}
-                    numberOfLine={5}
-                    onLineChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "lineClomp",
-                        "line"
-                      ]).apply(null, eventArgs);
-
+                  {(() => {
+                    try {
+                      return (
+                        ($state.getStep.data.data[$state.selectedStep].text ??
+                          "") != ""
+                      );
+                    } catch (e) {
                       if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        return;
+                        return false;
                       }
-                    }}
-                  >
-                    {(() => {
-                      try {
-                        return (
-                          ($state.getStep.data.data[$state.selectedStep].text ??
-                            "") != ""
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__tCh75
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (
-                                $state.getStep.data.data[$state.selectedStep]
-                                  .text ?? ""
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__tCh75
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              $state.getStep.data.data[$state.selectedStep]
+                                .text ?? ""
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
                             }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    ) : null}
-                  </LineClomp>
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  ) : null}
                   {(() => {
                     try {
                       return !$state.getItem.loading;
@@ -3702,7 +3667,6 @@ const PlasmicDescendants = {
     "lock",
     "done",
     "linearCalendar2",
-    "lineClomp",
     "loadingConclusion",
     "directDialog"
   ],
@@ -3716,7 +3680,6 @@ const PlasmicDescendants = {
   lock: ["lock"],
   done: ["done"],
   linearCalendar2: ["linearCalendar2"],
-  lineClomp: ["lineClomp"],
   loadingConclusion: ["loadingConclusion"],
   directDialog: ["directDialog"]
 } as const;
@@ -3735,7 +3698,6 @@ type NodeDefaultElementType = {
   lock: typeof Lock;
   done: typeof Done;
   linearCalendar2: typeof LinearCalendar2;
-  lineClomp: typeof LineClomp;
   loadingConclusion: typeof LoadingConclusion;
   directDialog: typeof DirectDialog;
 };
@@ -3835,7 +3797,6 @@ export const PlasmicSelfMedication = Object.assign(
     lock: makeNodeComponent("lock"),
     done: makeNodeComponent("done"),
     linearCalendar2: makeNodeComponent("linearCalendar2"),
-    lineClomp: makeNodeComponent("lineClomp"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
     directDialog: makeNodeComponent("directDialog"),
 

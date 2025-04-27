@@ -103,6 +103,7 @@ export type PlasmicSidebarWindow__ArgsType = {
   newChat?: (event: any) => void;
   load2?: boolean;
   onLoad2Change?: (val: string) => void;
+  creadit?: (event: any) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -113,6 +114,7 @@ export const PlasmicSidebarWindow__ArgProps = new Array<ArgPropType>(
   "newChat",
   "load2",
   "onLoad2Change",
+  "creadit",
   "children",
   "slot"
 );
@@ -129,6 +131,7 @@ export interface DefaultSidebarWindowProps {
   newChat?: (event: any) => void;
   load2?: boolean;
   onLoad2Change?: (val: string) => void;
+  creadit?: (event: any) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   opening?: SingleBooleanChoiceArg<"opening">;
@@ -606,6 +609,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
             "opening"
           )
         })}
+        onClick={args.creadit}
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__w2Rqc, {
