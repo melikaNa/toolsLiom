@@ -1171,12 +1171,18 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         variablePath: ["status"]
                       },
                       operation: 0,
-                      value:
-                        $ctx.query.status ||
-                        new URLSearchParams(
-                          window.location.search
-                        ).urlParams.get("status") ||
-                        ""
+                      value: (() => {
+                        try {
+                          return (
+                            $ctx.query.status ||
+                            new URLSearchParams(window.location.search).get(
+                              "status"
+                            )
+                          );
+                        } catch {
+                          return "";
+                        }
+                      })()
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
