@@ -657,10 +657,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             try {
-                              return $state.shopDialog.data.result.shopList
-                                .length == 1
-                                ? $state.topShop.name
-                                : $state.topShop.text;
+                              return $state.topShop.text;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||

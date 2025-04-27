@@ -371,6 +371,8 @@
   margin-top: 16px;
 }
 .freeBoxopening__d3RXrrPBw2 {
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
 }
 .freeBoxopening__d3RXrrPBw2 > :global(.__wab_flex-container) {
