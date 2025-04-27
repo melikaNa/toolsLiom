@@ -1172,9 +1172,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       },
                       operation: 0,
                       value:
-                        $ctx.query.status == "" || $ctx.query.status == null
-                          ? ""
-                          : $ctx.query.status
+                        $ctx.query.status ||
+                        new URLSearchParams(
+                          window.location.search
+                        ).urlParams.get("status") ||
+                        ""
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -1931,7 +1933,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           "chatBox"
                                         );
                                       if (messageBox)
-                                        return (messageBox.scroll =
+                                        return (messageBox.scrollTop =
                                           messageBox.scrollHeight);
                                     })();
                                   }
