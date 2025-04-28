@@ -2416,9 +2416,14 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  color: var(--token-ieogzVSSyrRx);
+  color: #ffffff;
   font-size: var(--token-Gq2ZclrSKBOi);
   align-self: center;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text___0Ocim {
+    color: #ffffff;
+  }
 }
 .freeBox__uiLj9 {
   display: flex;

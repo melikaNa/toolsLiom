@@ -1008,7 +1008,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                                         "https://n8n.staas.ir/webhook/chatBotPayment",
                                       extraData: {
                                         user_id: $props.userId,
-                                        origin_user_id: $props.origin_user_id,
+                                        origin_user_id: $props.originUserId,
                                         diamond: $state.topShop.value
                                       },
                                       redirectUrl: $props.redirectUrl
@@ -1690,7 +1690,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                                     "https://n8n.staas.ir/webhook/chatBotPayment",
                                   extraData: {
                                     user_id: $props.userId,
-                                    origin_user_id: $props.origin_user_id,
+                                    origin_user_id: $props.originUserId,
                                     diamond: $state.selectShop.value
                                   },
                                   redirectUrl: $props.redirectUrl
