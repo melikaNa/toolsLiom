@@ -79,7 +79,6 @@ import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import Stars from "../../Stars"; // plasmic-import: wwNNSLKePNyr/component
-import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -155,7 +154,6 @@ export type PlasmicSelfTest__OverridesType = {
   comments?: Flex__<typeof Paziresh24Dialog>;
   comment?: Flex__<typeof ApiRequest>;
   stars?: Flex__<typeof Stars>;
-  lineClomp?: Flex__<typeof LineClomp>;
 };
 
 export interface DefaultSelfTestProps {}
@@ -784,11 +782,6 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "lineClomp[].line",
-        type: "private",
-        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -7322,7 +7315,11 @@ renderStars(${$state.rate});
                 })()}
                 url={"https://n8n.staas.ir/webhook/selfTest_comments"}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__uKerc)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__uKerc)}
+                >
                   {(() => {
                     try {
                       return $state.comment.data.list.length == 0;
@@ -7572,60 +7569,33 @@ renderStars(${$state.rate});
                             </div>
                           </div>
                         </div>
-                        <LineClomp
-                          data-plasmic-name={"lineClomp"}
-                          data-plasmic-override={overrides.lineClomp}
+                        <div
                           className={classNames(
-                            "__wab_instance",
-                            sty.lineClomp
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__k4Z7I
                           )}
-                          more={true}
-                          numberOfLine={3}
-                          onLineChange={async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "lineClomp",
-                              __plasmic_idx_0,
-                              "line"
-                            ]).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
                         >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__k4Z7I
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return user.comment;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return user.comment;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
                                 }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </LineClomp>
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
                       </div>
                     );
                   })}
-                </div>
+                </Stack__>
               </ApiRequest>
             }
             className={classNames("__wab_instance", sty.comments)}
@@ -7699,8 +7669,7 @@ const PlasmicDescendants = {
     "buttonLiom2",
     "comments",
     "comment",
-    "stars",
-    "lineClomp"
+    "stars"
   ],
   sideEffect: ["sideEffect"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
@@ -7731,10 +7700,9 @@ const PlasmicDescendants = {
   rateinfo: ["rateinfo", "buttonLiom4", "buttonLiom2"],
   buttonLiom4: ["buttonLiom4"],
   buttonLiom2: ["buttonLiom2"],
-  comments: ["comments", "comment", "stars", "lineClomp"],
-  comment: ["comment", "stars", "lineClomp"],
-  stars: ["stars"],
-  lineClomp: ["lineClomp"]
+  comments: ["comments", "comment", "stars"],
+  comment: ["comment", "stars"],
+  stars: ["stars"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -7773,7 +7741,6 @@ type NodeDefaultElementType = {
   comments: typeof Paziresh24Dialog;
   comment: typeof ApiRequest;
   stars: typeof Stars;
-  lineClomp: typeof LineClomp;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -7893,7 +7860,6 @@ export const PlasmicSelfTest = Object.assign(
     comments: makeNodeComponent("comments"),
     comment: makeNodeComponent("comment"),
     stars: makeNodeComponent("stars"),
-    lineClomp: makeNodeComponent("lineClomp"),
 
     // Metadata about props expected for PlasmicSelfTest
     internalVariantProps: PlasmicSelfTest__VariantProps,
