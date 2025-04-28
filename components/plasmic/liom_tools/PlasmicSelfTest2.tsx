@@ -1174,10 +1174,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       value: (() => {
                         try {
                           return (
-                            $ctx.query.status ||
-                            new URLSearchParams(window.location.search).get(
-                              "status"
-                            )
+                            ($ctx.query.status ||
+                              new URLSearchParams(window.location.search).get(
+                                "status"
+                              )) ??
+                            ""
                           );
                         } catch {
                           return "";
