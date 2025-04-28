@@ -76,7 +76,6 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/compo
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import DirectDialogChatbot from "../../DirectDialogChatbot"; // plasmic-import: ySuxtC2bY6yN/component
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -144,7 +143,6 @@ export type PlasmicSelfTest2__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   directDialogChatbot?: Flex__<typeof DirectDialogChatbot>;
   dialog?: Flex__<typeof Paziresh24Dialog>;
-  apiRequest2?: Flex__<typeof ApiRequest>;
   button3?: Flex__<typeof ButtonLiom>;
   buttonLiom8?: Flex__<typeof ButtonLiom>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
@@ -758,24 +756,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "apiRequest2.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest2.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "apiRequest2.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "button3.color",
@@ -4609,90 +4589,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
               data-plasmic-name={"dialog"}
               data-plasmic-override={overrides.dialog}
               body={
-                <ApiRequest
-                  data-plasmic-name={"apiRequest2"}
-                  data-plasmic-override={overrides.apiRequest2}
-                  className={classNames("__wab_instance", sty.apiRequest2)}
-                  errorDisplay={null}
-                  loadingDisplay={
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__zXiyh)}
-                    >
-                      <Icon111Icon
-                        className={classNames(projectcss.all, sty.svg__vqRHr)}
-                        role={"img"}
-                      />
-                    </div>
-                  }
-                  method={"GET"}
-                  onError={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "apiRequest2",
-                      "error"
-                    ]).apply(null, eventArgs);
-                  }}
-                  onLoading={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "apiRequest2",
-                      "loading"
-                    ]).apply(null, eventArgs);
-                  }}
-                  onSuccess={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "apiRequest2",
-                      "data"
-                    ]).apply(null, eventArgs);
-
-                    (async data => {
-                      const $steps = {};
-
-                      $steps["runCode"] = $state.apiRequest2?.data?.success
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  if (
-                                    $state.apiRequest2?.data?.statusBuy?.toUpperCase() ===
-                                    "OK"
-                                  ) {
-                                    return ($state.status = "OK");
-                                  } else {
-                                    return ($state.status = "NOK");
-                                  }
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-                    }).apply(null, eventArgs);
-                  }}
-                  params={(() => {
-                    try {
-                      return {
-                        user_id: $state.userId
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  url={"https://n8n.staas.ir/webhook/chatBotPayment"}
-                >
+                <React.Fragment>
                   {(() => {
                     try {
                       return $state.status.toUpperCase() === "OK";
@@ -5137,7 +5034,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       </Stack__>
                     </Stack__>
                   ) : null}
-                </ApiRequest>
+                </React.Fragment>
               }
               className={classNames("__wab_instance", sty.dialog)}
               onOpenChange={async (...eventArgs: any) => {
@@ -7122,7 +7019,6 @@ const PlasmicDescendants = {
     "buttonLiom",
     "directDialogChatbot",
     "dialog",
-    "apiRequest2",
     "button3",
     "buttonLiom8",
     "buttonLiom4",
@@ -7149,8 +7045,7 @@ const PlasmicDescendants = {
   paziresh24Avatar: ["paziresh24Avatar"],
   buttonLiom: ["buttonLiom"],
   directDialogChatbot: ["directDialogChatbot"],
-  dialog: ["dialog", "apiRequest2", "button3", "buttonLiom8"],
-  apiRequest2: ["apiRequest2", "button3", "buttonLiom8"],
+  dialog: ["dialog", "button3", "buttonLiom8"],
   button3: ["button3"],
   buttonLiom8: ["buttonLiom8"],
   buttonLiom4: ["buttonLiom4"],
@@ -7190,7 +7085,6 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   directDialogChatbot: typeof DirectDialogChatbot;
   dialog: typeof Paziresh24Dialog;
-  apiRequest2: typeof ApiRequest;
   button3: typeof ButtonLiom;
   buttonLiom8: typeof ButtonLiom;
   buttonLiom4: typeof ButtonLiom;
@@ -7304,7 +7198,6 @@ export const PlasmicSelfTest2 = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     directDialogChatbot: makeNodeComponent("directDialogChatbot"),
     dialog: makeNodeComponent("dialog"),
-    apiRequest2: makeNodeComponent("apiRequest2"),
     button3: makeNodeComponent("button3"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),

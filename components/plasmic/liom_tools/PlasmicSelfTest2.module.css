@@ -1022,30 +1022,6 @@
 .dialog:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
 }
-.apiRequest2:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.freeBox__zXiyh {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
-.svg__vqRHr {
-  object-fit: cover;
-  max-width: 100%;
-  color: var(--token-QR8ATjORhQqO);
-  height: 40px;
-  width: 40px;
-  flex-shrink: 0;
-}
 .freeBox__kVfjr {
   display: flex;
   flex-direction: column;
