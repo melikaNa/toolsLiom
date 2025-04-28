@@ -492,12 +492,13 @@
 }
 .svgunnamedVariant {
   width: auto;
-  height: 1em;
+  height: 30px;
   display: block;
 }
 .svgunnamedVariant_size_compact {
-  width: auto;
-  height: 1em;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 .svgunnamedVariant_size_minimal {
   width: auto;

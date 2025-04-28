@@ -528,6 +528,25 @@ function PlasmicResult__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "testId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return window.sessionStorage.getItem("testID") || 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -5271,7 +5290,8 @@ function PlasmicResult__RenderFunc(props: {
                                     user_id: $ctx.query.user_id,
                                     session_id: $ctx.query.session_id,
                                     comment: $state.textArea2.value || "",
-                                    rate: $state.rate
+                                    rate: $state.rate,
+                                    selfTest_id: parseInt($state.testId)
                                   };
                                 } catch (e) {
                                   if (

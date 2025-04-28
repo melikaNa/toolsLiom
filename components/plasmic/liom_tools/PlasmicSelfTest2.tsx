@@ -4564,6 +4564,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 "directDialogChatbot",
                 "open"
               ])}
+              originUserId={(() => {
+                try {
+                  return $ctx.query.origin_user_id;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
               redirectUrl={(() => {
                 try {
                   return $state.redirectUrl;
@@ -4666,7 +4679,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   params={(() => {
                     try {
                       return {
-                        type: "chatBot",
                         user_id: $state.userId
                       };
                     } catch (e) {
@@ -4679,7 +4691,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       throw e;
                     }
                   })()}
-                  url={"https://n8n.staas.ir/webhook/selfTestPayment"}
+                  url={"https://n8n.staas.ir/webhook/chatBotPayment"}
                 >
                   {(() => {
                     try {

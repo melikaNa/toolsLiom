@@ -97,6 +97,7 @@ export type PlasmicDirectDialogChatbot__ArgsType = {
   onSelectShopChange?: (val: string) => void;
   open?: boolean;
   onOpenChange?: (val: string) => void;
+  originUserId?: string;
 };
 type ArgPropType = keyof PlasmicDirectDialogChatbot__ArgsType;
 export const PlasmicDirectDialogChatbot__ArgProps = new Array<ArgPropType>(
@@ -106,7 +107,8 @@ export const PlasmicDirectDialogChatbot__ArgProps = new Array<ArgPropType>(
   "redirectUrl",
   "onSelectShopChange",
   "open",
-  "onOpenChange"
+  "onOpenChange",
+  "originUserId"
 );
 
 export type PlasmicDirectDialogChatbot__OverridesType = {
@@ -131,6 +133,7 @@ export interface DefaultDirectDialogChatbotProps {
   onSelectShopChange?: (val: string) => void;
   open?: boolean;
   onOpenChange?: (val: string) => void;
+  originUserId?: string;
   className?: string;
 }
 
@@ -156,8 +159,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
       Object.assign(
         {
           type: "chatBot",
-          userId:
-            "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYmFiYXJrYXRBcHAiLCJpZCI6MjEzNTN9.M8r0SsjS1pvDgQzyvstwPCNgrgZkGFsXTE2vZy-StqlcViL3Km9aM1iCRcAhHq6l5QXmF1rZiAiG4lUqTES2Lw",
+          userId: "3",
           desc: "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0648 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631\u060c \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u0646\u0645\u0627\u06cc\u06cc\u062f."
         },
         Object.fromEntries(
@@ -1003,8 +1005,12 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                                       value: 1,
                                       userId: $props.userId,
                                       callback:
-                                        "https://n8n.staas.ir/webhook/selfTestPayment",
-                                      extraData: { user_id: $props.userId },
+                                        "https://n8n.staas.ir/webhook/chatBotPayment",
+                                      extraData: {
+                                        user_id: $props.userId,
+                                        origin_user_id: $props.origin_user_id,
+                                        diamond: $state.topShop.value
+                                      },
                                       redirectUrl: $props.redirectUrl
                                     };
                                   } catch (e) {
@@ -1667,7 +1673,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         const actionArgs = {
                           args: [
                             "POST",
-                            "https://n8n.staas.ir/webhook/rest/shop/list",
+                            "https://n8n.staas.ir/webhook/selfTest/shopBuy",
                             undefined,
                             (() => {
                               try {
@@ -1681,8 +1687,12 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                                   value: 1,
                                   userId: $props.userId,
                                   callback:
-                                    "https://n8n.staas.ir/webhook/selfTestPayment",
-                                  extraData: { user_id: $props.userId },
+                                    "https://n8n.staas.ir/webhook/chatBotPayment",
+                                  extraData: {
+                                    user_id: $props.userId,
+                                    origin_user_id: $props.origin_user_id,
+                                    diamond: $state.selectShop.value
+                                  },
                                   redirectUrl: $props.redirectUrl
                                 };
                               } catch (e) {
