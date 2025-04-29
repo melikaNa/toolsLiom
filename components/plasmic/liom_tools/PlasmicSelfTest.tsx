@@ -782,6 +782,12 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "cRate",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -1306,6 +1312,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                         return (() => {
                           $state.rate =
                             $steps.invokeGlobalAction?.data?.info?.rate;
+                          $state.cRate =
+                            $steps.invokeGlobalAction?.data.info.cRate;
                           return window.sessionStorage.setItem(
                             "testID",
                             $steps.invokeGlobalAction?.data?.info?.id
@@ -7345,6 +7353,212 @@ renderStars(${$state.rate});
                       }
                     </div>
                   ) : null}
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___53UI0)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__cHgjg)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__sIuhj
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__wPwF
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.rate;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__kl9Wp
+                          )}
+                        >
+                          {" \u0627\u0632 5"}
+                        </div>
+                      </div>
+                      <Embed
+                        className={classNames(
+                          "__wab_instance",
+                          sty.embedHtml__t2Vx3
+                        )}
+                        code={(() => {
+                          try {
+                            return `<div id="rateBox" style="display: flex; direction: ltr;"></div>
+
+<style>
+  .iconWrap {
+    width: 40px;       /* عرض بزرگ‌تر */
+    position: relative;
+  }
+
+  .iconWrap svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .filledPart {
+    color: #8e44ad;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    clip-path: inset(0 100% 0 0); /* ← تغییر می‌کند در جاوااسکریپت */
+    width: 100%;
+    height: 100%;
+  }
+
+  .basePart {
+    color: lightgray;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+function drawRating(score) {
+  const container = document.getElementById('rateBox');
+  container.innerHTML = '';
+  container.style.direction = 'ltr';
+
+  const starSVG = '<svg viewBox=\"0 0 24 24\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">' +
+    '<path d=\"M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z\"/>' +
+  '</svg>';
+
+  for (let i = 0; i < 5; i++) {
+    const wrap = document.createElement('div');
+    wrap.className = 'iconWrap';
+
+    const base = document.createElement('div');
+    base.className = 'basePart';
+    base.innerHTML = starSVG;
+
+    const fill = document.createElement('div');
+    fill.className = 'filledPart';
+    fill.innerHTML = starSVG;
+
+    let percent = Math.min(Math.max(score - i, 0), 1) * 100;
+    fill.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
+
+    wrap.appendChild(base);
+    wrap.appendChild(fill);
+    container.appendChild(wrap);
+  }
+}
+
+// اجرای نمونه
+drawRating(${$state.rate});
+</script>
+`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "<div id=\"rateBox\" style=\"display: flex; direction: ltr;\"></div>\r\n\r\n<style>\r\n  .iconWrap {\r\n    width: 40px;       /* \u0639\u0631\u0636 \u0628\u0632\u0631\u06af\u200c\u062a\u0631 */\r\n    position: relative;\r\n  }\r\n\r\n  .iconWrap svg {\r\n    width: 100%;\r\n    height: 100%;\r\n    display: block;\r\n  }\r\n\r\n  .filledPart {\r\n    color: #8e44ad;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    overflow: hidden;\r\n    clip-path: inset(0 100% 0 0); /* \u2190 \u062a\u063a\u06cc\u06cc\u0631 \u0645\u06cc\u200c\u06a9\u0646\u062f \u062f\u0631 \u062c\u0627\u0648\u0627\u0627\u0633\u06a9\u0631\u06cc\u067e\u062a */\r\n    width: 100%;\r\n    height: 100%;\r\n  }\r\n\r\n  .basePart {\r\n    color: lightgray;\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n  }\r\n</style>\r\n\r\n<script>\r\nfunction drawRating(score) {\r\n  const container = document.getElementById('rateBox');\r\n  container.innerHTML = '';\r\n  container.style.direction = 'ltr';\r\n\r\n  const starSVG = `\r\n  <svg viewBox=\"0 0 24 24\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\">\r\n    <path d=\"M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z\"/>\r\n  </svg>`;\r\n\r\n  for (let i = 0; i < 5; i++) {\r\n    const wrap = document.createElement('div');\r\n    wrap.className = 'iconWrap';\r\n\r\n    const base = document.createElement('div');\r\n    base.className = 'basePart';\r\n    base.innerHTML = starSVG;\r\n\r\n    const fill = document.createElement('div');\r\n    fill.className = 'filledPart';\r\n    fill.innerHTML = starSVG;\r\n\r\n    let percent = Math.min(Math.max(score - i, 0), 1) * 100;\r\n    fill.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;\r\n\r\n    wrap.appendChild(base);\r\n    wrap.appendChild(fill);\r\n    container.appendChild(wrap);\r\n  }\r\n}\r\n\r\n// \u0627\u062c\u0631\u0627\u06cc \u0646\u0645\u0648\u0646\u0647\r\ndrawRating(3.5);\r\n</script>\r\n";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__bjIe
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.cRate.toLocaleString() + "  نفر  ";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </Stack__>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__x6G7U
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobileOnly") ? (
+                        <React.Fragment>
+                          <React.Fragment>
+                            {
+                              "\u0627\u06cc\u0646 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a\u060c \u062f\u0631 \u0632\u0645\u0627\u0646\u06cc \u06a9\u0648\u062a\u0627\u0647\u060c \u062f\u06cc\u062f\u06cc \u06a9\u0644\u06cc \u0627\u0632 \u0648\u0636\u0639\u06cc\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u0627\u0646\u06cc \u0634\u0645\u0627 \u0627\u0631\u0627\u0626\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0633\u0624\u0627\u0644\u0627\u062a \u0633\u0627\u062f\u0647 \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0622\u0646 \u0628\u0647 \u0634\u0646\u0627\u062e\u062a \u0628\u0647\u062a\u0631 \u0648\u0636\u0639\u06cc\u062a \u0641\u0639\u0644\u06cc \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0646\u062f. "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {
+                              "\u062f\u0631 \u067e\u0627\u06cc\u0627\u0646 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0646\u0638\u0631 \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f \u0648 \u0628\u0647 \u0628\u0647\u0628\u0648\u062f \u062a\u0633\u062a \u06a9\u0645\u06a9 \u0646\u0645\u0627\u06cc\u06cc\u062f."
+                            }
+                          </span>
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          <React.Fragment>
+                            {
+                              "\u0627\u06cc\u0646 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a\u060c \u062f\u0631 \u0632\u0645\u0627\u0646\u06cc \u06a9\u0648\u062a\u0627\u0647\u060c \u062f\u06cc\u062f\u06cc \u06a9\u0644\u06cc \u0627\u0632 \u0648\u0636\u0639\u06cc\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u0627\u0646\u06cc \u0634\u0645\u0627 \u0627\u0631\u0627\u0626\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0633\u0624\u0627\u0644\u0627\u062a \u0633\u0627\u062f\u0647 \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0622\u0646 \u0628\u0647 \u0634\u0646\u0627\u062e\u062a \u0628\u0647\u062a\u0631 \u0648\u0636\u0639\u06cc\u062a \u0641\u0639\u0644\u06cc \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0646\u062f. "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {
+                              "\u062f\u0631 \u067e\u0627\u06cc\u0627\u0646 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0646\u0638\u0631 \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f \u0648 \u0628\u0647 \u0628\u0647\u0628\u0648\u062f \u062a\u0633\u062a \u06a9\u0645\u06a9 \u0646\u0645\u0627\u06cc\u06cc\u062f."
+                            }
+                          </span>
+                        </React.Fragment>
+                      )}
+                    </div>
+                  </Stack__>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {

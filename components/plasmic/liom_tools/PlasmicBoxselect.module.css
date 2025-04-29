@@ -33,5 +33,5 @@
   object-fit: cover;
 }
 .imgselected {
-  display: block !important;
+  display: block;
 }

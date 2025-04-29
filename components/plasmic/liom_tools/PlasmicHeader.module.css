@@ -21,7 +21,7 @@
   flex-basis: auto;
 }
 .img {
-  display: flex !important;
+  display: flex;
   width: 30px;
   height: 30px;
   flex-grow: 0;

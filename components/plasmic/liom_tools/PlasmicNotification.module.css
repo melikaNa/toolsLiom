@@ -101,14 +101,14 @@
 .img__n6GoC {
   object-fit: cover;
   max-width: 30%;
-  display: none !important;
+  display: none;
 }
 .img__n6GoC > picture > img {
   object-fit: cover;
 }
 .imgnoNotification__n6GoCJCfi {
   max-width: 30%;
-  display: block !important;
+  display: block;
 }
 .text__sy93B {
   position: relative;

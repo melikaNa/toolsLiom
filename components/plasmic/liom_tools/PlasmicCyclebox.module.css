@@ -167,16 +167,16 @@
   object-position: center center;
 }
 .imgpms {
-  display: none !important;
+  display: none;
 }
 .imgfertility {
-  display: none !important;
+  display: none;
 }
 .imgperiod {
-  display: none !important;
+  display: none;
 }
 .imgnormalpms {
-  display: none !important;
+  display: none;
 }
 .freeBox___1Z0Mg {
   flex-direction: column;

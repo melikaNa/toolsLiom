@@ -1256,7 +1256,7 @@
   top: 0%;
   left: 0%;
   flex-shrink: 0;
-  display: none !important;
+  display: none;
 }
 .img___1VwbF > picture > img {
   object-fit: cover;
@@ -1265,13 +1265,13 @@
   position: relative;
   left: auto;
   top: auto;
-  display: block !important;
+  display: block;
 }
 .img_1_chatviow___1VwbFlEmdG {
   position: relative;
   left: auto;
   top: auto;
-  display: block !important;
+  display: block;
 }
 .freeBox__nsrYp {
   display: flex;
@@ -1565,7 +1565,7 @@
   top: 0%;
   left: 0%;
   flex-shrink: 0;
-  display: none !important;
+  display: none;
 }
 .img__spXcG > picture > img {
   object-fit: cover;
@@ -1574,7 +1574,7 @@
   position: relative;
   left: auto;
   top: auto;
-  display: block !important;
+  display: block;
 }
 .img_1_chatviow__spXcGlEmdG {
   position: relative;
@@ -1583,7 +1583,7 @@
   width: 50px;
   height: 50px;
   flex-shrink: 0;
-  display: block !important;
+  display: block;
 }
 .freeBox__rIpS {
   display: flex;
@@ -1891,7 +1891,7 @@
   filter: none;
   width: 118px;
   height: 118px;
-  display: block !important;
+  display: block;
   position: sticky;
   top: 0px;
   left: 0px;

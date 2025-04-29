@@ -476,15 +476,15 @@
   width: 30px;
   height: 30px;
   flex-shrink: 0;
-  display: none !important;
+  display: none;
 }
 .img > picture > img {
   object-fit: cover;
 }
 .imgliomAnswer {
-  display: none !important;
+  display: none;
 }
 .imgendMessege {
-  display: block !important;
+  display: block;
   border-radius: 50%;
 }
