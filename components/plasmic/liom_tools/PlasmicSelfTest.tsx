@@ -6918,61 +6918,73 @@ function PlasmicSelfTest__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.embedHtml__sp9I)}
                 code={(() => {
                   try {
-                    return `<div id="stars" style="display: flex; direction: ltr;"></div>
+                    return `<div id="ratingContainer" style="display: flex; direction: ltr;"></div>
 
 <style>
-  .star {
-    font-size: 16px;
-    color: lightgray;
+  .starWrapper {
+    width: 40px;
     position: relative;
-    width: 16px;
-    height: 16px;
-    overflow: hidden;
-    text-align: left;
   }
-  .star .fill {
-    direction: ltr;
+
+  .starWrapper svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .coloredSection {
     color: #8e44ad;
     position: absolute;
     top: 0;
     left: 0;
-    white-space: nowrap;
     overflow: hidden;
-    text-align: left;
-    width: 0;
+    clip-path: inset(0 100% 0 0);
+    width: 100%;
+    height: 100%;
+  }
+
+  .backgroundSection {
+    color: lightgray;
+    position: relative;
+    width: 100%;
+    height: 100%;
   }
 </style>
 
 <script>
-function renderStars(rating) {
-  const starsContainer = document.getElementById('stars');
-  starsContainer.innerHTML = '';
-  starsContainer.style.direction = 'ltr'; // خیلی مهم است اینجا باشد
+function generateStars(score) {
+  const container = document.getElementById('ratingContainer');
+  container.innerHTML = '';
+  container.style.direction = 'ltr';
+
+  const starSVG = '<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">' +
+    '<path d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"/>' +
+  '</svg>';
 
   for (let i = 0; i < 5; i++) {
-    const star = document.createElement('div');
-    star.classList.add('star');
+    const wrap = document.createElement('div');
+    wrap.className = 'starWrapper';
+
+    const base = document.createElement('div');
+    base.className = 'backgroundSection';
+    base.innerHTML = starSVG;
 
     const fill = document.createElement('div');
-    fill.classList.add('fill');
-    fill.innerText = '★';
+    fill.className = 'coloredSection';
+    fill.innerHTML = starSVG;
 
-    const empty = document.createElement('div');
-    empty.innerText = '★';
+    let percent = Math.min(Math.max(score - i, 0), 1) * 100;
+    fill.style.clipPath = 'inset(0 ' + (100 - percent) + '% 0 0)';
 
-    let fillPercent = Math.min(Math.max(rating - i, 0), 1) * 100;
-    fill.style.width = fillPercent + '%';
-
-    star.appendChild(fill);
-    star.appendChild(empty);
-    starsContainer.appendChild(star);
+    wrap.appendChild(base);
+    wrap.appendChild(fill);
+    container.appendChild(wrap);
   }
 }
 
-// اینجا امتیاز بده:
-renderStars(${$state.rate});
-</script>
-`;
+// اجرای نمونه
+generateStars(${$state.rate});
+</script>`;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -7738,7 +7750,7 @@ drawRating(${$state.rate});
                                   : [_par])(
                                 (() => {
                                   try {
-                                    return [1, 2, 3, 4, 5];
+                                    return [5, 4, 3, 2, 1];
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
