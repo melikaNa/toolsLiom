@@ -1365,27 +1365,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            if (
-                              $state.paramsObject.token !== undefined &&
-                              $state.paramsObject.token.trim() !== ""
-                            ) {
-                              if (!$state.paramsObject.token.startsWith("ey"))
-                                $state.paramsObject.token =
-                                  $state.paramsObject.token.slice(6, -3);
-                              var setCookie = (name, value, days) => {
-                                const expires = new Date(
-                                  Date.now() + days * 86400000
-                                ).toUTCString();
-                                document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                              };
-                              return setCookie(
-                                "token",
-                                JSON.stringify([
-                                  $steps.usergust.data.result.token
-                                ]),
-                                100
-                              );
-                            }
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([
+                                $steps.usergust.data.result.token
+                              ]),
+                              100
+                            );
                           })();
                         }
                       };
