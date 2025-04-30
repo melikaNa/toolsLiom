@@ -818,7 +818,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         new URLSearchParams(window.location.search).get(
                           "token"
                         );
-                      return { token: token.slice(6, token.length - 3) };
+                      if (!token.startsWith("ey")) {
+                        token = token.slice(6, token.length - 3);
+                      }
+                      return { token: token };
                     })();
                   } catch (e) {
                     if (
@@ -1213,19 +1216,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           new URLSearchParams(window.location.search).get(
                             "token"
                           );
-                        var userId =
-                          $ctx.query.userId ||
-                          new URLSearchParams(window.location.search).get(
-                            "userId"
-                          );
                         var type =
                           $ctx.query.type ||
                           new URLSearchParams(window.location.search).get(
                             "type"
                           );
+                        if (!token.startsWith("ey")) {
+                          token = token.slice(6, token.length - 3);
+                        }
                         return {
-                          token: token.slice(6, token.length - 3),
-                          userId: userId.slice(4, userId.length - 4),
+                          token: token,
+                          userId: $state.getUser.data[0].result.user.id,
                           type: type
                         };
                       })();
@@ -2966,6 +2967,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                       destination: (() => {
                                         try {
                                           return (() => {
+                                            var token =
+                                              $ctx.query.token ||
+                                              new URLSearchParams(
+                                                window.location.search
+                                              ).get("token");
+                                            if (!token.startsWith("ey")) {
+                                              token = token.slice(
+                                                6,
+                                                token.length - 3
+                                              );
+                                            }
                                             var title =
                                               currentItem.title +
                                               " | " +
@@ -3000,11 +3012,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               "&type=" +
                                               $ctx.query.type +
                                               "&token=" +
-                                              $ctx.query.token +
+                                              token +
                                               "&inApp=" +
                                               $ctx.query.inApp +
                                               "&userId=" +
-                                              $ctx.query.userId +
+                                              $state.getUser.data[0].result.user
+                                                .id +
                                               "&selectStep=" +
                                               $state.selectedStep +
                                               "&version=" +
@@ -3171,6 +3184,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
+                                          var token =
+                                            $ctx.query.token ||
+                                            new URLSearchParams(
+                                              window.location.search
+                                            ).get("token");
+                                          if (!token.startsWith("ey")) {
+                                            token = token.slice(
+                                              6,
+                                              token.length - 3
+                                            );
+                                          }
                                           var link =
                                             "https://tools.liom.app/self-medication-step/?secId=" +
                                             currentItem.id +
@@ -3181,11 +3205,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             "&type=" +
                                             $ctx.query.type +
                                             "&token=" +
-                                            $ctx.query.token +
+                                            token +
                                             "&inApp=" +
                                             $ctx.query.inApp +
                                             "&userId=" +
-                                            $ctx.query.userId +
+                                            $state.getUser.data[0].result.user
+                                              .id +
                                             "&selectStep=" +
                                             $state.selectedStep +
                                             "&version=" +
@@ -3605,11 +3630,19 @@ function PlasmicSelfMedication__RenderFunc(props: {
             open={generateStateValueProp($state, ["directDialog", "open"])}
             redirectUrl={(() => {
               try {
-                return `https://tools.liom.app/shopResult?buyId=${
-                  $state.directDialog.selectShop.id
-                }&?offCode=&token=${
-                  $ctx.query.token
-                }&redirectUrl=${encodeURIComponent(window.location.href)}`;
+                return (() => {
+                  var token =
+                    $ctx.query.token ||
+                    new URLSearchParams(window.location.search).get("token");
+                  if (!token.startsWith("ey")) {
+                    token = token.slice(6, token.length - 3);
+                  }
+                  return `https://tools.liom.app/shopResult?buyId=${
+                    $state.directDialog.selectShop.id
+                  }&?offCode=&token=${token}&redirectUrl=${encodeURIComponent(
+                    window.location.href
+                  )}`;
+                })();
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -3620,7 +3653,15 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 throw e;
               }
             })()}
-            token={$ctx.query.token.slice(6, $ctx.query.token.length - 3)}
+            token={(() => {
+              var token =
+                $ctx.query.token ||
+                new URLSearchParams(window.location.search).get("token");
+              if (!token.startsWith("ey")) {
+                token = token.slice(6, token.length - 3);
+              }
+              return token;
+            })()}
             type={(() => {
               try {
                 return (() => {

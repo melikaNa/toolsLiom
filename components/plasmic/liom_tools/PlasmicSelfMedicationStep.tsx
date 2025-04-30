@@ -558,18 +558,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       $ctx.query.secId ||
                       new URLSearchParams(window.location.search).get("secId"),
                     userId:
-                      $ctx.query.userId.slice(
-                        4,
-                        $ctx.query.userId.length - 4
-                      ) ||
-                      new URLSearchParams(window.location.search)
-                        .get("userId")
-                        .slice(
-                          4,
-                          new URLSearchParams(window.location.search).get(
-                            "userId"
-                          ).length - 4
-                        )
+                      $ctx.query.userId ||
+                      new URLSearchParams(window.location.search).get("userId")
                   };
                 } catch (e) {
                   if (
@@ -2059,10 +2049,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               {
                                 sectionId: $ctx.query.secId,
                                 stepId: $ctx.query.stepId,
-                                userId: $ctx.query.userId.slice(
-                                  4,
-                                  $ctx.query.userId.length - 4
-                                ),
+                                userId: $ctx.query.userId,
                                 type: $ctx.query.type
                               }
                             ]

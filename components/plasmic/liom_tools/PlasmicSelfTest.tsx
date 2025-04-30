@@ -285,20 +285,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "userId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return localStorage.getItem("user_id");
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "ferst",
@@ -420,20 +407,7 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $ctx.query.token;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "lock",
@@ -788,6 +762,24 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "name",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1034,6 +1026,177 @@ function PlasmicSelfTest__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["params"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["params"] != null &&
+                typeof $steps["params"] === "object" &&
+                typeof $steps["params"].then === "function"
+              ) {
+                $steps["params"] = await $steps["params"];
+              }
+
+              $steps["setCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setCookie"] != null &&
+                typeof $steps["setCookie"] === "object" &&
+                typeof $steps["setCookie"].then === "function"
+              ) {
+                $steps["setCookie"] = await $steps["setCookie"];
+              }
+
+              $steps["getCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCookie"] != null &&
+                typeof $steps["getCookie"] === "object" &&
+                typeof $steps["getCookie"].then === "function"
+              ) {
+                $steps["getCookie"] = await $steps["getCookie"];
+              }
+
+              $steps["user"] =
+                $state.token != ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/users/profile",
+                          undefined,
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: { Authorization: $state.token }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["user"] != null &&
+                typeof $steps["user"] === "object" &&
+                typeof $steps["user"].then === "function"
+              ) {
+                $steps["user"] = await $steps["user"];
+              }
+
+              $steps["userInfoUpdate"] =
+                $steps.user?.data?.success ?? false
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["userInfo"]
+                        },
+                        operation: 0,
+                        value: $steps.user.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["userInfoUpdate"] != null &&
+                typeof $steps["userInfoUpdate"] === "object" &&
+                typeof $steps["userInfoUpdate"].then === "function"
+              ) {
+                $steps["userInfoUpdate"] = await $steps["userInfoUpdate"];
+              }
+
               $steps["updateTestChat5"] =
                 new URLSearchParams(window.location.search).get("origin") ===
                 "eata"
@@ -1093,52 +1256,93 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["selfTestUser"] = await $steps["selfTestUser"];
               }
 
-              $steps["selfTestUserPost"] =
-                $steps.selfTestUser?.data?.success != true &&
-                !localStorage.getItem("user_id")
+              $steps["selfTestUserPost"] = ($steps.user?.data ? true : false)
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/selfTestUser",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              mobile: $state.userInfo.mobile || null,
+                              email: $state.userInfo.email || null,
+                              name: $state.userInfo.name || null,
+                              origin:
+                                $state.paramsObject.origin ||
+                                $state.paramsObject.app ||
+                                "liomSite",
+                              origin_user_id:
+                                $state.userInfo.id ||
+                                state.paramsObject.user_id ||
+                                state.paramsObject.userId
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["selfTestUserPost"] != null &&
+                typeof $steps["selfTestUserPost"] === "object" &&
+                typeof $steps["selfTestUserPost"].then === "function"
+              ) {
+                $steps["selfTestUserPost"] = await $steps["selfTestUserPost"];
+              }
+
+              $steps["userId"] =
+                $steps.selfTestUser?.data?.success == true ||
+                $steps.selfTestUserPost?.data?.success == true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            $state.userId =
+                              $steps.selfTestUserPost?.data?.user_id;
+                            return ($state.name = $state.userInfo.name);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["userId"] != null &&
+                typeof $steps["userId"] === "object" &&
+                typeof $steps["userId"].then === "function"
+              ) {
+                $steps["userId"] = await $steps["userId"];
+              }
+
+              $steps["infoTest"] =
+                $state.userId != ""
                   ? (() => {
                       const actionArgs = {
                         args: [
-                          "POST",
-                          "https://n8n.staas.ir/webhook/selfTestUser",
-                          undefined,
+                          "GET",
+                          "https://n8n.staas.ir/webhook/addUserSelfTest",
                           (() => {
                             try {
                               return {
-                                mobile: null,
-                                email: null,
-                                name:
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("origin") === "eata"
-                                    ? window.Eitaa?.WebApp?.initDataUnsafe?.user
-                                        ?.first_name +
-                                        " " +
-                                        window.Eitaa?.WebApp?.initDataUnsafe
-                                          ?.user?.last_name || ""
-                                    : "",
-                                origin:
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("origin") ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("app") ||
-                                  "liomSite",
-                                origin_user_id:
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("origin") === "eata"
-                                    ? window.Eitaa?.WebApp?.initDataUnsafe?.user
-                                        ?.id || ""
-                                    : new URLSearchParams(
-                                        window.location.search
-                                      ).get("user_id") ||
-                                      new URLSearchParams(
-                                        window.location.search
-                                      ).get("userId") ||
-                                      $state.data.userId ||
-                                      "null"
+                                type: $state.paramsObject.type,
+                                origin: $state.paramsObject.origin,
+                                inApp: $state.paramsObject.inApp,
+                                user_id: $state.userId
                               };
                             } catch (e) {
                               if (
@@ -1159,90 +1363,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                     })()
                   : undefined;
               if (
-                $steps["selfTestUserPost"] != null &&
-                typeof $steps["selfTestUserPost"] === "object" &&
-                typeof $steps["selfTestUserPost"].then === "function"
+                $steps["infoTest"] != null &&
+                typeof $steps["infoTest"] === "object" &&
+                typeof $steps["infoTest"].then === "function"
               ) {
-                $steps["selfTestUserPost"] = await $steps["selfTestUserPost"];
-              }
-
-              $steps["localStorag"] =
-                $steps.selfTestUser?.data?.success == true ||
-                $steps.selfTestUserPost?.data?.success == true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return localStorage.setItem(
-                            "user_id",
-                            $steps.selfTestUserPost?.data?.user_id ||
-                              $steps.selfTestUser?.data?.user_id
-                          );
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["localStorag"] != null &&
-                typeof $steps["localStorag"] === "object" &&
-                typeof $steps["localStorag"].then === "function"
-              ) {
-                $steps["localStorag"] = await $steps["localStorag"];
-              }
-
-              $steps["invokeGlobalAction"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "GET",
-                        "https://n8n.staas.ir/webhook/addUserSelfTest",
-                        (() => {
-                          try {
-                            return {
-                              type:
-                                $ctx.query.type ||
-                                new URLSearchParams(window.location.search).get(
-                                  "type"
-                                ),
-                              origin:
-                                $ctx.query.origin ||
-                                new URLSearchParams(window.location.search).get(
-                                  "origin"
-                                ),
-                              inApp:
-                                $ctx.query.inApp ||
-                                new URLSearchParams(window.location.search).get(
-                                  "inApp"
-                                ),
-                              user_id: localStorage.getItem("user_id")
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["infoTest"] = await $steps["infoTest"];
               }
 
               $steps["updateTestChat6"] = true
@@ -1253,7 +1378,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         variablePath: ["shopId"]
                       },
                       operation: 0,
-                      value: $steps.invokeGlobalAction?.data?.info?.shopId
+                      value: $steps.infoTest?.data?.info?.shopId
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -1274,7 +1399,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["updateTestChat6"] = await $steps["updateTestChat6"];
               }
 
-              $steps["updateTestChat2"] = $steps.invokeGlobalAction?.data?.info
+              $steps["updateTestChat2"] = $steps.infoTest?.data?.info
                 ?.numberOfquestion
                 ? (() => {
                     const actionArgs = {
@@ -1283,8 +1408,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         variablePath: ["totalTest"]
                       },
                       operation: 0,
-                      value:
-                        $steps.invokeGlobalAction?.data?.info.numberOfquestion
+                      value: $steps.infoTest?.data?.info.numberOfquestion
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -1310,13 +1434,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          $state.rate =
-                            $steps.invokeGlobalAction?.data?.info?.rate;
-                          $state.cRate =
-                            $steps.invokeGlobalAction?.data.info.cRate;
+                          $state.rate = $steps.infoTest?.data?.info?.rate;
+                          $state.cRate = $steps.infoTest?.data.info.cRate;
                           return window.sessionStorage.setItem(
                             "testID",
-                            $steps.invokeGlobalAction?.data?.info?.id
+                            $steps.infoTest?.data?.info?.id
                           );
                         })();
                       }
@@ -1342,7 +1464,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         variablePath: ["free"]
                       },
                       operation: 0,
-                      value: $steps.invokeGlobalAction?.data?.canStart
+                      value: $steps.infoTest?.data?.canStart
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -1363,8 +1485,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 $steps["updateTestChat7"] = await $steps["updateTestChat7"];
               }
 
-              $steps["updateTestChat"] = $steps.invokeGlobalAction?.data?.info
-                ?.festText
+              $steps["updateTestChat"] = $steps.infoTest?.data?.info?.festText
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -1377,9 +1498,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           $ctx.query.nextQuesion_id == "" ||
                           $ctx.query.nextQuesion_id == null
                         ) {
-                          return JSON.parse(
-                            $steps.invokeGlobalAction.data.info.festText
-                          );
+                          return JSON.parse($steps.infoTest.data.info.festText);
                         } else {
                           return JSON.parse(localStorage.getItem("test"));
                         }
@@ -1508,13 +1627,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                               "type"
                             ) ||
                             "";
-                          if (
-                            $steps.invokeGlobalAction?.data?.info
-                              .numberOfquestion
-                          ) {
+                          if ($steps.infoTest?.data?.info.numberOfquestion) {
                             $state.totalTest =
-                              $steps.invokeGlobalAction?.data?.info
-                                .numberOfquestion || 35;
+                              $steps.infoTest?.data?.info.numberOfquestion ||
+                              35;
                             $state.numberTest = 0;
                             if (
                               $ctx.query.nextQuesion_id != null &&
@@ -1579,7 +1695,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         "https://n8n.staas.ir/webhook/resultList",
                         (() => {
                           try {
-                            return { user_id: localStorage.getItem("user_id") };
+                            return { user_id: $state.userId };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1674,18 +1790,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                           try {
                             return {
                               userId: $state.userId,
-                              pageName: `self-test-${
-                                $ctx.query.type ||
-                                new URLSearchParams(window.location.search).get(
-                                  "type"
-                                )
-                              }`,
-                              action: `onLoad-${
-                                $ctx.query.type ||
-                                new URLSearchParams(window.location.search).get(
-                                  "type"
-                                )
-                              }`,
+                              pageName: `self-test-${$state.paramsObject.type}`,
+                              action: `onLoad-${$state.paramsObject.type}`,
                               extraData: {}
                             };
                           } catch (e) {
@@ -4553,9 +4659,21 @@ function PlasmicSelfTest__RenderFunc(props: {
                             sty.text__gRmS
                           )}
                         >
-                          {
-                            "\u062f\u06cc\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647"
-                          }
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return `دیدن نتیجه ${$state.name}`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u062f\u06cc\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
                         </div>
                       ) : null
                     }
