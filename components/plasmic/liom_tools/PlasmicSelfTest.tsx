@@ -2875,12 +2875,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                             <PlasmicImg__
                               alt={""}
                               className={classNames(sty.img__uydhd)}
-                              displayHeight={"50px"}
+                              displayHeight={"40px"}
                               displayMaxHeight={"none"}
                               displayMaxWidth={"100%"}
                               displayMinHeight={"0"}
                               displayMinWidth={"0"}
-                              displayWidth={"50px"}
+                              displayWidth={"40px"}
                               loading={"lazy"}
                               src={(() => {
                                 try {

@@ -206,8 +206,8 @@
 .img__uydhd {
   object-fit: fill;
   max-width: 100%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   box-shadow: 0px 0px 0px 4px #0307121a;
   filter: saturate(82%) invert(30%) brightness(131%);
   flex-shrink: 0;
