@@ -3717,6 +3717,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           );
                           searchParams.delete("token");
                           searchParams.delete("userId");
+                          searchParams.delete("user_id");
                           const newUrl = `${
                             window.location.pathname
                           }?${searchParams.toString()}`;
