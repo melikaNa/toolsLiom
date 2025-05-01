@@ -72,6 +72,7 @@ import Done from "../../Done"; // plasmic-import: kuXIsI5E0lmX/component
 import LinearCalendar2 from "../../LinearCalendar2"; // plasmic-import: UJN9m2mxrPIu/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
 import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
@@ -122,6 +123,7 @@ export type PlasmicSelfMedication__OverridesType = {
   linearCalendar2?: Flex__<typeof LinearCalendar2>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
   directDialog?: Flex__<typeof DirectDialog>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultSelfMedicationProps {}
@@ -354,6 +356,19 @@ function PlasmicSelfMedication__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
       }
     ],
     [$props, $ctx, $refs]
@@ -751,10 +766,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               (() => {
                                 try {
                                   return {
-                                    userId: $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ),
+                                    userId:
+                                      $state.getUser.data[0].result.user.id,
                                     pageName:
                                       "self-treatment-" + $ctx.query.type,
                                     action: "onLoad-" + $ctx.query.type,
@@ -812,17 +825,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 }}
                 params={(() => {
                   try {
-                    return (() => {
-                      var token =
-                        $ctx.query.token ||
-                        new URLSearchParams(window.location.search).get(
-                          "token"
-                        );
-                      if (!token.startsWith("ey")) {
-                        token = token.slice(6, token.length - 3);
-                      }
-                      return { token: token };
-                    })();
+                    return {
+                      token: $state.token
+                    };
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1211,21 +1216,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   params={(() => {
                     try {
                       return (() => {
-                        var token =
-                          $ctx.query.token ||
-                          new URLSearchParams(window.location.search).get(
-                            "token"
-                          );
                         var type =
                           $ctx.query.type ||
                           new URLSearchParams(window.location.search).get(
                             "type"
                           );
-                        if (!token.startsWith("ey")) {
-                          token = token.slice(6, token.length - 3);
-                        }
                         return {
-                          token: token,
+                          token: $state.token,
                           userId: $state.getUser.data[0].result.user.id,
                           type: type
                         };
@@ -3631,12 +3628,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
             redirectUrl={(() => {
               try {
                 return (() => {
-                  var token =
-                    $ctx.query.token ||
-                    new URLSearchParams(window.location.search).get("token");
-                  if (!token.startsWith("ey")) {
-                    token = token.slice(6, token.length - 3);
-                  }
+                  var token = $state.token;
                   return `https://tools.liom.app/shopResult?buyId=${
                     $state.directDialog.selectShop.id
                   }&?offCode=&token=${token}&redirectUrl=${encodeURIComponent(
@@ -3653,15 +3645,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 throw e;
               }
             })()}
-            token={(() => {
-              var token =
-                $ctx.query.token ||
-                new URLSearchParams(window.location.search).get("token");
-              if (!token.startsWith("ey")) {
-                token = token.slice(6, token.length - 3);
-              }
-              return token;
-            })()}
+            token={$state.token}
             type={(() => {
               try {
                 return (() => {
@@ -3689,6 +3673,143 @@ function PlasmicSelfMedication__RenderFunc(props: {
               }
             })()}
           />
+
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["getParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getParams"] != null &&
+                typeof $steps["getParams"] === "object" &&
+                typeof $steps["getParams"].then === "function"
+              ) {
+                $steps["getParams"] = await $steps["getParams"];
+              }
+
+              $steps["clearParams"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const searchParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          searchParams.delete("token");
+                          searchParams.delete("userId");
+                          const newUrl = `${
+                            window.location.pathname
+                          }?${searchParams.toString()}`;
+                          return window.history.replaceState(null, "", newUrl);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["clearParams"] != null &&
+                typeof $steps["clearParams"] === "object" &&
+                typeof $steps["clearParams"].then === "function"
+              ) {
+                $steps["clearParams"] = await $steps["clearParams"];
+              }
+
+              $steps["getToken"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getToken"] != null &&
+                typeof $steps["getToken"] === "object" &&
+                typeof $steps["getToken"].then === "function"
+              ) {
+                $steps["getToken"] = await $steps["getToken"];
+              }
+
+              $steps["getTokenFromCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getTokenFromCookie"] != null &&
+                typeof $steps["getTokenFromCookie"] === "object" &&
+                typeof $steps["getTokenFromCookie"].then === "function"
+              ) {
+                $steps["getTokenFromCookie"] = await $steps[
+                  "getTokenFromCookie"
+                ];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3709,7 +3830,8 @@ const PlasmicDescendants = {
     "done",
     "linearCalendar2",
     "loadingConclusion",
-    "directDialog"
+    "directDialog",
+    "sideEffect"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -3722,7 +3844,8 @@ const PlasmicDescendants = {
   done: ["done"],
   linearCalendar2: ["linearCalendar2"],
   loadingConclusion: ["loadingConclusion"],
-  directDialog: ["directDialog"]
+  directDialog: ["directDialog"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3741,6 +3864,7 @@ type NodeDefaultElementType = {
   linearCalendar2: typeof LinearCalendar2;
   loadingConclusion: typeof LoadingConclusion;
   directDialog: typeof DirectDialog;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3840,6 +3964,7 @@ export const PlasmicSelfMedication = Object.assign(
     linearCalendar2: makeNodeComponent("linearCalendar2"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
     directDialog: makeNodeComponent("directDialog"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicSelfMedication
     internalVariantProps: PlasmicSelfMedication__VariantProps,
