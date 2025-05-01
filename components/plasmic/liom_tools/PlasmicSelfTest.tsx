@@ -141,7 +141,6 @@ export type PlasmicSelfTest__OverridesType = {
   input4?: Flex__<typeof AntdInput>;
   button12?: Flex__<typeof ButtonLiom>;
   buttonLiom6?: Flex__<typeof ButtonLiom>;
-  img?: Flex__<typeof PlasmicImg__>;
   modal?: Flex__<typeof AntdModal>;
   apiRequest2?: Flex__<typeof ApiRequest>;
   button3?: Flex__<typeof ButtonLiom>;
@@ -780,6 +779,12 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "owner",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1638,10 +1643,17 @@ function PlasmicSelfTest__RenderFunc(props: {
                         return (() => {
                           $state.rate = $steps.infoTest?.data?.info?.rate;
                           $state.cRate = $steps.infoTest?.data.info.cRate;
-                          return window.sessionStorage.setItem(
+                          window.sessionStorage.setItem(
                             "testID",
                             $steps.infoTest?.data?.info?.id
                           );
+                          return ($state.owner = {
+                            ownerId: $steps.infoTest?.data?.info?.ownerId,
+                            ownerName: $steps.infoTest?.data?.info?.ownerName,
+                            ownerExpert:
+                              $steps.infoTest?.data?.info?.ownerExpert,
+                            ownerImage: $steps.infoTest?.data?.info?.ownerImage
+                          });
                         })();
                       }
                     };
@@ -2315,11 +2327,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                     })()}
                     inApp={(() => {
                       try {
-                        return (
-                          new URLSearchParams(window.location.search).get(
-                            "inApp"
-                          ) == "true"
-                        );
+                        return $state.paramsObject.inApp == "true";
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -2752,41 +2760,205 @@ function PlasmicSelfTest__RenderFunc(props: {
                       </React.Fragment>
                     }
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___91S8B,
-                        hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? "text-box "
-                          : undefined
-                      )}
-                      style={
-                        hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? {
-                              display: "inline-block",
-                              width: "auto",
-                              "overflow-wrap": "break-word"
-                            }
-                          : undefined
+                    {(() => {
+                      try {
+                        return currentItem.owner != true;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
                       }
-                    >
-                      <React.Fragment>
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___91S8B,
+                          hasVariant(globalVariants, "screen", "mobileOnly")
+                            ? "text-box "
+                            : undefined
+                        )}
+                        style={
+                          hasVariant(globalVariants, "screen", "mobileOnly")
+                            ? {
+                                display: "inline-block",
+                                width: "auto",
+                                "overflow-wrap": "break-word"
+                              }
+                            : undefined
+                        }
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "Lorem ipsum dolor sit amet,";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
+                    {(() => {
+                      try {
+                        return currentItem.owner == true;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__t6IbZ
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__l3ELo
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return `این تست توسط ${$state.owner.ownerName}، ${$state.owner.ownerExpert}، طراحی شده است .`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
                         {(() => {
                           try {
-                            return currentItem.text;
+                            return $state.owner;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "Lorem ipsum dolor sit amet,";
+                              return true;
                             }
                             throw e;
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
+                        })() ? (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___2Ydx
+                            )}
+                          >
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__uydhd)}
+                              displayHeight={"60px"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"60px"}
+                              loading={"lazy"}
+                              src={(() => {
+                                try {
+                                  return $state.owner.ownerImage;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__dgmGx
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__se8Ru
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.owner.ownerName;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__mI9
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.owner.ownerExpert;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </Stack__>
+                          </Stack__>
+                        ) : null}
+                      </div>
+                    ) : null}
                   </MessageLiom>
                 );
               })}
@@ -6277,10 +6449,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.freeBox__h1IyH)}
                 >
                   <PlasmicImg__
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
                     alt={""}
-                    className={classNames(sty.img)}
+                    className={classNames(sty.img__fhS60)}
                     displayHeight={"15px"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
@@ -7856,7 +8026,7 @@ drawRating(${$state.rate});
                         <React.Fragment>
                           <React.Fragment>
                             {
-                              "\u0627\u06cc\u0646 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a\u060c \u062f\u0631 \u0632\u0645\u0627\u0646\u06cc \u06a9\u0648\u062a\u0627\u0647\u060c \u062f\u06cc\u062f\u06cc \u06a9\u0644\u06cc \u0627\u0632 \u0648\u0636\u0639\u06cc\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u0627\u0646\u06cc \u0634\u0645\u0627 \u0627\u0631\u0627\u0626\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0633\u0624\u0627\u0644\u0627\u062a \u0633\u0627\u062f\u0647 \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0622\u0646 \u0628\u0647 \u0634\u0646\u0627\u062e\u062a \u0628\u0647\u062a\u0631 \u0648\u0636\u0639\u06cc\u062a \u0641\u0639\u0644\u06cc \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0646\u062f. "
+                              "\u062f\u0631 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u062a\u062c\u0631\u0628\u06cc\u0627\u062a \u0648 \u062f\u06cc\u062f\u06af\u0627\u0647\u200c\u0647\u0627\u06cc \u0633\u0627\u06cc\u0631 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646\u06cc \u0631\u0627 \u0628\u062e\u0648\u0627\u0646\u06cc\u062f \u06a9\u0647 \u067e\u06cc\u0634 \u0627\u0632 \u0634\u0645\u0627 \u0627\u06cc\u0646 \u062a\u0633\u062a \u0631\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0647\u200c\u0627\u0646\u062f. \u067e\u0633 \u0627\u0632 \u067e\u0627\u06cc\u0627\u0646 \u062a\u0633\u062a\u060c \u062e\u0648\u0634\u062d\u0627\u0644 \u0645\u06cc\u200c\u0634\u0648\u06cc\u0645 \u0627\u06af\u0631 "
                             }
                           </React.Fragment>
                           <span
@@ -7866,7 +8036,7 @@ drawRating(${$state.rate});
                             style={{ fontWeight: 700 }}
                           >
                             {
-                              "\u062f\u0631 \u067e\u0627\u06cc\u0627\u0646 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0646\u0638\u0631 \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f \u0648 \u0628\u0647 \u0628\u0647\u0628\u0648\u062f \u062a\u0633\u062a \u06a9\u0645\u06a9 \u0646\u0645\u0627\u06cc\u06cc\u062f."
+                              "\u00a0\u0634\u0645\u0627 \u0647\u0645 \u062a\u062c\u0631\u0628\u0647\u200c\u062a\u0627\u0646 \u0631\u0627 \u0628\u0627 \u0645\u0627 \u0648 \u062f\u06cc\u06af\u0631 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u06af\u0630\u0627\u0631\u06cc\u062f."
                             }
                           </span>
                         </React.Fragment>
@@ -7874,7 +8044,7 @@ drawRating(${$state.rate});
                         <React.Fragment>
                           <React.Fragment>
                             {
-                              "\u0627\u06cc\u0646 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a\u060c \u062f\u0631 \u0632\u0645\u0627\u0646\u06cc \u06a9\u0648\u062a\u0627\u0647\u060c \u062f\u06cc\u062f\u06cc \u06a9\u0644\u06cc \u0627\u0632 \u0648\u0636\u0639\u06cc\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u0627\u0646\u06cc \u0634\u0645\u0627 \u0627\u0631\u0627\u0626\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0633\u0624\u0627\u0644\u0627\u062a \u0633\u0627\u062f\u0647 \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0622\u0646 \u0628\u0647 \u0634\u0646\u0627\u062e\u062a \u0628\u0647\u062a\u0631 \u0648\u0636\u0639\u06cc\u062a \u0641\u0639\u0644\u06cc \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0646\u062f. "
+                              "\u062f\u0631 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u062a\u062c\u0631\u0628\u06cc\u0627\u062a \u0648 \u062f\u06cc\u062f\u06af\u0627\u0647\u200c\u0647\u0627\u06cc \u0633\u0627\u06cc\u0631 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646\u06cc \u0631\u0627 \u0628\u062e\u0648\u0627\u0646\u06cc\u062f \u06a9\u0647 \u067e\u06cc\u0634 \u0627\u0632 \u0634\u0645\u0627 \u0627\u06cc\u0646 \u062a\u0633\u062a \u0631\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0647\u200c\u0627\u0646\u062f. \u067e\u0633 \u0627\u0632 \u067e\u0627\u06cc\u0627\u0646 \u062a\u0633\u062a\u060c \u062e\u0648\u0634\u062d\u0627\u0644 \u0645\u06cc\u200c\u0634\u0648\u06cc\u0645 \u0627\u06af\u0631 "
                             }
                           </React.Fragment>
                           <span
@@ -7884,7 +8054,7 @@ drawRating(${$state.rate});
                             style={{ fontWeight: 700 }}
                           >
                             {
-                              "\u062f\u0631 \u067e\u0627\u06cc\u0627\u0646 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0646\u0638\u0631 \u062e\u0648\u062f \u0631\u0627 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f \u0648 \u0628\u0647 \u0628\u0647\u0628\u0648\u062f \u062a\u0633\u062a \u06a9\u0645\u06a9 \u0646\u0645\u0627\u06cc\u06cc\u062f."
+                              "\u00a0\u0634\u0645\u0627 \u0647\u0645 \u062a\u062c\u0631\u0628\u0647\u200c\u062a\u0627\u0646 \u0631\u0627 \u0628\u0627 \u0645\u0627 \u0648 \u062f\u06cc\u06af\u0631 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u06af\u0630\u0627\u0631\u06cc\u062f."
                             }
                           </span>
                         </React.Fragment>
@@ -8203,7 +8373,6 @@ const PlasmicDescendants = {
     "input4",
     "button12",
     "buttonLiom6",
-    "img",
     "modal",
     "apiRequest2",
     "button3",
@@ -8231,12 +8400,11 @@ const PlasmicDescendants = {
   favicon: ["favicon"],
   dialog: ["dialog", "buttonLiom3"],
   buttonLiom3: ["buttonLiom3"],
-  dialog2: ["dialog2", "shop", "input4", "button12", "buttonLiom6", "img"],
-  shop: ["shop", "input4", "button12", "buttonLiom6", "img"],
+  dialog2: ["dialog2", "shop", "input4", "button12", "buttonLiom6"],
+  shop: ["shop", "input4", "button12", "buttonLiom6"],
   input4: ["input4"],
   button12: ["button12"],
   buttonLiom6: ["buttonLiom6"],
-  img: ["img"],
   modal: ["modal", "apiRequest2", "button3", "shop2", "buttonLiom8"],
   apiRequest2: ["apiRequest2", "button3", "shop2", "buttonLiom8"],
   button3: ["button3"],
@@ -8274,7 +8442,6 @@ type NodeDefaultElementType = {
   input4: typeof AntdInput;
   button12: typeof ButtonLiom;
   buttonLiom6: typeof ButtonLiom;
-  img: typeof PlasmicImg__;
   modal: typeof AntdModal;
   apiRequest2: typeof ApiRequest;
   button3: typeof ButtonLiom;
@@ -8393,7 +8560,6 @@ export const PlasmicSelfTest = Object.assign(
     input4: makeNodeComponent("input4"),
     button12: makeNodeComponent("button12"),
     buttonLiom6: makeNodeComponent("buttonLiom6"),
-    img: makeNodeComponent("img"),
     modal: makeNodeComponent("modal"),
     apiRequest2: makeNodeComponent("apiRequest2"),
     button3: makeNodeComponent("button3"),
