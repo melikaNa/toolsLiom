@@ -1256,8 +1256,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               return {
                                 origin_user_id:
                                   $state.userInfo.id ||
-                                  state.paramsObject.user_id ||
-                                  state.paramsObject.userId,
+                                  $state.paramsObject.user_id ||
+                                  $state.paramsObject.userId,
                                 bot_name: "period_chat",
                                 mobile: $state.userInfo.mobile || "",
                                 email: $state.userInfo.email || "",
