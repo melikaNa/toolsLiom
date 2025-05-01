@@ -2838,7 +2838,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return `این تست توسط ${$state.owner.ownerName}، ${$state.owner.ownerExpert}، طراحی شده است .`;
+                                return `این آزمون سلامتی توسط ${$state.owner.ownerName} طراحی شده است.`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
