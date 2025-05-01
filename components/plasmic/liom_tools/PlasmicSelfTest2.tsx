@@ -1206,6 +1206,39 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 $steps["userGust"] = await $steps["userGust"];
               }
 
+              $steps["updateUserInfo2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["userInfo"]
+                      },
+                      operation: 0,
+                      value: {
+                        id: $steps.userGust.data.result.userId,
+                        name: "کاربر مهمان",
+                        token: $steps.userGust.data.result.token
+                      }
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateUserInfo2"] != null &&
+                typeof $steps["updateUserInfo2"] === "object" &&
+                typeof $steps["updateUserInfo2"].then === "function"
+              ) {
+                $steps["updateUserInfo2"] = await $steps["updateUserInfo2"];
+              }
+
               $steps["setCookieGuest"] =
                 $steps.userGust?.data?.success ?? false
                   ? (() => {
@@ -1597,34 +1630,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 $steps["invokeGlobalAction"] = await $steps[
                   "invokeGlobalAction"
                 ];
-              }
-
-              $steps["updateTestChat"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["testChat"]
-                      },
-                      operation: 0
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateTestChat"] != null &&
-                typeof $steps["updateTestChat"] === "object" &&
-                typeof $steps["updateTestChat"].then === "function"
-              ) {
-                $steps["updateTestChat"] = await $steps["updateTestChat"];
               }
             }}
           />
