@@ -1332,7 +1332,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                         operation: 0,
                         value: {
                           id: $steps.usergust.data.result.userId,
-                          name: "کاربر مهمان"
+                          name: "کاربر مهمان",
+                          token: $steps.usergust.data.result.token
                         }
                       };
                       return (({
@@ -1457,7 +1458,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 origin_user_id:
                                   $state.userInfo.id ||
                                   state.paramsObject.user_id ||
-                                  state.paramsObject.userId
+                                  state.paramsObject.userId,
+                                token: $state.userInfo.token
                               };
                             } catch (e) {
                               if (

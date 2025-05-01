@@ -787,6 +787,24 @@ function PlasmicSelfTest2__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "tokenliom",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -893,8 +911,340 @@ function PlasmicSelfTest2__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["params"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["params"] != null &&
+                typeof $steps["params"] === "object" &&
+                typeof $steps["params"].then === "function"
+              ) {
+                $steps["params"] = await $steps["params"];
+              }
+
+              $steps["setCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          if (
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setCookie"] != null &&
+                typeof $steps["setCookie"] === "object" &&
+                typeof $steps["setCookie"].then === "function"
+              ) {
+                $steps["setCookie"] = await $steps["setCookie"];
+              }
+
+              $steps["getCookie"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.tokenliom = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["getCookie"] != null &&
+                typeof $steps["getCookie"] === "object" &&
+                typeof $steps["getCookie"].then === "function"
+              ) {
+                $steps["getCookie"] = await $steps["getCookie"];
+              }
+
+              $steps["userLiom"] =
+                $state.tokenliom != ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/users/profile",
+                          undefined,
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: { Authorization: $state.tokenliom }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["userLiom"] != null &&
+                typeof $steps["userLiom"] === "object" &&
+                typeof $steps["userLiom"].then === "function"
+              ) {
+                $steps["userLiom"] = await $steps["userLiom"];
+              }
+
+              $steps["updateUserInfo"] =
+                $steps.userLiom?.data?.success ?? false
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["userInfo"]
+                        },
+                        operation: 0,
+                        value: $steps.userLiom?.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateUserInfo"] != null &&
+                typeof $steps["updateUserInfo"] === "object" &&
+                typeof $steps["updateUserInfo"].then === "function"
+              ) {
+                $steps["updateUserInfo"] = await $steps["updateUserInfo"];
+              }
+
+              $steps["userGust"] =
+                $state.tokenliom == ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/auth/signup/guest",
+                          undefined,
+                          (() => {
+                            try {
+                              return (() => {
+                                function pseudoUUID() {
+                                  let timestamp = Date.now().toString(36);
+                                  let randomStr = Math.random()
+                                    .toString(36)
+                                    .substr(2, 8);
+                                  return timestamp + "-" + randomStr;
+                                }
+                                return {
+                                  name: "کاربر مهمان",
+                                  gateway: "chat_bot",
+                                  country: "98",
+                                  isCountryPending: false,
+                                  lang: "fa",
+                                  version: "",
+                                  os: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    const platform = window.navigator.userAgent;
+                                    if (/Windows/i.test(platform))
+                                      return "Windows";
+                                    if (/Mac/i.test(platform)) return "macOS";
+                                    if (/Linux/i.test(platform)) return "Linux";
+                                    if (/Android/i.test(userAgent))
+                                      return "Android";
+                                    if (/iPhone|iPad|iPod/i.test(userAgent))
+                                      return "iOS";
+                                    return "Unknown OS";
+                                  })(),
+                                  osVersion: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (/Windows NT 10.0/.test(userAgent))
+                                      return "Windows 10";
+                                    if (/Windows NT 6.3/.test(userAgent))
+                                      return "Windows 8.1";
+                                    if (/Windows NT 6.2/.test(userAgent))
+                                      return "Windows 8";
+                                    if (/Windows NT 6.1/.test(userAgent))
+                                      return "Windows 7";
+                                    if (
+                                      /Mac OS X (\d+[\._]\d+)/.test(userAgent)
+                                    )
+                                      return `macOS ${RegExp.$1.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    if (/Android (\d+(\.\d+)?)/.test(userAgent))
+                                      return `Android ${RegExp.$1}`;
+                                    if (
+                                      /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                        userAgent
+                                      )
+                                    )
+                                      return `iOS ${RegExp.$2.replace(
+                                        "_",
+                                        "."
+                                      )}`;
+                                    return "Unknown Version";
+                                  })(),
+                                  sex: $state.gender || "",
+                                  additionalData: {
+                                    ip: "132465",
+                                    name: "test1"
+                                  },
+                                  device: (() => {
+                                    const userAgent =
+                                      window.navigator.userAgent;
+                                    if (
+                                      /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                        userAgent
+                                      )
+                                    ) {
+                                      return "Mobile";
+                                    } else if (/Tablet|iPad/i.test(userAgent)) {
+                                      return "Tablet";
+                                    } else {
+                                      return "Desktop";
+                                    }
+                                  })(),
+                                  fcm:
+                                    window.localStorage.getItem("fcmToken") ||
+                                    " ",
+                                  uniqueId: pseudoUUID(),
+                                  device_type: window.navigator.platform,
+                                  postLang: "fa"
+                                };
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["userGust"] != null &&
+                typeof $steps["userGust"] === "object" &&
+                typeof $steps["userGust"].then === "function"
+              ) {
+                $steps["userGust"] = await $steps["userGust"];
+              }
+
+              $steps["setCookieGuest"] =
+                $steps.userGust?.data?.success ?? false
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            return setCookie(
+                              "token",
+                              JSON.stringify([
+                                $steps.userGust.data.result.token
+                              ]),
+                              100
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["setCookieGuest"] != null &&
+                typeof $steps["setCookieGuest"] === "object" &&
+                typeof $steps["setCookieGuest"].then === "function"
+              ) {
+                $steps["setCookieGuest"] = await $steps["setCookieGuest"];
+              }
+
               $steps["user"] =
-                window.token == undefined
+                window.token == undefined &&
+                ($steps.userLiom?.data?.success == true ||
+                  $steps.userGust?.data?.success == true)
                   ? (() => {
                       const actionArgs = {
                         args: [
@@ -905,29 +1255,16 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             try {
                               return {
                                 origin_user_id:
-                                  $ctx.query?.origin_user_id ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("origin_user_id") ||
-                                  new URLSearchParams(window.location.search)
-                                    .get("userId")
-                                    .slice(4, -4),
+                                  $state.userInfo.id ||
+                                  state.paramsObject.user_id ||
+                                  state.paramsObject.userId,
                                 bot_name: "period_chat",
-                                mobile: "",
-                                email: "",
-                                name: "",
-                                app:
-                                  $ctx.query?.app ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("app") ||
-                                  "",
-                                origin:
-                                  $ctx.query?.origin ||
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("origin") ||
-                                  ""
+                                mobile: $state.userInfo.mobile || "",
+                                email: $state.userInfo.email || "",
+                                name: $state.userInfo.name || "",
+                                app: $state.paramsObject.app || "",
+                                origin: $state.paramsObject.origin || "",
+                                token: $state.userInfo.token
                               };
                             } catch (e) {
                               if (
@@ -1260,6 +1597,34 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 $steps["invokeGlobalAction"] = await $steps[
                   "invokeGlobalAction"
                 ];
+              }
+
+              $steps["updateTestChat"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["testChat"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateTestChat"] != null &&
+                typeof $steps["updateTestChat"] === "object" &&
+                typeof $steps["updateTestChat"].then === "function"
+              ) {
+                $steps["updateTestChat"] = await $steps["updateTestChat"];
               }
             }}
           />
