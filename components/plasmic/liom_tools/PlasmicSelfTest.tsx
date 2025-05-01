@@ -2875,12 +2875,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                             <PlasmicImg__
                               alt={""}
                               className={classNames(sty.img__uydhd)}
-                              displayHeight={"60px"}
+                              displayHeight={"50px"}
                               displayMaxHeight={"none"}
                               displayMaxWidth={"100%"}
                               displayMinHeight={"0"}
                               displayMinWidth={"0"}
-                              displayWidth={"60px"}
+                              displayWidth={"50px"}
                               loading={"lazy"}
                               src={(() => {
                                 try {
@@ -2891,7 +2891,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return undefined;
+                                    return {
+                                      src: "/plasmic/liom_tools/images/photo20250501134141Jpg.jpg",
+                                      fullWidth: 640,
+                                      fullHeight: 640,
+                                      aspectRatio: undefined
+                                    };
                                   }
                                   throw e;
                                 }
