@@ -73,6 +73,10 @@
   text-overflow: ellipsis !important;
   overflow: hidden;
 }
+.sideEffect:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .freeBox__zomNf {
   display: flex;
   flex-direction: column;
