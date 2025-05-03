@@ -581,17 +581,6 @@
     width: auto;
   }
 }
-.text__psCpo {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: right;
-  color: var(--token-isZ27F32wdLY);
-  font-weight: 700;
-  font-size: var(--token-7E1YyiP6sAP9);
-  min-width: 0;
-}
 .freeBox__qfPX {
   display: flex;
   flex-direction: row;

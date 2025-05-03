@@ -3081,29 +3081,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 </Stack__>
                 {(() => {
                   try {
-                    return $ctx.query.type != "danger";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__psCpo
-                    )}
-                  >
-                    <React.Fragment>{(() => {})()}</React.Fragment>
-                  </div>
-                ) : null}
-                {(() => {
-                  try {
                     return $state.getStep.loading;
                   } catch (e) {
                     if (
@@ -3286,17 +3263,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                       destination: (() => {
                                         try {
                                           return (() => {
-                                            var token =
-                                              $ctx.query.token ||
-                                              new URLSearchParams(
-                                                window.location.search
-                                              ).get("token");
-                                            if (!token.startsWith("ey")) {
-                                              token = token.slice(
-                                                6,
-                                                token.length - 3
-                                              );
-                                            }
+                                            var token = $state.token;
                                             var title =
                                               currentItem.title +
                                               " | " +
@@ -3503,17 +3470,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
-                                          var token =
-                                            $ctx.query.token ||
-                                            new URLSearchParams(
-                                              window.location.search
-                                            ).get("token");
-                                          if (!token.startsWith("ey")) {
-                                            token = token.slice(
-                                              6,
-                                              token.length - 3
-                                            );
-                                          }
+                                          var token = $state.token;
                                           var link =
                                             "https://tools.liom.app/self-medication-step/?secId=" +
                                             currentItem.id +
