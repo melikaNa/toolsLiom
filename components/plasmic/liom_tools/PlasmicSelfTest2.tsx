@@ -975,7 +975,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         return (() => {
                           if (
                             $state.paramsObject.token !== undefined &&
-                            $state.paramsObject.token.trim() !== ""
+                            $state.paramsObject.token?.trim() !== ""
                           ) {
                             if (!$state.paramsObject.token.startsWith("ey"))
                               $state.paramsObject.token =
@@ -4041,11 +4041,22 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                       undefined,
                                       (() => {
                                         try {
-                                          return {
-                                            session_id: $state.sessionId,
-                                            bot_session_id: $state.botSessionId,
-                                            message: $state.text
-                                          };
+                                          return $state.testChat.length === 2
+                                            ? {
+                                                session_id: $state.sessionId,
+                                                bot_session_id:
+                                                  $state.botSessionId,
+                                                message: $state.text,
+                                                healthDoc:
+                                                  $steps.newSession.data
+                                                    .healthDoc
+                                              }
+                                            : {
+                                                session_id: $state.sessionId,
+                                                bot_session_id:
+                                                  $state.botSessionId,
+                                                message: $state.text
+                                              };
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
