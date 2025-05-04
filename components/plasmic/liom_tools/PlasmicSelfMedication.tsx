@@ -3274,7 +3274,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             if (
                                               $state.getStep.data.data[
                                                 $state.selectedStep
-                                              ].orderr == 1
+                                              ].orderr != 0
                                             )
                                               title =
                                                 currentItem.title +

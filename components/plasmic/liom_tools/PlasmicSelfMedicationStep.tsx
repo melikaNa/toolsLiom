@@ -242,7 +242,11 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   $ctx.query.type == "adhd"
                 )
                   return true;
-                else if ($ctx.query.stepId == 121 || $ctx.query.stepId == 122)
+                else if (
+                  $ctx.query.stepId == 121 ||
+                  $ctx.query.stepId == 122 ||
+                  $ctx.query.stepId == 132
+                )
                   return true;
                 else {
                   return $state.getData?.data?.[0]?.isDone == 1 ? true : false;
