@@ -2986,7 +2986,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   if (
                                     $state.getStep?.data?.info?.unlockMode ==
                                       "openAll" ||
-                                    currentItem.orderr == 1
+                                    currentItem.orderr != 0
                                   )
                                     return 0;
                                   else if ($state.userStep > currentIndex)
@@ -3018,7 +3018,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   if (
                                     $state.getStep?.data?.info?.unlockMode ==
                                       "openAll" ||
-                                    currentItem.orderr == 1
+                                    currentItem.orderr != 0
                                   )
                                     return false;
                                   else if (
