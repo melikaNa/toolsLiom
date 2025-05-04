@@ -735,7 +735,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
 
             {(() => {
               try {
-                return $ctx.query.inApp != "true";
+                return $state.paramsObject.inApp != "true";
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -1322,7 +1322,6 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       }
 
                       $steps["updateSelectedStep2"] =
-                        $ctx.query.type == "danger" ||
                         $ctx.query.type == "pregnancy_danger_sub"
                           ? (() => {
                               const actionArgs = {
