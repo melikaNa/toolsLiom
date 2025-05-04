@@ -70,10 +70,10 @@ import {
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import StepsLayout from "../../StepsLayout"; // plasmic-import: usfpaVkTXFYE/component
 import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-/component
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -118,12 +118,12 @@ export type PlasmicSelfMedicationStep__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   sideEffect?: Flex__<typeof SideEffect>;
-  getUser?: Flex__<typeof ApiRequest>;
-  getName?: Flex__<typeof ApiRequest>;
-  getData?: Flex__<typeof ApiRequest>;
   stepsLayout?: Flex__<typeof StepsLayout>;
   percentageBox?: Flex__<typeof PercentageBox>;
   lineClomp4?: Flex__<typeof LineClomp>;
+  getUser?: Flex__<typeof ApiRequest>;
+  getName?: Flex__<typeof ApiRequest>;
+  getData?: Flex__<typeof ApiRequest>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   lottie?: Flex__<typeof LottieWrapper>;
 };
@@ -369,7 +369,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         >
           {(() => {
             try {
-              return $ctx.query.inApp != "true";
+              return $state.paramsObject.inApp != "true";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -828,227 +828,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__zomNf)}
           >
-            <ApiRequest
-              data-plasmic-name={"getUser"}
-              data-plasmic-override={overrides.getUser}
-              className={classNames("__wab_instance", sty.getUser)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mmwws
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__y6Ofe
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getUser", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["getUser", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-              params={(() => {
-                try {
-                  return (() => {
-                    var token =
-                      $ctx.query.token ||
-                      new URLSearchParams(window.location.search).get("token");
-                    if (!token.startsWith("ey")) {
-                      token = token.slice(6, token.length - 3);
-                    }
-                    return { token: token };
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              url={"https://n8n.staas.ir/webhook/getUser"}
-            >
-              <ApiRequest
-                data-plasmic-name={"getName"}
-                data-plasmic-override={overrides.getName}
-                body={(() => {
-                  try {
-                    return {
-                      type:
-                        $ctx.query.type ||
-                        new URLSearchParams(window.location.search).get("type")
-                    };
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                children={null}
-                className={classNames("__wab_instance", sty.getName)}
-                errorDisplay={null}
-                loadingDisplay={null}
-                method={"POST"}
-                onError={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getName", "error"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                onLoading={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "getName",
-                    "loading"
-                  ]).apply(null, eventArgs);
-                }}
-                onSuccess={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getName", "data"]).apply(
-                    null,
-                    eventArgs
-                  );
-
-                  (async data => {
-                    const $steps = {};
-                  }).apply(null, eventArgs);
-                }}
-                url={"https://n8n.staas.ir/webhook/self/info"}
-              />
-
-              <ApiRequest
-                data-plasmic-name={"getData"}
-                data-plasmic-override={overrides.getData}
-                body={(() => {
-                  try {
-                    return {
-                      stepId:
-                        $ctx.query.stepId ||
-                        new URLSearchParams(window.location.search).get(
-                          "stepId"
-                        ),
-                      sectionId:
-                        $ctx.query.secId ||
-                        new URLSearchParams(window.location.search).get(
-                          "secId"
-                        ),
-                      userId: $state.getUser?.data?.[0]?.userId
-                    };
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                children={null}
-                className={classNames("__wab_instance", sty.getData)}
-                errorDisplay={null}
-                loadingDisplay={null}
-                method={"POST"}
-                onError={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getData", "error"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                onLoading={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "getData",
-                    "loading"
-                  ]).apply(null, eventArgs);
-                }}
-                onSuccess={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getData", "data"]).apply(
-                    null,
-                    eventArgs
-                  );
-
-                  (async data => {
-                    const $steps = {};
-
-                    $steps["updateListDetails"] = (() => {
-                      if (
-                        typeof $state.getData?.data?.[0]?.data !== "undefined"
-                      ) {
-                        return true;
-                      } else {
-                        return false;
-                      }
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["listDetails"]
-                            },
-                            operation: 0,
-                            value: JSON.parse($state.getData?.data?.[0]?.data)
-                              ?.data
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateListDetails"] != null &&
-                      typeof $steps["updateListDetails"] === "object" &&
-                      typeof $steps["updateListDetails"].then === "function"
-                    ) {
-                      $steps["updateListDetails"] = await $steps[
-                        "updateListDetails"
-                      ];
-                    }
-                  }).apply(null, eventArgs);
-                }}
-                url={"https://n8n.staas.ir/webhook/selfTreatment"}
-              />
-            </ApiRequest>
             <StepsLayout
               data-plasmic-name={"stepsLayout"}
               data-plasmic-override={overrides.stepsLayout}
@@ -2268,105 +2047,132 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 );
               })}
             </StepsLayout>
-            <div className={classNames(projectcss.all, sty.freeBox__yz5Xf)}>
-              {(
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? (() => {
-                      try {
-                        return (
-                          $state.isDone == false && $ctx.query.type != "danger"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()
-                  : (() => {
-                      try {
-                        return (
-                          $state.isDone == false &&
-                          $ctx.query.type != "danger" &&
-                          $ctx.query.type != "stretch_marks" &&
-                          !$state.getUser.loading
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()
-              ) ? (
-                <ButtonLiom
-                  data-plasmic-name={"buttonLiom"}
-                  data-plasmic-override={overrides.buttonLiom}
-                  className={classNames("__wab_instance", sty.buttonLiom)}
-                  color={generateStateValueProp($state, [
-                    "buttonLiom",
-                    "color"
-                  ])}
-                  onClick={async event => {
+            <ApiRequest
+              data-plasmic-name={"getUser"}
+              data-plasmic-override={overrides.getUser}
+              className={classNames("__wab_instance", sty.getUser)}
+              errorDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__mmwws
+                  )}
+                >
+                  {"Error fetching data"}
+                </div>
+              }
+              loadingDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__y6Ofe
+                  )}
+                >
+                  {"Loading..."}
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getUser", "error"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getUser", "data"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              params={(() => {
+                try {
+                  return (() => {
+                    var token =
+                      $ctx.query.token ||
+                      new URLSearchParams(window.location.search).get("token");
+                    if (!token.startsWith("ey")) {
+                      token = token.slice(6, token.length - 3);
+                    }
+                    return { token: token };
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/getUser"}
+            >
+              <ApiRequest
+                data-plasmic-name={"getName"}
+                data-plasmic-override={overrides.getName}
+                body={(() => {
+                  try {
+                    return {
+                      type:
+                        $ctx.query.type ||
+                        new URLSearchParams(window.location.search).get("type")
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                children={null}
+                className={classNames("__wab_instance", sty.getName)}
+                errorDisplay={null}
+                loadingDisplay={null}
+                method={"POST"}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getName", "error"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "getName",
+                    "loading"
+                  ]).apply(null, eventArgs);
+                }}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getName", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  (async data => {
                     const $steps = {};
 
-                    $steps["invokeGlobalAction2"] =
-                      $ctx.query.inApp != "true" || true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                undefined,
-                                "\u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f",
-                                "bottom-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                    if (
-                      $steps["invokeGlobalAction2"] != null &&
-                      typeof $steps["invokeGlobalAction2"] === "object" &&
-                      typeof $steps["invokeGlobalAction2"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
-                    }
-
-                    $steps["runCode"] =
-                      // const params = new URLSearchParams(window.location.search);
-                      // if (params.has("version")) {
-                      //   if($ctx.query.inApp == 'true' && )
-                      //     console.log("stepId موجود است:", params.get("stepId"));
-                      // } else {
-                      //     false
-                      // }
-                      false
-                        ? //$ctx.query.version
-                          (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  return window.FlutterChannel.postMessage(
-                                    "#toast-با موفقیت انجام شد\uD83D\uDE0D-confirm"
-                                  );
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return console.log($state.getName.data);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                     if (
                       $steps["runCode"] != null &&
                       typeof $steps["runCode"] === "object" &&
@@ -2374,15 +2180,82 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     ) {
                       $steps["runCode"] = await $steps["runCode"];
                     }
+                  }).apply(null, eventArgs);
+                }}
+                url={"https://n8n.staas.ir/webhook/self/info"}
+              />
 
-                    $steps["updateLoading"] = true
+              <ApiRequest
+                data-plasmic-name={"getData"}
+                data-plasmic-override={overrides.getData}
+                body={(() => {
+                  try {
+                    return {
+                      stepId:
+                        $ctx.query.stepId ||
+                        new URLSearchParams(window.location.search).get(
+                          "stepId"
+                        ),
+                      sectionId:
+                        $ctx.query.secId ||
+                        new URLSearchParams(window.location.search).get(
+                          "secId"
+                        ),
+                      userId: $state.getUser?.data?.[0]?.userId
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                className={classNames("__wab_instance", sty.getData)}
+                errorDisplay={null}
+                loadingDisplay={null}
+                method={"POST"}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getData", "error"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "getData",
+                    "loading"
+                  ]).apply(null, eventArgs);
+                }}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["getData", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["updateListDetails"] = (() => {
+                      if (
+                        typeof $state.getData?.data?.[0]?.data !== "undefined"
+                      ) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    })()
                       ? (() => {
                           const actionArgs = {
                             variable: {
                               objRoot: $state,
-                              variablePath: ["loading"]
+                              variablePath: ["listDetails"]
                             },
-                            operation: 4
+                            operation: 0,
+                            value: JSON.parse($state.getData?.data?.[0]?.data)
+                              ?.data
                           };
                           return (({
                             variable,
@@ -2395,182 +2268,343 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             }
                             const { objRoot, variablePath } = variable;
 
-                            const oldValue = $stateGet(objRoot, variablePath);
-                            $stateSet(objRoot, variablePath, !oldValue);
-                            return !oldValue;
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["updateLoading"] != null &&
-                      typeof $steps["updateLoading"] === "object" &&
-                      typeof $steps["updateLoading"].then === "function"
+                      $steps["updateListDetails"] != null &&
+                      typeof $steps["updateListDetails"] === "object" &&
+                      typeof $steps["updateListDetails"].then === "function"
                     ) {
-                      $steps["updateLoading"] = await $steps["updateLoading"];
-                    }
-
-                    $steps["updateIsDone"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["isDone"]
-                            },
-                            operation: 4
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            const oldValue = $stateGet(objRoot, variablePath);
-                            $stateSet(objRoot, variablePath, !oldValue);
-                            return !oldValue;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateIsDone"] != null &&
-                      typeof $steps["updateIsDone"] === "object" &&
-                      typeof $steps["updateIsDone"].then === "function"
-                    ) {
-                      $steps["updateIsDone"] = await $steps["updateIsDone"];
-                    }
-
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://n8n.staas.ir/webhook/selfTreatmentSection",
-                              undefined,
-                              {
-                                sectionId: $ctx.query.secId,
-                                stepId: $ctx.query.stepId,
-                                userId: $state.getUser?.data?.[0]?.userId,
-                                type: $ctx.query.type
-                              }
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
+                      $steps["updateListDetails"] = await $steps[
+                        "updateListDetails"
                       ];
                     }
-
-                    $steps["updateLoading2"] = true
+                  }).apply(null, eventArgs);
+                }}
+                url={"https://n8n.staas.ir/webhook/selfTreatment"}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__yz5Xf)}>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobileOnly")
                       ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loading"]
-                            },
-                            operation: 4
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
+                          try {
+                            return (
+                              $state.isDone == false &&
+                              $ctx.query.type != "danger"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
                             }
-                            const { objRoot, variablePath } = variable;
-
-                            const oldValue = $stateGet(objRoot, variablePath);
-                            $stateSet(objRoot, variablePath, !oldValue);
-                            return !oldValue;
-                          })?.apply(null, [actionArgs]);
+                            throw e;
+                          }
                         })()
-                      : undefined;
-                    if (
-                      $steps["updateLoading2"] != null &&
-                      typeof $steps["updateLoading2"] === "object" &&
-                      typeof $steps["updateLoading2"].then === "function"
-                    ) {
-                      $steps["updateLoading2"] = await $steps["updateLoading2"];
-                    }
-
-                    $steps["refreshData"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            queryInvalidation: ["plasmic_refresh_all"]
-                          };
-                          return (async ({ queryInvalidation }) => {
-                            if (!queryInvalidation) {
-                              return;
+                      : (() => {
+                          try {
+                            return (
+                              $state.isDone == false &&
+                              $ctx.query.type != "danger" &&
+                              $ctx.query.type != "stretch_marks" &&
+                              !$state.getUser.loading
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
                             }
-                            await plasmicInvalidate(queryInvalidation);
-                          })?.apply(null, [actionArgs]);
+                            throw e;
+                          }
                         })()
-                      : undefined;
-                    if (
-                      $steps["refreshData"] != null &&
-                      typeof $steps["refreshData"] === "object" &&
-                      typeof $steps["refreshData"].then === "function"
-                    ) {
-                      $steps["refreshData"] = await $steps["refreshData"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, [
+                  ) ? (
+                    <ButtonLiom
+                      data-plasmic-name={"buttonLiom"}
+                      data-plasmic-override={overrides.buttonLiom}
+                      className={classNames("__wab_instance", sty.buttonLiom)}
+                      color={generateStateValueProp($state, [
                         "buttonLiom",
                         "color"
-                      ])(eventArgs[0]);
-                    }).apply(null, eventArgs);
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
 
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  unnamedVariant={(() => {
-                    try {
-                      return $state.loading;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rqj6X
-                    )}
-                  >
-                    {"\u0627\u0646\u062c\u0627\u0645 \u0634\u062f"}
-                  </div>
-                </ButtonLiom>
-              ) : null}
-            </div>
+                        $steps["invokeGlobalAction2"] =
+                          $ctx.query.inApp != "true" || true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    undefined,
+                                    "\u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f",
+                                    "bottom-center"
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.showToast"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] = await $steps[
+                            "invokeGlobalAction2"
+                          ];
+                        }
+
+                        $steps["runCode"] =
+                          // const params = new URLSearchParams(window.location.search);
+                          // if (params.has("version")) {
+                          //   if($ctx.query.inApp == 'true' && )
+                          //     console.log("stepId موجود است:", params.get("stepId"));
+                          // } else {
+                          //     false
+                          // }
+                          false
+                            ? //$ctx.query.version
+                              (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return window.FlutterChannel.postMessage(
+                                        "#toast-با موفقیت انجام شد\uD83D\uDE0D-confirm"
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["updateLoading"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loading"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoading"] != null &&
+                          typeof $steps["updateLoading"] === "object" &&
+                          typeof $steps["updateLoading"].then === "function"
+                        ) {
+                          $steps["updateLoading"] = await $steps[
+                            "updateLoading"
+                          ];
+                        }
+
+                        $steps["updateIsDone"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["isDone"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateIsDone"] != null &&
+                          typeof $steps["updateIsDone"] === "object" &&
+                          typeof $steps["updateIsDone"].then === "function"
+                        ) {
+                          $steps["updateIsDone"] = await $steps["updateIsDone"];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/selfTreatmentSection",
+                                  undefined,
+                                  {
+                                    sectionId: $ctx.query.secId,
+                                    stepId: $ctx.query.stepId,
+                                    userId: $state.getUser?.data?.[0]?.userId,
+                                    type: $ctx.query.type
+                                  }
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["updateLoading2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loading"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoading2"] != null &&
+                          typeof $steps["updateLoading2"] === "object" &&
+                          typeof $steps["updateLoading2"].then === "function"
+                        ) {
+                          $steps["updateLoading2"] = await $steps[
+                            "updateLoading2"
+                          ];
+                        }
+
+                        $steps["refreshData"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                queryInvalidation: ["plasmic_refresh_all"]
+                              };
+                              return (async ({ queryInvalidation }) => {
+                                if (!queryInvalidation) {
+                                  return;
+                                }
+                                await plasmicInvalidate(queryInvalidation);
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["refreshData"] != null &&
+                          typeof $steps["refreshData"] === "object" &&
+                          typeof $steps["refreshData"].then === "function"
+                        ) {
+                          $steps["refreshData"] = await $steps["refreshData"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "buttonLiom",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      unnamedVariant={(() => {
+                        try {
+                          return $state.loading;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rqj6X
+                        )}
+                      >
+                        {"\u0627\u0646\u062c\u0627\u0645 \u0634\u062f"}
+                      </div>
+                    </ButtonLiom>
+                  ) : null}
+                </div>
+              </ApiRequest>
+            </ApiRequest>
           </Stack__>
           {(() => {
             try {
@@ -3107,24 +3141,24 @@ const PlasmicDescendants = {
     "headerLiom",
     "paziresh24Avatar",
     "sideEffect",
-    "getUser",
-    "getName",
-    "getData",
     "stepsLayout",
     "percentageBox",
     "lineClomp4",
+    "getUser",
+    "getName",
+    "getData",
     "buttonLiom",
     "lottie"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
   sideEffect: ["sideEffect"],
-  getUser: ["getUser", "getName", "getData"],
-  getName: ["getName"],
-  getData: ["getData"],
   stepsLayout: ["stepsLayout", "percentageBox", "lineClomp4"],
   percentageBox: ["percentageBox"],
   lineClomp4: ["lineClomp4"],
+  getUser: ["getUser", "getName", "getData", "buttonLiom"],
+  getName: ["getName"],
+  getData: ["getData", "buttonLiom"],
   buttonLiom: ["buttonLiom"],
   lottie: ["lottie"]
 } as const;
@@ -3136,12 +3170,12 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
   sideEffect: typeof SideEffect;
-  getUser: typeof ApiRequest;
-  getName: typeof ApiRequest;
-  getData: typeof ApiRequest;
   stepsLayout: typeof StepsLayout;
   percentageBox: typeof PercentageBox;
   lineClomp4: typeof LineClomp;
+  getUser: typeof ApiRequest;
+  getName: typeof ApiRequest;
+  getData: typeof ApiRequest;
   buttonLiom: typeof ButtonLiom;
   lottie: typeof LottieWrapper;
 };
@@ -3234,12 +3268,12 @@ export const PlasmicSelfMedicationStep = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     sideEffect: makeNodeComponent("sideEffect"),
-    getUser: makeNodeComponent("getUser"),
-    getName: makeNodeComponent("getName"),
-    getData: makeNodeComponent("getData"),
     stepsLayout: makeNodeComponent("stepsLayout"),
     percentageBox: makeNodeComponent("percentageBox"),
     lineClomp4: makeNodeComponent("lineClomp4"),
+    getUser: makeNodeComponent("getUser"),
+    getName: makeNodeComponent("getName"),
+    getData: makeNodeComponent("getData"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     lottie: makeNodeComponent("lottie"),
 
