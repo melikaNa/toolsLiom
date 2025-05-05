@@ -827,6 +827,8 @@
     bottom: auto;
     right: auto;
     top: auto;
+    width: 100%;
+    min-width: 0;
   }
 }
 .buttonLiom:global(.__wab_instance) {
