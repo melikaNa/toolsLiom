@@ -3268,7 +3268,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             if (
                                               $ctx.query.type ==
                                                 "stretch_marks" ||
-                                              $ctx.query.type == "hair_care"
+                                              $ctx.query.type == "hair_care" ||
+                                              $ctx.query.type ==
+                                                "adhd_treatment_sub"
                                             )
                                               title = currentItem.title;
                                             if (
@@ -3508,7 +3510,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                           if (
                                             $ctx.query.type ==
                                               "stretch_marks" ||
-                                            $ctx.query.type == "hair_care"
+                                            $ctx.query.type == "hair_care" ||
+                                            $ctx.query.type ==
+                                              "adhd_treatment_sub"
                                           )
                                             title = currentItem.title;
                                           return window.FlutterChannel.postMessage(
@@ -3927,14 +3931,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       return "skin_care_sub";
                     case "skinCareIsActive":
                       return "skin_care_sub";
-                    case "danger":
-                      return "pregnancy_danger_sub";
                     case "irregular":
                       return "irregular";
                     case "stretch_marks":
                       return "stretch_marks_sub";
                     case "hair_care":
                       return "hair_care_sub";
+                    case "adhd_treatment_sub":
+                      return "adhd_treatment_sub";
                   }
                 })();
               } catch (e) {

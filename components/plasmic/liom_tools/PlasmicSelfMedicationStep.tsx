@@ -2315,6 +2315,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               $state.isDone == false &&
                               $ctx.query.type != "danger" &&
                               $ctx.query.type != "stretch_marks" &&
+                              $ctx.query.type != "adhd_treatment_sub" &&
                               !$state.getUser.loading
                             );
                           } catch (e) {
