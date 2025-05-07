@@ -69,6 +69,8 @@ import VigetLiom from "../../VigetLiom"; // plasmic-import: aok8o2KhU8vY/compone
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Switchbest from "../../Switchbest"; // plasmic-import: sHLRdvulrK-R/component
+import TabWeek2 from "../../TabWeek2"; // plasmic-import: TgQ-n3w6yOfs/component
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
@@ -109,9 +111,10 @@ export type PlasmicTest__OverridesType = {
   button6?: Flex__<typeof ButtonLiom>;
   button7?: Flex__<typeof ButtonLiom>;
   switchbest?: Flex__<typeof Switchbest>;
-  img?: Flex__<typeof PlasmicImg__>;
   card15?: Flex__<"div">;
   button9?: Flex__<typeof ButtonLiom>;
+  tabWeek2?: Flex__<typeof TabWeek2>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultTestProps {}
@@ -150,6 +153,7 @@ function PlasmicTest__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -764,10 +768,8 @@ function PlasmicTest__RenderFunc(props: {
               })}
             </VigetLiom>
             <PlasmicImg__
-              data-plasmic-name={"img"}
-              data-plasmic-override={overrides.img}
               alt={""}
-              className={classNames(sty.img)}
+              className={classNames(sty.img__uE8Hn)}
               displayHeight={"auto"}
               displayMaxHeight={"none"}
               displayMaxWidth={"100%"}
@@ -910,6 +912,224 @@ function PlasmicTest__RenderFunc(props: {
               );
             })}
           </div>
+          <div className={classNames(projectcss.all, sty.freeBox__wKej4)}>
+            <div className={classNames(projectcss.all, sty.freeBox__d4SpL)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__l0HqL)}
+                id={"my-scroll-list"}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return Array.from(
+                        { length: 40 },
+                        (_, index) => index + 1
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <TabWeek2
+                      data-plasmic-name={"tabWeek2"}
+                      data-plasmic-override={overrides.tabWeek2}
+                      className={classNames("__wab_instance", sty.tabWeek2)}
+                      currentItem={(() => {
+                        try {
+                          return currentItem;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      dark={(() => {
+                        try {
+                          return false;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      key={currentIndex}
+                    />
+                  );
+                })}
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__zkHlQ
+                  )}
+                >
+                  {"Enter some text"}
+                </div>
+                <SideEffect
+                  data-plasmic-name={"sideEffect"}
+                  data-plasmic-override={overrides.sideEffect}
+                  className={classNames("__wab_instance", sty.sideEffect)}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__wpBhW
+                  )}
+                >
+                  {"Enter some text"}
+                </div>
+              </Stack__>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox___1RneI)}>
+              <div className={classNames(projectcss.all, sty.freeBox___2Pah1)}>
+                <div className={classNames(projectcss.all, sty.freeBox__qh3Px)}>
+                  {(() => {
+                    try {
+                      return true;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__prqn)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__gluq4
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__iXgtK
+                          )}
+                        >
+                          {""}
+                        </div>
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__ecInm)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? "15px"
+                              : "20px"
+                          }
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/liom_tools/images/image42.svg",
+                            fullWidth: 24,
+                            fullHeight: 24,
+                            aspectRatio: 1
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ) : null}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__lWslg)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__qlZak
+                      )}
+                    >
+                      {""}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__oAXL
+                      )}
+                    >
+                      {""}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__cc0Jl)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__uIepJ
+                      )}
+                    >
+                      {""}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__mJnu4
+                      )}
+                    >
+                      {""}
+                    </div>
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__eWfA)}>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__sdyM3)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    height={
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? "120"
+                        : "150"
+                    }
+                    loading={"lazy"}
+                    width={
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? "120"
+                        : "150"
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -927,9 +1147,10 @@ const PlasmicDescendants = {
     "button6",
     "button7",
     "switchbest",
-    "img",
     "card15",
-    "button9"
+    "button9",
+    "tabWeek2",
+    "sideEffect"
   ],
   htmlVideo: ["htmlVideo"],
   paziresh24LineClamp: ["paziresh24LineClamp"],
@@ -939,9 +1160,10 @@ const PlasmicDescendants = {
   button6: ["button6"],
   button7: ["button7"],
   switchbest: ["switchbest"],
-  img: ["img"],
   card15: ["card15", "button9"],
-  button9: ["button9"]
+  button9: ["button9"],
+  tabWeek2: ["tabWeek2"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -956,9 +1178,10 @@ type NodeDefaultElementType = {
   button6: typeof ButtonLiom;
   button7: typeof ButtonLiom;
   switchbest: typeof Switchbest;
-  img: typeof PlasmicImg__;
   card15: "div";
   button9: typeof ButtonLiom;
+  tabWeek2: typeof TabWeek2;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1054,9 +1277,10 @@ export const PlasmicTest = Object.assign(
     button6: makeNodeComponent("button6"),
     button7: makeNodeComponent("button7"),
     switchbest: makeNodeComponent("switchbest"),
-    img: makeNodeComponent("img"),
     card15: makeNodeComponent("card15"),
     button9: makeNodeComponent("button9"),
+    tabWeek2: makeNodeComponent("tabWeek2"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

@@ -191,6 +191,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -1437,13 +1438,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           "https://n8n.staas.ir/webhook/infoChatBot",
                           (() => {
                             try {
-                              return {
-                                topic:
-                                  $ctx.query?.topic ||
-                                  new URLSearchParams(window.location.href).get(
-                                    "topic"
-                                  )
-                              };
+                              return { topic: $state.paramsObject.topic };
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||

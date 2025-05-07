@@ -4275,6 +4275,11 @@
           "id": "JeJMg1A42803",
           "name": "photo_2025-05-01_13-41-41.jpg",
           "filePath": "../public/plasmic/liom_tools/images/photo20250501134141Jpg.jpg"
+        },
+        {
+          "id": "eG8hLAT7vI4s",
+          "name": "image 42",
+          "filePath": "../public/plasmic/liom_tools/images/image42.svg"
         }
       ],
       "indirect": false,
@@ -4845,6 +4850,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.337",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.337/dist/plasmic.schema.json"
+  "cliVersion": "0.1.338",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.338/dist/plasmic.schema.json"
 }
