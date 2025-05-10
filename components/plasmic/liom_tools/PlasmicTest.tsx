@@ -71,6 +71,8 @@ import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Switchbest from "../../Switchbest"; // plasmic-import: sHLRdvulrK-R/component
 import TabWeek2 from "../../TabWeek2"; // plasmic-import: TgQ-n3w6yOfs/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
@@ -115,6 +117,9 @@ export type PlasmicTest__OverridesType = {
   button9?: Flex__<typeof ButtonLiom>;
   tabWeek2?: Flex__<typeof TabWeek2>;
   sideEffect?: Flex__<typeof SideEffect>;
+  collapseBaby?: Flex__<typeof AntdSingleCollapse>;
+  collapseMother?: Flex__<typeof AntdSingleCollapse>;
+  collapseHealth?: Flex__<typeof AntdSingleCollapse>;
 };
 
 export interface DefaultTestProps {}
@@ -192,6 +197,30 @@ function PlasmicTest__RenderFunc(props: {
         path: "button9[].color",
         type: "private",
         variableType: "text"
+      },
+      {
+        path: "collapseBaby.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "collapseMother.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "collapseHealth.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -1130,6 +1159,354 @@ function PlasmicTest__RenderFunc(props: {
               </div>
             </div>
           </div>
+          <div className={classNames(projectcss.all, sty.freeBox___7Xfu9)}>
+            <div className={classNames(projectcss.all, sty.freeBox__ctvdL)}>
+              {(() => {
+                const child$Props = {
+                  bordered: true,
+                  className: classNames("__wab_instance", sty.collapseBaby),
+                  expandIcon: (
+                    <React.Fragment>
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__khQ6B)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"15px"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_tools/images/image32.svg",
+                          fullWidth: 16,
+                          fullHeight: 16,
+                          aspectRatio: 1
+                        }}
+                      />
+
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__l9Hpk)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"25px"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_tools/images/image31.svg",
+                          fullWidth: 16,
+                          fullHeight: 16,
+                          aspectRatio: 1
+                        }}
+                      />
+                    </React.Fragment>
+                  ),
+                  expandIconPosition: "end",
+                  ghost: true,
+                  label2: (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__sjYFh
+                      )}
+                    >
+                      {
+                        "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647"
+                      }
+                    </div>
+                  ),
+                  onChange: async (...eventArgs: any) => {
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "open",
+                      ["collapseBaby", "open"],
+                      AntdSingleCollapse_Helpers
+                    ).apply(null, eventArgs);
+                  },
+                  open: generateStateValueProp($state, [
+                    "collapseBaby",
+                    "open"
+                  ]),
+                  showArrow: true,
+                  size: "large"
+                };
+                initializeCodeComponentStates(
+                  $state,
+                  [
+                    {
+                      name: "open",
+                      plasmicStateName: "collapseBaby.open"
+                    }
+                  ],
+                  [],
+                  AntdSingleCollapse_Helpers ?? {},
+                  child$Props
+                );
+
+                return (
+                  <AntdSingleCollapse
+                    data-plasmic-name={"collapseBaby"}
+                    data-plasmic-override={overrides.collapseBaby}
+                    {...child$Props}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__weiaB
+                      )}
+                    >
+                      {""}
+                    </div>
+                  </AntdSingleCollapse>
+                );
+              })()}
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__f8TFd)}>
+              {(() => {
+                const child$Props = {
+                  bordered: true,
+                  className: classNames("__wab_instance", sty.collapseMother),
+                  expandIcon: (
+                    <React.Fragment>
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__hWuO)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"15px"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_tools/images/image32.svg",
+                          fullWidth: 16,
+                          fullHeight: 16,
+                          aspectRatio: 1
+                        }}
+                      />
+
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__cIlAt)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"25px"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_tools/images/image31.svg",
+                          fullWidth: 16,
+                          fullHeight: 16,
+                          aspectRatio: 1
+                        }}
+                      />
+                    </React.Fragment>
+                  ),
+                  expandIconPosition: "end",
+                  ghost: true,
+                  label2: (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__u2Ytr
+                      )}
+                    >
+                      {
+                        "\u0635\u062d\u0628\u062a \u0628\u0627 \u0645\u0627\u062f\u0631"
+                      }
+                    </div>
+                  ),
+                  onChange: async (...eventArgs: any) => {
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "open",
+                      ["collapseMother", "open"],
+                      AntdSingleCollapse_Helpers
+                    ).apply(null, eventArgs);
+                  },
+                  open: generateStateValueProp($state, [
+                    "collapseMother",
+                    "open"
+                  ]),
+                  showArrow: true,
+                  size: "large"
+                };
+                initializeCodeComponentStates(
+                  $state,
+                  [
+                    {
+                      name: "open",
+                      plasmicStateName: "collapseMother.open"
+                    }
+                  ],
+                  [],
+                  AntdSingleCollapse_Helpers ?? {},
+                  child$Props
+                );
+
+                return (
+                  <AntdSingleCollapse
+                    data-plasmic-name={"collapseMother"}
+                    data-plasmic-override={overrides.collapseMother}
+                    {...child$Props}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__wnPxM
+                      )}
+                    >
+                      {""}
+                    </div>
+                  </AntdSingleCollapse>
+                );
+              })()}
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__vpszJ)}>
+              {(() => {
+                const child$Props = {
+                  bordered: true,
+                  className: classNames("__wab_instance", sty.collapseHealth),
+                  expandIcon: (
+                    <React.Fragment>
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__n1Ppm)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"15px"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_tools/images/image32.svg",
+                          fullWidth: 16,
+                          fullHeight: 16,
+                          aspectRatio: 1
+                        }}
+                      />
+
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__xgGJn)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"25px"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_tools/images/image31.svg",
+                          fullWidth: 16,
+                          fullHeight: 16,
+                          aspectRatio: 1
+                        }}
+                      />
+                    </React.Fragment>
+                  ),
+                  expandIconPosition: "end",
+                  ghost: true,
+                  label2: (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___76Rms
+                      )}
+                    >
+                      {
+                        "\u062a\u0648\u0635\u06cc\u0647 \u0648 \u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u0647\u0627\u06cc \u0633\u0644\u0627\u0645\u062a\u06cc"
+                      }
+                    </div>
+                  ),
+                  onChange: async (...eventArgs: any) => {
+                    generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "open",
+                      ["collapseHealth", "open"],
+                      AntdSingleCollapse_Helpers
+                    ).apply(null, eventArgs);
+                  },
+                  open: generateStateValueProp($state, [
+                    "collapseHealth",
+                    "open"
+                  ]),
+                  showArrow: true,
+                  size: "large"
+                };
+                initializeCodeComponentStates(
+                  $state,
+                  [
+                    {
+                      name: "open",
+                      plasmicStateName: "collapseHealth.open"
+                    }
+                  ],
+                  [],
+                  AntdSingleCollapse_Helpers ?? {},
+                  child$Props
+                );
+
+                return (
+                  <AntdSingleCollapse
+                    data-plasmic-name={"collapseHealth"}
+                    data-plasmic-override={overrides.collapseHealth}
+                    {...child$Props}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__aM2Pc
+                      )}
+                    >
+                      {""}
+                    </div>
+                  </AntdSingleCollapse>
+                );
+              })()}
+            </div>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__yKtOj)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___9E7U6
+                )}
+              >
+                {
+                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
+                }
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__qv0VX
+                )}
+              >
+                {
+                  "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
+                }
+              </div>
+            </Stack__>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -1150,7 +1527,10 @@ const PlasmicDescendants = {
     "card15",
     "button9",
     "tabWeek2",
-    "sideEffect"
+    "sideEffect",
+    "collapseBaby",
+    "collapseMother",
+    "collapseHealth"
   ],
   htmlVideo: ["htmlVideo"],
   paziresh24LineClamp: ["paziresh24LineClamp"],
@@ -1163,7 +1543,10 @@ const PlasmicDescendants = {
   card15: ["card15", "button9"],
   button9: ["button9"],
   tabWeek2: ["tabWeek2"],
-  sideEffect: ["sideEffect"]
+  sideEffect: ["sideEffect"],
+  collapseBaby: ["collapseBaby"],
+  collapseMother: ["collapseMother"],
+  collapseHealth: ["collapseHealth"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1182,6 +1565,9 @@ type NodeDefaultElementType = {
   button9: typeof ButtonLiom;
   tabWeek2: typeof TabWeek2;
   sideEffect: typeof SideEffect;
+  collapseBaby: typeof AntdSingleCollapse;
+  collapseMother: typeof AntdSingleCollapse;
+  collapseHealth: typeof AntdSingleCollapse;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1281,6 +1667,9 @@ export const PlasmicTest = Object.assign(
     button9: makeNodeComponent("button9"),
     tabWeek2: makeNodeComponent("tabWeek2"),
     sideEffect: makeNodeComponent("sideEffect"),
+    collapseBaby: makeNodeComponent("collapseBaby"),
+    collapseMother: makeNodeComponent("collapseMother"),
+    collapseHealth: makeNodeComponent("collapseHealth"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

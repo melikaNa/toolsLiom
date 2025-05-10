@@ -2801,6 +2801,19 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicDirectDialogChatbot.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "hUKkW7H54aPr",
+          "name": "BuyComponenct",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicBuyComponenct.tsx",
+          "importSpec": {
+            "modulePath": "BuyComponenct.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicBuyComponenct.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

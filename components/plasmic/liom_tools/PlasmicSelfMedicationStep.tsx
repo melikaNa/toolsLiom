@@ -122,9 +122,9 @@ export type PlasmicSelfMedicationStep__OverridesType = {
   percentageBox?: Flex__<typeof PercentageBox>;
   lineClomp4?: Flex__<typeof LineClomp>;
   getUser?: Flex__<typeof ApiRequest>;
-  getName?: Flex__<typeof ApiRequest>;
   getData?: Flex__<typeof ApiRequest>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
+  buttonLiom2?: Flex__<typeof ButtonLiom>;
   lottie?: Flex__<typeof LottieWrapper>;
 };
 
@@ -205,24 +205,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         variableType: "boolean"
       },
       {
-        path: "getName.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "getName.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "getName.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "buttonLiom.color",
         type: "private",
         variableType: "text",
@@ -240,7 +222,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   $ctx.query.type == "danger" ||
                   $ctx.query.type == "stretch_marks" ||
                   $ctx.query.type == "hair_care" ||
-                  $ctx.query.type == "adhd_treatment_sub"
+                  $ctx.query.type == "adhd_treatment_sub" ||
+                  $ctx.query.type == "under_eye_concerns_sub"
                 )
                   return true;
                 else if (
@@ -325,6 +308,12 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "buttonLiom2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2099,15 +2088,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               }}
               params={(() => {
                 try {
-                  return (() => {
-                    var token =
-                      $ctx.query.token ||
-                      new URLSearchParams(window.location.search).get("token");
-                    if (!token.startsWith("ey")) {
-                      token = token.slice(6, token.length - 3);
-                    }
-                    return { token: token };
-                  })();
+                  return {
+                    token: $state.token
+                  };
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -2121,93 +2104,46 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               url={"https://n8n.staas.ir/webhook/getUser"}
             >
               <ApiRequest
-                data-plasmic-name={"getName"}
-                data-plasmic-override={overrides.getName}
-                body={(() => {
-                  try {
-                    return {
-                      type:
-                        $ctx.query.type ||
-                        new URLSearchParams(window.location.search).get("type")
-                    };
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                children={null}
-                className={classNames("__wab_instance", sty.getName)}
-                errorDisplay={null}
-                loadingDisplay={null}
-                method={"POST"}
-                onError={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getName", "error"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                onLoading={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "getName",
-                    "loading"
-                  ]).apply(null, eventArgs);
-                }}
-                onSuccess={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["getName", "data"]).apply(
-                    null,
-                    eventArgs
-                  );
-
-                  (async data => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return console.log($state.getName.data);
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }).apply(null, eventArgs);
-                }}
-                url={"https://n8n.staas.ir/webhook/self/info"}
-              />
-
-              <ApiRequest
                 data-plasmic-name={"getData"}
                 data-plasmic-override={overrides.getData}
                 body={(() => {
                   try {
-                    return {
-                      stepId:
-                        $ctx.query.stepId ||
-                        new URLSearchParams(window.location.search).get(
-                          "stepId"
-                        ),
-                      sectionId:
-                        $ctx.query.secId ||
-                        new URLSearchParams(window.location.search).get(
-                          "secId"
-                        ),
-                      userId: $state.getUser?.data?.[0]?.userId
-                    };
+                    return (() => {
+                      var type = $ctx.query.type;
+                      switch ($ctx.query.type) {
+                        case "stretch_marks":
+                          type = "stretchMarksIsActive";
+                          break;
+                        case "irregular":
+                          type = "irregularIsActive";
+                          break;
+                        case "adhd_treatment_sub":
+                          type = "adhdTreatmentIsActive";
+                          break;
+                        case "hair_care":
+                          type = "hairCareIsActive";
+                          break;
+                        case "skinCare":
+                          type = "skinCareIsActive";
+                          break;
+                      }
+                      return {
+                        stepId:
+                          $ctx.query.stepId ||
+                          new URLSearchParams(window.location.search).get(
+                            "stepId"
+                          ),
+                        sectionId:
+                          $ctx.query.secId ||
+                          new URLSearchParams(window.location.search).get(
+                            "secId"
+                          ),
+                        userId: $state.getUser?.data?.[0]?.userId,
+                        token: $state.token,
+                        sub: type,
+                        type: $ctx.query.type
+                      };
+                    })();
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -2612,6 +2548,90 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               </ApiRequest>
             </ApiRequest>
           </Stack__>
+          {(() => {
+            try {
+              return (
+                !$state.getData.loading &&
+                ($state.getData?.data?.[0]?.id || "") == ""
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__x38Iz)}>
+              <div className={classNames(projectcss.all, sty.freeBox__rV2Pa)}>
+                <div className={classNames(projectcss.all, sty.freeBox__f91A)}>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__h8Qj2)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"none"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"40%"}
+                    loading={"lazy"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__hgRSm
+                    )}
+                  >
+                    {
+                      "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0645\u062d\u062a\u0648\u0627 \u0644\u0637\u0641\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
+                    }
+                  </div>
+                  <ButtonLiom
+                    data-plasmic-name={"buttonLiom2"}
+                    data-plasmic-override={overrides.buttonLiom2}
+                    className={classNames("__wab_instance", sty.buttonLiom2)}
+                    color={generateStateValueProp($state, [
+                      "buttonLiom2",
+                      "color"
+                    ])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom2",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    size={"minimal"}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__q5Vl
+                      )}
+                    >
+                      {
+                        "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
+                      }
+                    </div>
+                  </ButtonLiom>
+                </div>
+              </div>
+            </div>
+          ) : null}
           {(() => {
             try {
               return $state.loading2;
@@ -3151,9 +3171,9 @@ const PlasmicDescendants = {
     "percentageBox",
     "lineClomp4",
     "getUser",
-    "getName",
     "getData",
     "buttonLiom",
+    "buttonLiom2",
     "lottie"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
@@ -3162,10 +3182,10 @@ const PlasmicDescendants = {
   stepsLayout: ["stepsLayout", "percentageBox", "lineClomp4"],
   percentageBox: ["percentageBox"],
   lineClomp4: ["lineClomp4"],
-  getUser: ["getUser", "getName", "getData", "buttonLiom"],
-  getName: ["getName"],
+  getUser: ["getUser", "getData", "buttonLiom"],
   getData: ["getData", "buttonLiom"],
   buttonLiom: ["buttonLiom"],
+  buttonLiom2: ["buttonLiom2"],
   lottie: ["lottie"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3180,9 +3200,9 @@ type NodeDefaultElementType = {
   percentageBox: typeof PercentageBox;
   lineClomp4: typeof LineClomp;
   getUser: typeof ApiRequest;
-  getName: typeof ApiRequest;
   getData: typeof ApiRequest;
   buttonLiom: typeof ButtonLiom;
+  buttonLiom2: typeof ButtonLiom;
   lottie: typeof LottieWrapper;
 };
 
@@ -3278,9 +3298,9 @@ export const PlasmicSelfMedicationStep = Object.assign(
     percentageBox: makeNodeComponent("percentageBox"),
     lineClomp4: makeNodeComponent("lineClomp4"),
     getUser: makeNodeComponent("getUser"),
-    getName: makeNodeComponent("getName"),
     getData: makeNodeComponent("getData"),
     buttonLiom: makeNodeComponent("buttonLiom"),
+    buttonLiom2: makeNodeComponent("buttonLiom2"),
     lottie: makeNodeComponent("lottie"),
 
     // Metadata about props expected for PlasmicSelfMedicationStep
