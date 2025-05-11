@@ -1509,9 +1509,7 @@ function PlasmicBmi__RenderFunc(props: {
                       sty.text__iOweJ
                     )}
                   >
-                    {hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? "\u0642\u062f"
-                      : "\u0642\u062f"}
+                    {"\u0642\u062f"}
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__d01ZG)}
@@ -1526,7 +1524,7 @@ function PlasmicBmi__RenderFunc(props: {
                           "value"
                         ]).apply(null, eventArgs);
                       }}
-                      placeholder={"150"}
+                      placeholder={"cm"}
                       type={"text"}
                       value={generateStateValueProp($state, ["higth", "value"])}
                     />
@@ -1545,9 +1543,9 @@ function PlasmicBmi__RenderFunc(props: {
                       sty.text___9YMl6
                     )}
                   >
-                    {hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? "\u0648\u0632\u0646"
-                      : "\u0648\u0632\u0646  \u0642\u0628\u0644 \u0627\u0632 \u0628\u0631\u062f\u0627\u0631\u06cc"}
+                    {
+                      "\u0648\u0632\u0646  \u0642\u0628\u0644 \u0627\u0632 \u0628\u0631\u062f\u0627\u0631\u06cc"
+                    }
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__nGezH)}
@@ -1568,7 +1566,7 @@ function PlasmicBmi__RenderFunc(props: {
                           "value"
                         ]).apply(null, eventArgs);
                       }}
-                      placeholder={"35"}
+                      placeholder={"kg"}
                       type={"text"}
                       value={generateStateValueProp($state, [
                         "lastWeight",
@@ -1584,7 +1582,11 @@ function PlasmicBmi__RenderFunc(props: {
                 </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__onWzc)}>
-                <div className={classNames(projectcss.all, sty.freeBox__kcXag)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__kcXag)}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1611,9 +1613,9 @@ function PlasmicBmi__RenderFunc(props: {
                           sty.text__tnTgd
                         )}
                       >
-                        {hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? "\u0648\u0632\u0646"
-                          : "\u0647\u0641\u062a\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"}
+                        {
+                          "\u0647\u0641\u062a\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                        }
                       </div>
                       <div
                         className={classNames(
@@ -1678,7 +1680,7 @@ function PlasmicBmi__RenderFunc(props: {
                               }
                             }).apply(null, eventArgs);
                           }}
-                          placeholder={"5"}
+                          placeholder={"\u0647\u0641\u062a\u0647"}
                           type={"text"}
                           value={generateStateValueProp($state, [
                             "week",
@@ -1702,9 +1704,7 @@ function PlasmicBmi__RenderFunc(props: {
                           sty.text__aaE4P
                         )}
                       >
-                        {hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? "\u0648\u0632\u0646"
-                          : "\u0648\u0632\u0646  \u0641\u0639\u0644\u06cc"}
+                        {"\u0648\u0632\u0646  \u0641\u0639\u0644\u06cc"}
                       </div>
                       <div
                         className={classNames(
@@ -1715,14 +1715,20 @@ function PlasmicBmi__RenderFunc(props: {
                         <Input
                           data-plasmic-name={"weight2"}
                           data-plasmic-override={overrides.weight2}
-                          className={classNames("__wab_instance", sty.weight2)}
+                          className={classNames("__wab_instance", sty.weight2, {
+                            [sty.weight2resalt]: hasVariant(
+                              $state,
+                              "resalt",
+                              "resalt"
+                            )
+                          })}
                           onChange={async (...eventArgs: any) => {
                             generateStateOnChangeProp($state, [
                               "weight2",
                               "value"
                             ]).apply(null, eventArgs);
                           }}
-                          placeholder={"35"}
+                          placeholder={"kg"}
                           type={"text"}
                           value={generateStateValueProp($state, [
                             "weight2",
@@ -1803,7 +1809,7 @@ function PlasmicBmi__RenderFunc(props: {
                       ) : null}
                     </div>
                   </div>
-                </div>
+                </Stack__>
               </div>
               <section
                 className={classNames(projectcss.all, sty.section___8G5Tq, {

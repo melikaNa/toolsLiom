@@ -155,7 +155,7 @@
   max-width: 100%;
   text-align: right;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   padding-bottom: 8px;
   min-width: 0;
 }
@@ -213,7 +213,7 @@
   max-width: 100%;
   text-align: right;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   padding-bottom: 8px;
   min-width: 0;
 }
@@ -267,18 +267,45 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  justify-content: flex-start;
-  align-items: center;
   background: var(--token-ieogzVSSyrRx);
   min-width: 0;
   border-radius: 8px;
   padding: 8px;
   border-width: 1px;
 }
+.freeBox__kcXag > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+}
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__kcXag {
-    padding-left: 8px;
-    padding-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__kcXag > :global(.__wab_flex-container) {
+    flex-direction: column;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+    margin-top: calc(0px - 16px);
+    height: calc(100% + 16px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__kcXag > :global(.__wab_flex-container) > *,
+  .freeBox__kcXag > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__kcXag > :global(.__wab_flex-container) > picture > img,
+  .freeBox__kcXag
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+    margin-top: 16px;
   }
 }
 .text__mkof {
@@ -352,7 +379,7 @@
   max-width: 100%;
   text-align: right;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   padding-bottom: 8px;
   min-width: 0;
 }
@@ -410,7 +437,7 @@
   max-width: 100%;
   text-align: right;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   padding-bottom: 8px;
   min-width: 0;
 }
@@ -458,13 +485,18 @@
   min-width: 0;
   padding: 0px 16px 16px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__h6WtR {
+    padding: 0px;
+  }
+}
 .text___46TXg {
   width: 100%;
   height: auto;
   max-width: 100%;
   text-align: right;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   padding-bottom: 8px;
   min-width: 0;
 }
