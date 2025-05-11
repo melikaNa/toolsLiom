@@ -2822,7 +2822,7 @@
           "projectId": "3zKPdhWckw1SJpPYhK46Bs",
           "renderModuleFilePath": "plasmic/liom_tools/PlasmicBmi.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/bmi.tsx"
+            "modulePath": "../src/pages/pregnancy-bmi.tsx"
           },
           "cssFilePath": "plasmic/liom_tools/PlasmicBmi.module.css",
           "scheme": "blackbox",

@@ -129,6 +129,7 @@ export type PlasmicBmi__OverridesType = {
   reveal?: Flex__<typeof Reveal>;
   embedHtml?: Flex__<typeof Embed>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
+  buttonLiom3?: Flex__<typeof ButtonLiom>;
   dialog3?: Flex__<typeof Dialog3>;
   apiRequest?: Flex__<typeof ApiRequest>;
   dialogTitle?: Flex__<typeof DialogTitle>;
@@ -931,6 +932,12 @@ function PlasmicBmi__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "line"
+      },
+      {
+        path: "buttonLiom3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -1485,6 +1492,35 @@ function PlasmicBmi__RenderFunc(props: {
               ) {
                 $steps["setCookieGuest"] = await $steps["setCookieGuest"];
               }
+
+              $steps["updateWeek2"] = $state.paramsObject.week
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["week2"]
+                      },
+                      operation: 0,
+                      value: parseInt($state.paramsObject.week) || 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateWeek2"] != null &&
+                typeof $steps["updateWeek2"] === "object" &&
+                typeof $steps["updateWeek2"].then === "function"
+              ) {
+                $steps["updateWeek2"] = await $steps["updateWeek2"];
+              }
             }}
           />
 
@@ -1497,7 +1533,15 @@ function PlasmicBmi__RenderFunc(props: {
               )
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__jm5S)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__jm5S, {
+                [sty.freeBoxresalt__jm5SCpkCp]: hasVariant(
+                  $state,
+                  "resalt",
+                  "resalt"
+                )
+              })}
+            >
               <div className={classNames(projectcss.all, sty.freeBox___4LagW)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox___4PsNr)}
@@ -1650,7 +1694,10 @@ function PlasmicBmi__RenderFunc(props: {
                                         variablePath: ["week2"]
                                       },
                                       operation: 0,
-                                      value: parseInt($state.week.value)
+                                      value:
+                                        parseInt($state.week.value) > 40
+                                          ? 40
+                                          : parseInt($state.week.value) || 0
                                     };
                                     return (({
                                       variable,
@@ -2425,7 +2472,11 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                   )
                 })}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__blDyw)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__blDyw)}
+                >
                   <ButtonLiom
                     data-plasmic-name={"buttonLiom2"}
                     data-plasmic-override={overrides.buttonLiom2}
@@ -2443,32 +2494,33 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateWeek2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["week2"]
-                              },
-                              operation: 0,
-                              value: $state.week2 + 1
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
+                      $steps["updateWeek2"] =
+                        $state.week2 < 40
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["week2"]
+                                },
+                                operation: 0,
+                                value: $state.week2 + 1
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
 
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                       if (
                         $steps["updateWeek2"] != null &&
                         typeof $steps["updateWeek2"] === "object" &&
@@ -2601,7 +2653,78 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       {"\u0647\u0641\u062a\u0647 \u0628\u0639\u062f"}
                     </div>
                   </ButtonLiom>
-                </div>
+                  <ButtonLiom
+                    data-plasmic-name={"buttonLiom3"}
+                    data-plasmic-override={overrides.buttonLiom3}
+                    className={classNames("__wab_instance", sty.buttonLiom3, {
+                      [sty.buttonLiom3resalt]: hasVariant(
+                        $state,
+                        "resalt",
+                        "resalt"
+                      )
+                    })}
+                    color={generateStateValueProp($state, [
+                      "buttonLiom3",
+                      "color"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateResalt"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "resalt",
+                              operation: 6,
+                              value: "resalt"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, false);
+                              return false;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateResalt"] != null &&
+                        typeof $steps["updateResalt"] === "object" &&
+                        typeof $steps["updateResalt"].then === "function"
+                      ) {
+                        $steps["updateResalt"] = await $steps["updateResalt"];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom3",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pIJx9
+                      )}
+                    >
+                      {
+                        "\u0645\u062d\u0627\u0633\u0628\u0647 \u0645\u062c\u062f\u062f"
+                      }
+                    </div>
+                  </ButtonLiom>
+                </Stack__>
               </section>
             </section>
           </Reveal>
@@ -3025,6 +3148,7 @@ const PlasmicDescendants = {
     "reveal",
     "embedHtml",
     "buttonLiom2",
+    "buttonLiom3",
     "dialog3",
     "apiRequest",
     "dialogTitle",
@@ -3041,9 +3165,10 @@ const PlasmicDescendants = {
   weight2: ["weight2"],
   glo: ["glo"],
   buttonLiom: ["buttonLiom"],
-  reveal: ["reveal", "embedHtml", "buttonLiom2"],
+  reveal: ["reveal", "embedHtml", "buttonLiom2", "buttonLiom3"],
   embedHtml: ["embedHtml"],
   buttonLiom2: ["buttonLiom2"],
+  buttonLiom3: ["buttonLiom3"],
   dialog3: [
     "dialog3",
     "apiRequest",
@@ -3076,6 +3201,7 @@ type NodeDefaultElementType = {
   reveal: typeof Reveal;
   embedHtml: typeof Embed;
   buttonLiom2: typeof ButtonLiom;
+  buttonLiom3: typeof ButtonLiom;
   dialog3: typeof Dialog3;
   apiRequest: typeof ApiRequest;
   dialogTitle: typeof DialogTitle;
@@ -3181,6 +3307,7 @@ export const PlasmicBmi = Object.assign(
     reveal: makeNodeComponent("reveal"),
     embedHtml: makeNodeComponent("embedHtml"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
+    buttonLiom3: makeNodeComponent("buttonLiom3"),
     dialog3: makeNodeComponent("dialog3"),
     apiRequest: makeNodeComponent("apiRequest"),
     dialogTitle: makeNodeComponent("dialogTitle"),
