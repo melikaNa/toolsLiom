@@ -151,6 +151,16 @@
       }
     },
     {
+      "name": "Basic/Input-Background",
+      "type": "color",
+      "value": "#E5E7EB",
+      "category": "color",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "zPlq2El9keze"
+      }
+    },
+    {
       "name": "Basic/Overlay-Background",
       "type": "color",
       "value": "#0A0A0A80",
@@ -321,6 +331,16 @@
       }
     },
     {
+      "name": "Size-12",
+      "type": "spacing",
+      "value": "0.75rem",
+      "category": "spacing",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "tBWdALhc4Vvq"
+      }
+    },
+    {
       "name": "Size-16",
       "type": "spacing",
       "value": "1rem",
@@ -338,6 +358,16 @@
       "meta": {
         "projectId": "3zKPdhWckw1SJpPYhK46Bs",
         "id": "s5B1n5jFAIZn"
+      }
+    },
+    {
+      "name": "Size-20",
+      "type": "spacing",
+      "value": "1.25rem",
+      "category": "spacing",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "A2dA9bbnaPI0"
       }
     },
     {

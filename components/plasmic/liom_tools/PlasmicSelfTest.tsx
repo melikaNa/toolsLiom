@@ -786,6 +786,12 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "next",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -3259,20 +3265,22 @@ function PlasmicSelfTest__RenderFunc(props: {
                               },
                               operation: 0,
                               value: (() => {
-                                if ($state.retestTest) {
-                                  if ($steps.invokeGlobalAction6?.data) {
-                                    return $steps.invokeGlobalAction6?.data
-                                      .nextQuestionId;
+                                if ($state.next == "") {
+                                  if ($state.retestTest) {
+                                    if ($steps.invokeGlobalAction6?.data) {
+                                      return $steps.invokeGlobalAction6?.data
+                                        .nextQuestionId;
+                                    } else {
+                                      return $state.variable.options.find(
+                                        option =>
+                                          option.id ==
+                                          $state.testOptionsLiom.selectedIDs[0]
+                                      ).nextQuesion_id;
+                                    }
                                   } else {
-                                    return $state.variable.options.find(
-                                      option =>
-                                        option.id ==
-                                        $state.testOptionsLiom.selectedIDs[0]
-                                    ).nextQuesion_id;
+                                    return parseInt($ctx.query.nextQuesion_id);
                                   }
-                                } else {
-                                  return parseInt($ctx.query.nextQuesion_id);
-                                }
+                                } else return parseInt($state.next);
                               })()
                             };
                             return (({
@@ -3488,6 +3496,42 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["invokeGlobalAction3"] = await $steps[
                         "invokeGlobalAction3"
                       ];
+                    }
+
+                    $steps["next"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["next"]
+                            },
+                            operation: 0,
+                            value:
+                              $steps.invokeGlobalAction3?.data
+                                ?.nextQuestionId || ""
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["next"] != null &&
+                      typeof $steps["next"] === "object" &&
+                      typeof $steps["next"].then === "function"
+                    ) {
+                      $steps["next"] = await $steps["next"];
                     }
 
                     $steps["runCode6"] =

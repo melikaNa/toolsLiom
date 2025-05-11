@@ -127,6 +127,12 @@
   --plasmic-token-basic-overlay-background: var(--token-Yi5YqU3IyFTB);
   --token-AekDIPv7FLCv: #00000033;
   --plasmic-token-interaction-pressed: var(--token-AekDIPv7FLCv);
+  --token-tBWdALhc4Vvq: 0.75rem;
+  --plasmic-token-size-12: var(--token-tBWdALhc4Vvq);
+  --token-zPlq2El9keze: #e5e7eb;
+  --plasmic-token-basic-input-background: var(--token-zPlq2El9keze);
+  --token-A2dA9bbnaPI0: 1.25rem;
+  --plasmic-token-size-20: var(--token-A2dA9bbnaPI0);
 }
 
 @media (max-width: 640px) {
