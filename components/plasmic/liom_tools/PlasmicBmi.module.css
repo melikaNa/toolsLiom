@@ -493,21 +493,6 @@
   border-radius: 0px;
   padding: 0px;
 }
-.slider:global(.__wab_instance):global(.__wab_instance) {
-  max-width: 100%;
-  display: none;
-  margin: 0px;
-}
-.text__e6NMa {
-  position: relative;
-  font-size: 16px;
-  padding-bottom: 0px;
-  font-weight: 700;
-}
-.sliderThumb__vx6C7:global(.__wab_instance):global(.__wab_instance) {
-  position: relative;
-  margin-top: var(--token-QlibYU2ZEF3q);
-}
 .svg__zUji1 {
   object-fit: cover;
   max-width: 100%;

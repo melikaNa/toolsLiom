@@ -65,8 +65,6 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Input } from "@/fragment/components/input"; // plasmic-import: 31QElsfd4yPt/codeComponent
-import Slider from "../../Slider"; // plasmic-import: ZwA4j7vVV_Xm/component
-import SliderThumb from "../../SliderThumb"; // plasmic-import: RjLgT3oP6KFl/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
@@ -126,7 +124,6 @@ export type PlasmicBmi__OverridesType = {
   lastWeight?: Flex__<typeof Input>;
   week?: Flex__<typeof Input>;
   weight2?: Flex__<typeof Input>;
-  slider?: Flex__<typeof Slider>;
   glo?: Flex__<typeof Input>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   reveal?: Flex__<typeof Reveal>;
@@ -852,13 +849,6 @@ function PlasmicBmi__RenderFunc(props: {
             color: "#F44336"
           }
         ]
-      },
-      {
-        path: "slider.value",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobileOnly") ? 20 : 20
       },
       {
         path: "glo.value",
@@ -1783,62 +1773,6 @@ function PlasmicBmi__RenderFunc(props: {
                             sty.freeBox__meewi
                           )}
                         >
-                          <Slider
-                            data-plasmic-name={"slider"}
-                            data-plasmic-override={overrides.slider}
-                            ariaLabel={``}
-                            className={classNames("__wab_instance", sty.slider)}
-                            disabled={false}
-                            filled={true}
-                            label={
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__e6NMa
-                                )}
-                              >
-                                {hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobileOnly"
-                                )
-                                  ? "\u0633\u0646"
-                                  : "\u0633\u0646"}
-                              </div>
-                            }
-                            maxValue={
-                              hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? 150
-                                : 120
-                            }
-                            minValue={
-                              hasVariant(globalVariants, "screen", "mobileOnly")
-                                ? 10
-                                : 10
-                            }
-                            onChange={async (...eventArgs: any) => {
-                              generateStateOnChangeProp($state, [
-                                "slider",
-                                "value"
-                              ]).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                            showDescription={false}
-                            step={1}
-                            value={generateStateValueProp($state, [
-                              "slider",
-                              "value"
-                            ])}
-                          />
-
                           <Icon177Icon
                             className={classNames(
                               projectcss.all,
@@ -3080,7 +3014,6 @@ const PlasmicDescendants = {
     "lastWeight",
     "week",
     "weight2",
-    "slider",
     "glo",
     "buttonLiom",
     "reveal",
@@ -3100,7 +3033,6 @@ const PlasmicDescendants = {
   lastWeight: ["lastWeight"],
   week: ["week"],
   weight2: ["weight2"],
-  slider: ["slider"],
   glo: ["glo"],
   buttonLiom: ["buttonLiom"],
   reveal: ["reveal", "embedHtml", "buttonLiom2"],
@@ -3133,7 +3065,6 @@ type NodeDefaultElementType = {
   lastWeight: typeof Input;
   week: typeof Input;
   weight2: typeof Input;
-  slider: typeof Slider;
   glo: typeof Input;
   buttonLiom: typeof ButtonLiom;
   reveal: typeof Reveal;
@@ -3239,7 +3170,6 @@ export const PlasmicBmi = Object.assign(
     lastWeight: makeNodeComponent("lastWeight"),
     week: makeNodeComponent("week"),
     weight2: makeNodeComponent("weight2"),
-    slider: makeNodeComponent("slider"),
     glo: makeNodeComponent("glo"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     reveal: makeNodeComponent("reveal"),
