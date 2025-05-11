@@ -129,7 +129,8 @@ export type PlasmicBmi__OverridesType = {
   reveal?: Flex__<typeof Reveal>;
   embedHtml?: Flex__<typeof Embed>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
-  buttonLiom3?: Flex__<typeof ButtonLiom>;
+  buttonLiom4?: Flex__<typeof ButtonLiom>;
+  buttonLiom5?: Flex__<typeof ButtonLiom>;
   dialog3?: Flex__<typeof Dialog3>;
   apiRequest?: Flex__<typeof ApiRequest>;
   dialogTitle?: Flex__<typeof DialogTitle>;
@@ -931,10 +932,16 @@ function PlasmicBmi__RenderFunc(props: {
         path: "buttonLiom2.color",
         type: "private",
         variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "link"
+      },
+      {
+        path: "buttonLiom4.color",
+        type: "private",
+        variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "line"
       },
       {
-        path: "buttonLiom3.color",
+        path: "buttonLiom5.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
@@ -1088,7 +1095,9 @@ function PlasmicBmi__RenderFunc(props: {
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
+            className={classNames("__wab_instance", sty.sideEffect, {
+              [sty.sideEffectresalt]: hasVariant($state, "resalt", "resalt")
+            })}
             deps={undefined}
             onMount={async () => {
               const $steps = {};
@@ -1117,6 +1126,35 @@ function PlasmicBmi__RenderFunc(props: {
                 typeof $steps["params"].then === "function"
               ) {
                 $steps["params"] = await $steps["params"];
+              }
+
+              $steps["updateWeek2"] = $state.paramsObject.week
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["week2"]
+                      },
+                      operation: 0,
+                      value: parseInt($state.paramsObject.week) || 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateWeek2"] != null &&
+                typeof $steps["updateWeek2"] === "object" &&
+                typeof $steps["updateWeek2"].then === "function"
+              ) {
+                $steps["updateWeek2"] = await $steps["updateWeek2"];
               }
 
               $steps["clearParams"] = true
@@ -1148,378 +1186,6 @@ function PlasmicBmi__RenderFunc(props: {
                 typeof $steps["clearParams"].then === "function"
               ) {
                 $steps["clearParams"] = await $steps["clearParams"];
-              }
-
-              $steps["setCookie"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          if (
-                            $state.paramsObject.token !== undefined &&
-                            $state.paramsObject.token?.trim() !== ""
-                          ) {
-                            if (!$state.paramsObject.token.startsWith("ey"))
-                              $state.paramsObject.token =
-                                $state.paramsObject.token.slice(6, -3);
-                            var setCookie = (name, value, days) => {
-                              const expires = new Date(
-                                Date.now() + days * 86400000
-                              ).toUTCString();
-                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                            };
-                            return setCookie(
-                              "token",
-                              JSON.stringify([$state.paramsObject.token]),
-                              100
-                            );
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["setCookie"] != null &&
-                typeof $steps["setCookie"] === "object" &&
-                typeof $steps["setCookie"].then === "function"
-              ) {
-                $steps["setCookie"] = await $steps["setCookie"];
-              }
-
-              $steps["getCookie"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          var getCookie = name => {
-                            const cookies = document.cookie.split("; ");
-                            for (let cookie of cookies) {
-                              const [key, value] = cookie.split("=");
-                              if (key === name) return JSON.parse(value)[0];
-                            }
-                            return "";
-                          };
-                          return ($state.tokenliom = getCookie("token"));
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["getCookie"] != null &&
-                typeof $steps["getCookie"] === "object" &&
-                typeof $steps["getCookie"].then === "function"
-              ) {
-                $steps["getCookie"] = await $steps["getCookie"];
-              }
-
-              $steps["userLiom"] =
-                $state.tokenliom != ""
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "https://n8n.staas.ir/webhook/users/profile",
-                          undefined,
-                          undefined,
-                          (() => {
-                            try {
-                              return {
-                                headers: { Authorization: $state.tokenliom }
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-              if (
-                $steps["userLiom"] != null &&
-                typeof $steps["userLiom"] === "object" &&
-                typeof $steps["userLiom"].then === "function"
-              ) {
-                $steps["userLiom"] = await $steps["userLiom"];
-              }
-
-              $steps["updateUserInfo"] =
-                $steps.userLiom?.data?.success ?? false
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["userInfo"]
-                        },
-                        operation: 0,
-                        value: $steps.userLiom?.data
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateUserInfo"] != null &&
-                typeof $steps["updateUserInfo"] === "object" &&
-                typeof $steps["updateUserInfo"].then === "function"
-              ) {
-                $steps["updateUserInfo"] = await $steps["updateUserInfo"];
-              }
-
-              $steps["userGust"] =
-                $state.tokenliom == ""
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://api.liom.app/auth/signup/guest",
-                          undefined,
-                          (() => {
-                            try {
-                              return (() => {
-                                function pseudoUUID() {
-                                  let timestamp = Date.now().toString(36);
-                                  let randomStr = Math.random()
-                                    .toString(36)
-                                    .substr(2, 8);
-                                  return timestamp + "-" + randomStr;
-                                }
-                                return {
-                                  name: "کاربر مهمان",
-                                  gateway: "chat_bot",
-                                  country: "98",
-                                  isCountryPending: false,
-                                  lang: "fa",
-                                  version: "",
-                                  os: (() => {
-                                    const userAgent =
-                                      window.navigator.userAgent;
-                                    const platform = window.navigator.userAgent;
-                                    if (/Windows/i.test(platform))
-                                      return "Windows";
-                                    if (/Mac/i.test(platform)) return "macOS";
-                                    if (/Linux/i.test(platform)) return "Linux";
-                                    if (/Android/i.test(userAgent))
-                                      return "Android";
-                                    if (/iPhone|iPad|iPod/i.test(userAgent))
-                                      return "iOS";
-                                    return "Unknown OS";
-                                  })(),
-                                  osVersion: (() => {
-                                    const userAgent =
-                                      window.navigator.userAgent;
-                                    if (/Windows NT 10.0/.test(userAgent))
-                                      return "Windows 10";
-                                    if (/Windows NT 6.3/.test(userAgent))
-                                      return "Windows 8.1";
-                                    if (/Windows NT 6.2/.test(userAgent))
-                                      return "Windows 8";
-                                    if (/Windows NT 6.1/.test(userAgent))
-                                      return "Windows 7";
-                                    if (
-                                      /Mac OS X (\d+[\._]\d+)/.test(userAgent)
-                                    )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
-                                    if (/Android (\d+(\.\d+)?)/.test(userAgent))
-                                      return `Android ${RegExp.$1}`;
-                                    if (
-                                      /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                        userAgent
-                                      )
-                                    )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
-                                    return "Unknown Version";
-                                  })(),
-                                  sex: $state.gender || "",
-                                  additionalData: {
-                                    ip: "132465",
-                                    name: "test1"
-                                  },
-                                  device: (() => {
-                                    const userAgent =
-                                      window.navigator.userAgent;
-                                    if (
-                                      /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                        userAgent
-                                      )
-                                    ) {
-                                      return "Mobile";
-                                    } else if (/Tablet|iPad/i.test(userAgent)) {
-                                      return "Tablet";
-                                    } else {
-                                      return "Desktop";
-                                    }
-                                  })(),
-                                  fcm:
-                                    window.localStorage.getItem("fcmToken") ||
-                                    " ",
-                                  uniqueId: pseudoUUID(),
-                                  device_type: window.navigator.platform,
-                                  postLang: "fa"
-                                };
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-              if (
-                $steps["userGust"] != null &&
-                typeof $steps["userGust"] === "object" &&
-                typeof $steps["userGust"].then === "function"
-              ) {
-                $steps["userGust"] = await $steps["userGust"];
-              }
-
-              $steps["updateUserInfo2"] =
-                $steps.userGust?.data?.success ?? false
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["userInfo"]
-                        },
-                        operation: 0,
-                        value: {
-                          id: $steps.userGust.data.result.userId,
-                          name: "کاربر مهمان",
-                          token: $steps.userGust.data.result.token
-                        }
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["updateUserInfo2"] != null &&
-                typeof $steps["updateUserInfo2"] === "object" &&
-                typeof $steps["updateUserInfo2"].then === "function"
-              ) {
-                $steps["updateUserInfo2"] = await $steps["updateUserInfo2"];
-              }
-
-              $steps["setCookieGuest"] =
-                $steps.userGust?.data?.success ?? false
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            var setCookie = (name, value, days) => {
-                              const expires = new Date(
-                                Date.now() + days * 86400000
-                              ).toUTCString();
-                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
-                            };
-                            return setCookie(
-                              "token",
-                              JSON.stringify([
-                                $steps.userGust.data.result.token
-                              ]),
-                              100
-                            );
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["setCookieGuest"] != null &&
-                typeof $steps["setCookieGuest"] === "object" &&
-                typeof $steps["setCookieGuest"].then === "function"
-              ) {
-                $steps["setCookieGuest"] = await $steps["setCookieGuest"];
-              }
-
-              $steps["updateWeek2"] = $state.paramsObject.week
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["week2"]
-                      },
-                      operation: 0,
-                      value: parseInt($state.paramsObject.week) || 0
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateWeek2"] != null &&
-                typeof $steps["updateWeek2"] === "object" &&
-                typeof $steps["updateWeek2"].then === "function"
-              ) {
-                $steps["updateWeek2"] = await $steps["updateWeek2"];
               }
             }}
           />
@@ -1925,6 +1591,7 @@ function PlasmicBmi__RenderFunc(props: {
                                         ? 0
                                         : 2;
                                     return ($state.bmi = {
+                                      week: week,
                                       lastbmi: lastbmi,
                                       bmi: bmi,
                                       w: w,
@@ -2477,18 +2144,226 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__blDyw)}
                 >
+                  {(
+                    hasVariant($state, "resalt", "resalt")
+                      ? (() => {
+                          try {
+                            return $state.bmi.week != $state.week2;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <ButtonLiom
+                      data-plasmic-name={"buttonLiom2"}
+                      data-plasmic-override={overrides.buttonLiom2}
+                      className={classNames("__wab_instance", sty.buttonLiom2, {
+                        [sty.buttonLiom2resalt]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "buttonLiom2",
+                        "color"
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateWeek2"] =
+                          $state.week2 < 40
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["week2"]
+                                  },
+                                  operation: 0,
+                                  value: $state.week2 + 1
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateWeek2"] != null &&
+                          typeof $steps["updateWeek2"] === "object" &&
+                          typeof $steps["updateWeek2"].then === "function"
+                        ) {
+                          $steps["updateWeek2"] = await $steps["updateWeek2"];
+                        }
+
+                        $steps["runCode"] =
+                          $state.higth.value &&
+                          $state.lastWeight.value &&
+                          $state.weight2.value &&
+                          $state.week.value &&
+                          $state.glo.value
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      var higth = parseInt($state.higth.value);
+                                      var lastWeight = parseInt(
+                                        $state.lastWeight.value
+                                      );
+                                      var weight2 = parseInt(
+                                        $state.weight2.value
+                                      );
+                                      var week = $state.week2;
+                                      var gol = parseInt($state.glo.value);
+                                      var lastbmi =
+                                        lastWeight / ((higth / 100) ^ 2);
+                                      var w = $state.weight[gol - 1].find(
+                                        item => item.week == week
+                                      ).gain;
+                                      var bmi =
+                                        (weight2 - w) / ((higth / 100) ^ 2);
+                                      var add = weight2 - lastWeight;
+                                      var min = $state.weight[gol - 1].find(
+                                        item => item.week == week
+                                      ).minGain;
+                                      var max = $state.weight[gol - 1].find(
+                                        item => item.week == week
+                                      ).maxGain;
+                                      var type =
+                                        add >= min && add <= max
+                                          ? 1
+                                          : add < min
+                                          ? 0
+                                          : 2;
+                                      return ($state.bmi = {
+                                        lastbmi: lastbmi,
+                                        bmi: bmi,
+                                        w: w,
+                                        type: type,
+                                        min: min,
+                                        max: max,
+                                        weight: lastWeight,
+                                        add: add
+                                      });
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction"] = !(
+                          $state.higth.value &&
+                          $state.lastWeight.value &&
+                          $state.weight2.value &&
+                          $state.week.value &&
+                          $state.glo.value
+                        )
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0645\u0627\u06cc\u06cc\u062f",
+                                  "bottom-center",
+                                  3000
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "buttonLiom2",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___2P0Jk
+                        )}
+                      >
+                        {
+                          "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc"
+                        }
+                      </div>
+                    </ButtonLiom>
+                  ) : null}
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__ptZMs, {
+                    [sty.freeBoxresalt__ptZMsCpkCp]: hasVariant(
+                      $state,
+                      "resalt",
+                      "resalt"
+                    )
+                  })}
+                >
                   <ButtonLiom
-                    data-plasmic-name={"buttonLiom2"}
-                    data-plasmic-override={overrides.buttonLiom2}
-                    className={classNames("__wab_instance", sty.buttonLiom2, {
-                      [sty.buttonLiom2resalt]: hasVariant(
+                    data-plasmic-name={"buttonLiom4"}
+                    data-plasmic-override={overrides.buttonLiom4}
+                    className={classNames("__wab_instance", sty.buttonLiom4, {
+                      [sty.buttonLiom4resalt]: hasVariant(
                         $state,
                         "resalt",
                         "resalt"
                       )
                     })}
                     color={generateStateValueProp($state, [
-                      "buttonLiom2",
+                      "buttonLiom4",
                       "color"
                     ])}
                     onClick={async event => {
@@ -2629,7 +2504,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, [
-                          "buttonLiom2",
+                          "buttonLiom4",
                           "color"
                         ])(eventArgs[0]);
                       }).apply(null, eventArgs);
@@ -2647,24 +2522,24 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___2P0Jk
+                        sty.text__p3Aap
                       )}
                     >
                       {"\u0647\u0641\u062a\u0647 \u0628\u0639\u062f"}
                     </div>
                   </ButtonLiom>
                   <ButtonLiom
-                    data-plasmic-name={"buttonLiom3"}
-                    data-plasmic-override={overrides.buttonLiom3}
-                    className={classNames("__wab_instance", sty.buttonLiom3, {
-                      [sty.buttonLiom3resalt]: hasVariant(
+                    data-plasmic-name={"buttonLiom5"}
+                    data-plasmic-override={overrides.buttonLiom5}
+                    className={classNames("__wab_instance", sty.buttonLiom5, {
+                      [sty.buttonLiom5resalt]: hasVariant(
                         $state,
                         "resalt",
                         "resalt"
                       )
                     })}
                     color={generateStateValueProp($state, [
-                      "buttonLiom3",
+                      "buttonLiom5",
                       "color"
                     ])}
                     onClick={async event => {
@@ -2698,7 +2573,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, [
-                          "buttonLiom3",
+                          "buttonLiom5",
                           "color"
                         ])(eventArgs[0]);
                       }).apply(null, eventArgs);
@@ -2716,7 +2591,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__pIJx9
+                        sty.text__sNlgq
                       )}
                     >
                       {
@@ -3148,7 +3023,8 @@ const PlasmicDescendants = {
     "reveal",
     "embedHtml",
     "buttonLiom2",
-    "buttonLiom3",
+    "buttonLiom4",
+    "buttonLiom5",
     "dialog3",
     "apiRequest",
     "dialogTitle",
@@ -3165,10 +3041,11 @@ const PlasmicDescendants = {
   weight2: ["weight2"],
   glo: ["glo"],
   buttonLiom: ["buttonLiom"],
-  reveal: ["reveal", "embedHtml", "buttonLiom2", "buttonLiom3"],
+  reveal: ["reveal", "embedHtml", "buttonLiom2", "buttonLiom4", "buttonLiom5"],
   embedHtml: ["embedHtml"],
   buttonLiom2: ["buttonLiom2"],
-  buttonLiom3: ["buttonLiom3"],
+  buttonLiom4: ["buttonLiom4"],
+  buttonLiom5: ["buttonLiom5"],
   dialog3: [
     "dialog3",
     "apiRequest",
@@ -3201,7 +3078,8 @@ type NodeDefaultElementType = {
   reveal: typeof Reveal;
   embedHtml: typeof Embed;
   buttonLiom2: typeof ButtonLiom;
-  buttonLiom3: typeof ButtonLiom;
+  buttonLiom4: typeof ButtonLiom;
+  buttonLiom5: typeof ButtonLiom;
   dialog3: typeof Dialog3;
   apiRequest: typeof ApiRequest;
   dialogTitle: typeof DialogTitle;
@@ -3307,7 +3185,8 @@ export const PlasmicBmi = Object.assign(
     reveal: makeNodeComponent("reveal"),
     embedHtml: makeNodeComponent("embedHtml"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
-    buttonLiom3: makeNodeComponent("buttonLiom3"),
+    buttonLiom4: makeNodeComponent("buttonLiom4"),
+    buttonLiom5: makeNodeComponent("buttonLiom5"),
     dialog3: makeNodeComponent("dialog3"),
     apiRequest: makeNodeComponent("apiRequest"),
     dialogTitle: makeNodeComponent("dialogTitle"),
