@@ -76,12 +76,13 @@ export type PlasmicPercentageBox__VariantMembers = {
     | "yellow"
     | "blue"
     | "oreng"
-    | "unnamedVariant";
+    | "unnamedVariant"
+    | "pink";
   shape: "round" | "square";
 };
 export type PlasmicPercentageBox__VariantsArgs = {
   unnamedGroupOfVariants?: SingleChoiceArg<
-    "red" | "yellow" | "blue" | "oreng" | "unnamedVariant"
+    "red" | "yellow" | "blue" | "oreng" | "unnamedVariant" | "pink"
   >;
   shape?: SingleChoiceArg<"round" | "square">;
 };
@@ -105,7 +106,7 @@ export type PlasmicPercentageBox__OverridesType = {
 export interface DefaultPercentageBoxProps {
   children?: React.ReactNode;
   unnamedGroupOfVariants?: SingleChoiceArg<
-    "red" | "yellow" | "blue" | "oreng" | "unnamedVariant"
+    "red" | "yellow" | "blue" | "oreng" | "unnamedVariant" | "pink"
   >;
   shape?: SingleChoiceArg<"round" | "square">;
   className?: string;
@@ -206,6 +207,11 @@ function PlasmicPercentageBox__RenderFunc(props: {
             "unnamedGroupOfVariants",
             "oreng"
           ),
+          [sty.rootunnamedGroupOfVariants_pink]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "pink"
+          ),
           [sty.rootunnamedGroupOfVariants_red]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -260,6 +266,11 @@ function PlasmicPercentageBox__RenderFunc(props: {
               $state,
               "unnamedGroupOfVariants",
               "oreng"
+            ),
+            [sty.slotTargetChildrenunnamedGroupOfVariants_pink]: hasVariant(
+              $state,
+              "unnamedGroupOfVariants",
+              "pink"
             ),
             [sty.slotTargetChildrenunnamedGroupOfVariants_red]: hasVariant(
               $state,

@@ -26,6 +26,9 @@
 .rootunnamedGroupOfVariants_unnamedVariant {
   background: none;
 }
+.rootunnamedGroupOfVariants_pink {
+  background: #ff95bb66;
+}
 .rootshape_square {
   border-radius: var(--token-KVcr9NiMwFLr);
 }
@@ -53,4 +56,7 @@
 }
 .slotTargetChildrenunnamedGroupOfVariants_oreng {
   color: #ff3c00;
+}
+.slotTargetChildrenunnamedGroupOfVariants_pink {
+  color: #e7177f;
 }

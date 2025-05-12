@@ -229,9 +229,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 )
                   return true;
                 else if (
-                  $ctx.query.stepId == 121 ||
-                  $ctx.query.stepId == 122 ||
-                  $ctx.query.stepId == 132
+                  $state.paramsObject.stepId == 121 ||
+                  $state.paramsObject.stepId == 122 ||
+                  $state.paramsObject.stepId == 132
                 )
                   return true;
                 else {
@@ -268,7 +268,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.theme == "dark";
+              return $state.paramsObject.theme == "dark";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -396,7 +396,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               })}
               dark={(() => {
                 try {
-                  return $ctx.query.theme == "dark";
+                  return $state.paramsObject.theme == "dark";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -434,17 +434,17 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 "https://tools.liom.app/self-medication/?type=" +
                                 $ctx.query.type +
                                 "&inApp=" +
-                                $ctx.query.inApp +
+                                $state.paramsObject.inApp +
                                 "&token=" +
-                                $ctx.query.token +
+                                $state.token +
                                 "&selectStep=" +
-                                $ctx.query.selectStep +
+                                $state.paramsObject.selectStep +
                                 "&userId=" +
-                                ($ctx?.query?.userId ?? "") +
+                                ($state.getUser?.data?.[0]?.userId ?? "") +
                                 "&version=" +
-                                $ctx.query.version +
+                                $state.paramsObject.version +
                                 "&theme=" +
-                                $ctx.query.theme
+                                $state.paramsObject.theme
                               );
                             })()
                           };
@@ -499,17 +499,17 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 "https://tools.liom.app/self-medication/?type=" +
                                 $ctx.query.type +
                                 "&inApp=" +
-                                $ctx.query.inApp +
+                                $state.paramsObject.inApp +
                                 "&token=" +
-                                $ctx.query.token +
+                                $state.token +
                                 "&selectStep=" +
-                                $ctx.query.selectStep +
+                                $state.paramsObject.selectStep +
                                 "&userId=" +
-                                ($ctx?.query?.userId ?? "") +
+                                ($state.getUser?.data?.[0]?.userId ?? "") +
                                 "&version=" +
-                                $ctx.query.version +
+                                $state.paramsObject.version +
                                 "&theme=" +
-                                $ctx.query.theme
+                                $state.paramsObject.theme
                               );
                             })();
                           }
@@ -528,7 +528,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   }
                 }}
               >
-                <React.Fragment>{$ctx.query.title}</React.Fragment>
+                <React.Fragment>{$state.paramsObject.title}</React.Fragment>
               </div>
             </HeaderLiom>
           ) : null}
@@ -576,6 +576,12 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
+                          searchParams.delete("theme");
+                          searchParams.delete("style");
+                          searchParams.delete("title");
+                          searchParams.delete("inApp");
+                          searchParams.delete("version");
+                          searchParams.delete("selectedStep");
                           const newUrl = `${
                             window.location.pathname
                           }?${searchParams.toString()}`;
@@ -842,7 +848,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               className={classNames("__wab_instance", sty.stepsLayout)}
               layout={(() => {
                 try {
-                  return $state.getData.loading ? undefined : $ctx.query.style;
+                  return $state.getData.loading
+                    ? undefined
+                    : $state.paramsObject.style;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -998,12 +1006,10 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             }
 
                             $steps["goToPage"] =
-                              $ctx.query.inApp != "true"
+                              $state.paramsObject.inApp != "true"
                                 ? (() => {
                                     const actionArgs = {
                                       destination:
-                                        //"video-player/?title=" + $state.getData.data[0].title + "&url=" + currentItem.url + "&secId=" + $ctx.query.secId + "&stepId=" + $ctx.query.stepId + "&style=" + $ctx.query.style + "&type=" + $ctx.query.type + "&token=" + $ctx.query.token + "&inApp=" + $ctx.query.inApp + "&userId=" + $ctx.query.userId + "&selectStep=" + $ctx.query.selectStep + "&version=" + $ctx.query.version
-
                                         "https://old.liom.app/social?post=" +
                                         currentItem.action.slice(
                                           6,
@@ -1035,7 +1041,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             }
 
                             $steps["runCode"] =
-                              $ctx.query.inApp == "true"
+                              $state.paramsObject.inApp == "true"
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
@@ -1574,10 +1580,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               }
               theme={(() => {
                 try {
-                  return (
-                    $ctx.query.theme ||
-                    new URLSearchParams(window.location.search).get("theme")
-                  );
+                  return $state.paramsObject.theme;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1728,7 +1731,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
 
                       $steps["runCode"] =
                         (currentItem?.action ?? "") != "" &&
-                        $ctx.query.inApp == "true"
+                        $state.paramsObject.inApp == "true"
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
@@ -1752,7 +1755,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
 
                       $steps["goToPage"] =
                         (currentItem?.action ?? "") != "" &&
-                        $ctx.query.inApp == "false"
+                        $state.paramsObject.inApp == "false"
                           ? (() => {
                               const actionArgs = {
                                 destination: (() => {
@@ -1871,36 +1874,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.freeBox__gJr9S)}
                       onClick={async event => {
                         const $steps = {};
-
-                        $steps["updateStateVariable"] = true
-                          ? (() => {
-                              const actionArgs = { operation: 0 };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateStateVariable"] != null &&
-                          typeof $steps["updateStateVariable"] === "object" &&
-                          typeof $steps["updateStateVariable"].then ===
-                            "function"
-                        ) {
-                          $steps["updateStateVariable"] = await $steps[
-                            "updateStateVariable"
-                          ];
-                        }
                       }}
                     >
                       <Stack__
@@ -2145,16 +2118,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           break;
                       }
                       return {
-                        stepId:
-                          $ctx.query.stepId ||
-                          new URLSearchParams(window.location.search).get(
-                            "stepId"
-                          ),
-                        sectionId:
-                          $ctx.query.secId ||
-                          new URLSearchParams(window.location.search).get(
-                            "secId"
-                          ),
+                        stepId: $state.paramsObject.stepId,
+                        sectionId: $state.paramsObject.secId,
                         userId: $state.getUser?.data?.[0]?.userId,
                         token: $state.token,
                         sub: type,
@@ -2242,7 +2207,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
-                url={"https://n8n.staas.ir/webhook/selfTreatment"}
+                url={"https://n8n.staas.ir/webhook-test/selfTreatment"}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__yz5Xf)}>
                   {(

@@ -128,10 +128,16 @@ import __lib_copyToClipboard from "copy-to-clipboard";
 
 createPlasmicElementProxy;
 
-export type PlasmicResult__VariantMembers = {};
-export type PlasmicResult__VariantsArgs = {};
+export type PlasmicResult__VariantMembers = {
+  information: "information";
+};
+export type PlasmicResult__VariantsArgs = {
+  information?: SingleBooleanChoiceArg<"information">;
+};
 type VariantPropType = keyof PlasmicResult__VariantsArgs;
-export const PlasmicResult__VariantProps = new Array<VariantPropType>();
+export const PlasmicResult__VariantProps = new Array<VariantPropType>(
+  "information"
+);
 
 export type PlasmicResult__ArgsType = {};
 type ArgPropType = keyof PlasmicResult__ArgsType;
@@ -548,6 +554,25 @@ function PlasmicResult__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "information",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.apiRequest.data.result_type == "Information";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.information
       }
     ],
     [$props, $ctx, $refs]
@@ -624,7 +649,12 @@ function PlasmicResult__RenderFunc(props: {
                   globalVariants,
                   "unnamedGlobalGroupOfVariants",
                   "unnamedVariant"
-                )
+                ),
+              [sty.rootinformation]: hasVariant(
+                $state,
+                "information",
+                "information"
+              )
             }
           )}
           onLoad={async event => {
@@ -1180,7 +1210,13 @@ function PlasmicResult__RenderFunc(props: {
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__hvSte)}
+              className={classNames(projectcss.all, sty.freeBox__hvSte, {
+                [sty.freeBoxinformation__hvSte8P0Rz]: hasVariant(
+                  $state,
+                  "information",
+                  "information"
+                )
+              })}
             >
               <div
                 className={classNames(
@@ -1221,7 +1257,15 @@ function PlasmicResult__RenderFunc(props: {
                   "\u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627\u060c \u062a\u0634\u062e\u06cc\u0635 \u0645\u0627 \u0628\u0647 \u0635\u0648\u0631\u062a \u0632\u06cc\u0631 \u0627\u0633\u062a:"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__iiNee)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__iiNee, {
+                  [sty.freeBoxinformation__iiNee8P0Rz]: hasVariant(
+                    $state,
+                    "information",
+                    "information"
+                  )
+                })}
+              >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -1243,7 +1287,17 @@ function PlasmicResult__RenderFunc(props: {
                     <Stack__
                       as={"div"}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__sy1Ij)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__sy1Ij,
+                        {
+                          [sty.freeBoxinformation__sy1Ij8P0Rz]: hasVariant(
+                            $state,
+                            "information",
+                            "information"
+                          )
+                        }
+                      )}
                       key={currentIndex}
                       style={(() => {
                         try {
@@ -1284,7 +1338,14 @@ function PlasmicResult__RenderFunc(props: {
                           hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__lwrUx
+                            sty.freeBox__lwrUx,
+                            {
+                              [sty.freeBoxinformation__lwrUx8P0Rz]: hasVariant(
+                                $state,
+                                "information",
+                                "information"
+                              )
+                            }
                           )}
                         >
                           <Stack__
@@ -1292,7 +1353,15 @@ function PlasmicResult__RenderFunc(props: {
                             hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__jSzzL
+                              sty.freeBox__jSzzL,
+                              {
+                                [sty.freeBoxinformation__jSzzL8P0Rz]:
+                                  hasVariant(
+                                    $state,
+                                    "information",
+                                    "information"
+                                  )
+                              }
                             )}
                           >
                             <Stack__
@@ -1300,7 +1369,15 @@ function PlasmicResult__RenderFunc(props: {
                               hasGap={true}
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__yIfMq
+                                sty.freeBox__yIfMq,
+                                {
+                                  [sty.freeBoxinformation__yIfMq8P0Rz]:
+                                    hasVariant(
+                                      $state,
+                                      "information",
+                                      "information"
+                                    )
+                                }
                               )}
                             >
                               <div
@@ -1327,78 +1404,147 @@ function PlasmicResult__RenderFunc(props: {
                                   })()}
                                 </React.Fragment>
                               </div>
-                              {(() => {
-                                try {
-                                  return currentItem.badge != null;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })() ? (
+                              {(
+                                hasVariant($state, "information", "information")
+                                  ? true
+                                  : (() => {
+                                      try {
+                                        return currentItem.badge != null;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                              ) ? (
                                 <PercentageBox
                                   className={classNames(
                                     "__wab_instance",
-                                    sty.percentageBox__wTlKj
-                                  )}
-                                  unnamedGroupOfVariants={(() => {
-                                    try {
-                                      return (() => {
-                                        let score = parseInt(currentItem.score);
-                                        let color =
-                                          score >= 80
-                                            ? "red"
-                                            : score >= 70
-                                            ? "oreng"
-                                            : score >= 60
-                                            ? "yellow"
-                                            : score >= 50
-                                            ? "blue"
-                                            : score >= 40
-                                            ? ""
-                                            : "";
-                                        return color;
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "red";
-                                      }
-                                      throw e;
+                                    sty.percentageBox__wTlKj,
+                                    {
+                                      [sty.percentageBoxinformation__wTlKj8P0Rz]:
+                                        hasVariant(
+                                          $state,
+                                          "information",
+                                          "information"
+                                        )
                                     }
-                                  })()}
+                                  )}
+                                  unnamedGroupOfVariants={
+                                    hasVariant(
+                                      $state,
+                                      "information",
+                                      "information"
+                                    )
+                                      ? (() => {
+                                          try {
+                                            return currentItem.option_metric ==
+                                              "girl"
+                                              ? "pink"
+                                              : "blue";
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "red";
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      : (() => {
+                                          try {
+                                            return (() => {
+                                              let score = parseInt(
+                                                currentItem.score
+                                              );
+                                              let color =
+                                                score >= 80
+                                                  ? "red"
+                                                  : score >= 70
+                                                  ? "oreng"
+                                                  : score >= 60
+                                                  ? "yellow"
+                                                  : score >= 50
+                                                  ? "blue"
+                                                  : score >= 40
+                                                  ? ""
+                                                  : "";
+                                              return color;
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "red";
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                  }
                                 >
                                   <div
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__j0SxV
+                                      sty.text__j0SxV,
+                                      {
+                                        [sty.textinformation__j0SxV8P0Rz]:
+                                          hasVariant(
+                                            $state,
+                                            "information",
+                                            "information"
+                                          )
+                                      }
                                     )}
                                   >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return currentItem.badge;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "99 % ";
+                                    {hasVariant(
+                                      $state,
+                                      "information",
+                                      "information"
+                                    ) ? (
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return `احتمال %${currentItem.score}`;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "99 % ";
+                                            }
+                                            throw e;
                                           }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
+                                        })()}
+                                      </React.Fragment>
+                                    ) : (
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.badge;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "99 % ";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    )}
                                   </div>
                                 </PercentageBox>
                               ) : null}
@@ -1559,7 +1705,14 @@ function PlasmicResult__RenderFunc(props: {
                               bordered: false,
                               className: classNames(
                                 "__wab_instance",
-                                sty.collapse3
+                                sty.collapse3,
+                                {
+                                  [sty.collapse3information]: hasVariant(
+                                    $state,
+                                    "information",
+                                    "information"
+                                  )
+                                }
                               ),
                               disabled: (() => {
                                 try {
@@ -1827,24 +1980,35 @@ function PlasmicResult__RenderFunc(props: {
                             );
                           })()
                         : null}
-                      {(() => {
-                        try {
-                          return currentItem.more;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
+                      {(
+                        hasVariant($state, "information", "information")
+                          ? true
+                          : (() => {
+                              try {
+                                return currentItem.more;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })()
+                      ) ? (
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__wynIw
+                            sty.text__wynIw,
+                            {
+                              [sty.textinformation__wynIw8P0Rz]: hasVariant(
+                                $state,
+                                "information",
+                                "information"
+                              )
+                            }
                           )}
                         >
                           {
@@ -1874,7 +2038,13 @@ function PlasmicResult__RenderFunc(props: {
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__q9Qjc)}
+                    className={classNames(projectcss.all, sty.freeBox__q9Qjc, {
+                      [sty.freeBoxinformation__q9Qjc8P0Rz]: hasVariant(
+                        $state,
+                        "information",
+                        "information"
+                      )
+                    })}
                     onClick={async event => {
                       const $steps = {};
 
@@ -2147,25 +2317,36 @@ function PlasmicResult__RenderFunc(props: {
               ) : null}
             </Stack__>
           ) : null}
-          {(() => {
-            try {
-              return (
-                $state.apiRequest.data && $state.apiRequest.data.our_message
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
+          {(
+            hasVariant($state, "information", "information")
+              ? true
+              : (() => {
+                  try {
+                    return (
+                      $state.apiRequest.data &&
+                      $state.apiRequest.data.our_message
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__f1R9S)}
+              className={classNames(projectcss.all, sty.freeBox__f1R9S, {
+                [sty.freeBoxinformation__f1R9S8P0Rz]: hasVariant(
+                  $state,
+                  "information",
+                  "information"
+                )
+              })}
             >
               <div
                 className={classNames(
@@ -2912,25 +3093,36 @@ function PlasmicResult__RenderFunc(props: {
               })}
             </Stack__>
           ) : null}
-          {(() => {
-            try {
-              return (
-                $state.apiRequest.data && $state.apiRequest.data.our_message
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
+          {(
+            hasVariant($state, "information", "information")
+              ? true
+              : (() => {
+                  try {
+                    return (
+                      $state.apiRequest.data &&
+                      $state.apiRequest.data.our_message
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__mzAy8)}
+              className={classNames(projectcss.all, sty.freeBox__mzAy8, {
+                [sty.freeBoxinformation__mzAy88P0Rz]: hasVariant(
+                  $state,
+                  "information",
+                  "information"
+                )
+              })}
             >
               <div className={classNames(projectcss.all, sty.freeBox__v2LC)}>
                 <div
@@ -3315,7 +3507,13 @@ function PlasmicResult__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
-            className={classNames("__wab_instance", sty.apiRequest)}
+            className={classNames("__wab_instance", sty.apiRequest, {
+              [sty.apiRequestinformation]: hasVariant(
+                $state,
+                "information",
+                "information"
+              )
+            })}
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}

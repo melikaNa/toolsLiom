@@ -200,7 +200,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
             try {
               return (() => {
                 if ($ctx.query.type == "danger") {
-                  return parseInt($ctx.query.selectStep);
+                  return parseInt(
+                    $ctx.query.selectStep || $state.paramsObject.selectStep
+                  );
                 } else {
                   var index;
                   if ($state.getStep?.data?.todayReady == 1)
@@ -283,7 +285,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
             try {
               return (() => {
                 if ($ctx.query.type == "danger") {
-                  return parseInt($ctx.query.selectStep);
+                  return parseInt(
+                    $ctx.query.selectStep || $state.paramsObject.selectStep
+                  );
                 } else {
                   var index;
                   if ($state.getStep?.data?.todayReady == 1)
@@ -463,6 +467,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             searchParams.delete("token");
                             searchParams.delete("userId");
                             searchParams.delete("user_id");
+                            searchParams.delete("version");
+                            searchParams.delete("inApp");
+                            searchParams.delete("theme");
+                            searchParams.delete("selectedStep");
                             const newUrl = `${
                               window.location.pathname
                             }?${searchParams.toString()}`;
@@ -1325,7 +1333,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   variablePath: ["selectedStep"]
                                 },
                                 operation: 0,
-                                value: parseInt($ctx.query.selectStep)
+                                value: parseInt($state.paramsObject.selectStep)
                               };
                               return (({
                                 variable,
