@@ -1116,7 +1116,7 @@ function PlasmicBmi__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["params"] = true
+              $steps["params"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1142,7 +1142,7 @@ function PlasmicBmi__RenderFunc(props: {
                 $steps["params"] = await $steps["params"];
               }
 
-              $steps["updateWeek2"] = $state.paramsObject.week
+              $steps["updateWeek2"] = false
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -1171,7 +1171,7 @@ function PlasmicBmi__RenderFunc(props: {
                 $steps["updateWeek2"] = await $steps["updateWeek2"];
               }
 
-              $steps["clearParams"] = true
+              $steps["clearParams"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1575,7 +1575,8 @@ function PlasmicBmi__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return (() => {
-                                    var higth = parseInt($state.higth.value);
+                                    var higth =
+                                      parseInt($state.higth.value) / 100;
                                     var lastWeight = parseInt(
                                       $state.lastWeight.value
                                     );
@@ -1584,13 +1585,11 @@ function PlasmicBmi__RenderFunc(props: {
                                     );
                                     var week = $state.week2;
                                     var gol = parseInt($state.glo.value);
-                                    var lastbmi =
-                                      lastWeight / ((higth / 100) ^ 2);
+                                    var lastbmi = lastWeight / (higth * higth);
                                     var w = $state.weight[gol - 1].find(
                                       item => item.week == week
                                     ).gain;
-                                    var bmi =
-                                      (weight2 - w) / ((higth / 100) ^ 2);
+                                    var bmi = (weight2 - w) / (higth * higth);
                                     var add = weight2 - lastWeight;
                                     var min = $state.weight[gol - 1].find(
                                       item => item.week == week
@@ -2237,19 +2236,19 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  var higth = parseInt($state.higth.value);
+                                  var higth =
+                                    parseInt($state.higth.value) / 100;
                                   var lastWeight = parseInt(
                                     $state.lastWeight.value
                                   );
                                   var weight2 = parseInt($state.weight2.value);
                                   var week = $state.week2;
                                   var gol = parseInt($state.glo.value);
-                                  var lastbmi =
-                                    lastWeight / ((higth / 100) ^ 2);
+                                  var lastbmi = lastWeight / (higth * higth);
                                   var w = $state.weight[gol - 1].find(
                                     item => item.week == week
                                   ).gain;
-                                  var bmi = (weight2 - w) / ((higth / 100) ^ 2);
+                                  var bmi = (weight2 - w) / (higth * higth);
                                   var add = weight2 - lastWeight;
                                   var min = $state.weight[gol - 1].find(
                                     item => item.week == week
@@ -2421,18 +2420,18 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                var higth = parseInt($state.higth.value);
+                                var higth = parseInt($state.higth.value) / 100;
                                 var lastWeight = parseInt(
                                   $state.lastWeight.value
                                 );
                                 var weight2 = parseInt($state.weight2.value);
                                 var week = $state.week2;
                                 var gol = parseInt($state.glo.value);
-                                var lastbmi = lastWeight / ((higth / 100) ^ 2);
+                                var lastbmi = lastWeight / (higth * higth);
                                 var w = $state.weight[gol - 1].find(
                                   item => item.week == week
                                 ).gain;
-                                var bmi = (weight2 - w) / ((higth / 100) ^ 2);
+                                var bmi = (weight2 - w) / (higth * higth);
                                 var add = weight2 - lastWeight;
                                 var min = $state.weight[gol - 1].find(
                                   item => item.week == week
