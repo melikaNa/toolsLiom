@@ -477,7 +477,6 @@
   flex-shrink: 0;
 }
 .freeBox__h6WtR {
-  display: flex;
   flex-direction: column;
   position: relative;
   align-items: stretch;
@@ -486,6 +485,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  display: none;
   padding: 0px 16px 16px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
