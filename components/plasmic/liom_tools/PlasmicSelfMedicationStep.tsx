@@ -2230,13 +2230,22 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         })()
                       : (() => {
                           try {
-                            return (
-                              $state.isDone == false &&
-                              $ctx.query.type != "danger" &&
-                              $ctx.query.type != "stretch_marks" &&
-                              $ctx.query.type != "adhd_treatment_sub" &&
-                              !$state.getUser.loading
-                            );
+                            return (() => {
+                              if (
+                                $state.getData.loading != undefined &&
+                                !$state.getData.loading &&
+                                ($state.getData?.data?.[0]?.id || "") == ""
+                              )
+                                return false;
+                              else
+                                return (
+                                  $state.isDone == false &&
+                                  $ctx.query.type != "danger" &&
+                                  $ctx.query.type != "stretch_marks" &&
+                                  $ctx.query.type != "adhd_treatment_sub" &&
+                                  !$state.getUser.loading
+                                );
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

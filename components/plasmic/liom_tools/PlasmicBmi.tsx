@@ -97,6 +97,8 @@ import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: uG1hU
 import Icon177Icon from "./icons/PlasmicIcon__Icon177"; // plasmic-import: ld4RWktjVN-_/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: sKUeDF21ImIk/icon
+import ChevronLeftIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: TyihT0qbU5hB/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: d7z2iEn8tiSD/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
 
@@ -125,7 +127,11 @@ export type PlasmicBmi__OverridesType = {
   weight2?: Flex__<typeof Input>;
   glo?: Flex__<typeof Input>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
+  buttonLiom6?: Flex__<typeof ButtonLiom>;
   embedHtml?: Flex__<typeof Embed>;
+  buttonLiom3?: Flex__<typeof ButtonLiom>;
+  buttonLiom7?: Flex__<typeof ButtonLiom>;
+  buttonLiom8?: Flex__<typeof ButtonLiom>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
@@ -943,6 +949,30 @@ function PlasmicBmi__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "buttonLiom3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "link"
+      },
+      {
+        path: "buttonLiom6.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "link"
+      },
+      {
+        path: "buttonLiom7.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
+      },
+      {
+        path: "buttonLiom8.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
       }
     ],
     [$props, $ctx, $refs]
@@ -1724,6 +1754,67 @@ function PlasmicBmi__RenderFunc(props: {
                   </ButtonLiom>
                 </div>
               </section>
+              <div className={classNames(projectcss.all, sty.freeBox__yBhX)}>
+                {(
+                  hasVariant($state, "resalt", "resalt")
+                    ? (() => {
+                        try {
+                          return $state.week2 != $state.bmi.week;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : true
+                ) ? (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__hbQkU, {
+                      [sty.freeBoxresalt__hbQkUCpkCp]: hasVariant(
+                        $state,
+                        "resalt",
+                        "resalt"
+                      )
+                    })}
+                  >
+                    <Icon115Icon
+                      className={classNames(projectcss.all, sty.svg__myI1K, {
+                        [sty.svgresalt__myI1KCpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      })}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__d2HVj,
+                        {
+                          [sty.textresalt__d2HVjCpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
+                      )}
+                    >
+                      {
+                        "\u00ab\u0644\u0637\u0641\u0627\u064b \u0628\u0631\u0627\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u062f\u0642\u06cc\u0642\u060c \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u0628\u0647\u200c\u062f\u0631\u0633\u062a\u06cc \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.\u00bb"
+                      }
+                    </div>
+                  </Stack__>
+                ) : null}
+              </div>
             </div>
           </section>
           <section
@@ -1749,22 +1840,219 @@ function PlasmicBmi__RenderFunc(props: {
                       sty.text__lMkSc
                     )}
                   >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return `بررسی وزن در هفته ${$state.week2} بارداری`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u062f\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: (() => {
+                          try {
+                            return `بررسی وزن در <span style="font-weight: bold; font-size: 24px;"> هفته ${$state.week2}</span> بارداری`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u062f\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
+                        })()
+                      }}
+                    />
                   </div>
+                  <ButtonLiom
+                    data-plasmic-name={"buttonLiom6"}
+                    data-plasmic-override={overrides.buttonLiom6}
+                    className={classNames("__wab_instance", sty.buttonLiom6, {
+                      [sty.buttonLiom6resalt]: hasVariant(
+                        $state,
+                        "resalt",
+                        "resalt"
+                      )
+                    })}
+                    color={generateStateValueProp($state, [
+                      "buttonLiom6",
+                      "color"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateWeek2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["week2"]
+                              },
+                              operation: 0,
+                              value: $state.bmi.week
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateWeek2"] != null &&
+                        typeof $steps["updateWeek2"] === "object" &&
+                        typeof $steps["updateWeek2"].then === "function"
+                      ) {
+                        $steps["updateWeek2"] = await $steps["updateWeek2"];
+                      }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  var higth =
+                                    parseInt($state.higth.value) / 100;
+                                  var lastWeight = parseInt(
+                                    $state.lastWeight.value
+                                  );
+                                  var weight2 = parseInt($state.weight2.value);
+                                  var week = $state.week2;
+                                  var gol = parseInt($state.glo.value);
+                                  var lastbmi = lastWeight / (higth * higth);
+                                  var w = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).gain;
+                                  var bmi = (weight2 - w) / (higth * higth);
+                                  var add = weight2 - lastWeight;
+                                  var min = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).minGain;
+                                  var max = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).maxGain;
+                                  var type =
+                                    add >= min && add <= max
+                                      ? 1
+                                      : add < min
+                                      ? 0
+                                      : 2;
+                                  return ($state.bmi = {
+                                    week: week,
+                                    lastbmi: lastbmi,
+                                    bmi: bmi,
+                                    w: w,
+                                    type: type,
+                                    min: min,
+                                    max: max,
+                                    weight: lastWeight,
+                                    add: add
+                                  });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["invokeGlobalAction"] = !(
+                        $state.higth.value &&
+                        $state.lastWeight.value &&
+                        $state.weight2.value &&
+                        $state.week.value &&
+                        $state.glo.value
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0645\u0627\u06cc\u06cc\u062f",
+                                "bottom-center",
+                                3000
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom6",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    size={"compact"}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pof5V,
+                        {
+                          [sty.textresalt__pof5VCpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "resalt", "resalt") ? (
+                        "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc"
+                      ) : (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.week2 == $state.bmi.week;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      )}
+                    </div>
+                  </ButtonLiom>
                   <Stack__
                     as={"div"}
                     hasGap={true}
@@ -1840,7 +2128,14 @@ function PlasmicBmi__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__iQb4A
+                        sty.text__iQb4A,
+                        {
+                          [sty.textresalt__iQb4ACpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
                       )}
                       style={(() => {
                         try {
@@ -1882,6 +2177,73 @@ function PlasmicBmi__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
+                    {(
+                      hasVariant($state, "resalt", "resalt")
+                        ? (() => {
+                            try {
+                              return $state.week2 != $state.bmi.week;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : true
+                    ) ? (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__tiDzh,
+                          {
+                            [sty.freeBoxresalt__tiDzhCpkCp]: hasVariant(
+                              $state,
+                              "resalt",
+                              "resalt"
+                            )
+                          }
+                        )}
+                      >
+                        <Icon115Icon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___4JEiy,
+                            {
+                              [sty.svgresalt___4JEiyCpkCp]: hasVariant(
+                                $state,
+                                "resalt",
+                                "resalt"
+                              )
+                            }
+                          )}
+                          role={"img"}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___2Cwl,
+                            {
+                              [sty.textresalt___2CwlCpkCp]: hasVariant(
+                                $state,
+                                "resalt",
+                                "resalt"
+                              )
+                            }
+                          )}
+                        >
+                          {
+                            "\u0627\u06cc\u0646 BMI \u0628\u0631 \u0627\u0633\u0627\u0633 \u0648\u0632\u0646 \u0648\u0631\u0648\u062f\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0645\u06cc \u0634\u0648\u062f \u0648 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0627\u0633\u062a."
+                          }
+                        </div>
+                      </Stack__>
+                    ) : null}
                     <Embed
                       data-plasmic-name={"embedHtml"}
                       data-plasmic-override={overrides.embedHtml}
@@ -1988,7 +2350,534 @@ background: linear-gradient(to right,
                         }
                       })()}
                     />
+
+                    <ButtonLiom
+                      data-plasmic-name={"buttonLiom3"}
+                      data-plasmic-override={overrides.buttonLiom3}
+                      className={classNames("__wab_instance", sty.buttonLiom3, {
+                        [sty.buttonLiom3resalt]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "buttonLiom3",
+                        "color"
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateWeek2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["week2"]
+                                },
+                                operation: 0,
+                                value: $state.bmi.week
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateWeek2"] != null &&
+                          typeof $steps["updateWeek2"] === "object" &&
+                          typeof $steps["updateWeek2"].then === "function"
+                        ) {
+                          $steps["updateWeek2"] = await $steps["updateWeek2"];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    var higth =
+                                      parseInt($state.higth.value) / 100;
+                                    var lastWeight = parseInt(
+                                      $state.lastWeight.value
+                                    );
+                                    var weight2 = parseInt(
+                                      $state.weight2.value
+                                    );
+                                    var week = $state.week2;
+                                    var gol = parseInt($state.glo.value);
+                                    var lastbmi = lastWeight / (higth * higth);
+                                    var w = $state.weight[gol - 1].find(
+                                      item => item.week == week
+                                    ).gain;
+                                    var bmi = (weight2 - w) / (higth * higth);
+                                    var add = weight2 - lastWeight;
+                                    var min = $state.weight[gol - 1].find(
+                                      item => item.week == week
+                                    ).minGain;
+                                    var max = $state.weight[gol - 1].find(
+                                      item => item.week == week
+                                    ).maxGain;
+                                    var type =
+                                      add >= min && add <= max
+                                        ? 1
+                                        : add < min
+                                        ? 0
+                                        : 2;
+                                    return ($state.bmi = {
+                                      week: week,
+                                      lastbmi: lastbmi,
+                                      bmi: bmi,
+                                      w: w,
+                                      type: type,
+                                      min: min,
+                                      max: max,
+                                      weight: lastWeight,
+                                      add: add
+                                    });
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction"] = !(
+                          $state.higth.value &&
+                          $state.lastWeight.value &&
+                          $state.weight2.value &&
+                          $state.week.value &&
+                          $state.glo.value
+                        )
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0645\u0627\u06cc\u06cc\u062f",
+                                  "bottom-center",
+                                  3000
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "buttonLiom3",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__plgRk
+                        )}
+                      >
+                        {
+                          "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc"
+                        }
+                      </div>
+                    </ButtonLiom>
                   </Stack__>
+                  <ButtonLiom
+                    data-plasmic-name={"buttonLiom7"}
+                    data-plasmic-override={overrides.buttonLiom7}
+                    className={classNames("__wab_instance", sty.buttonLiom7, {
+                      [sty.buttonLiom7resalt]: hasVariant(
+                        $state,
+                        "resalt",
+                        "resalt"
+                      )
+                    })}
+                    color={generateStateValueProp($state, [
+                      "buttonLiom7",
+                      "color"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateWeek2"] =
+                        $state.week2 > 0
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["week2"]
+                                },
+                                operation: 0,
+                                value: $state.week2 - 1
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateWeek2"] != null &&
+                        typeof $steps["updateWeek2"] === "object" &&
+                        typeof $steps["updateWeek2"].then === "function"
+                      ) {
+                        $steps["updateWeek2"] = await $steps["updateWeek2"];
+                      }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  var higth =
+                                    parseInt($state.higth.value) / 100;
+                                  var lastWeight = parseInt(
+                                    $state.lastWeight.value
+                                  );
+                                  var weight2 = parseInt($state.weight2.value);
+                                  var week = $state.week2;
+                                  var gol = parseInt($state.glo.value);
+                                  var lastbmi = lastWeight / (higth * higth);
+                                  var w = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).gain;
+                                  var bmi = (weight2 - w) / (higth * higth);
+                                  var add = weight2 - lastWeight;
+                                  var min = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).minGain;
+                                  var max = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).maxGain;
+                                  var type =
+                                    add >= min && add <= max
+                                      ? 1
+                                      : add < min
+                                      ? 0
+                                      : 2;
+                                  return ($state.bmi = {
+                                    week: $state.bmi.week,
+                                    lastbmi: lastbmi,
+                                    bmi: bmi,
+                                    w: w,
+                                    type: type,
+                                    min: min,
+                                    max: max,
+                                    weight: lastWeight,
+                                    add: add
+                                  });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["invokeGlobalAction"] = !(
+                        $state.higth.value &&
+                        $state.lastWeight.value &&
+                        $state.weight2.value &&
+                        $state.week.value &&
+                        $state.glo.value
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0645\u0627\u06cc\u06cc\u062f",
+                                "bottom-center",
+                                3000
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom7",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    shape={"round"}
+                    startIcon={
+                      <ChevronRightIcon
+                        className={classNames(projectcss.all, sty.svg__eQlk)}
+                        role={"img"}
+                      />
+                    }
+                  >
+                    <ChevronRightIcon
+                      className={classNames(projectcss.all, sty.svg__teEsa, {
+                        [sty.svgresalt__teEsaCpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  </ButtonLiom>
+                  <ButtonLiom
+                    data-plasmic-name={"buttonLiom8"}
+                    data-plasmic-override={overrides.buttonLiom8}
+                    className={classNames("__wab_instance", sty.buttonLiom8, {
+                      [sty.buttonLiom8resalt]: hasVariant(
+                        $state,
+                        "resalt",
+                        "resalt"
+                      )
+                    })}
+                    color={generateStateValueProp($state, [
+                      "buttonLiom8",
+                      "color"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateWeek2"] =
+                        $state.week2 < 40
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["week2"]
+                                },
+                                operation: 0,
+                                value: $state.week2 + 1
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateWeek2"] != null &&
+                        typeof $steps["updateWeek2"] === "object" &&
+                        typeof $steps["updateWeek2"].then === "function"
+                      ) {
+                        $steps["updateWeek2"] = await $steps["updateWeek2"];
+                      }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  var higth =
+                                    parseInt($state.higth.value) / 100;
+                                  var lastWeight = parseInt(
+                                    $state.lastWeight.value
+                                  );
+                                  var weight2 = parseInt($state.weight2.value);
+                                  var week = $state.week2;
+                                  var gol = parseInt($state.glo.value);
+                                  var lastbmi = lastWeight / (higth * higth);
+                                  var w = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).gain;
+                                  var bmi = (weight2 - w) / (higth * higth);
+                                  var add = weight2 - lastWeight;
+                                  var min = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).minGain;
+                                  var max = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).maxGain;
+                                  var type =
+                                    add >= min && add <= max
+                                      ? 1
+                                      : add < min
+                                      ? 0
+                                      : 2;
+                                  return ($state.bmi = {
+                                    week: $state.bmi.week,
+                                    lastbmi: lastbmi,
+                                    bmi: bmi,
+                                    w: w,
+                                    type: type,
+                                    min: min,
+                                    max: max,
+                                    weight: lastWeight,
+                                    add: add
+                                  });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["invokeGlobalAction"] = !(
+                        $state.higth.value &&
+                        $state.lastWeight.value &&
+                        $state.weight2.value &&
+                        $state.week.value &&
+                        $state.glo.value
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0645\u0627\u06cc\u06cc\u062f",
+                                "bottom-center",
+                                3000
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom8",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    shape={"round"}
+                    startIcon={
+                      <ChevronLeftIcon
+                        className={classNames(projectcss.all, sty.svg__zOoj)}
+                        role={"img"}
+                      />
+                    }
+                  >
+                    <ChevronLeftIcon
+                      className={classNames(projectcss.all, sty.svg__gLpZu, {
+                        [sty.svgresalt__gLpZuCpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  </ButtonLiom>
                 </Stack__>
               </div>
               <Stack__
@@ -2194,7 +3083,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             try {
-                              return `<span style="color: red;">حداقل</span> وزن مناسب هفته <strong>${$state.week2}</strong>`;
+                              return `<span style="color: #FFA500;">حداقل</span> وزن مناسب هفته : `;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -2208,73 +3097,40 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                         }}
                       />
                     </div>
-                    {(
-                      hasVariant($state, "resalt", "resalt")
-                        ? (() => {
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rrkin,
+                        {
+                          [sty.textresalt__rrkinCpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
+                      )}
+                    >
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
                             try {
-                              return $state.bmi.week == $state.week2;
+                              return `
+${parseInt($state.bmi.weight) + $state.bmi.min} کیلوگرم `;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return true;
+                                return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
                               }
                               throw e;
                             }
                           })()
-                        : true
-                    ) ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__rrkin,
-                          {
-                            [sty.textresalt__rrkinCpkCp]: hasVariant(
-                              $state,
-                              "resalt",
-                              "resalt"
-                            )
-                          }
-                        )}
-                      >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: (() => {
-                              try {
-                                return `شما تا هفته ${$state.week2}  بارداری
-<span style="font-weight: bold;">
-${$state.bmi.add}  کیلوگرم 
-  ${
-    $state.bmi.add < 0
-      ? "کاهش وزن"
-      : $state.bmi.add >= 0
-      ? "افزایش وزن"
-      : "هیچ تغییری"
-  }
-</span>
-داشته اید. که در محدوده
-<span style="color: ${$state.gain[$state.bmi.type].color}; font-weight: bold;">
-  ${$state.gain[$state.bmi.type].status}
-</span>
-قرار دارد.
-`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
-                                }
-                                throw e;
-                              }
-                            })()
-                          }}
-                        />
-                      </div>
-                    ) : null}
+                        }}
+                      />
+                    </div>
                   </Stack__>
                   <Stack__
                     as={"div"}
@@ -2294,77 +3150,25 @@ ${$state.bmi.add}  کیلوگرم
                         sty.text__rAhzW
                       )}
                     >
-                      {
-                        "\u062d\u062f\u0627\u06a9\u062b\u0631 \u0648\u0632\u0646 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647"
-                      }
-                    </div>
-                    {(
-                      hasVariant($state, "resalt", "resalt")
-                        ? (() => {
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
                             try {
-                              return $state.bmi.week == $state.week2;
+                              return `<span style="color:#F44336;">حداکثر</span> وزن مناسب هفته <strong>${$state.week2}</strong> : `;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return true;
+                                return "\u062d\u062f\u0627\u06a9\u062b\u0631 \u0648\u0632\u0646 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647";
                               }
                               throw e;
                             }
                           })()
-                        : true
-                    ) ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__z7Hi6,
-                          {
-                            [sty.textresalt__z7Hi6CpkCp]: hasVariant(
-                              $state,
-                              "resalt",
-                              "resalt"
-                            )
-                          }
-                        )}
-                      >
-                        <div
-                          className={projectcss.__wab_expr_html_text}
-                          dangerouslySetInnerHTML={{
-                            __html: (() => {
-                              try {
-                                return `شما تا هفته ${$state.week2}  بارداری
-<span style="font-weight: bold;">
-${$state.bmi.add}  کیلوگرم 
-  ${
-    $state.bmi.add < 0
-      ? "کاهش وزن"
-      : $state.bmi.add >= 0
-      ? "افزایش وزن"
-      : "هیچ تغییری"
-  }
-</span>
-داشته اید. که در محدوده
-<span style="color: ${$state.gain[$state.bmi.type].color}; font-weight: bold;">
-  ${$state.gain[$state.bmi.type].status}
-</span>
-قرار دارد.
-`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
-                                }
-                                throw e;
-                              }
-                            })()
-                          }}
-                        />
-                      </div>
-                    ) : null}
+                        }}
+                      />
+                    </div>
                     <div
                       className={classNames(
                         projectcss.all,
@@ -2377,15 +3181,8 @@ ${$state.bmi.add}  کیلوگرم
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             try {
-                              return `حداقل وزن شماتا هفته ${$state.week2}      
-       ...
-<span style="font-weight: bold;">
-${parseInt($state.bmi.weight) + $state.bmi.min}  کیلوگرم  ...
-</span>
-و حداکثر وزن شما در این هفته ... 
-<span style="font-weight: bold;">
-${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
-</span> است.`;
+                              return `
+${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم `;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -2417,194 +3214,175 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__blDyw)}
               >
-                {(
-                  hasVariant($state, "resalt", "resalt")
-                    ? (() => {
-                        try {
-                          return $state.bmi.week != $state.week2;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })()
-                    : true
-                ) ? (
-                  <ButtonLiom
-                    data-plasmic-name={"buttonLiom2"}
-                    data-plasmic-override={overrides.buttonLiom2}
-                    className={classNames("__wab_instance", sty.buttonLiom2, {
-                      [sty.buttonLiom2resalt]: hasVariant(
-                        $state,
-                        "resalt",
-                        "resalt"
-                      )
-                    })}
-                    color={generateStateValueProp($state, [
-                      "buttonLiom2",
-                      "color"
-                    ])}
-                    onClick={async event => {
-                      const $steps = {};
+                <ButtonLiom
+                  data-plasmic-name={"buttonLiom2"}
+                  data-plasmic-override={overrides.buttonLiom2}
+                  className={classNames("__wab_instance", sty.buttonLiom2, {
+                    [sty.buttonLiom2resalt]: hasVariant(
+                      $state,
+                      "resalt",
+                      "resalt"
+                    )
+                  })}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom2",
+                    "color"
+                  ])}
+                  onClick={async event => {
+                    const $steps = {};
 
-                      $steps["updateWeek2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["week2"]
-                              },
-                              operation: 0,
-                              value: $state.bmi.week
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
+                    $steps["updateWeek2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["week2"]
+                            },
+                            operation: 0,
+                            value: $state.bmi.week
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateWeek2"] != null &&
-                        typeof $steps["updateWeek2"] === "object" &&
-                        typeof $steps["updateWeek2"].then === "function"
-                      ) {
-                        $steps["updateWeek2"] = await $steps["updateWeek2"];
-                      }
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateWeek2"] != null &&
+                      typeof $steps["updateWeek2"] === "object" &&
+                      typeof $steps["updateWeek2"].then === "function"
+                    ) {
+                      $steps["updateWeek2"] = await $steps["updateWeek2"];
+                    }
 
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  var higth =
-                                    parseInt($state.higth.value) / 100;
-                                  var lastWeight = parseInt(
-                                    $state.lastWeight.value
-                                  );
-                                  var weight2 = parseInt($state.weight2.value);
-                                  var week = $state.week2;
-                                  var gol = parseInt($state.glo.value);
-                                  var lastbmi = lastWeight / (higth * higth);
-                                  var w = $state.weight[gol - 1].find(
-                                    item => item.week == week
-                                  ).gain;
-                                  var bmi = (weight2 - w) / (higth * higth);
-                                  var add = weight2 - lastWeight;
-                                  var min = $state.weight[gol - 1].find(
-                                    item => item.week == week
-                                  ).minGain;
-                                  var max = $state.weight[gol - 1].find(
-                                    item => item.week == week
-                                  ).maxGain;
-                                  var type =
-                                    add >= min && add <= max
-                                      ? 1
-                                      : add < min
-                                      ? 0
-                                      : 2;
-                                  return ($state.bmi = {
-                                    week: week,
-                                    lastbmi: lastbmi,
-                                    bmi: bmi,
-                                    w: w,
-                                    type: type,
-                                    min: min,
-                                    max: max,
-                                    weight: lastWeight,
-                                    add: add
-                                  });
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                var higth = parseInt($state.higth.value) / 100;
+                                var lastWeight = parseInt(
+                                  $state.lastWeight.value
+                                );
+                                var weight2 = parseInt($state.weight2.value);
+                                var week = $state.week2;
+                                var gol = parseInt($state.glo.value);
+                                var lastbmi = lastWeight / (higth * higth);
+                                var w = $state.weight[gol - 1].find(
+                                  item => item.week == week
+                                ).gain;
+                                var bmi = (weight2 - w) / (higth * higth);
+                                var add = weight2 - lastWeight;
+                                var min = $state.weight[gol - 1].find(
+                                  item => item.week == week
+                                ).minGain;
+                                var max = $state.weight[gol - 1].find(
+                                  item => item.week == week
+                                ).maxGain;
+                                var type =
+                                  add >= min && add <= max
+                                    ? 1
+                                    : add < min
+                                    ? 0
+                                    : 2;
+                                return ($state.bmi = {
+                                  week: week,
+                                  lastbmi: lastbmi,
+                                  bmi: bmi,
+                                  w: w,
+                                  type: type,
+                                  min: min,
+                                  max: max,
+                                  weight: lastWeight,
+                                  add: add
+                                });
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
 
-                      $steps["invokeGlobalAction"] = !(
-                        $state.higth.value &&
-                        $state.lastWeight.value &&
-                        $state.weight2.value &&
-                        $state.week.value &&
-                        $state.glo.value
-                      )
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "error",
-                                "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0645\u0627\u06cc\u06cc\u062f",
-                                "bottom-center",
-                                3000
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "buttonLiom2",
-                          "color"
-                        ])(eventArgs[0]);
-                      }).apply(null, eventArgs);
+                    $steps["invokeGlobalAction"] = !(
+                      $state.higth.value &&
+                      $state.lastWeight.value &&
+                      $state.weight2.value &&
+                      $state.week.value &&
+                      $state.glo.value
+                    )
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "error",
+                              "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0627 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0645\u0627\u06cc\u06cc\u062f",
+                              "bottom-center",
+                              3000
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom2",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
 
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___2P0Jk
+                    )}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___2P0Jk
-                      )}
-                    >
-                      {
-                        "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc"
-                      }
-                    </div>
-                  </ButtonLiom>
-                ) : null}
+                    {
+                      "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc"
+                    }
+                  </div>
+                </ButtonLiom>
               </Stack__>
               <Stack__
                 as={"div"}
@@ -3276,7 +4054,11 @@ const PlasmicDescendants = {
     "weight2",
     "glo",
     "buttonLiom",
+    "buttonLiom6",
     "embedHtml",
+    "buttonLiom3",
+    "buttonLiom7",
+    "buttonLiom8",
     "buttonLiom2",
     "buttonLiom4",
     "buttonLiom5",
@@ -3296,7 +4078,11 @@ const PlasmicDescendants = {
   weight2: ["weight2"],
   glo: ["glo"],
   buttonLiom: ["buttonLiom"],
+  buttonLiom6: ["buttonLiom6"],
   embedHtml: ["embedHtml"],
+  buttonLiom3: ["buttonLiom3"],
+  buttonLiom7: ["buttonLiom7"],
+  buttonLiom8: ["buttonLiom8"],
   buttonLiom2: ["buttonLiom2"],
   buttonLiom4: ["buttonLiom4"],
   buttonLiom5: ["buttonLiom5"],
@@ -3329,7 +4115,11 @@ type NodeDefaultElementType = {
   weight2: typeof Input;
   glo: typeof Input;
   buttonLiom: typeof ButtonLiom;
+  buttonLiom6: typeof ButtonLiom;
   embedHtml: typeof Embed;
+  buttonLiom3: typeof ButtonLiom;
+  buttonLiom7: typeof ButtonLiom;
+  buttonLiom8: typeof ButtonLiom;
   buttonLiom2: typeof ButtonLiom;
   buttonLiom4: typeof ButtonLiom;
   buttonLiom5: typeof ButtonLiom;
@@ -3435,7 +4225,11 @@ export const PlasmicBmi = Object.assign(
     weight2: makeNodeComponent("weight2"),
     glo: makeNodeComponent("glo"),
     buttonLiom: makeNodeComponent("buttonLiom"),
+    buttonLiom6: makeNodeComponent("buttonLiom6"),
     embedHtml: makeNodeComponent("embedHtml"),
+    buttonLiom3: makeNodeComponent("buttonLiom3"),
+    buttonLiom7: makeNodeComponent("buttonLiom7"),
+    buttonLiom8: makeNodeComponent("buttonLiom8"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
