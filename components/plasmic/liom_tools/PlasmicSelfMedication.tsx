@@ -334,7 +334,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.theme == "dark";
+              return $state.paramsObject.theme == "dark";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -759,7 +759,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 })}
                 dark={(() => {
                   try {
-                    return $ctx.query.theme == "dark";
+                    return $state.paramsObject.theme == "dark";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

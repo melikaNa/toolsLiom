@@ -1041,7 +1041,15 @@ function PlasmicBmi__RenderFunc(props: {
             }
           )}
         >
-          <section className={classNames(projectcss.all, sty.section__tslw4)}>
+          <section
+            className={classNames(projectcss.all, sty.section__tslw4, {
+              [sty.sectionresalt__tslw4CpkCp]: hasVariant(
+                $state,
+                "resalt",
+                "resalt"
+              )
+            })}
+          >
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
@@ -2038,19 +2046,43 @@ background: linear-gradient(to right,
                       }}
                     />
                   </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___4Hvl
-                    )}
-                  >
-                    <div
-                      className={projectcss.__wab_expr_html_text}
-                      dangerouslySetInnerHTML={{
-                        __html: (() => {
+                  {(
+                    hasVariant($state, "resalt", "resalt")
+                      ? (() => {
                           try {
-                            return `شما تا هفته ${$state.week2}  بارداری
+                            return $state.bmi.week == $state.week2;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___4Hvl,
+                        {
+                          [sty.textresalt___4HvlCpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
+                      )}
+                    >
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return `شما تا هفته ${$state.week2}  بارداری
 <span style="font-weight: bold;">
 ${$state.bmi.add}  کیلوگرم 
   ${
@@ -2067,19 +2099,20 @@ ${$state.bmi.add}  کیلوگرم
 </span>
 قرار دارد.
 `;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      }}
-                    />
-                  </div>
+                          })()
+                        }}
+                      />
+                    </div>
+                  ) : null}
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2393,6 +2426,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                                   $state.lastWeight.value
                                 );
                                 var weight2 = parseInt($state.weight2.value);
+                                var week = $state.week2;
                                 var gol = parseInt($state.glo.value);
                                 var lastbmi = lastWeight / ((higth / 100) ^ 2);
                                 var w = $state.weight[gol - 1].find(
