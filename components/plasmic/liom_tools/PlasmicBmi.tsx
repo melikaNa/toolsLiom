@@ -1146,7 +1146,7 @@ function PlasmicBmi__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["params"] = false
+              $steps["params"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1172,7 +1172,7 @@ function PlasmicBmi__RenderFunc(props: {
                 $steps["params"] = await $steps["params"];
               }
 
-              $steps["updateWeek2"] = false
+              $steps["updateWeek2"] = $state.paramsObject.week
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -1201,7 +1201,7 @@ function PlasmicBmi__RenderFunc(props: {
                 $steps["updateWeek2"] = await $steps["updateWeek2"];
               }
 
-              $steps["clearParams"] = false
+              $steps["clearParams"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
