@@ -1063,7 +1063,9 @@ function PlasmicBmi__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return window.history.back();
+                              return $props.resalt == true
+                                ? ($props.resalt = false)
+                                : window.history.back();
                             }
                           };
                           return (({ customFunction }) => {
