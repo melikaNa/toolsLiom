@@ -469,8 +469,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             searchParams.delete("user_id");
                             searchParams.delete("version");
                             searchParams.delete("inApp");
-                            searchParams.delete("theme");
-                            searchParams.delete("selectedStep");
+                            searchParams.delete("them");
+                            searchParams.delete("selectStep");
                             const newUrl = `${
                               window.location.pathname
                             }?${searchParams.toString()}`;

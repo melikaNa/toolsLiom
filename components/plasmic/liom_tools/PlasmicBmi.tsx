@@ -142,6 +142,7 @@ export type PlasmicBmi__OverridesType = {
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof ButtonLiom>;
   button2?: Flex__<typeof ButtonLiom>;
+  favicon?: Flex__<typeof Embed>;
 };
 
 export interface DefaultBmiProps {}
@@ -1702,8 +1703,8 @@ function PlasmicBmi__RenderFunc(props: {
                                         : 2;
                                     return ($state.bmi = {
                                       week: week,
-                                      lastbmi: lastbmi,
-                                      bmi: bmi,
+                                      lastbmi: Math.fround(lastbmi),
+                                      bmi: Math.fround(bmi),
                                       w: w,
                                       type: type,
                                       min: min,
@@ -2914,7 +2915,14 @@ background: linear-gradient(to right,
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__y3N
+                      sty.text__y3N,
+                      {
+                        [sty.textresalt__y3NCpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      }
                     )}
                   >
                     <div
@@ -4113,6 +4121,16 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم `;
               </div>
             </ApiRequest>
           </Dialog3>
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? '<script>\r\n(function() {\r\n    var link = document.querySelector("link[rel=\'icon\']");\r\n    if (!link) {\r\n        link = document.createElement(\'link\');\r\n        link.rel = \'icon\';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = \'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico\';\r\n})();\r\nlet lastChange = Date.now();\r\n\r\ndocument.addEventListener("visibilitychange", function () {\r\n    if (document.visibilityState === "visible" && Date.now() - lastChange > 1000) {\r\n        fetch("https://n8n.staas.ir/webhook/credit", {\r\n            method: "GET", // \u06cc\u0627 "POST" \u0628\u0633\u062a\u0647 \u0628\u0647 \u0646\u06cc\u0627\u0632 \u0634\u0645\u0627\r\n            headers: {\r\n                "Authorization": "Bearer "+window.token,\r\n            }\r\n        })\r\n        .then(response => response.json())\r\n        .then(data => window.credit=data.credit; )\r\n        .catch(error => console.error("\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u062e\u0648\u0627\u0633\u062a:", error));\r\n\r\n        lastChange = Date.now();\r\n    }\r\n});\r\n\r\n\r\n\r\n</script>\r\n<script src="https://developer.eitaa.com/eitaa-web-app.js">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.ready();\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled = true;\r\n</script>\r\n'
+                : '<script>\r\n(function() {\r\n    var link = document.querySelector("link[rel=\'icon\']");\r\n    if (!link) {\r\n        link = document.createElement(\'link\');\r\n        link.rel = \'icon\';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = \'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico\';\r\n})();\r\nlet lastChange = Date.now();\r\n\r\ndocument.addEventListener("visibilitychange", function () {\r\n    if (document.visibilityState === "visible" && Date.now() - lastChange > 1000) {\r\n        fetch("https://n8n.staas.ir/webhook/credit", {\r\n            method: "GET", // \u06cc\u0627 "POST" \u0628\u0633\u062a\u0647 \u0628\u0647 \u0646\u06cc\u0627\u0632 \u0634\u0645\u0627\r\n            headers: {\r\n                "Authorization": "Bearer "+window.token,\r\n            }\r\n        })\r\n        .then(response => response.json())\r\n        .then(data => {\r\n            window.credit = data.credit; \r\n\r\n            // \u0627\u062c\u0631\u0627\u06cc \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u06cc\u06a9 \u062f\u06a9\u0645\u0647 (\u0645\u062b\u0644\u0627\u064b \u062f\u06a9\u0645\u0647\u200c\u0627\u06cc \u0628\u0627 `id="myButton"`)\r\n            let button = document.getElementById("creditCheck");\r\n            if (button) {\r\n                button.click();\r\n            }\r\n        })        .catch(error => console.error("\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u062e\u0648\u0627\u0633\u062a:", error));\r\n\r\n        lastChange = Date.now();\r\n    }\r\n});\r\n\r\n\r\n\r\n</script>\r\n<script src="https://developer.eitaa.com/eitaa-web-app.js">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.ready();\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled = true;\r\n</script>\r\n'
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -4144,7 +4162,8 @@ const PlasmicDescendants = {
     "h5",
     "input",
     "button",
-    "button2"
+    "button2",
+    "favicon"
   ],
   headerLiom: ["headerLiom"],
   sideEffect: ["sideEffect"],
@@ -4176,7 +4195,8 @@ const PlasmicDescendants = {
   h5: ["h5"],
   input: ["input"],
   button: ["button"],
-  button2: ["button2"]
+  button2: ["button2"],
+  favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4206,6 +4226,7 @@ type NodeDefaultElementType = {
   input: typeof AntdInput;
   button: typeof ButtonLiom;
   button2: typeof ButtonLiom;
+  favicon: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4316,6 +4337,7 @@ export const PlasmicBmi = Object.assign(
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
+    favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicBmi
     internalVariantProps: PlasmicBmi__VariantProps,
@@ -4323,7 +4345,7 @@ export const PlasmicBmi = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "لیوم | دستیار سلامت",
+      title: "لیوم | ارزیابی وزن دوران بارداری",
       description:
         "از دلایل عقب جلو شدن پریود خود،  در کمتر از چند دقیقه و بدون انتظار برای پزشک آگاه شوید",
       ogImageSrc:
