@@ -2140,6 +2140,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         case "skinCare":
                           type = "skinCareIsActive";
                           break;
+                        case "danger":
+                          type = "pregnancy_danger_sub";
+                          break;
                       }
                       return {
                         stepId:

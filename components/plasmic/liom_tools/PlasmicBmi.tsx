@@ -2197,64 +2197,56 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                         $steps["updateWeek2"] = await $steps["updateWeek2"];
                       }
 
-                      $steps["runCode"] =
-                        $state.higth.value &&
-                        $state.lastWeight.value &&
-                        $state.weight2.value &&
-                        $state.week.value &&
-                        $state.glo.value
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    var higth = parseInt($state.higth.value);
-                                    var lastWeight = parseInt(
-                                      $state.lastWeight.value
-                                    );
-                                    var weight2 = parseInt(
-                                      $state.weight2.value
-                                    );
-                                    var week = $state.week2;
-                                    var gol = parseInt($state.glo.value);
-                                    var lastbmi =
-                                      lastWeight / ((higth / 100) ^ 2);
-                                    var w = $state.weight[gol - 1].find(
-                                      item => item.week == week
-                                    ).gain;
-                                    var bmi =
-                                      (weight2 - w) / ((higth / 100) ^ 2);
-                                    var add = weight2 - lastWeight;
-                                    var min = $state.weight[gol - 1].find(
-                                      item => item.week == week
-                                    ).minGain;
-                                    var max = $state.weight[gol - 1].find(
-                                      item => item.week == week
-                                    ).maxGain;
-                                    var type =
-                                      add >= min && add <= max
-                                        ? 1
-                                        : add < min
-                                        ? 0
-                                        : 2;
-                                    return ($state.bmi = {
-                                      week: week,
-                                      lastbmi: lastbmi,
-                                      bmi: bmi,
-                                      w: w,
-                                      type: type,
-                                      min: min,
-                                      max: max,
-                                      weight: lastWeight,
-                                      add: add
-                                    });
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  var higth = parseInt($state.higth.value);
+                                  var lastWeight = parseInt(
+                                    $state.lastWeight.value
+                                  );
+                                  var weight2 = parseInt($state.weight2.value);
+                                  var week = $state.week2;
+                                  var gol = parseInt($state.glo.value);
+                                  var lastbmi =
+                                    lastWeight / ((higth / 100) ^ 2);
+                                  var w = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).gain;
+                                  var bmi = (weight2 - w) / ((higth / 100) ^ 2);
+                                  var add = weight2 - lastWeight;
+                                  var min = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).minGain;
+                                  var max = $state.weight[gol - 1].find(
+                                    item => item.week == week
+                                  ).maxGain;
+                                  var type =
+                                    add >= min && add <= max
+                                      ? 1
+                                      : add < min
+                                      ? 0
+                                      : 2;
+                                  return ($state.bmi = {
+                                    week: week,
+                                    lastbmi: lastbmi,
+                                    bmi: bmi,
+                                    w: w,
+                                    type: type,
+                                    min: min,
+                                    max: max,
+                                    weight: lastWeight,
+                                    add: add
+                                  });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
                         $steps["runCode"] != null &&
                         typeof $steps["runCode"] === "object" &&
@@ -2389,60 +2381,54 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       $steps["updateWeek2"] = await $steps["updateWeek2"];
                     }
 
-                    $steps["runCode"] =
-                      $state.higth.value &&
-                      $state.lastWeight.value &&
-                      $state.weight2.value &&
-                      $state.week.value &&
-                      $state.glo.value
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  var higth = parseInt($state.higth.value);
-                                  var lastWeight = parseInt(
-                                    $state.lastWeight.value
-                                  );
-                                  var weight2 = parseInt($state.weight2.value);
-                                  var week = $state.week2;
-                                  var gol = parseInt($state.glo.value);
-                                  var lastbmi =
-                                    lastWeight / ((higth / 100) ^ 2);
-                                  var w = $state.weight[gol - 1].find(
-                                    item => item.week == week
-                                  ).gain;
-                                  var bmi = (weight2 - w) / ((higth / 100) ^ 2);
-                                  var add = weight2 - lastWeight;
-                                  var min = $state.weight[gol - 1].find(
-                                    item => item.week == week
-                                  ).minGain;
-                                  var max = $state.weight[gol - 1].find(
-                                    item => item.week == week
-                                  ).maxGain;
-                                  var type =
-                                    add >= min && add <= max
-                                      ? 1
-                                      : add < min
-                                      ? 0
-                                      : 2;
-                                  return ($state.bmi = {
-                                    lastbmi: lastbmi,
-                                    bmi: bmi,
-                                    w: w,
-                                    type: type,
-                                    min: min,
-                                    max: max,
-                                    weight: lastWeight,
-                                    add: add
-                                  });
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                var higth = parseInt($state.higth.value);
+                                var lastWeight = parseInt(
+                                  $state.lastWeight.value
+                                );
+                                var weight2 = parseInt($state.weight2.value);
+                                var gol = parseInt($state.glo.value);
+                                var lastbmi = lastWeight / ((higth / 100) ^ 2);
+                                var w = $state.weight[gol - 1].find(
+                                  item => item.week == week
+                                ).gain;
+                                var bmi = (weight2 - w) / ((higth / 100) ^ 2);
+                                var add = weight2 - lastWeight;
+                                var min = $state.weight[gol - 1].find(
+                                  item => item.week == week
+                                ).minGain;
+                                var max = $state.weight[gol - 1].find(
+                                  item => item.week == week
+                                ).maxGain;
+                                var type =
+                                  add >= min && add <= max
+                                    ? 1
+                                    : add < min
+                                    ? 0
+                                    : 2;
+                                return ($state.bmi = {
+                                  week: $state.bmi.week,
+                                  lastbmi: lastbmi,
+                                  bmi: bmi,
+                                  w: w,
+                                  type: type,
+                                  min: min,
+                                  max: max,
+                                  weight: lastWeight,
+                                  add: add
+                                });
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                     if (
                       $steps["runCode"] != null &&
                       typeof $steps["runCode"] === "object" &&
