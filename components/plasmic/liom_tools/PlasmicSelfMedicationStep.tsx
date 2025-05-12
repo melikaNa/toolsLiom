@@ -581,7 +581,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           searchParams.delete("title");
                           searchParams.delete("inApp");
                           searchParams.delete("version");
-                          searchParams.delete("selectedStep");
+                          searchParams.delete("stepId");
+                          searchParams.delete("secId");
+                          searchParams.delete("selectStep");
                           const newUrl = `${
                             window.location.pathname
                           }?${searchParams.toString()}`;
