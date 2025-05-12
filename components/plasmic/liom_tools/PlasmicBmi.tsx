@@ -1332,7 +1332,13 @@ function PlasmicBmi__RenderFunc(props: {
                     <Input
                       data-plasmic-name={"higth"}
                       data-plasmic-override={overrides.higth}
-                      className={classNames("__wab_instance", sty.higth)}
+                      className={classNames("__wab_instance", sty.higth, {
+                        [sty.higthresalt]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      })}
                       onChange={async (...eventArgs: any) => {
                         generateStateOnChangeProp($state, [
                           "higth",
@@ -3089,27 +3095,55 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__zz0HJ
+                        sty.text__zz0HJ,
+                        {
+                          [sty.textresalt__zz0HJCpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
                       )}
                     >
-                      <div
-                        className={projectcss.__wab_expr_html_text}
-                        dangerouslySetInnerHTML={{
-                          __html: (() => {
-                            try {
-                              return `<span style="color: #FFA500;">حداقل</span> وزن مناسب هفته : `;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return '"\u062d\u062f\u0627\u0642\u0644 \u0648\u0632\u0646 \u0634\u0645\u0627\u062a\u0627 \u0647\u0641\u062a\u0647 10:';
+                      {hasVariant($state, "resalt", "resalt") ? (
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return `<span style="color: #FFA500;">حداقل</span> وزن مناسب هفته <strong>${$state.week2}</strong> : `;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return '"\u062d\u062f\u0627\u0642\u0644 \u0648\u0632\u0646 \u0634\u0645\u0627\u062a\u0627 \u0647\u0641\u062a\u0647 10:';
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        }}
-                      />
+                            })()
+                          }}
+                        />
+                      ) : (
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return `<span style="color: #FFA500;">حداقل</span> وزن مناسب هفته : `;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return '"\u062d\u062f\u0627\u0642\u0644 \u0648\u0632\u0646 \u0634\u0645\u0627\u062a\u0627 \u0647\u0641\u062a\u0647 10:';
+                                }
+                                throw e;
+                              }
+                            })()
+                          }}
+                        />
+                      )}
                     </div>
                     <div
                       className={classNames(
@@ -3161,27 +3195,55 @@ ${parseInt($state.bmi.weight) + $state.bmi.min} کیلوگرم `;
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__rAhzW
+                        sty.text__rAhzW,
+                        {
+                          [sty.textresalt__rAhzWCpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
                       )}
                     >
-                      <div
-                        className={projectcss.__wab_expr_html_text}
-                        dangerouslySetInnerHTML={{
-                          __html: (() => {
-                            try {
-                              return `<span style="color:#F44336;">حداکثر</span> وزن مناسب هفته <strong>${$state.week2}</strong> : `;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u062d\u062f\u0627\u06a9\u062b\u0631 \u0648\u0632\u0646 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647";
+                      {hasVariant($state, "resalt", "resalt") ? (
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return `<span style="color:#F44336;">حداکثر</span> وزن مناسب هفته <strong>${$state.week2}</strong> : `;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u062d\u062f\u0627\u06a9\u062b\u0631 \u0648\u0632\u0646 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()
-                        }}
-                      />
+                            })()
+                          }}
+                        />
+                      ) : (
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return `<span style="color:#F44336;">حداکثر</span> وزن مناسب هفته <strong>${$state.week2}</strong> : `;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u062d\u062f\u0627\u06a9\u062b\u0631 \u0648\u0632\u0646 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647";
+                                }
+                                throw e;
+                              }
+                            })()
+                          }}
+                        />
+                      )}
                     </div>
                     <div
                       className={classNames(
