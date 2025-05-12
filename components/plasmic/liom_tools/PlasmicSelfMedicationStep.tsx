@@ -2565,6 +2565,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
           {(() => {
             try {
               return (
+                $state.getData.loading != undefined &&
                 !$state.getData.loading &&
                 ($state.getData?.data?.[0]?.id || "") == ""
               );

@@ -2163,33 +2163,32 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateWeek2"] =
-                        $state.week2 < 40
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["week2"]
-                                },
-                                operation: 0,
-                                value: $state.week2 + 1
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                      $steps["updateWeek2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["week2"]
+                              },
+                              operation: 0,
+                              value: $state.bmi.week
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
                         $steps["updateWeek2"] != null &&
                         typeof $steps["updateWeek2"] === "object" &&
@@ -2238,6 +2237,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                                         ? 0
                                         : 2;
                                     return ($state.bmi = {
+                                      week: week,
                                       lastbmi: lastbmi,
                                       bmi: bmi,
                                       w: w,
