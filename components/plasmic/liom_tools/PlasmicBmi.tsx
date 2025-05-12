@@ -1249,7 +1249,7 @@ function PlasmicBmi__RenderFunc(props: {
                         ]).apply(null, eventArgs);
                       }}
                       placeholder={"cm"}
-                      type={"text"}
+                      type={"number"}
                       value={generateStateValueProp($state, ["higth", "value"])}
                     />
 
@@ -1291,7 +1291,7 @@ function PlasmicBmi__RenderFunc(props: {
                         ]).apply(null, eventArgs);
                       }}
                       placeholder={"kg"}
-                      type={"text"}
+                      type={"number"}
                       value={generateStateValueProp($state, [
                         "lastWeight",
                         "value"
@@ -1408,7 +1408,7 @@ function PlasmicBmi__RenderFunc(props: {
                             }).apply(null, eventArgs);
                           }}
                           placeholder={"\u0647\u0641\u062a\u0647"}
-                          type={"text"}
+                          type={"number"}
                           value={generateStateValueProp($state, [
                             "week",
                             "value"
@@ -1456,7 +1456,7 @@ function PlasmicBmi__RenderFunc(props: {
                             ]).apply(null, eventArgs);
                           }}
                           placeholder={"kg"}
-                          type={"text"}
+                          type={"number"}
                           value={generateStateValueProp($state, [
                             "weight2",
                             "value"
@@ -1717,7 +1717,9 @@ function PlasmicBmi__RenderFunc(props: {
                         sty.text___0KLbb
                       )}
                     >
-                      {"\u0645\u062d\u0627\u0633\u0628\u0647 BMI"}
+                      {
+                        "\u0628\u0631\u0631\u0633\u06cc \u0648\u0636\u0639\u06cc\u062a \u0648\u0632\u0646"
+                      }
                     </div>
                   </ButtonLiom>
                 </div>
@@ -1989,7 +1991,11 @@ background: linear-gradient(to right,
                   </Stack__>
                 </Stack__>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___2ZcCh)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___2ZcCh)}
+              >
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -2116,7 +2122,14 @@ ${$state.bmi.add}  کیلوگرم
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__x0O7L
+                      sty.text__x0O7L,
+                      {
+                        [sty.textresalt__x0O7LCpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      }
                     )}
                   >
                     <div
@@ -2147,7 +2160,248 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     />
                   </div>
                 </Stack__>
-              </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__ocfdq, {
+                    [sty.freeBoxresalt__ocfdqCpkCp]: hasVariant(
+                      $state,
+                      "resalt",
+                      "resalt"
+                    )
+                  })}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__hZahh, {
+                      [sty.freeBoxresalt__hZahhCpkCp]: hasVariant(
+                        $state,
+                        "resalt",
+                        "resalt"
+                      )
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zz0HJ
+                      )}
+                    >
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return `<span style="color: red;">حداقل</span> وزن مناسب هفته <strong>${$state.week2}</strong>`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return '"\u062d\u062f\u0627\u0642\u0644 \u0648\u0632\u0646 \u0634\u0645\u0627\u062a\u0627 \u0647\u0641\u062a\u0647 10:';
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
+                    </div>
+                    {(
+                      hasVariant($state, "resalt", "resalt")
+                        ? (() => {
+                            try {
+                              return $state.bmi.week == $state.week2;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : true
+                    ) ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rrkin,
+                          {
+                            [sty.textresalt__rrkinCpkCp]: hasVariant(
+                              $state,
+                              "resalt",
+                              "resalt"
+                            )
+                          }
+                        )}
+                      >
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return `شما تا هفته ${$state.week2}  بارداری
+<span style="font-weight: bold;">
+${$state.bmi.add}  کیلوگرم 
+  ${
+    $state.bmi.add < 0
+      ? "کاهش وزن"
+      : $state.bmi.add >= 0
+      ? "افزایش وزن"
+      : "هیچ تغییری"
+  }
+</span>
+داشته اید. که در محدوده
+<span style="color: ${$state.gain[$state.bmi.type].color}; font-weight: bold;">
+  ${$state.gain[$state.bmi.type].status}
+</span>
+قرار دارد.
+`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                                }
+                                throw e;
+                              }
+                            })()
+                          }}
+                        />
+                      </div>
+                    ) : null}
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___1KN2Z, {
+                      [sty.freeBoxresalt___1KN2ZCpkCp]: hasVariant(
+                        $state,
+                        "resalt",
+                        "resalt"
+                      )
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rAhzW
+                      )}
+                    >
+                      {
+                        "\u062d\u062f\u0627\u06a9\u062b\u0631 \u0648\u0632\u0646 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647"
+                      }
+                    </div>
+                    {(
+                      hasVariant($state, "resalt", "resalt")
+                        ? (() => {
+                            try {
+                              return $state.bmi.week == $state.week2;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : true
+                    ) ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__z7Hi6,
+                          {
+                            [sty.textresalt__z7Hi6CpkCp]: hasVariant(
+                              $state,
+                              "resalt",
+                              "resalt"
+                            )
+                          }
+                        )}
+                      >
+                        <div
+                          className={projectcss.__wab_expr_html_text}
+                          dangerouslySetInnerHTML={{
+                            __html: (() => {
+                              try {
+                                return `شما تا هفته ${$state.week2}  بارداری
+<span style="font-weight: bold;">
+${$state.bmi.add}  کیلوگرم 
+  ${
+    $state.bmi.add < 0
+      ? "کاهش وزن"
+      : $state.bmi.add >= 0
+      ? "افزایش وزن"
+      : "هیچ تغییری"
+  }
+</span>
+داشته اید. که در محدوده
+<span style="color: ${$state.gain[$state.bmi.type].color}; font-weight: bold;">
+  ${$state.gain[$state.bmi.type].status}
+</span>
+قرار دارد.
+`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                                }
+                                throw e;
+                              }
+                            })()
+                          }}
+                        />
+                      </div>
+                    ) : null}
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__etuXx
+                      )}
+                    >
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return `حداقل وزن شماتا هفته ${$state.week2}      
+       ...
+<span style="font-weight: bold;">
+${parseInt($state.bmi.weight) + $state.bmi.min}  کیلوگرم  ...
+</span>
+و حداکثر وزن شما در این هفته ... 
+<span style="font-weight: bold;">
+${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
+</span> است.`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
+                    </div>
+                  </Stack__>
+                </Stack__>
+              </Stack__>
             </div>
             <section
               className={classNames(projectcss.all, sty.section__swo9P, {

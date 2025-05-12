@@ -2207,7 +2207,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
-                url={"https://n8n.staas.ir/webhook-test/selfTreatment"}
+                url={"https://n8n.staas.ir/webhook/selfTreatment"}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__yz5Xf)}>
                   {(
@@ -2560,6 +2560,19 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     displayMinWidth={"0"}
                     displayWidth={"40%"}
                     loading={"lazy"}
+                    src={(() => {
+                      try {
+                        return $state.getData?.data?.[0]?.icon;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
                   />
 
                   <div

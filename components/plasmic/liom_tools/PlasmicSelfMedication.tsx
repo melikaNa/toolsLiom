@@ -2507,7 +2507,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               if (
                                 $state.getUser.data[0].result.user
                                   .healthStatus != "period" &&
-                                currentItem.orderr == 1
+                                currentItem.statusType == "period"
                               ) {
                                 return false;
                               } else {
