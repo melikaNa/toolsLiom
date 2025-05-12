@@ -950,11 +950,12 @@
   font-weight: 500;
   font-style: normal;
   color: #ededec;
-  text-align: left;
+  text-align: center;
   text-transform: none;
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre;
+  width: auto;
   padding: 2px 8px;
 }
 .svg__fBln {
@@ -979,4 +980,7 @@
   max-width: 100%;
   object-fit: cover;
   width: 200px;
+}
+.directDialog:global(.__wab_instance) {
+  max-width: 100%;
 }

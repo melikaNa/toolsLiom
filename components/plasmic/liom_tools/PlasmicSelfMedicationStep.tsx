@@ -76,6 +76,7 @@ import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/compone
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
@@ -126,6 +127,7 @@ export type PlasmicSelfMedicationStep__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   lottie?: Flex__<typeof LottieWrapper>;
+  directDialog?: Flex__<typeof DirectDialog>;
 };
 
 export interface DefaultSelfMedicationStepProps {}
@@ -314,6 +316,18 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "directDialog.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "directDialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2598,6 +2612,152 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       "buttonLiom2",
                       "color"
                     ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] =
+                        $ctx.query.inApp == "true"
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    if ($ctx.query.type == "skinCare")
+                                      return window.FlutterChannel.postMessage(
+                                        "#directDialog-skinCare-sub"
+                                      );
+                                    else if ($ctx.query.type == "irregular")
+                                      return window.FlutterChannel.postMessage(
+                                        "#directDialog-irregular"
+                                      );
+                                    else if ($ctx.query.type == "stretch_marks")
+                                      return window.FlutterChannel.postMessage(
+                                        "#directDialog-stretch_marks_sub"
+                                      );
+                                    else if ($ctx.query.type == "hair_care")
+                                      return window.FlutterChannel.postMessage(
+                                        "#directDialog-hair_care_sub"
+                                      );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["updateDirectDialogOpen"] =
+                        $ctx.query.inApp != "true"
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["directDialog", "open"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateDirectDialogOpen"] != null &&
+                        typeof $steps["updateDirectDialogOpen"] === "object" &&
+                        typeof $steps["updateDirectDialogOpen"].then ===
+                          "function"
+                      ) {
+                        $steps["updateDirectDialogOpen"] = await $steps[
+                          "updateDirectDialogOpen"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      userId: $state.userId,
+                                      pageName: "mainPage",
+                                      action: "buyDialog-" + $ctx.query.type,
+                                      extraData: {}
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+                    }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, [
@@ -3155,6 +3315,101 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               />
             </div>
           ) : null}
+          <DirectDialog
+            data-plasmic-name={"directDialog"}
+            data-plasmic-override={overrides.directDialog}
+            className={classNames("__wab_instance", sty.directDialog)}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["directDialog", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSelectShopChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "directDialog",
+                "selectShop"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, ["directDialog", "open"])}
+            redirectUrl={(() => {
+              try {
+                return (() => {
+                  var token = $state.token;
+                  return `https://tools.liom.app/shopResult?buyId=${
+                    $state.directDialog.selectShop.id
+                  }&?offCode=&token=${token}&redirectUrl=${encodeURIComponent(
+                    window.location.href
+                  )}`;
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            token={(() => {
+              try {
+                return $state.token;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            type={(() => {
+              try {
+                return (() => {
+                  switch ($ctx.query.type) {
+                    case "skinCare":
+                      return "skin_care_sub";
+                    case "skinCareIsActive":
+                      return "skin_care_sub";
+                    case "irregular":
+                      return "irregular";
+                    case "stretch_marks":
+                      return "stretch_marks_sub";
+                    case "hair_care":
+                      return "hair_care_sub";
+                    case "adhd_treatment_sub":
+                      return "adhd_treatment_sub";
+                  }
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3174,7 +3429,8 @@ const PlasmicDescendants = {
     "getData",
     "buttonLiom",
     "buttonLiom2",
-    "lottie"
+    "lottie",
+    "directDialog"
   ],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
@@ -3186,7 +3442,8 @@ const PlasmicDescendants = {
   getData: ["getData", "buttonLiom"],
   buttonLiom: ["buttonLiom"],
   buttonLiom2: ["buttonLiom2"],
-  lottie: ["lottie"]
+  lottie: ["lottie"],
+  directDialog: ["directDialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3204,6 +3461,7 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   buttonLiom2: typeof ButtonLiom;
   lottie: typeof LottieWrapper;
+  directDialog: typeof DirectDialog;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3302,6 +3560,7 @@ export const PlasmicSelfMedicationStep = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     lottie: makeNodeComponent("lottie"),
+    directDialog: makeNodeComponent("directDialog"),
 
     // Metadata about props expected for PlasmicSelfMedicationStep
     internalVariantProps: PlasmicSelfMedicationStep__VariantProps,
