@@ -62,7 +62,12 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
+
+import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -74,6 +79,7 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJp
 import sty from "./PlasmicPlayList.module.css"; // plasmic-import: tZIqYp1L6i1m/css
 
 import ChevronRightIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronRight"; // plasmic-import: ehuYANk-vbAX/icon
+import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: yU3FWAJzfOsT/icon
 
 createPlasmicElementProxy;
 
@@ -88,11 +94,12 @@ export const PlasmicPlayList__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicPlayList__OverridesType = {
   root?: Flex__<"div">;
+  sideEffect?: Flex__<typeof SideEffect>;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  svg?: Flex__<"svg">;
-  text?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
+  img?: Flex__<typeof PlasmicImg__>;
+  lineClomp?: Flex__<typeof LineClomp>;
 };
 
 export interface DefaultPlayListProps {}
@@ -165,23 +172,97 @@ function PlasmicPlayList__RenderFunc(props: {
           },
           {
             title:
-              "\u0686\u06a9\u0627\u067e\u200c\u0647\u0627\u06cc \u0642\u0628\u0644 \u0627\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
-            subtitle:
-              "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
-            doc: "\u0686\u06a9\u0627\u067e \u0647\u0627\u06cc \u0642\u0628\u0644 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0636\u0631\u0648\u0631\u06cc \u0648 \u0627\u0644\u0632\u0627\u0645\u06cc \u0647\u0633\u062a\u0646\u062f\u060c \u0632\u06cc\u0631\u0627 \u062f\u0631 \u0627\u06cc\u0646 \u0686\u06a9\u0627\u0628\u200c\u0647\u0627 \u06a9\u0645\u0628\u0648\u062f\u0647\u0627\u06cc \u0628\u062f\u0646 \u0645\u0627\u062f\u0631 \u0634\u0646\u0627\u062e\u062a\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f \u0648 \u062f\u0631\u0635\u062f\u062f \u0631\u0641\u0639 \u0622\u0646\u200c\u0647\u0627 \u0628\u0631\u0645\u06cc\u200c\u0622\u06cc\u062f \u062f\u0631\u0646\u062a\u06cc\u062c\u0647 \u0628\u0647 \u0628\u062f\u0646 \u062e\u0648\u062f \u0648 \u062c\u0646\u06cc\u0646 \u0622\u0633\u06cc\u0628 \u0646\u0645\u06cc\u200c\u0631\u0633\u0627\u0646\u062f. \u062f\u0631 \u0627\u06cc\u0646 \u0648\u06cc\u062f\u06cc\u0648 \u0628\u0647 \u0637\u0648\u0631 \u0645\u0641\u0635\u0644 \u062f\u0631 \u0645\u0648\u0631\u062f \u0627\u06cc\u0646 \u0686\u06a9\u0627\u067e\u200c\u0647\u0627 \u0628\u062d\u062b \u0634\u062f\u0647 \u0627\u0633\u062a.",
-            ima: "https://static.cdn.asset.aparat.com/avt/35669583-6183-l__9557.jpg?width=300&quality=90&secret=8BHRT3MSMAsZ-E0ev-gUOA",
-            link: '<div id="37746060873"><script type="text/JavaScript" src="https://www.aparat.com/embed/y469934?data[rnddiv]=37746060873&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
-          },
-          {
-            title:
               "\u062f\u06cc\u0627\u0628\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
             subtitle:
               "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
             doc: "\u062f\u06cc\u0627\u0628\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u06cc\u06a9\u06cc \u0627\u0632 \u0628\u06cc\u0645\u0627\u0631\u06cc\u200c\u0647\u0627\u06cc \u062e\u0637\u0631\u0646\u0627\u06a9 \u062f\u0631 \u0632\u0645\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a\u060c \u06a9\u0647 \u0628\u0627 \u062a\u0634\u062e\u06cc\u0635 \u0633\u0631\u06cc\u0639 \u0648 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648 \u0628\u06cc\u0645\u0627\u0631 \u0628\u0647\u0628\u0648\u062f \u0645\u06cc\u200c\u06cc\u0627\u0628\u062f. \u062f\u0631 \u0627\u06cc\u0646 \u0648\u06cc\u062f\u06cc\u0648 \u0634\u0645\u0627 \u0631\u0627 \u0628\u0627 \u0639\u0644\u0627\u0626\u0645 \u0648 \u0646\u0634\u0627\u0646\u0647\u200c\u0647\u0627\u06cc \u0627\u06cc\u0646 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0622\u0634\u0646\u0627 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0627 \u062f\u0631 \u0635\u0648\u0631\u062a \u0628\u0631\u0648\u0632 \u0639\u0644\u0627\u0626\u0645 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0645\u0631\u0627\u062c\u0639\u0647 \u06a9\u0646\u06cc\u062f.",
             ima: "https://static.cdn.asset.aparat.com/avt/35721857-5360-l__7720.jpg?width=300&quality=90&secret=edfDIx3G9IzxJ0CZlpsGkQ",
             link: '<div id="24596934116"><script type="text/JavaScript" src="https://www.aparat.com/embed/BL92j?data[rnddiv]=24596934116&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
+          },
+          {
+            title:
+              "\u0631\u0698\u06cc\u0645 \u0642\u0628\u0644 \u0627\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            subtitle:
+              "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
+            doc: "\u0631\u0698\u06cc\u0645 \u063a\u0630\u0627\u06cc\u06cc \u0642\u0628\u0644 \u0627\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0628\u0647 \u0634\u0645\u0627 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u062f \u062a\u0627 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0631\u0627 \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u06af\u0630\u0631\u0627\u0646\u06cc\u062f. \u0627\u06cc\u0646 \u0631\u0698\u06cc\u0645 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u062f \u062a\u0627 \u06a9\u0645\u0628\u0648\u062f \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646 \u0648 \u0645\u0648\u0627\u062f \u0645\u0639\u062f\u0646\u06cc \u062f\u0631 \u0628\u062f\u0646\u062a\u0627\u0646 \u0628\u0647\u0628\u0648\u062f \u06cc\u0627\u0628\u062f \u0648 \u062d\u062a\u06cc \u06a9\u0648\u062f\u06a9 \u0633\u0627\u0644\u0645\u200c\u062a\u0631\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f. \u062f\u0631 \u0627\u06cc\u0646 \u0648\u06cc\u062f\u06cc\u0648 \u062f\u0631\u0628\u0627\u0631\u0647 \u0631\u0698\u06cc\u0645 \u0642\u0628\u0644 \u0627\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0628\u0647 \u0637\u0648\u0631 \u06a9\u0627\u0645\u0644 \u0628\u062d\u062b \u0634\u062f\u0647 \u0627\u0633\u062a.",
+            ima: "https://static.cdn.asset.aparat.com/avt/35722002-7207-l__5458.jpg?width=300&quality=90&secret=Lwz822s1fxVupiwQg_V9Vg",
+            link: '<div id="36909359355"><script type="text/JavaScript" src="https://www.aparat.com/embed/Aa2We?data[rnddiv]=36909359355&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
+          },
+          {
+            title:
+              "\u0631\u0641\u0644\u0627\u06a9\u0633 \u062f\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            subtitle:
+              "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
+            doc: "\u0631\u0641\u0644\u0627\u06a9\u0633 \u0645\u0639\u062f\u0647 \u0645\u0648\u0636\u0648\u0639\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0627\u06a9\u062b\u0631 \u062e\u0627\u0646\u0645\u200c\u0647\u0627\u06cc \u0628\u0627\u0631\u062f\u0627\u0631 \u0627\u0632 \u0622\u0646 \u0634\u0627\u06a9\u06cc \u0647\u0633\u062a\u0646\u062f. \u0627\u0645\u0627 \u0639\u0644\u062a \u0622\u0646 \u0686\u06cc\u0633\u062a\u061f \u0628\u0631\u0627\u06cc \u06a9\u0627\u0647\u0634 \u0631\u0641\u0644\u0627\u06a9\u0633\u200c\u0647\u0627 \u0686\u0647 \u0628\u0627\u06cc\u062f \u0648 \u0646\u0628\u0627\u06cc\u062f\u0647\u0627\u06cc\u06cc \u0631\u0627 \u0644\u0627\u0632\u0645 \u0627\u0633\u062a \u0631\u0639\u0627\u06cc\u062a \u06a9\u0646\u06cc\u0645\u061f \u062f\u0631 \u0627\u06cc\u0646 \u0648\u06cc\u062f\u06cc\u0648 \u0628\u0647 \u0637\u0648\u0631 \u06a9\u0627\u0645\u0644 \u067e\u0627\u0633\u062e \u062a\u0645\u0627\u0645\u06cc \u0627\u06cc\u0646 \u0633\u0648\u0627\u0644\u0627\u062a \u062f\u0627\u062f\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a.",
+            ima: "https://static.cdn.asset.aparat.com/avt/35723279-4445-l__6762.jpg?width=300&quality=90&secret=Rq8r12_6ILrC3sncNXTbog",
+            link: '<div id="20816206878"><script type="text/JavaScript" src="https://www.aparat.com/embed/dX72F?data[rnddiv]=20816206878&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
+          },
+          {
+            title:
+              "\u06cc\u0628\u0648\u0633\u062a \u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            subtitle:
+              "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
+            doc: "\u06cc\u0628\u0648\u0633\u062a \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0645\u0639\u062f\u0647 \u0627\u0632 \u0633\u0631\u06cc \u0645\u0634\u06a9\u0644\u0627\u062a \u062e\u0627\u0646\u0645\u200c\u0647\u0627\u06cc \u0628\u0627\u0631\u062f\u0627\u0631 \u0627\u0633\u062a \u0648 \u0628\u0631\u0627\u06cc \u0631\u0641\u0639 \u0622\u0646 \u0628\u0627\u06cc\u062f \u0646\u06a9\u0627\u062a\u06cc \u0631\u0627 \u0631\u0639\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f. \u062f\u0631 \u0627\u06cc\u0646 \u0648\u06cc\u062f\u06cc\u0648 \u0631\u0627\u0647\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u0631\u0627 \u062f\u0631 \u062e\u0635\u0648\u0635 \u0631\u0641\u0639 \u06cc\u0628\u0648\u0633\u062a \u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0628\u0627\u0632\u06af\u0648 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645.",
+            ima: "https://static.cdn.asset.aparat.com/avt/35723279-4445-l__6762.jpg?width=300&quality=90&secret=Rq8r12_6ILrC3sncNXTbog",
+            link: '<div id="53147089594"><script type="text/JavaScript" src="https://www.aparat.com/embed/8WlQm?data[rnddiv]=53147089594&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
+          },
+          {
+            title:
+              "\u0627\u0633\u06cc\u062f \u0641\u0648\u0644\u06cc\u06a9 \u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            subtitle:
+              "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
+            doc: "\u0627\u0633\u06cc\u062f \u0641\u0648\u0644\u06cc\u06a9 \u0627\u0632 \u062f\u0633\u062a\u0647 \u0645\u0648\u0627\u062f \u0645\u0648\u0631\u062f \u0646\u06cc\u0627\u0632 \u0628\u062f\u0646 \u062e\u0627\u0646\u0645\u200c\u0647\u0627\u06cc \u0628\u0627\u0631\u062f\u0627\u0631 \u0627\u0633\u062a. \u062f\u0631 \u0627\u06cc\u0646 \u0648\u06cc\u062f\u06cc\u0648 \u0628\u0647 \u0627\u0647\u0645\u06cc\u062a \u0627\u0633\u06cc\u062f \u0641\u0648\u0644\u06cc\u06a9 \u0628\u0631\u0627\u06cc \u062e\u0627\u0646\u0645\u200c\u0647\u0627\u06cc \u0628\u0627\u0631\u062f\u0627\u0631 \u0648 \u0645\u06cc\u0632\u0627\u0646 \u0645\u0635\u0631\u0641 \u0622\u0646 \u0645\u06cc\u200c\u067e\u0631\u062f\u0627\u0632\u06cc\u0645.",
+            ima: "https://static.cdn.asset.aparat.com/avt/35723980-9545-l__6141.jpg?width=300&quality=90&secret=WrRvw8-QIvQFMB8eATZB5A",
+            link: '<div id="16369852156"><script type="text/JavaScript" src="https://www.aparat.com/embed/Xv6g2?data[rnddiv]=16369852156&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
+          },
+          {
+            title:
+              "\u062a\u0647\u0648\u0639 \u0648 \u0627\u0633\u062a\u0641\u0631\u0627\u063a \u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            subtitle:
+              "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
+            doc: "\u0627\u06a9\u062b\u0631 \u062e\u0627\u0646\u0645\u200c\u0647\u0627 \u062f\u0631 \u062f\u0648\u0631\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0648\u06cc\u0627\u0631 \u062f\u0627\u0631\u0646\u062f \u0648 \u0645\u062f\u0627\u0645 \u062f\u0631\u06af\u06cc\u0631 \u062a\u0647\u0648\u0639 \u0648 \u0627\u0633\u062a\u0641\u0631\u0627\u063a \u0645\u06cc\u200c\u0634\u0648\u0646\u062f. \u0628\u0631\u0627\u06cc \u0627\u0637\u0644\u0627\u0639 \u0627\u0632 \u0631\u0627\u0647\u06a9\u0627\u0631\u0647\u0627\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u062a\u0647\u0648\u0639 \u0648 \u0627\u0633\u062a\u0641\u0631\u0627\u063a \u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0648\u06cc\u062f\u06cc\u0648 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0631\u0627 \u0645\u0634\u0627\u0647\u062f\u0647 \u0646\u0645\u0627\u06cc\u0646\u062f.",
+            ima: "https://static.cdn.asset.aparat.com/avt/35724120-3489-l__3385.jpg?width=300&quality=90&secret=vlY_PwWd1SYw70CUnawp6Q",
+            link: '<div id="87237974539"><script type="text/JavaScript" src="https://www.aparat.com/embed/EKRFZ?data[rnddiv]=87237974539&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
+          },
+          {
+            title:
+              "\u0641\u0634\u0627\u0631 \u062e\u0648\u0646 \u062f\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            subtitle:
+              "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
+            doc: "\u0641\u0634\u0627\u0631 \u062e\u0648\u0646 \u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0645\u0633\u0626\u0644\u0647\u200c\u0627\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0628\u0627\u06cc\u062f \u0645\u062f\u0627\u0645 \u06a9\u0646\u062a\u0631\u0644 \u0634\u0648\u062f \u0648 \u0628\u0647 \u0622\u0646 \u062a\u0648\u062c\u0647 \u0634\u0648\u062f. \u0628\u0647\u062a\u0631 \u0627\u0633\u062a \u0639\u0644\u0627\u0626\u0645 \u0641\u0634\u0627\u0631 \u062e\u0648\u0646 \u062f\u0631 \u0627\u06cc\u0646 \u062f\u0648\u0631\u0627\u0646 \u0631\u0627 \u0628\u062f\u0627\u0646\u06cc\u062f \u062a\u0627 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0622\u0646 \u0631\u0627 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u06cc\u062f.",
+            ima: "https://static.cdn.asset.aparat.com/avt/35723468-1262-l__1882.jpg?width=300&quality=90&secret=lLQp4DGo7DDE4HzNJlLc7A",
+            link: '<div id="39302006839"><script type="text/JavaScript" src="https://www.aparat.com/embed/l77zm5r?data[rnddiv]=39302006839&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
+          },
+          {
+            title:
+              "\u06a9\u0627\u0641\u0626\u06cc\u0646 \u062f\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
+            subtitle:
+              "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
+            doc: "\u0645\u0635\u0631\u0641 \u06a9\u0627\u0641\u0626\u06cc\u0646 \u0648 \u0646\u0648\u0634\u06cc\u062f\u0646\u06cc\u200c\u0647\u0627\u06cc \u06a9\u0627\u0641\u06cc\u0626\u0646\u200c\u062f\u0627\u0631 \u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0628\u0627\u06cc\u062f \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u062d\u0627\u0644\u062a \u0645\u0639\u0645\u0648\u0644 \u06a9\u0646\u062a\u0631\u0644 \u0634\u0648\u062f. \u062f\u0631 \u0627\u06cc\u0646 \u0648\u06cc\u062f\u06cc\u0648 \u062d\u062f \u0645\u0646\u0627\u0633\u0628 \u0645\u0635\u0631\u0641 \u06a9\u0627\u0641\u0626\u06cc\u0646 \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645.",
+            ima: "https://static.cdn.asset.aparat.com/avt/35723809-2000-l__1560.jpg?width=300&quality=90&secret=Plf6d0Jd08PDAtwo3XsM4Q",
+            link: '<div id="33120317396"><script type="text/JavaScript" src="https://www.aparat.com/embed/7rqvV?data[rnddiv]=33120317396&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
+          },
+          {
+            title:
+              "\u0686\u0631\u0627 \u0628\u0627\u0631\u062f\u0627\u0631 \u0646\u0645\u06cc\u0634\u0645\u061f",
+            subtitle:
+              "\u0644\u06cc\u0648\u0645 | \u06a9\u0648\u0644\u0647 \u067e\u0634\u062a\u06cc \u0628\u0627\u0646\u0648\u0627\u0646",
+            doc: "\u0627\u0646\u062f\u0648\u0645\u062a\u0631\u06cc\u0648\u0632 \u0627\u0632 \u0633\u0631\u06cc \u0628\u06cc\u0645\u0627\u0631\u06cc\u200c\u0647\u0627\u06cc\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0628\u0627\u0631\u0632\u062a\u0631\u06cc\u0646 \u0639\u0644\u0627\u0645\u062a \u0622\u0646 \u062f\u0631\u062f \u0627\u0633\u062a. \u0627\u06cc\u0646 \u062f\u0631\u062f \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u062f \u0647\u0646\u06af\u0627\u0645 \u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc \u06cc\u0627 \u0642\u0627\u0639\u062f\u06af\u06cc \u0648 \u0645\u0648\u0627\u0631\u062f \u062f\u06cc\u06af\u0631 \u0631\u062e \u062f\u0647\u062f. \u0627\u0645\u0627 \u0628\u0627\u06cc\u062f \u0622\u0646 \u0631\u0627 \u062a\u0634\u062e\u06cc\u0635 \u062f\u0647\u06cc\u0645 \u0648 \u0628\u0627 \u0633\u0627\u06cc\u0631 \u062f\u0631\u062f\u0647\u0627 \u0627\u0634\u062a\u0628\u0627\u0647 \u0646\u06af\u06cc\u0631\u06cc\u0645. \u062f\u0631 \u0627\u06cc\u0646 \u0648\u06cc\u062f\u06cc\u0648 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0622\u0646\u062f\u0648\u0645\u062a\u0631\u06cc\u0648\u0632 \u0631\u0627 \u0627\u0632 \u0647\u0645\u0647 \u062c\u0647\u0627\u062a \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u0648 \u0631\u0627\u0647\u06a9\u0627\u0631\u06cc \u0645\u0646\u0627\u0633\u0628 \u0645\u0642\u0627\u0628\u0644\u0647 \u0628\u0627 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0627\u0646\u062f\u0648\u0645\u062a\u0631\u06cc\u0648\u0632 \u0628\u0647 \u0634\u0645\u0627 \u0627\u0631\u0627\u0626\u0647 \u062e\u0648\u0627\u0647\u062f \u0634\u062f \u067e\u0633 \u062a\u0645\u0627\u0634\u0627\u06cc \u0627\u06cc\u0646 \u0648\u06cc\u062f\u06cc\u0648 \u0631\u0627 \u0627\u0632 \u062f\u0633\u062a \u0646\u062f\u0647\u06cc\u062f.",
+            ima: "https://static.cdn.asset.aparat.com/avt/37238031-4667-l__2914.jpg?width=300&quality=90&secret=1ziY1mrxyDTe9ozlbeK9qw",
+            link: '<div id="12825998628"><script type="text/JavaScript" src="https://www.aparat.com/embed/jh75A?data[rnddiv]=12825998628&data[responsive]=yes&titleShow=true&recom=self"></script></div>'
           }
         ]
+      },
+      {
+        path: "lineClomp[].line",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "playIndex",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -191,6 +272,10 @@ function PlasmicPlayList__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsqiBuxNlixBgQ()
   });
 
   return (
@@ -222,6 +307,44 @@ function PlasmicPlayList__RenderFunc(props: {
             sty.root
           )}
         >
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["updatePlayIndex"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["playIndex"]
+                      },
+                      operation: 0,
+                      value: Math.floor(Math.random() * $state.playList.length)
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updatePlayIndex"] != null &&
+                typeof $steps["updatePlayIndex"] === "object" &&
+                typeof $steps["updatePlayIndex"].then === "function"
+              ) {
+                $steps["updatePlayIndex"] = await $steps["updatePlayIndex"];
+              }
+            }}
+          />
+
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
@@ -234,9 +357,7 @@ function PlasmicPlayList__RenderFunc(props: {
               slot={null}
               slot2={
                 <ChevronRightIcon
-                  data-plasmic-name={"svg"}
-                  data-plasmic-override={overrides.svg}
-                  className={classNames(projectcss.all, sty.svg)}
+                  className={classNames(projectcss.all, sty.svg__bc0Pm)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -267,25 +388,358 @@ function PlasmicPlayList__RenderFunc(props: {
               }
             >
               <div
-                data-plasmic-name={"text"}
-                data-plasmic-override={overrides.text}
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text
+                  sty.text__x42Gr
                 )}
               >
                 {
-                  "\u0627\u0631\u0632\u06cc\u0627\u0628\u06cc \u0648\u0632\u0646 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                  "\u0645\u062d\u062a\u0648\u0627 \u0622\u0645\u0648\u0632\u0634\u06cc"
                 }
               </div>
             </HeaderLiom>
           </section>
-          <div
-            data-plasmic-name={"freeBox"}
-            data-plasmic-override={overrides.freeBox}
-            className={classNames(projectcss.all, sty.freeBox)}
-          />
+          <div className={classNames(projectcss.all, sty.freeBox__y1VHp)}>
+            <div className={classNames(projectcss.all, sty.freeBox__bcHdt)}>
+              <Embed
+                data-plasmic-name={"embedHtml"}
+                data-plasmic-override={overrides.embedHtml}
+                className={classNames("__wab_instance", sty.embedHtml)}
+                code={(() => {
+                  try {
+                    return $state.playList[$state.playIndex].link;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "<div></div>";
+                    }
+                    throw e;
+                  }
+                })()}
+              />
+
+              <div className={classNames(projectcss.all, sty.freeBox__bvmsB)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___8Ylvt)}
+                >
+                  <Icon147Icon
+                    className={classNames(projectcss.all, sty.svg__vQbB8)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__n9VJ5)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__cY5Ob
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.playList[$state.playIndex].title;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rzSc1
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.playList[$state.playIndex].subtitle;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                </Stack__>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___7Xu5
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.playList[$state.playIndex].doc;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </div>
+            </div>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox___847M)}
+            >
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.playList;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__z5IF)}
+                    key={currentIndex}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updatePlayIndex"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["playIndex"]
+                              },
+                              operation: 0,
+                              value: currentIndex
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updatePlayIndex"] != null &&
+                        typeof $steps["updatePlayIndex"] === "object" &&
+                        typeof $steps["updatePlayIndex"].then === "function"
+                      ) {
+                        $steps["updatePlayIndex"] = await $steps[
+                          "updatePlayIndex"
+                        ];
+                      }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.scrollTo({
+                                  top: 0,
+                                  behavior: "smooth"
+                                });
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    <PlasmicImg__
+                      data-plasmic-name={"img"}
+                      data-plasmic-override={overrides.img}
+                      alt={""}
+                      className={classNames(sty.img)}
+                      displayHeight={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "100%"
+                          : "auto"
+                      }
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "55%"
+                          : "50%"
+                      }
+                      loading={"lazy"}
+                      src={(() => {
+                        try {
+                          return currentItem.ima;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__dmU5J)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__nCdQh
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.title;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__oChi
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.subtitle;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <LineClomp
+                        data-plasmic-name={"lineClomp"}
+                        data-plasmic-override={overrides.lineClomp}
+                        className={classNames("__wab_instance", sty.lineClomp)}
+                        numberOfLine={
+                          hasVariant(globalVariants, "screen", "mobileOnly")
+                            ? 1
+                            : 2
+                        }
+                        onLineChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "lineClomp",
+                            __plasmic_idx_0,
+                            "line"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__m7ZAr
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.doc;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </LineClomp>
+                    </Stack__>
+                  </Stack__>
+                );
+              })}
+            </Stack__>
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -293,23 +747,33 @@ function PlasmicPlayList__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "headerLiom", "svg", "text", "freeBox"],
-  section: ["section", "headerLiom", "svg", "text"],
-  headerLiom: ["headerLiom", "svg", "text"],
-  svg: ["svg"],
-  text: ["text"],
-  freeBox: ["freeBox"]
+  root: [
+    "root",
+    "sideEffect",
+    "section",
+    "headerLiom",
+    "embedHtml",
+    "img",
+    "lineClomp"
+  ],
+  sideEffect: ["sideEffect"],
+  section: ["section", "headerLiom"],
+  headerLiom: ["headerLiom"],
+  embedHtml: ["embedHtml"],
+  img: ["img"],
+  lineClomp: ["lineClomp"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sideEffect: typeof SideEffect;
   section: "section";
   headerLiom: typeof HeaderLiom;
-  svg: "svg";
-  text: "div";
-  freeBox: "div";
+  embedHtml: typeof Embed;
+  img: typeof PlasmicImg__;
+  lineClomp: typeof LineClomp;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -397,11 +861,12 @@ export const PlasmicPlayList = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sideEffect: makeNodeComponent("sideEffect"),
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
-    svg: makeNodeComponent("svg"),
-    text: makeNodeComponent("text"),
-    freeBox: makeNodeComponent("freeBox"),
+    embedHtml: makeNodeComponent("embedHtml"),
+    img: makeNodeComponent("img"),
+    lineClomp: makeNodeComponent("lineClomp"),
 
     // Metadata about props expected for PlasmicPlayList
     internalVariantProps: PlasmicPlayList__VariantProps,
