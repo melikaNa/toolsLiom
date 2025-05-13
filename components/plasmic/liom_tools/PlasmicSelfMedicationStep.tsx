@@ -2176,7 +2176,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               objRoot: $state,
                               variablePath: ["loading3"]
                             },
-                            operation: 4
+                            operation: 0,
+                            value: false
                           };
                           return (({
                             variable,
@@ -2189,9 +2190,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             }
                             const { objRoot, variablePath } = variable;
 
-                            const oldValue = $stateGet(objRoot, variablePath);
-                            $stateSet(objRoot, variablePath, !oldValue);
-                            return !oldValue;
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
