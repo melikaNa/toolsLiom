@@ -2854,6 +2854,20 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicSlider.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "tZIqYp1L6i1m",
+          "name": "PlayList",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicPlayList.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/play-list.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicPlayList.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/play-list"
         }
       ],
       "icons": [
