@@ -328,6 +328,12 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "loading3",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2207,6 +2213,42 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         "updateListDetails"
                       ];
                     }
+
+                    $steps["updateListDetails2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["loading3"]
+                            },
+                            operation: 4
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            const oldValue = $stateGet(objRoot, variablePath);
+                            $stateSet(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateListDetails2"] != null &&
+                      typeof $steps["updateListDetails2"] === "object" &&
+                      typeof $steps["updateListDetails2"].then === "function"
+                    ) {
+                      $steps["updateListDetails2"] = await $steps[
+                        "updateListDetails2"
+                      ];
+                    }
                   }).apply(null, eventArgs);
                 }}
                 url={"https://n8n.staas.ir/webhook/selfTreatment"}
@@ -2546,7 +2588,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               return (
                 $state.getData.loading != undefined &&
                 !$state.getData.loading &&
-                ($state.getData?.data?.[0]?.id || "") == ""
+                ($state.getData?.data?.[0]?.id || "") == "" &&
+                $state.loading3
               );
             } catch (e) {
               if (
