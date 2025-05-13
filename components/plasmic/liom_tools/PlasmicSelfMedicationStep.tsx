@@ -333,7 +333,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         path: "loading3",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -2249,6 +2249,34 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         "updateListDetails"
                       ];
                     }
+
+                    $steps["updateListDetails3"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                console.log("1" + $state.getData.loading);
+                                console.log("2" + $state.loading3);
+                                return console.log(
+                                  "3" + $state.getData?.data?.[0]?.id || ""
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateListDetails3"] != null &&
+                      typeof $steps["updateListDetails3"] === "object" &&
+                      typeof $steps["updateListDetails3"].then === "function"
+                    ) {
+                      $steps["updateListDetails3"] = await $steps[
+                        "updateListDetails3"
+                      ];
+                    }
                   }).apply(null, eventArgs);
                 }}
                 url={"https://n8n.staas.ir/webhook/selfTreatment"}
@@ -2589,7 +2617,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 $state.getData.loading != undefined &&
                 !$state.getData.loading &&
                 ($state.getData?.data?.[0]?.id || "") == "" &&
-                $state.loading3
+                !$state.loading3
               );
             } catch (e) {
               if (
