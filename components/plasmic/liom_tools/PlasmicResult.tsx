@@ -5476,41 +5476,42 @@ function PlasmicResult__RenderFunc(props: {
                       $steps["updateLoadbtn"] = await $steps["updateLoadbtn"];
                     }
 
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "PUT",
-                              "https://n8n.staas.ir/webhook/selfTest_comments",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    user_id: $ctx.query.user_id,
-                                    session_id: $ctx.query.session_id,
-                                    comment: $state.textArea2.value || "",
-                                    rate: $state.rate,
-                                    selfTest_id: parseInt($state.testId)
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                    $steps["invokeGlobalAction"] =
+                      $state.rate != 0
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "PUT",
+                                "https://n8n.staas.ir/webhook/selfTest_comments",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      user_id: $ctx.query.user_id,
+                                      session_id: $ctx.query.session_id,
+                                      comment: $state.textArea2.value || "",
+                                      rate: $state.rate,
+                                      selfTest_id: parseInt($state.testId)
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                     if (
                       $steps["invokeGlobalAction"] != null &&
                       typeof $steps["invokeGlobalAction"] === "object" &&
@@ -5579,32 +5580,33 @@ function PlasmicResult__RenderFunc(props: {
                       $steps["updateLoading2"] = await $steps["updateLoading2"];
                     }
 
-                    $steps["updateDialog2Open"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dialog2", "open"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
+                    $steps["updateDialog2Open"] =
+                      $state.rate != 0
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog2", "open"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                     if (
                       $steps["updateDialog2Open"] != null &&
                       typeof $steps["updateDialog2Open"] === "object" &&
@@ -5612,6 +5614,32 @@ function PlasmicResult__RenderFunc(props: {
                     ) {
                       $steps["updateDialog2Open"] = await $steps[
                         "updateDialog2Open"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction3"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              undefined,
+                              undefined,
+                              undefined,
+                              "bottom"
+                            ]
+                          };
+                          return $globalActions[
+                            "plasmic-antd5-config-provider.showNotification"
+                          ]?.apply(null, [...actionArgs.args]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction3"] != null &&
+                      typeof $steps["invokeGlobalAction3"] === "object" &&
+                      typeof $steps["invokeGlobalAction3"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction3"] = await $steps[
+                        "invokeGlobalAction3"
                       ];
                     }
                   }}

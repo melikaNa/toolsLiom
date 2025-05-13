@@ -2124,6 +2124,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         case "danger":
                           type = "pregnancyDangerIsActive";
                           break;
+                        case "pcos_sub":
+                          type = "pcosIsActive";
+                          break;
                       }
                       return {
                         stepId: $state.paramsObject.stepId,
