@@ -5617,22 +5617,23 @@ function PlasmicResult__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["invokeGlobalAction3"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              undefined,
-                              undefined,
-                              undefined,
-                              undefined,
-                              "bottom"
-                            ]
-                          };
-                          return $globalActions[
-                            "plasmic-antd5-config-provider.showNotification"
-                          ]?.apply(null, [...actionArgs.args]);
-                        })()
-                      : undefined;
+                    $steps["invokeGlobalAction3"] =
+                      $state.rate == 0
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "info",
+                                "\u0644\u0637\u0641\u0627\u064b \u0628\u0631\u0627\u06cc \u062b\u0628\u062a \u0646\u0638\u0631\u060c \u0627\u0645\u062a\u06cc\u0627\u0632 \u0631\u0627 \u0646\u06cc\u0632 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
+                                undefined,
+                                undefined,
+                                "bottom"
+                              ]
+                            };
+                            return $globalActions[
+                              "plasmic-antd5-config-provider.showNotification"
+                            ]?.apply(null, [...actionArgs.args]);
+                          })()
+                        : undefined;
                     if (
                       $steps["invokeGlobalAction3"] != null &&
                       typeof $steps["invokeGlobalAction3"] === "object" &&
