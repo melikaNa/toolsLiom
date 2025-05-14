@@ -69,6 +69,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
+import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 import Dialog3 from "../../Dialog3"; // plasmic-import: UHX61U1xmtjA/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
@@ -95,7 +96,7 @@ import sty from "./PlasmicBmi.module.css"; // plasmic-import: 8CUbLIj-ur8O/css
 import XIcon from "../hamdast_sdk/icons/PlasmicIcon__X"; // plasmic-import: S0M2VMEAEs7X/icon
 import Icon174Icon from "./icons/PlasmicIcon__Icon174"; // plasmic-import: WwQTGVCpIZB2/icon
 import Icon173Icon from "./icons/PlasmicIcon__Icon173"; // plasmic-import: GZmJZz95gKQL/icon
-import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: uG1hUNDLfZmX/icon
+import Icon181Icon from "./icons/PlasmicIcon__Icon181"; // plasmic-import: DFNX_NnNVzM8/icon
 import Icon177Icon from "./icons/PlasmicIcon__Icon177"; // plasmic-import: ld4RWktjVN-_/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
@@ -135,6 +136,7 @@ export type PlasmicBmi__OverridesType = {
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   buttonLiom7?: Flex__<typeof ButtonLiom>;
   buttonLiom8?: Flex__<typeof ButtonLiom>;
+  chart?: Flex__<typeof SimpleChart>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
@@ -1534,9 +1536,7 @@ function PlasmicBmi__RenderFunc(props: {
                               "value"
                             ]).apply(null, eventArgs);
                           }}
-                          placeholder={
-                            "\u0645\u062b\u0644\u0627: 160 \u0633\u0627\u0646\u062a\u06cc \u0645\u062a\u0631"
-                          }
+                          placeholder={"160 cm :\u0645\u062b\u0644\u0627"}
                           type={"number"}
                           value={generateStateValueProp($state, [
                             "higth",
@@ -1590,9 +1590,7 @@ function PlasmicBmi__RenderFunc(props: {
                               "value"
                             ]).apply(null, eventArgs);
                           }}
-                          placeholder={
-                            "\u0645\u062b\u0644\u0627: 55 \u06a9\u06cc\u0644\u0648 \u06af\u0631\u0645"
-                          }
+                          placeholder={"55 kg :\u0645\u062b\u0644\u0627"}
                           type={"number"}
                           value={generateStateValueProp($state, [
                             "lastWeight",
@@ -1721,7 +1719,7 @@ function PlasmicBmi__RenderFunc(props: {
                           ])}
                         />
 
-                        <Icon176Icon
+                        <Icon181Icon
                           className={classNames(projectcss.all, sty.svg__ctBZ)}
                           role={"img"}
                         />
@@ -1761,9 +1759,7 @@ function PlasmicBmi__RenderFunc(props: {
                               "value"
                             ]).apply(null, eventArgs);
                           }}
-                          placeholder={
-                            "\u0645\u062b\u0644\u0627: 60 \u06a9\u06cc\u0644\u0648 \u06af\u0631\u0645"
-                          }
+                          placeholder={"60 kg :\u0645\u062b\u0644\u0627"}
                           type={"number"}
                           value={generateStateValueProp($state, [
                             "weight2",
@@ -2117,7 +2113,15 @@ function PlasmicBmi__RenderFunc(props: {
               )
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__y6RhQ)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__y6RhQ, {
+                [sty.freeBoxresalt__y6RhQCpkCp]: hasVariant(
+                  $state,
+                  "resalt",
+                  "resalt"
+                )
+              })}
+            >
               <div className={classNames(projectcss.all, sty.freeBox__cce33)}>
                 <Stack__
                   as={"div"}
@@ -3220,7 +3224,13 @@ background: linear-gradient(to right,
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___2ZcCh)}
+                className={classNames(projectcss.all, sty.freeBox___2ZcCh, {
+                  [sty.freeBoxresalt___2ZcChCpkCp]: hasVariant(
+                    $state,
+                    "resalt",
+                    "resalt"
+                  )
+                })}
               >
                 <Stack__
                   as={"div"}
@@ -3430,7 +3440,13 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم `;
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__oxfqf)}
+                  className={classNames(projectcss.all, sty.freeBox__oxfqf, {
+                    [sty.freeBoxresalt__oxfqfCpkCp]: hasVariant(
+                      $state,
+                      "resalt",
+                      "resalt"
+                    )
+                  })}
                 >
                   <div
                     className={classNames(
@@ -3597,6 +3613,44 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       }}
                     />
                   </div>
+                  <SimpleChart
+                    data-plasmic-name={"chart"}
+                    data-plasmic-override={overrides.chart}
+                    className={classNames("__wab_instance", sty.chart, {
+                      [sty.chartresalt]: hasVariant($state, "resalt", "resalt")
+                    })}
+                    data={
+                      hasVariant($state, "resalt", "resalt")
+                        ? $state.weight[0][0].weeks
+                        : [
+                            { region: "APAC", revenue: 3294, spend: 2675 },
+                            { region: "EMEA", revenue: 3245, spend: 3895 },
+                            { region: "LATAM", revenue: 2165, spend: 3498 },
+                            { region: "AMER", revenue: 3215, spend: 1656 }
+                          ]
+                    }
+                    fill={
+                      hasVariant($state, "resalt", "resalt") ? false : undefined
+                    }
+                    interactive={
+                      hasVariant($state, "resalt", "resalt") ? false : undefined
+                    }
+                    labelField={
+                      hasVariant($state, "resalt", "resalt")
+                        ? "week"
+                        : undefined
+                    }
+                    secondAxisField={
+                      hasVariant($state, "resalt", "resalt")
+                        ? "maxGain"
+                        : undefined
+                    }
+                    type={
+                      hasVariant($state, "resalt", "resalt")
+                        ? "line"
+                        : undefined
+                    }
+                  />
                 </Stack__>
               </Stack__>
             </div>
@@ -4469,6 +4523,7 @@ const PlasmicDescendants = {
     "buttonLiom3",
     "buttonLiom7",
     "buttonLiom8",
+    "chart",
     "buttonLiom2",
     "buttonLiom4",
     "buttonLiom5",
@@ -4494,6 +4549,7 @@ const PlasmicDescendants = {
   buttonLiom3: ["buttonLiom3"],
   buttonLiom7: ["buttonLiom7"],
   buttonLiom8: ["buttonLiom8"],
+  chart: ["chart"],
   buttonLiom2: ["buttonLiom2"],
   buttonLiom4: ["buttonLiom4"],
   buttonLiom5: ["buttonLiom5"],
@@ -4532,6 +4588,7 @@ type NodeDefaultElementType = {
   buttonLiom3: typeof ButtonLiom;
   buttonLiom7: typeof ButtonLiom;
   buttonLiom8: typeof ButtonLiom;
+  chart: typeof SimpleChart;
   buttonLiom2: typeof ButtonLiom;
   buttonLiom4: typeof ButtonLiom;
   buttonLiom5: typeof ButtonLiom;
@@ -4643,6 +4700,7 @@ export const PlasmicBmi = Object.assign(
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     buttonLiom7: makeNodeComponent("buttonLiom7"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
+    chart: makeNodeComponent("chart"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
