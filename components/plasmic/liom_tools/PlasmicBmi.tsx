@@ -66,6 +66,8 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/compo
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Input } from "@/fragment/components/input"; // plasmic-import: 31QElsfd4yPt/codeComponent
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
+import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Dialog3 from "../../Dialog3"; // plasmic-import: UHX61U1xmtjA/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
@@ -126,6 +128,7 @@ export type PlasmicBmi__OverridesType = {
   lastWeight?: Flex__<typeof Input>;
   week?: Flex__<typeof Input>;
   weight2?: Flex__<typeof Input>;
+  radioGroup?: Flex__<typeof AntdRadioGroup>;
   glo?: Flex__<typeof Input>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   buttonLiom6?: Flex__<typeof ButtonLiom>;
@@ -650,186 +653,370 @@ function PlasmicBmi__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            BMIGroup: 0,
-            weeks: [
-              { week: 1, gain: 0, minGain: 0, maxGain: 0 },
-              { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
-              { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
-              { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
-              { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
-              { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
-              { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
-              { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
-              { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
-              { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
-              { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
-              { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
-              { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
-              { week: 14, gain: 2.6, minGain: 1, maxGain: 2.6 },
-              { week: 15, gain: 3.2, minGain: 1.4, maxGain: 3.2 },
-              { week: 16, gain: 3.8, minGain: 1.9, maxGain: 3.8 },
-              { week: 17, gain: 4.4, minGain: 2.3, maxGain: 4.4 },
-              { week: 18, gain: 5, minGain: 2.8, maxGain: 5 },
-              { week: 19, gain: 5.6, minGain: 3.2, maxGain: 5.6 },
-              { week: 20, gain: 6.2, minGain: 3.7, maxGain: 6.2 },
-              { week: 21, gain: 6.8, minGain: 4.1, maxGain: 6.8 },
-              { week: 22, gain: 7.4, minGain: 4.6, maxGain: 7.4 },
-              { week: 23, gain: 8, minGain: 5, maxGain: 8 },
-              { week: 24, gain: 8.6, minGain: 5.5, maxGain: 8.6 },
-              { week: 25, gain: 9.2, minGain: 5.9, maxGain: 9.2 },
-              { week: 26, gain: 9.8, minGain: 6.4, maxGain: 9.8 },
-              { week: 27, gain: 10.4, minGain: 6.8, maxGain: 10.4 },
-              { week: 28, gain: 11, minGain: 7.3, maxGain: 11 },
-              { week: 29, gain: 11.6, minGain: 7.7, maxGain: 11.6 },
-              { week: 30, gain: 12.2, minGain: 8.2, maxGain: 12.2 },
-              { week: 31, gain: 12.8, minGain: 8.6, maxGain: 12.8 },
-              { week: 32, gain: 13.4, minGain: 9.1, maxGain: 13.4 },
-              { week: 33, gain: 14, minGain: 9.5, maxGain: 14 },
-              { week: 34, gain: 14.6, minGain: 10, maxGain: 14.6 },
-              { week: 35, gain: 15.2, minGain: 10.4, maxGain: 15.2 },
-              { week: 36, gain: 15.8, minGain: 10.9, maxGain: 15.8 },
-              { week: 37, gain: 16.3, minGain: 11.3, maxGain: 16.3 },
-              { week: 38, gain: 16.9, minGain: 11.8, maxGain: 16.9 },
-              { week: 39, gain: 17.5, minGain: 12.2, maxGain: 17.5 },
-              { week: 40, gain: 18.1, minGain: 12.7, maxGain: 18.1 }
-            ]
-          },
-          {
-            BMIGroup: 1,
-            weeks: [
-              { week: 1, gain: 0, minGain: 0, maxGain: 0 },
-              { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
-              { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
-              { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
-              { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
-              { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
-              { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
-              { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
-              { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
-              { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
-              { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
-              { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
-              { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
-              { week: 14, gain: 2.5, minGain: 0.9, maxGain: 2.5 },
-              { week: 15, gain: 3, minGain: 1.3, maxGain: 3 },
-              { week: 16, gain: 3.5, minGain: 1.7, maxGain: 3.5 },
-              { week: 17, gain: 4.1, minGain: 2.1, maxGain: 4.1 },
-              { week: 18, gain: 4.6, minGain: 2.5, maxGain: 4.6 },
-              { week: 19, gain: 5.1, minGain: 2.9, maxGain: 5.1 },
-              { week: 20, gain: 5.6, minGain: 3.3, maxGain: 5.6 },
-              { week: 21, gain: 6.1, minGain: 3.7, maxGain: 6.1 },
-              { week: 22, gain: 6.6, minGain: 4.1, maxGain: 6.6 },
-              { week: 23, gain: 7.1, minGain: 4.5, maxGain: 7.1 },
-              { week: 24, gain: 7.7, minGain: 4.9, maxGain: 7.7 },
-              { week: 25, gain: 8.2, minGain: 5.3, maxGain: 8.2 },
-              { week: 26, gain: 8.7, minGain: 5.7, maxGain: 8.7 },
-              { week: 27, gain: 9.2, minGain: 6.1, maxGain: 9.2 },
-              { week: 28, gain: 9.7, minGain: 6.5, maxGain: 9.7 },
-              { week: 29, gain: 10.2, minGain: 6.9, maxGain: 10.2 },
-              { week: 30, gain: 10.7, minGain: 7.3, maxGain: 10.7 },
-              { week: 31, gain: 11.2, minGain: 7.7, maxGain: 11.2 },
-              { week: 32, gain: 11.8, minGain: 8.1, maxGain: 11.8 },
-              { week: 33, gain: 12.3, minGain: 8.5, maxGain: 12.3 },
-              { week: 34, gain: 12.8, minGain: 8.9, maxGain: 12.8 },
-              { week: 35, gain: 13.3, minGain: 9.3, maxGain: 13.3 },
-              { week: 36, gain: 13.8, minGain: 9.7, maxGain: 13.8 },
-              { week: 37, gain: 14.3, minGain: 10.1, maxGain: 14.3 },
-              { week: 38, gain: 14.8, minGain: 10.5, maxGain: 14.8 },
-              { week: 39, gain: 15.4, minGain: 10.9, maxGain: 15.4 },
-              { week: 40, gain: 15.9, minGain: 11.3, maxGain: 15.9 }
-            ]
-          },
-          {
-            BMIGroup: 2,
-            weeks: [
-              { week: 1, gain: 0, minGain: 0, maxGain: 0 },
-              { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
-              { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
-              { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
-              { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
-              { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
-              { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
-              { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
-              { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
-              { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
-              { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
-              { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
-              { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
-              { week: 14, gain: 2.3, minGain: 0.7, maxGain: 2.3 },
-              { week: 15, gain: 2.7, minGain: 1, maxGain: 2.7 },
-              { week: 16, gain: 3, minGain: 1.2, maxGain: 3 },
-              { week: 17, gain: 3.4, minGain: 1.4, maxGain: 3.4 },
-              { week: 18, gain: 3.7, minGain: 1.7, maxGain: 3.7 },
-              { week: 19, gain: 4.1, minGain: 1.9, maxGain: 4.1 },
-              { week: 20, gain: 4.4, minGain: 2.1, maxGain: 4.4 },
-              { week: 21, gain: 4.8, minGain: 2.4, maxGain: 4.8 },
-              { week: 22, gain: 5.1, minGain: 2.6, maxGain: 5.1 },
-              { week: 23, gain: 5.5, minGain: 2.8, maxGain: 5.5 },
-              { week: 24, gain: 5.8, minGain: 3.1, maxGain: 5.8 },
-              { week: 25, gain: 6.1, minGain: 3.3, maxGain: 6.1 },
-              { week: 26, gain: 6.5, minGain: 3.5, maxGain: 6.5 },
-              { week: 27, gain: 6.8, minGain: 3.8, maxGain: 6.8 },
-              { week: 28, gain: 7.2, minGain: 4, maxGain: 7.2 },
-              { week: 29, gain: 7.5, minGain: 4.2, maxGain: 7.5 },
-              { week: 30, gain: 7.9, minGain: 4.5, maxGain: 7.9 },
-              { week: 31, gain: 8.2, minGain: 4.7, maxGain: 8.2 },
-              { week: 32, gain: 8.6, minGain: 4.9, maxGain: 8.6 },
-              { week: 33, gain: 8.9, minGain: 5.2, maxGain: 8.9 },
-              { week: 34, gain: 9.3, minGain: 5.4, maxGain: 9.3 },
-              { week: 35, gain: 9.6, minGain: 5.6, maxGain: 9.6 },
-              { week: 36, gain: 10, minGain: 5.9, maxGain: 10 },
-              { week: 37, gain: 10.3, minGain: 6.1, maxGain: 10.3 },
-              { week: 38, gain: 10.6, minGain: 6.3, maxGain: 10.6 },
-              { week: 39, gain: 11, minGain: 6.6, maxGain: 11 },
-              { week: 40, gain: 11.3, minGain: 6.8, maxGain: 11.3 }
-            ]
-          },
-          {
-            BMIGroup: 3,
-            weeks: [
-              { week: 1, gain: 0, minGain: 0, maxGain: 0 },
-              { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
-              { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
-              { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
-              { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
-              { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
-              { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
-              { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
-              { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
-              { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
-              { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
-              { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
-              { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
-              { week: 14, gain: 2.3, minGain: 0.7, maxGain: 2.3 },
-              { week: 15, gain: 2.5, minGain: 0.8, maxGain: 2.5 },
-              { week: 16, gain: 2.8, minGain: 1, maxGain: 2.8 },
-              { week: 17, gain: 3, minGain: 1.2, maxGain: 3 },
-              { week: 18, gain: 3.3, minGain: 1.3, maxGain: 3.3 },
-              { week: 19, gain: 3.6, minGain: 1.5, maxGain: 3.6 },
-              { week: 20, gain: 3.8, minGain: 1.7, maxGain: 3.8 },
-              { week: 21, gain: 4.1, minGain: 1.8, maxGain: 4.1 },
-              { week: 22, gain: 4.4, minGain: 2, maxGain: 4.4 },
-              { week: 23, gain: 4.6, minGain: 2.2, maxGain: 4.6 },
-              { week: 24, gain: 4.9, minGain: 2.3, maxGain: 4.9 },
-              { week: 25, gain: 5.1, minGain: 2.5, maxGain: 5.1 },
-              { week: 26, gain: 5.4, minGain: 2.7, maxGain: 5.4 },
-              { week: 27, gain: 5.7, minGain: 2.8, maxGain: 5.7 },
-              { week: 28, gain: 5.9, minGain: 3, maxGain: 5.9 },
-              { week: 29, gain: 6.2, minGain: 3.2, maxGain: 6.2 },
-              { week: 30, gain: 6.5, minGain: 3.3, maxGain: 6.5 },
-              { week: 31, gain: 6.7, minGain: 3.5, maxGain: 6.7 },
-              { week: 32, gain: 7, minGain: 3.7, maxGain: 7 },
-              { week: 33, gain: 7.2, minGain: 3.8, maxGain: 7.2 },
-              { week: 34, gain: 7.5, minGain: 4, maxGain: 7.5 },
-              { week: 35, gain: 7.8, minGain: 4.2, maxGain: 7.8 },
-              { week: 36, gain: 8, minGain: 4.3, maxGain: 8 },
-              { week: 37, gain: 8.3, minGain: 4.5, maxGain: 8.3 },
-              { week: 38, gain: 8.5, minGain: 4.7, maxGain: 8.5 },
-              { week: 39, gain: 8.8, minGain: 4.8, maxGain: 8.8 },
-              { week: 40, gain: 9.1, minGain: 5, maxGain: 9.1 }
-            ]
-          }
+          [
+            {
+              BMIGroup: 0,
+              weeks: [
+                { week: 1, gain: 0, minGain: 0, maxGain: 0 },
+                { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
+                { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
+                { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
+                { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
+                { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
+                { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
+                { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
+                { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
+                { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
+                { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
+                { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
+                { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
+                { week: 14, gain: 2.6, minGain: 1, maxGain: 2.6 },
+                { week: 15, gain: 3.2, minGain: 1.4, maxGain: 3.2 },
+                { week: 16, gain: 3.8, minGain: 1.9, maxGain: 3.8 },
+                { week: 17, gain: 4.4, minGain: 2.3, maxGain: 4.4 },
+                { week: 18, gain: 5, minGain: 2.8, maxGain: 5 },
+                { week: 19, gain: 5.6, minGain: 3.2, maxGain: 5.6 },
+                { week: 20, gain: 6.2, minGain: 3.7, maxGain: 6.2 },
+                { week: 21, gain: 6.8, minGain: 4.1, maxGain: 6.8 },
+                { week: 22, gain: 7.4, minGain: 4.6, maxGain: 7.4 },
+                { week: 23, gain: 8, minGain: 5, maxGain: 8 },
+                { week: 24, gain: 8.6, minGain: 5.5, maxGain: 8.6 },
+                { week: 25, gain: 9.2, minGain: 5.9, maxGain: 9.2 },
+                { week: 26, gain: 9.8, minGain: 6.4, maxGain: 9.8 },
+                { week: 27, gain: 10.4, minGain: 6.8, maxGain: 10.4 },
+                { week: 28, gain: 11, minGain: 7.3, maxGain: 11 },
+                { week: 29, gain: 11.6, minGain: 7.7, maxGain: 11.6 },
+                { week: 30, gain: 12.2, minGain: 8.2, maxGain: 12.2 },
+                { week: 31, gain: 12.8, minGain: 8.6, maxGain: 12.8 },
+                { week: 32, gain: 13.4, minGain: 9.1, maxGain: 13.4 },
+                { week: 33, gain: 14, minGain: 9.5, maxGain: 14 },
+                { week: 34, gain: 14.6, minGain: 10, maxGain: 14.6 },
+                { week: 35, gain: 15.2, minGain: 10.4, maxGain: 15.2 },
+                { week: 36, gain: 15.8, minGain: 10.9, maxGain: 15.8 },
+                { week: 37, gain: 16.3, minGain: 11.3, maxGain: 16.3 },
+                { week: 38, gain: 16.9, minGain: 11.8, maxGain: 16.9 },
+                { week: 39, gain: 17.5, minGain: 12.2, maxGain: 17.5 },
+                { week: 40, gain: 18.1, minGain: 12.7, maxGain: 18.1 }
+              ]
+            },
+            {
+              BMIGroup: 1,
+              weeks: [
+                { week: 1, gain: 0, minGain: 0, maxGain: 0 },
+                { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
+                { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
+                { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
+                { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
+                { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
+                { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
+                { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
+                { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
+                { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
+                { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
+                { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
+                { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
+                { week: 14, gain: 2.5, minGain: 0.9, maxGain: 2.5 },
+                { week: 15, gain: 3, minGain: 1.3, maxGain: 3 },
+                { week: 16, gain: 3.5, minGain: 1.7, maxGain: 3.5 },
+                { week: 17, gain: 4.1, minGain: 2.1, maxGain: 4.1 },
+                { week: 18, gain: 4.6, minGain: 2.5, maxGain: 4.6 },
+                { week: 19, gain: 5.1, minGain: 2.9, maxGain: 5.1 },
+                { week: 20, gain: 5.6, minGain: 3.3, maxGain: 5.6 },
+                { week: 21, gain: 6.1, minGain: 3.7, maxGain: 6.1 },
+                { week: 22, gain: 6.6, minGain: 4.1, maxGain: 6.6 },
+                { week: 23, gain: 7.1, minGain: 4.5, maxGain: 7.1 },
+                { week: 24, gain: 7.7, minGain: 4.9, maxGain: 7.7 },
+                { week: 25, gain: 8.2, minGain: 5.3, maxGain: 8.2 },
+                { week: 26, gain: 8.7, minGain: 5.7, maxGain: 8.7 },
+                { week: 27, gain: 9.2, minGain: 6.1, maxGain: 9.2 },
+                { week: 28, gain: 9.7, minGain: 6.5, maxGain: 9.7 },
+                { week: 29, gain: 10.2, minGain: 6.9, maxGain: 10.2 },
+                { week: 30, gain: 10.7, minGain: 7.3, maxGain: 10.7 },
+                { week: 31, gain: 11.2, minGain: 7.7, maxGain: 11.2 },
+                { week: 32, gain: 11.8, minGain: 8.1, maxGain: 11.8 },
+                { week: 33, gain: 12.3, minGain: 8.5, maxGain: 12.3 },
+                { week: 34, gain: 12.8, minGain: 8.9, maxGain: 12.8 },
+                { week: 35, gain: 13.3, minGain: 9.3, maxGain: 13.3 },
+                { week: 36, gain: 13.8, minGain: 9.7, maxGain: 13.8 },
+                { week: 37, gain: 14.3, minGain: 10.1, maxGain: 14.3 },
+                { week: 38, gain: 14.8, minGain: 10.5, maxGain: 14.8 },
+                { week: 39, gain: 15.4, minGain: 10.9, maxGain: 15.4 },
+                { week: 40, gain: 15.9, minGain: 11.3, maxGain: 15.9 }
+              ]
+            },
+            {
+              BMIGroup: 2,
+              weeks: [
+                { week: 1, gain: 0, minGain: 0, maxGain: 0 },
+                { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
+                { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
+                { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
+                { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
+                { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
+                { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
+                { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
+                { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
+                { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
+                { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
+                { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
+                { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
+                { week: 14, gain: 2.3, minGain: 0.7, maxGain: 2.3 },
+                { week: 15, gain: 2.7, minGain: 1, maxGain: 2.7 },
+                { week: 16, gain: 3, minGain: 1.2, maxGain: 3 },
+                { week: 17, gain: 3.4, minGain: 1.4, maxGain: 3.4 },
+                { week: 18, gain: 3.7, minGain: 1.7, maxGain: 3.7 },
+                { week: 19, gain: 4.1, minGain: 1.9, maxGain: 4.1 },
+                { week: 20, gain: 4.4, minGain: 2.1, maxGain: 4.4 },
+                { week: 21, gain: 4.8, minGain: 2.4, maxGain: 4.8 },
+                { week: 22, gain: 5.1, minGain: 2.6, maxGain: 5.1 },
+                { week: 23, gain: 5.5, minGain: 2.8, maxGain: 5.5 },
+                { week: 24, gain: 5.8, minGain: 3.1, maxGain: 5.8 },
+                { week: 25, gain: 6.1, minGain: 3.3, maxGain: 6.1 },
+                { week: 26, gain: 6.5, minGain: 3.5, maxGain: 6.5 },
+                { week: 27, gain: 6.8, minGain: 3.8, maxGain: 6.8 },
+                { week: 28, gain: 7.2, minGain: 4, maxGain: 7.2 },
+                { week: 29, gain: 7.5, minGain: 4.2, maxGain: 7.5 },
+                { week: 30, gain: 7.9, minGain: 4.5, maxGain: 7.9 },
+                { week: 31, gain: 8.2, minGain: 4.7, maxGain: 8.2 },
+                { week: 32, gain: 8.6, minGain: 4.9, maxGain: 8.6 },
+                { week: 33, gain: 8.9, minGain: 5.2, maxGain: 8.9 },
+                { week: 34, gain: 9.3, minGain: 5.4, maxGain: 9.3 },
+                { week: 35, gain: 9.6, minGain: 5.6, maxGain: 9.6 },
+                { week: 36, gain: 10, minGain: 5.9, maxGain: 10 },
+                { week: 37, gain: 10.3, minGain: 6.1, maxGain: 10.3 },
+                { week: 38, gain: 10.6, minGain: 6.3, maxGain: 10.6 },
+                { week: 39, gain: 11, minGain: 6.6, maxGain: 11 },
+                { week: 40, gain: 11.3, minGain: 6.8, maxGain: 11.3 }
+              ]
+            },
+            {
+              BMIGroup: 3,
+              weeks: [
+                { week: 1, gain: 0, minGain: 0, maxGain: 0 },
+                { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
+                { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
+                { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
+                { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
+                { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
+                { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
+                { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
+                { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
+                { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
+                { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
+                { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
+                { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
+                { week: 14, gain: 2.3, minGain: 0.7, maxGain: 2.3 },
+                { week: 15, gain: 2.5, minGain: 0.8, maxGain: 2.5 },
+                { week: 16, gain: 2.8, minGain: 1, maxGain: 2.8 },
+                { week: 17, gain: 3, minGain: 1.2, maxGain: 3 },
+                { week: 18, gain: 3.3, minGain: 1.3, maxGain: 3.3 },
+                { week: 19, gain: 3.6, minGain: 1.5, maxGain: 3.6 },
+                { week: 20, gain: 3.8, minGain: 1.7, maxGain: 3.8 },
+                { week: 21, gain: 4.1, minGain: 1.8, maxGain: 4.1 },
+                { week: 22, gain: 4.4, minGain: 2, maxGain: 4.4 },
+                { week: 23, gain: 4.6, minGain: 2.2, maxGain: 4.6 },
+                { week: 24, gain: 4.9, minGain: 2.3, maxGain: 4.9 },
+                { week: 25, gain: 5.1, minGain: 2.5, maxGain: 5.1 },
+                { week: 26, gain: 5.4, minGain: 2.7, maxGain: 5.4 },
+                { week: 27, gain: 5.7, minGain: 2.8, maxGain: 5.7 },
+                { week: 28, gain: 5.9, minGain: 3, maxGain: 5.9 },
+                { week: 29, gain: 6.2, minGain: 3.2, maxGain: 6.2 },
+                { week: 30, gain: 6.5, minGain: 3.3, maxGain: 6.5 },
+                { week: 31, gain: 6.7, minGain: 3.5, maxGain: 6.7 },
+                { week: 32, gain: 7, minGain: 3.7, maxGain: 7 },
+                { week: 33, gain: 7.2, minGain: 3.8, maxGain: 7.2 },
+                { week: 34, gain: 7.5, minGain: 4, maxGain: 7.5 },
+                { week: 35, gain: 7.8, minGain: 4.2, maxGain: 7.8 },
+                { week: 36, gain: 8, minGain: 4.3, maxGain: 8 },
+                { week: 37, gain: 8.3, minGain: 4.5, maxGain: 8.3 },
+                { week: 38, gain: 8.5, minGain: 4.7, maxGain: 8.5 },
+                { week: 39, gain: 8.8, minGain: 4.8, maxGain: 8.8 },
+                { week: 40, gain: 9.1, minGain: 5, maxGain: 9.1 }
+              ]
+            }
+          ],
+          [
+            {
+              BMIGroup: 0,
+              weeks: [
+                { week: 1, gain: 0, minGain: 0, maxGain: 0 },
+                { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
+                { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
+                { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
+                { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
+                { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
+                { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
+                { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
+                { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
+                { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
+                { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
+                { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
+                { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
+                { week: 14, gain: 2.8, minGain: 1.1, maxGain: 2.8 },
+                { week: 15, gain: 3.7, minGain: 1.7, maxGain: 3.7 },
+                { week: 16, gain: 4.5, minGain: 2.3, maxGain: 4.5 },
+                { week: 17, gain: 5.3, minGain: 2.9, maxGain: 5.3 },
+                { week: 18, gain: 6.2, minGain: 3.5, maxGain: 6.2 },
+                { week: 19, gain: 7, minGain: 4.1, maxGain: 7 },
+                { week: 20, gain: 7.8, minGain: 4.7, maxGain: 7.8 },
+                { week: 21, gain: 8.7, minGain: 5.3, maxGain: 8.7 },
+                { week: 22, gain: 9.5, minGain: 5.9, maxGain: 9.5 },
+                { week: 23, gain: 10.3, minGain: 6.5, maxGain: 10.3 },
+                { week: 24, gain: 11.2, minGain: 7.1, maxGain: 11.2 },
+                { week: 25, gain: 12, minGain: 7.7, maxGain: 12 },
+                { week: 26, gain: 12.8, minGain: 8.3, maxGain: 12.8 },
+                { week: 27, gain: 13.7, minGain: 8.9, maxGain: 13.7 },
+                { week: 28, gain: 14.5, minGain: 9.5, maxGain: 14.5 },
+                { week: 29, gain: 15.3, minGain: 10.1, maxGain: 15.3 },
+                { week: 30, gain: 16.2, minGain: 10.8, maxGain: 16.2 },
+                { week: 31, gain: 17, minGain: 11.4, maxGain: 17 },
+                { week: 32, gain: 17.8, minGain: 12, maxGain: 17.8 },
+                { week: 33, gain: 18.7, minGain: 12.6, maxGain: 18.7 },
+                { week: 34, gain: 19.5, minGain: 13.2, maxGain: 19.5 },
+                { week: 35, gain: 20.3, minGain: 13.8, maxGain: 20.3 },
+                { week: 36, gain: 21.2, minGain: 14.4, maxGain: 21.2 },
+                { week: 37, gain: 22, minGain: 15, maxGain: 22 },
+                { week: 38, gain: 22.8, minGain: 15.6, maxGain: 22.8 },
+                { week: 39, gain: 23.7, minGain: 16.2, maxGain: 23.7 },
+                { week: 40, gain: 24.5, minGain: 16.8, maxGain: 24.5 }
+              ]
+            },
+            {
+              BMIGroup: 1,
+              weeks: [
+                { week: 1, gain: 0, minGain: 0, maxGain: 0 },
+                { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
+                { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
+                { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
+                { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
+                { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
+                { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
+                { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
+                { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
+                { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
+                { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
+                { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
+                { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
+                { week: 14, gain: 2.8, minGain: 1.1, maxGain: 2.8 },
+                { week: 15, gain: 3.7, minGain: 1.7, maxGain: 3.7 },
+                { week: 16, gain: 4.5, minGain: 2.3, maxGain: 4.5 },
+                { week: 17, gain: 5.3, minGain: 2.9, maxGain: 5.3 },
+                { week: 18, gain: 6.2, minGain: 3.5, maxGain: 6.2 },
+                { week: 19, gain: 7, minGain: 4.1, maxGain: 7 },
+                { week: 20, gain: 7.8, minGain: 4.7, maxGain: 7.8 },
+                { week: 21, gain: 8.7, minGain: 5.3, maxGain: 8.7 },
+                { week: 22, gain: 9.5, minGain: 5.9, maxGain: 9.5 },
+                { week: 23, gain: 10.3, minGain: 6.5, maxGain: 10.3 },
+                { week: 24, gain: 11.2, minGain: 7.1, maxGain: 11.2 },
+                { week: 25, gain: 12, minGain: 7.7, maxGain: 12 },
+                { week: 26, gain: 12.8, minGain: 8.3, maxGain: 12.8 },
+                { week: 27, gain: 13.7, minGain: 8.9, maxGain: 13.7 },
+                { week: 28, gain: 14.5, minGain: 9.5, maxGain: 14.5 },
+                { week: 29, gain: 15.3, minGain: 10.1, maxGain: 15.3 },
+                { week: 30, gain: 16.2, minGain: 10.8, maxGain: 16.2 },
+                { week: 31, gain: 17, minGain: 11.4, maxGain: 17 },
+                { week: 32, gain: 17.8, minGain: 12, maxGain: 17.8 },
+                { week: 33, gain: 18.7, minGain: 12.6, maxGain: 18.7 },
+                { week: 34, gain: 19.5, minGain: 13.2, maxGain: 19.5 },
+                { week: 35, gain: 20.3, minGain: 13.8, maxGain: 20.3 },
+                { week: 36, gain: 21.2, minGain: 14.4, maxGain: 21.2 },
+                { week: 37, gain: 22, minGain: 15, maxGain: 22 },
+                { week: 38, gain: 22.8, minGain: 15.6, maxGain: 22.8 },
+                { week: 39, gain: 23.7, minGain: 16.2, maxGain: 23.7 },
+                { week: 40, gain: 24.5, minGain: 16.8, maxGain: 24.5 }
+              ]
+            },
+            {
+              BMIGroup: 2,
+              weeks: [
+                { week: 1, gain: 0, minGain: 0, maxGain: 0 },
+                { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
+                { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
+                { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
+                { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
+                { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
+                { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
+                { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
+                { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
+                { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
+                { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
+                { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
+                { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
+                { week: 14, gain: 2.8, minGain: 1, maxGain: 2.8 },
+                { week: 15, gain: 3.5, minGain: 1.5, maxGain: 3.5 },
+                { week: 16, gain: 4.3, minGain: 2, maxGain: 4.3 },
+                { week: 17, gain: 5.1, minGain: 2.5, maxGain: 5.1 },
+                { week: 18, gain: 5.8, minGain: 3, maxGain: 5.8 },
+                { week: 19, gain: 6.6, minGain: 3.5, maxGain: 6.6 },
+                { week: 20, gain: 7.4, minGain: 4, maxGain: 7.4 },
+                { week: 21, gain: 8.1, minGain: 4.5, maxGain: 8.1 },
+                { week: 22, gain: 8.9, minGain: 5, maxGain: 8.9 },
+                { week: 23, gain: 9.7, minGain: 5.5, maxGain: 9.7 },
+                { week: 24, gain: 10.4, minGain: 6, maxGain: 10.4 },
+                { week: 25, gain: 11.2, minGain: 6.5, maxGain: 11.2 },
+                { week: 26, gain: 12, minGain: 7, maxGain: 12 },
+                { week: 27, gain: 12.7, minGain: 7.5, maxGain: 12.7 },
+                { week: 28, gain: 13.5, minGain: 8, maxGain: 13.5 },
+                { week: 29, gain: 14.3, minGain: 8.5, maxGain: 14.3 },
+                { week: 30, gain: 15, minGain: 9, maxGain: 15 },
+                { week: 31, gain: 15.8, minGain: 9.5, maxGain: 15.8 },
+                { week: 32, gain: 16.6, minGain: 10, maxGain: 16.6 },
+                { week: 33, gain: 17.3, minGain: 10.5, maxGain: 17.3 },
+                { week: 34, gain: 18.1, minGain: 11, maxGain: 18.1 },
+                { week: 35, gain: 18.8, minGain: 11.5, maxGain: 18.8 },
+                { week: 36, gain: 19.6, minGain: 12.1, maxGain: 19.6 },
+                { week: 37, gain: 20.4, minGain: 12.6, maxGain: 20.4 },
+                { week: 38, gain: 21.1, minGain: 13.1, maxGain: 21.1 },
+                { week: 39, gain: 21.9, minGain: 13.6, maxGain: 21.9 },
+                { week: 40, gain: 22.7, minGain: 14.1, maxGain: 22.7 }
+              ]
+            },
+            {
+              BMIGroup: 3,
+              weeks: [
+                { week: 1, gain: 0, minGain: 0, maxGain: 0 },
+                { week: 2, gain: 0.2, minGain: 0.04, maxGain: 0.2 },
+                { week: 3, gain: 0.3, minGain: 0.08, maxGain: 0.3 },
+                { week: 4, gain: 0.5, minGain: 0.1, maxGain: 0.5 },
+                { week: 5, gain: 0.7, minGain: 0.2, maxGain: 0.7 },
+                { week: 6, gain: 0.8, minGain: 0.2, maxGain: 0.8 },
+                { week: 7, gain: 1, minGain: 0.2, maxGain: 1 },
+                { week: 8, gain: 1.2, minGain: 0.3, maxGain: 1.2 },
+                { week: 9, gain: 1.3, minGain: 0.3, maxGain: 1.3 },
+                { week: 10, gain: 1.5, minGain: 0.4, maxGain: 1.5 },
+                { week: 11, gain: 1.7, minGain: 0.4, maxGain: 1.7 },
+                { week: 12, gain: 1.8, minGain: 0.5, maxGain: 1.8 },
+                { week: 13, gain: 2, minGain: 0.5, maxGain: 2 },
+                { week: 14, gain: 2.6, minGain: 0.9, maxGain: 2.6 },
+                { week: 15, gain: 3.3, minGain: 1.3, maxGain: 3.3 },
+                { week: 16, gain: 3.9, minGain: 1.7, maxGain: 3.9 },
+                { week: 17, gain: 4.5, minGain: 2.1, maxGain: 4.5 },
+                { week: 18, gain: 5.2, minGain: 2.5, maxGain: 5.2 },
+                { week: 19, gain: 5.8, minGain: 2.9, maxGain: 5.8 },
+                { week: 20, gain: 6.4, minGain: 3.3, maxGain: 6.4 },
+                { week: 21, gain: 7, minGain: 3.7, maxGain: 7 },
+                { week: 22, gain: 7.7, minGain: 4.1, maxGain: 7.7 },
+                { week: 23, gain: 8.3, minGain: 4.5, maxGain: 8.3 },
+                { week: 24, gain: 8.9, minGain: 4.9, maxGain: 8.9 },
+                { week: 25, gain: 9.6, minGain: 5.3, maxGain: 9.6 },
+                { week: 26, gain: 10.2, minGain: 5.7, maxGain: 10.2 },
+                { week: 27, gain: 10.8, minGain: 6.1, maxGain: 10.8 },
+                { week: 28, gain: 11.5, minGain: 6.5, maxGain: 11.5 },
+                { week: 29, gain: 12.1, minGain: 6.9, maxGain: 12.1 },
+                { week: 30, gain: 12.7, minGain: 7.3, maxGain: 12.7 },
+                { week: 31, gain: 13.4, minGain: 7.7, maxGain: 13.4 },
+                { week: 32, gain: 14, minGain: 8.1, maxGain: 14 },
+                { week: 33, gain: 14.6, minGain: 8.5, maxGain: 14.6 },
+                { week: 34, gain: 15.3, minGain: 8.9, maxGain: 15.3 },
+                { week: 35, gain: 15.9, minGain: 9.3, maxGain: 15.9 },
+                { week: 36, gain: 16.5, minGain: 9.7, maxGain: 16.5 },
+                { week: 37, gain: 17.2, minGain: 10.1, maxGain: 17.2 },
+                { week: 38, gain: 17.8, minGain: 10.5, maxGain: 17.8 },
+                { week: 39, gain: 18.4, minGain: 10.9, maxGain: 18.4 },
+                { week: 40, gain: 19.1, minGain: 11.3, maxGain: 19.1 }
+              ]
+            }
+          ]
         ]
       },
       {
@@ -986,6 +1173,12 @@ function PlasmicBmi__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "line"
+      },
+      {
+        path: "radioGroup.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "1"
       }
     ],
     [$props, $ctx, $refs]
@@ -1596,7 +1789,7 @@ function PlasmicBmi__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0686\u0646\u062f\u0642\u0644\u0648 \u062f\u0627\u0631\u06cc\u061f"
+                        "\u0622\u06cc\u0627 \u062f\u0648\u0642\u0644\u0648 \u062f\u0627\u0631\u06cc\u061f"
                       }
                     </div>
                     <div
@@ -1629,11 +1822,76 @@ function PlasmicBmi__RenderFunc(props: {
                             role={"img"}
                           />
 
+                          <AntdRadioGroup
+                            data-plasmic-name={"radioGroup"}
+                            data-plasmic-override={overrides.radioGroup}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.radioGroup
+                            )}
+                            defaultValue={"1"}
+                            onChange={async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "radioGroup",
+                                "value"
+                              ]).apply(null, eventArgs);
+                            }}
+                            options={(() => {
+                              const __composite = [
+                                { value: null, label: null },
+                                { value: null, label: null }
+                              ];
+                              __composite["0"]["value"] = "1";
+                              __composite["0"]["label"] = "\u062e\u06cc\u0631";
+                              __composite["1"]["value"] = "2";
+                              __composite["1"]["label"] = "\u0628\u0644\u0647";
+                              return __composite;
+                            })()}
+                            value={generateStateValueProp($state, [
+                              "radioGroup",
+                              "value"
+                            ])}
+                          >
+                            <AntdRadio
+                              className={classNames(
+                                "__wab_instance",
+                                sty.radio__geeP9
+                              )}
+                              value={"op1"}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__kOJ
+                                )}
+                              >
+                                {"Option 1"}
+                              </div>
+                            </AntdRadio>
+                            <AntdRadio
+                              className={classNames(
+                                "__wab_instance",
+                                sty.radio__zOvB0
+                              )}
+                              value={"op2"}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___3FHwO
+                                )}
+                              >
+                                {"Option 2"}
+                              </div>
+                            </AntdRadio>
+                          </AntdRadioGroup>
                           <Input
                             data-plasmic-name={"glo"}
                             data-plasmic-override={overrides.glo}
                             className={classNames("__wab_instance", sty.glo)}
-                            disabled={true}
+                            disabled={false}
                             onChange={async (...eventArgs: any) => {
                               generateStateOnChangeProp($state, [
                                 "glo",
@@ -1684,8 +1942,7 @@ function PlasmicBmi__RenderFunc(props: {
                         $state.higth.value &&
                         $state.lastWeight.value &&
                         $state.weight2.value &&
-                        $state.week.value &&
-                        $state.glo.value
+                        $state.week.value
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
@@ -1699,17 +1956,29 @@ function PlasmicBmi__RenderFunc(props: {
                                       $state.weight2.value
                                     );
                                     var week = $state.week2;
-                                    var gol = parseInt($state.glo.value);
+                                    var gol = parseInt($state.radioGroup.value);
                                     var lastbmi = lastWeight / (higth * higth);
-                                    var w = $state.weight[gol - 1].find(
+                                    var bmiRanges =
+                                      $state.bmiCategories.findIndex(
+                                        range =>
+                                          lastbmi >= range.min &&
+                                          lastbmi < range.max
+                                      );
+                                    var w = $state.weight[gol - 1][
+                                      bmiRanges
+                                    ].weeks.find(
                                       item => item.week == week
                                     ).gain;
                                     var bmi = (weight2 - w) / (higth * higth);
                                     var add = weight2 - lastWeight;
-                                    var min = $state.weight[gol - 1].find(
+                                    var min = $state.weight[gol - 1][
+                                      bmiRanges
+                                    ].weeks.find(
                                       item => item.week == week
                                     ).minGain;
-                                    var max = $state.weight[gol - 1].find(
+                                    var max = $state.weight[gol - 1][
+                                      bmiRanges
+                                    ].weeks.find(
                                       item => item.week == week
                                     ).maxGain;
                                     var type =
@@ -1749,8 +2018,7 @@ function PlasmicBmi__RenderFunc(props: {
                         $state.higth.value &&
                         $state.lastWeight.value &&
                         $state.weight2.value &&
-                        $state.week.value &&
-                        $state.glo.value
+                        $state.week.value
                           ? (() => {
                               const actionArgs = {
                                 vgroup: "resalt",
@@ -1780,8 +2048,7 @@ function PlasmicBmi__RenderFunc(props: {
                         $state.higth.value &&
                         $state.lastWeight.value &&
                         $state.weight2.value &&
-                        $state.week.value &&
-                        $state.glo.value
+                        $state.week.value
                       )
                         ? (() => {
                             const actionArgs = {
@@ -1965,17 +2232,29 @@ function PlasmicBmi__RenderFunc(props: {
                                       $state.weight2.value
                                     );
                                     var week = $state.week2;
-                                    var gol = parseInt($state.glo.value);
+                                    var gol = parseInt($state.radioGroup.value);
                                     var lastbmi = lastWeight / (higth * higth);
-                                    var w = $state.weight[gol - 1].find(
+                                    var bmiRanges =
+                                      $state.bmiCategories.findIndex(
+                                        range =>
+                                          lastbmi >= range.min &&
+                                          lastbmi < range.max
+                                      );
+                                    var w = $state.weight[gol - 1][
+                                      bmiRanges
+                                    ].weeks.find(
                                       item => item.week == week
                                     ).gain;
                                     var bmi = (weight2 - w) / (higth * higth);
                                     var add = weight2 - lastWeight;
-                                    var min = $state.weight[gol - 1].find(
+                                    var min = $state.weight[gol - 1][
+                                      bmiRanges
+                                    ].weeks.find(
                                       item => item.week == week
                                     ).minGain;
-                                    var max = $state.weight[gol - 1].find(
+                                    var max = $state.weight[gol - 1][
+                                      bmiRanges
+                                    ].weeks.find(
                                       item => item.week == week
                                     ).maxGain;
                                     var type =
@@ -1985,9 +2264,9 @@ function PlasmicBmi__RenderFunc(props: {
                                         ? 0
                                         : 2;
                                     return ($state.bmi = {
-                                      week: week,
-                                      lastbmi: lastbmi,
-                                      bmi: bmi,
+                                      week: $state.bmi.week,
+                                      lastbmi: Math.fround(lastbmi),
+                                      bmi: $state.bmi.bmi,
                                       w: w,
                                       type: type,
                                       min: min,
@@ -2015,8 +2294,7 @@ function PlasmicBmi__RenderFunc(props: {
                           $state.higth.value &&
                           $state.lastWeight.value &&
                           $state.weight2.value &&
-                          $state.week.value &&
-                          $state.glo.value
+                          $state.week.value
                         )
                           ? (() => {
                               const actionArgs = {
@@ -2625,17 +2903,27 @@ background: linear-gradient(to right,
                                   );
                                   var weight2 = parseInt($state.weight2.value);
                                   var week = $state.week2;
-                                  var gol = parseInt($state.glo.value);
+                                  var gol = parseInt($state.radioGroup.value);
                                   var lastbmi = lastWeight / (higth * higth);
-                                  var w = $state.weight[gol - 1].find(
-                                    item => item.week == week
-                                  ).gain;
+                                  var bmiRanges =
+                                    $state.bmiCategories.findIndex(
+                                      range =>
+                                        lastbmi >= range.min &&
+                                        lastbmi < range.max
+                                    );
+                                  var w = $state.weight[gol - 1][
+                                    bmiRanges
+                                  ].weeks.find(item => item.week == week).gain;
                                   var bmi = (weight2 - w) / (higth * higth);
                                   var add = weight2 - lastWeight;
-                                  var min = $state.weight[gol - 1].find(
+                                  var min = $state.weight[gol - 1][
+                                    bmiRanges
+                                  ].weeks.find(
                                     item => item.week == week
                                   ).minGain;
-                                  var max = $state.weight[gol - 1].find(
+                                  var max = $state.weight[gol - 1][
+                                    bmiRanges
+                                  ].weeks.find(
                                     item => item.week == week
                                   ).maxGain;
                                   var type =
@@ -2646,7 +2934,7 @@ background: linear-gradient(to right,
                                       : 2;
                                   return ($state.bmi = {
                                     week: $state.bmi.week,
-                                    lastbmi: lastbmi,
+                                    lastbmi: Math.fround(lastbmi),
                                     bmi: $state.bmi.bmi,
                                     w: w,
                                     type: type,
@@ -2803,17 +3091,27 @@ background: linear-gradient(to right,
                                   );
                                   var weight2 = parseInt($state.weight2.value);
                                   var week = $state.week2;
-                                  var gol = parseInt($state.glo.value);
+                                  var gol = parseInt($state.radioGroup.value);
                                   var lastbmi = lastWeight / (higth * higth);
-                                  var w = $state.weight[gol - 1].find(
-                                    item => item.week == week
-                                  ).gain;
+                                  var bmiRanges =
+                                    $state.bmiCategories.findIndex(
+                                      range =>
+                                        lastbmi >= range.min &&
+                                        lastbmi < range.max
+                                    );
+                                  var w = $state.weight[gol - 1][
+                                    bmiRanges
+                                  ].weeks.find(item => item.week == week).gain;
                                   var bmi = (weight2 - w) / (higth * higth);
                                   var add = weight2 - lastWeight;
-                                  var min = $state.weight[gol - 1].find(
+                                  var min = $state.weight[gol - 1][
+                                    bmiRanges
+                                  ].weeks.find(
                                     item => item.week == week
                                   ).minGain;
-                                  var max = $state.weight[gol - 1].find(
+                                  var max = $state.weight[gol - 1][
+                                    bmiRanges
+                                  ].weeks.find(
                                     item => item.week == week
                                   ).maxGain;
                                   var type =
@@ -2824,7 +3122,7 @@ background: linear-gradient(to right,
                                       : 2;
                                   return ($state.bmi = {
                                     week: $state.bmi.week,
-                                    lastbmi: lastbmi,
+                                    lastbmi: Math.fround(lastbmi),
                                     bmi: $state.bmi.bmi,
                                     w: w,
                                     type: type,
@@ -2924,177 +3222,6 @@ background: linear-gradient(to right,
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox___2ZcCh)}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__oxfqf)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__y3N,
-                      {
-                        [sty.textresalt__y3NCpkCp]: hasVariant(
-                          $state,
-                          "resalt",
-                          "resalt"
-                        )
-                      }
-                    )}
-                  >
-                    <div
-                      className={projectcss.__wab_expr_html_text}
-                      dangerouslySetInnerHTML={{
-                        __html: (() => {
-                          try {
-                            return `BMI شما پیش از بارداری 
-<span style="color: ${
-                              $state.bmiCategories.find(
-                                item =>
-                                  $state.bmi.lastbmi >= item.min &&
-                                  $state.bmi.lastbmi <= item.max
-                              ).color
-                            }; font-weight: bold;">
-  ${$state.bmi.lastbmi.toFixed(2)}
-</span> 
-بوده که در محدوده 
-<span style="color: ${
-                              $state.bmiCategories.find(
-                                item =>
-                                  $state.bmi.lastbmi >= item.min &&
-                                  $state.bmi.lastbmi <= item.max
-                              ).color
-                            }; font-weight: bold;">
-  ${
-    $state.bmiCategories.find(
-      item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max
-    ).status
-  }
-</span> 
-قرار دارد.`;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
-                            }
-                            throw e;
-                          }
-                        })()
-                      }}
-                    />
-                  </div>
-                  {(
-                    hasVariant($state, "resalt", "resalt")
-                      ? (() => {
-                          try {
-                            return $state.bmi.week == $state.week2;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })()
-                      : true
-                  ) ? (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___4Hvl,
-                        {
-                          [sty.textresalt___4HvlCpkCp]: hasVariant(
-                            $state,
-                            "resalt",
-                            "resalt"
-                          )
-                        }
-                      )}
-                    >
-                      <div
-                        className={projectcss.__wab_expr_html_text}
-                        dangerouslySetInnerHTML={{
-                          __html: (() => {
-                            try {
-                              return `شما تا هفته ${$state.week2}  بارداری
-<span style="font-weight: bold;">
-${$state.bmi.add}  کیلوگرم 
-  ${
-    $state.bmi.add < 0
-      ? "کاهش وزن"
-      : $state.bmi.add >= 0
-      ? "افزایش وزن"
-      : "هیچ تغییری"
-  }
-</span>
-داشته اید. که در محدوده
-<span style="color: ${$state.gain[$state.bmi.type].color}; font-weight: bold;">
-  ${$state.gain[$state.bmi.type].status}
-</span>
-قرار دارد.
-`;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
-                              }
-                              throw e;
-                            }
-                          })()
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__x0O7L,
-                      {
-                        [sty.textresalt__x0O7LCpkCp]: hasVariant(
-                          $state,
-                          "resalt",
-                          "resalt"
-                        )
-                      }
-                    )}
-                  >
-                    <div
-                      className={projectcss.__wab_expr_html_text}
-                      dangerouslySetInnerHTML={{
-                        __html: (() => {
-                          try {
-                            return `حداقل وزن شماتا هفته ${$state.week2}      
-       ...
-<span style="font-weight: bold;">
-${parseInt($state.bmi.weight) + $state.bmi.min}  کیلوگرم  ...
-</span>
-و حداکثر وزن شما در این هفته ... 
-<span style="font-weight: bold;">
-${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
-</span> است.`;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
-                            }
-                            throw e;
-                          }
-                        })()
-                      }}
-                    />
-                  </div>
-                </Stack__>
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -3299,6 +3426,177 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم `;
                       />
                     </div>
                   </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__oxfqf)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__y3N,
+                      {
+                        [sty.textresalt__y3NCpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      }
+                    )}
+                  >
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: (() => {
+                          try {
+                            return `BMI شما پیش از بارداری 
+<span style="color: ${
+                              $state.bmiCategories.find(
+                                item =>
+                                  $state.bmi.lastbmi >= item.min &&
+                                  $state.bmi.lastbmi <= item.max
+                              ).color
+                            }; font-weight: bold;">
+  ${$state.bmi.lastbmi.toFixed(2)}
+</span> 
+بوده که در محدوده 
+<span style="color: ${
+                              $state.bmiCategories.find(
+                                item =>
+                                  $state.bmi.lastbmi >= item.min &&
+                                  $state.bmi.lastbmi <= item.max
+                              ).color
+                            }; font-weight: bold;">
+  ${
+    $state.bmiCategories.find(
+      item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max
+    ).status
+  }
+</span> 
+قرار دارد.`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                            }
+                            throw e;
+                          }
+                        })()
+                      }}
+                    />
+                  </div>
+                  {(
+                    hasVariant($state, "resalt", "resalt")
+                      ? (() => {
+                          try {
+                            return $state.bmi.week == $state.week2;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___4Hvl,
+                        {
+                          [sty.textresalt___4HvlCpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
+                      )}
+                    >
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return `شما تا هفته ${$state.week2}  بارداری
+<span style="font-weight: bold;">
+${$state.bmi.add}  کیلوگرم 
+  ${
+    $state.bmi.add < 0
+      ? "کاهش وزن"
+      : $state.bmi.add >= 0
+      ? "افزایش وزن"
+      : "هیچ تغییری"
+  }
+</span>
+داشته اید. که در محدوده
+<span style="color: ${$state.gain[$state.bmi.type].color}; font-weight: bold;">
+  ${$state.gain[$state.bmi.type].status}
+</span>
+قرار دارد.
+`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
+                    </div>
+                  ) : null}
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__x0O7L,
+                      {
+                        [sty.textresalt__x0O7LCpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      }
+                    )}
+                  >
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: (() => {
+                          try {
+                            return `حداقل وزن شماتا هفته ${$state.week2}      
+       ...
+<span style="font-weight: bold;">
+${parseInt($state.bmi.weight) + $state.bmi.min}  کیلوگرم  ...
+</span>
+و حداکثر وزن شما در این هفته ... 
+<span style="font-weight: bold;">
+${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
+</span> است.`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                            }
+                            throw e;
+                          }
+                        })()
+                      }}
+                    />
+                  </div>
                 </Stack__>
               </Stack__>
             </div>
@@ -4164,6 +4462,7 @@ const PlasmicDescendants = {
     "lastWeight",
     "week",
     "weight2",
+    "radioGroup",
     "glo",
     "buttonLiom",
     "buttonLiom6",
@@ -4188,6 +4487,7 @@ const PlasmicDescendants = {
   lastWeight: ["lastWeight"],
   week: ["week"],
   weight2: ["weight2"],
+  radioGroup: ["radioGroup"],
   glo: ["glo"],
   buttonLiom: ["buttonLiom"],
   buttonLiom6: ["buttonLiom6"],
@@ -4225,6 +4525,7 @@ type NodeDefaultElementType = {
   lastWeight: typeof Input;
   week: typeof Input;
   weight2: typeof Input;
+  radioGroup: typeof AntdRadioGroup;
   glo: typeof Input;
   buttonLiom: typeof ButtonLiom;
   buttonLiom6: typeof ButtonLiom;
@@ -4335,6 +4636,7 @@ export const PlasmicBmi = Object.assign(
     lastWeight: makeNodeComponent("lastWeight"),
     week: makeNodeComponent("week"),
     weight2: makeNodeComponent("weight2"),
+    radioGroup: makeNodeComponent("radioGroup"),
     glo: makeNodeComponent("glo"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     buttonLiom6: makeNodeComponent("buttonLiom6"),
