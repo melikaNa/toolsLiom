@@ -2082,6 +2082,11 @@
   > img {
   margin-top: 24px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__w0Vni {
+    display: flex;
+  }
+}
 .svg__ivgFi {
   object-fit: cover;
   max-width: 100%;

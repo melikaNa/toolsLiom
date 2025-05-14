@@ -919,120 +919,28 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateDrawerOpen"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["drawer", "open"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDrawerOpen"] != null &&
-                      typeof $steps["updateDrawerOpen"] === "object" &&
-                      typeof $steps["updateDrawerOpen"].then === "function"
-                    ) {
-                      $steps["updateDrawerOpen"] = await $steps[
-                        "updateDrawerOpen"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              undefined,
-                              "https://n8n.staas.ir/webhook/chatBotServiceSession?bot_name=period_chat",
-                              undefined,
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    headers: {
-                                      Authorization: "Bearer " + window.token
-                                    }
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["updateSessions"] = (
+                    $steps["runCode"] = (
                       $steps.invokeGlobalAction?.data?.list ? true : false
                     )
                       ? (() => {
                           const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["sessions"]
-                            },
-                            operation: 0,
-                            value: $steps.invokeGlobalAction.data.list
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
+                            customFunction: async () => {
+                              return (() => {
+                                return window.history.back();
+                              })();
                             }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["updateSessions"] != null &&
-                      typeof $steps["updateSessions"] === "object" &&
-                      typeof $steps["updateSessions"].then === "function"
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
                     ) {
-                      $steps["updateSessions"] = await $steps["updateSessions"];
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                   role={"img"}
@@ -5380,7 +5288,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
               try {
                 return {
                   "padding-top":
-                    $state.paramsObject.inApp == "false" ? "60px" : "0"
+                    $state.paramsObject.inApp == "false" ? "70px" : "0"
                 };
               } catch (e) {
                 if (
@@ -7187,7 +7095,21 @@ window.typewriter = function(elementId) {
                     throw e;
                   }
                 })()
-              : true
+              : (() => {
+                  try {
+                    return (
+                      !$state.load && Object.keys($state.infoChat).length == 0
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
           ) ? (
             <Stack__
               as={"div"}
