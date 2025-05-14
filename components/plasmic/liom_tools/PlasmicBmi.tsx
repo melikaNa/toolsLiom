@@ -65,8 +65,8 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Input } from "@/fragment/components/input"; // plasmic-import: 31QElsfd4yPt/codeComponent
-import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Dialog3 from "../../Dialog3"; // plasmic-import: UHX61U1xmtjA/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
@@ -128,7 +128,6 @@ export type PlasmicBmi__OverridesType = {
   glo?: Flex__<typeof Input>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   buttonLiom6?: Flex__<typeof ButtonLiom>;
-  embedHtml?: Flex__<typeof Embed>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   buttonLiom7?: Flex__<typeof ButtonLiom>;
   buttonLiom8?: Flex__<typeof ButtonLiom>;
@@ -1314,101 +1313,142 @@ function PlasmicBmi__RenderFunc(props: {
                   </Stack__>
                 ) : null}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___4LagW)}>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___4PsNr)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__iOweJ
-                    )}
-                  >
-                    {"\u0642\u062f"}
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__d01ZG)}
-                  >
-                    <Input
-                      data-plasmic-name={"higth"}
-                      data-plasmic-override={overrides.higth}
-                      className={classNames("__wab_instance", sty.higth, {
-                        [sty.higthresalt]: hasVariant(
-                          $state,
-                          "resalt",
-                          "resalt"
-                        )
-                      })}
-                      onChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "higth",
-                          "value"
-                        ]).apply(null, eventArgs);
-                      }}
-                      placeholder={"\u0645\u062b\u0644\u0627 160"}
-                      type={"number"}
-                      value={generateStateValueProp($state, ["higth", "value"])}
-                    />
-
-                    <Icon174Icon
-                      className={classNames(projectcss.all, sty.svg__gs59Z)}
-                      role={"img"}
-                    />
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__y7Z75)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___9YMl6
-                    )}
-                  >
-                    {
-                      "\u0648\u0632\u0646  \u0642\u0628\u0644 \u0627\u0632 \u0628\u0631\u062f\u0627\u0631\u06cc"
-                    }
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__nGezH)}
-                  >
-                    <Input
-                      data-plasmic-name={"lastWeight"}
-                      data-plasmic-override={overrides.lastWeight}
-                      className={classNames("__wab_instance", sty.lastWeight, {
-                        [sty.lastWeightresalt]: hasVariant(
-                          $state,
-                          "resalt",
-                          "resalt"
-                        )
-                      })}
-                      onChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "lastWeight",
-                          "value"
-                        ]).apply(null, eventArgs);
-                      }}
-                      placeholder={"\u0645\u062b\u0644\u0627 55"}
-                      type={"number"}
-                      value={generateStateValueProp($state, [
-                        "lastWeight",
-                        "value"
-                      ])}
-                    />
-
-                    <Icon173Icon
-                      className={classNames(projectcss.all, sty.svg__re0X6)}
-                      role={"img"}
-                    />
-                  </div>
-                </div>
-              </div>
               <div className={classNames(projectcss.all, sty.freeBox__onWzc)}>
                 <Stack__
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__kcXag)}
                 >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fo8FL
+                    )}
+                  >
+                    {
+                      "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0633\u0644\u0627\u0645\u062a\u06cc"
+                    }
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___4LagW)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___4PsNr
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__iOweJ
+                        )}
+                      >
+                        {"\u0642\u062f"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__d01ZG
+                        )}
+                      >
+                        <Input
+                          data-plasmic-name={"higth"}
+                          data-plasmic-override={overrides.higth}
+                          className={classNames("__wab_instance", sty.higth, {
+                            [sty.higthresalt]: hasVariant(
+                              $state,
+                              "resalt",
+                              "resalt"
+                            )
+                          })}
+                          onChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "higth",
+                              "value"
+                            ]).apply(null, eventArgs);
+                          }}
+                          placeholder={"\u0645\u062b\u0644\u0627 160"}
+                          type={"number"}
+                          value={generateStateValueProp($state, [
+                            "higth",
+                            "value"
+                          ])}
+                        />
+
+                        <Icon174Icon
+                          className={classNames(projectcss.all, sty.svg__gs59Z)}
+                          role={"img"}
+                        />
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__y7Z75)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___9YMl6
+                        )}
+                      >
+                        {
+                          "\u0648\u0632\u0646  \u0642\u0628\u0644 \u0627\u0632 \u0628\u0631\u062f\u0627\u0631\u06cc"
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__nGezH
+                        )}
+                      >
+                        <Input
+                          data-plasmic-name={"lastWeight"}
+                          data-plasmic-override={overrides.lastWeight}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.lastWeight,
+                            {
+                              [sty.lastWeightresalt]: hasVariant(
+                                $state,
+                                "resalt",
+                                "resalt"
+                              )
+                            }
+                          )}
+                          onChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "lastWeight",
+                              "value"
+                            ]).apply(null, eventArgs);
+                          }}
+                          placeholder={"\u0645\u062b\u0644\u0627 55"}
+                          type={"number"}
+                          value={generateStateValueProp($state, [
+                            "lastWeight",
+                            "value"
+                          ])}
+                        />
+
+                        <Icon173Icon
+                          className={classNames(projectcss.all, sty.svg__re0X6)}
+                          role={"img"}
+                        />
+                      </div>
+                    </div>
+                  </Stack__>
+                  <Embed
+                    className={classNames(
+                      "__wab_instance",
+                      sty.embedHtml__eWwLh
+                    )}
+                    code={"<hr></hr>"}
+                  />
+
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2264,9 +2304,10 @@ function PlasmicBmi__RenderFunc(props: {
                       </div>
                     </Stack__>
                     <Embed
-                      data-plasmic-name={"embedHtml"}
-                      data-plasmic-override={overrides.embedHtml}
-                      className={classNames("__wab_instance", sty.embedHtml)}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.embedHtml__x9ORd
+                      )}
                       code={(() => {
                         try {
                           return `
@@ -4149,7 +4190,6 @@ const PlasmicDescendants = {
     "glo",
     "buttonLiom",
     "buttonLiom6",
-    "embedHtml",
     "buttonLiom3",
     "buttonLiom7",
     "buttonLiom8",
@@ -4174,7 +4214,6 @@ const PlasmicDescendants = {
   glo: ["glo"],
   buttonLiom: ["buttonLiom"],
   buttonLiom6: ["buttonLiom6"],
-  embedHtml: ["embedHtml"],
   buttonLiom3: ["buttonLiom3"],
   buttonLiom7: ["buttonLiom7"],
   buttonLiom8: ["buttonLiom8"],
@@ -4212,7 +4251,6 @@ type NodeDefaultElementType = {
   glo: typeof Input;
   buttonLiom: typeof ButtonLiom;
   buttonLiom6: typeof ButtonLiom;
-  embedHtml: typeof Embed;
   buttonLiom3: typeof ButtonLiom;
   buttonLiom7: typeof ButtonLiom;
   buttonLiom8: typeof ButtonLiom;
@@ -4323,7 +4361,6 @@ export const PlasmicBmi = Object.assign(
     glo: makeNodeComponent("glo"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     buttonLiom6: makeNodeComponent("buttonLiom6"),
-    embedHtml: makeNodeComponent("embedHtml"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     buttonLiom7: makeNodeComponent("buttonLiom7"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
