@@ -333,7 +333,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         path: "loading3",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2172,42 +2172,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   (async data => {
                     const $steps = {};
 
-                    $steps["updateListDetails2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loading3"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateListDetails2"] != null &&
-                      typeof $steps["updateListDetails2"] === "object" &&
-                      typeof $steps["updateListDetails2"].then === "function"
-                    ) {
-                      $steps["updateListDetails2"] = await $steps[
-                        "updateListDetails2"
-                      ];
-                    }
-
                     $steps["updateListDetails"] = (() => {
                       if (
                         typeof $state.getData?.data?.[0]?.data !== "undefined"
@@ -2278,6 +2242,42 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     ) {
                       $steps["updateListDetails3"] = await $steps[
                         "updateListDetails3"
+                      ];
+                    }
+
+                    $steps["updateListDetails2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["loading3"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateListDetails2"] != null &&
+                      typeof $steps["updateListDetails2"] === "object" &&
+                      typeof $steps["updateListDetails2"].then === "function"
+                    ) {
+                      $steps["updateListDetails2"] = await $steps[
+                        "updateListDetails2"
                       ];
                     }
                   }).apply(null, eventArgs);
@@ -2616,12 +2616,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
           </Stack__>
           {(() => {
             try {
-              return (
-                $state.getData.loading != undefined &&
-                !$state.getData.loading &&
-                ($state.getData?.data?.[0]?.id || "") == "" &&
-                !$state.loading3
-              );
+              return $state.getData?.data?.[0]?.id == null && $state.loading3;
             } catch (e) {
               if (
                 e instanceof TypeError ||

@@ -80,7 +80,6 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJp
 import sty from "./PlasmicPlayList.module.css"; // plasmic-import: tZIqYp1L6i1m/css
 
 import ChevronRightIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronRight"; // plasmic-import: ehuYANk-vbAX/icon
-import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: yU3FWAJzfOsT/icon
 
 createPlasmicElementProxy;
 
@@ -98,6 +97,7 @@ export type PlasmicPlayList__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  svg?: Flex__<"svg">;
   embedHtml?: Flex__<typeof Embed>;
   img?: Flex__<typeof PlasmicImg__>;
   lineClomp?: Flex__<typeof LineClomp>;
@@ -431,7 +431,9 @@ function PlasmicPlayList__RenderFunc(props: {
                   slot={null}
                   slot2={
                     <ChevronRightIcon
-                      className={classNames(projectcss.all, sty.svg__bc0Pm)}
+                      data-plasmic-name={"svg"}
+                      data-plasmic-override={overrides.svg}
+                      className={classNames(projectcss.all, sty.svg)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -482,7 +484,11 @@ function PlasmicPlayList__RenderFunc(props: {
               try {
                 return {
                   "padding-top":
-                    $state.paramsObject.inApp == "true" ? "0px" : ""
+                    new window.URLSearchParams(window.location.search).get(
+                      "inApp"
+                    ) != "true"
+                      ? "0px"
+                      : ""
                 };
               } catch (e) {
                 if (
@@ -521,11 +527,6 @@ function PlasmicPlayList__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox___8Ylvt)}
                 >
-                  <Icon147Icon
-                    className={classNames(projectcss.all, sty.svg__vQbB8)}
-                    role={"img"}
-                  />
-
                   <div
                     className={classNames(projectcss.all, sty.freeBox__n9VJ5)}
                   >
@@ -540,29 +541,6 @@ function PlasmicPlayList__RenderFunc(props: {
                         {(() => {
                           try {
                             return $state.playList[$state.playIndex].title;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__rzSc1
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.playList[$state.playIndex].subtitle;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -785,8 +763,8 @@ function PlasmicPlayList__RenderFunc(props: {
                         className={classNames("__wab_instance", sty.lineClomp)}
                         numberOfLine={
                           hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? 1
-                            : 2
+                            ? 2
+                            : 3
                         }
                         onLineChange={async (...eventArgs: any) => {
                           generateStateOnChangeProp($state, [
@@ -854,14 +832,16 @@ const PlasmicDescendants = {
     "sideEffect",
     "section",
     "headerLiom",
+    "svg",
     "embedHtml",
     "img",
     "lineClomp",
     "favicon"
   ],
   sideEffect: ["sideEffect"],
-  section: ["section", "headerLiom"],
-  headerLiom: ["headerLiom"],
+  section: ["section", "headerLiom", "svg"],
+  headerLiom: ["headerLiom", "svg"],
+  svg: ["svg"],
   embedHtml: ["embedHtml"],
   img: ["img"],
   lineClomp: ["lineClomp"],
@@ -875,6 +855,7 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   section: "section";
   headerLiom: typeof HeaderLiom;
+  svg: "svg";
   embedHtml: typeof Embed;
   img: typeof PlasmicImg__;
   lineClomp: typeof LineClomp;
@@ -969,6 +950,7 @@ export const PlasmicPlayList = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
+    svg: makeNodeComponent("svg"),
     embedHtml: makeNodeComponent("embedHtml"),
     img: makeNodeComponent("img"),
     lineClomp: makeNodeComponent("lineClomp"),

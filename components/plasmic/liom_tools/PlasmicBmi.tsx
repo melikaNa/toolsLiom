@@ -1377,7 +1377,11 @@ function PlasmicBmi__RenderFunc(props: {
 
           {(() => {
             try {
-              return $state.paramsObject.inApp != "true";
+              return (
+                new window.URLSearchParams(window.location.search).get(
+                  "inApp"
+                ) != "true"
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1477,7 +1481,11 @@ function PlasmicBmi__RenderFunc(props: {
                 try {
                   return {
                     "padding-top":
-                      $state.paramsObject.inApp == "true" ? "16px" : ""
+                      new window.URLSearchParams(window.location.search).get(
+                        "inApp"
+                      ) != "true"
+                        ? "16px"
+                        : ""
                   };
                 } catch (e) {
                   if (
