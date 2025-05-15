@@ -13,6 +13,10 @@
   min-height: 0;
   padding: 0px;
 }
+.sideEffect:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .section__tslw4 {
   display: grid;
   position: fixed;
@@ -69,10 +73,6 @@
 .text__cwybi {
   font-weight: 500;
   height: auto;
-}
-.sideEffect:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
 }
 .section__lNvTd {
   display: grid;

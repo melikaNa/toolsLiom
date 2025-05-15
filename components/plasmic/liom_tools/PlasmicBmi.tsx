@@ -62,8 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: 31QElsfd4yPt/codeComponent
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
@@ -122,8 +122,8 @@ export const PlasmicBmi__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicBmi__OverridesType = {
   root?: Flex__<"div">;
-  headerLiom?: Flex__<typeof HeaderLiom>;
   sideEffect?: Flex__<typeof SideEffect>;
+  headerLiom?: Flex__<typeof HeaderLiom>;
   higth?: Flex__<typeof Input>;
   lastWeight?: Flex__<typeof Input>;
   week?: Flex__<typeof Input>;
@@ -1277,73 +1277,6 @@ function PlasmicBmi__RenderFunc(props: {
             }
           )}
         >
-          <section
-            className={classNames(projectcss.all, sty.section__tslw4, {
-              [sty.sectionresalt__tslw4CpkCp]: hasVariant(
-                $state,
-                "resalt",
-                "resalt"
-              )
-            })}
-          >
-            <HeaderLiom
-              data-plasmic-name={"headerLiom"}
-              data-plasmic-override={overrides.headerLiom}
-              className={classNames("__wab_instance", sty.headerLiom, {
-                [sty.headerLiomresalt]: hasVariant($state, "resalt", "resalt")
-              })}
-              slot={null}
-              slot2={
-                <XIcon
-                  className={classNames(projectcss.all, sty.svg__npI53, {
-                    [sty.svgresalt__npI53CpkCp]: hasVariant(
-                      $state,
-                      "resalt",
-                      "resalt"
-                    )
-                  })}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.history.back();
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                  role={"img"}
-                />
-              }
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__cwybi
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "\u06a9\u0646\u062a\u0631\u0644 \u0627\u0636\u0627\u0641\u0647\u200c\u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
-                  : "\u06a9\u0646\u062a\u0631\u0644 \u0627\u0636\u0627\u0641\u0647\u200c\u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"}
-              </div>
-            </HeaderLiom>
-          </section>
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
@@ -1442,6 +1375,87 @@ function PlasmicBmi__RenderFunc(props: {
             }}
           />
 
+          {(() => {
+            try {
+              return $state.paramsObject.inApp != "true";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <section
+              className={classNames(projectcss.all, sty.section__tslw4, {
+                [sty.sectionresalt__tslw4CpkCp]: hasVariant(
+                  $state,
+                  "resalt",
+                  "resalt"
+                )
+              })}
+            >
+              <HeaderLiom
+                data-plasmic-name={"headerLiom"}
+                data-plasmic-override={overrides.headerLiom}
+                className={classNames("__wab_instance", sty.headerLiom, {
+                  [sty.headerLiomresalt]: hasVariant($state, "resalt", "resalt")
+                })}
+                slot={null}
+                slot2={
+                  <XIcon
+                    className={classNames(projectcss.all, sty.svg__npI53, {
+                      [sty.svgresalt__npI53CpkCp]: hasVariant(
+                        $state,
+                        "resalt",
+                        "resalt"
+                      )
+                    })}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.history.back();
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__cwybi
+                  )}
+                >
+                  {hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "\u06a9\u0646\u062a\u0631\u0644 \u0627\u0636\u0627\u0641\u0647\u200c\u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                    : "\u06a9\u0646\u062a\u0631\u0644 \u0627\u0636\u0627\u0641\u0647\u200c\u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"}
+                </div>
+              </HeaderLiom>
+            </section>
+          ) : null}
           <section
             className={classNames(projectcss.all, sty.section__lNvTd, {
               [sty.sectionresalt__lNvTdCpkCp]: hasVariant(
@@ -1459,6 +1473,22 @@ function PlasmicBmi__RenderFunc(props: {
                   "resalt"
                 )
               })}
+              style={(() => {
+                try {
+                  return {
+                    "padding-top":
+                      $state.paramsObject.inApp == "true" ? "16px" : ""
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox__onWzc)}>
                 <Stack__
@@ -4851,8 +4881,8 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
 const PlasmicDescendants = {
   root: [
     "root",
-    "headerLiom",
     "sideEffect",
+    "headerLiom",
     "higth",
     "lastWeight",
     "week",
@@ -4876,8 +4906,8 @@ const PlasmicDescendants = {
     "button2",
     "favicon"
   ],
-  headerLiom: ["headerLiom"],
   sideEffect: ["sideEffect"],
+  headerLiom: ["headerLiom"],
   higth: ["higth"],
   lastWeight: ["lastWeight"],
   week: ["week"],
@@ -4914,8 +4944,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  headerLiom: typeof HeaderLiom;
   sideEffect: typeof SideEffect;
+  headerLiom: typeof HeaderLiom;
   higth: typeof Input;
   lastWeight: typeof Input;
   week: typeof Input;
@@ -5025,8 +5055,8 @@ export const PlasmicBmi = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    headerLiom: makeNodeComponent("headerLiom"),
     sideEffect: makeNodeComponent("sideEffect"),
+    headerLiom: makeNodeComponent("headerLiom"),
     higth: makeNodeComponent("higth"),
     lastWeight: makeNodeComponent("lastWeight"),
     week: makeNodeComponent("week"),

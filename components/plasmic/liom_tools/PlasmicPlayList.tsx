@@ -265,6 +265,12 @@ function PlasmicPlayList__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -330,6 +336,32 @@ function PlasmicPlayList__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          return urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
               $steps["updatePlayIndex"] = true
                 ? (() => {
                     const actionArgs = {
@@ -361,62 +393,108 @@ function PlasmicPlayList__RenderFunc(props: {
             }}
           />
 
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
-            <HeaderLiom
-              data-plasmic-name={"headerLiom"}
-              data-plasmic-override={overrides.headerLiom}
-              className={classNames("__wab_instance", sty.headerLiom)}
-              slot={null}
-              slot2={
-                <ChevronRightIcon
-                  className={classNames(projectcss.all, sty.svg__bc0Pm)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return $props.resalt == true
-                                ? ($props.resalt = false)
-                                : window.history.back();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                  role={"img"}
-                />
+          {(() => {
+            try {
+              return $state.paramsObject.inApp != "true";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
               }
+              throw e;
+            }
+          })() ? (
+            <section
+              data-plasmic-name={"section"}
+              data-plasmic-override={overrides.section}
+              className={classNames(projectcss.all, sty.section)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__x42Gr
-                )}
-              >
-                {
-                  "\u0645\u062d\u062a\u0648\u0627 \u0622\u0645\u0648\u0632\u0634\u06cc"
+              {(() => {
+                try {
+                  return $state.paramsObject.inApp == "false";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
                 }
-              </div>
-            </HeaderLiom>
-          </section>
-          <div className={classNames(projectcss.all, sty.freeBox__y1VHp)}>
+              })() ? (
+                <HeaderLiom
+                  data-plasmic-name={"headerLiom"}
+                  data-plasmic-override={overrides.headerLiom}
+                  className={classNames("__wab_instance", sty.headerLiom)}
+                  slot={null}
+                  slot2={
+                    <ChevronRightIcon
+                      className={classNames(projectcss.all, sty.svg__bc0Pm)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return $props.resalt == true
+                                    ? ($props.resalt = false)
+                                    : window.history.back();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                      role={"img"}
+                    />
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__x42Gr
+                    )}
+                  >
+                    {
+                      "\u0645\u062d\u062a\u0648\u0627 \u0622\u0645\u0648\u0632\u0634\u06cc"
+                    }
+                  </div>
+                </HeaderLiom>
+              ) : null}
+            </section>
+          ) : null}
+          <div
+            className={classNames(projectcss.all, sty.freeBox__y1VHp)}
+            style={(() => {
+              try {
+                return {
+                  "padding-top":
+                    $state.paramsObject.inApp == "true" ? "0px" : ""
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+          >
             <div className={classNames(projectcss.all, sty.freeBox__bcHdt)}>
               <Embed
                 data-plasmic-name={"embedHtml"}
@@ -631,7 +709,7 @@ function PlasmicPlayList__RenderFunc(props: {
                       displayMinWidth={"0"}
                       displayWidth={
                         hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? "55%"
+                          ? "45%"
                           : "50%"
                       }
                       loading={"lazy"}
