@@ -69,7 +69,6 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
-import { SimpleChart } from "@plasmicpkgs/react-chartjs-2";
 import Dialog3 from "../../Dialog3"; // plasmic-import: UHX61U1xmtjA/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
@@ -136,7 +135,6 @@ export type PlasmicBmi__OverridesType = {
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   buttonLiom7?: Flex__<typeof ButtonLiom>;
   buttonLiom8?: Flex__<typeof ButtonLiom>;
-  chart?: Flex__<typeof SimpleChart>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
@@ -1291,7 +1289,9 @@ function PlasmicBmi__RenderFunc(props: {
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
-              className={classNames("__wab_instance", sty.headerLiom)}
+              className={classNames("__wab_instance", sty.headerLiom, {
+                [sty.headerLiomresalt]: hasVariant($state, "resalt", "resalt")
+              })}
               slot={null}
               slot2={
                 <XIcon
@@ -1478,9 +1478,28 @@ function PlasmicBmi__RenderFunc(props: {
                         sty.text__edM9
                       )}
                     >
-                      {
-                        "\u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0647 \u0634\u0645\u0627 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0627\u0641\u0632\u0627\u06cc\u0634 \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u200c\u062a\u0648\u0646 \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u06cc\u062f. \u0628\u0627 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0642\u062f\u060c \u0648\u0632\u0646 \u0648 \u0647\u0641\u062a\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u062f \u0628\u0628\u06cc\u0646\u06cc\u062f \u0622\u06cc\u0627 \u0648\u0632\u0646\u200c\u06af\u06cc\u0631\u06cc\u200c\u062a\u0648\u0646 \u0633\u0627\u0644\u0645 \u0647\u0633\u062a \u06cc\u0627 \u0646\u0647."
-                      }
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return ` <p>
+    این ابزار به شما کمک می‌کنه   <strong>  افزایش وزن بارداری‌تون رو بررسی و کنترل کنید.</strong>
+    با وارد کردن <strong>قد، وزن و هفته بارداری</strong>، می‌تونید ببینید آیا 
+    <strong>وزن‌گیری‌تون سالم هست یا نه</strong>.
+  </p>`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0628\u0647 \u0634\u0645\u0627 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0627\u0641\u0632\u0627\u06cc\u0634 \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u200c\u062a\u0648\u0646 \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u06cc\u062f. \u0628\u0627 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0642\u062f\u060c \u0648\u0632\u0646 \u0648 \u0647\u0641\u062a\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u062f \u0628\u0628\u06cc\u0646\u06cc\u062f \u0622\u06cc\u0627 \u0648\u0632\u0646\u200c\u06af\u06cc\u0631\u06cc\u200c\u062a\u0648\u0646 \u0633\u0627\u0644\u0645 \u0647\u0633\u062a \u06cc\u0627 \u0646\u0647.";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
                     </div>
                   </Stack__>
                   <div
@@ -1668,44 +1687,29 @@ function PlasmicBmi__RenderFunc(props: {
                             (async value => {
                               const $steps = {};
 
-                              $steps["updateWeek2"] = true
+                              $steps["runCode"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["week2"]
-                                      },
-                                      operation: 0,
-                                      value:
-                                        parseInt($state.week.value) > 40
-                                          ? 40
-                                          : parseInt($state.week.value) || 0
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
+                                      customFunction: async () => {
+                                        return ($state.week2 =
+                                          parseInt($state.week.value) > 40
+                                            ? 40
+                                            : parseInt($state.week.value) < 1
+                                            ? 1
+                                            : parseInt($state.week.value) || 0);
                                       }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
                                     })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
                               if (
-                                $steps["updateWeek2"] != null &&
-                                typeof $steps["updateWeek2"] === "object" &&
-                                typeof $steps["updateWeek2"].then === "function"
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
                               ) {
-                                $steps["updateWeek2"] = await $steps[
-                                  "updateWeek2"
-                                ];
+                                $steps["runCode"] = await $steps["runCode"];
                               }
                             }).apply(null, eventArgs);
                           }}
@@ -1984,6 +1988,8 @@ function PlasmicBmi__RenderFunc(props: {
                                         ? 0
                                         : 2;
                                     return ($state.bmi = {
+                                      gol: gol,
+                                      bmiRanges: bmiRanges,
                                       week: week,
                                       lastbmi: Math.fround(lastbmi),
                                       bmi: Math.fround(bmi),
@@ -3505,6 +3511,67 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم `;
                       }}
                     />
                   </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__scRuV,
+                      {
+                        [sty.textresalt__scRuVCpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "resalt", "resalt") ? (
+                      "\u0645\u062d\u062f\u0648\u062f\u0647 \u0648\u0632\u0646 \u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u06cc \u0634\u0645\u0627"
+                    ) : (
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return `BMI شما پیش از بارداری 
+<span style="color: ${
+                                $state.bmiCategories.find(
+                                  item =>
+                                    $state.bmi.lastbmi >= item.min &&
+                                    $state.bmi.lastbmi <= item.max
+                                ).color
+                              }; font-weight: bold;">
+  ${$state.bmi.lastbmi.toFixed(2)}
+</span> 
+بوده که در محدوده 
+<span style="color: ${
+                                $state.bmiCategories.find(
+                                  item =>
+                                    $state.bmi.lastbmi >= item.min &&
+                                    $state.bmi.lastbmi <= item.max
+                                ).color
+                              }; font-weight: bold;">
+  ${
+    $state.bmiCategories.find(
+      item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max
+    ).status
+  }
+</span> 
+قرار دارد.`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0628\u0631\u0631\u0633\u06cc \u0648\u0632\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
+                    )}
+                  </div>
                   {(
                     hasVariant($state, "resalt", "resalt")
                       ? (() => {
@@ -3613,42 +3680,316 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       }}
                     />
                   </div>
-                  <SimpleChart
-                    data-plasmic-name={"chart"}
-                    data-plasmic-override={overrides.chart}
-                    className={classNames("__wab_instance", sty.chart, {
-                      [sty.chartresalt]: hasVariant($state, "resalt", "resalt")
-                    })}
-                    data={
+                  <Embed
+                    className={classNames(
+                      "__wab_instance",
+                      sty.embedHtml__b2S5G,
+                      {
+                        [sty.embedHtmlresalt__b2S5GCpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      }
+                    )}
+                    code={
                       hasVariant($state, "resalt", "resalt")
-                        ? $state.weight[0][0].weeks
-                        : [
-                            { region: "APAC", revenue: 3294, spend: 2675 },
-                            { region: "EMEA", revenue: 3245, spend: 3895 },
-                            { region: "LATAM", revenue: 2165, spend: 3498 },
-                            { region: "AMER", revenue: 3215, spend: 1656 }
-                          ]
-                    }
-                    fill={
-                      hasVariant($state, "resalt", "resalt") ? false : undefined
-                    }
-                    interactive={
-                      hasVariant($state, "resalt", "resalt") ? false : undefined
-                    }
-                    labelField={
-                      hasVariant($state, "resalt", "resalt")
-                        ? "week"
-                        : undefined
-                    }
-                    secondAxisField={
-                      hasVariant($state, "resalt", "resalt")
-                        ? "maxGain"
-                        : undefined
-                    }
-                    type={
-                      hasVariant($state, "resalt", "resalt")
-                        ? "line"
-                        : undefined
+                        ? (() => {
+                            try {
+                              return `<style>
+  #chart {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+  }
+  #tooltip {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #999;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    pointer-events: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 10;
+  }
+</style>
+
+<div style="position: relative;">
+  <canvas id="chart"></canvas>
+  <div id="tooltip"></div>
+</div>
+
+<script>
+  const data = ${JSON.stringify(
+    $state.weight[$state.bmi.gol - 1][$state.bmi.bmiRanges].weeks
+  )};
+  const userPoint = { week: 20, gain: 5 };
+
+  const canvas = document.getElementById('chart');
+  const tooltip = document.getElementById('tooltip');
+  const ctx = canvas.getContext('2d');
+
+  function drawChart() {
+    canvas.width = canvas.clientWidth;
+    canvas.height = 400;
+
+    const padding = 50;
+    const width = canvas.width - padding * 2;
+    const height = canvas.height - padding * 2;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const allY = data.flatMap(d => [d.minGain, d.maxGain, userPoint.gain]);
+    const allX = data.map(d => d.week);
+
+    const minY = Math.min(...allY) - 2;
+    const maxY = Math.max(...allY) + 2;
+    const minX = Math.min(...allX);
+    const maxX = Math.max(...allX);
+
+    const scaleX = width / (maxX - minX);
+    const scaleY = height / (maxY - minY);
+
+    const toCanvasCoords = (x, y) => ({
+      x: padding + (x - minX) * scaleX,
+      y: canvas.height - padding - (y - minY) * scaleY
+    });
+
+    const fromCanvasCoords = (x, y) => ({
+      week: Math.round((x - padding) / scaleX + minX),
+      gain: ((canvas.height - padding - y) / scaleY + minY)
+    });
+
+    // shaded area
+    ctx.beginPath();
+    let p0 = toCanvasCoords(data[0].week, data[0].minGain);
+    ctx.moveTo(p0.x, p0.y);
+    for (let i = 1; i < data.length; i++) {
+      const p = toCanvasCoords(data[i].week, data[i].minGain);
+      ctx.lineTo(p.x, p.y);
+    }
+    for (let i = data.length - 1; i >= 0; i--) {
+      const p = toCanvasCoords(data[i].week, data[i].maxGain);
+      ctx.lineTo(p.x, p.y);
+    }
+    ctx.closePath();
+    ctx.fillStyle = "#E4D1FF";
+    ctx.fill();
+
+    // user point
+    const user = toCanvasCoords(userPoint.week, userPoint.gain);
+    ctx.beginPath();
+    ctx.arc(user.x, user.y, 6, 0, 2 * Math.PI);
+    ctx.fillStyle = '#7444BC';
+    ctx.fill();
+
+    // grid lines
+    ctx.strokeStyle = "#ddd";
+    ctx.lineWidth = 1;
+    const stepY = 5;
+    for (let y = Math.ceil(minY); y <= maxY; y += stepY) {
+      const cy = toCanvasCoords(minX, y).y;
+      ctx.beginPath();
+      ctx.moveTo(padding, cy);
+      ctx.lineTo(canvas.width - padding, cy);
+      ctx.stroke();
+      ctx.fillStyle = "#333";
+      ctx.font = "bold 14px sans-serif"; // بزرگ‌تر شده
+      ctx.fillText(y + 'kg', canvas.width - padding + 10, cy + 4);
+    }
+
+    const stepX = 5;
+    for (let x = minX; x <= maxX; x += stepX) {
+      const cx = toCanvasCoords(x, minY).x;
+      ctx.beginPath();
+      ctx.moveTo(cx, canvas.height - padding);
+      ctx.lineTo(cx, canvas.height - padding + 5);
+      ctx.stroke();
+      ctx.fillText(x, cx - 5, canvas.height - padding + 20);
+    }
+
+    // axis labels
+    ctx.save();
+    ctx.font = "bold 16px sans-serif"; // بزرگ‌تر شده
+    ctx.fillStyle = "#004";
+    ctx.fillText("هفته", canvas.width / 2 - 20, canvas.height - 10);
+
+    ctx.restore();
+    ctx.save();
+    ctx.translate(canvas.width - 20, canvas.height / 2 + 40); // به سمت راست منتقل شد
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText("وزن (kgs)", 0, 0);
+    ctx.restore();
+  }
+
+  function showTooltip(evt) {
+    const rect = canvas.getBoundingClientRect();
+    const x = evt.clientX - rect.left;
+    const y = evt.clientY - rect.top;
+
+    const { week, gain } = fromCanvasCoords(x, y);
+
+    if (
+      x < 50 || x > canvas.width - 50 ||
+      y < 50 || y > canvas.height - 50
+    ) {
+      tooltip.style.display = "none";
+      return;
+    }
+
+    tooltip.innerHTML =" هفته:"+ Math.round(week)+"<br>وزن:" +gain.toFixed(1) "kg";
+    tooltip.style.left = (evt.clientX + 10) + 'px';
+    tooltip.style.top = (evt.clientY + 10) + 'px';
+    tooltip.style.display = "block";
+  }
+
+  canvas.addEventListener('mousemove', showTooltip);
+  canvas.addEventListener('mouseleave', () => {
+    tooltip.style.display = "none";
+  });
+
+  window.addEventListener('resize', drawChart);
+  drawChart();
+</script>
+`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return '\r\n  <style>\r\n\r\n    #chart {\r\n      width: 100%;\r\n      height: auto;\r\n      display: block;\r\n    }\r\n  </style>\r\n</head>\r\n\r\n<h3>Your Recommended Body Weight Range</h3>\r\n<canvas id="chart"></canvas>\r\n\r\n<script>\r\n  const data = [\r\n    { week: 0, min: 50, max: 52 },\r\n    { week: 5, min: 50.5, max: 54 },\r\n    { week: 10, min: 51.5, max: 56 },\r\n    { week: 15, min: 52, max: 58 },\r\n    { week: 20, min: 54, max: 60 },\r\n    { week: 25, min: 56, max: 62 },\r\n    { week: 30, min: 58, max: 64 },\r\n    { week: 35, min: 60, max: 66 },\r\n    { week: 40, min: 62, max: 68 }\r\n  ];\r\n\r\n  const userPoint = { week: 20, weight: 56 };\r\n  const canvas = document.getElementById(\'chart\');\r\n  const ctx = canvas.getContext(\'2d\');\r\n\r\n  function drawChart() {\r\n    // Resize canvas to match CSS width\r\n    canvas.width = canvas.clientWidth;\r\n    canvas.height = 400;\r\n\r\n    const padding = 50;\r\n    const width = canvas.width - padding * 2;\r\n    const height = canvas.height - padding * 2;\r\n\r\n    ctx.clearRect(0, 0, canvas.width, canvas.height);\r\n\r\n    const allY = data.flatMap(d => [d.min, d.max, userPoint.weight]);\r\n    const allX = data.map(d => d.week);\r\n\r\n    const minY = Math.min(...allY) - 2;\r\n    const maxY = Math.max(...allY) + 2;\r\n    const minX = Math.min(...allX);\r\n    const maxX = Math.max(...allX);\r\n\r\n    const scaleX = width / (maxX - minX);\r\n    const scaleY = height / (maxY - minY);\r\n\r\n    const toCanvasCoords = (x, y) => ({\r\n      x: padding + (x - minX) * scaleX,\r\n      y: canvas.height - padding - (y - minY) * scaleY\r\n    });\r\n\r\n    // shaded area\r\n    ctx.beginPath();\r\n    let p0 = toCanvasCoords(data[0].week, data[0].min);\r\n    ctx.moveTo(p0.x, p0.y);\r\n\r\n    for (let i = 1; i < data.length; i++) {\r\n      const p = toCanvasCoords(data[i].week, data[i].min);\r\n      ctx.lineTo(p.x, p.y);\r\n    }\r\n    for (let i = data.length - 1; i >= 0; i--) {\r\n      const p = toCanvasCoords(data[i].week, data[i].max);\r\n      ctx.lineTo(p.x, p.y);\r\n    }\r\n\r\n    ctx.closePath();\r\n    ctx.fillStyle = \'rgba(0, 123, 255, 0.2)\';\r\n    ctx.fill();\r\n\r\n    // user point\r\n    const user = toCanvasCoords(userPoint.week, userPoint.weight);\r\n    ctx.beginPath();\r\n    ctx.arc(user.x, user.y, 6, 0, 2 * Math.PI);\r\n    ctx.fillStyle = \'green\';\r\n    ctx.fill();\r\n\r\n    // grid lines\r\n    ctx.strokeStyle = "#ddd";\r\n    ctx.lineWidth = 1;\r\n    const stepY = 5;\r\n    for (let y = Math.ceil(minY); y <= maxY; y += stepY) {\r\n      const cy = toCanvasCoords(minX, y).y;\r\n      ctx.beginPath();\r\n      ctx.moveTo(padding, cy);\r\n      ctx.lineTo(canvas.width - padding, cy);\r\n      ctx.stroke();\r\n      ctx.fillStyle = "#333";\r\n      ctx.font = "12px sans-serif";\r\n      ctx.fillText(`${y} kg`, padding - 40, cy + 4);\r\n    }\r\n\r\n    const stepX = 5;\r\n    for (let x = minX; x <= maxX; x += stepX) {\r\n      const cx = toCanvasCoords(x, minY).x;\r\n      ctx.beginPath();\r\n      ctx.moveTo(cx, canvas.height - padding);\r\n      ctx.lineTo(cx, canvas.height - padding + 5);\r\n      ctx.stroke();\r\n      ctx.fillText(`${x}`, cx - 5, canvas.height - padding + 20);\r\n    }\r\n\r\n    // axis labels\r\n    ctx.save();\r\n    ctx.font = "14px sans-serif";\r\n    ctx.fillStyle = "#004";\r\n    ctx.fillText("Weeks", canvas.width / 2 - 20, canvas.height - 10);\r\n\r\n    ctx.translate(15, canvas.height / 2 + 40);\r\n    ctx.rotate(-Math.PI / 2);\r\n    ctx.fillText("Weight (kgs)", 0, 0);\r\n    ctx.restore();\r\n  }\r\n\r\n  // Draw on load and resize\r\n  window.addEventListener(\'resize\', drawChart);\r\n  drawChart();\r\n</script>';
+                              }
+                              throw e;
+                            }
+                          })()
+                        : (() => {
+                            try {
+                              return ` <style>
+
+    #chart {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<h3>Your Recommended Body Weight Range</h3>
+<canvas id="chart"></canvas>
+
+<script>
+  const data = ${$state.weight[1 - 1][0].weeks}
+
+  const userPoint = { week: 20, weight: 56 };
+  const canvas = document.getElementById('chart');
+  const ctx = canvas.getContext('2d');
+
+  function drawChart() {
+    // Resize canvas to match CSS width
+    canvas.width = canvas.clientWidth;
+    canvas.height = 400;
+
+    const padding = 50;
+    const width = canvas.width - padding * 2;
+    const height = canvas.height - padding * 2;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const allY = data.flatMap(d => [d.min, d.max, userPoint.weight]);
+    const allX = data.map(d => d.week);
+
+    const minY = Math.min(...allY) - 2;
+    const maxY = Math.max(...allY) + 2;
+    const minX = Math.min(...allX);
+    const maxX = Math.max(...allX);
+
+    const scaleX = width / (maxX - minX);
+    const scaleY = height / (maxY - minY);
+
+    const toCanvasCoords = (x, y) => ({
+      x: padding + (x - minX) * scaleX,
+      y: canvas.height - padding - (y - minY) * scaleY
+    });
+
+    // shaded area
+    ctx.beginPath();
+    let p0 = toCanvasCoords(data[0].week, data[0].min);
+    ctx.moveTo(p0.x, p0.y);
+
+    for (let i = 1; i < data.length; i++) {
+      const p = toCanvasCoords(data[i].week, data[i].min);
+      ctx.lineTo(p.x, p.y);
+    }
+    for (let i = data.length - 1; i >= 0; i--) {
+      const p = toCanvasCoords(data[i].week, data[i].max);
+      ctx.lineTo(p.x, p.y);
+    }
+
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(0, 123, 255, 0.2)';
+    ctx.fill();
+
+    // user point
+    const user = toCanvasCoords(userPoint.week, userPoint.weight);
+    ctx.beginPath();
+    ctx.arc(user.x, user.y, 6, 0, 2 * Math.PI);
+    ctx.fillStyle = 'green';
+    ctx.fill();
+
+    // grid lines
+    ctx.strokeStyle = "#ddd";
+    ctx.lineWidth = 1;
+    const stepY = 5;
+    for (let y = Math.ceil(minY); y <= maxY; y += stepY) {
+      const cy = toCanvasCoords(minX, y).y;
+      ctx.beginPath();
+      ctx.moveTo(padding, cy);
+      ctx.lineTo(canvas.width - padding, cy);
+      ctx.stroke();
+      ctx.fillStyle = "#333";
+      ctx.font = "12px sans-serif";
+      ctx.fillText(y+ 'kg', padding - 40, cy + 4);
+    }
+
+    const stepX = 5;
+    for (let x = minX; x <= maxX; x += stepX) {
+      const cx = toCanvasCoords(x, minY).x;
+      ctx.beginPath();
+      ctx.moveTo(cx, canvas.height - padding);
+      ctx.lineTo(cx, canvas.height - padding + 5);
+      ctx.stroke();
+      ctx.fillText(x, cx - 5, canvas.height - padding + 20);
+    }
+
+    // axis labels
+    ctx.save();
+    ctx.font = "14px sans-serif";
+    ctx.fillStyle = "#004";
+    ctx.fillText("Weeks", canvas.width / 2 - 20, canvas.height - 10);
+
+    ctx.translate(15, canvas.height / 2 + 40);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText("Weight (kgs)", 0, 0);
+    ctx.restore();
+  }
+
+  // Draw on load and resize
+  window.addEventListener('resize', drawChart);
+  drawChart();
+</script>`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return '\r\n  <style>\r\n\r\n    #chart {\r\n      width: 100%;\r\n      height: auto;\r\n      display: block;\r\n    }\r\n  </style>\r\n</head>\r\n\r\n<h3>Your Recommended Body Weight Range</h3>\r\n<canvas id="chart"></canvas>\r\n\r\n<script>\r\n  const data = [\r\n    { week: 0, min: 50, max: 52 },\r\n    { week: 5, min: 50.5, max: 54 },\r\n    { week: 10, min: 51.5, max: 56 },\r\n    { week: 15, min: 52, max: 58 },\r\n    { week: 20, min: 54, max: 60 },\r\n    { week: 25, min: 56, max: 62 },\r\n    { week: 30, min: 58, max: 64 },\r\n    { week: 35, min: 60, max: 66 },\r\n    { week: 40, min: 62, max: 68 }\r\n  ];\r\n\r\n  const userPoint = { week: 20, weight: 56 };\r\n  const canvas = document.getElementById(\'chart\');\r\n  const ctx = canvas.getContext(\'2d\');\r\n\r\n  function drawChart() {\r\n    // Resize canvas to match CSS width\r\n    canvas.width = canvas.clientWidth;\r\n    canvas.height = 400;\r\n\r\n    const padding = 50;\r\n    const width = canvas.width - padding * 2;\r\n    const height = canvas.height - padding * 2;\r\n\r\n    ctx.clearRect(0, 0, canvas.width, canvas.height);\r\n\r\n    const allY = data.flatMap(d => [d.min, d.max, userPoint.weight]);\r\n    const allX = data.map(d => d.week);\r\n\r\n    const minY = Math.min(...allY) - 2;\r\n    const maxY = Math.max(...allY) + 2;\r\n    const minX = Math.min(...allX);\r\n    const maxX = Math.max(...allX);\r\n\r\n    const scaleX = width / (maxX - minX);\r\n    const scaleY = height / (maxY - minY);\r\n\r\n    const toCanvasCoords = (x, y) => ({\r\n      x: padding + (x - minX) * scaleX,\r\n      y: canvas.height - padding - (y - minY) * scaleY\r\n    });\r\n\r\n    // shaded area\r\n    ctx.beginPath();\r\n    let p0 = toCanvasCoords(data[0].week, data[0].min);\r\n    ctx.moveTo(p0.x, p0.y);\r\n\r\n    for (let i = 1; i < data.length; i++) {\r\n      const p = toCanvasCoords(data[i].week, data[i].min);\r\n      ctx.lineTo(p.x, p.y);\r\n    }\r\n    for (let i = data.length - 1; i >= 0; i--) {\r\n      const p = toCanvasCoords(data[i].week, data[i].max);\r\n      ctx.lineTo(p.x, p.y);\r\n    }\r\n\r\n    ctx.closePath();\r\n    ctx.fillStyle = \'rgba(0, 123, 255, 0.2)\';\r\n    ctx.fill();\r\n\r\n    // user point\r\n    const user = toCanvasCoords(userPoint.week, userPoint.weight);\r\n    ctx.beginPath();\r\n    ctx.arc(user.x, user.y, 6, 0, 2 * Math.PI);\r\n    ctx.fillStyle = \'green\';\r\n    ctx.fill();\r\n\r\n    // grid lines\r\n    ctx.strokeStyle = "#ddd";\r\n    ctx.lineWidth = 1;\r\n    const stepY = 5;\r\n    for (let y = Math.ceil(minY); y <= maxY; y += stepY) {\r\n      const cy = toCanvasCoords(minX, y).y;\r\n      ctx.beginPath();\r\n      ctx.moveTo(padding, cy);\r\n      ctx.lineTo(canvas.width - padding, cy);\r\n      ctx.stroke();\r\n      ctx.fillStyle = "#333";\r\n      ctx.font = "12px sans-serif";\r\n      ctx.fillText(`${y} kg`, padding - 40, cy + 4);\r\n    }\r\n\r\n    const stepX = 5;\r\n    for (let x = minX; x <= maxX; x += stepX) {\r\n      const cx = toCanvasCoords(x, minY).x;\r\n      ctx.beginPath();\r\n      ctx.moveTo(cx, canvas.height - padding);\r\n      ctx.lineTo(cx, canvas.height - padding + 5);\r\n      ctx.stroke();\r\n      ctx.fillText(`${x}`, cx - 5, canvas.height - padding + 20);\r\n    }\r\n\r\n    // axis labels\r\n    ctx.save();\r\n    ctx.font = "14px sans-serif";\r\n    ctx.fillStyle = "#004";\r\n    ctx.fillText("Weeks", canvas.width / 2 - 20, canvas.height - 10);\r\n\r\n    ctx.translate(15, canvas.height / 2 + 40);\r\n    ctx.rotate(-Math.PI / 2);\r\n    ctx.fillText("Weight (kgs)", 0, 0);\r\n    ctx.restore();\r\n  }\r\n\r\n  // Draw on load and resize\r\n  window.addEventListener(\'resize\', drawChart);\r\n  drawChart();\r\n</script>';
+                              }
+                              throw e;
+                            }
+                          })()
                     }
                   />
                 </Stack__>
@@ -4523,7 +4864,6 @@ const PlasmicDescendants = {
     "buttonLiom3",
     "buttonLiom7",
     "buttonLiom8",
-    "chart",
     "buttonLiom2",
     "buttonLiom4",
     "buttonLiom5",
@@ -4549,7 +4889,6 @@ const PlasmicDescendants = {
   buttonLiom3: ["buttonLiom3"],
   buttonLiom7: ["buttonLiom7"],
   buttonLiom8: ["buttonLiom8"],
-  chart: ["chart"],
   buttonLiom2: ["buttonLiom2"],
   buttonLiom4: ["buttonLiom4"],
   buttonLiom5: ["buttonLiom5"],
@@ -4588,7 +4927,6 @@ type NodeDefaultElementType = {
   buttonLiom3: typeof ButtonLiom;
   buttonLiom7: typeof ButtonLiom;
   buttonLiom8: typeof ButtonLiom;
-  chart: typeof SimpleChart;
   buttonLiom2: typeof ButtonLiom;
   buttonLiom4: typeof ButtonLiom;
   buttonLiom5: typeof ButtonLiom;
@@ -4700,7 +5038,6 @@ export const PlasmicBmi = Object.assign(
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     buttonLiom7: makeNodeComponent("buttonLiom7"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
-    chart: makeNodeComponent("chart"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),

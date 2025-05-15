@@ -68,6 +68,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
+import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -100,6 +101,7 @@ export type PlasmicPlayList__OverridesType = {
   embedHtml?: Flex__<typeof Embed>;
   img?: Flex__<typeof PlasmicImg__>;
   lineClomp?: Flex__<typeof LineClomp>;
+  favicon?: Flex__<typeof Embed>;
 };
 
 export interface DefaultPlayListProps {}
@@ -275,12 +277,26 @@ function PlasmicPlayList__RenderFunc(props: {
   });
 
   const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqiBuxNlixBgQ()
+    screen: useScreenVariantsqiBuxNlixBgQ(),
+    screen: useScreenVariantsyg4Uf6WCaaLe()
   });
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicPlayList.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicPlayList.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicPlayList.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -740,6 +756,14 @@ function PlasmicPlayList__RenderFunc(props: {
               })}
             </Stack__>
           </div>
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://developer.eitaa.com/eitaa-web-app.js\">\r\n</script>\r\n<script>\r\n  window.Eitaa.WebApp.ready();\r\n  window.Eitaa.WebApp.expand();\r\n  window.Eitaa.WebApp.isClosingConfirmationEnabled = true;\r\n</script>\r\n"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -754,14 +778,16 @@ const PlasmicDescendants = {
     "headerLiom",
     "embedHtml",
     "img",
-    "lineClomp"
+    "lineClomp",
+    "favicon"
   ],
   sideEffect: ["sideEffect"],
   section: ["section", "headerLiom"],
   headerLiom: ["headerLiom"],
   embedHtml: ["embedHtml"],
   img: ["img"],
-  lineClomp: ["lineClomp"]
+  lineClomp: ["lineClomp"],
+  favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -774,6 +800,7 @@ type NodeDefaultElementType = {
   embedHtml: typeof Embed;
   img: typeof PlasmicImg__;
   lineClomp: typeof LineClomp;
+  favicon: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -867,6 +894,7 @@ export const PlasmicPlayList = Object.assign(
     embedHtml: makeNodeComponent("embedHtml"),
     img: makeNodeComponent("img"),
     lineClomp: makeNodeComponent("lineClomp"),
+    favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicPlayList
     internalVariantProps: PlasmicPlayList__VariantProps,
@@ -874,7 +902,7 @@ export const PlasmicPlayList = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "لیوم | محتوا آموزشی",
       description: "",
       ogImageSrc: "",
       canonical: ""
