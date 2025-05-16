@@ -1483,9 +1483,9 @@ function PlasmicBmi__RenderFunc(props: {
                     "padding-top":
                       new window.URLSearchParams(window.location.search).get(
                         "inApp"
-                      ) != "true"
+                      ) == "true"
                         ? "16px"
-                        : ""
+                        : "68px"
                   };
                 } catch (e) {
                   if (

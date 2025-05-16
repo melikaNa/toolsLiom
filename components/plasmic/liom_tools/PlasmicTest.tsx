@@ -91,6 +91,10 @@ import Icon153Icon from "./icons/PlasmicIcon__Icon153"; // plasmic-import: 8DNj9
 import Icon156Icon from "./icons/PlasmicIcon__Icon156"; // plasmic-import: 0H63FcZWihXr/icon
 import Icon155Icon from "./icons/PlasmicIcon__Icon155"; // plasmic-import: a_FmExMhN0OI/icon
 import Icon104Icon from "./icons/PlasmicIcon__Icon104"; // plasmic-import: kIvBdNtH0rBG/icon
+import Icon182Icon from "./icons/PlasmicIcon__Icon182"; // plasmic-import: aFc3-gbr55yZ/icon
+import Icon183Icon from "./icons/PlasmicIcon__Icon183"; // plasmic-import: 2ZFt8kLC9e7H/icon
+import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: MQUAXFrXNim9/icon
+import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: bmcTrD-lSlmW/icon
 
 createPlasmicElementProxy;
 
@@ -120,6 +124,9 @@ export type PlasmicTest__OverridesType = {
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
+  popover2?: Flex__<typeof AntdPopover>;
+  button3?: Flex__<typeof ButtonLiom>;
+  button4?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultTestProps {}
@@ -221,6 +228,24 @@ function PlasmicTest__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "popover2.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1507,6 +1532,187 @@ function PlasmicTest__RenderFunc(props: {
               </div>
             </Stack__>
           </div>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__vzZtQ)}
+          >
+            <Embed
+              className={classNames("__wab_instance", sty.embedHtml__wi8E)}
+              code={"<div>Paste your embed code via the right sidebar</div>"}
+            />
+
+            <div className={classNames(projectcss.all, sty.freeBox__mPtn1)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ikHtL
+                )}
+              >
+                {""}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__aQb6
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return (() => {
+                        switch (currentItem.type) {
+                          case "mobile":
+                            return currentItem.mobile;
+                          case "phone":
+                            return currentItem.phone;
+                          case "gaz":
+                            return currentItem.idORcode == "bill_id"
+                              ? currentItem.billId
+                              : currentItem.code;
+                          default:
+                            return currentItem.billId;
+                        }
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "09228951264";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
+            <AntdPopover
+              data-plasmic-name={"popover2"}
+              data-plasmic-override={overrides.popover2}
+              arrow={true}
+              className={classNames("__wab_instance", sty.popover2)}
+              color={"#101729"}
+              content={
+                <React.Fragment>
+                  <ButtonLiom
+                    data-plasmic-name={"button3"}
+                    data-plasmic-override={overrides.button3}
+                    className={classNames("__wab_instance", sty.button3)}
+                    color={generateStateValueProp($state, ["button3", "color"])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    showStartIcon={true}
+                    size={"compact"}
+                    startIcon={
+                      <Icon183Icon
+                        className={classNames(projectcss.all, sty.svg__dA9Uf)}
+                        role={"img"}
+                      />
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__iWmN
+                      )}
+                    >
+                      {"\u062d\u0630\u0641   "}
+                    </div>
+                  </ButtonLiom>
+                  <ButtonLiom
+                    data-plasmic-name={"button4"}
+                    data-plasmic-override={overrides.button4}
+                    className={classNames("__wab_instance", sty.button4)}
+                    color={generateStateValueProp($state, ["button4", "color"])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button4", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    showStartIcon={true}
+                    size={"compact"}
+                    startIcon={
+                      <Icon184Icon
+                        className={classNames(projectcss.all, sty.svg__yDu8B)}
+                        role={"img"}
+                      />
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__kAkcy
+                      )}
+                    >
+                      {"\u0648\u06cc\u0631\u0627\u06cc\u0634"}
+                    </div>
+                  </ButtonLiom>
+                </React.Fragment>
+              }
+              contentText={"Popover contents"}
+              defaultOpen={false}
+              defaultStylesClassName={classNames(
+                projectcss.root_reset,
+                projectcss.plasmic_default_styles,
+                projectcss.plasmic_mixins,
+                projectcss.plasmic_tokens,
+                plasmic_antd_5_hostless_css.plasmic_tokens,
+                plasmic_plasmic_rich_components_css.plasmic_tokens,
+                plasmic_paziresh_24_design_system_css.plasmic_tokens,
+                plasmic_hamdast_sdk_css.plasmic_tokens
+              )}
+              mouseEnterDelay={0}
+              mouseLeaveDelay={0}
+              onOpenChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["popover2", "open"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              open={generateStateValueProp($state, ["popover2", "open"])}
+              placement={"bottom"}
+              popoverScopeClassName={sty["popover2__popover"]}
+              title={null}
+              trigger={"click"}
+            >
+              <Icon182Icon
+                className={classNames(projectcss.all, sty.svg___42V1M)}
+                role={"img"}
+              />
+            </AntdPopover>
+            <Icon185Icon
+              className={classNames(projectcss.all, sty.svg___7Asj7)}
+              role={"img"}
+            />
+          </Stack__>
         </div>
       </div>
     </React.Fragment>
@@ -1530,7 +1736,10 @@ const PlasmicDescendants = {
     "sideEffect",
     "collapseBaby",
     "collapseMother",
-    "collapseHealth"
+    "collapseHealth",
+    "popover2",
+    "button3",
+    "button4"
   ],
   htmlVideo: ["htmlVideo"],
   paziresh24LineClamp: ["paziresh24LineClamp"],
@@ -1546,7 +1755,10 @@ const PlasmicDescendants = {
   sideEffect: ["sideEffect"],
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
-  collapseHealth: ["collapseHealth"]
+  collapseHealth: ["collapseHealth"],
+  popover2: ["popover2", "button3", "button4"],
+  button3: ["button3"],
+  button4: ["button4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1568,6 +1780,9 @@ type NodeDefaultElementType = {
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
   collapseHealth: typeof AntdSingleCollapse;
+  popover2: typeof AntdPopover;
+  button3: typeof ButtonLiom;
+  button4: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1670,6 +1885,9 @@ export const PlasmicTest = Object.assign(
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),
     collapseHealth: makeNodeComponent("collapseHealth"),
+    popover2: makeNodeComponent("popover2"),
+    button3: makeNodeComponent("button3"),
+    button4: makeNodeComponent("button4"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

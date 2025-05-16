@@ -486,9 +486,9 @@ function PlasmicPlayList__RenderFunc(props: {
                   "padding-top":
                     new window.URLSearchParams(window.location.search).get(
                       "inApp"
-                    ) != "true"
+                    ) == "true"
                       ? "0px"
-                      : ""
+                      : "60px"
                 };
               } catch (e) {
                 if (
