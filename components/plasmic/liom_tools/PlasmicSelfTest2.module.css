@@ -1082,56 +1082,6 @@
     min-height: 0;
   }
 }
-.text__hBytd {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  font-weight: 700;
-  font-size: var(--token-7E1YyiP6sAP9);
-  color: var(--token-SH2GlK2U7a6u);
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  min-width: 0;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .text__hBytd {
-    font-size: var(--token-7E1YyiP6sAP9);
-    padding-bottom: 10px;
-  }
-}
-.text__p12W9 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: center;
-  font-weight: 400;
-  font-size: var(--token-podr231_9RBN);
-  color: var(--token-P7bIEG7op5AV);
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  min-width: 0;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .text__p12W9 {
-    font-size: var(--token-KUiXUfHPkqkm);
-    text-align: justify;
-    padding: 0px 0px 20px;
-  }
-}
 .text__vUfw {
   position: relative;
   width: 100%;

@@ -3265,9 +3265,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                               },
                               operation: 0,
                               value: (() => {
-                                if ($state.next == "") {
+                                if ($state.next == "" && $state.next == "-2") {
                                   if ($state.retestTest) {
-                                    if ($steps.invokeGlobalAction6?.data) {
+                                    if (
+                                      $steps.invokeGlobalAction6?.data &&
+                                      $steps.invokeGlobalAction6?.data
+                                        ?.nextQuestionId != -2
+                                    ) {
                                       return $steps.invokeGlobalAction6?.data
                                         .nextQuestionId;
                                     } else {
