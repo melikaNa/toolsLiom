@@ -334,6 +334,12 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "loadshop",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2245,32 +2251,34 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["updateListDetails2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loading3"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
+                    $steps["updateListDetails2"] =
+                      $state.getData?.data &&
+                      $state.getData?.data?.[0]?.id == null
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadshop"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                     if (
                       $steps["updateListDetails2"] != null &&
                       typeof $steps["updateListDetails2"] === "object" &&
@@ -2616,7 +2624,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
           </Stack__>
           {(() => {
             try {
-              return $state.getData?.data?.[0]?.id == null && $state.loading3;
+              return $state.loadshop;
             } catch (e) {
               if (
                 e instanceof TypeError ||
