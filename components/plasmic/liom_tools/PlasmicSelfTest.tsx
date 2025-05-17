@@ -3255,6 +3255,124 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ];
                     }
 
+                    $steps["invokeGlobalAction3"] =
+                      $state.ferst == true && $state.retestTest == true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/selfTestLogs",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      session_id: $state.sessionId,
+                                      user_id: $state.userId,
+                                      question_id: $state.variable.question.id,
+                                      option_id:
+                                        $state.testOptionsLiom.selectedIDs[0],
+                                      option_metric:
+                                        $state.variable.options.find(
+                                          option =>
+                                            option.id ===
+                                            $state.testOptionsLiom
+                                              .selectedIDs[0]
+                                        ).metric,
+                                      option_score:
+                                        $state.variable.options.find(
+                                          option =>
+                                            option.id ===
+                                            $state.testOptionsLiom
+                                              .selectedIDs[0]
+                                        ).score,
+                                      question_text:
+                                        $state.variable.question.question,
+                                      question_type: $state.type,
+                                      option_advice:
+                                        $state.variable.options.find(
+                                          option =>
+                                            option.id ===
+                                            $state.testOptionsLiom
+                                              .selectedIDs[0]
+                                        ).advice,
+                                      option_text: $state.variable.options.find(
+                                        option =>
+                                          option.id ===
+                                          $state.testOptionsLiom.selectedIDs[0]
+                                      ).text,
+                                      option_metric_fa:
+                                        $state.variable.options.find(
+                                          option =>
+                                            option.id ===
+                                            $state.testOptionsLiom
+                                              .selectedIDs[0]
+                                        ).metric_fa
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction3"] != null &&
+                      typeof $steps["invokeGlobalAction3"] === "object" &&
+                      typeof $steps["invokeGlobalAction3"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction3"] = await $steps[
+                        "invokeGlobalAction3"
+                      ];
+                    }
+
+                    $steps["next"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["next"]
+                            },
+                            operation: 0,
+                            value:
+                              $steps.invokeGlobalAction3?.data
+                                ?.nextQuestionId || ""
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["next"] != null &&
+                      typeof $steps["next"] === "object" &&
+                      typeof $steps["next"].then === "function"
+                    ) {
+                      $steps["next"] = await $steps["next"];
+                    }
+
                     $steps["updateNextQuesionId"] =
                       $state.ferst == true
                         ? (() => {
@@ -3418,124 +3536,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                       typeof $steps["runCode"].then === "function"
                     ) {
                       $steps["runCode"] = await $steps["runCode"];
-                    }
-
-                    $steps["invokeGlobalAction3"] =
-                      $state.ferst == true && $state.retestTest == true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/selfTestLogs",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      session_id: $state.sessionId,
-                                      user_id: $state.userId,
-                                      question_id: $state.variable.question.id,
-                                      option_id:
-                                        $state.testOptionsLiom.selectedIDs[0],
-                                      option_metric:
-                                        $state.variable.options.find(
-                                          option =>
-                                            option.id ===
-                                            $state.testOptionsLiom
-                                              .selectedIDs[0]
-                                        ).metric,
-                                      option_score:
-                                        $state.variable.options.find(
-                                          option =>
-                                            option.id ===
-                                            $state.testOptionsLiom
-                                              .selectedIDs[0]
-                                        ).score,
-                                      question_text:
-                                        $state.variable.question.question,
-                                      question_type: $state.type,
-                                      option_advice:
-                                        $state.variable.options.find(
-                                          option =>
-                                            option.id ===
-                                            $state.testOptionsLiom
-                                              .selectedIDs[0]
-                                        ).advice,
-                                      option_text: $state.variable.options.find(
-                                        option =>
-                                          option.id ===
-                                          $state.testOptionsLiom.selectedIDs[0]
-                                      ).text,
-                                      option_metric_fa:
-                                        $state.variable.options.find(
-                                          option =>
-                                            option.id ===
-                                            $state.testOptionsLiom
-                                              .selectedIDs[0]
-                                        ).metric_fa
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                    if (
-                      $steps["invokeGlobalAction3"] != null &&
-                      typeof $steps["invokeGlobalAction3"] === "object" &&
-                      typeof $steps["invokeGlobalAction3"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
-                    }
-
-                    $steps["next"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["next"]
-                            },
-                            operation: 0,
-                            value:
-                              $steps.invokeGlobalAction3?.data
-                                ?.nextQuestionId || ""
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["next"] != null &&
-                      typeof $steps["next"] === "object" &&
-                      typeof $steps["next"].then === "function"
-                    ) {
-                      $steps["next"] = await $steps["next"];
                     }
 
                     $steps["runCode6"] =
