@@ -73,6 +73,7 @@ import TabWeek2 from "../../TabWeek2"; // plasmic-import: TgQ-n3w6yOfs/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import { Input } from "@/fragment/components/input"; // plasmic-import: 31QElsfd4yPt/codeComponent
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
@@ -95,6 +96,9 @@ import Icon182Icon from "./icons/PlasmicIcon__Icon182"; // plasmic-import: aFc3-
 import Icon183Icon from "./icons/PlasmicIcon__Icon183"; // plasmic-import: 2ZFt8kLC9e7H/icon
 import Icon184Icon from "./icons/PlasmicIcon__Icon184"; // plasmic-import: MQUAXFrXNim9/icon
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: bmcTrD-lSlmW/icon
+import Icon186Icon from "./icons/PlasmicIcon__Icon186"; // plasmic-import: 2GtCxFv8ZMmH/icon
+import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: htu_gIjJqtkY/icon
+import Icon188Icon from "./icons/PlasmicIcon__Icon188"; // plasmic-import: 0UFwfDIVgQ7c/icon
 
 createPlasmicElementProxy;
 
@@ -127,6 +131,12 @@ export type PlasmicTest__OverridesType = {
   popover2?: Flex__<typeof AntdPopover>;
   button3?: Flex__<typeof ButtonLiom>;
   button4?: Flex__<typeof ButtonLiom>;
+  name?: Flex__<typeof Input>;
+  lastname?: Flex__<typeof Input>;
+  fathername?: Flex__<typeof Input>;
+  city?: Flex__<typeof Input>;
+  location?: Flex__<typeof Input>;
+  button5?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultTestProps {}
@@ -243,6 +253,55 @@ function PlasmicTest__RenderFunc(props: {
       },
       {
         path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "name.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "lastname.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "fathername.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "city.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "location.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "button5.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -1713,6 +1772,165 @@ function PlasmicTest__RenderFunc(props: {
               role={"img"}
             />
           </Stack__>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__r4KC1)}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__pP2ZN
+              )}
+            >
+              {
+                "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631\u06cc"
+              }
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__vf8W8)}>
+              <Icon186Icon
+                className={classNames(projectcss.all, sty.svg__paBdi)}
+                role={"img"}
+              />
+
+              <Input
+                data-plasmic-name={"name"}
+                data-plasmic-override={overrides.name}
+                className={classNames("__wab_instance", sty.name)}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["name", "value"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                placeholder={"\u0646\u0627\u0645"}
+                type={"text"}
+                value={generateStateValueProp($state, ["name", "value"])}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__kqN7J)}>
+              <Icon186Icon
+                className={classNames(projectcss.all, sty.svg__ifqpb)}
+                role={"img"}
+              />
+
+              <Input
+                data-plasmic-name={"lastname"}
+                data-plasmic-override={overrides.lastname}
+                className={classNames("__wab_instance", sty.lastname)}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "lastname",
+                    "value"
+                  ]).apply(null, eventArgs);
+                }}
+                placeholder={
+                  "\u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc"
+                }
+                type={"text"}
+                value={generateStateValueProp($state, ["lastname", "value"])}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__aAOfn)}>
+              <Icon186Icon
+                className={classNames(projectcss.all, sty.svg__yjtEb)}
+                role={"img"}
+              />
+
+              <Input
+                data-plasmic-name={"fathername"}
+                data-plasmic-override={overrides.fathername}
+                className={classNames("__wab_instance", sty.fathername)}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "fathername",
+                    "value"
+                  ]).apply(null, eventArgs);
+                }}
+                placeholder={"\u0646\u0627\u0645 \u067e\u062f\u0631"}
+                type={"text"}
+                value={generateStateValueProp($state, ["fathername", "value"])}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__tx4PZ)}>
+              <Icon187Icon
+                className={classNames(projectcss.all, sty.svg__ppd8C)}
+                role={"img"}
+              />
+
+              <Input
+                data-plasmic-name={"city"}
+                data-plasmic-override={overrides.city}
+                className={classNames("__wab_instance", sty.city)}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["city", "value"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                placeholder={
+                  "\u0634\u0647\u0631 \u0645\u062d\u0644 \u062a\u0648\u0644\u062f"
+                }
+                type={"text"}
+                value={generateStateValueProp($state, ["city", "value"])}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__wQp)}>
+              <Icon188Icon
+                className={classNames(projectcss.all, sty.svg__nbD6)}
+                role={"img"}
+              />
+
+              <Input
+                data-plasmic-name={"location"}
+                data-plasmic-override={overrides.location}
+                className={classNames("__wab_instance", sty.location)}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "location",
+                    "value"
+                  ]).apply(null, eventArgs);
+                }}
+                placeholder={" \u0622\u062f\u0631\u0633"}
+                type={"text"}
+                value={generateStateValueProp($state, ["location", "value"])}
+              />
+            </div>
+            <ButtonLiom
+              data-plasmic-name={"button5"}
+              data-plasmic-override={overrides.button5}
+              className={classNames("__wab_instance", sty.button5)}
+              color={generateStateValueProp($state, ["button5", "color"])}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button5", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___5PCpk
+                )}
+              >
+                {
+                  "\u062b\u0628\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                }
+              </div>
+            </ButtonLiom>
+          </Stack__>
         </div>
       </div>
     </React.Fragment>
@@ -1739,7 +1957,13 @@ const PlasmicDescendants = {
     "collapseHealth",
     "popover2",
     "button3",
-    "button4"
+    "button4",
+    "name",
+    "lastname",
+    "fathername",
+    "city",
+    "location",
+    "button5"
   ],
   htmlVideo: ["htmlVideo"],
   paziresh24LineClamp: ["paziresh24LineClamp"],
@@ -1758,7 +1982,13 @@ const PlasmicDescendants = {
   collapseHealth: ["collapseHealth"],
   popover2: ["popover2", "button3", "button4"],
   button3: ["button3"],
-  button4: ["button4"]
+  button4: ["button4"],
+  name: ["name"],
+  lastname: ["lastname"],
+  fathername: ["fathername"],
+  city: ["city"],
+  location: ["location"],
+  button5: ["button5"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1783,6 +2013,12 @@ type NodeDefaultElementType = {
   popover2: typeof AntdPopover;
   button3: typeof ButtonLiom;
   button4: typeof ButtonLiom;
+  name: typeof Input;
+  lastname: typeof Input;
+  fathername: typeof Input;
+  city: typeof Input;
+  location: typeof Input;
+  button5: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1888,6 +2124,12 @@ export const PlasmicTest = Object.assign(
     popover2: makeNodeComponent("popover2"),
     button3: makeNodeComponent("button3"),
     button4: makeNodeComponent("button4"),
+    _name: makeNodeComponent("name"),
+    lastname: makeNodeComponent("lastname"),
+    fathername: makeNodeComponent("fathername"),
+    city: makeNodeComponent("city"),
+    location: makeNodeComponent("location"),
+    button5: makeNodeComponent("button5"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

@@ -3207,6 +3207,113 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["updateEdit"] = await $steps["updateEdit"];
                     }
 
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                $state.testChat.push({
+                                  id:
+                                    $state.testOptionsLiom.selectedIDs
+                                      .length !== 0
+                                      ? $state.testOptionsLiom.selectedIDs
+                                          .map(
+                                            id =>
+                                              $state.testChat[
+                                                $state.testChat.length - 1
+                                              ].options.filter(
+                                                option => option.id === id
+                                              )[0]?.id
+                                          )
+                                          .join(" \n ")
+                                      : $state.testChat[
+                                          $state.testChat.length - 1
+                                        ].options[0]?.id,
+                                  text:
+                                    $state.testOptionsLiom.selectedIDs
+                                      .length !== 0
+                                      ? $state.testOptionsLiom.selectedIDs
+                                          .map(
+                                            id =>
+                                              $state.testChat[
+                                                $state.testChat.length - 1
+                                              ].options.filter(
+                                                option => option.id === id
+                                              )[0]?.text
+                                          )
+                                          .join(" \n ")
+                                      : $state.testChat[
+                                          $state.testChat.length - 1
+                                        ].options[0]?.text,
+                                  from: "user",
+                                  type: "answer"
+                                });
+                                if ($state.retestTest) {
+                                  for (
+                                    let i = 0;
+                                    i <
+                                    $state.testOptionsLiom.selectedIDs.length;
+                                    i++
+                                  ) {
+                                    let selectedOption = $state.testChat[
+                                      $state.testChat.length - 2
+                                    ]?.options.filter(
+                                      option =>
+                                        option.id ===
+                                        $state.testOptionsLiom.selectedIDs[i]
+                                    )[0];
+                                    if (
+                                      selectedOption &&
+                                      selectedOption.advice
+                                    ) {
+                                      $state.testChat.push({
+                                        text: selectedOption.advice,
+                                        from: "system"
+                                      });
+                                    }
+                                    if (selectedOption && selectedOption.tip) {
+                                      $state.testChat.push({
+                                        text: selectedOption.tip,
+                                        tip: true,
+                                        from: "system"
+                                      });
+                                    }
+                                  }
+                                }
+                                if (
+                                  $state.ferst == false &&
+                                  $state.type == "irregular"
+                                ) {
+                                  $state.testChat.push({
+                                    text: "حدودا 14 علت برای نامنظم شدن قاعدگی وجود دارد. من به کمک پاسخ های شما آنها را بررسی می کنم و در آخر نتیجه را بازگو می کنم. تا کار های لازم برای رفع این نامنظمی را انجام دهید\nدر پاسخ دادن به سوالات دقت و شکیبایی کافی را داشته باشید",
+                                    from: "system"
+                                  });
+                                }
+                                $state.testChat.push({
+                                  loading: true,
+                                  text: "               ",
+                                  from: "system"
+                                });
+                                return window.scrollTo({
+                                  top: document.body.scrollHeight,
+                                  behavior: "smooth"
+                                });
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
                     $steps["invokeGlobalAction6"] = (
                       $state.variable?.question?.metricChecks
                         ? $state.variable?.question?.metricChecks !== "" &&
@@ -3429,113 +3536,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["updateNextQuesionId"] = await $steps[
                         "updateNextQuesionId"
                       ];
-                    }
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                $state.testChat.push({
-                                  id:
-                                    $state.testOptionsLiom.selectedIDs
-                                      .length !== 0
-                                      ? $state.testOptionsLiom.selectedIDs
-                                          .map(
-                                            id =>
-                                              $state.testChat[
-                                                $state.testChat.length - 1
-                                              ].options.filter(
-                                                option => option.id === id
-                                              )[0]?.id
-                                          )
-                                          .join(" \n ")
-                                      : $state.testChat[
-                                          $state.testChat.length - 1
-                                        ].options[0]?.id,
-                                  text:
-                                    $state.testOptionsLiom.selectedIDs
-                                      .length !== 0
-                                      ? $state.testOptionsLiom.selectedIDs
-                                          .map(
-                                            id =>
-                                              $state.testChat[
-                                                $state.testChat.length - 1
-                                              ].options.filter(
-                                                option => option.id === id
-                                              )[0]?.text
-                                          )
-                                          .join(" \n ")
-                                      : $state.testChat[
-                                          $state.testChat.length - 1
-                                        ].options[0]?.text,
-                                  from: "user",
-                                  type: "answer"
-                                });
-                                if ($state.retestTest) {
-                                  for (
-                                    let i = 0;
-                                    i <
-                                    $state.testOptionsLiom.selectedIDs.length;
-                                    i++
-                                  ) {
-                                    let selectedOption = $state.testChat[
-                                      $state.testChat.length - 2
-                                    ]?.options.filter(
-                                      option =>
-                                        option.id ===
-                                        $state.testOptionsLiom.selectedIDs[i]
-                                    )[0];
-                                    if (
-                                      selectedOption &&
-                                      selectedOption.advice
-                                    ) {
-                                      $state.testChat.push({
-                                        text: selectedOption.advice,
-                                        from: "system"
-                                      });
-                                    }
-                                    if (selectedOption && selectedOption.tip) {
-                                      $state.testChat.push({
-                                        text: selectedOption.tip,
-                                        tip: true,
-                                        from: "system"
-                                      });
-                                    }
-                                  }
-                                }
-                                if (
-                                  $state.ferst == false &&
-                                  $state.type == "irregular"
-                                ) {
-                                  $state.testChat.push({
-                                    text: "حدودا 14 علت برای نامنظم شدن قاعدگی وجود دارد. من به کمک پاسخ های شما آنها را بررسی می کنم و در آخر نتیجه را بازگو می کنم. تا کار های لازم برای رفع این نامنظمی را انجام دهید\nدر پاسخ دادن به سوالات دقت و شکیبایی کافی را داشته باشید",
-                                    from: "system"
-                                  });
-                                }
-                                $state.testChat.push({
-                                  loading: true,
-                                  text: "               ",
-                                  from: "system"
-                                });
-                                return window.scrollTo({
-                                  top: document.body.scrollHeight,
-                                  behavior: "smooth"
-                                });
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
                     }
 
                     $steps["runCode6"] =
