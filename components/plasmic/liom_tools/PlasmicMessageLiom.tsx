@@ -277,6 +277,24 @@ function PlasmicMessageLiom__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.owner
+      },
+      {
+        path: "buttonLiom2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom4.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom3.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -460,12 +478,29 @@ function PlasmicMessageLiom__RenderFunc(props: {
                       role={"img"}
                     />
                   }
+                  load={generateStateValueProp($state, ["buttonLiom2", "load"])}
                   onClick={args.resend}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
                       generateStateOnChangeProp($state, [
                         "buttonLiom2",
                         "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom2",
+                        "load"
                       ])(eventArgs[0]);
                     }).apply(null, eventArgs);
 
@@ -574,12 +609,29 @@ function PlasmicMessageLiom__RenderFunc(props: {
                       role={"img"}
                     />
                   }
+                  load={generateStateValueProp($state, ["buttonLiom4", "load"])}
                   onClick={args.credit}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
                       generateStateOnChangeProp($state, [
                         "buttonLiom4",
                         "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom4",
+                        "load"
                       ])(eventArgs[0]);
                     }).apply(null, eventArgs);
 
@@ -688,12 +740,29 @@ function PlasmicMessageLiom__RenderFunc(props: {
                       role={"img"}
                     />
                   }
+                  load={generateStateValueProp($state, ["buttonLiom3", "load"])}
                   onClick={args._delete}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
                       generateStateOnChangeProp($state, [
                         "buttonLiom3",
                         "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom3",
+                        "load"
                       ])(eventArgs[0]);
                     }).apply(null, eventArgs);
 

@@ -185,6 +185,12 @@ function PlasmicPay__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -782,6 +788,7 @@ function PlasmicPay__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                load={generateStateValueProp($state, ["button", "load"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -899,6 +906,21 @@ function PlasmicPay__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "load"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);

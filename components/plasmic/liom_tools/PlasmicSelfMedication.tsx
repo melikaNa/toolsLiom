@@ -368,6 +368,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
+      },
+      {
+        path: "buttonLiom.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2046,11 +2052,31 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               "buttonLiom",
                               "color"
                             ])}
+                            load={generateStateValueProp($state, [
+                              "buttonLiom",
+                              "load"
+                            ])}
                             onColorChange={async (...eventArgs: any) => {
                               ((...eventArgs) => {
                                 generateStateOnChangeProp($state, [
                                   "buttonLiom",
                                   "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            onLoadChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "buttonLiom",
+                                  "load"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 

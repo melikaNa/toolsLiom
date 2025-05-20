@@ -796,6 +796,51 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "buttonLiom2[][].load",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "buttonLiom7.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom8.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom4.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom3[][].load",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "buttonLiom6[][].load",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "buttonLiom5.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2165,6 +2210,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           "color"
                         ]),
                         key: currentIndex,
+                        load: generateStateValueProp($state, [
+                          "buttonLiom2",
+                          __plasmic_idx_0,
+                          __plasmic_idx_1,
+                          "load"
+                        ]),
                         onClick: async event => {
                           const $steps = {};
 
@@ -2465,6 +2516,24 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             return;
                           }
                         },
+                        onLoadChange: async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "buttonLiom2",
+                              __plasmic_idx_0,
+                              __plasmic_idx_1,
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        },
                         size: "minimal"
                       };
 
@@ -2474,6 +2543,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           {
                             name: "buttonLiom2[][].color",
                             initFunc: ({ $props, $state, $queries }) => "clear"
+                          },
+                          {
+                            name: "buttonLiom2[][].load",
+                            initFunc: ({ $props, $state, $queries }) => false
                           }
                         ],
                         [__plasmic_idx_0, __plasmic_idx_1]
@@ -4609,6 +4682,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           "buttonLiom7",
                           "color"
                         ])}
+                        load={generateStateValueProp($state, [
+                          "buttonLiom7",
+                          "load"
+                        ])}
                         onClick={async event => {
                           const $steps = {};
 
@@ -4653,6 +4730,22 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             generateStateOnChangeProp($state, [
                               "buttonLiom7",
                               "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "buttonLiom7",
+                              "load"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
 
@@ -4886,6 +4979,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               role={"img"}
                             />
                           }
+                          load={generateStateValueProp($state, [
+                            "button3",
+                            "load"
+                          ])}
                           onClick={async event => {
                             const $steps = {};
 
@@ -5013,6 +5110,22 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               return;
                             }
                           }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button3",
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
                         >
                           <div
                             className={classNames(
@@ -5124,6 +5237,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               role={"img"}
                             />
                           }
+                          load={generateStateValueProp($state, [
+                            "buttonLiom8",
+                            "load"
+                          ])}
                           onClick={async event => {
                             const $steps = {};
 
@@ -5209,6 +5326,22 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               generateStateOnChangeProp($state, [
                                 "buttonLiom8",
                                 "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "buttonLiom8",
+                                "load"
                               ])(eventArgs[0]);
                             }).apply(null, eventArgs);
 
@@ -5661,6 +5794,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                load={generateStateValueProp($state, ["buttonLiom4", "load"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -5799,6 +5933,21 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["buttonLiom4", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom4", "load"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -6011,6 +6160,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             "color"
                           ]),
                           key: currentIndex,
+                          load: generateStateValueProp($state, [
+                            "buttonLiom3",
+                            __plasmic_idx_0,
+                            __plasmic_idx_1,
+                            "load"
+                          ]),
                           onColorChange: async (...eventArgs: any) => {
                             ((...eventArgs) => {
                               generateStateOnChangeProp($state, [
@@ -6018,6 +6173,24 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 __plasmic_idx_0,
                                 __plasmic_idx_1,
                                 "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
+                          onLoadChange: async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "buttonLiom3",
+                                __plasmic_idx_0,
+                                __plasmic_idx_1,
+                                "load"
                               ])(eventArgs[0]);
                             }).apply(null, eventArgs);
 
@@ -6039,6 +6212,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               name: "buttonLiom3[][].color",
                               initFunc: ({ $props, $state, $queries }) =>
                                 "clear"
+                            },
+                            {
+                              name: "buttonLiom3[][].load",
+                              initFunc: ({ $props, $state, $queries }) => false
                             }
                           ],
                           [__plasmic_idx_0, __plasmic_idx_1]
@@ -6456,6 +6633,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 __plasmic_idx_1,
                                 "color"
                               ]),
+                              load: generateStateValueProp($state, [
+                                "buttonLiom6",
+                                __plasmic_idx_0,
+                                __plasmic_idx_1,
+                                "load"
+                              ]),
                               onClick: async event => {
                                 const $steps = {};
 
@@ -6788,6 +6971,24 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   return;
                                 }
                               },
+                              onLoadChange: async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "buttonLiom6",
+                                    __plasmic_idx_0,
+                                    __plasmic_idx_1,
+                                    "load"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              },
                               select: (() => {
                                 try {
                                   return (
@@ -6814,6 +7015,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   name: "buttonLiom6[][].color",
                                   initFunc: ({ $props, $state, $queries }) =>
                                     "clear"
+                                },
+                                {
+                                  name: "buttonLiom6[][].load",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    false
                                 }
                               ],
                               [__plasmic_idx_0, __plasmic_idx_1]
@@ -7129,6 +7335,7 @@ window.typewriter = function(elementId) {
                 data-plasmic-override={overrides.buttonLiom5}
                 className={classNames("__wab_instance", sty.buttonLiom5)}
                 color={generateStateValueProp($state, ["buttonLiom5", "color"])}
+                load={generateStateValueProp($state, ["buttonLiom5", "load"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -7157,6 +7364,21 @@ window.typewriter = function(elementId) {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["buttonLiom5", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom5", "load"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);

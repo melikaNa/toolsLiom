@@ -338,6 +338,24 @@ function PlasmicDirectDialog__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button12.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button8.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button9.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -863,11 +881,31 @@ function PlasmicDirectDialog__RenderFunc(props: {
                         "button12",
                         "color"
                       ])}
+                      load={generateStateValueProp($state, [
+                        "button12",
+                        "load"
+                      ])}
                       onColorChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
                           generateStateOnChangeProp($state, [
                             "button12",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button12",
+                            "load"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -915,6 +953,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    load={generateStateValueProp($state, ["button8", "load"])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -1143,6 +1182,21 @@ function PlasmicDirectDialog__RenderFunc(props: {
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, ["button8", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button8", "load"])(
                           eventArgs[0]
                         );
                       }).apply(null, eventArgs);
@@ -1621,6 +1675,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                load={generateStateValueProp($state, ["button9", "load"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -1808,6 +1863,21 @@ function PlasmicDirectDialog__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button9", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button9", "load"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);

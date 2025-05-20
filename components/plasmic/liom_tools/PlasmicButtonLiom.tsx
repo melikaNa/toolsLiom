@@ -102,6 +102,7 @@ export type PlasmicButtonLiom__VariantMembers = {
     | "line";
   unnamedVariant: "unnamedVariant";
   select: "select";
+  loading: "loading";
 };
 export type PlasmicButtonLiom__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
@@ -128,6 +129,7 @@ export type PlasmicButtonLiom__VariantsArgs = {
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   select?: SingleBooleanChoiceArg<"select">;
+  loading?: SingleBooleanChoiceArg<"loading">;
 };
 type VariantPropType = keyof PlasmicButtonLiom__VariantsArgs;
 export const PlasmicButtonLiom__VariantProps = new Array<VariantPropType>(
@@ -138,7 +140,8 @@ export const PlasmicButtonLiom__VariantProps = new Array<VariantPropType>(
   "size",
   "color",
   "unnamedVariant",
-  "select"
+  "select",
+  "loading"
 );
 
 export type PlasmicButtonLiom__ArgsType = {
@@ -147,6 +150,8 @@ export type PlasmicButtonLiom__ArgsType = {
   target?: boolean;
   onColorChange?: (val: any) => void;
   disabled?: boolean;
+  load?: boolean;
+  onLoadChange?: (val: string) => void;
   startIcon?: React.ReactNode;
   children?: React.ReactNode;
   endIcon?: React.ReactNode;
@@ -158,6 +163,8 @@ export const PlasmicButtonLiom__ArgProps = new Array<ArgPropType>(
   "target",
   "onColorChange",
   "disabled",
+  "load",
+  "onLoadChange",
   "startIcon",
   "children",
   "endIcon"
@@ -176,6 +183,8 @@ export interface DefaultButtonLiomProps extends pp.BaseButtonProps {
   target?: boolean;
   onColorChange?: (val: any) => void;
   disabled?: boolean;
+  load?: boolean;
+  onLoadChange?: (val: string) => void;
   shape?: SingleChoiceArg<"rounded" | "round" | "sharp">;
   size?: SingleChoiceArg<"compact" | "minimal">;
   color?: MultiChoiceArg<
@@ -197,6 +206,7 @@ export interface DefaultButtonLiomProps extends pp.BaseButtonProps {
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   select?: SingleBooleanChoiceArg<"select">;
+  loading?: SingleBooleanChoiceArg<"loading">;
 }
 
 const $$ = {};
@@ -219,7 +229,9 @@ function PlasmicButtonLiom__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          disabled: false
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -291,6 +303,33 @@ function PlasmicButtonLiom__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.select
+      },
+      {
+        path: "load",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "load",
+        onChangeProp: "onLoadChange"
+      },
+      {
+        path: "loading",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.load;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.loading
       }
     ],
     [$props, $ctx, $refs]
@@ -355,6 +394,10 @@ function PlasmicButtonLiom__RenderFunc(props: {
           [sty.rootcolor_white]: hasVariant($state, "color", "white"),
           [sty.rootcolor_yellow]: hasVariant($state, "color", "yellow"),
           [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
+          [sty.rootloading]: hasVariant($state, "loading", "loading"),
+          [sty.rootloading_color_clear]:
+            hasVariant($state, "loading", "loading") &&
+            hasVariant($state, "color", "clear"),
           [sty.rootselect]: hasVariant($state, "select", "select"),
           [sty.rootshape_round]: hasVariant($state, "shape", "round"),
           [sty.rootshape_round_size_compact]:
@@ -379,6 +422,9 @@ function PlasmicButtonLiom__RenderFunc(props: {
             hasVariant($state, "shape", "rounded") &&
             hasVariant($state, "showStartIcon", "showStartIcon"),
           [sty.rootsize_compact]: hasVariant($state, "size", "compact"),
+          [sty.rootsize_compact_loading]:
+            hasVariant($state, "loading", "loading") &&
+            hasVariant($state, "size", "compact"),
           [sty.rootsize_compact_shape_rounded]:
             hasVariant($state, "size", "compact") &&
             hasVariant($state, "shape", "rounded"),
@@ -512,6 +558,11 @@ function PlasmicButtonLiom__RenderFunc(props: {
             "isDisabled",
             "isDisabled"
           ),
+          [sty.contentContainerloading]: hasVariant(
+            $state,
+            "loading",
+            "loading"
+          ),
           [sty.contentContainershape_rounded]: hasVariant(
             $state,
             "shape",
@@ -524,7 +575,13 @@ function PlasmicButtonLiom__RenderFunc(props: {
           )
         })}
       >
-        {(hasVariant($state, "unnamedVariant", "unnamedVariant") ? false : true)
+        {(
+          hasVariant($state, "loading", "loading")
+            ? false
+            : hasVariant($state, "unnamedVariant", "unnamedVariant")
+            ? false
+            : true
+        )
           ? renderPlasmicSlot({
               defaultContents: (
                 <div
@@ -621,6 +678,11 @@ function PlasmicButtonLiom__RenderFunc(props: {
                   "isDisabled",
                   "isDisabled"
                 ),
+                [sty.slotTargetChildrenloading]: hasVariant(
+                  $state,
+                  "loading",
+                  "loading"
+                ),
                 [sty.slotTargetChildrenshape_rounded]: hasVariant(
                   $state,
                   "shape",
@@ -656,7 +718,20 @@ function PlasmicButtonLiom__RenderFunc(props: {
           data-plasmic-name={"svg"}
           data-plasmic-override={overrides.svg}
           className={classNames(projectcss.all, sty.svg, {
+            [sty.svgcolor_line_loading]:
+              hasVariant($state, "loading", "loading") &&
+              hasVariant($state, "color", "line"),
+            [sty.svgloading]: hasVariant($state, "loading", "loading"),
+            [sty.svgloading_color_clear]:
+              hasVariant($state, "loading", "loading") &&
+              hasVariant($state, "color", "clear"),
+            [sty.svgsize_compact_loading]:
+              hasVariant($state, "loading", "loading") &&
+              hasVariant($state, "size", "compact"),
             [sty.svgsize_minimal]: hasVariant($state, "size", "minimal"),
+            [sty.svgsize_minimal_loading]:
+              hasVariant($state, "loading", "loading") &&
+              hasVariant($state, "size", "minimal"),
             [sty.svgunnamedVariant]: hasVariant(
               $state,
               "unnamedVariant",

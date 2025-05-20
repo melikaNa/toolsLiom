@@ -112,6 +112,12 @@
 .rootselect {
   background: var(--token-mQuOloHwx25-);
 }
+.rootloading {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: var(--token-QR8ATjORhQqO);
+  padding: 8px;
+}
 .rootshowStartIcon_shape_rounded {
   padding-left: 16px;
 }
@@ -354,6 +360,9 @@
   color: var(--token-QR8ATjORhQqO);
   font-weight: 700;
 }
+.slotTargetChildrenloading {
+  color: #ffffff;
+}
 .root:focus-within .slotTargetChildren > *,
 .root:focus-within .slotTargetChildren > :global(.__wab_slot) > *,
 .root:focus-within
@@ -495,6 +504,11 @@
   height: 30px;
   display: block;
 }
+.svgloading {
+  width: auto;
+  height: 30px;
+  display: block;
+}
 .svgunnamedVariant_size_compact {
   width: 20px;
   height: 20px;
@@ -504,10 +518,25 @@
   width: auto;
   height: 1em;
 }
+.svgsize_compact_loading {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.svgsize_minimal_loading {
+  width: auto;
+  height: 1em;
+}
 .svgunnamedVariant_color_clear {
   color: var(--token-QR8ATjORhQqO);
 }
+.svgloading_color_clear {
+  color: var(--token-QR8ATjORhQqO);
+}
 .svgunnamedVariant_color_line {
+  color: var(--token-QR8ATjORhQqO);
+}
+.svgcolor_line_loading {
   color: var(--token-QR8ATjORhQqO);
 }
 .endIconContainer {

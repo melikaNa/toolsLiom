@@ -340,6 +340,18 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2338,6 +2350,10 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         "buttonLiom",
                         "color"
                       ])}
+                      load={generateStateValueProp($state, [
+                        "buttonLiom",
+                        "load"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -2583,6 +2599,22 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           return;
                         }
                       }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "buttonLiom",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
                       unnamedVariant={(() => {
                         try {
                           return $state.loading;
@@ -2671,6 +2703,10 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     color={generateStateValueProp($state, [
                       "buttonLiom2",
                       "color"
+                    ])}
+                    load={generateStateValueProp($state, [
+                      "buttonLiom2",
+                      "load"
                     ])}
                     onClick={async event => {
                       const $steps = {};
@@ -2823,6 +2859,22 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         generateStateOnChangeProp($state, [
                           "buttonLiom2",
                           "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom2",
+                          "load"
                         ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 

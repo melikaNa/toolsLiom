@@ -514,6 +514,35 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "buttonLiom.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom3.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom5.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom4[].load",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -1116,9 +1145,25 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               data-plasmic-override={overrides.buttonLiom}
               className={classNames("__wab_instance", sty.buttonLiom)}
               color={generateStateValueProp($state, ["buttonLiom", "color"])}
+              load={generateStateValueProp($state, ["buttonLiom", "load"])}
               onColorChange={async (...eventArgs: any) => {
                 ((...eventArgs) => {
                   generateStateOnChangeProp($state, ["buttonLiom", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["buttonLiom", "load"])(
                     eventArgs[0]
                   );
                 }).apply(null, eventArgs);
@@ -2146,6 +2191,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   )
                 })}
                 color={generateStateValueProp($state, ["buttonLiom3", "color"])}
+                load={generateStateValueProp($state, ["buttonLiom3", "load"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -2177,6 +2223,21 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["buttonLiom3", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom3", "load"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -2909,6 +2970,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                 )
               })}
               color={generateStateValueProp($state, ["buttonLiom5", "color"])}
+              load={generateStateValueProp($state, ["buttonLiom5", "load"])}
               onClick={async event => {
                 const $steps = {};
 
@@ -2940,6 +3002,21 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               onColorChange={async (...eventArgs: any) => {
                 ((...eventArgs) => {
                   generateStateOnChangeProp($state, ["buttonLiom5", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["buttonLiom5", "load"])(
                     eventArgs[0]
                   );
                 }).apply(null, eventArgs);
@@ -3698,6 +3775,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   )
                 })}
                 color={generateStateValueProp($state, ["buttonLiom2", "color"])}
+                load={generateStateValueProp($state, ["buttonLiom2", "load"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -3729,6 +3807,21 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["buttonLiom2", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom2", "load"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -4287,6 +4380,11 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                       throw e;
                                     }
                                   })(),
+                                  load: generateStateValueProp($state, [
+                                    "buttonLiom4",
+                                    __plasmic_idx_0,
+                                    "load"
+                                  ]),
                                   onClick: async event => {
                                     const $steps = {};
 
@@ -4458,6 +4556,23 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                       return;
                                     }
                                   },
+                                  onLoadChange: async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "buttonLiom4",
+                                        __plasmic_idx_0,
+                                        "load"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  },
                                   size: "compact"
                                 };
 
@@ -4471,6 +4586,14 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                         $state,
                                         $queries
                                       }) => undefined
+                                    },
+                                    {
+                                      name: "buttonLiom4[].load",
+                                      initFunc: ({
+                                        $props,
+                                        $state,
+                                        $queries
+                                      }) => false
                                     }
                                   ],
                                   [__plasmic_idx_0]

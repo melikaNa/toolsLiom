@@ -265,6 +265,11 @@ function PlasmicNotification__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button[].load",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -3046,6 +3051,11 @@ function PlasmicNotification__RenderFunc(props: {
                               __plasmic_idx_0,
                               "color"
                             ]),
+                            load: generateStateValueProp($state, [
+                              "button",
+                              __plasmic_idx_0,
+                              "load"
+                            ]),
                             onClick: async event => {
                               const $steps = {};
 
@@ -3107,6 +3117,23 @@ function PlasmicNotification__RenderFunc(props: {
                               ) {
                                 return;
                               }
+                            },
+                            onLoadChange: async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button",
+                                  __plasmic_idx_0,
+                                  "load"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
                             }
                           };
 
@@ -3117,6 +3144,11 @@ function PlasmicNotification__RenderFunc(props: {
                                 name: "button[].color",
                                 initFunc: ({ $props, $state, $queries }) =>
                                   undefined
+                              },
+                              {
+                                name: "button[].load",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  false
                               }
                             ],
                             [__plasmic_idx_0]

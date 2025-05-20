@@ -1179,6 +1179,66 @@ function PlasmicBmi__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "1"
+      },
+      {
+        path: "buttonLiom.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom6.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom3.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom7.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom8.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom4.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom5.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1973,6 +2033,10 @@ function PlasmicBmi__RenderFunc(props: {
                       "buttonLiom",
                       "color"
                     ])}
+                    load={generateStateValueProp($state, [
+                      "buttonLiom",
+                      "load"
+                    ])}
                     onClick={async event => {
                       const $steps = {};
 
@@ -2131,6 +2195,22 @@ function PlasmicBmi__RenderFunc(props: {
                         return;
                       }
                     }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom",
+                          "load"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
                   >
                     <div
                       className={classNames(
@@ -2228,6 +2308,10 @@ function PlasmicBmi__RenderFunc(props: {
                       color={generateStateValueProp($state, [
                         "buttonLiom6",
                         "color"
+                      ])}
+                      load={generateStateValueProp($state, [
+                        "buttonLiom6",
+                        "load"
                       ])}
                       onClick={async event => {
                         const $steps = {};
@@ -2374,6 +2458,22 @@ function PlasmicBmi__RenderFunc(props: {
                           generateStateOnChangeProp($state, [
                             "buttonLiom6",
                             "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "buttonLiom6",
+                            "load"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
@@ -2728,6 +2828,10 @@ background: linear-gradient(to right,
                         "buttonLiom3",
                         "color"
                       ])}
+                      load={generateStateValueProp($state, [
+                        "buttonLiom3",
+                        "load"
+                      ])}
                       onClick={async event => {
                         const $steps = {};
 
@@ -2873,6 +2977,22 @@ background: linear-gradient(to right,
                           return;
                         }
                       }}
+                      onLoadChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "buttonLiom3",
+                            "load"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
                     >
                       <div
                         className={classNames(
@@ -2900,6 +3020,10 @@ background: linear-gradient(to right,
                     color={generateStateValueProp($state, [
                       "buttonLiom7",
                       "color"
+                    ])}
+                    load={generateStateValueProp($state, [
+                      "buttonLiom7",
+                      "load"
                     ])}
                     onClick={async event => {
                       const $steps = {};
@@ -3055,6 +3179,22 @@ background: linear-gradient(to right,
                         return;
                       }
                     }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom7",
+                          "load"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
                     shape={"round"}
                     size={"compact"}
                     startIcon={
@@ -3088,6 +3228,10 @@ background: linear-gradient(to right,
                     color={generateStateValueProp($state, [
                       "buttonLiom8",
                       "color"
+                    ])}
+                    load={generateStateValueProp($state, [
+                      "buttonLiom8",
+                      "load"
                     ])}
                     onClick={async event => {
                       const $steps = {};
@@ -3232,6 +3376,22 @@ background: linear-gradient(to right,
                         generateStateOnChangeProp($state, [
                           "buttonLiom8",
                           "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom8",
+                          "load"
                         ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
@@ -4061,6 +4221,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     "buttonLiom2",
                     "color"
                   ])}
+                  load={generateStateValueProp($state, ["buttonLiom2", "load"])}
                   onClick={async event => {
                     const $steps = {};
 
@@ -4203,6 +4364,22 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       return;
                     }
                   }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom2",
+                        "load"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -4242,6 +4419,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     "buttonLiom4",
                     "color"
                   ])}
+                  load={generateStateValueProp($state, ["buttonLiom4", "load"])}
                   onClick={async event => {
                     const $steps = {};
 
@@ -4385,6 +4563,22 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       return;
                     }
                   }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom4",
+                        "load"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -4410,6 +4604,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     "buttonLiom5",
                     "color"
                   ])}
+                  load={generateStateValueProp($state, ["buttonLiom5", "load"])}
                   onClick={async event => {
                     const $steps = {};
 
@@ -4443,6 +4638,22 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       generateStateOnChangeProp($state, [
                         "buttonLiom5",
                         "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom5",
+                        "load"
                       ])(eventArgs[0]);
                     }).apply(null, eventArgs);
 
@@ -4766,11 +4977,31 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                             "button",
                             "color"
                           ])}
+                          load={generateStateValueProp($state, [
+                            "button",
+                            "load"
+                          ])}
                           onColorChange={async (...eventArgs: any) => {
                             ((...eventArgs) => {
                               generateStateOnChangeProp($state, [
                                 "button",
                                 "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button",
+                                "load"
                               ])(eventArgs[0]);
                             }).apply(null, eventArgs);
 
@@ -4811,11 +5042,31 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                             role={"img"}
                           />
                         }
+                        load={generateStateValueProp($state, [
+                          "button2",
+                          "load"
+                        ])}
                         onColorChange={async (...eventArgs: any) => {
                           ((...eventArgs) => {
                             generateStateOnChangeProp($state, [
                               "button2",
                               "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button2",
+                              "load"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
 

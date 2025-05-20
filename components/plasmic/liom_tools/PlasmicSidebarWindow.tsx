@@ -221,6 +221,12 @@ function PlasmicSidebarWindow__RenderFunc(props: {
 
         valueProp: "load2",
         onChangeProp: "onLoad2Change"
+      },
+      {
+        path: "buttonLiom.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -426,6 +432,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
             [sty.buttonLiomopening]: hasVariant($state, "opening", "opening")
           })}
           color={generateStateValueProp($state, ["buttonLiom", "color"])}
+          load={generateStateValueProp($state, ["buttonLiom", "load"])}
           onClick={async event => {
             const $steps = {};
 
@@ -448,6 +455,21 @@ function PlasmicSidebarWindow__RenderFunc(props: {
           onColorChange={async (...eventArgs: any) => {
             ((...eventArgs) => {
               generateStateOnChangeProp($state, ["buttonLiom", "color"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onLoadChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["buttonLiom", "load"])(
                 eventArgs[0]
               );
             }).apply(null, eventArgs);

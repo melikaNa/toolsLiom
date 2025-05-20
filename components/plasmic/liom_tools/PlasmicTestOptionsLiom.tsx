@@ -249,6 +249,24 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button3.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -896,10 +914,26 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           data-plasmic-override={overrides.button}
           className={classNames("__wab_instance", sty.button)}
           color={generateStateValueProp($state, ["button", "color"])}
+          load={generateStateValueProp($state, ["button", "load"])}
           onClick={args.onClick24}
           onColorChange={async (...eventArgs: any) => {
             ((...eventArgs) => {
               generateStateOnChangeProp($state, ["button", "color"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onLoadChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button", "load"])(
                 eventArgs[0]
               );
             }).apply(null, eventArgs);
@@ -948,10 +982,26 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           data-plasmic-override={overrides.button3}
           className={classNames("__wab_instance", sty.button3)}
           color={generateStateValueProp($state, ["button3", "color"])}
+          load={generateStateValueProp($state, ["button3", "load"])}
           onClick={args.buyClick}
           onColorChange={async (...eventArgs: any) => {
             ((...eventArgs) => {
               generateStateOnChangeProp($state, ["button3", "color"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onLoadChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button3", "load"])(
                 eventArgs[0]
               );
             }).apply(null, eventArgs);
@@ -996,10 +1046,26 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           data-plasmic-override={overrides.button2}
           className={classNames("__wab_instance", sty.button2)}
           color={generateStateValueProp($state, ["button2", "color"])}
+          load={generateStateValueProp($state, ["button2", "load"])}
           onClick={args.onResulr}
           onColorChange={async (...eventArgs: any) => {
             ((...eventArgs) => {
               generateStateOnChangeProp($state, ["button2", "color"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          onLoadChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button2", "load"])(
                 eventArgs[0]
               );
             }).apply(null, eventArgs);
