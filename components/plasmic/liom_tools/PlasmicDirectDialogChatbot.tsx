@@ -1037,7 +1037,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                                   try {
                                     return {
                                       merchantID:
-                                        "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
+                                        "72b3d249-be47-488b-93aa-5091e6c0911a",
                                       id: $state.topShop.id,
                                       amount: $state.topShop.price,
                                       type: $props.type,
@@ -1735,7 +1735,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                               try {
                                 return {
                                   merchantID:
-                                    "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
+                                    "72b3d249-be47-488b-93aa-5091e6c0911a",
                                   id: $state.selectShop.id,
                                   amount: $state.selectShop.price,
                                   type: $props.type,

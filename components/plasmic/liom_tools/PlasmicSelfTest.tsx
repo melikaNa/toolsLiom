@@ -6451,7 +6451,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                         try {
                                           return {
                                             merchantID:
-                                              "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
+                                              "72b3d249-be47-488b-93aa-5091e6c0911a",
                                             id: $state.shopId,
                                             amount:
                                               $state.shop.data.result.price,

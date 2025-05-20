@@ -2230,7 +2230,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                 )}
               >
                 {
-                  " \u067e\u0627\u0633\u062e\u200c \u0647\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0628\u0647 \u062e\u0648\u062f \u0622\u0632\u0645\u0627\u06cc\u06cc"
+                  " \u067e\u0627\u0633\u062e\u200c \u0647\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0628\u0647 \u0633\u0648\u0627\u0644\u0627\u062a"
                 }
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__ahSo0)}>
