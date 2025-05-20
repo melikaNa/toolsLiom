@@ -956,6 +956,7 @@
   padding-right: var(--token-KVcr9NiMwFLr);
   padding-left: var(--token-KVcr9NiMwFLr);
   min-width: 0;
+  display: none;
 }
 .freeBox__qiiDr {
   display: flex;
