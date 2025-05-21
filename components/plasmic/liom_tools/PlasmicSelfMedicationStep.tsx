@@ -2142,7 +2142,10 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         userId: $state.getUser?.data?.[0]?.userId,
                         token: $state.token,
                         sub: type,
-                        type: $ctx.query.type
+                        type:
+                          $ctx.query.type == "danger"
+                            ? "pregnancy_danger_sub"
+                            : $ctx.query.type
                       };
                     })();
                   } catch (e) {

@@ -2410,7 +2410,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__d8O27 > :global(.__wab_flex-container) {
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
   }
 }
