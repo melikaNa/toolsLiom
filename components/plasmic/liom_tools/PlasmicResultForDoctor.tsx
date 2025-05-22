@@ -2727,10 +2727,9 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                               },
                               operation: 0,
                               value:
-                                $state.questionList.length <
-                                ($state.apiRequest.data.answers.length > 1
+                                $state.apiRequest.data.answers.length > 1
                                   ? $state.apiRequest.data.answers
-                                  : JSON.parse($state.apiRequest.data.answers))
+                                  : JSON.parse($state.apiRequest.data.answers)
                             };
                             return (({
                               variable,
