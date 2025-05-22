@@ -474,7 +474,9 @@ function PlasmicResultForDoctor__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data.answers.slice(0, 2);
+              return $state.apiRequest.data.answers.length > 1
+                ? $state.apiRequest.data.answers.splice(0, 2)
+                : JSON.parse($state.apiRequest.data.answers).splice(0, 2);
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2695,7 +2697,9 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   try {
                     return (
                       $state.questionList.length <
-                      $state.apiRequest.data.answers.length
+                      ($state.apiRequest.data.answers.length > 1
+                        ? $state.apiRequest.data.answers.length
+                        : JSON.parse($state.apiRequest.data.answers).length)
                     );
                   } catch (e) {
                     if (
@@ -2722,7 +2726,11 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                 variablePath: ["questionList"]
                               },
                               operation: 0,
-                              value: $state.apiRequest.data.answers
+                              value:
+                                $state.questionList.length <
+                                ($state.apiRequest.data.answers.length > 1
+                                  ? $state.apiRequest.data.answers
+                                  : JSON.parse($state.apiRequest.data.answers))
                             };
                             return (({
                               variable,
@@ -2772,7 +2780,9 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   try {
                     return (
                       $state.questionList.length ==
-                      $state.apiRequest.data.answers.length
+                      ($state.apiRequest.data.answers.length > 1
+                        ? $state.apiRequest.data.answers.length
+                        : JSON.parse($state.apiRequest.data.answers).length)
                     );
                   } catch (e) {
                     if (
@@ -2799,7 +2809,12 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                 variablePath: ["questionList"]
                               },
                               operation: 0,
-                              value: $state.apiRequest.data.answers.slice(0, 2)
+                              value:
+                                $state.apiRequest.data.answers.length > 1
+                                  ? $state.apiRequest.data.answers.splice(0, 2)
+                                  : JSON.parse(
+                                      $state.apiRequest.data.answers
+                                    ).splice(0, 2)
                             };
                             return (({
                               variable,
@@ -5233,7 +5248,11 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                   item => (item.open = true)
                                 );
                                 return ($state.questionList =
-                                  $state.apiRequest.data.answers);
+                                  $state.apiRequest.data.answers.length > 1
+                                    ? $state.apiRequest.data.answers
+                                    : JSON.parse(
+                                        $state.apiRequest.data.answers
+                                      ));
                               })();
                             }
                           };

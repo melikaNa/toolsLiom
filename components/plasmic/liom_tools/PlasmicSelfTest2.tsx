@@ -962,9 +962,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["runCode"] = (
-                      $steps.invokeGlobalAction?.data?.list ? true : false
-                    )
+                    $steps["runCode"] = true
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
