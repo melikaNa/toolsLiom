@@ -104,6 +104,7 @@ import Icon186Icon from "./icons/PlasmicIcon__Icon186"; // plasmic-import: 2GtCx
 import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: htu_gIjJqtkY/icon
 import Icon188Icon from "./icons/PlasmicIcon__Icon188"; // plasmic-import: 0UFwfDIVgQ7c/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
+import Icon101Icon from "./icons/PlasmicIcon__Icon101"; // plasmic-import: FmbA2q57_eEt/icon
 
 createPlasmicElementProxy;
 
@@ -3268,6 +3269,40 @@ function PlasmicTest__RenderFunc(props: {
               </Dialog3>
             </div>
           </section>
+          {(() => {
+            try {
+              return localStorage.getItem("bioritmhamyar") == null;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__jlOTt)}
+            >
+              <Icon101Icon
+                className={classNames(projectcss.all, sty.svg__prMrc)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__j2KGn
+                )}
+              >
+                {""}
+              </div>
+            </Stack__>
+          ) : null}
         </div>
       </div>
     </React.Fragment>

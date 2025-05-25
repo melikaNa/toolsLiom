@@ -2204,10 +2204,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return window.open(
-                                    window.sessionStorage.getItem("home-page"),
-                                    "_self"
-                                  );
+                                  return (() => {
+                                    return window.location.replace(
+                                      window.sessionStorage.getItem("home-page")
+                                    );
+                                  })();
                                 }
                               };
                               return (({ customFunction }) => {
