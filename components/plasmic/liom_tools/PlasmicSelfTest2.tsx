@@ -205,42 +205,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (
-                // if ($ctx.query.nextQuesion_id == "" || $ctx.query.nextQuesion_id == null) {
-                //   []
-                // } else {
-                //   JSON.parse(localStorage.getItem("test"))
-                // }
-                // [
-                //     {
-                //         "text": "سلام👋\n  لیوم هستم، دستیار سلامت .",
-                //         "from": "system"
-                //     },
-                //     {
-                //         "text": "اگر درباره زودانزالی نگرانی داری، این تست بهت کمک می‌کنه تا وضعیت خودت رو بهتر بسنجی.",
-                //         "from": "system"
-                //     },
-                //     {
-                //         "text": " با پاسخ به چند سوال، می‌تونید در کمتر از ۵ دقیقه از اینکه آیا دچار زودانزالی هستید یا خیر مطلع شوید",
-                //         "from": "system"
-                //     },
-                //     {
-                //         "text": "آماده ای شروع کنیم؟",
-                //         "question": {
-                //             "lock": 0
-                //         },
-                //         "from": "system",
-                //         "btnText": "شروع کنیم",
-                //         "options": [
-                //             {
-                //                 "id": 1,
-                //                 "text": "شروع کنیم"
-                //             }
-                //         ]
-                //     }
-                // ]
-                []
-              );
+              return [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2649,24 +2614,47 @@ function PlasmicSelfTest2__RenderFunc(props: {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__ztqih)}
-              style={(() => {
-                try {
-                  return {
-                    height: $state.testChat?.length == 0 ? "auto" : "90vh",
-                    left: 0,
-                    right: 0,
-                    bottom: 0
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
+              style={
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? (() => {
+                      try {
+                        return {
+                          height:
+                            $state.testChat?.length == 0 ? "auto" : "90dvh",
+                          left: 0,
+                          right: 0,
+                          bottom: 0
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : (() => {
+                      try {
+                        return {
+                          height:
+                            $state.testChat?.length == 0 ? "auto" : "90vh",
+                          left: 0,
+                          right: 0,
+                          bottom: 0
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+              }
             >
               {(() => {
                 try {

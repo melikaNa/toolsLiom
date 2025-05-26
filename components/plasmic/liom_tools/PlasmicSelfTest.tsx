@@ -1058,21 +1058,6 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["runCode"] = await $steps["runCode"];
             }
           }}
-          style={(() => {
-            try {
-              return {
-                height: "100dvh"
-              };
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return { height: "100dvh" };
-              }
-              throw e;
-            }
-          })()}
         >
           <SideEffect
             data-plasmic-name={"sideEffect"}
@@ -5427,7 +5412,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             textBox.style.paddingBottom = isHidden
                               ? "8px"
                               : `${inputBox.offsetHeight + 20}px`;
-                          }, 0);
+                          }, 100);
                         })();
                       }
                     };
