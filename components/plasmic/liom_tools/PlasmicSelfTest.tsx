@@ -71,7 +71,6 @@ import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/com
 import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJCAy9/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
-import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
@@ -132,7 +131,6 @@ export type PlasmicSelfTest__OverridesType = {
   peyliom?: Flex__<"div">;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   peyPardakht24?: Flex__<"div">;
-  timer?: Flex__<typeof Timer>;
   favicon?: Flex__<typeof Embed>;
   dialog?: Flex__<typeof Paziresh24Dialog>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
@@ -2315,7 +2313,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                 <MessageLiom
                   data-plasmic-name={"messageLiom"}
                   data-plasmic-override={overrides.messageLiom}
-                  className={classNames("__wab_instance", sty.messageLiom)}
+                  className={classNames("__wab_instance", sty.messageLiom, {
+                    [sty.messageLiomglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
+                      hasVariant(
+                        globalVariants,
+                        "unnamedGlobalGroupOfVariants",
+                        "unnamedVariant"
+                      )
+                  })}
                   endMessege={(() => {
                     try {
                       return (
@@ -2982,7 +2987,14 @@ function PlasmicSelfTest__RenderFunc(props: {
           className={classNames(projectcss.all, sty.section)}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__ssEaT, ``)}
+            className={classNames(projectcss.all, sty.freeBox__ssEaT, ``, {
+              [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant__ssEaTYcZU]:
+                hasVariant(
+                  globalVariants,
+                  "unnamedGlobalGroupOfVariants",
+                  "unnamedVariant"
+                )
+            })}
             id={"selectBox"}
           >
             <Reveal
@@ -3270,9 +3282,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 });
                                 var messageBox =
                                   window.document.getElementById("chatBox");
-                                if (messageBox)
-                                  return (messageBox.scrollTop =
-                                    messageBox.scrollHeight);
+                                if (messageBox) {
+                                  messageBox.scrollTop =
+                                    messageBox.scrollHeight;
+                                  return (messageBox.style.paddingBottom =
+                                    "8px");
+                                }
                               })();
                             }
                           };
@@ -3978,50 +3993,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["invokeGlobalAction4"] = true
-                      ? (() => {
-                          const actionArgs = { args: [800] };
-                          return $globalActions["Fragment.wait"]?.apply(null, [
-                            ...actionArgs.args
-                          ]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction4"] != null &&
-                      typeof $steps["invokeGlobalAction4"] === "object" &&
-                      typeof $steps["invokeGlobalAction4"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction4"] = await $steps[
-                        "invokeGlobalAction4"
-                      ];
-                    }
-
-                    $steps["runCode5"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                var messageBox =
-                                  window.document.getElementById("chatBox");
-                                if (messageBox)
-                                  return (messageBox.scrollTop =
-                                    messageBox.scrollHeight);
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode5"] != null &&
-                      typeof $steps["runCode5"] === "object" &&
-                      typeof $steps["runCode5"].then === "function"
-                    ) {
-                      $steps["runCode5"] = await $steps["runCode5"];
-                    }
-
                     $steps["updateShowgreen"] = true
                       ? (() => {
                           const actionArgs = {
@@ -4056,6 +4027,56 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["updateShowgreen"] = await $steps[
                         "updateShowgreen"
                       ];
+                    }
+
+                    $steps["invokeGlobalAction4"] = true
+                      ? (() => {
+                          const actionArgs = { args: [800] };
+                          return $globalActions["Fragment.wait"]?.apply(null, [
+                            ...actionArgs.args
+                          ]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction4"] != null &&
+                      typeof $steps["invokeGlobalAction4"] === "object" &&
+                      typeof $steps["invokeGlobalAction4"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction4"] = await $steps[
+                        "invokeGlobalAction4"
+                      ];
+                    }
+
+                    $steps["runCode5"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                var messageBox =
+                                  window.document.getElementById("chatBox");
+                                if (messageBox) {
+                                  messageBox.scrollTop =
+                                    messageBox.scrollHeight;
+                                  var inputBox =
+                                    document.getElementById("selectBox");
+                                  return (messageBox.style.paddingBottom = `${
+                                    inputBox.offsetHeight + 20
+                                  }px`);
+                                }
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode5"] != null &&
+                      typeof $steps["runCode5"] === "object" &&
+                      typeof $steps["runCode5"].then === "function"
+                    ) {
+                      $steps["runCode5"] = await $steps["runCode5"];
                     }
                   }}
                   onResulr={async event => {
@@ -5343,48 +5364,6 @@ function PlasmicSelfTest__RenderFunc(props: {
             </Reveal>
           </div>
         </section>
-        <Timer
-          data-plasmic-name={"timer"}
-          data-plasmic-override={overrides.timer}
-          className={classNames("__wab_instance", sty.timer)}
-          intervalSeconds={0.3}
-          isRunning={true}
-          onTick={async () => {
-            const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        const inputBox = document.getElementById("selectBox");
-                        const textBox = document.getElementById("chatBox");
-                        const isHidden =
-                          window.getComputedStyle(inputBox).display === "none";
-                        return setTimeout(() => {
-                          textBox.style.paddingBottom = isHidden
-                            ? "8px"
-                            : `${inputBox.offsetHeight + 20}px`;
-                        }, 0);
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }}
-          runWhileEditing={false}
-        />
-
         <Embed
           className={classNames("__wab_instance", sty.embedHtml___29Ohr)}
           code={
@@ -8397,7 +8376,6 @@ const PlasmicDescendants = {
     "peyliom",
     "buttonLiom",
     "peyPardakht24",
-    "timer",
     "favicon",
     "dialog",
     "buttonLiom3",
@@ -8435,7 +8413,6 @@ const PlasmicDescendants = {
   peyliom: ["peyliom", "buttonLiom"],
   buttonLiom: ["buttonLiom"],
   peyPardakht24: ["peyPardakht24"],
-  timer: ["timer"],
   favicon: ["favicon"],
   dialog: ["dialog", "buttonLiom3"],
   buttonLiom3: ["buttonLiom3"],
@@ -8472,7 +8449,6 @@ type NodeDefaultElementType = {
   peyliom: "div";
   buttonLiom: typeof ButtonLiom;
   peyPardakht24: "div";
-  timer: typeof Timer;
   favicon: typeof Embed;
   dialog: typeof Paziresh24Dialog;
   buttonLiom3: typeof ButtonLiom;
@@ -8590,7 +8566,6 @@ export const PlasmicSelfTest = Object.assign(
     peyliom: makeNodeComponent("peyliom"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     peyPardakht24: makeNodeComponent("peyPardakht24"),
-    timer: makeNodeComponent("timer"),
     favicon: makeNodeComponent("favicon"),
     dialog: makeNodeComponent("dialog"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
