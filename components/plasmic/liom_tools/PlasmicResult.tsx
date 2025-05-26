@@ -6707,7 +6707,8 @@ function PlasmicResult__RenderFunc(props: {
                                       email: $state.email.value,
                                       mobile: $state.mobile.value,
                                       nationalCode: $state.code.value,
-                                      gender: $state.gender
+                                      gender: $state.gender,
+                                      type: $state.apiRequest.data.type
                                     };
                                   } catch (e) {
                                     if (

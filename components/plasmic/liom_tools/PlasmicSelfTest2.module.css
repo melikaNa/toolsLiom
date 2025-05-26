@@ -206,10 +206,9 @@
   .freeBox__ztqih {
     height: auto;
     width: 100%;
-    padding-top: 40px;
-    padding-bottom: 80px;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
+    padding: 40px 0px 80px;
     margin: 0px;
   }
 }
@@ -310,8 +309,16 @@
     padding-top: 8px;
     padding-right: 8px;
     padding-left: 8px;
-    left: 0px;
-    top: 40px;
+    left: auto;
+    top: auto;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .chatBoxRef > :global(.__wab_flex-container) {
+    min-width: 0;
   }
 }
 .reveal__wpLRq:global(.__wab_instance) {
@@ -448,13 +455,13 @@
   .section__xBme8 {
     width: auto;
     height: auto;
-    position: relative;
-    left: auto;
+    position: fixed;
+    left: 0;
     top: auto;
     justify-items: center;
     align-content: flex-end;
-    right: auto;
-    bottom: auto;
+    right: 0;
+    bottom: 0;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -1991,9 +1998,12 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .section__zunb {
     z-index: 3;
-    position: relative;
-    left: auto;
-    top: auto;
+    left: 0;
+    top: 0;
+    position: fixed;
+    right: 0;
+    width: auto;
+    display: grid;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
