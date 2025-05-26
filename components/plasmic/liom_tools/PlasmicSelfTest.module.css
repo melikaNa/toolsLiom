@@ -389,7 +389,9 @@
     top: auto;
     bottom: 0;
     right: 0;
-    width: auto;
+    width: 100%;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -420,6 +422,8 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .testOptionsLiom:global(.__wab_instance) {
+    width: 100%;
+    min-width: 0;
     display: flex;
   }
 }

@@ -4055,13 +4055,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 var messageBox =
                                   window.document.getElementById("chatBox");
                                 if (messageBox) {
-                                  messageBox.scrollTop =
-                                    messageBox.scrollHeight;
                                   var inputBox =
                                     document.getElementById("selectBox");
-                                  return (messageBox.style.paddingBottom = `${
+                                  messageBox.style.paddingBottom = `${
                                     inputBox.offsetHeight + 20
-                                  }px`);
+                                  }px`;
+                                  return (messageBox.scrollTop =
+                                    messageBox.scrollHeight);
                                 }
                               })();
                             }
