@@ -5,11 +5,10 @@
   align-items: stretch;
   justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   max-width: 100%;
-  grid-column-start: 1 !important;
-  grid-column-end: -1 !important;
-  min-height: 0;
+  overflow: auto;
+  min-width: 0;
   padding: 0px;
 }
 .headerLiom:global(.__wab_instance) {
