@@ -6699,6 +6699,7 @@ function PlasmicResult__RenderFunc(props: {
                                   try {
                                     return {
                                       user_id: $ctx.query.user_id,
+                                      session_id: $ctx.query.session_id,
                                       name:
                                         $state.name.value +
                                         " " +

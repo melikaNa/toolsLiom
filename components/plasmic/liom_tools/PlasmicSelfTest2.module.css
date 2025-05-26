@@ -56,7 +56,7 @@
 }
 .sidebarWindow:global(.__wab_instance) {
   position: relative;
-  height: 100vh;
+  height: auto;
   z-index: 5;
   flex-shrink: 0;
 }
@@ -131,7 +131,7 @@
   display: grid;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: auto;
   align-content: space-between;
   justify-items: center;
   justify-content: flex-start;
@@ -963,6 +963,12 @@
 }
 .directDialogChatbot:global(.__wab_instance) {
   max-width: 100%;
+  left: 0;
+  top: auto;
+  z-index: 1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
 }
 .dialog:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
@@ -1963,7 +1969,7 @@
   align-content: center;
   justify-items: center;
   width: 100%;
-  height: 100vh;
+  height: auto;
   left: 0px;
   top: 0px;
   background: #f8f8f8;
@@ -1985,6 +1991,9 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .section__zunb {
     z-index: 3;
+    position: relative;
+    left: auto;
+    top: auto;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -2004,21 +2013,19 @@
   flex-direction: column;
   position: fixed;
   width: auto;
-  height: 100%;
+  height: auto;
   max-width: 100%;
   left: 0;
   top: 0;
   z-index: 10;
   right: 0;
   background: #f8f8f8;
-  min-height: 0;
   padding: 8px;
 }
 .freeBox__w0Vni > :global(.__wab_flex-container) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 0;
   margin-top: calc(0px - 24px);
   height: calc(100% + 24px);
 }

@@ -2629,6 +2629,21 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   "unnamedVariant"
                 )
             })}
+            style={(() => {
+              try {
+                return {
+                  height: "100dvh"
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           >
             <Stack__
               as={"div"}
@@ -7251,7 +7266,24 @@ window.typewriter = function(elementId) {
               throw e;
             }
           })() ? (
-            <section className={classNames(projectcss.all, sty.section__zunb)}>
+            <section
+              className={classNames(projectcss.all, sty.section__zunb)}
+              style={(() => {
+                try {
+                  return {
+                    height: "100dvh"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            >
               <Icon111Icon
                 className={classNames(projectcss.all, sty.svg__bXnl)}
                 role={"img"}
@@ -7295,6 +7327,21 @@ window.typewriter = function(elementId) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__w0Vni)}
+              style={(() => {
+                try {
+                  return {
+                    height: "100dvh"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               <PlasmicIcon__
                 PlasmicIconType={

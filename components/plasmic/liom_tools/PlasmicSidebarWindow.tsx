@@ -263,6 +263,21 @@ function PlasmicSidebarWindow__RenderFunc(props: {
         sty.root,
         { [sty.rootopening]: hasVariant($state, "opening", "opening") }
       )}
+      style={(() => {
+        try {
+          return {
+            height: "100dvh"
+          };
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return undefined;
+          }
+          throw e;
+        }
+      })()}
     >
       <Stack__
         as={"div"}

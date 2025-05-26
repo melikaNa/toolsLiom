@@ -71,10 +71,10 @@ import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/com
 import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJCAy9/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
@@ -131,7 +131,6 @@ export type PlasmicSelfTest__OverridesType = {
   peyliom?: Flex__<"div">;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   peyPardakht24?: Flex__<"div">;
-  user?: Flex__<typeof ApiRequest>;
   timer?: Flex__<typeof Timer>;
   favicon?: Flex__<typeof Embed>;
   dialog?: Flex__<typeof Paziresh24Dialog>;
@@ -365,24 +364,6 @@ function PlasmicSelfTest__RenderFunc(props: {
         path: "buttonLiom.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "user.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "user.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "user.loading",
-        type: "private",
-        variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
@@ -1077,6 +1058,21 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["runCode"] = await $steps["runCode"];
             }
           }}
+          style={(() => {
+            try {
+              return {
+                height: "100dvh"
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return { height: "100dvh" };
+              }
+              throw e;
+            }
+          })()}
         >
           <SideEffect
             data-plasmic-name={"sideEffect"}
@@ -5408,153 +5404,6 @@ function PlasmicSelfTest__RenderFunc(props: {
               ) : null}
             </Reveal>
           </div>
-          {(() => {
-            try {
-              return $ctx.query.token;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__ymmfB)}>
-              <ApiRequest
-                data-plasmic-name={"user"}
-                data-plasmic-override={overrides.user}
-                className={classNames("__wab_instance", sty.user)}
-                config={(() => {
-                  try {
-                    return {
-                      headers: { Authorization: "Bearer " + $ctx.query.token }
-                    };
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                errorDisplay={null}
-                loadingDisplay={null}
-                method={"GET"}
-                onError={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["user", "error"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                onLoading={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["user", "loading"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                onSuccess={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["user", "data"]).apply(
-                    null,
-                    eventArgs
-                  );
-
-                  (async data => {
-                    const $steps = {};
-
-                    $steps["updateToken"] =
-                      $state.user?.data?.success == true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["token"]
-                              },
-                              operation: 0,
-                              value: $state.user.data.result.user.access_token
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["updateToken"] != null &&
-                      typeof $steps["updateToken"] === "object" &&
-                      typeof $steps["updateToken"].then === "function"
-                    ) {
-                      $steps["updateToken"] = await $steps["updateToken"];
-                    }
-
-                    $steps["invokeGlobalAction"] =
-                      $state.user?.data?.success == true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "PUT",
-                                "https://n8n.staas.ir/webhook/selfTestUser",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      mobile:
-                                        $state.user.data.result.user.mobile ||
-                                        "",
-                                      email:
-                                        $state.user.data.result.user.email ||
-                                        "",
-                                      name:
-                                        $state.user.data.result.user.name || "",
-                                      user_id: $state.userId
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-                  }).apply(null, eventArgs);
-                }}
-                url={"https://api.liom.app/rest/user/profile"}
-              />
-            </div>
-          ) : null}
           <Timer
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
@@ -5569,15 +5418,16 @@ function PlasmicSelfTest__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          var inputBox = document.getElementById("selectBox");
-                          var textBox = document.getElementById("messegeBox");
-                          if (inputBox.style.display === "none") {
-                            return (textBox.style.paddingBottom = "8px");
-                          } else {
-                            return (textBox.style.paddingBottom = `${
-                              inputBox.offsetHeight + 20
-                            }px`);
-                          }
+                          const inputBox = document.getElementById("selectBox");
+                          const textBox = document.getElementById("messegeBox");
+                          const isHidden =
+                            window.getComputedStyle(inputBox).display ===
+                            "none";
+                          return setTimeout(() => {
+                            textBox.style.paddingBottom = isHidden
+                              ? "8px"
+                              : `${inputBox.offsetHeight + 20}px`;
+                          }, 0);
                         })();
                       }
                     };
@@ -6732,7 +6582,24 @@ function PlasmicSelfTest__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox___1Hpgz)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox___1Hpgz)}
+              style={(() => {
+                try {
+                  return {
+                    height: "100dvh"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            >
               {(() => {
                 try {
                   return (() => {
@@ -8653,7 +8520,6 @@ const PlasmicDescendants = {
     "peyliom",
     "buttonLiom",
     "peyPardakht24",
-    "user",
     "timer",
     "favicon",
     "dialog",
@@ -8685,7 +8551,6 @@ const PlasmicDescendants = {
   peyliom: ["peyliom", "buttonLiom"],
   buttonLiom: ["buttonLiom"],
   peyPardakht24: ["peyPardakht24"],
-  user: ["user"],
   timer: ["timer"],
   favicon: ["favicon"],
   dialog: ["dialog", "buttonLiom3"],
@@ -8722,7 +8587,6 @@ type NodeDefaultElementType = {
   peyliom: "div";
   buttonLiom: typeof ButtonLiom;
   peyPardakht24: "div";
-  user: typeof ApiRequest;
   timer: typeof Timer;
   favicon: typeof Embed;
   dialog: typeof Paziresh24Dialog;
@@ -8840,7 +8704,6 @@ export const PlasmicSelfTest = Object.assign(
     peyliom: makeNodeComponent("peyliom"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     peyPardakht24: makeNodeComponent("peyPardakht24"),
-    user: makeNodeComponent("user"),
     timer: makeNodeComponent("timer"),
     favicon: makeNodeComponent("favicon"),
     dialog: makeNodeComponent("dialog"),
