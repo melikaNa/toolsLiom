@@ -7241,38 +7241,19 @@ window.typewriter = function(elementId) {
             }
           />
 
-          {(
-            hasVariant(globalVariants, "screen", "mobileOnly")
-              ? (() => {
-                  try {
-                    return (
-                      // $state.load
-                      false
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-              : (() => {
-                  try {
-                    return $state.load;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
+          {(() => {
+            try {
+              return $state.load;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
             <section
               className={classNames(projectcss.all, sty.section__zunb)}
               style={(() => {

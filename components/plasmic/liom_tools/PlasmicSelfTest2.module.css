@@ -2003,7 +2003,6 @@
     position: fixed;
     right: 0;
     width: auto;
-    display: grid;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {

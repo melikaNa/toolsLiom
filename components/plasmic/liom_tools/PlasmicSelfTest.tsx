@@ -5408,11 +5408,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                           const isHidden =
                             window.getComputedStyle(inputBox).display ===
                             "none";
-                          return setTimeout(() => {
-                            textBox.style.paddingBottom = isHidden
-                              ? "8px"
-                              : `${inputBox.offsetHeight + 20}px`;
-                          }, 100);
+                          return (textBox.style.paddingBottom = isHidden
+                            ? "8px"
+                            : "200px");
                         })();
                       }
                     };
