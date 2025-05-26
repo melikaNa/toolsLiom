@@ -3505,6 +3505,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   from: "system"
                                 };
                                 $state.numberTest = $state.totalTest;
+                                var maxScroll =
+                                  document.documentElement.scrollHeight -
+                                  window.innerHeight;
                                 return window.scrollTo({
                                   top: document.body.scrollHeight,
                                   behavior: "smooth"
@@ -5303,9 +5306,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                         const textBox = document.getElementById("messegeBox");
                         const isHidden =
                           window.getComputedStyle(inputBox).display === "none";
-                        return (textBox.style.paddingBottom = isHidden
-                          ? "8px"
-                          : "200px");
+                        return setTimeout(() => {
+                          textBox.style.paddingBottom = isHidden
+                            ? "8px"
+                            : `${inputBox.offsetHeight + 20}px`;
+                        }, 0);
                       })();
                     }
                   };
