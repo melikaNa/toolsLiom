@@ -3129,12 +3129,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
+                                  console.log("pay");
                                   return window.hamdast.payment
                                     .pay({
                                       product_key: "m4qlmua1uuq5y76",
                                       payload: null
                                     })
                                     .then(function (event) {
+                                      console.log(event);
                                       if (event === "HAMDAST_PAYMENT_SUCCESS") {
                                         $state.status = "OK";
                                         const receipt_id =
