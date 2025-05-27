@@ -63,6 +63,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
@@ -71,7 +72,6 @@ import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/com
 import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJCAy9/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -122,6 +122,7 @@ export const PlasmicSelfTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicSelfTest__OverridesType = {
   root?: Flex__<"div">;
   sideEffect?: Flex__<typeof SideEffect>;
+  hamdast?: Flex__<typeof Embed>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   progress?: Flex__<typeof AntdProgress>;
@@ -2075,6 +2076,15 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["log"] = await $steps["log"];
             }
           }}
+        />
+
+        <Embed
+          data-plasmic-name={"hamdast"}
+          data-plasmic-override={overrides.hamdast}
+          className={classNames("__wab_instance", sty.hamdast)}
+          code={
+            '<script src="https://hamdast.paziresh24.com/sdk/hamdast.js"></script>'
+          }
         />
 
         {(
@@ -8442,6 +8452,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "sideEffect",
+    "hamdast",
     "headerLiom",
     "paziresh24Avatar",
     "progress",
@@ -8473,6 +8484,7 @@ const PlasmicDescendants = {
     "stars"
   ],
   sideEffect: ["sideEffect"],
+  hamdast: ["hamdast"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
   progress: ["progress"],
@@ -8515,6 +8527,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideEffect: typeof SideEffect;
+  hamdast: typeof Embed;
   headerLiom: typeof HeaderLiom;
   paziresh24Avatar: typeof Paziresh24Avatar;
   progress: typeof AntdProgress;
@@ -8632,6 +8645,7 @@ export const PlasmicSelfTest = Object.assign(
   {
     // Helper components rendering sub-elements
     sideEffect: makeNodeComponent("sideEffect"),
+    hamdast: makeNodeComponent("hamdast"),
     headerLiom: makeNodeComponent("headerLiom"),
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     progress: makeNodeComponent("progress"),
