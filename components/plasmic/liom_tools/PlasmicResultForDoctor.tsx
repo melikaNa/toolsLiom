@@ -70,9 +70,9 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/compo
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-/component
+import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
-import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Icons from "../../Icons"; // plasmic-import: 1fNx7Q7E4s-Q/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import HamdastUtilsOpenLink from "../../HamdastUtilsOpenLink"; // plasmic-import: RRKFlqCHeJfP/component
@@ -145,7 +145,6 @@ export type PlasmicResultForDoctor__OverridesType = {
   backgrond?: Flex__<typeof Backgrond>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   timer?: Flex__<typeof Timer>;
-  collapse4?: Flex__<typeof AntdSingleCollapse>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   collapse5?: Flex__<typeof AntdSingleCollapse>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
@@ -422,13 +421,6 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "collapse4[].open",
-        type: "private",
-        variableType: "boolean",
-
-        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
       {
         path: "buttonLiom3.color",
@@ -1612,292 +1604,6 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                           </Stack__>
                         </Stack__>
                       ) : null}
-                      {(() => {
-                        try {
-                          return currentItem.hint;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })()
-                        ? (() => {
-                            const child$Props = {
-                              bordered: false,
-                              className: classNames(
-                                "__wab_instance",
-                                sty.collapse4
-                              ),
-                              disabled: (() => {
-                                try {
-                                  return !currentItem.advice_text;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              expandIcon: (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        $state.collapse2[currentIndex].open !=
-                                        true
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <PlasmicImg__
-                                      alt={""}
-                                      className={classNames(sty.img__tmaUm)}
-                                      displayHeight={"auto"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"15px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: "/plasmic/liom_tools/images/image32.svg",
-                                        fullWidth: 16,
-                                        fullHeight: 16,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-                                  ) : null}
-                                  {(() => {
-                                    try {
-                                      return (
-                                        $state.collapse2[currentIndex].open ==
-                                        true
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return true;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
-                                    <PlasmicImg__
-                                      alt={""}
-                                      className={classNames(sty.img__l2Wse)}
-                                      displayHeight={"auto"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"25px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: "/plasmic/liom_tools/images/image31.svg",
-                                        fullWidth: 16,
-                                        fullHeight: 16,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-                                  ) : null}
-                                </React.Fragment>
-                              ),
-                              expandIconPosition: "end",
-                              ghost: true,
-                              label2: (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__vT14U
-                                  )}
-                                >
-                                  <div
-                                    className={projectcss.__wab_expr_html_text}
-                                    dangerouslySetInnerHTML={{
-                                      __html: (() => {
-                                        try {
-                                          return (() => {
-                                            if (
-                                              currentItem.option_metric ==
-                                                "endometriosis" ||
-                                              currentItem.option_metric ==
-                                                "uterineFibroids"
-                                            )
-                                              return (
-                                                currentItem.hint +
-                                                " . " +
-                                                `<br> <b  style="color: #D48806;"> نکته مهم : </b><b  style="color: #D48806;"> برای تشخیص قطعی این بیماری، نیاز به سونوگرافی است. </b>`
-                                              );
-                                            else return currentItem.hint;
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647";
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    }}
-                                  />
-                                </div>
-                              ),
-                              onChange: async (...eventArgs: any) => {
-                                generateStateOnChangePropForCodeComponents(
-                                  $state,
-                                  "open",
-                                  ["collapse4", __plasmic_idx_0, "open"],
-                                  AntdSingleCollapse_Helpers
-                                ).apply(null, eventArgs);
-
-                                (async activeIds => {
-                                  const $steps = {};
-
-                                  $steps["invokeGlobalAction"] =
-                                    $state.collapse2[currentIndex].open == true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            args: [
-                                              "POST",
-                                              "https://api.liom.app/service/log",
-                                              undefined,
-                                              (() => {
-                                                try {
-                                                  return {
-                                                    userId: $ctx.query.user_id,
-                                                    pageName: "result",
-                                                    action: "Show-more",
-                                                    extraData: {
-                                                      sessionId:
-                                                        $ctx.query.session_id
-                                                    }
-                                                  };
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return undefined;
-                                                  }
-                                                  throw e;
-                                                }
-                                              })(),
-                                              {
-                                                headers: {
-                                                  "Content-Type":
-                                                    "application/json",
-                                                  Authorization:
-                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                                                }
-                                              }
-                                            ]
-                                          };
-                                          return $globalActions[
-                                            "Fragment.apiRequest"
-                                          ]?.apply(null, [...actionArgs.args]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction"] != null &&
-                                    typeof $steps["invokeGlobalAction"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["invokeGlobalAction"] = await $steps[
-                                      "invokeGlobalAction"
-                                    ];
-                                  }
-                                }).apply(null, eventArgs);
-                              },
-                              open: generateStateValueProp($state, [
-                                "collapse4",
-                                __plasmic_idx_0,
-                                "open"
-                              ]),
-                              showArrow: true,
-                              size: "small"
-                            };
-                            initializeCodeComponentStates(
-                              $state,
-                              [
-                                {
-                                  name: "open",
-                                  plasmicStateName: "collapse4[].open"
-                                }
-                              ],
-                              [__plasmic_idx_0],
-                              AntdSingleCollapse_Helpers ?? {},
-                              child$Props
-                            );
-                            initializePlasmicStates(
-                              $state,
-                              [
-                                {
-                                  name: "collapse4[].open",
-                                  initFunc: ({ $props, $state, $queries }) =>
-                                    undefined
-                                }
-                              ],
-                              [__plasmic_idx_0]
-                            );
-                            return (
-                              <AntdSingleCollapse
-                                data-plasmic-name={"collapse4"}
-                                data-plasmic-override={overrides.collapse4}
-                                {...child$Props}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__ztwA
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.advice_text;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "\u26a0\ufe0f \u0628\u0631\u0627\u06cc \u062f\u0642\u06cc\u0642 \u062a\u0631 \u0634\u062f\u0646 \u0646\u062a\u06cc\u062c\u0647\u060c \u062a\u0633\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc\u062f";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              </AntdSingleCollapse>
-                            );
-                          })()
-                        : null}
                       <div
                         className={classNames(
                           projectcss.all,
@@ -5814,7 +5520,6 @@ const PlasmicDescendants = {
     "backgrond",
     "headerLiom",
     "timer",
-    "collapse4",
     "buttonLiom3",
     "collapse5",
     "buttonLiom5",
@@ -5837,7 +5542,6 @@ const PlasmicDescendants = {
   backgrond: ["backgrond"],
   headerLiom: ["headerLiom"],
   timer: ["timer"],
-  collapse4: ["collapse4"],
   buttonLiom3: ["buttonLiom3"],
   collapse5: ["collapse5"],
   buttonLiom5: ["buttonLiom5"],
@@ -5878,7 +5582,6 @@ type NodeDefaultElementType = {
   backgrond: typeof Backgrond;
   headerLiom: typeof HeaderLiom;
   timer: typeof Timer;
-  collapse4: typeof AntdSingleCollapse;
   buttonLiom3: typeof ButtonLiom;
   collapse5: typeof AntdSingleCollapse;
   buttonLiom5: typeof ButtonLiom;
@@ -5987,7 +5690,6 @@ export const PlasmicResultForDoctor = Object.assign(
     backgrond: makeNodeComponent("backgrond"),
     headerLiom: makeNodeComponent("headerLiom"),
     timer: makeNodeComponent("timer"),
-    collapse4: makeNodeComponent("collapse4"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     collapse5: makeNodeComponent("collapse5"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),

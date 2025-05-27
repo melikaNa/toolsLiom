@@ -7141,39 +7141,19 @@ window.typewriter = function(elementId) {
             />
           </section>
         ) : null}
-        {(
-          hasVariant(globalVariants, "screen", "mobileOnly")
-            ? (() => {
-                try {
-                  return (
-                    !$state.load && Object.keys($state.infoChat).length == 0
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })()
-            : (() => {
-                try {
-                  return (
-                    !$state.load && Object.keys($state.infoChat).length == 0
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })()
-        ) ? (
+        {(() => {
+          try {
+            return (() => {})();
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })() ? (
           <Stack__
             as={"div"}
             hasGap={true}

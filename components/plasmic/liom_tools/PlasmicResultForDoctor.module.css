@@ -897,53 +897,6 @@
   padding-left: var(--token-omrXvBNBcWTN);
   text-align: right;
 }
-.collapse4:global(.__wab_instance) {
-  width: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  font-size: 12px;
-  min-width: 0;
-}
-.text__vT14U {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: right;
-  font-size: var(--token-KUiXUfHPkqkm);
-  font-weight: 400;
-  color: var(--token-zux6fVI6aE30);
-  min-width: 0;
-}
-.text__ztwA {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  font-size: var(--token-KUiXUfHPkqkm);
-  color: var(--token-zux6fVI6aE30);
-  text-align: right;
-  min-width: 0;
-}
-.img__tmaUm {
-  object-fit: cover;
-  max-width: 100%;
-  width: 15px;
-  transform: scaleX(-1) scaleY(1) scaleZ(1);
-  margin: -20px 0px 0px;
-}
-.img__tmaUm > picture > img {
-  object-fit: cover;
-}
-.img__l2Wse {
-  object-fit: cover;
-  max-width: 100%;
-  width: 25px;
-  margin-top: -15px;
-}
-.img__l2Wse > picture > img {
-  object-fit: cover;
-}
 .text__gL0Mv {
   position: relative;
   width: 100%;

@@ -3086,32 +3086,33 @@ function PlasmicSelfTest__RenderFunc(props: {
                   buyClick={async event => {
                     const $steps = {};
 
-                    $steps["updateDialog2Open"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dialog2", "open"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
+                    $steps["updateDialog2Open"] =
+                      $ctx.query.gw != "paziresh24"
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dialog2", "open"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                     if (
                       $steps["updateDialog2Open"] != null &&
                       typeof $steps["updateDialog2Open"] === "object" &&
@@ -3120,6 +3121,78 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["updateDialog2Open"] = await $steps[
                         "updateDialog2Open"
                       ];
+                    }
+
+                    $steps["runCode"] =
+                      $ctx.query.gw == "paziresh24"
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.hamdast.payment
+                                    .pay({
+                                      product_key: "m4qlmua1uuq5y76",
+                                      payload: null
+                                    })
+                                    .then(function (event) {
+                                      if (event === "HAMDAST_PAYMENT_SUCCESS") {
+                                        $state.status = "OK";
+                                        const receipt_id =
+                                          window.hamdast?.payment?.receipt_id;
+                                        fetch(
+                                          "https://n8n.staas.ir/webhook/pasiresh24/pay",
+                                          {
+                                            method: "POST",
+                                            headers: {
+                                              "Content-Type": "application/json"
+                                            },
+                                            body: JSON.stringify({
+                                              receipt_id: receipt_id
+                                            })
+                                          }
+                                        )
+                                          .then(response => response.json())
+                                          .then(data => {
+                                            console.log("تایید پرداخت:", data);
+                                          })
+                                          .catch(err => {
+                                            console.error(
+                                              "خطا در تایید پرداخت:",
+                                              err
+                                            );
+                                          });
+                                      } else if (
+                                        event === "HAMDAST_PAYMENT_CANCEL"
+                                      ) {
+                                        $state.status = "NOK";
+                                        console.log("پرداخت لغو شد.");
+                                      } else if (
+                                        event === "HAMDAST_PAYMENT_ERROR"
+                                      ) {
+                                        $state.status = "NOK";
+                                        console.log("پرداخت ناموفق بود.");
+                                      }
+                                    })
+                                    .catch(function (error) {
+                                      console.error(
+                                        "خطای کلی در فرآیند پرداخت:",
+                                        error
+                                      );
+                                    });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                   className={classNames("__wab_instance", sty.testOptionsLiom, {

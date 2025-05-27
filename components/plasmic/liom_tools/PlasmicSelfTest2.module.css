@@ -427,15 +427,15 @@
 }
 .section__xBme8 {
   display: grid;
-  position: relative;
+  position: absolute;
   align-content: flex-start;
   justify-items: center;
   width: 100%;
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 16px;
-  left: auto;
-  top: auto;
+  left: 0px;
+  top: 643px;
   z-index: 2;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
@@ -454,7 +454,7 @@
   .section__xBme8 {
     width: auto;
     height: auto;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: auto;
     justify-items: center;
@@ -2046,11 +2046,6 @@
   > picture
   > img {
   margin-top: 24px;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__w0Vni {
-    display: flex;
-  }
 }
 .svg__ivgFi {
   object-fit: cover;
