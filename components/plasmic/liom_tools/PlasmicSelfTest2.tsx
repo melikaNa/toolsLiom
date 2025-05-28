@@ -7637,6 +7637,32 @@ window.typewriter = function(elementId) {
               </div>
               <div
                 aria-pressed={undefined}
+                className={classNames(projectcss.all, sty.freeBox__jzKxt)}
+              >
+                <PlasmicIcon__
+                  PlasmicIconType={
+                    hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? Icon190Icon
+                      : Icon190Icon
+                  }
+                  className={classNames(projectcss.all, sty.svg__zYx5S)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__sRWht
+                  )}
+                >
+                  {
+                    "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
+                  }
+                </div>
+              </div>
+              <div
+                aria-pressed={undefined}
                 className={classNames(projectcss.all, sty.freeBox__rcFg1)}
                 onClick={async event => {
                   const $steps = {};
@@ -7692,32 +7718,6 @@ window.typewriter = function(elementId) {
                 >
                   {
                     "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
-                  }
-                </div>
-              </div>
-              <div
-                aria-pressed={undefined}
-                className={classNames(projectcss.all, sty.freeBox__jzKxt)}
-              >
-                <PlasmicIcon__
-                  PlasmicIconType={
-                    hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? Icon190Icon
-                      : Icon190Icon
-                  }
-                  className={classNames(projectcss.all, sty.svg__zYx5S)}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__sRWht
-                  )}
-                >
-                  {
-                    "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
                   }
                 </div>
               </div>
