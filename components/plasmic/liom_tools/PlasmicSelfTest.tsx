@@ -1681,6 +1681,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
+                        $state.productKey =
+                          $steps.infoTest?.data?.info?.product_key;
                         $state.rate = $steps.infoTest?.data?.info?.rate;
                         $state.cRate = $steps.infoTest?.data.info.cRate;
                         window.sessionStorage.setItem(
@@ -3148,7 +3150,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   console.log("pay");
                                   return window.hamdast.payment
                                     .pay({
-                                      product_key: "m4qlmua1uuq5y76",
+                                      product_key: $state.productKey,
                                       payload: null
                                     })
                                     .then(function (event) {
@@ -6306,6 +6308,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                                           callback:
                                             "https://n8n.staas.ir/webhook/selfTestPayment",
                                           extraData: {
+                                            price:
+                                              $state.shop.data.result.price,
                                             user_id: $state.userId,
                                             session_id: $state.sessionId,
                                             type: $ctx.query.type
