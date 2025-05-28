@@ -100,6 +100,12 @@ import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSD
 import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: yU3FWAJzfOsT/icon
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
+import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: WIXMGnqTFn8X/icon
+import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: o0umFUjPufGW/icon
+import Icon190Icon from "./icons/PlasmicIcon__Icon190"; // plasmic-import: ZyBCRlp539f1/icon
+import Icon234Icon from "./icons/PlasmicIcon__Icon234"; // plasmic-import: EK_7tPdhf6dM/icon
+import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: svqpWWNnaQ7C/icon
+import Icon202Icon from "./icons/PlasmicIcon__Icon202"; // plasmic-import: O0O7vgaywlmV/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: VTuVNgeUH3X6/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
@@ -2573,7 +2579,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 ? (() => {
                     try {
                       return {
-                        height: $state.testChat?.length == 0 ? "auto" : "90dvh",
+                        height: $state.testChat?.length == 0 ? "auto" : "90vh",
                         left: 0,
                         right: 0,
                         bottom: 0
@@ -3549,15 +3555,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
               hasVariant(globalVariants, "screen", "mobileOnly")
                 ? (() => {
                     try {
-                      return {
-                        position:
-                          $state.testChat?.length == 0 && !$state.loading
-                            ? "absolute"
-                            : "absolute",
-                        left: 0,
-                        right: 0,
-                        bottom: 0
-                      };
+                      return {};
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -4705,6 +4703,222 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 ) : null}
               </div>
             </Reveal>
+            <div className={classNames(projectcss.all, sty.freeBox__u6Gi0)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__iBt7L)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__fAaWw)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToHttpsAppsLiomAppHamyar"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: "https://apps.liom.app/hamyar/"
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToHttpsAppsLiomAppHamyar"] != null &&
+                      typeof $steps["goToHttpsAppsLiomAppHamyar"] ===
+                        "object" &&
+                      typeof $steps["goToHttpsAppsLiomAppHamyar"].then ===
+                        "function"
+                    ) {
+                      $steps["goToHttpsAppsLiomAppHamyar"] = await $steps[
+                        "goToHttpsAppsLiomAppHamyar"
+                      ];
+                    }
+                  }}
+                >
+                  <Icon6Icon
+                    className={classNames(projectcss.all, sty.svg__zdciT)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dU8Mn
+                    )}
+                  >
+                    {"\u0647\u0645\u06cc\u0627\u0631"}
+                  </div>
+                </div>
+                <div
+                  aria-pressed={undefined}
+                  className={classNames(projectcss.all, sty.freeBox__yGyXv)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToHttpsAppsLiomAppSelfCare"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: "https://apps.liom.app/Self-care/"
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToHttpsAppsLiomAppSelfCare"] != null &&
+                      typeof $steps["goToHttpsAppsLiomAppSelfCare"] ===
+                        "object" &&
+                      typeof $steps["goToHttpsAppsLiomAppSelfCare"].then ===
+                        "function"
+                    ) {
+                      $steps["goToHttpsAppsLiomAppSelfCare"] = await $steps[
+                        "goToHttpsAppsLiomAppSelfCare"
+                      ];
+                    }
+                  }}
+                >
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? Icon213Icon
+                        : Icon213Icon
+                    }
+                    className={classNames(projectcss.all, sty.svg___7FHf)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__sPpI7
+                    )}
+                  >
+                    {
+                      "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"
+                    }
+                  </div>
+                </div>
+                <div
+                  aria-pressed={undefined}
+                  className={classNames(projectcss.all, sty.freeBox__xva3B)}
+                >
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? Icon190Icon
+                        : Icon190Icon
+                    }
+                    className={classNames(projectcss.all, sty.svg__fp2K)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__tgJzj
+                    )}
+                  >
+                    {
+                      "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
+                    }
+                  </div>
+                </div>
+                {false ? (
+                  <div
+                    aria-pressed={undefined}
+                    className={classNames(projectcss.all, sty.freeBox__vOh9)}
+                  >
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? Icon213Icon
+                          : Icon234Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__id8In)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__xxmNs
+                      )}
+                    >
+                      {
+                        "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
+                      }
+                    </div>
+                  </div>
+                ) : null}
+                <div className={classNames(projectcss.all, sty.freeBox__pLpDb)}>
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? Icon23Icon
+                        : Icon23Icon
+                    }
+                    className={classNames(projectcss.all, sty.svg__dbu9G)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__eiAC
+                    )}
+                  >
+                    {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__icTbQ)}>
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? Icon202Icon
+                        : Icon202Icon
+                    }
+                    className={classNames(projectcss.all, sty.svg__aFqFr)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__u4Cgt
+                    )}
+                  >
+                    {"\u06a9\u0644\u06cc\u0646\u06cc\u06a9"}
+                  </div>
+                </div>
+              </Stack__>
+            </div>
           </section>
           <Embed
             className={classNames("__wab_instance", sty.embedHtml___9LDwa)}
@@ -5300,7 +5514,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
             try {
               return {
                 "padding-top":
-                  $state.paramsObject.inApp == "false" ? "70px" : "0"
+                  $state.paramsObject.inApp == "false" ? "74px" : "0"
               };
             } catch (e) {
               if (

@@ -4060,6 +4060,26 @@
           "id": "WQxcDyZpj2MT",
           "name": "Icon189Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon189.tsx"
+        },
+        {
+          "id": "o0umFUjPufGW",
+          "name": "Icon213Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon213.tsx"
+        },
+        {
+          "id": "EK_7tPdhf6dM",
+          "name": "Icon234Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon234.tsx"
+        },
+        {
+          "id": "O0O7vgaywlmV",
+          "name": "Icon202Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon202.tsx"
+        },
+        {
+          "id": "ZyBCRlp539f1",
+          "name": "Icon190Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon190.tsx"
         }
       ],
       "images": [
