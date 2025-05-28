@@ -1627,6 +1627,82 @@ function PlasmicSelfTest2__RenderFunc(props: {
               $steps["updateStatus"] = await $steps["updateStatus"];
             }
 
+            $steps["updateTextAreaValue"] =
+              $state.paramsObject.question != undefined
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["textArea", "value"]
+                      },
+                      operation: 0,
+                      value: $state.paramsObject.question
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+            if (
+              $steps["updateTextAreaValue"] != null &&
+              typeof $steps["updateTextAreaValue"] === "object" &&
+              typeof $steps["updateTextAreaValue"].then === "function"
+            ) {
+              $steps["updateTextAreaValue"] = await $steps[
+                "updateTextAreaValue"
+              ];
+            }
+
+            $steps["updateTestChat2"] =
+              $state.paramsObject.question != undefined
+                ? (() => {
+                    const actionArgs = { args: [300] };
+                    return $globalActions["Fragment.wait"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+            if (
+              $steps["updateTestChat2"] != null &&
+              typeof $steps["updateTestChat2"] === "object" &&
+              typeof $steps["updateTestChat2"].then === "function"
+            ) {
+              $steps["updateTestChat2"] = await $steps["updateTestChat2"];
+            }
+
+            $steps["updateTestChat3"] =
+              $state.paramsObject.question != undefined
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          window.document.getElementById("sendicon").click();
+                          delete $state.paramsObject.question;
+                          const url = new URL(window.location.href);
+                          url.searchParams.delete("question");
+                          return window.history.replaceState({}, "", url);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+            if (
+              $steps["updateTestChat3"] != null &&
+              typeof $steps["updateTestChat3"] === "object" &&
+              typeof $steps["updateTestChat3"].then === "function"
+            ) {
+              $steps["updateTestChat3"] = await $steps["updateTestChat3"];
+            }
+
             $steps["updateLoad"] = true
               ? (() => {
                   const actionArgs = {
@@ -1701,82 +1777,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
               typeof $steps["invokeGlobalAction"].then === "function"
             ) {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-            }
-
-            $steps["updateTextAreaValue"] =
-              $state.paramsObject.question != undefined
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["textArea", "value"]
-                      },
-                      operation: 0,
-                      value: $state.paramsObject.question
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-            if (
-              $steps["updateTextAreaValue"] != null &&
-              typeof $steps["updateTextAreaValue"] === "object" &&
-              typeof $steps["updateTextAreaValue"].then === "function"
-            ) {
-              $steps["updateTextAreaValue"] = await $steps[
-                "updateTextAreaValue"
-              ];
-            }
-
-            $steps["updateTestChat2"] =
-              $state.paramsObject.question != undefined
-                ? (() => {
-                    const actionArgs = { args: [3000] };
-                    return $globalActions["Fragment.wait"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-            if (
-              $steps["updateTestChat2"] != null &&
-              typeof $steps["updateTestChat2"] === "object" &&
-              typeof $steps["updateTestChat2"].then === "function"
-            ) {
-              $steps["updateTestChat2"] = await $steps["updateTestChat2"];
-            }
-
-            $steps["updateTestChat3"] =
-              $state.paramsObject.question != undefined
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          window.document.getElementById("sendicon").click();
-                          delete $state.paramsObject.question;
-                          const url = new URL(window.location.href);
-                          url.searchParams.delete("question");
-                          return window.history.replaceState({}, "", url);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-            if (
-              $steps["updateTestChat3"] != null &&
-              typeof $steps["updateTestChat3"] === "object" &&
-              typeof $steps["updateTestChat3"].then === "function"
-            ) {
-              $steps["updateTestChat3"] = await $steps["updateTestChat3"];
             }
           }}
         />
