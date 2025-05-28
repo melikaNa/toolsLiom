@@ -2868,6 +2868,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/play-list"
+        },
+        {
+          "id": "sJlAsjxfgFPQ",
+          "name": "ResultForDoctor2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicResultForDoctor2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/Result-for-doctor-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicResultForDoctor2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/Result-for-doctor-2"
         }
       ],
       "icons": [
