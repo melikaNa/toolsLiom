@@ -3153,12 +3153,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       product_key: $state.productKey,
                                       payload: null
                                     })
-                                    .then(function (event) {
+                                    .then(function ({ event, ...payload }) {
                                       console.log(event);
                                       if (event === "HAMDAST_PAYMENT_SUCCESS") {
                                         $state.status = "OK";
-                                        const receipt_id =
-                                          window.hamdast?.payment?.receipt_id;
+                                        const receipt_id = payload.receipt_id;
                                         fetch(
                                           "https://n8n.staas.ir/webhook/pasiresh24/pay",
                                           {
