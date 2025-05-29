@@ -85,6 +85,7 @@ import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
 import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
 import TextInput from "../../TextInput"; // plasmic-import: aEno43N2WkPr/component
+import { Select } from "@/fragment/components/select"; // plasmic-import: P0EOGSZ4bQLZ/codeComponent
 import RadioGrop from "../../RadioGrop"; // plasmic-import: oaU2G97TOKr2/component
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
@@ -175,10 +176,12 @@ export type PlasmicResult__OverridesType = {
   name?: Flex__<typeof TextInput>;
   name2?: Flex__<typeof TextInput>;
   code?: Flex__<typeof TextInput>;
+  select?: Flex__<typeof Select>;
   mobile?: Flex__<typeof TextInput>;
   gender2?: Flex__<"div">;
   radioGrop?: Flex__<typeof RadioGrop>;
   email?: Flex__<typeof TextInput>;
+  textArea3?: Flex__<typeof AntdTextArea>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
 };
 
@@ -624,6 +627,26 @@ function PlasmicResult__RenderFunc(props: {
               throw e;
             }
           })() ?? $props.dercentage
+      },
+      {
+        path: "select.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "select.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textArea3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -6226,74 +6249,166 @@ function PlasmicResult__RenderFunc(props: {
                     </TextInput>
                   </Stack__>
                 </Stack__>
-                <TextInput
-                  data-plasmic-name={"code"}
-                  data-plasmic-override={overrides.code}
-                  className={classNames("__wab_instance", sty.code)}
-                  error={(() => {
-                    try {
-                      return $state.errors.find(
-                        item => item.type == "nationalCode"
-                      )
-                        ? true
-                        : false;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
-                  errorText={(() => {
-                    try {
-                      return $state.errors.find(
-                        item => item.type == "nationalCode"
-                      ).message;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  onChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["code", "value"])(
-                        (e => e.target?.value).apply(null, eventArgs)
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  placeholder={``}
-                  size={"medium"}
-                  type={"tel"}
-                  value={
-                    generateStateValueProp($state, ["code", "value"]) ?? ""
-                  }
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__m9AMe)}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__yEk69
-                    )}
+                  <TextInput
+                    data-plasmic-name={"code"}
+                    data-plasmic-override={overrides.code}
+                    className={classNames("__wab_instance", sty.code)}
+                    error={(() => {
+                      try {
+                        return $state.errors.find(
+                          item => item.type == "nationalCode"
+                        )
+                          ? true
+                          : false;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    errorText={(() => {
+                      try {
+                        return $state.errors.find(
+                          item => item.type == "nationalCode"
+                        ).message;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    onChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["code", "value"])(
+                          (e => e.target?.value).apply(null, eventArgs)
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    placeholder={``}
+                    size={"medium"}
+                    type={"tel"}
+                    value={
+                      generateStateValueProp($state, ["code", "value"]) ?? ""
+                    }
                   >
-                    {"\u06a9\u062f \u0645\u0644\u06cc"}
-                  </div>
-                </TextInput>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__yEk69
+                      )}
+                    >
+                      {"\u06a9\u062f \u0645\u0644\u06cc"}
+                    </div>
+                  </TextInput>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__ke6Or)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__mnIjq
+                      )}
+                    >
+                      {"\u0646\u0648\u0639 \u0628\u06cc\u0645\u0647"}
+                    </div>
+                    <Select
+                      data-plasmic-name={"select"}
+                      data-plasmic-override={overrides.select}
+                      onChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "select",
+                          "value"
+                        ]).apply(null, eventArgs);
+                      }}
+                      onOpenChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "select",
+                          "open"
+                        ]).apply(null, eventArgs);
+                      }}
+                      open={generateStateValueProp($state, ["select", "open"])}
+                      options={(() => {
+                        try {
+                          return [
+                            { label: "تامین اجتماعی", value: "تامین اجتماعی" },
+                            { label: "بیمه سلامت", value: "بیمه سلامت" },
+                            { label: "نیرو های مسلح", value: "نیرو های مسلح" }
+                          ];
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      placeholder={
+                        "\u0644\u0637\u0641\u0627 \u0646\u0648\u0639 \u0628\u06cc\u0645\u0647 \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f."
+                      }
+                      triggerClassName={classNames(
+                        "__wab_instance",
+                        sty.select
+                      )}
+                      value={generateStateValueProp($state, [
+                        "select",
+                        "value"
+                      ])}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__liB2T
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.errors.find(
+                              item => item.type == "insurance"
+                            ).message;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                </Stack__>
                 <TextInput
                   data-plasmic-name={"mobile"}
                   data-plasmic-override={overrides.mobile}
@@ -6599,6 +6714,67 @@ function PlasmicResult__RenderFunc(props: {
                     {"\u0627\u06cc\u0645\u06cc\u0644"}
                   </div>
                 </TextInput>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__rBzfs)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ioNQl
+                    )}
+                  >
+                    {
+                      "\u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc"
+                    }
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__tbLxu)}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        autoSize: true,
+                        className: classNames("__wab_instance", sty.textArea3),
+                        onChange: async (...eventArgs: any) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "value",
+                            ["textArea3", "value"],
+                            AntdTextArea_Helpers
+                          ).apply(null, eventArgs);
+                        },
+                        placeholder:
+                          "\u062f\u0631 \u0635\u0648\u0631\u062a\u06cc \u06a9\u0647 \u062a\u0648\u0636\u06cc\u062d  \u06cc\u0627 \u0646\u06a9\u062a\u0647\u200c\u0627\u06cc \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u062f \u06a9\u0647 \u0645\u0627\u06cc\u0644 \u0647\u0633\u062a\u06cc\u062f \u067e\u0632\u0634\u06a9 \u0627\u0632 \u0622\u0646 \u0645\u0637\u0644\u0639 \u0628\u0627\u0634\u062f\u060c \u0644\u0637\u0641\u0627\u064b \u062f\u0631 \u0627\u06cc\u0646 \u0642\u0633\u0645\u062a \u0648\u0627\u0631\u062f \u0646\u0645\u0627\u06cc\u06cc\u062f.",
+                        value: generateStateValueProp($state, [
+                          "textArea3",
+                          "value"
+                        ])
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "value",
+                            plasmicStateName: "textArea3.value"
+                          }
+                        ],
+                        [],
+                        AntdTextArea_Helpers ?? {},
+                        child$Props
+                      );
+
+                      return (
+                        <AntdTextArea
+                          data-plasmic-name={"textArea3"}
+                          data-plasmic-override={overrides.textArea3}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
+                  </div>
+                </Stack__>
                 <ButtonLiom
                   data-plasmic-name={"buttonLiom5"}
                   data-plasmic-override={overrides.buttonLiom5}
@@ -6742,6 +6918,12 @@ function PlasmicResult__RenderFunc(props: {
                                     message: "ایمیل معتبر نیست."
                                   });
                                 }
+                                if (!$state.select.value) {
+                                  errors.push({
+                                    type: "insurance",
+                                    message: "لطفاً نوع بیمه را انتخاب کنید."
+                                  });
+                                }
                                 return ($state.errors = errors);
                               })();
                             }
@@ -6780,7 +6962,9 @@ function PlasmicResult__RenderFunc(props: {
                                       mobile: $state.mobile.value,
                                       nationalCode: $state.code.value,
                                       gender: $state.gender,
-                                      type: $state.apiRequest.data.type
+                                      type: $state.apiRequest.data.type,
+                                      insurance: $state.select.value,
+                                      description: $state.textArea3.value || ""
                                     };
                                   } catch (e) {
                                     if (
@@ -6978,7 +7162,14 @@ function PlasmicResult__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__a7Gue
+                  sty.text__a7Gue,
+                  {
+                    [sty.textdercentage__a7Gue2Sg6V]: hasVariant(
+                      $state,
+                      "dercentage",
+                      "dercentage"
+                    )
+                  }
                 )}
               >
                 {
@@ -7023,10 +7214,12 @@ const PlasmicDescendants = {
     "name",
     "name2",
     "code",
+    "select",
     "mobile",
     "gender2",
     "radioGrop",
     "email",
+    "textArea3",
     "buttonLiom5"
   ],
   modal: ["modal", "backgrond"],
@@ -7069,19 +7262,23 @@ const PlasmicDescendants = {
     "name",
     "name2",
     "code",
+    "select",
     "mobile",
     "gender2",
     "radioGrop",
     "email",
+    "textArea3",
     "buttonLiom5"
   ],
   name: ["name"],
   name2: ["name2"],
   code: ["code"],
+  select: ["select"],
   mobile: ["mobile"],
   gender2: ["gender2", "radioGrop"],
   radioGrop: ["radioGrop"],
   email: ["email"],
+  textArea3: ["textArea3"],
   buttonLiom5: ["buttonLiom5"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -7115,10 +7312,12 @@ type NodeDefaultElementType = {
   name: typeof TextInput;
   name2: typeof TextInput;
   code: typeof TextInput;
+  select: typeof Select;
   mobile: typeof TextInput;
   gender2: "div";
   radioGrop: typeof RadioGrop;
   email: typeof TextInput;
+  textArea3: typeof AntdTextArea;
   buttonLiom5: typeof ButtonLiom;
 };
 
@@ -7233,10 +7432,12 @@ export const PlasmicResult = Object.assign(
     _name: makeNodeComponent("name"),
     name2: makeNodeComponent("name2"),
     code: makeNodeComponent("code"),
+    select: makeNodeComponent("select"),
     mobile: makeNodeComponent("mobile"),
     gender2: makeNodeComponent("gender2"),
     radioGrop: makeNodeComponent("radioGrop"),
     email: makeNodeComponent("email"),
+    textArea3: makeNodeComponent("textArea3"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
 
     // Metadata about props expected for PlasmicResult

@@ -371,6 +371,16 @@
       }
     },
     {
+      "name": "Size-32",
+      "type": "spacing",
+      "value": "2rem",
+      "category": "spacing",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "qj2QmxcUZ5az"
+      }
+    },
+    {
       "name": "Size-4",
       "type": "spacing",
       "value": "0.25rem",
