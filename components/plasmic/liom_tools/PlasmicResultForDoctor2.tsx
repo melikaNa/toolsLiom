@@ -91,6 +91,7 @@ import XIcon from "../hamdast_sdk/icons/PlasmicIcon__X"; // plasmic-import: S0M2
 import Icon194Icon from "./icons/PlasmicIcon__Icon194"; // plasmic-import: -8lWeii-rNFY/icon
 import Icon192Icon from "./icons/PlasmicIcon__Icon192"; // plasmic-import: YCpDegnM-nfZ/icon
 import Icon191Icon from "./icons/PlasmicIcon__Icon191"; // plasmic-import: iv4jvwqYltaA/icon
+import Icon195Icon from "./icons/PlasmicIcon__Icon195"; // plasmic-import: IeDHEEXqP0ah/icon
 import Icon193Icon from "./icons/PlasmicIcon__Icon193"; // plasmic-import: l1oaz1wE4_L4/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGXuJrSxC-/icon
 import Icon118Icon from "./icons/PlasmicIcon__Icon118"; // plasmic-import: DnG_0B8ScC9o/icon
@@ -191,7 +192,7 @@ function PlasmicResultForDoctor2__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "action",
@@ -209,7 +210,7 @@ function PlasmicResultForDoctor2__RenderFunc(props: {
         path: "loadbtn",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "disable",
@@ -1099,6 +1100,33 @@ function PlasmicResultForDoctor2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__zAxYl)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "info",
+                                  "\u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0642\u0627\u0628\u0644 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0646\u06cc\u0633\u062a."
+                                ]
+                              };
+                              return $globalActions[
+                                "plasmic-antd5-config-provider.showNotification"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
                     >
                       <Icon194Icon
                         className={classNames(projectcss.all, sty.svg__bPq83)}
@@ -1117,6 +1145,33 @@ function PlasmicResultForDoctor2__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__q2HUr)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "\u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0642\u0627\u0628\u0644 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0646\u06cc\u0633\u062a."
+                                ]
+                              };
+                              return $globalActions[
+                                "plasmic-antd5-config-provider.showNotification"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
                     >
                       <Icon192Icon
                         className={classNames(projectcss.all, sty.svg__oRaSf)}
@@ -1138,6 +1193,33 @@ function PlasmicResultForDoctor2__RenderFunc(props: {
                         projectcss.all,
                         sty.freeBox___90B61
                       )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "\u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0642\u0627\u0628\u0644 \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0646\u06cc\u0633\u062a."
+                                ]
+                              };
+                              return $globalActions[
+                                "plasmic-antd5-config-provider.showNotification"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
                     >
                       <Icon191Icon
                         className={classNames(projectcss.all, sty.svg___4KUfH)}
@@ -1157,6 +1239,10 @@ function PlasmicResultForDoctor2__RenderFunc(props: {
                       </div>
                     </div>
                   </div>
+                  <Icon195Icon
+                    className={classNames(projectcss.all, sty.svg___8S4Dd)}
+                    role={"img"}
+                  />
                 </Stack__>
                 <Stack__
                   as={"div"}
@@ -1216,9 +1302,7 @@ function PlasmicResultForDoctor2__RenderFunc(props: {
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
                         try {
-                          return $state.info.transactions.concat(
-                            $state.info.transactions
-                          );
+                          return $state.info.transactions;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||

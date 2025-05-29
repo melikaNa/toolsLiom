@@ -4114,6 +4114,11 @@
           "id": "-8lWeii-rNFY",
           "name": "Icon194Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon194.tsx"
+        },
+        {
+          "id": "IeDHEEXqP0ah",
+          "name": "Icon195Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon195.tsx"
         }
       ],
       "images": [
