@@ -63,6 +63,9 @@
 .rootinformation > * {
   grid-column: 4;
 }
+.rootdercentage > * {
+  grid-column: 4;
+}
 .modal:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -431,6 +434,9 @@
 .freeBoxinformation__lwrUx8P0Rz {
   margin-top: calc(0px + var(--token-omrXvBNBcWTN)) !important;
 }
+.freeBoxdercentage__lwrUx2Sg6V {
+  margin-top: calc(0px + var(--token-omrXvBNBcWTN)) !important;
+}
 .freeBox__jSzzL {
   display: flex;
   flex-direction: row;
@@ -510,6 +516,11 @@
   padding-right: var(--token-omrXvBNBcWTN);
   padding-left: var(--token-omrXvBNBcWTN);
   text-align: right;
+}
+.textdercentage__j0SxV2Sg6V {
+  align-self: center;
+  font-weight: 700;
+  filter: brightness(80%);
 }
 .buttonLiom3:global(.__wab_instance) {
   max-width: 100%;

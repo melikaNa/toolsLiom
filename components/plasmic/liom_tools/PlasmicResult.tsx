@@ -131,13 +131,16 @@ createPlasmicElementProxy;
 
 export type PlasmicResult__VariantMembers = {
   information: "information";
+  dercentage: "dercentage";
 };
 export type PlasmicResult__VariantsArgs = {
   information?: SingleBooleanChoiceArg<"information">;
+  dercentage?: SingleBooleanChoiceArg<"dercentage">;
 };
 type VariantPropType = keyof PlasmicResult__VariantsArgs;
 export const PlasmicResult__VariantProps = new Array<VariantPropType>(
-  "information"
+  "information",
+  "dercentage"
 );
 
 export type PlasmicResult__ArgsType = {};
@@ -602,6 +605,25 @@ function PlasmicResult__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "dercentage",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.apiRequest.data.result_type == "dercentage";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.dercentage
       }
     ],
     [$props, $ctx, $refs]
@@ -661,6 +683,11 @@ function PlasmicResult__RenderFunc(props: {
             plasmic_hamdast_sdk_css.plasmic_tokens,
             sty.root,
             {
+              [sty.rootdercentage]: hasVariant(
+                $state,
+                "dercentage",
+                "dercentage"
+              ),
               [sty.rootglobal_theme_dark]: hasVariant(
                 globalVariants,
                 "theme",
@@ -1305,6 +1332,11 @@ function PlasmicResult__RenderFunc(props: {
               </div>
               <div
                 className={classNames(projectcss.all, sty.freeBox__iiNee, {
+                  [sty.freeBoxdercentage__iiNee2Sg6V]: hasVariant(
+                    $state,
+                    "dercentage",
+                    "dercentage"
+                  ),
                   [sty.freeBoxinformation__iiNee8P0Rz]: hasVariant(
                     $state,
                     "information",
@@ -1386,6 +1418,11 @@ function PlasmicResult__RenderFunc(props: {
                             projectcss.all,
                             sty.freeBox__lwrUx,
                             {
+                              [sty.freeBoxdercentage__lwrUx2Sg6V]: hasVariant(
+                                $state,
+                                "dercentage",
+                                "dercentage"
+                              ),
                               [sty.freeBoxinformation__lwrUx8P0Rz]: hasVariant(
                                 $state,
                                 "information",
@@ -1430,7 +1467,15 @@ function PlasmicResult__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text___99TDe
+                                  sty.text___99TDe,
+                                  {
+                                    [sty.textdercentage___99TDe2Sg6V]:
+                                      hasVariant(
+                                        $state,
+                                        "dercentage",
+                                        "dercentage"
+                                      )
+                                  }
                                 )}
                               >
                                 <React.Fragment>
@@ -1543,6 +1588,12 @@ function PlasmicResult__RenderFunc(props: {
                                       projectcss.__wab_text,
                                       sty.text__j0SxV,
                                       {
+                                        [sty.textdercentage__j0SxV2Sg6V]:
+                                          hasVariant(
+                                            $state,
+                                            "dercentage",
+                                            "dercentage"
+                                          ),
                                         [sty.textinformation__j0SxV8P0Rz]:
                                           hasVariant(
                                             $state,
@@ -1554,9 +1605,30 @@ function PlasmicResult__RenderFunc(props: {
                                   >
                                     {hasVariant(
                                       $state,
-                                      "information",
-                                      "information"
+                                      "dercentage",
+                                      "dercentage"
                                     ) ? (
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return " % " + currentItem.score;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "99 % ";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    ) : hasVariant(
+                                        $state,
+                                        "information",
+                                        "information"
+                                      ) ? (
                                       <React.Fragment>
                                         {(() => {
                                           try {
