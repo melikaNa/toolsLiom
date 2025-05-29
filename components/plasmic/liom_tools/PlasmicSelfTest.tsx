@@ -7229,52 +7229,54 @@ function PlasmicSelfTest__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/selfTest/shopBuy",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        merchantID:
-                                          "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
-                                        id: $state.shopId,
-                                        amount: $state.shop2.data.result.price,
-                                        type: "selfTest",
-                                        text: $state.shop2.data.result.title,
-                                        value: 1,
-                                        userId: $state.userId,
-                                        callback:
-                                          "https://n8n.staas.ir/webhook/selfTestPayment",
-                                        extraData: {
-                                          user_id: $state.userId,
-                                          session_id: $state.sessionId,
-                                          type: $ctx.query.type
-                                        },
-                                        redirectUrl: $state.redirectUrl
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
+                        $steps["invokeGlobalAction"] =
+                          $ctx.query.gw != "paziresh24"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://n8n.staas.ir/webhook/selfTest/shopBuy",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          merchantID:
+                                            "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
+                                          id: $state.shopId,
+                                          amount:
+                                            $state.shop2.data.result.price,
+                                          type: "selfTest",
+                                          text: $state.shop2.data.result.title,
+                                          value: 1,
+                                          userId: $state.userId,
+                                          callback:
+                                            "https://n8n.staas.ir/webhook/selfTestPayment",
+                                          extraData: {
+                                            user_id: $state.userId,
+                                            session_id: $state.sessionId,
+                                            type: $ctx.query.type
+                                          },
+                                          redirectUrl: $state.redirectUrl
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })(),
-                                  undefined
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    })(),
+                                    undefined
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
                         if (
                           $steps["invokeGlobalAction"] != null &&
                           typeof $steps["invokeGlobalAction"] === "object" &&
@@ -7287,7 +7289,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                         }
 
                         $steps["runCode"] =
-                          $steps.invokeGlobalAction?.data?.success == true
+                          $steps.invokeGlobalAction?.data?.success == true &&
+                          $ctx.query.gw != "paziresh24"
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
@@ -7308,6 +7311,86 @@ function PlasmicSelfTest__RenderFunc(props: {
                           typeof $steps["runCode"].then === "function"
                         ) {
                           $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["runCode2"] =
+                          $ctx.query.gw == "paziresh24"
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      console.log("pay");
+                                      return window.hamdast.payment
+                                        .pay({
+                                          product_key: $state.productKey,
+                                          payload: null
+                                        })
+                                        .then(function ({ event, ...payload }) {
+                                          console.log(event);
+                                          if (
+                                            event === "HAMDAST_PAYMENT_SUCCESS"
+                                          ) {
+                                            $state.status = "OK";
+                                            const receipt_id =
+                                              payload.receipt_id;
+                                            fetch(
+                                              "https://n8n.staas.ir/webhook/pasiresh24/pay",
+                                              {
+                                                method: "POST",
+                                                headers: {
+                                                  "Content-Type":
+                                                    "application/json"
+                                                },
+                                                body: JSON.stringify({
+                                                  receipt_id: receipt_id
+                                                })
+                                              }
+                                            )
+                                              .then(response => response.json())
+                                              .then(data => {
+                                                console.log(
+                                                  "تایید پرداخت:",
+                                                  data
+                                                );
+                                              })
+                                              .catch(err => {
+                                                console.error(
+                                                  "خطا در تایید پرداخت:",
+                                                  err
+                                                );
+                                              });
+                                          } else if (
+                                            event === "HAMDAST_PAYMENT_CANCEL"
+                                          ) {
+                                            $state.status = "NOK";
+                                            console.log("پرداخت لغو شد.");
+                                          } else if (
+                                            event === "HAMDAST_PAYMENT_ERROR"
+                                          ) {
+                                            $state.status = "NOK";
+                                            console.log("پرداخت ناموفق بود.");
+                                          }
+                                        })
+                                        .catch(function (error) {
+                                          console.error(
+                                            "خطای کلی در فرآیند پرداخت:",
+                                            error
+                                          );
+                                        });
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode2"] != null &&
+                          typeof $steps["runCode2"] === "object" &&
+                          typeof $steps["runCode2"].then === "function"
+                        ) {
+                          $steps["runCode2"] = await $steps["runCode2"];
                         }
 
                         $steps["updateLoadinkBotten2"] = true

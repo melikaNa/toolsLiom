@@ -2876,7 +2876,7 @@
           "projectId": "3zKPdhWckw1SJpPYhK46Bs",
           "renderModuleFilePath": "plasmic/liom_tools/PlasmicResultForDoctor2.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/Result-for-doctor-2.tsx"
+            "modulePath": "../src/pages/panel.tsx"
           },
           "cssFilePath": "plasmic/liom_tools/PlasmicResultForDoctor2.module.css",
           "scheme": "blackbox",
@@ -4094,6 +4094,26 @@
           "id": "ZyBCRlp539f1",
           "name": "Icon190Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon190.tsx"
+        },
+        {
+          "id": "iv4jvwqYltaA",
+          "name": "Icon191Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon191.tsx"
+        },
+        {
+          "id": "YCpDegnM-nfZ",
+          "name": "Icon192Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon192.tsx"
+        },
+        {
+          "id": "l1oaz1wE4_L4",
+          "name": "Icon193Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon193.tsx"
+        },
+        {
+          "id": "-8lWeii-rNFY",
+          "name": "Icon194Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon194.tsx"
         }
       ],
       "images": [
