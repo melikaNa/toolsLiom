@@ -372,6 +372,11 @@ function PlasmicTextInput__RenderFunc(props: {
             $state,
             "size",
             "medium"
+          ),
+          [sty.freeBoxsize_short__laz28ULe5D]: hasVariant(
+            $state,
+            "size",
+            "short"
           )
         })}
       >

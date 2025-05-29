@@ -178,9 +178,9 @@ export type PlasmicResult__OverridesType = {
   code?: Flex__<typeof TextInput>;
   select?: Flex__<typeof Select>;
   mobile?: Flex__<typeof TextInput>;
+  email?: Flex__<typeof TextInput>;
   gender2?: Flex__<"div">;
   radioGrop?: Flex__<typeof RadioGrop>;
-  email?: Flex__<typeof TextInput>;
   textArea3?: Flex__<typeof AntdTextArea>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
 };
@@ -6156,7 +6156,7 @@ function PlasmicResult__RenderFunc(props: {
                         }
                       }}
                       placeholder={``}
-                      size={"medium"}
+                      size={"short"}
                       value={
                         generateStateValueProp($state, ["name", "value"]) ?? ""
                       }
@@ -6230,7 +6230,7 @@ function PlasmicResult__RenderFunc(props: {
                         }
                       }}
                       placeholder={``}
-                      size={"medium"}
+                      size={"short"}
                       value={
                         generateStateValueProp($state, ["name2", "value"]) ?? ""
                       }
@@ -6306,7 +6306,7 @@ function PlasmicResult__RenderFunc(props: {
                       }
                     }}
                     placeholder={``}
-                    size={"medium"}
+                    size={"short"}
                     type={"tel"}
                     value={
                       generateStateValueProp($state, ["code", "value"]) ?? ""
@@ -6409,76 +6409,147 @@ function PlasmicResult__RenderFunc(props: {
                     </div>
                   </Stack__>
                 </Stack__>
-                <TextInput
-                  data-plasmic-name={"mobile"}
-                  data-plasmic-override={overrides.mobile}
-                  className={classNames("__wab_instance", sty.mobile)}
-                  error={(() => {
-                    try {
-                      return $state.errors.find(
-                        item => item.type == "phoneNumber"
-                      )
-                        ? true
-                        : false;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
-                  errorText={(() => {
-                    try {
-                      return $state.errors.find(
-                        item => item.type == "phoneNumber"
-                      ).message;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  onChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["mobile", "value"])(
-                        (e => e.target?.value).apply(null, eventArgs)
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  placeholder={``}
-                  size={"medium"}
-                  type={"tel"}
-                  value={
-                    generateStateValueProp($state, ["mobile", "value"]) ?? ""
-                  }
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__okDm5)}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__yz7C
-                    )}
-                  >
-                    {
-                      "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                  <TextInput
+                    data-plasmic-name={"mobile"}
+                    data-plasmic-override={overrides.mobile}
+                    className={classNames("__wab_instance", sty.mobile)}
+                    error={(() => {
+                      try {
+                        return $state.errors.find(
+                          item => item.type == "phoneNumber"
+                        )
+                          ? true
+                          : false;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    errorText={(() => {
+                      try {
+                        return $state.errors.find(
+                          item => item.type == "phoneNumber"
+                        ).message;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    onChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["mobile", "value"])(
+                          (e => e.target?.value).apply(null, eventArgs)
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    placeholder={``}
+                    size={"short"}
+                    type={"tel"}
+                    value={
+                      generateStateValueProp($state, ["mobile", "value"]) ?? ""
                     }
-                  </div>
-                </TextInput>
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__yz7C
+                      )}
+                    >
+                      {
+                        "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      }
+                    </div>
+                  </TextInput>
+                  <TextInput
+                    data-plasmic-name={"email"}
+                    data-plasmic-override={overrides.email}
+                    className={classNames("__wab_instance", sty.email)}
+                    error={(() => {
+                      try {
+                        return $state.errors.find(item => item.type == "email")
+                          ? true
+                          : false;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    errorText={(() => {
+                      try {
+                        return $state.errors.find(item => item.type == "email")
+                          .message;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    onChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["email", "value"])(
+                          (e => e.target?.value).apply(null, eventArgs)
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    placeholder={"gmail.com@******"}
+                    size={"short"}
+                    type={"tel"}
+                    value={
+                      generateStateValueProp($state, ["email", "value"]) ?? ""
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__kprY2
+                      )}
+                    >
+                      {"\u0627\u06cc\u0645\u06cc\u0644"}
+                    </div>
+                  </TextInput>
+                </Stack__>
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -6649,71 +6720,6 @@ function PlasmicResult__RenderFunc(props: {
                     </div>
                   </Stack__>
                 </Stack__>
-                <TextInput
-                  data-plasmic-name={"email"}
-                  data-plasmic-override={overrides.email}
-                  className={classNames("__wab_instance", sty.email)}
-                  error={(() => {
-                    try {
-                      return $state.errors.find(item => item.type == "email")
-                        ? true
-                        : false;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
-                  errorText={(() => {
-                    try {
-                      return $state.errors.find(item => item.type == "email")
-                        .message;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  onChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["email", "value"])(
-                        (e => e.target?.value).apply(null, eventArgs)
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  placeholder={"gmail.com@******"}
-                  size={"medium"}
-                  type={"tel"}
-                  value={
-                    generateStateValueProp($state, ["email", "value"]) ?? ""
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__kprY2
-                    )}
-                  >
-                    {"\u0627\u06cc\u0645\u06cc\u0644"}
-                  </div>
-                </TextInput>
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -6735,7 +6741,7 @@ function PlasmicResult__RenderFunc(props: {
                   >
                     {(() => {
                       const child$Props = {
-                        autoSize: true,
+                        autoSize: false,
                         className: classNames("__wab_instance", sty.textArea3),
                         onChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
@@ -7216,9 +7222,9 @@ const PlasmicDescendants = {
     "code",
     "select",
     "mobile",
+    "email",
     "gender2",
     "radioGrop",
-    "email",
     "textArea3",
     "buttonLiom5"
   ],
@@ -7264,9 +7270,9 @@ const PlasmicDescendants = {
     "code",
     "select",
     "mobile",
+    "email",
     "gender2",
     "radioGrop",
-    "email",
     "textArea3",
     "buttonLiom5"
   ],
@@ -7275,9 +7281,9 @@ const PlasmicDescendants = {
   code: ["code"],
   select: ["select"],
   mobile: ["mobile"],
+  email: ["email"],
   gender2: ["gender2", "radioGrop"],
   radioGrop: ["radioGrop"],
-  email: ["email"],
   textArea3: ["textArea3"],
   buttonLiom5: ["buttonLiom5"]
 } as const;
@@ -7314,9 +7320,9 @@ type NodeDefaultElementType = {
   code: typeof TextInput;
   select: typeof Select;
   mobile: typeof TextInput;
+  email: typeof TextInput;
   gender2: "div";
   radioGrop: typeof RadioGrop;
-  email: typeof TextInput;
   textArea3: typeof AntdTextArea;
   buttonLiom5: typeof ButtonLiom;
 };
@@ -7434,9 +7440,9 @@ export const PlasmicResult = Object.assign(
     code: makeNodeComponent("code"),
     select: makeNodeComponent("select"),
     mobile: makeNodeComponent("mobile"),
+    email: makeNodeComponent("email"),
     gender2: makeNodeComponent("gender2"),
     radioGrop: makeNodeComponent("radioGrop"),
-    email: makeNodeComponent("email"),
     textArea3: makeNodeComponent("textArea3"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
 

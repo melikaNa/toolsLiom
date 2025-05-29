@@ -155,6 +155,7 @@ export type PlasmicResult2__OverridesType = {
   section?: Flex__<"section">;
   dialog2?: Flex__<typeof Paziresh24Dialog>;
   textArea2?: Flex__<typeof AntdTextArea>;
+  dialog3?: Flex__<typeof Paziresh24Dialog>;
 };
 
 export interface DefaultResult2Props {}
@@ -460,6 +461,12 @@ function PlasmicResult2__RenderFunc(props: {
         path: "buttonLiom4[].load",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "dialog3.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -5289,6 +5296,48 @@ function PlasmicResult2__RenderFunc(props: {
             }
             trigger={null}
           />
+
+          <Paziresh24Dialog
+            data-plasmic-name={"dialog3"}
+            data-plasmic-override={overrides.dialog3}
+            body={
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__iTfRj)}
+              />
+            }
+            className={classNames("__wab_instance", sty.dialog3)}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["dialog3", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, ["dialog3", "open"])}
+            title={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__qaTdm
+                )}
+              >
+                {
+                  "\u0622\u06cc\u0627 \u0627\u0632 \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc \u061f"
+                }
+              </div>
+            }
+            trigger={null}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -5317,7 +5366,8 @@ const PlasmicDescendants = {
     "cardSubtitle",
     "section",
     "dialog2",
-    "textArea2"
+    "textArea2",
+    "dialog3"
   ],
   modal: ["modal", "backgrond"],
   backgrond: ["backgrond"],
@@ -5351,7 +5401,8 @@ const PlasmicDescendants = {
   cardSubtitle: ["cardSubtitle"],
   section: ["section"],
   dialog2: ["dialog2", "textArea2"],
-  textArea2: ["textArea2"]
+  textArea2: ["textArea2"],
+  dialog3: ["dialog3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5378,6 +5429,7 @@ type NodeDefaultElementType = {
   section: "section";
   dialog2: typeof Paziresh24Dialog;
   textArea2: typeof AntdTextArea;
+  dialog3: typeof Paziresh24Dialog;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5485,6 +5537,7 @@ export const PlasmicResult2 = Object.assign(
     section: makeNodeComponent("section"),
     dialog2: makeNodeComponent("dialog2"),
     textArea2: makeNodeComponent("textArea2"),
+    dialog3: makeNodeComponent("dialog3"),
 
     // Metadata about props expected for PlasmicResult2
     internalVariantProps: PlasmicResult2__VariantProps,

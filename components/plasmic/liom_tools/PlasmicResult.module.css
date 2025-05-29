@@ -2433,7 +2433,7 @@
 .text__mL9LQ {
   width: 100%;
   text-align: right;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   min-width: 0;
 }
@@ -2485,7 +2485,7 @@
 .text__vTvqO {
   width: 100%;
   text-align: right;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   min-width: 0;
 }
@@ -2534,7 +2534,7 @@
 }
 .text__yEk69 {
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   min-width: 0;
 }
@@ -2568,7 +2568,7 @@
 }
 .text__mnIjq {
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   text-align: right;
   min-width: 0;
@@ -2577,9 +2577,8 @@
   width: 100%;
   max-width: 100%;
   object-fit: cover;
-  height: 45px;
+  height: auto;
   min-width: 0;
-  flex-shrink: 0;
 }
 .text__liB2T {
   position: relative;
@@ -2593,16 +2592,46 @@
   padding-top: 4px;
   min-width: 0;
 }
+.freeBox__okDm5 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__okDm5 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 14px);
+  width: calc(100% + 14px);
+}
+.freeBox__okDm5 > :global(.__wab_flex-container) > *,
+.freeBox__okDm5 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__okDm5 > :global(.__wab_flex-container) > picture > img,
+.freeBox__okDm5
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 14px;
+}
 .mobile:global(.__wab_instance) {
   max-width: 100%;
+  height: 100%;
+  min-height: 0;
 }
-.svg__b6ATf {
+.svg__zwlyt {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.svg__gJnkq {
+.svg__pAftI {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2611,7 +2640,29 @@
 .text__yz7C {
   width: 100%;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
+  min-width: 0;
+}
+.email:global(.__wab_instance) {
+  max-width: 100%;
+  display: none;
+}
+.svg__h6B0J {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__e70Co {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__kprY2 {
+  width: 100%;
+  font-weight: 500;
+  font-size: 14px;
   min-width: 0;
 }
 .freeBox___91NgY {
@@ -2658,8 +2709,8 @@
   align-items: stretch;
   justify-content: flex-start;
   min-width: 0;
-  margin-top: calc(0px - 4px);
-  height: calc(100% + 4px);
+  margin-top: calc(0px - 2px);
+  height: calc(100% + 2px);
 }
 .gender2 > :global(.__wab_flex-container) > *,
 .gender2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -2669,7 +2720,7 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-top: 4px;
+  margin-top: 2px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .gender2 {
@@ -2706,7 +2757,7 @@
   text-align: right;
   color: var(--token-eAGGWpRlc3eE);
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   text-transform: none;
@@ -2752,7 +2803,7 @@
   position: relative;
 }
 .text__jS32 {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -2773,27 +2824,6 @@
   color: var(--token-mIaQ7cfg3AGq);
   min-width: 0;
 }
-.email:global(.__wab_instance) {
-  max-width: 100%;
-}
-.svg__ziYEg {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.svg__aOjf1 {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__kprY2 {
-  width: 100%;
-  font-weight: 500;
-  font-size: 16px;
-  min-width: 0;
-}
 .freeBox__rBzfs {
   display: flex;
   flex-direction: column;
@@ -2809,8 +2839,8 @@
   justify-content: flex-start;
   align-items: center;
   min-width: 0;
-  margin-top: calc(0px - 4px);
-  height: calc(100% + 4px);
+  margin-top: calc(0px - 2px);
+  height: calc(100% + 2px);
 }
 .freeBox__rBzfs > :global(.__wab_flex-container) > *,
 .freeBox__rBzfs > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -2820,11 +2850,11 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-top: 4px;
+  margin-top: 2px;
 }
 .text__ioNQl {
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   text-align: right;
   min-width: 0;
