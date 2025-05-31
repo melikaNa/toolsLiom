@@ -3303,6 +3303,12 @@ function PlasmicTest__RenderFunc(props: {
               </div>
             </Stack__>
           ) : null}
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__oNhHy)}
+            code={
+              '<!-- \u0645\u062d\u0644 \u0646\u0645\u0627\u06cc\u0634 \u0648\u06cc\u062c\u062a \u062a\u0631\u062c\u0645\u0647 -->\r\n<div id="google_translate_element"></div>\r\n\r\n<!-- \u062a\u0639\u0631\u06cc\u0641 \u062a\u0627\u0628\u0639 \u0631\u0627\u0647\u200c\u0627\u0646\u062f\u0627\u0632\u06cc \u0648\u06cc\u062c\u062a -->\r\n<script type="text/javascript">\r\n  function googleTranslateElementInit() {\r\n    new google.translate.TranslateElement({\r\n      pageLanguage: \'fa\',  // \u0632\u0628\u0627\u0646 \u0627\u0635\u0644\u06cc \u0635\u0641\u062d\u0647\u200c\u0627\u062a \u0631\u0627 \u0627\u06cc\u0646\u062c\u0627 \u062a\u0646\u0638\u06cc\u0645 \u06a9\u0646\r\n      layout: google.translate.TranslateElement.InlineLayout.SIMPLE\r\n    }, \'google_translate_element\');\r\n  }\r\n</script>\r\n\r\n<!-- \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0627\u0633\u06a9\u0631\u06cc\u067e\u062a \u06af\u0648\u06af\u0644 -->\r\n<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>\r\n'
+            }
+          />
         </div>
       </div>
     </React.Fragment>

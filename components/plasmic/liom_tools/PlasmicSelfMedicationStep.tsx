@@ -2225,8 +2225,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     }
 
                     $steps["updateListDetails2"] =
-                      $state.getData?.data &&
-                      $state.getData?.data?.[0]?.id == null
+                      Object.keys($state.getData?.data?.[0] || {}).length !=
+                        0 && $state.getData?.data?.[0]?.id == null
                         ? (() => {
                             const actionArgs = {
                               variable: {
