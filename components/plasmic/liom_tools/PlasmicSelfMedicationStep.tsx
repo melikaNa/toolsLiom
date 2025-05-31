@@ -2135,6 +2135,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         case "pcos_sub":
                           type = "pcosIsActive";
                           break;
+                        case "sunken_eyes_sub":
+                          type = "sunkenEyesIsActive";
+                          break;
                       }
                       return {
                         stepId: $state.paramsObject.stepId,
@@ -2327,11 +2330,15 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 return false;
                               else
                                 return (
-                                  $state.isDone == false &&
-                                  $ctx.query.type != "danger" &&
-                                  $ctx.query.type != "stretch_marks" &&
-                                  $ctx.query.type != "adhd_treatment_sub" &&
-                                  !$state.getUser.loading
+                                  ($state.getData?.data?.[0]?.unlockMode !=
+                                    "openAll" &&
+                                    $state.isDone == false &&
+                                    !$state.getUser.loading) ||
+                                  ($state.isDone == false &&
+                                    $ctx.query.type != "danger" &&
+                                    $ctx.query.type != "stretch_marks" &&
+                                    $ctx.query.type != "adhd_treatment_sub" &&
+                                    !$state.getUser.loading)
                                 );
                             })();
                           } catch (e) {
