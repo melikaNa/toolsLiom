@@ -1213,6 +1213,170 @@
     width: auto;
   }
 }
+.freeBox__bKpwS {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: var(--token-oDTVzkxdJ872);
+  position: relative;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  min-width: 0;
+  border-radius: var(--token-KVcr9NiMwFLr);
+  padding: var(--token-6eH8UjLOmr7v);
+  border: 2px dotted var(--token-uKRz3ov0rqIf);
+}
+.freeBox__bKpwS > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - var(--token-6eH8UjLOmr7v));
+  height: calc(100% + var(--token-6eH8UjLOmr7v));
+}
+.freeBox__bKpwS > :global(.__wab_flex-container) > *,
+.freeBox__bKpwS > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__bKpwS > :global(.__wab_flex-container) > picture > img,
+.freeBox__bKpwS
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: var(--token-6eH8UjLOmr7v);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__bKpwS {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
+    padding: var(--token-3WxvfyIdJppy);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__bKpwS > :global(.__wab_flex-container) {
+    flex-direction: column;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+    margin-top: calc(0px - 1px);
+    height: calc(100% + 1px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__bKpwS > :global(.__wab_flex-container) > *,
+  .freeBox__bKpwS > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__bKpwS > :global(.__wab_flex-container) > picture > img,
+  .freeBox__bKpwS
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+    margin-top: 1px;
+  }
+}
+.freeBoxinformation__bKpwS8P0Rz {
+  display: none;
+}
+.freeBox__kgya4 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px 0px 8px 8px;
+}
+.text__z8Xba {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-weight: 700;
+  font-size: var(--token-podr231_9RBN);
+  min-width: 0;
+}
+.freeBox__djnjd {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: auto;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__djnjd > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__djnjd {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__djnjd > :global(.__wab_flex-container) {
+    flex-direction: row;
+    margin-left: calc(0px - 4px);
+    width: calc(100% + 4px);
+    margin-top: calc(0px - 0px);
+    height: calc(100% + 0px);
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__djnjd > :global(.__wab_flex-container) > *,
+  .freeBox__djnjd > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__djnjd > :global(.__wab_flex-container) > picture > img,
+  .freeBox__djnjd
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 4px;
+    margin-top: 0px;
+  }
+}
+.text__hyDnv {
+  color: #7444bc;
+  text-align: right;
+  width: 100%;
+  font-weight: 500;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__hyDnv {
+    text-align: justify;
+  }
+}
+.lottie:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 100px;
+  height: 80px;
+  position: relative;
+  left: auto;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  flex-shrink: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .lottie:global(.__wab_instance) {
+    width: 80px;
+    height: auto;
+    margin-left: calc(-5px + 4px) !important;
+    flex-shrink: 0;
+  }
+}
 .apiRequest:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

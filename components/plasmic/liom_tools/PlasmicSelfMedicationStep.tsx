@@ -2139,6 +2139,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           type = "sunkenEyesIsActive";
                           break;
                       }
+                      console.log($state.paramsObject);
+                      console.log($state.getUser?.data?.[0]);
                       return {
                         stepId: $state.paramsObject.stepId,
                         sectionId: $state.paramsObject.secId,
@@ -2228,34 +2230,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     ) {
                       $steps["updateListDetails"] = await $steps[
                         "updateListDetails"
-                      ];
-                    }
-
-                    $steps["updateListDetails3"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                console.log("1" + $state.getData.loading);
-                                console.log("2" + $state.loading3);
-                                return console.log(
-                                  "3" + $state.getData?.data?.[0]?.id || ""
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateListDetails3"] != null &&
-                      typeof $steps["updateListDetails3"] === "object" &&
-                      typeof $steps["updateListDetails3"].then === "function"
-                    ) {
-                      $steps["updateListDetails3"] = await $steps[
-                        "updateListDetails3"
                       ];
                     }
 
