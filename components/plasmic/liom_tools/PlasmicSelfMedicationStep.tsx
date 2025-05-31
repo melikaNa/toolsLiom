@@ -2188,6 +2188,80 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   (async data => {
                     const $steps = {};
 
+                    $steps["updateListDetails3"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["loadshop"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateListDetails3"] != null &&
+                      typeof $steps["updateListDetails3"] === "object" &&
+                      typeof $steps["updateListDetails3"].then === "function"
+                    ) {
+                      $steps["updateListDetails3"] = await $steps[
+                        "updateListDetails3"
+                      ];
+                    }
+
+                    $steps["updateListDetails2"] =
+                      $state.getData?.data &&
+                      $state.getData?.data?.[0]?.id == null
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadshop"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateListDetails2"] != null &&
+                      typeof $steps["updateListDetails2"] === "object" &&
+                      typeof $steps["updateListDetails2"].then === "function"
+                    ) {
+                      $steps["updateListDetails2"] = await $steps[
+                        "updateListDetails2"
+                      ];
+                    }
+
                     $steps["updateListDetails"] = (() => {
                       if (
                         typeof $state.getData?.data?.[0]?.data !== "undefined"
@@ -2230,44 +2304,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     ) {
                       $steps["updateListDetails"] = await $steps[
                         "updateListDetails"
-                      ];
-                    }
-
-                    $steps["updateListDetails2"] =
-                      $state.getData?.data &&
-                      $state.getData?.data?.[0]?.id == null
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadshop"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["updateListDetails2"] != null &&
-                      typeof $steps["updateListDetails2"] === "object" &&
-                      typeof $steps["updateListDetails2"].then === "function"
-                    ) {
-                      $steps["updateListDetails2"] = await $steps[
-                        "updateListDetails2"
                       ];
                     }
                   }).apply(null, eventArgs);
