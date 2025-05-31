@@ -1219,13 +1219,12 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: var(--token-oDTVzkxdJ872);
+  background: #ffffff;
   position: relative;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
   min-width: 0;
   border-radius: var(--token-KVcr9NiMwFLr);
   padding: var(--token-6eH8UjLOmr7v);
-  border: 2px dotted var(--token-uKRz3ov0rqIf);
 }
 .freeBox__bKpwS > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -1350,11 +1349,13 @@
   text-align: right;
   width: 100%;
   font-weight: 500;
+  text-decoration-line: none;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__hyDnv {
     text-align: justify;
+    padding-top: 0px;
   }
 }
 .lottie:global(.__wab_instance) {

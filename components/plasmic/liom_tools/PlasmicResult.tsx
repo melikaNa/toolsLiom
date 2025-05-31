@@ -3727,6 +3727,20 @@ function PlasmicResult__RenderFunc(props: {
           {(
             hasVariant($state, "information", "information")
               ? true
+              : hasVariant(globalVariants, "screen", "mobileOnly")
+              ? (() => {
+                  try {
+                    return $state.apiRequest?.data?.prescription;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
               : (() => {
                   try {
                     return $state.apiRequest.data.prescription;
@@ -3784,10 +3798,117 @@ function PlasmicResult__RenderFunc(props: {
                         )
                     }
                   )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateProfileOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["profile", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateProfileOpen"] != null &&
+                      typeof $steps["updateProfileOpen"] === "object" &&
+                      typeof $steps["updateProfileOpen"].then === "function"
+                    ) {
+                      $steps["updateProfileOpen"] = await $steps[
+                        "updateProfileOpen"
+                      ];
+                    }
+                  }}
                 >
-                  {hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? "\u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u00ab\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9\u00bb \u0648 \u062a\u06a9\u0645\u06cc\u0644 \u0641\u0631\u0645\u060c \u067e\u0632\u0634\u06a9 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0634\u0645\u0627 \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632\u060c \u0646\u0633\u062e\u0647 \u06cc\u0627 \u0622\u0632\u0645\u0627\u06cc\u0634 \u0628\u0647\u200c\u0635\u0648\u0631\u062a \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9\u06cc \u0635\u0627\u062f\u0631 \u0648 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u062f\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f."
-                    : "\u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u00ab\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9\u00bb \u0648 \u067e\u0631 \u06a9\u0631\u062f\u0646 \u0641\u0631\u0645\u060c \u067e\u0632\u0634\u06a9 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0634\u0645\u0627 \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632\u060c \u0646\u0633\u062e\u0647 \u06cc\u0627 \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0622\u0632\u0645\u0627\u06cc\u0634 \u0635\u0627\u062f\u0631 \u0648 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u062f\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f."}
+                  {hasVariant(globalVariants, "screen", "mobileOnly") ? (
+                    <React.Fragment>
+                      <React.Fragment>
+                        {
+                          "\u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc "
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          textDecorationLine: "underline",
+                          fontWeight: 700,
+                          color: "var(--token-fyoD0poQfxvl)"
+                        }}
+                      >
+                        {
+                          "\u00ab\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9\u00bb"
+                        }
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          fontWeight: 700,
+                          color: "var(--token-fyoD0poQfxvl)"
+                        }}
+                      >
+                        {" "}
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\u0648 \u067e\u0631 \u06a9\u0631\u062f\u0646 \u0641\u0631\u0645\u060c \u067e\u0632\u0634\u06a9 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0634\u0645\u0627 \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632\u060c \u0646\u0633\u062e\u0647 \u06cc\u0627 \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0622\u0632\u0645\u0627\u06cc\u0634 \u0635\u0627\u062f\u0631 \u0648 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u062f\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f."
+                        }
+                      </React.Fragment>
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      <React.Fragment>
+                        {
+                          "\u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc "
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          textDecorationLine: "underline",
+                          fontWeight: 700,
+                          color: "var(--token-fyoD0poQfxvl)"
+                        }}
+                      >
+                        {
+                          "\u00ab\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9\u00bb"
+                        }
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          fontWeight: 700,
+                          color: "var(--token-fyoD0poQfxvl)"
+                        }}
+                      >
+                        {" "}
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\u0648 \u067e\u0631 \u06a9\u0631\u062f\u0646 \u0641\u0631\u0645\u060c \u067e\u0632\u0634\u06a9 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0634\u0645\u0627 \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632\u060c \u0646\u0633\u062e\u0647 \u06cc\u0627 \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0622\u0632\u0645\u0627\u06cc\u0634 \u0635\u0627\u062f\u0631 \u0648 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u062f\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f."
+                        }
+                      </React.Fragment>
+                    </React.Fragment>
+                  )}
                 </div>
                 <LottieWrapper
                   data-plasmic-name={"lottie"}
@@ -4024,7 +4145,7 @@ function PlasmicResult__RenderFunc(props: {
                                 hd: false,
                                 mn: "ADBE Vector Graphic - Fill",
                                 nm: "Relleno 1",
-                                c: { a: 0, k: [1, 1, 1], ix: 4 },
+                                c: { a: 0, k: [0.898, 0.9137, 0.9412], ix: 4 },
                                 r: 1,
                                 o: { a: 0, k: 100, ix: 5 }
                               },
@@ -4192,7 +4313,7 @@ function PlasmicResult__RenderFunc(props: {
                                 hd: false,
                                 mn: "ADBE Vector Graphic - Fill",
                                 nm: "Relleno 1",
-                                c: { a: 0, k: [1, 1, 1], ix: 4 },
+                                c: { a: 0, k: [0.898, 0.9137, 0.9412], ix: 4 },
                                 r: 1,
                                 o: { a: 0, k: 100, ix: 5 }
                               },
@@ -5895,7 +6016,7 @@ function PlasmicResult__RenderFunc(props: {
                                 hd: false,
                                 mn: "ADBE Vector Graphic - Fill",
                                 nm: "Relleno 1",
-                                c: { a: 0, k: [1, 1, 1], ix: 4 },
+                                c: { a: 0, k: [0.898, 0.9137, 0.9412], ix: 4 },
                                 r: 1,
                                 o: { a: 0, k: 100, ix: 5 }
                               },
@@ -6067,7 +6188,7 @@ function PlasmicResult__RenderFunc(props: {
                                 hd: false,
                                 mn: "ADBE Vector Graphic - Fill",
                                 nm: "Relleno 1",
-                                c: { a: 0, k: [1, 1, 1], ix: 4 },
+                                c: { a: 0, k: [0.898, 0.9137, 0.9412], ix: 4 },
                                 r: 1,
                                 o: { a: 0, k: 100, ix: 5 }
                               },
@@ -6317,7 +6438,7 @@ function PlasmicResult__RenderFunc(props: {
                                 hd: false,
                                 mn: "ADBE Vector Graphic - Fill",
                                 nm: "Relleno 1",
-                                c: { a: 0, k: [1, 1, 1], ix: 4 },
+                                c: { a: 0, k: [0.898, 0.9137, 0.9412], ix: 4 },
                                 r: 1,
                                 o: { a: 0, k: 100, ix: 5 }
                               },
@@ -6577,7 +6698,7 @@ function PlasmicResult__RenderFunc(props: {
                                 hd: false,
                                 mn: "ADBE Vector Graphic - Fill",
                                 nm: "Relleno 1",
-                                c: { a: 0, k: [1, 1, 1], ix: 4 },
+                                c: { a: 0, k: [0.898, 0.9137, 0.9412], ix: 4 },
                                 r: 1,
                                 o: { a: 0, k: 100, ix: 5 }
                               },
@@ -7101,7 +7222,7 @@ function PlasmicResult__RenderFunc(props: {
                                 hd: false,
                                 mn: "ADBE Vector Graphic - Fill",
                                 nm: "Relleno 1",
-                                c: { a: 0, k: [1, 1, 1], ix: 4 },
+                                c: { a: 0, k: [0.898, 0.9137, 0.9412], ix: 4 },
                                 r: 1,
                                 o: { a: 0, k: 100, ix: 5 }
                               },
