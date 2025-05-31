@@ -220,13 +220,12 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                var info = JSON.parse($state.getData?.data?.[0]?.categoryInfo);
                 if (
                   $ctx.query.type == "danger" ||
                   $ctx.query.type == "stretch_marks" ||
                   $ctx.query.type == "hair_care" ||
                   $ctx.query.type == "adhd_treatment_sub" ||
-                  info.unlockMode == "openAll"
+                  $ctx.query.type == "sunken_eyes_sub"
                 )
                   return true;
                 else if (
