@@ -21,12 +21,6 @@
 .root > * {
   grid-column: 4;
 }
-.htmlVideo:global(.__wab_instance) {
-  width: 640px;
-  height: auto;
-  max-width: 100%;
-  object-fit: cover;
-}
 .embedHtml__oNhHy:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

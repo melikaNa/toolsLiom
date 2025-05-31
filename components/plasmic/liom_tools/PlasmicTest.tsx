@@ -62,7 +62,6 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { Video } from "@plasmicpkgs/plasmic-basic-components";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
@@ -109,7 +108,6 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
-  htmlVideo?: Flex__<typeof Video>;
   paziresh24LineClamp?: Flex__<typeof Paziresh24LineClamp>;
   button?: Flex__<typeof ButtonLiom>;
   vigetLiom?: Flex__<typeof VigetLiom>;
@@ -351,16 +349,6 @@ function PlasmicTest__RenderFunc(props: {
             sty.root
           )}
         >
-          <Video
-            data-plasmic-name={"htmlVideo"}
-            data-plasmic-override={overrides.htmlVideo}
-            className={classNames("__wab_instance", sty.htmlVideo)}
-            controls={true}
-            src={
-              "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
-            }
-          />
-
           <Embed
             className={classNames("__wab_instance", sty.embedHtml__oNhHy)}
             code={
@@ -436,6 +424,47 @@ function PlasmicTest__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.button)}
                 color={generateStateValueProp($state, ["button", "color"])}
                 load={generateStateValueProp($state, ["button", "load"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return fetch(
+                                "https://libretranslate.com/translate",
+                                {
+                                  method: "POST",
+                                  body: JSON.stringify({
+                                    q: "سلام دنیا",
+                                    source: "fa",
+                                    target: "en",
+                                    format: "text"
+                                  }),
+                                  headers: {
+                                    "Content-Type": "application/json"
+                                  }
+                                }
+                              )
+                                .then(res => res.json())
+                                .then(data => console.log(data.translatedText));
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
                     generateStateOnChangeProp($state, ["button", "color"])(
@@ -1886,7 +1915,6 @@ function PlasmicTest__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "htmlVideo",
     "paziresh24LineClamp",
     "button",
     "vigetLiom",
@@ -1908,7 +1936,6 @@ const PlasmicDescendants = {
     "location",
     "button5"
   ],
-  htmlVideo: ["htmlVideo"],
   paziresh24LineClamp: ["paziresh24LineClamp"],
   button: ["button"],
   vigetLiom: ["vigetLiom", "popover", "button6", "button7", "switchbest"],
@@ -1935,7 +1962,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  htmlVideo: typeof Video;
   paziresh24LineClamp: typeof Paziresh24LineClamp;
   button: typeof ButtonLiom;
   vigetLiom: typeof VigetLiom;
@@ -2043,7 +2069,6 @@ export const PlasmicTest = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    htmlVideo: makeNodeComponent("htmlVideo"),
     paziresh24LineClamp: makeNodeComponent("paziresh24LineClamp"),
     button: makeNodeComponent("button"),
     vigetLiom: makeNodeComponent("vigetLiom"),

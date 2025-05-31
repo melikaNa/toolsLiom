@@ -2095,11 +2095,6 @@ function PlasmicSelfTest__RenderFunc(props: {
           }
         />
 
-        <Embed
-          className={classNames("__wab_instance", sty.embedHtml__j8MRn)}
-          code={"<div>Paste your embed code via the right sidebar</div>"}
-        />
-
         {(
           hasVariant(globalVariants, "screen", "mobileOnly")
             ? (() => {
