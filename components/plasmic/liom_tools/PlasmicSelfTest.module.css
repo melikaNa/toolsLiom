@@ -74,6 +74,18 @@
     height: var(--token-QMEhwYzwsf71);
   }
 }
+.freeBox__zSfpX {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
 .freeBox__eKo7V {
   display: flex;
   flex-direction: column;
