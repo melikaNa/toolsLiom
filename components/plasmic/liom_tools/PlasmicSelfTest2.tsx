@@ -3710,27 +3710,108 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__jnfKa)}
                   >
-                    <Icon147Icon
-                      className={classNames(projectcss.all, sty.svg__whkzy)}
-                      role={"img"}
-                    />
-
-                    <Icon196Icon
-                      className={classNames(projectcss.all, sty.svg__fU2L7)}
-                      role={"img"}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__bx83C
-                      )}
-                    >
-                      {
-                        "\u0633\u0644\u0627\u0645! \u0645\u0646 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0647\u0633\u062a\u0645."
+                    {(() => {
+                      try {
+                        return (
+                          new window.URLSearchParams(
+                            window.location.search
+                          ).get("origin") != "diaco"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
                       }
-                    </div>
+                    })() ? (
+                      <Icon147Icon
+                        className={classNames(projectcss.all, sty.svg__whkzy)}
+                        role={"img"}
+                      />
+                    ) : null}
+                    {(() => {
+                      try {
+                        return (
+                          new window.URLSearchParams(
+                            window.location.search
+                          ).get("origin") == "diaco"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <Icon196Icon
+                        className={classNames(projectcss.all, sty.svg__fU2L7)}
+                        role={"img"}
+                      />
+                    ) : null}
+                    {(() => {
+                      try {
+                        return (
+                          new window.URLSearchParams(
+                            window.location.search
+                          ).get("origin") != "diaco"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__bx83C
+                        )}
+                      >
+                        {
+                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0647\u0633\u062a\u0645."
+                        }
+                      </div>
+                    ) : null}
+                    {(() => {
+                      try {
+                        return (
+                          new window.URLSearchParams(
+                            window.location.search
+                          ).get("origin") == "diaco"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__gGkmi
+                        )}
+                      >
+                        {
+                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u062f\u06cc\u0627\u06a9\u0648 \u0686\u062a \u0647\u0633\u062a\u0645."
+                        }
+                      </div>
+                    ) : null}
                   </Stack__>
                   <div
                     className={classNames(

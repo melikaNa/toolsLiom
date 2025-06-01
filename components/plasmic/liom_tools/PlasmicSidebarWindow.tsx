@@ -77,6 +77,7 @@ import sty from "./PlasmicSidebarWindow.module.css"; // plasmic-import: zOZqxY8n
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4LeWEqGr/icon
 import Icon160Icon from "./icons/PlasmicIcon__Icon160"; // plasmic-import: VDxWJe2hoa-8/icon
 import Icon161Icon from "./icons/PlasmicIcon__Icon161"; // plasmic-import: RaOYP4ifjT-P/icon
+import Icon196Icon from "./icons/PlasmicIcon__Icon196"; // plasmic-import: 0jQ6YDX1Yu0U/icon
 import Icon162Icon from "./icons/PlasmicIcon__Icon162"; // plasmic-import: ySm-fx5nxIne/icon
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: hr_bpY54geRI/icon
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
@@ -312,46 +313,153 @@ function PlasmicSidebarWindow__RenderFunc(props: {
               )
             })}
           >
-            <PlasmicIcon__
-              PlasmicIconType={
-                hasVariant($state, "opening", "opening") &&
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? Icon160Icon
-                  : hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? Icon161Icon
-                  : Icon152Icon
+            {(() => {
+              try {
+                return (
+                  new window.URLSearchParams(window.location.search).get(
+                    "origin"
+                  ) != "diaco"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
               }
-              className={classNames(projectcss.all, sty.svg__dEi9A, {
-                [sty.svgopening__dEi9ArPBw2]: hasVariant(
-                  $state,
-                  "opening",
-                  "opening"
-                )
-              })}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__vv4PZ,
-                {
-                  [sty.textopening__vv4PZrPBw2]: hasVariant(
+            })() ? (
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant($state, "opening", "opening") &&
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? Icon160Icon
+                    : hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? Icon161Icon
+                    : Icon152Icon
+                }
+                className={classNames(projectcss.all, sty.svg__dEi9A, {
+                  [sty.svgopening__dEi9ArPBw2]: hasVariant(
                     $state,
                     "opening",
                     "opening"
                   )
+                })}
+                role={"img"}
+              />
+            ) : null}
+            {(() => {
+              try {
+                return (
+                  new window.URLSearchParams(window.location.search).get(
+                    "origin"
+                  ) == "diaco"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
                 }
-              )}
-            >
-              {hasVariant($state, "opening", "opening") &&
-              hasVariant(globalVariants, "screen", "mobileOnly")
-                ? "\u062a\u0627\u0631\u06cc\u062e\u0686\u0647 \u067e\u06cc\u0627\u0645 \u0647\u0627"
-                : hasVariant($state, "opening", "opening")
-                ? "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
-                : "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645"}
-            </div>
+                throw e;
+              }
+            })() ? (
+              <Icon196Icon
+                className={classNames(projectcss.all, sty.svg___7Gcrd, {
+                  [sty.svgopening___7GcrdrPBw2]: hasVariant(
+                    $state,
+                    "opening",
+                    "opening"
+                  )
+                })}
+                role={"img"}
+              />
+            ) : null}
+            {(
+              hasVariant($state, "opening", "opening")
+                ? (() => {
+                    try {
+                      return (
+                        new window.URLSearchParams(window.location.search).get(
+                          "origin"
+                        ) != "diaco"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+                : true
+            ) ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__vv4PZ,
+                  {
+                    [sty.textopening__vv4PZrPBw2]: hasVariant(
+                      $state,
+                      "opening",
+                      "opening"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "opening", "opening") &&
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "\u062a\u0627\u0631\u06cc\u062e\u0686\u0647 \u067e\u06cc\u0627\u0645 \u0647\u0627"
+                  : hasVariant($state, "opening", "opening")
+                  ? "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
+                  : "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645"}
+              </div>
+            ) : null}
+            {(
+              hasVariant($state, "opening", "opening")
+                ? (() => {
+                    try {
+                      return (
+                        new window.URLSearchParams(window.location.search).get(
+                          "origin"
+                        ) == "diaco"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+                : true
+            ) ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ecOuO,
+                  {
+                    [sty.textopening__ecOuOrPBw2]: hasVariant(
+                      $state,
+                      "opening",
+                      "opening"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "opening", "opening")
+                  ? "\u062f\u06cc\u0627\u06a9\u0648 \u0686\u062a"
+                  : "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645"}
+              </div>
+            ) : null}
           </Stack__>
           <AntdTooltip
             className={classNames("__wab_instance", sty.tooltip__qA1, {
