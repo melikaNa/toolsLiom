@@ -650,6 +650,14 @@
   max-width: 100%;
   height: 50px;
 }
+.svg__fU2L7 {
+  object-fit: cover;
+  max-width: 100%;
+  height: 50px;
+  color: #071e3a;
+  display: none;
+  border-radius: 16px;
+}
 .text__bx83C {
   position: relative;
   width: auto;

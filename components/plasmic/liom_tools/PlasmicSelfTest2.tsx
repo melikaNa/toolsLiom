@@ -99,6 +99,7 @@ import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: yU3FWAJzfOsT/icon
+import Icon196Icon from "./icons/PlasmicIcon__Icon196"; // plasmic-import: 0jQ6YDX1Yu0U/icon
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: WIXMGnqTFn8X/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: o0umFUjPufGW/icon
@@ -3711,6 +3712,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   >
                     <Icon147Icon
                       className={classNames(projectcss.all, sty.svg__whkzy)}
+                      role={"img"}
+                    />
+
+                    <Icon196Icon
+                      className={classNames(projectcss.all, sty.svg__fU2L7)}
                       role={"img"}
                     />
 
