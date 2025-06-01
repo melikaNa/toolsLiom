@@ -2895,6 +2895,34 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicSelect.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "MeJVlJGb4rwY",
+          "name": "FaqPage",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicFaqPage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/faq-page.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicFaqPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/faq-page"
+        },
+        {
+          "id": "H3CWBBCZfLvv",
+          "name": "SelfTest4",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest4.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-test-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest4.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-test-2"
         }
       ],
       "icons": [

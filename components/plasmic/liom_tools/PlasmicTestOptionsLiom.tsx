@@ -1021,6 +1021,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
               projectcss.__wab_text,
               sty.text__i2Jnt
             )}
+            data-i18n={"btn.pay"}
           >
             {
               "\u067e\u0631\u062f\u0627\u062e\u062a \u0648 \u0634\u0631\u0648\u0639 \u062a\u0633\u062a"
