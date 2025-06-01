@@ -152,7 +152,7 @@ export type PlasmicResultForDoctor__OverridesType = {
   icons?: Flex__<typeof Icons>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
-  selfTestSession?: Flex__<typeof ApiRequest>;
+  apiRequest3?: Flex__<typeof ApiRequest>;
   dialog?: Flex__<typeof Paziresh24Dialog>;
   apiRequest2?: Flex__<typeof ApiRequest>;
   link?: Flex__<"a"> & Partial<LinkProps>;
@@ -436,43 +436,10 @@ function PlasmicResultForDoctor__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => "sand"
       },
       {
-        path: "selfTestSession.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "selfTestSession.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "selfTestSession.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "questionList",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.apiRequest.data.answers.length > 1
-                ? $state.apiRequest.data.answers.splice(0, 2)
-                : JSON.parse($state.apiRequest.data.answers).splice(0, 2);
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "buttonLiom3.load",
@@ -522,6 +489,24 @@ function PlasmicResultForDoctor__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "apiRequest3.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest3.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest3.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1553,80 +1538,68 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                            {(() => {
-                              try {
-                                return currentItem.badge != null;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <PercentageBox
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.percentageBox__raltb
-                                )}
-                                unnamedGroupOfVariants={(() => {
-                                  try {
-                                    return (() => {
-                                      let score = parseInt(currentItem.score);
-                                      let color =
-                                        score >= 80
-                                          ? "red"
-                                          : score >= 70
-                                          ? "oreng"
-                                          : score >= 60
-                                          ? "yellow"
-                                          : score >= 50
-                                          ? "blue"
-                                          : score >= 40
-                                          ? ""
-                                          : "";
-                                      return color;
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "red";
-                                    }
-                                    throw e;
+                            <PercentageBox
+                              className={classNames(
+                                "__wab_instance",
+                                sty.percentageBox__raltb
+                              )}
+                              unnamedGroupOfVariants={(() => {
+                                try {
+                                  return (() => {
+                                    let score = parseInt(currentItem.score);
+                                    let color =
+                                      score >= 80
+                                        ? "red"
+                                        : score >= 70
+                                        ? "oreng"
+                                        : score >= 60
+                                        ? "yellow"
+                                        : score >= 50
+                                        ? "blue"
+                                        : score >= 40
+                                        ? ""
+                                        : "";
+                                    return color;
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "red";
                                   }
-                                })()}
+                                  throw e;
+                                }
+                              })()}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___1Ijnn
+                                )}
                               >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___1Ijnn
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.badge;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "99 % ";
-                                        }
-                                        throw e;
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return `${currentItem.badge ?? ""}  (${
+                                        currentItem.score
+                                      }%)`;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "99 % ";
                                       }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              </PercentageBox>
-                            ) : null}
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </PercentageBox>
                           </Stack__>
                         </Stack__>
                       ) : null}
@@ -2429,9 +2402,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   try {
                     return (
                       $state.questionList.length <
-                      ($state.apiRequest.data.answers.length > 1
-                        ? $state.apiRequest.data.answers.length
-                        : JSON.parse($state.apiRequest.data.answers).length)
+                      $state.apiRequest3.data.length
                     );
                   } catch (e) {
                     if (
@@ -2458,10 +2429,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                 variablePath: ["questionList"]
                               },
                               operation: 0,
-                              value:
-                                $state.apiRequest.data.answers.length > 1
-                                  ? $state.apiRequest.data.answers
-                                  : JSON.parse($state.apiRequest.data.answers)
+                              value: $state.apiRequest3.data
                             };
                             return (({
                               variable,
@@ -2511,9 +2479,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   try {
                     return (
                       $state.questionList.length ==
-                      ($state.apiRequest.data.answers.length > 1
-                        ? $state.apiRequest.data.answers.length
-                        : JSON.parse($state.apiRequest.data.answers).length)
+                      $state.apiRequest3.data.length
                     );
                   } catch (e) {
                     if (
@@ -2540,12 +2506,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                 variablePath: ["questionList"]
                               },
                               operation: 0,
-                              value:
-                                $state.apiRequest.data.answers.length > 1
-                                  ? $state.apiRequest.data.answers.splice(0, 2)
-                                  : JSON.parse(
-                                      $state.apiRequest.data.answers
-                                    ).splice(0, 2)
+                              value: $state.apiRequest3.data.slice(0, 2)
                             };
                             return (({
                               variable,
@@ -3857,6 +3818,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                 throw e;
               }
             })()}
+            children={null}
             className={classNames("__wab_instance", sty.apiRequest)}
             errorDisplay={null}
             loadingDisplay={null}
@@ -3906,77 +3868,121 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               }
             })()}
             url={"https://n8n.staas.ir/webhook/resultList"}
-          >
-            <ApiRequest
-              data-plasmic-name={"selfTestSession"}
-              data-plasmic-override={overrides.selfTestSession}
-              className={classNames("__wab_instance", sty.selfTestSession)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mrD2K
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___46Xn
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "selfTestSession",
-                  "error"
-                ]).apply(null, eventArgs);
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "selfTestSession",
-                  "loading"
-                ]).apply(null, eventArgs);
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "selfTestSession",
-                  "data"
-                ]).apply(null, eventArgs);
-              }}
-              params={(() => {
-                try {
-                  return {
-                    session_id:
-                      $ctx.query.session_id ||
-                      new URLSearchParams(window.location.search).get(
-                        "session_id"
-                      ),
-                    user_id:
-                      $ctx.query.user_id ||
-                      new URLSearchParams(window.location.search).get("user_id")
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
+          />
+
+          <ApiRequest
+            data-plasmic-name={"apiRequest3"}
+            data-plasmic-override={overrides.apiRequest3}
+            body={(() => {
+              try {
+                return {
+                  session_id:
+                    $ctx.query.session_id ||
+                    new URLSearchParams(window.location.search).get(
+                      "session_id"
+                    ),
+                  user_id:
+                    $ctx.query.user_id ||
+                    new URLSearchParams(window.location.search).get("user_id")
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
                 }
-              })()}
-              url={"https://n8n.staas.ir/webhook/selfTestSession"}
-            />
-          </ApiRequest>
+                throw e;
+              }
+            })()}
+            children={null}
+            className={classNames("__wab_instance", sty.apiRequest3)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest3", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest3",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest3", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["updateQuestionList"] = $state.apiRequest3.data
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["questionList"]
+                        },
+                        operation: 0,
+                        value: $state.apiRequest3.data.slice(0, 2)
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateQuestionList"] != null &&
+                  typeof $steps["updateQuestionList"] === "object" &&
+                  typeof $steps["updateQuestionList"].then === "function"
+                ) {
+                  $steps["updateQuestionList"] = await $steps[
+                    "updateQuestionList"
+                  ];
+                }
+              }).apply(null, eventArgs);
+            }}
+            params={(() => {
+              try {
+                return {
+                  session_id:
+                    $ctx.query.session_id ||
+                    new URLSearchParams(window.location.search).get(
+                      "session_id"
+                    ),
+                  user_id:
+                    $ctx.query.user_id ||
+                    new URLSearchParams(window.location.search).get("user_id")
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/selfTestSession"}
+          />
+
           {(() => {
             try {
               return $state.loading;
@@ -4766,11 +4772,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                   item => (item.open = true)
                                 );
                                 return ($state.questionList =
-                                  $state.apiRequest.data.answers.length > 1
-                                    ? $state.apiRequest.data.answers
-                                    : JSON.parse(
-                                        $state.apiRequest.data.answers
-                                      ));
+                                  $state.apiRequest3.data);
                               })();
                             }
                           };
@@ -5289,7 +5291,7 @@ const PlasmicDescendants = {
     "icons",
     "buttonLiom4",
     "apiRequest",
-    "selfTestSession",
+    "apiRequest3",
     "dialog",
     "apiRequest2",
     "link",
@@ -5311,8 +5313,8 @@ const PlasmicDescendants = {
   buttonLiom5: ["buttonLiom5"],
   icons: ["icons"],
   buttonLiom4: ["buttonLiom4"],
-  apiRequest: ["apiRequest", "selfTestSession"],
-  selfTestSession: ["selfTestSession"],
+  apiRequest: ["apiRequest"],
+  apiRequest3: ["apiRequest3"],
   dialog: [
     "dialog",
     "apiRequest2",
@@ -5353,7 +5355,7 @@ type NodeDefaultElementType = {
   icons: typeof Icons;
   buttonLiom4: typeof ButtonLiom;
   apiRequest: typeof ApiRequest;
-  selfTestSession: typeof ApiRequest;
+  apiRequest3: typeof ApiRequest;
   dialog: typeof Paziresh24Dialog;
   apiRequest2: typeof ApiRequest;
   link: "a";
@@ -5462,7 +5464,7 @@ export const PlasmicResultForDoctor = Object.assign(
     icons: makeNodeComponent("icons"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     apiRequest: makeNodeComponent("apiRequest"),
-    selfTestSession: makeNodeComponent("selfTestSession"),
+    apiRequest3: makeNodeComponent("apiRequest3"),
     dialog: makeNodeComponent("dialog"),
     apiRequest2: makeNodeComponent("apiRequest2"),
     link: makeNodeComponent("link"),

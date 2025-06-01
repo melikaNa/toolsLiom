@@ -826,6 +826,12 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "testOptionsLiom.number",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -3259,6 +3265,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                       throw e;
                     }
                   })()}
+                  number={generateStateValueProp($state, [
+                    "testOptionsLiom",
+                    "number"
+                  ])}
                   onClick24={async event => {
                     const $steps = {};
 
@@ -4180,6 +4190,20 @@ function PlasmicSelfTest__RenderFunc(props: {
                       typeof $steps["runCode5"].then === "function"
                     ) {
                       $steps["runCode5"] = await $steps["runCode5"];
+                    }
+                  }}
+                  onNumberChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "testOptionsLiom",
+                      "number"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
                     }
                   }}
                   onResulr={async event => {

@@ -10044,7 +10044,8 @@ function PlasmicResult__RenderFunc(props: {
                           return [
                             { label: "تامین اجتماعی", value: "تامین اجتماعی" },
                             { label: "بیمه سلامت", value: "بیمه سلامت" },
-                            { label: "نیرو های مسلح", value: "نیرو های مسلح" }
+                            { label: "نیرو های مسلح", value: "نیرو های مسلح" },
+                            { label: "بیمه ندارم", value: "بیمه ندارم" }
                           ];
                         } catch (e) {
                           if (

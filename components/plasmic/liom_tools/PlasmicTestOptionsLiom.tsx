@@ -63,6 +63,7 @@ import OptionItemLiom from "../../OptionItemLiom"; // plasmic-import: 1NgrC_ROsp
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import Selection from "../../Selection"; // plasmic-import: pIDdRrLwM58N/component
+import SendIcon from "../../SendIcon"; // plasmic-import: HSNJ0v5oD6xT/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 
@@ -103,6 +104,8 @@ export type PlasmicTestOptionsLiom__ArgsType = {
   buyClick?: (event: any) => void;
   children?: React.ReactNode;
   buy?: boolean;
+  number?: number;
+  onNumberChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicTestOptionsLiom__ArgsType;
 export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
@@ -117,7 +120,9 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
   "showgreen",
   "buyClick",
   "children",
-  "buy"
+  "buy",
+  "number",
+  "onNumberChange"
 );
 
 export type PlasmicTestOptionsLiom__OverridesType = {
@@ -125,6 +130,8 @@ export type PlasmicTestOptionsLiom__OverridesType = {
   optionItemLiom?: Flex__<typeof OptionItemLiom>;
   antdInput?: Flex__<typeof Input>;
   selection?: Flex__<typeof Selection>;
+  sendIcon?: Flex__<typeof SendIcon>;
+  antdInput2?: Flex__<typeof Input>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   button?: Flex__<typeof ButtonLiom>;
   button3?: Flex__<typeof ButtonLiom>;
@@ -144,6 +151,8 @@ export interface DefaultTestOptionsLiomProps {
   buyClick?: (event: any) => void;
   children?: React.ReactNode;
   buy?: boolean;
+  number?: number;
+  onNumberChange?: (val: string) => void;
   className?: string;
 }
 
@@ -267,6 +276,53 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "antdInput2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "input",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "sendIcon.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "sendIcon.diable",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.antdInput2.value.length == 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "number",
+        type: "writable",
+        variableType: "number",
+
+        valueProp: "number",
+        onChangeProp: "onNumberChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -810,6 +866,207 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             </div>
           </Stack__>
         ) : null}
+        <div className={classNames(projectcss.all, sty.freeBox__gOfKr)}>
+          <SendIcon
+            data-plasmic-name={"sendIcon"}
+            data-plasmic-override={overrides.sendIcon}
+            className={classNames("__wab_instance", sty.sendIcon)}
+            diable={generateStateValueProp($state, ["sendIcon", "diable"])}
+            load={generateStateValueProp($state, ["sendIcon", "load"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = !$state.sendIcon.diable
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return ($state.number = parseInt(
+                          $state.antdInput2.value
+                        ));
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["runOnClick24"] = !$state.sendIcon.diable
+                ? (() => {
+                    const actionArgs = { eventRef: $props["onClick24"] };
+                    return (({ eventRef, args }) => {
+                      return eventRef?.(...(args ?? []));
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runOnClick24"] != null &&
+                typeof $steps["runOnClick24"] === "object" &&
+                typeof $steps["runOnClick24"].then === "function"
+              ) {
+                $steps["runOnClick24"] = await $steps["runOnClick24"];
+              }
+            }}
+            onDiableChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["sendIcon", "diable"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["sendIcon", "load"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
+
+          {(() => {
+            const child$Props = {
+              bordered: false,
+              className: classNames("__wab_instance", sty.antdInput2),
+              disabled: (() => {
+                try {
+                  return $state.input;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })(),
+              id: "inputMobile",
+              onChange: async (...eventArgs: any) => {
+                generateStateOnChangePropForCodeComponents(
+                  $state,
+                  "value",
+                  ["antdInput2", "value"],
+                  Input_Helpers
+                ).apply(null, eventArgs);
+
+                (async event => {
+                  const $steps = {};
+                }).apply(null, eventArgs);
+              },
+              placeholder: (() => {
+                try {
+                  return $props.data.text;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })(),
+              size: "middle",
+              type: "number",
+              value: generateStateValueProp($state, ["antdInput2", "value"])
+            };
+            initializeCodeComponentStates(
+              $state,
+              [
+                {
+                  name: "value",
+                  plasmicStateName: "antdInput2.value"
+                }
+              ],
+              [],
+              Input_Helpers ?? {},
+              child$Props
+            );
+
+            return (
+              <Input
+                data-plasmic-name={"antdInput2"}
+                data-plasmic-override={overrides.antdInput2}
+                {...child$Props}
+              />
+            );
+          })()}
+          {(() => {
+            try {
+              return $state.input;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__kCh7H)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateInput"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["input"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateInput"] != null &&
+                  typeof $steps["updateInput"] === "object" &&
+                  typeof $steps["updateInput"].then === "function"
+                ) {
+                  $steps["updateInput"] = await $steps["updateInput"];
+                }
+              }}
+            />
+          ) : null}
+        </div>
       </div>
       {(() => {
         try {
@@ -1096,6 +1353,8 @@ const PlasmicDescendants = {
     "optionItemLiom",
     "antdInput",
     "selection",
+    "sendIcon",
+    "antdInput2",
     "paziresh24Button",
     "button",
     "button3",
@@ -1104,6 +1363,8 @@ const PlasmicDescendants = {
   optionItemLiom: ["optionItemLiom"],
   antdInput: ["antdInput"],
   selection: ["selection"],
+  sendIcon: ["sendIcon"],
+  antdInput2: ["antdInput2"],
   paziresh24Button: ["paziresh24Button"],
   button: ["button"],
   button3: ["button3"],
@@ -1117,6 +1378,8 @@ type NodeDefaultElementType = {
   optionItemLiom: typeof OptionItemLiom;
   antdInput: typeof Input;
   selection: typeof Selection;
+  sendIcon: typeof SendIcon;
+  antdInput2: typeof Input;
   paziresh24Button: typeof Paziresh24Button;
   button: typeof ButtonLiom;
   button3: typeof ButtonLiom;
@@ -1186,6 +1449,8 @@ export const PlasmicTestOptionsLiom = Object.assign(
     optionItemLiom: makeNodeComponent("optionItemLiom"),
     antdInput: makeNodeComponent("antdInput"),
     selection: makeNodeComponent("selection"),
+    sendIcon: makeNodeComponent("sendIcon"),
+    antdInput2: makeNodeComponent("antdInput2"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     button: makeNodeComponent("button"),
     button3: makeNodeComponent("button3"),
