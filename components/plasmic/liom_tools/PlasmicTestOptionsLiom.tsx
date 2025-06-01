@@ -839,6 +839,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__gFRfC
               )}
+              data-i18n={"startp"}
             >
               {hasVariant(globalVariants, "screen", "mobileOnly") ? (
                 <React.Fragment>
@@ -1080,21 +1081,9 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             }
           }}
         >
-          <React.Fragment>
-            {(() => {
-              try {
-                return "دیدن نتایج قبلی";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "Button";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
+          {
+            "\u062f\u06cc\u062f\u0646 \u0646\u062a\u0627\u06cc\u062c \u0642\u0628\u0644\u06cc"
+          }
         </ButtonLiom>
       ) : null}
     </div>

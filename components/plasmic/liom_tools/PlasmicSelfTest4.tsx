@@ -3017,29 +3017,7 @@ function PlasmicSelfTest4__RenderFunc(props: {
                         throw e;
                       }
                     })()
-                  : (() => {
-                      try {
-                        return (
-                          $state.testChat[$state.testChat.length - 1].options !=
-                            null &&
-                          !(
-                            $state.variable.question?.lock == 1 &&
-                            $state.orginNotLook &&
-                            $state.buy == false
-                          ) &&
-                          $state.nextQuesionId != -1 &&
-                          $state.status == ""
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })()
+                  : true
               ) ? (
                 <TestOptionsLiom
                   data-plasmic-name={"testOptionsLiom"}

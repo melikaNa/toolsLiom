@@ -62,12 +62,6 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
-import VigetLiom from "../../VigetLiom"; // plasmic-import: aok8o2KhU8vY/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
-import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
-import Switchbest from "../../Switchbest"; // plasmic-import: sHLRdvulrK-R/component
-
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -78,12 +72,6 @@ import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/
 import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicFaqPage.module.css"; // plasmic-import: MeJVlJGb4rwY/css
-
-import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
-import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
-import Icon153Icon from "./icons/PlasmicIcon__Icon153"; // plasmic-import: 8DNj9ESCY80y/icon
-import Icon156Icon from "./icons/PlasmicIcon__Icon156"; // plasmic-import: 0H63FcZWihXr/icon
-import Icon155Icon from "./icons/PlasmicIcon__Icon155"; // plasmic-import: a_FmExMhN0OI/icon
 
 createPlasmicElementProxy;
 
@@ -98,13 +86,7 @@ export const PlasmicFaqPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFaqPage__OverridesType = {
   root?: Flex__<"div">;
-  button?: Flex__<typeof ButtonLiom>;
-  vigetLiom?: Flex__<typeof VigetLiom>;
-  popover?: Flex__<typeof AntdPopover>;
-  button6?: Flex__<typeof ButtonLiom>;
-  button7?: Flex__<typeof ButtonLiom>;
-  switchbest?: Flex__<typeof Switchbest>;
-  img?: Flex__<typeof PlasmicImg__>;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultFaqPageProps {}
@@ -153,46 +135,150 @@ function PlasmicFaqPage__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "button.color",
+        path: "faq",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "popover[].open",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
-        path: "button6[].color",
-        type: "private",
-        variableType: "text"
-      },
-      {
-        path: "button6[].load",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
-        path: "button7[].color",
-        type: "private",
-        variableType: "text"
-      },
-      {
-        path: "button7[].load",
-        type: "private",
-        variableType: "boolean"
-      },
-      {
-        path: "switchbest[].isChecked",
-        type: "private",
-        variableType: "boolean"
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [
+                {
+                  text: "آیا استفاده از موبایل یا مایکروویو برای جنین ضرر دارد؟"
+                },
+                {
+                  text: "آیا اگر حالت تهوع نداشته باشم، یعنی بارداری‌ام مشکلی دارد؟"
+                },
+                {
+                  text: "چطور می‌توانم از ویار و تهوع صبحگاهی خلاص شوم؟"
+                },
+                {
+                  text: "چگونه با ترس از زایمان کنار بیایم؟"
+                },
+                {
+                  text: "آیا ورزش کردن در بارداری مجاز است؟ چه ورزش‌هایی؟"
+                },
+                {
+                  text: "آیا داشتن رابطه جنسی در بارداری برای جنین ضرر دارد؟"
+                },
+                {
+                  text: "لکه‌بینی در اوایل بارداری طبیعی است یا خطرناک؟"
+                },
+                {
+                  text: "اگر قبل از اینکه بدانم باردارم، دارویی مصرف کرده باشم چه؟"
+                },
+                {
+                  text: "چیکار کنم جنینم در سه‌ماهه اول سقط نشه؟"
+                },
+                { text: "آیا صدای بلند موسیقی یا محیط به جنین آسیب می‌زند؟" },
+                {
+                  text: "جنینم در این مرحله چه چیزهایی را حس می‌کند؟ (نور، صدا، مزه، لمس؟)"
+                },
+                {
+                  text: "آیا حرکات جنینم طبیعی است یا باید بیشتر یا کمتر باشد؟"
+                },
+                {
+                  text: "اگر حرکات جنین منظم نباشد یا مدتی حس نشود، خطرناک است؟"
+                },
+                { text: "آیا ممکنه بند ناف دور گردن جنین بیفتد؟" },
+                { text: "آیا لگد زدن زیاد یا کم جنین معنای خاصی دارد؟" },
+
+                {
+                  text: "چرا در سه‌ماهه دوم دچار گرفتگی عضلات پا یا کمر می‌شوم؟"
+                },
+                { text: "درد زیر شکم یا کشاله ران طبیعی است؟" },
+                {
+                  text: "چرا بعضی وقت‌ها ترشحات واژینال بیشتر می‌شود؟ طبیعی‌ست یا نشانه عفونت؟"
+                },
+                { text: "آیا دچار کم‌خونی شده‌ام؟ علائمش چیست؟" },
+                { text: "چرا لثه‌هایم خونریزی می‌کنند؟ خطرناک است؟" },
+                {
+                  text: "چه زمانی باید نگران فشار خون بالا یا پره‌اکلامپسی باشم؟"
+                },
+                {
+                  text: "آیا می‌توانم در این دوره رابطه جنسی داشته باشم؟ برای جنین خطرناک نیست؟"
+                },
+
+                {
+                  text: "آیا می‌توانم روزه بگیرم؟ روزه گرفتن در بارداری چه تاثیری دارد؟"
+                },
+                { text: "آیا سفر با ماشین یا هواپیما در این دوره بی‌خطر است؟" },
+                { text: "چه لباس‌هایی مناسب بارداری هستند؟" },
+                { text: "آیا کمربند ایمنی ماشین برای جنین خطرناک است؟" },
+                {
+                  text: "آیا می‌توانم در این دوره از اپیلاتور، لیزر یا وکس استفاده کنم؟"
+                },
+                {
+                  text: "آیا خوابیدن به پهلو الزامی است؟ چرا خوابیدن به پشت خطر دارد؟"
+                },
+
+                {
+                  text: "چرا با وجود اینکه بارداری‌ام خوب پیش می‌رود، هنوز نگرانم؟"
+                },
+                { text: "آیا افسردگی یا اضطراب در این دوره طبیعی است؟" },
+                {
+                  text: "چطور با ترس از غربالگری مرحله دوم یا آنومالی کنار بیایم؟"
+                },
+                { text: "چرا احساس تنهایی یا حساسیت عاطفی دارم؟ طبیعی‌ست؟" },
+                { text: "جنینم به چه سمتی قرار دارد؟ سر پایین است یا نه؟" },
+                { text: "اگر جنین درشت باشد، زایمان طبیعی ممکن است؟" },
+                { text: "چرا گاهی حرکات جنینم خیلی زیاد یا خیلی کم می‌شود؟" },
+                { text: "آیا جنینم موقع تولد نفس می‌کشد یا باید کمک شود؟" },
+                {
+                  text: "آیا دیر چرخیدن یا نچرخیدن جنین طبیعی است؟ باید سزارین شوم؟"
+                },
+
+                {
+                  text: "چرا در سه‌ماهه سوم تنگی نفس، درد لگن یا بی‌خوابی دارم؟"
+                },
+                { text: "آیا ترشح مایع از واژن نشانه پاره شدن کیسه آب است؟" },
+                { text: "چطور بفهمم که دچار زایمان زودرس شده‌ام؟" },
+                {
+                  text: "انقباضات براکستون هیکس با درد زایمان چه تفاوتی دارد؟"
+                },
+                { text: "چرا پاهایم متورم شده؟ چه زمانی خطرناک است؟" },
+                {
+                  text: "آیا فشار به مثانه و تکرر ادرار طبیعی‌ست یا نشانه عفونت؟"
+                },
+
+                { text: "چه زمانی باید کیف بیمارستان را ببندم و آماده باشم؟" },
+                { text: "از کجا بفهمم که زمان زایمان واقعی رسیده؟" },
+                { text: "اگر دردها شروع شود ولی بیمارستان دور باشد، چه کنم؟" },
+                { text: "چطور می‌توانم برای درد زایمان طبیعی آماده شوم؟" },
+                { text: "تمرین‌های تنفسی یا حرکتی چه تاثیری در زایمان دارند؟" },
+                { text: "اگر دوقلو باردار باشم، زایمانم چطور خواهد بود؟" },
+
+                { text: "آیا می‌توانم نوزادم را بلافاصله بعد از تولد ببینم؟" },
+                { text: "شیرم بلافاصله می‌آید؟ اگر نیامد چه؟" },
+                { text: "آیا خوابیدن با نوزاد یا جدا خواباندن او بهتر است؟" },
+                { text: "چطور باید پوشک عوض کنم یا حمام بدهم؟" },
+                {
+                  text: "برای شروع شیردهی به کمک نیاز دارم؟ چطور راهنمایی بگیرم؟"
+                },
+
+                {
+                  text: "همسرم از من فاصله گرفته، چطور ارتباطمان را حفظ کنیم؟"
+                },
+                {
+                  text: "چطور برای بعد از زایمان کمک بگیرم (از مادر، خانواده، همسر)؟"
+                },
+                {
+                  text: "نگرانم که خانواده‌ام یا خانواده همسرم بیش از حد دخالت کنند"
+                },
+                { text: "آیا می‌توانم بعد از زایمان به شغل و کارم برگردم؟" },
+                {
+                  text: "آیا داشتن نوزاد روی رابطه عاطفی و جنسی ما تأثیر می‌گذارد؟"
+                }
+              ];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -242,647 +328,42 @@ function PlasmicFaqPage__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__v7ZDr)}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___1Elg)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yAynq
-                )}
-              >
-                <div
-                  className={projectcss.__wab_expr_html_text}
-                  dangerouslySetInnerHTML={{
-                    __html: (() => {
-                      try {
-                        return `<p>
-    با اضافه کردن <b>همیار قاعدگی</b> می‌تونی به هر کسی که شماره‌شو وارد می‌کنی دسترسی بدی تا 
-    <b>دوره‌های قاعدگیت</b> رو ببینه و تو لحظات سخت کنارت باشه و <b>بهتر درکت کنه ❤️</b>.
-    اگه قابلیت <b>اطلاع‌رسانی با پیامک</b> رو فعال کنی، ما به طور خودکار وقتی تو دوران 
-    <b>PMS، تخمک‌گذاری یا پریود</b> باشی، برای شخصی که انتخاب کردی <b>پیامک</b> می‌فرستیم.
-    <br>
-    تو این پیام‌ها نکاتی بهش می‌گیم که بتونه <b>بهتر درکت کنه و همراهت باشه</b>.
-</p>
-`;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "<p>\r\n    \u0628\u0627 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0631\u062f\u0646 <b>\u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc</b> \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647 \u0647\u0631 \u06a9\u0633\u06cc \u06a9\u0647 \u0634\u0645\u0627\u0631\u0647\u200c\u0634\u0648 \u0648\u0627\u0631\u062f \u0645\u06cc\u200c\u06a9\u0646\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u062f\u06cc \u062a\u0627 \r\n    <b>\u062f\u0648\u0631\u0647\u200c\u0647\u0627\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc\u062a</b> \u0631\u0648 \u0628\u0628\u06cc\u0646\u0647 \u0648 \u062a\u0648 \u0644\u062d\u0638\u0627\u062a \u0633\u062e\u062a \u06a9\u0646\u0627\u0631\u062a \u0628\u0627\u0634\u0647 \u0648 <b>\u0628\u0647\u062a\u0631 \u062f\u0631\u06a9\u062a \u06a9\u0646\u0647 \u2764\ufe0f</b>.\r\n    \u0627\u06af\u0647 \u0642\u0627\u0628\u0644\u06cc\u062a <b>\u0627\u0637\u0644\u0627\u0639\u200c\u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9</b> \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646\u06cc\u060c \u0645\u0627 \u0628\u0647 \u0637\u0648\u0631 \u062e\u0648\u062f\u06a9\u0627\u0631 \u0648\u0642\u062a\u06cc \u062a\u0648 \u062f\u0648\u0631\u0627\u0646 \r\n    <b>PMS\u060c \u062a\u062e\u0645\u06a9\u200c\u06af\u0630\u0627\u0631\u06cc \u06cc\u0627 \u067e\u0631\u06cc\u0648\u062f</b> \u0628\u0627\u0634\u06cc\u060c \u0628\u0631\u0627\u06cc \u0634\u062e\u0635\u06cc \u06a9\u0647 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0631\u062f\u06cc <b>\u067e\u06cc\u0627\u0645\u06a9</b> \u0645\u06cc\u200c\u0641\u0631\u0633\u062a\u06cc\u0645.\r\n</p>\r";
-                        }
-                        throw e;
-                      }
-                    })()
-                  }}
-                />
-              </div>
-              <ButtonLiom
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                color={generateStateValueProp($state, ["button", "color"])}
-                load={generateStateValueProp($state, ["button", "load"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return fetch(
-                                "https://libretranslate.com/translate",
-                                {
-                                  method: "POST",
-                                  body: JSON.stringify({
-                                    q: "سلام دنیا",
-                                    source: "fa",
-                                    target: "en",
-                                    format: "text"
-                                  }),
-                                  headers: {
-                                    "Content-Type": "application/json"
-                                  }
-                                }
-                              )
-                                .then(res => res.json())
-                                .then(data => console.log(data.translatedText));
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return $state.faq.length > 0 ? $state.faq : [];
+                } catch (e) {
                   if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    $steps["runCode"] = await $steps["runCode"];
+                    return [];
                   }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "load"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rkIOj
-                  )}
-                >
-                  {
-                    "\u0627\u0641\u0632\u0648\u062f\u0646 \u0647\u0645\u06cc\u0627\u0631"
-                  }
-                </div>
-              </ButtonLiom>
-            </Stack__>
-            <VigetLiom
-              data-plasmic-name={"vigetLiom"}
-              data-plasmic-override={overrides.vigetLiom}
-              className={classNames("__wab_instance", sty.vigetLiom)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__q41A7
-                )}
-              >
-                {
-                  "\u0647\u0645\u06cc\u0627\u0631 \u0647\u0627\u06cc \u0645\u0646"
+                  throw e;
                 }
-              </div>
-              <Embed
-                className={classNames("__wab_instance", sty.embedHtml__tvtw8)}
-                code={"<hr></hr>"}
-              />
-
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                []
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__eHwwJ)}
-                    key={currentIndex}
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__udcx)}
+                  key={currentIndex}
+                >
+                  <div
+                    data-plasmic-name={"text"}
+                    data-plasmic-override={overrides.text}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text
+                    )}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___8Hc0Q
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__feoqF
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.hamyar.name;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0639\u0644\u06cc";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__y1UIp
-                        )}
-                      >
-                        {""}
-                      </div>
-                      {(() => {
-                        const child$Props = {
-                          arrow: false,
-                          className: classNames("__wab_instance", sty.popover),
-                          content: (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___9YggD
-                              )}
-                            >
-                              {(() => {
-                                const child$Props = {
-                                  className: classNames(
-                                    "__wab_instance",
-                                    sty.button6
-                                  ),
-                                  color: generateStateValueProp($state, [
-                                    "button6",
-                                    __plasmic_idx_0,
-                                    "color"
-                                  ]),
-                                  load: generateStateValueProp($state, [
-                                    "button6",
-                                    __plasmic_idx_0,
-                                    "load"
-                                  ]),
-                                  onColorChange: async (...eventArgs: any) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button6",
-                                        __plasmic_idx_0,
-                                        "color"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  },
-                                  onLoadChange: async (...eventArgs: any) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button6",
-                                        __plasmic_idx_0,
-                                        "load"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  },
-                                  showStartIcon: true,
-                                  size: "compact",
-                                  startIcon: (
-                                    <Icon156Icon
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.svg__nZOgi
-                                      )}
-                                      role={"img"}
-                                    />
-                                  )
-                                };
-
-                                initializePlasmicStates(
-                                  $state,
-                                  [
-                                    {
-                                      name: "button6[].color",
-                                      initFunc: ({
-                                        $props,
-                                        $state,
-                                        $queries
-                                      }) => "clear"
-                                    },
-                                    {
-                                      name: "button6[].load",
-                                      initFunc: ({
-                                        $props,
-                                        $state,
-                                        $queries
-                                      }) => false
-                                    }
-                                  ],
-                                  [__plasmic_idx_0]
-                                );
-                                return (
-                                  <ButtonLiom
-                                    data-plasmic-name={"button6"}
-                                    data-plasmic-override={overrides.button6}
-                                    {...child$Props}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__aHhq
-                                      )}
-                                    >
-                                      {
-                                        "\u0627\u0631\u0633\u0627\u0644 \u062f\u0639\u0648\u062a\u0646\u0627\u0645\u0647"
-                                      }
-                                    </div>
-                                  </ButtonLiom>
-                                );
-                              })()}
-                              {(() => {
-                                const child$Props = {
-                                  className: classNames(
-                                    "__wab_instance",
-                                    sty.button7
-                                  ),
-                                  color: generateStateValueProp($state, [
-                                    "button7",
-                                    __plasmic_idx_0,
-                                    "color"
-                                  ]),
-                                  load: generateStateValueProp($state, [
-                                    "button7",
-                                    __plasmic_idx_0,
-                                    "load"
-                                  ]),
-                                  onColorChange: async (...eventArgs: any) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button7",
-                                        __plasmic_idx_0,
-                                        "color"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  },
-                                  onLoadChange: async (...eventArgs: any) => {
-                                    ((...eventArgs) => {
-                                      generateStateOnChangeProp($state, [
-                                        "button7",
-                                        __plasmic_idx_0,
-                                        "load"
-                                      ])(eventArgs[0]);
-                                    }).apply(null, eventArgs);
-
-                                    if (
-                                      eventArgs.length > 1 &&
-                                      eventArgs[1] &&
-                                      eventArgs[1]._plasmic_state_init_
-                                    ) {
-                                      return;
-                                    }
-                                  },
-                                  showStartIcon: true,
-                                  size: "compact",
-                                  startIcon: (
-                                    <Icon155Icon
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.svg__r6SuB
-                                      )}
-                                      role={"img"}
-                                    />
-                                  )
-                                };
-
-                                initializePlasmicStates(
-                                  $state,
-                                  [
-                                    {
-                                      name: "button7[].color",
-                                      initFunc: ({
-                                        $props,
-                                        $state,
-                                        $queries
-                                      }) => "clear"
-                                    },
-                                    {
-                                      name: "button7[].load",
-                                      initFunc: ({
-                                        $props,
-                                        $state,
-                                        $queries
-                                      }) => false
-                                    }
-                                  ],
-                                  [__plasmic_idx_0]
-                                );
-                                return (
-                                  <ButtonLiom
-                                    data-plasmic-name={"button7"}
-                                    data-plasmic-override={overrides.button7}
-                                    {...child$Props}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text___4Odj4
-                                      )}
-                                    >
-                                      {
-                                        "\u062d\u0630\u0641 \u0647\u0645\u06cc\u0627\u0631"
-                                      }
-                                    </div>
-                                  </ButtonLiom>
-                                );
-                              })()}
-                            </Stack__>
-                          ),
-                          contentText: "Popover contents",
-                          defaultStylesClassName: classNames(
-                            projectcss.root_reset,
-                            projectcss.plasmic_default_styles,
-                            projectcss.plasmic_mixins,
-                            projectcss.plasmic_tokens,
-                            plasmic_antd_5_hostless_css.plasmic_tokens,
-                            plasmic_plasmic_rich_components_css.plasmic_tokens,
-                            plasmic_paziresh_24_design_system_css.plasmic_tokens,
-                            plasmic_hamdast_sdk_css.plasmic_tokens
-                          ),
-                          mouseEnterDelay: 0,
-                          mouseLeaveDelay: 0,
-                          onOpenChange: async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "popover",
-                              __plasmic_idx_0,
-                              "open"
-                            ]).apply(null, eventArgs);
-                          },
-                          open: generateStateValueProp($state, [
-                            "popover",
-                            __plasmic_idx_0,
-                            "open"
-                          ]),
-                          placement: "bottomLeft",
-                          popoverScopeClassName: sty["popover__popover"],
-                          title: null,
-                          trigger: "click"
-                        };
-                        initializeCodeComponentStates(
-                          $state,
-                          [
-                            {
-                              name: "open",
-                              plasmicStateName: "popover[].open"
-                            }
-                          ],
-                          [__plasmic_idx_0],
-                          undefined ?? {},
-                          child$Props
-                        );
-                        initializePlasmicStates(
-                          $state,
-                          [
-                            {
-                              name: "popover[].open",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                undefined
-                            }
-                          ],
-                          [__plasmic_idx_0]
-                        );
-                        return (
-                          <AntdPopover
-                            data-plasmic-name={"popover"}
-                            data-plasmic-override={overrides.popover}
-                            {...child$Props}
-                          >
-                            <Icon153Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__y6CYb
-                              )}
-                              role={"img"}
-                            />
-                          </AntdPopover>
-                        );
-                      })()}
-                    </Stack__>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__dax6M)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__mszzn
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.hamyar.mobile;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "09038854947";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__p6Jjl
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__kzkja
-                          )}
-                        >
-                          {
-                            "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"
-                          }
-                        </div>
-                        {(() => {
-                          const child$Props = {
-                            children: null,
-                            className: classNames(
-                              "__wab_instance",
-                              sty.switchbest
-                            ),
-                            isChecked:
-                              generateStateValueProp($state, [
-                                "switchbest",
-                                __plasmic_idx_0,
-                                "isChecked"
-                              ]) ?? false,
-                            onChange: async (...eventArgs: any) => {
-                              ((...eventArgs) => {
-                                generateStateOnChangeProp($state, [
-                                  "switchbest",
-                                  __plasmic_idx_0,
-                                  "isChecked"
-                                ])(eventArgs[0]);
-                              }).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }
-                          };
-
-                          initializePlasmicStates(
-                            $state,
-                            [
-                              {
-                                name: "switchbest[].isChecked",
-                                initFunc: ({ $props, $state, $queries }) =>
-                                  (() => {
-                                    try {
-                                      return currentItem.rel.statusSms;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                              }
-                            ],
-                            [__plasmic_idx_0]
-                          );
-                          return (
-                            <Switchbest
-                              data-plasmic-name={"switchbest"}
-                              data-plasmic-override={overrides.switchbest}
-                              {...child$Props}
-                            />
-                          );
-                        })()}
-                      </div>
-                    </div>
-                    <Embed
-                      className={classNames(
-                        "__wab_instance",
-                        sty.embedHtml___7LSyj
-                      )}
-                      code={"<hr></hr>"}
-                    />
-                  </Stack__>
-                );
-              })}
-            </VigetLiom>
-            <PlasmicImg__
-              data-plasmic-name={"img"}
-              data-plasmic-override={overrides.img}
-              alt={""}
-              className={classNames(sty.img)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "100%"
-                  : "50%"
-              }
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_tools/images/image80.png",
-                fullWidth: 852,
-                fullHeight: 879,
-                aspectRatio: undefined
-              }}
-            />
+                    {"Enter some text"}
+                  </div>
+                </div>
+              );
+            })}
           </Stack__>
         </div>
       </div>
@@ -891,36 +372,15 @@ function PlasmicFaqPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "button",
-    "vigetLiom",
-    "popover",
-    "button6",
-    "button7",
-    "switchbest",
-    "img"
-  ],
-  button: ["button"],
-  vigetLiom: ["vigetLiom", "popover", "button6", "button7", "switchbest"],
-  popover: ["popover", "button6", "button7"],
-  button6: ["button6"],
-  button7: ["button7"],
-  switchbest: ["switchbest"],
-  img: ["img"]
+  root: ["root", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  button: typeof ButtonLiom;
-  vigetLiom: typeof VigetLiom;
-  popover: typeof AntdPopover;
-  button6: typeof ButtonLiom;
-  button7: typeof ButtonLiom;
-  switchbest: typeof Switchbest;
-  img: typeof PlasmicImg__;
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1008,13 +468,7 @@ export const PlasmicFaqPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    button: makeNodeComponent("button"),
-    vigetLiom: makeNodeComponent("vigetLiom"),
-    popover: makeNodeComponent("popover"),
-    button6: makeNodeComponent("button6"),
-    button7: makeNodeComponent("button7"),
-    switchbest: makeNodeComponent("switchbest"),
-    img: makeNodeComponent("img"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicFaqPage
     internalVariantProps: PlasmicFaqPage__VariantProps,

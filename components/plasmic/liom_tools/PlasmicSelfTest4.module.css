@@ -427,7 +427,6 @@
   .testOptionsLiom:global(.__wab_instance) {
     width: 100%;
     min-width: 0;
-    display: flex;
   }
 }
 .text__vCx0S {
