@@ -90,6 +90,7 @@ export const PlasmicFaqPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFaqPage__OverridesType = {
   root?: Flex__<"div">;
+  section?: Flex__<"section">;
   tabWidget?: Flex__<typeof TabWidget>;
   collapse?: Flex__<typeof AntdSingleCollapse>;
 };
@@ -701,101 +702,107 @@ function PlasmicFaqPage__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__v7ZDr)}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__ncqR)}
+            <section
+              data-plasmic-name={"section"}
+              data-plasmic-override={overrides.section}
+              className={classNames(projectcss.all, sty.section)}
             >
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.faq.length > 0 ? $state.faq : [];
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <TabWidget
-                    data-plasmic-name={"tabWidget"}
-                    data-plasmic-override={overrides.tabWidget}
-                    className={classNames("__wab_instance", sty.tabWidget)}
-                    key={currentIndex}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateIndex"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["index"]
-                              },
-                              operation: 0,
-                              value: currentIndex
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__ncqR)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.faq.length > 0 ? $state.faq : [];
+                    } catch (e) {
                       if (
-                        $steps["updateIndex"] != null &&
-                        typeof $steps["updateIndex"] === "object" &&
-                        typeof $steps["updateIndex"].then === "function"
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        $steps["updateIndex"] = await $steps["updateIndex"];
+                        return [];
                       }
-                    }}
-                    selected={(() => {
-                      try {
-                        return $state.index == currentIndex;
-                      } catch (e) {
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <TabWidget
+                      data-plasmic-name={"tabWidget"}
+                      data-plasmic-override={overrides.tabWidget}
+                      className={classNames("__wab_instance", sty.tabWidget)}
+                      key={currentIndex}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateIndex"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["index"]
+                                },
+                                operation: 0,
+                                value: currentIndex
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                         if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
+                          $steps["updateIndex"] != null &&
+                          typeof $steps["updateIndex"] === "object" &&
+                          typeof $steps["updateIndex"].then === "function"
                         ) {
-                          return [];
+                          $steps["updateIndex"] = await $steps["updateIndex"];
                         }
-                        throw e;
-                      }
-                    })()}
-                    title={(() => {
-                      try {
-                        return currentItem.month;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
+                      }}
+                      selected={(() => {
+                        try {
+                          return $state.index == currentIndex;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  />
-                );
-              })}
-            </Stack__>
+                      })()}
+                      title={(() => {
+                        try {
+                          return currentItem.month;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  );
+                })}
+              </Stack__>
+            </section>
             <div className={classNames(projectcss.all, sty.freeBox__pPbk)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
@@ -941,7 +948,8 @@ function PlasmicFaqPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "tabWidget", "collapse"],
+  root: ["root", "section", "tabWidget", "collapse"],
+  section: ["section", "tabWidget"],
   tabWidget: ["tabWidget"],
   collapse: ["collapse"]
 } as const;
@@ -950,6 +958,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  section: "section";
   tabWidget: typeof TabWidget;
   collapse: typeof AntdSingleCollapse;
 };
@@ -1039,6 +1048,7 @@ export const PlasmicFaqPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    section: makeNodeComponent("section"),
     tabWidget: makeNodeComponent("tabWidget"),
     collapse: makeNodeComponent("collapse"),
 
