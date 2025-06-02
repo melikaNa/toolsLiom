@@ -2909,6 +2909,20 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicTabWidget.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "qToZAHlMoTQ8",
+          "name": "IsRedi",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicIsRedi.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/is-ready.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicIsRedi.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/is-ready"
         }
       ],
       "icons": [
