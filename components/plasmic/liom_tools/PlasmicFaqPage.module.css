@@ -92,16 +92,17 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  left: 15%;
+  left: 0;
   top: 0;
   z-index: 1;
-  right: 15%;
+  background: #f8f8f8;
+  right: 0;
   padding: 8px;
   border-bottom: 1px solid var(--token-HFSv-V_E5BCA);
 }
 .freeBox__ncqR > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: flex-start;
   margin-left: calc(0px - 8px);
   width: calc(100% + 8px);
