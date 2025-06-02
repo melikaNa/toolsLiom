@@ -2788,14 +2788,3 @@
     top: 10px;
   }
 }
-.embedHtml__oswtM:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  left: 40px;
-  top: 16px;
-  z-index: 1;
-  position: fixed;
-  right: auto;
-  width: auto;
-  justify-self: flex-start;
-}

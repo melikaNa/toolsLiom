@@ -449,7 +449,7 @@ function PlasmicResultForDoctor2__RenderFunc(props: {
                         "https://n8n.staas.ir/webhook/selfTestOwnerWallet",
                         (() => {
                           try {
-                            return { code: $state.paramsObject.code };
+                            return { code: "dhmkkmhdbb" }; //$state.paramsObject.code })
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1259,9 +1259,9 @@ function PlasmicResultForDoctor2__RenderFunc(props: {
                                 var scrollTop = event.currentTarget.scrollTop;
                                 var chatBox = event.currentTarget;
                                 window.chatBox = chatBox;
-                                if (scrollTop > 50) {
+                                if (scrollTop > 350) {
                                   chatBox.style.position = "fixed";
-                                  chatBox.style.top = "0";
+                                  chatBox.style.top = "100";
                                   chatBox.style.left = "0";
                                   chatBox.style.width = "100%";
                                   chatBox.style.height = "100vh";
