@@ -77,6 +77,18 @@
     margin-top: 16px;
   }
 }
+.freeBox__ncqR {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
 .freeBox__udcx {
   display: flex;
   flex-direction: column;
