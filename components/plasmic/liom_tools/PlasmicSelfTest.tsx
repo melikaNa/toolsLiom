@@ -2031,6 +2031,37 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["updateTestChat3"] = await $steps["updateTestChat3"];
             }
 
+            $steps["updateTestChat8"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        var messageBox =
+                          window.document.getElementById("chatBox");
+                        if (messageBox) {
+                          var inputBox = document.getElementById("selectBox");
+                          messageBox.style.paddingBottom = `${
+                            inputBox.offsetHeight + 20
+                          }px`;
+                          return (messageBox.scrollTop =
+                            messageBox.scrollHeight);
+                        }
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateTestChat8"] != null &&
+              typeof $steps["updateTestChat8"] === "object" &&
+              typeof $steps["updateTestChat8"].then === "function"
+            ) {
+              $steps["updateTestChat8"] = await $steps["updateTestChat8"];
+            }
+
             $steps["log"] = true
               ? (() => {
                   const actionArgs = {

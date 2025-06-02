@@ -670,7 +670,7 @@
   > img {
   margin-left: 8px;
 }
-.tabWeek2:global(.__wab_instance) {
+.tabWidget:global(.__wab_instance) {
   max-width: 100%;
 }
 .text__zkHlQ {

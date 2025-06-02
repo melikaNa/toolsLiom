@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import TabWidget from "../../TabWidget"; // plasmic-import: TgQ-n3w6yOfs/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 
@@ -89,6 +90,7 @@ export const PlasmicFaqPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicFaqPage__OverridesType = {
   root?: Flex__<"div">;
+  tabWidget?: Flex__<typeof TabWidget>;
   collapse?: Flex__<typeof AntdSingleCollapse>;
 };
 
@@ -699,140 +701,238 @@ function PlasmicFaqPage__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__v7ZDr)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__ncqR)} />
-
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-              (() => {
-                try {
-                  return $state.faq[$state.index].questions.length > 0
-                    ? $state.faq[$state.index].questions
-                    : [];
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__ncqR)}
+            >
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.faq.length > 0 ? $state.faq : [];
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()
-            ).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__udcx)}
-                  key={currentIndex}
-                >
-                  {(() => {
-                    const child$Props = {
-                      bordered: false,
-                      className: classNames("__wab_instance", sty.collapse),
-                      collapsible: "header",
-                      destroyInactivePanel: false,
-                      expandIconPosition: "end",
-                      extra: null,
-                      forceRender: false,
-                      ghost: true,
-                      label2: (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__s99Zs
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.question;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <TabWidget
+                    data-plasmic-name={"tabWidget"}
+                    data-plasmic-override={overrides.tabWidget}
+                    className={classNames("__wab_instance", sty.tabWidget)}
+                    key={currentIndex}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateIndex"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["index"]
+                              },
+                              operation: 0,
+                              value: currentIndex
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      ),
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "open",
-                          ["collapse", __plasmic_idx_0, "open"],
-                          AntdSingleCollapse_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      open: generateStateValueProp($state, [
-                        "collapse",
-                        __plasmic_idx_0,
-                        "open"
-                      ]),
-                      showArrow: true,
-                      size: "small"
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "open",
-                          plasmicStateName: "collapse[].open"
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateIndex"] != null &&
+                        typeof $steps["updateIndex"] === "object" &&
+                        typeof $steps["updateIndex"].then === "function"
+                      ) {
+                        $steps["updateIndex"] = await $steps["updateIndex"];
+                      }
+                    }}
+                    selected={(() => {
+                      try {
+                        return $state.index == currentIndex;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
                         }
-                      ],
-                      [__plasmic_idx_0],
-                      AntdSingleCollapse_Helpers ?? {},
-                      child$Props
-                    );
-                    initializePlasmicStates(
-                      $state,
-                      [
-                        {
-                          name: "collapse[].open",
-                          initFunc: ({ $props, $state, $queries }) => undefined
+                        throw e;
+                      }
+                    })()}
+                    title={(() => {
+                      try {
+                        return currentItem.month;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
                         }
-                      ],
-                      [__plasmic_idx_0]
-                    );
-                    return (
-                      <AntdSingleCollapse
-                        data-plasmic-name={"collapse"}
-                        data-plasmic-override={overrides.collapse}
-                        {...child$Props}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__uLwUq
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.long_answer;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "Collapsible text...";
+                        throw e;
+                      }
+                    })()}
+                  />
+                );
+              })}
+            </Stack__>
+            <div className={classNames(projectcss.all, sty.freeBox__pPbk)}>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.faq[$state.index].questions.length > 0
+                      ? $state.faq[$state.index].questions
+                      : [];
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__udcx)}
+                    key={currentIndex}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        bordered: false,
+                        className: classNames("__wab_instance", sty.collapse),
+                        collapsible: "header",
+                        destroyInactivePanel: false,
+                        expandIconPosition: "end",
+                        extra: null,
+                        forceRender: false,
+                        ghost: true,
+                        label2: (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__s99Zs
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.question;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </AntdSingleCollapse>
-                    );
-                  })()}
-                </div>
-              );
-            })}
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        ),
+                        onChange: async (...eventArgs: any) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "open",
+                            ["collapse", __plasmic_idx_0, "open"],
+                            AntdSingleCollapse_Helpers
+                          ).apply(null, eventArgs);
+                        },
+                        open: generateStateValueProp($state, [
+                          "collapse",
+                          __plasmic_idx_0,
+                          "open"
+                        ]),
+                        showArrow: true,
+                        size: "small"
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "open",
+                            plasmicStateName: "collapse[].open"
+                          }
+                        ],
+                        [__plasmic_idx_0],
+                        AntdSingleCollapse_Helpers ?? {},
+                        child$Props
+                      );
+                      initializePlasmicStates(
+                        $state,
+                        [
+                          {
+                            name: "collapse[].open",
+                            initFunc: ({ $props, $state, $queries }) =>
+                              undefined
+                          }
+                        ],
+                        [__plasmic_idx_0]
+                      );
+                      return (
+                        <AntdSingleCollapse
+                          data-plasmic-name={"collapse"}
+                          data-plasmic-override={overrides.collapse}
+                          {...child$Props}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__uLwUq
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.long_answer;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "Collapsible text...";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </AntdSingleCollapse>
+                      );
+                    })()}
+                  </div>
+                );
+              })}
+            </div>
           </Stack__>
         </div>
       </div>
@@ -841,7 +941,8 @@ function PlasmicFaqPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "collapse"],
+  root: ["root", "tabWidget", "collapse"],
+  tabWidget: ["tabWidget"],
   collapse: ["collapse"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -849,6 +950,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  tabWidget: typeof TabWidget;
   collapse: typeof AntdSingleCollapse;
 };
 
@@ -937,6 +1039,7 @@ export const PlasmicFaqPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    tabWidget: makeNodeComponent("tabWidget"),
     collapse: makeNodeComponent("collapse"),
 
     // Metadata about props expected for PlasmicFaqPage

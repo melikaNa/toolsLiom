@@ -68,7 +68,7 @@ import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/compo
 import VigetLiom from "../../VigetLiom"; // plasmic-import: aok8o2KhU8vY/component
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Switchbest from "../../Switchbest"; // plasmic-import: sHLRdvulrK-R/component
-import TabWeek2 from "../../TabWeek2"; // plasmic-import: TgQ-n3w6yOfs/component
+import TabWidget from "../../TabWidget"; // plasmic-import: TgQ-n3w6yOfs/component
 import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
@@ -117,7 +117,7 @@ export type PlasmicTest__OverridesType = {
   switchbest?: Flex__<typeof Switchbest>;
   card15?: Flex__<"div">;
   button9?: Flex__<typeof ButtonLiom>;
-  tabWeek2?: Flex__<typeof TabWeek2>;
+  tabWidget?: Flex__<typeof TabWidget>;
   sideEffect?: Flex__<typeof SideEffect>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
@@ -1194,10 +1194,10 @@ function PlasmicTest__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <TabWeek2
-                      data-plasmic-name={"tabWeek2"}
-                      data-plasmic-override={overrides.tabWeek2}
-                      className={classNames("__wab_instance", sty.tabWeek2)}
+                    <TabWidget
+                      data-plasmic-name={"tabWidget"}
+                      data-plasmic-override={overrides.tabWidget}
+                      className={classNames("__wab_instance", sty.tabWidget)}
                       currentItem={(() => {
                         try {
                           return currentItem;
@@ -1924,7 +1924,7 @@ const PlasmicDescendants = {
     "switchbest",
     "card15",
     "button9",
-    "tabWeek2",
+    "tabWidget",
     "sideEffect",
     "collapseBaby",
     "collapseMother",
@@ -1945,7 +1945,7 @@ const PlasmicDescendants = {
   switchbest: ["switchbest"],
   card15: ["card15", "button9"],
   button9: ["button9"],
-  tabWeek2: ["tabWeek2"],
+  tabWidget: ["tabWidget"],
   sideEffect: ["sideEffect"],
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
@@ -1971,7 +1971,7 @@ type NodeDefaultElementType = {
   switchbest: typeof Switchbest;
   card15: "div";
   button9: typeof ButtonLiom;
-  tabWeek2: typeof TabWeek2;
+  tabWidget: typeof TabWidget;
   sideEffect: typeof SideEffect;
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
@@ -2078,7 +2078,7 @@ export const PlasmicTest = Object.assign(
     switchbest: makeNodeComponent("switchbest"),
     card15: makeNodeComponent("card15"),
     button9: makeNodeComponent("button9"),
-    tabWeek2: makeNodeComponent("tabWeek2"),
+    tabWidget: makeNodeComponent("tabWidget"),
     sideEffect: makeNodeComponent("sideEffect"),
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),
