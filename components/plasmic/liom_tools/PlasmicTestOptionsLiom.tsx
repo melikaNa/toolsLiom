@@ -369,7 +369,9 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         {(() => {
           try {
             return (
-              $props.data.options.length > 1 && $props.data.options.length < 7
+              $props.data.options.length > 1 &&
+              $props.data.options.length < 7 &&
+              $props.data.question?.answerType != "numberInput"
             );
           } catch (e) {
             if (
@@ -617,7 +619,10 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           : null}
         {(() => {
           try {
-            return $props.data.options.length > 6;
+            return (
+              $props.data.options.length > 6 &&
+              $props.data.question?.answerType != "numberInput"
+            );
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -866,207 +871,245 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             </div>
           </Stack__>
         ) : null}
-        <div className={classNames(projectcss.all, sty.freeBox__gOfKr)}>
-          <SendIcon
-            data-plasmic-name={"sendIcon"}
-            data-plasmic-override={overrides.sendIcon}
-            className={classNames("__wab_instance", sty.sendIcon)}
-            diable={generateStateValueProp($state, ["sendIcon", "diable"])}
-            load={generateStateValueProp($state, ["sendIcon", "load"])}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["runCode"] = !$state.sendIcon.diable
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return ($state.number = parseInt(
-                          $state.antdInput2.value
-                        ));
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-
-              $steps["runOnClick24"] = !$state.sendIcon.diable
-                ? (() => {
-                    const actionArgs = { eventRef: $props["onClick24"] };
-                    return (({ eventRef, args }) => {
-                      return eventRef?.(...(args ?? []));
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runOnClick24"] != null &&
-                typeof $steps["runOnClick24"] === "object" &&
-                typeof $steps["runOnClick24"].then === "function"
-              ) {
-                $steps["runOnClick24"] = await $steps["runOnClick24"];
-              }
-            }}
-            onDiableChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["sendIcon", "diable"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onLoadChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["sendIcon", "load"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-          />
-
-          {(() => {
-            const child$Props = {
-              bordered: false,
-              className: classNames("__wab_instance", sty.antdInput2),
-              disabled: (() => {
-                try {
-                  return $state.input;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })(),
-              id: "inputMobile",
-              onChange: async (...eventArgs: any) => {
-                generateStateOnChangePropForCodeComponents(
-                  $state,
-                  "value",
-                  ["antdInput2", "value"],
-                  Input_Helpers
-                ).apply(null, eventArgs);
-
-                (async event => {
-                  const $steps = {};
-                }).apply(null, eventArgs);
-              },
-              placeholder: (() => {
-                try {
-                  return $props.data.text;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })(),
-              size: "middle",
-              type: "number",
-              value: generateStateValueProp($state, ["antdInput2", "value"])
-            };
-            initializeCodeComponentStates(
-              $state,
-              [
-                {
-                  name: "value",
-                  plasmicStateName: "antdInput2.value"
-                }
-              ],
-              [],
-              Input_Helpers ?? {},
-              child$Props
-            );
-
-            return (
-              <Input
-                data-plasmic-name={"antdInput2"}
-                data-plasmic-override={overrides.antdInput2}
-                {...child$Props}
-              />
-            );
-          })()}
-          {(() => {
-            try {
-              return $state.input;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
+        {(() => {
+          try {
+            return $props.data.question?.answerType == "numberInput";
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
             }
-          })() ? (
-            <div
-              className={classNames(projectcss.all, sty.freeBox__kCh7H)}
+            throw e;
+          }
+        })() ? (
+          <div className={classNames(projectcss.all, sty.freeBox__gOfKr)}>
+            <SendIcon
+              data-plasmic-name={"sendIcon"}
+              data-plasmic-override={overrides.sendIcon}
+              className={classNames("__wab_instance", sty.sendIcon)}
+              diable={generateStateValueProp($state, ["sendIcon", "diable"])}
+              load={generateStateValueProp($state, ["sendIcon", "load"])}
               onClick={async event => {
                 const $steps = {};
 
-                $steps["updateInput"] = true
+                $steps["runCode"] = !$state.sendIcon.diable
                   ? (() => {
                       const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["input"]
-                        },
-                        operation: 0,
-                        value: false
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
+                        customFunction: async () => {
+                          return ($state.number = parseInt(
+                            $state.antdInput2.value
+                          ));
                         }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateInput"] != null &&
-                  typeof $steps["updateInput"] === "object" &&
-                  typeof $steps["updateInput"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["updateInput"] = await $steps["updateInput"];
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["runCode2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return ($state.selectedIDs = [
+                              $props.data.options[0].id
+                            ]);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
+
+                $steps["runOnClick24"] = !$state.sendIcon.diable
+                  ? (() => {
+                      const actionArgs = { eventRef: $props["onClick24"] };
+                      return (({ eventRef, args }) => {
+                        return eventRef?.(...(args ?? []));
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runOnClick24"] != null &&
+                  typeof $steps["runOnClick24"] === "object" &&
+                  typeof $steps["runOnClick24"].then === "function"
+                ) {
+                  $steps["runOnClick24"] = await $steps["runOnClick24"];
+                }
+              }}
+              onDiableChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["sendIcon", "diable"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["sendIcon", "load"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
                 }
               }}
             />
-          ) : null}
-        </div>
+
+            {(() => {
+              const child$Props = {
+                bordered: false,
+                className: classNames("__wab_instance", sty.antdInput2),
+                disabled: (() => {
+                  try {
+                    return $state.input;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })(),
+                id: "inputMobile",
+                onChange: async (...eventArgs: any) => {
+                  generateStateOnChangePropForCodeComponents(
+                    $state,
+                    "value",
+                    ["antdInput2", "value"],
+                    Input_Helpers
+                  ).apply(null, eventArgs);
+
+                  (async event => {
+                    const $steps = {};
+                  }).apply(null, eventArgs);
+                },
+                placeholder: (() => {
+                  try {
+                    return $props.data.text;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })(),
+                size: "middle",
+                type: "number",
+                value: generateStateValueProp($state, ["antdInput2", "value"])
+              };
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "value",
+                    plasmicStateName: "antdInput2.value"
+                  }
+                ],
+                [],
+                Input_Helpers ?? {},
+                child$Props
+              );
+
+              return (
+                <Input
+                  data-plasmic-name={"antdInput2"}
+                  data-plasmic-override={overrides.antdInput2}
+                  {...child$Props}
+                />
+              );
+            })()}
+            {(() => {
+              try {
+                return $state.input;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__kCh7H)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateInput"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["input"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateInput"] != null &&
+                    typeof $steps["updateInput"] === "object" &&
+                    typeof $steps["updateInput"].then === "function"
+                  ) {
+                    $steps["updateInput"] = await $steps["updateInput"];
+                  }
+                }}
+              />
+            ) : null}
+          </div>
+        ) : null}
       </div>
       {(() => {
         try {

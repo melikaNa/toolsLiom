@@ -132,6 +132,7 @@
   align-self: center;
 }
 .freeBox__gOfKr {
+  display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
@@ -140,7 +141,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  display: none;
   border-radius: var(--token-KVcr9NiMwFLr);
   padding: 8px;
   border-width: 1px;

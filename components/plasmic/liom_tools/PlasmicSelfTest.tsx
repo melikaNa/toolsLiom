@@ -3329,8 +3329,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                                           $state.testChat.length - 1
                                         ].options[0]?.id,
                                   text:
-                                    $state.testOptionsLiom.selectedIDs
-                                      .length !== 0
+                                    $state.testOptionsLiom.number != 0
+                                      ? $state.testOptionsLiom.number.toString()
+                                      : $state.testOptionsLiom.selectedIDs
+                                          .length !== 0
                                       ? $state.testOptionsLiom.selectedIDs
                                           .map(
                                             id =>
@@ -3505,11 +3507,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                                             $state.testOptionsLiom
                                               .selectedIDs[0]
                                         ).advice,
-                                      option_text: $state.variable.options.find(
-                                        option =>
-                                          option.id ===
-                                          $state.testOptionsLiom.selectedIDs[0]
-                                      ).text,
+                                      option_text:
+                                        $state.testOptionsLiom.number != 0
+                                          ? $state.testOptionsLiom.number.toString()
+                                          : $state.variable.options.find(
+                                              option =>
+                                                option.id ===
+                                                $state.testOptionsLiom
+                                                  .selectedIDs[0]
+                                            ).text,
                                       option_metric_fa:
                                         $state.variable.options.find(
                                           option =>
@@ -4173,9 +4179,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   messageBox.style.paddingBottom = `${
                                     inputBox.offsetHeight + 20
                                   }px`;
-                                  return (messageBox.scrollTop =
-                                    messageBox.scrollHeight);
+                                  messageBox.scrollTop =
+                                    messageBox.scrollHeight;
                                 }
+                                return ($state.testOptionsLiom.number = 0);
                               })();
                             }
                           };
