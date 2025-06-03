@@ -968,9 +968,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   sty.text___58OuO
                 )}
               >
-                {
-                  "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
-                }
+                {"\u0639\u0644\u0651\u0627\u0645\u0647"}
               </div>
             </div>
           </HeaderLiom>
@@ -3779,7 +3777,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0647\u0633\u062a\u0645."
+                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u0639\u0644\u0651\u0627\u0645\u0647\u060c \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0644\u06cc\u0648\u0645 \u0647\u0633\u062a\u0645."
                         }
                       </div>
                     ) : null}

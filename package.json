@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
-    "@ant-design/pro-components": "^2.8.2",
+    "@ant-design/pro-components": "^2.8.7",
     "@growthbook/growthbook-react": "^1.0.0",
     "@plasmicapp/cli": "^0.1.338",
     "@plasmicapp/host": "^1.0.196",
@@ -24,6 +24,7 @@
     "@plasmicpkgs/plasmic-query": "^0.0.226",
     "@plasmicpkgs/plasmic-rich-components": "^1.0.197",
     "@plasmicpkgs/radix-ui": "^0.0.64",
+    "@plasmicpkgs/react-aria": "^0.0.141",
     "@plasmicpkgs/react-awesome-reveal": "^3.8.209",
     "@plasmicpkgs/react-chartjs-2": "^1.0.112",
     "@plasmicpkgs/react-scroll-parallax": "^0.0.214",

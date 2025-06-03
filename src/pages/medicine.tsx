@@ -5,23 +5,23 @@ import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-we
 import GlobalContextsProvider from "../../components/plasmic/liom_tools/PlasmicGlobalContextsProvider";
 import { ThemeContext } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__Theme";
 import { UnnamedGlobalGroupOfVariantsContext } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants";
-import { PlasmicPanel } from "../../components/plasmic/liom_tools/PlasmicPanel";
+import { PlasmicResultForDoctor3 } from "../../components/plasmic/liom_tools/PlasmicResultForDoctor3";
 import { useRouter } from "next/router";
 
-function Panel() {
-  // Use PlasmicPanel to render this component as it was
+function ResultForDoctor3() {
+  // Use PlasmicResultForDoctor3 to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicPanel are:
+  // Props you can pass into PlasmicResultForDoctor3 are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicPanel is wrapped by your project's global
+  // By default, PlasmicResultForDoctor3 is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -35,7 +35,7 @@ function Panel() {
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
-            <PlasmicPanel />
+            <PlasmicResultForDoctor3 />
           </PageParamsProvider__>
         </GlobalContextsProvider>
       </ThemeContext.Provider>
@@ -43,4 +43,4 @@ function Panel() {
   );
 }
 
-export default Panel;
+export default ResultForDoctor3;

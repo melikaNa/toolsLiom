@@ -416,7 +416,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
                 hasVariant(globalVariants, "screen", "mobileOnly")
                   ? "\u062a\u0627\u0631\u06cc\u062e\u0686\u0647 \u067e\u06cc\u0627\u0645 \u0647\u0627"
                   : hasVariant($state, "opening", "opening")
-                  ? "\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"
+                  ? "\u0639\u0644\u0651\u0627\u0645\u0647"
                   : "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645"}
               </div>
             ) : null}
