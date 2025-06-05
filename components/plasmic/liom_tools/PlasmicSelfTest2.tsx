@@ -1525,6 +1525,64 @@ function PlasmicSelfTest2__RenderFunc(props: {
               $steps["infoChatBot"] = await $steps["infoChatBot"];
             }
 
+            $steps["updateInfoChat"] = ($steps.infoChatBot?.data ? true : false)
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["infoChat"]
+                    },
+                    operation: 0,
+                    value: $steps.infoChatBot.data
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateInfoChat"] != null &&
+              typeof $steps["updateInfoChat"] === "object" &&
+              typeof $steps["updateInfoChat"].then === "function"
+            ) {
+              $steps["updateInfoChat"] = await $steps["updateInfoChat"];
+            }
+
+            $steps["updateLoad"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["load"]
+                    },
+                    operation: 0,
+                    value: false
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateLoad"] != null &&
+              typeof $steps["updateLoad"] === "object" &&
+              typeof $steps["updateLoad"].then === "function"
+            ) {
+              $steps["updateLoad"] = await $steps["updateLoad"];
+            }
+
             $steps["updateSessions"] = (
               $steps.sessions?.data?.list ? true : false
             )
@@ -1554,35 +1612,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
               typeof $steps["updateSessions"].then === "function"
             ) {
               $steps["updateSessions"] = await $steps["updateSessions"];
-            }
-
-            $steps["updateInfoChat"] = ($steps.infoChatBot?.data ? true : false)
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["infoChat"]
-                    },
-                    operation: 0,
-                    value: $steps.infoChatBot.data
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    $stateSet(objRoot, variablePath, value);
-                    return value;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateInfoChat"] != null &&
-              typeof $steps["updateInfoChat"] === "object" &&
-              typeof $steps["updateInfoChat"].then === "function"
-            ) {
-              $steps["updateInfoChat"] = await $steps["updateInfoChat"];
             }
 
             $steps["updateStatus"] = true
@@ -1700,35 +1729,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
               typeof $steps["updateTestChat3"].then === "function"
             ) {
               $steps["updateTestChat3"] = await $steps["updateTestChat3"];
-            }
-
-            $steps["updateLoad"] = true
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["load"]
-                    },
-                    operation: 0,
-                    value: false
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    $stateSet(objRoot, variablePath, value);
-                    return value;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateLoad"] != null &&
-              typeof $steps["updateLoad"] === "object" &&
-              typeof $steps["updateLoad"].then === "function"
-            ) {
-              $steps["updateLoad"] = await $steps["updateLoad"];
             }
 
             $steps["invokeGlobalAction"] = true
