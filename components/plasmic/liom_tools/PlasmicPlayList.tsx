@@ -67,6 +67,10 @@ import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/compo
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 
+import {
+  UnnamedGlobalGroupOfVariantsValue,
+  useUnnamedGlobalGroupOfVariants
+} from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants"; // plasmic-import: gDFLJp69n7ET/globalVariant
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
 
@@ -80,6 +84,7 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJp
 import sty from "./PlasmicPlayList.module.css"; // plasmic-import: tZIqYp1L6i1m/css
 
 import ChevronRightIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronRight"; // plasmic-import: ehuYANk-vbAX/icon
+import XIcon from "../hamdast_sdk/icons/PlasmicIcon__X"; // plasmic-import: S0M2VMEAEs7X/icon
 
 createPlasmicElementProxy;
 
@@ -283,6 +288,7 @@ function PlasmicPlayList__RenderFunc(props: {
   });
 
   const globalVariants = ensureGlobalVariants({
+    unnamedGlobalGroupOfVariants: useUnnamedGlobalGroupOfVariants(),
     screen: useScreenVariantsqiBuxNlixBgQ(),
     screen: useScreenVariantsyg4Uf6WCaaLe()
   });
@@ -326,7 +332,15 @@ function PlasmicPlayList__RenderFunc(props: {
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             plasmic_paziresh_24_design_system_css.plasmic_tokens,
             plasmic_hamdast_sdk_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            {
+              [sty.rootglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
+                hasVariant(
+                  globalVariants,
+                  "unnamedGlobalGroupOfVariants",
+                  "unnamedVariant"
+                )
+            }
           )}
         >
           <SideEffect
@@ -411,71 +425,69 @@ function PlasmicPlayList__RenderFunc(props: {
               data-plasmic-override={overrides.section}
               className={classNames(projectcss.all, sty.section)}
             >
-              {(() => {
-                try {
-                  return $state.paramsObject.inApp == "false";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <HeaderLiom
-                  data-plasmic-name={"headerLiom"}
-                  data-plasmic-override={overrides.headerLiom}
-                  className={classNames("__wab_instance", sty.headerLiom)}
-                  slot={null}
-                  slot2={
-                    <ChevronRightIcon
-                      data-plasmic-name={"svg"}
-                      data-plasmic-override={overrides.svg}
-                      className={classNames(projectcss.all, sty.svg)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return $props.resalt == true
-                                    ? ($props.resalt = false)
-                                    : window.history.back();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-                      }}
-                      role={"img"}
-                    />
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__x42Gr
-                    )}
-                  >
-                    {
-                      "\u0645\u062d\u062a\u0648\u0627 \u0622\u0645\u0648\u0632\u0634\u06cc"
+              <HeaderLiom
+                data-plasmic-name={"headerLiom"}
+                data-plasmic-override={overrides.headerLiom}
+                className={classNames("__wab_instance", sty.headerLiom, {
+                  [sty.headerLiomglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
+                    hasVariant(
+                      globalVariants,
+                      "unnamedGlobalGroupOfVariants",
+                      "unnamedVariant"
+                    )
+                })}
+                slot={null}
+                slot2={
+                  <PlasmicIcon__
+                    data-plasmic-name={"svg"}
+                    data-plasmic-override={overrides.svg}
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? XIcon
+                        : ChevronRightIcon
                     }
-                  </div>
-                </HeaderLiom>
-              ) : null}
+                    className={classNames(projectcss.all, sty.svg)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return $props.resalt == true
+                                  ? ($props.resalt = false)
+                                  : window.history.back();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__x42Gr
+                  )}
+                >
+                  {
+                    "\u0645\u062d\u062a\u0648\u0627 \u0622\u0645\u0648\u0632\u0634\u06cc"
+                  }
+                </div>
+              </HeaderLiom>
             </section>
           ) : null}
           <div

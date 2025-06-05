@@ -772,7 +772,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: right;
+  text-align: justify;
   font-weight: 700;
   font-size: var(--token-Gq2ZclrSKBOi);
   color: var(--token-84PkxcVKH9-F);
@@ -783,7 +783,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: right;
+  text-align: justify;
   font-weight: 400;
   font-size: var(--token-podr231_9RBN);
   color: var(--token-RvPI6LyeIPmd);
@@ -1063,7 +1063,7 @@
 }
 .text__se2Ul {
   color: var(--token-SH2GlK2U7a6u);
-  text-align: right;
+  text-align: justify;
   width: 100%;
   min-width: 0;
 }
@@ -1358,7 +1358,7 @@
 }
 .text__hyDnv {
   color: #7444bc;
-  text-align: right;
+  text-align: justify;
   width: 100%;
   font-weight: 500;
   text-decoration-line: none;
@@ -1437,7 +1437,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: right;
+  text-align: justify;
   font-weight: 700;
   font-size: var(--token-Gq2ZclrSKBOi);
   color: var(--token-84PkxcVKH9-F);
@@ -2645,7 +2645,7 @@
 }
 .text__mL9LQ {
   width: 100%;
-  text-align: right;
+  text-align: justify;
   font-size: 14px;
   font-weight: 500;
   min-width: 0;
@@ -2709,7 +2709,7 @@
 }
 .text__vTvqO {
   width: 100%;
-  text-align: right;
+  text-align: justify;
   font-size: 14px;
   font-weight: 500;
   min-width: 0;
@@ -2761,6 +2761,7 @@
   width: 100%;
   font-size: 14px;
   font-weight: 500;
+  text-align: justify;
   min-width: 0;
 }
 .freeBox__ke6Or {
@@ -2795,7 +2796,7 @@
   width: 100%;
   font-size: 14px;
   font-weight: 500;
-  text-align: right;
+  text-align: justify;
   min-width: 0;
 }
 .select:global(.__wab_instance) {
@@ -2866,6 +2867,7 @@
   width: 100%;
   font-weight: 500;
   font-size: 14px;
+  text-align: justify;
   min-width: 0;
 }
 .email:global(.__wab_instance) {
@@ -2979,7 +2981,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: right;
+  text-align: justify;
   color: var(--token-eAGGWpRlc3eE);
   font-weight: 500;
   font-size: 14px;
@@ -3081,7 +3083,7 @@
   width: 100%;
   font-size: 14px;
   font-weight: 500;
-  text-align: right;
+  text-align: justify;
   min-width: 0;
 }
 .freeBox__tbLxu {
@@ -3125,12 +3127,26 @@
   width: 150%;
   height: 150%;
 }
+.freeBox__uh1Cb {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  right: auto;
+  z-index: 55;
+  min-width: 0;
+  padding: 14px 14px 8px;
+}
 .embedHtml:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  left: 0px;
-  top: 16px;
-  z-index: 55;
-  position: fixed;
-  right: auto;
+  position: relative;
+  left: auto;
+  top: auto;
 }
