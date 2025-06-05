@@ -242,6 +242,18 @@
   width: auto;
   height: 1em;
 }
+.freeBox__oPxQg {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
 .svg__uzTpk {
   object-fit: cover;
   max-width: 100%;

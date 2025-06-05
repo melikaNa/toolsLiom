@@ -1381,9 +1381,20 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             }
           }}
         >
-          {
-            "\u062f\u06cc\u062f\u0646 \u0646\u062a\u0627\u06cc\u062c \u0642\u0628\u0644\u06cc"
-          }
+          <div className={classNames(projectcss.all, sty.freeBox__oPxQg)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__oaCrP
+              )}
+              data-i18n={"btn.result"}
+            >
+              {
+                "\u062f\u06cc\u062f\u0646 \u0646\u062a\u0627\u06cc\u062c \u0642\u0628\u0644\u06cc"
+              }
+            </div>
+          </div>
         </ButtonLiom>
       ) : null}
     </div>

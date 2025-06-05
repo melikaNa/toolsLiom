@@ -9645,7 +9645,8 @@ function PlasmicResult__RenderFunc(props: {
                     }
 
                     $steps["invokeGlobalAction"] =
-                      $state.rate != 0
+                      $state.rate != 0 &&
+                      ($state.rate == 5 || $state.textArea2.value != "")
                         ? (() => {
                             const actionArgs = {
                               args: [
@@ -9749,7 +9750,8 @@ function PlasmicResult__RenderFunc(props: {
                     }
 
                     $steps["updateDialog2Open"] =
-                      $state.rate != 0
+                      $state.rate != 0 &&
+                      ($state.rate == 5 || $state.textArea2.value != "")
                         ? (() => {
                             const actionArgs = {
                               variable: {
@@ -9809,6 +9811,46 @@ function PlasmicResult__RenderFunc(props: {
                     ) {
                       $steps["invokeGlobalAction3"] = await $steps[
                         "invokeGlobalAction3"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction4"] =
+                      $state.rate < 5 && $state.textArea2.value == ""
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "info",
+                                (() => {
+                                  try {
+                                    return `با توجه به اینکه نظر و امتیاز شما برای سایر کاربران بسیار مهم است، لطفاً دلیل اینکه امتیاز ${$state.rate} ستاره داده‌اید را بنویسید.`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                undefined,
+                                undefined,
+                                "bottom"
+                              ]
+                            };
+                            return $globalActions[
+                              "plasmic-antd5-config-provider.showNotification"
+                            ]?.apply(null, [...actionArgs.args]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction4"] != null &&
+                      typeof $steps["invokeGlobalAction4"] === "object" &&
+                      typeof $steps["invokeGlobalAction4"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction4"] = await $steps[
+                        "invokeGlobalAction4"
                       ];
                     }
                   }}
