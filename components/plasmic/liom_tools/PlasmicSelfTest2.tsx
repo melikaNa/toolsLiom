@@ -6033,7 +6033,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       dangerouslySetInnerHTML={{
                         __html: (() => {
                           try {
-                            return `اعتبار شما : <b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit} </span></b>`;
+                            return `اعتبار شما : <b> <span style="font-size: 18px; font-with:bold;"> ${
+                              $state.infoChat.credit != undefined
+                                ? $state.infoChat.credit
+                                : ""
+                            } </span></b>`;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -6052,7 +6056,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   hasVariant(globalVariants, "screen", "mobileOnly")
                     ? (() => {
                         try {
-                          return $state.lo;
+                          return (
+                            $state.lo || $state.infoChat.credit == undefined
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||

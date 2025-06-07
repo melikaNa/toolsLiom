@@ -174,7 +174,6 @@ export type PlasmicResult__OverridesType = {
   h2?: Flex__<"h2">;
   paziresh24LineClamp?: Flex__<typeof Paziresh24LineClamp>;
   cardSubtitle?: Flex__<"span">;
-  section?: Flex__<"section">;
   dialog2?: Flex__<typeof Paziresh24Dialog>;
   textArea2?: Flex__<typeof AntdTextArea>;
   directDialog?: Flex__<typeof DirectDialog>;
@@ -190,7 +189,6 @@ export type PlasmicResult__OverridesType = {
   textArea3?: Flex__<typeof AntdTextArea>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
   embedHtml?: Flex__<typeof Embed>;
-  buttonLiom2?: Flex__<typeof ButtonLiom>;
   buttonLiom6?: Flex__<typeof ButtonLiom>;
 };
 
@@ -476,12 +474,6 @@ function PlasmicResult__RenderFunc(props: {
           })()
       },
       {
-        path: "buttonLiom2.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "sand"
-      },
-      {
         path: "buttonLiom3[].color",
         type: "private",
         variableType: "text"
@@ -600,12 +592,6 @@ function PlasmicResult__RenderFunc(props: {
         path: "buttonLiom3[].load",
         type: "private",
         variableType: "boolean"
-      },
-      {
-        path: "buttonLiom2.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "buttonLiom4[].load",
@@ -1159,110 +1145,120 @@ function PlasmicResult__RenderFunc(props: {
               </div>
             </Backgrond>
           </AntdModal>
-          {(() => {
-            try {
-              return (
-                new URLSearchParams(window.location.search).get("inApp") !=
-                "true"
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
+          <section className={classNames(projectcss.all, sty.section__r0Aj)}>
+            {(() => {
+              try {
+                return (
+                  new URLSearchParams(window.location.search).get("inApp") !=
+                  "true"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
               }
-              throw e;
-            }
-          })() ? (
-            <HeaderLiom
-              data-plasmic-name={"headerLiom"}
-              data-plasmic-override={overrides.headerLiom}
-              className={classNames("__wab_instance", sty.headerLiom)}
-              slot={
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return window.sessionStorage.getItem("home-page") != null;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <XIcon
-                      className={classNames(projectcss.all, sty.svg___30Ty)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return window.location.replace(
-                                      window.sessionStorage.getItem("home-page")
-                                    );
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-                      }}
-                      role={"img"}
-                    />
-                  ) : null}
-                  <Paziresh24Avatar
-                    className={classNames(
-                      "__wab_instance",
-                      sty.paziresh24Avatar__etGjv
-                    )}
-                    src={(() => {
+            })() ? (
+              <HeaderLiom
+                data-plasmic-name={"headerLiom"}
+                data-plasmic-override={overrides.headerLiom}
+                className={classNames("__wab_instance", sty.headerLiom)}
+                slot={
+                  <React.Fragment>
+                    {(() => {
                       try {
-                        return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
+                        return (
+                          window.sessionStorage.getItem("home-page") != null
+                        );
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return undefined;
+                          return true;
                         }
                         throw e;
                       }
-                    })()}
-                  />
-                </React.Fragment>
-              }
-              slot2={null}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__dgteT)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__x8Lrb
-                  )}
-                  data-i18n={"result.main.title"}
-                >
-                  {"\u0646\u062a\u06cc\u062c\u0647  \u0634\u0645\u0627"}
+                    })() ? (
+                      <XIcon
+                        className={classNames(projectcss.all, sty.svg___30Ty)}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return window.location.replace(
+                                        window.sessionStorage.getItem(
+                                          "home-page"
+                                        )
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                        role={"img"}
+                      />
+                    ) : null}
+                    <Paziresh24Avatar
+                      className={classNames(
+                        "__wab_instance",
+                        sty.paziresh24Avatar__etGjv,
+                        {
+                          [sty.paziresh24Avatarspecialized__etGjvFomOb]:
+                            hasVariant($state, "specialized", "specialized")
+                        }
+                      )}
+                      src={(() => {
+                        try {
+                          return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  </React.Fragment>
+                }
+                slot2={null}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__dgteT)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__x8Lrb
+                    )}
+                    data-i18n={"result.main.title"}
+                  >
+                    {"\u0646\u062a\u06cc\u062c\u0647  \u0634\u0645\u0627"}
+                  </div>
                 </div>
-              </div>
-            </HeaderLiom>
-          ) : null}
+              </HeaderLiom>
+            ) : null}
+          </section>
           <Timer
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
@@ -1504,7 +1500,7 @@ function PlasmicResult__RenderFunc(props: {
                     >
                       {(() => {
                         try {
-                          return !currentItem.more;
+                          return !currentItem.more && currentItem.badge != null;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -1531,6 +1527,11 @@ function PlasmicResult__RenderFunc(props: {
                                 $state,
                                 "information",
                                 "information"
+                              ),
+                              [sty.freeBoxspecialized__lwrUxFomOb]: hasVariant(
+                                $state,
+                                "specialized",
+                                "specialized"
                               )
                             }
                           )}
@@ -2295,6 +2296,11 @@ function PlasmicResult__RenderFunc(props: {
                         $state,
                         "information",
                         "information"
+                      ),
+                      [sty.freeBoxspecialized__q9QjcFomOb]: hasVariant(
+                        $state,
+                        "specialized",
+                        "specialized"
                       )
                     })}
                     onClick={async event => {
@@ -2653,7 +2659,9 @@ function PlasmicResult__RenderFunc(props: {
                     })}
                     key={currentIndex}
                   >
-                    <div
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__xarJz,
@@ -2708,7 +2716,14 @@ function PlasmicResult__RenderFunc(props: {
                           apiRequestData={$state.apiRequestData}
                           className={classNames(
                             "__wab_instance",
-                            sty.icons__ckKdy
+                            sty.icons__ckKdy,
+                            {
+                              [sty.iconsspecialized__ckKdyFomOb]: hasVariant(
+                                $state,
+                                "specialized",
+                                "specialized"
+                              )
+                            }
                           )}
                           currentItem={currentItem}
                           unnamedGroupOfVariants={(() => {
@@ -2798,22 +2813,45 @@ function PlasmicResult__RenderFunc(props: {
                               }
                             )}
                           >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $state.specialized2.actionBtnText;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u06a9\u0645 \u062e\u0648\u0646\u06cc";
+                            {hasVariant(
+                              $state,
+                              "specialized",
+                              "specialized"
+                            ) ? (
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.specialized2.nextStepText;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u06a9\u0645 \u062e\u0648\u0646\u06cc";
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
+                                })()}
+                              </React.Fragment>
+                            ) : (
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.specialized2.actionBtnText;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u06a9\u0645 \u062e\u0648\u0646\u06cc";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            )}
                           </div>
                         </PercentageBox>
                       </Stack__>
@@ -3061,7 +3099,9 @@ function PlasmicResult__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__lcS8B,
@@ -3074,19 +3114,24 @@ function PlasmicResult__RenderFunc(props: {
                             }
                           )}
                         >
-                          {(() => {
-                            try {
-                              return currentItem.action !== "";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
+                          {(
+                            hasVariant($state, "specialized", "specialized")
+                              ? true
+                              : (() => {
+                                  try {
+                                    return currentItem.action !== "";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                          ) ? (
                             <Paziresh24Button
                               children2={
                                 <div
@@ -3114,7 +3159,15 @@ function PlasmicResult__RenderFunc(props: {
                                           }
                                           throw e;
                                         }
-                                      })()
+                                      })(),
+                                      {
+                                        [sty.textspecialized___9WbwNfomOb]:
+                                          hasVariant(
+                                            $state,
+                                            "specialized",
+                                            "specialized"
+                                          )
+                                      }
                                     )}
                                   >
                                     <React.Fragment>
@@ -3149,6 +3202,11 @@ function PlasmicResult__RenderFunc(props: {
                                     )
                                 }
                               )}
+                              color={
+                                hasVariant($state, "specialized", "specialized")
+                                  ? "link"
+                                  : undefined
+                              }
                               endIcon={
                                 <Icon125Icon
                                   className={classNames(
@@ -3200,20 +3258,33 @@ function PlasmicResult__RenderFunc(props: {
                                   ];
                                 }
                               }}
+                              outline={
+                                hasVariant($state, "specialized", "specialized")
+                                  ? true
+                                  : undefined
+                              }
                               showStartIcon={true}
                               size={"compact"}
                               startIcon={
                                 <Icon145Icon
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__iBRyN
+                                    sty.svg__iBRyN,
+                                    {
+                                      [sty.svgspecialized__iBRyNfomOb]:
+                                        hasVariant(
+                                          $state,
+                                          "specialized",
+                                          "specialized"
+                                        )
+                                    }
                                   )}
                                   role={"img"}
                                 />
                               }
                             />
                           ) : null}
-                        </div>
+                        </Stack__>
                       ) : null}
                       <div
                         className={classNames(
@@ -3564,7 +3635,7 @@ function PlasmicResult__RenderFunc(props: {
                             : null}
                         </HamdastUtilsOpenLink>
                       </div>
-                    </div>
+                    </Stack__>
                   </Stack__>
                 );
               })}
@@ -4412,6 +4483,7 @@ function PlasmicResult__RenderFunc(props: {
               : (() => {
                   try {
                     return (
+                      !$state.apiRequest.data.prescription &&
                       $state.apiRequest.data &&
                       $state.apiRequest.data.our_message
                     );
@@ -4561,7 +4633,14 @@ function PlasmicResult__RenderFunc(props: {
                         hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___3GvY6
+                          sty.freeBox___3GvY6,
+                          {
+                            [sty.freeBoxspecialized___3GvY6FomOb]: hasVariant(
+                              $state,
+                              "specialized",
+                              "specialized"
+                            )
+                          }
                         )}
                         key={currentIndex}
                       >
@@ -4600,7 +4679,15 @@ function PlasmicResult__RenderFunc(props: {
                             hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__b45Lz
+                              sty.freeBox__b45Lz,
+                              {
+                                [sty.freeBoxspecialized__b45LzfomOb]:
+                                  hasVariant(
+                                    $state,
+                                    "specialized",
+                                    "specialized"
+                                  )
+                              }
                             )}
                             onClick={async event => {
                               const $steps = {};
@@ -4699,7 +4786,15 @@ function PlasmicResult__RenderFunc(props: {
                               <PercentageBox
                                 className={classNames(
                                   "__wab_instance",
-                                  sty.percentageBox__tFcgs
+                                  sty.percentageBox__tFcgs,
+                                  {
+                                    [sty.percentageBoxspecialized__tFcgsfomOb]:
+                                      hasVariant(
+                                        $state,
+                                        "specialized",
+                                        "specialized"
+                                      )
+                                  }
                                 )}
                                 unnamedGroupOfVariants={(() => {
                                   try {
@@ -4735,7 +4830,15 @@ function PlasmicResult__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__vtkPr
+                                    sty.text__vtkPr,
+                                    {
+                                      [sty.textspecialized__vtkPrfomOb]:
+                                        hasVariant(
+                                          $state,
+                                          "specialized",
+                                          "specialized"
+                                        )
+                                    }
                                   )}
                                 >
                                   <React.Fragment>
@@ -4759,7 +4862,15 @@ function PlasmicResult__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     sty.svg___0AgVt,
-                                    "animashen"
+                                    "animashen",
+                                    {
+                                      [sty.svgspecialized___0AgVtfomOb]:
+                                        hasVariant(
+                                          $state,
+                                          "specialized",
+                                          "specialized"
+                                        )
+                                    }
                                   )}
                                   role={"img"}
                                 />
@@ -4768,7 +4879,15 @@ function PlasmicResult__RenderFunc(props: {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__xXc2
+                                    sty.text__xXc2,
+                                    {
+                                      [sty.textspecialized__xXc2FomOb]:
+                                        hasVariant(
+                                          $state,
+                                          "specialized",
+                                          "specialized"
+                                        )
+                                    }
                                   )}
                                 >
                                   <React.Fragment>
@@ -4839,7 +4958,9 @@ function PlasmicResult__RenderFunc(props: {
               : (() => {
                   try {
                     return (
-                      $state.apiRequest.data.prescription && $state.level == 3
+                      $state.apiRequest.data.prescription &&
+                      $state.apiRequest.data &&
+                      $state.apiRequest.data.our_message
                     );
                   } catch (e) {
                     if (
@@ -4860,6 +4981,11 @@ function PlasmicResult__RenderFunc(props: {
                   $state,
                   "information",
                   "information"
+                ),
+                [sty.freeBoxspecialized__bKpwSfomOb]: hasVariant(
+                  $state,
+                  "specialized",
+                  "specialized"
                 )
               })}
             >
@@ -9878,11 +10004,7 @@ function PlasmicResult__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <section
-              data-plasmic-name={"section"}
-              data-plasmic-override={overrides.section}
-              className={classNames(projectcss.all, sty.section)}
-            >
+            <section className={classNames(projectcss.all, sty.section___72Rh)}>
               <Stack__
                 as={"div"}
                 hasGap={true}
@@ -9895,233 +10017,300 @@ function PlasmicResult__RenderFunc(props: {
                     )
                 })}
               >
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                  (() => {
-                    try {
-                      return (() => {
-                        const filteredItems =
-                          $state.apiRequest.data.details.filter(
-                            item =>
-                              item.advice_text != null && item.action != ""
-                          );
-                        if (filteredItems.length > 0) {
-                          const randomIndex = Math.floor(
-                            Math.random() * filteredItems.length
-                          );
-                          return filteredItems[randomIndex];
+                {(
+                  hasVariant($state, "specialized", "specialized")
+                    ? (() => {
+                        try {
+                          return $state.specialized2.actionBtn != "eNoskhe";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
                         }
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()
-                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
-                  return (
-                    <Paziresh24Button
-                      children2={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__sizyW
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__fcfJr
-                            )}
-                          >
-                            {
-                              "\u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0622\u0646\u0644\u0627\u06cc\u0646"
-                            }
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__xiqgZ
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (
-                                    "  (جهت موضوع " +
-                                    currentItem.option_metric_fa +
-                                    ")  "
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0622\u0646\u0644\u0627\u06cc\u0646";
+                      })()
+                    : true
+                )
+                  ? (_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return [{ action: $state.specialized2.actionBtn }];
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <Paziresh24Button
+                          children2={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__sizyW,
+                                {
+                                  [sty.freeBoxspecialized__sizyWfomOb]:
+                                    hasVariant(
+                                      $state,
+                                      "specialized",
+                                      "specialized"
+                                    )
+                                }
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__fcfJr,
+                                  {
+                                    [sty.textspecialized__fcfJrFomOb]:
+                                      hasVariant(
+                                        $state,
+                                        "specialized",
+                                        "specialized"
+                                      )
                                   }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </div>
-                      }
-                      className={classNames(
-                        "__wab_instance",
-                        sty.paziresh24Button__bQwg
-                      )}
-                      endIcon={
-                        <Icon125Icon
-                          className={classNames(projectcss.all, sty.svg__ycWz4)}
-                          role={"img"}
-                        />
-                      }
-                      key={currentIndex}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["action"]
-                                },
-                                operation: 0,
-                                value: currentItem.action
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateAction"] != null &&
-                          typeof $steps["updateAction"] === "object" &&
-                          typeof $steps["updateAction"].then === "function"
-                        ) {
-                          $steps["updateAction"] = await $steps["updateAction"];
-                        }
-
-                        $steps["updateDialogOpen"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dialog", "open"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateDialogOpen"] != null &&
-                          typeof $steps["updateDialogOpen"] === "object" &&
-                          typeof $steps["updateDialogOpen"].then === "function"
-                        ) {
-                          $steps["updateDialogOpen"] = await $steps[
-                            "updateDialogOpen"
-                          ];
-                        }
-
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://api.liom.app/service/log",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        userId: $ctx.query.user_id,
-                                        pageName: "result",
-                                        action: "Doctor-visit",
-                                        extraData: {
-                                          sessionId: $ctx.query.session_id,
-                                          action: $state.action
+                                )}
+                              >
+                                {hasVariant(
+                                  $state,
+                                  "specialized",
+                                  "specialized"
+                                ) ? (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return $state.specialized2
+                                          .actionBtnText;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0622\u0646\u0644\u0627\u06cc\u0646";
                                         }
-                                      };
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                ) : (
+                                  "\u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0622\u0646\u0644\u0627\u06cc\u0646"
+                                )}
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__xiqgZ,
+                                  {
+                                    [sty.textspecialized__xiqgZfomOb]:
+                                      hasVariant(
+                                        $state,
+                                        "specialized",
+                                        "specialized"
+                                      )
+                                  }
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        "  (جهت موضوع " +
+                                        currentItem.option_metric_fa +
+                                        ")  "
+                                      );
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
                                         e?.plasmicType ===
                                           "PlasmicUndefinedDataError"
                                       ) {
-                                        return undefined;
+                                        return "\u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0622\u0646\u0644\u0627\u06cc\u0646";
                                       }
                                       throw e;
                                     }
-                                  })(),
-                                  {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          }
+                          className={classNames(
+                            "__wab_instance",
+                            sty.paziresh24Button__bQwg,
+                            {
+                              [sty.paziresh24Buttonspecialized__bQwgfomOb]:
+                                hasVariant($state, "specialized", "specialized")
+                            }
+                          )}
+                          endIcon={
+                            <Icon125Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__ycWz4
+                              )}
+                              role={"img"}
+                            />
+                          }
+                          key={currentIndex}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["action"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem.action
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
                                     }
-                                  }
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-                      }}
-                      showStartIcon={true}
-                      startIcon={
-                        <Icon125Icon
-                          className={classNames(projectcss.all, sty.svg__oiRsc)}
-                          role={"img"}
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateAction"] != null &&
+                              typeof $steps["updateAction"] === "object" &&
+                              typeof $steps["updateAction"].then === "function"
+                            ) {
+                              $steps["updateAction"] = await $steps[
+                                "updateAction"
+                              ];
+                            }
+
+                            $steps["updateDialogOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dialog", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDialogOpen"] != null &&
+                              typeof $steps["updateDialogOpen"] === "object" &&
+                              typeof $steps["updateDialogOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDialogOpen"] = await $steps[
+                                "updateDialogOpen"
+                              ];
+                            }
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId: $ctx.query.user_id,
+                                            pageName: "result",
+                                            action: "Doctor-visit",
+                                            extraData: {
+                                              sessionId: $ctx.query.session_id,
+                                              action: $state.action
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                        }
+                                      }
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+                          }}
+                          showStartIcon={true}
+                          startIcon={
+                            <Icon125Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__oiRsc
+                              )}
+                              role={"img"}
+                            />
+                          }
                         />
-                      }
-                    />
-                  );
-                })}
+                      );
+                    })
+                  : null}
                 {(() => {
                   try {
                     return !$state.apiRequest.data.prescription;
@@ -10177,7 +10366,11 @@ function PlasmicResult__RenderFunc(props: {
                           }
                           className={classNames(
                             "__wab_instance",
-                            sty.paziresh24Button___63KbV
+                            sty.paziresh24Button___63KbV,
+                            {
+                              [sty.paziresh24Buttonspecialized___63KbVfomOb]:
+                                hasVariant($state, "specialized", "specialized")
+                            }
                           )}
                           endIcon={
                             <Icon125Icon
@@ -10243,19 +10436,35 @@ function PlasmicResult__RenderFunc(props: {
                       );
                     })
                   : null}
-                {(() => {
-                  try {
-                    return $state.apiRequest.data.prescription;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
+                {(
+                  hasVariant($state, "specialized", "specialized")
+                    ? (() => {
+                        try {
+                          return $state.specialized2.actionBtn == "eNoskhe";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return $state.apiRequest.data.prescription;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                )
                   ? (_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
@@ -10287,19 +10496,53 @@ function PlasmicResult__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.__wab_text,
-                                  sty.text__ep2WH
+                                  sty.text__ep2WH,
+                                  {
+                                    [sty.textspecialized__ep2WHfomOb]:
+                                      hasVariant(
+                                        $state,
+                                        "specialized",
+                                        "specialized"
+                                      )
+                                  }
                                 )}
                                 data-i18n={"prescription.btn"}
                               >
-                                {
+                                {hasVariant(
+                                  $state,
+                                  "specialized",
+                                  "specialized"
+                                ) ? (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return $state.specialized2
+                                          .actionBtnText;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                ) : (
                                   "\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9"
-                                }
+                                )}
                               </div>
                             </div>
                           }
                           className={classNames(
                             "__wab_instance",
-                            sty.paziresh24Button__jgQvr
+                            sty.paziresh24Button__jgQvr,
+                            {
+                              [sty.paziresh24Buttonspecialized__jgQvrFomOb]:
+                                hasVariant($state, "specialized", "specialized")
+                            }
                           )}
                           endIcon={
                             <Icon125Icon
@@ -12337,136 +12580,11 @@ function PlasmicResult__RenderFunc(props: {
                   '\r\n<div class="dropdown" id="langDropdown">\r\n  <div class="toggle" tabindex="0">\r\n    <span class="flag" id="selectedFlag">fa</span>\r\n      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 15px; height: 15px;">\r\n    <path d="M20.58 19.37L17.59 11.01C17.38 10.46 16.91 10.12 16.37 10.12C15.83 10.12 15.37 10.46 15.14 11.03L12.16 19.37C12.02 19.76 12.22 20.19 12.61 20.33C13 20.47 13.43 20.27 13.57 19.88L14.19 18.15H18.54L19.16 19.88C19.27 20.19 19.56 20.38 19.87 20.38C19.95 20.38 20.04 20.37 20.12 20.34C20.51 20.2 20.71 19.77 20.57 19.38L20.58 19.37ZM14.74 16.64L16.38 12.05L18.02 16.64H14.74ZM12.19 7.85C9.92999 11.42 7.89 13.58 5.41 15.02C5.29 15.09 5.16 15.12 5.04 15.12C4.78 15.12 4.53 14.99 4.39 14.75C4.18 14.39 4.3 13.93 4.66 13.73C6.75999 12.51 8.48 10.76 10.41 7.86H4.12C3.71 7.86 3.37 7.52 3.37 7.11C3.37 6.7 3.71 6.36 4.12 6.36H7.87V4.38C7.87 3.97 8.21 3.63 8.62 3.63C9.02999 3.63 9.37 3.97 9.37 4.38V6.36H13.12C13.53 6.36 13.87 6.7 13.87 7.11C13.87 7.52 13.53 7.86 13.12 7.86H12.18L12.19 7.85ZM12.23 15.12C12.1 15.12 11.97 15.09 11.85 15.02C11.2 14.64 10.57 14.22 9.97999 13.78C9.64999 13.53 9.58 13.06 9.83 12.73C10.08 12.4 10.55 12.33 10.88 12.58C11.42 12.99 12.01 13.37 12.61 13.72C12.97 13.93 13.09 14.39 12.88 14.75C12.74 14.99 12.49 15.12 12.23 15.12Z" fill="#000000"></path>\r\n  </svg>\r\n  </div>\r\n  <ul class="menu" role="listbox" aria-label="Select Language">\r\n    <li data-lang="en" role="option" aria-selected="false"><span class="flag"> en </span> English</li>\r\n    <li data-lang="fa" role="option" aria-selected="true"><span class="flag"> fa </span> \u0641\u0627\u0631\u0633\u06cc</li>\r\n    <li data-lang="ar" role="option" aria-selected="false"><span class="flag"> ar </span> \u0627\u0644\u0639\u0631\u0628\u064a\u0629</li>\r\n  </ul>\r\n</div>\r\n\r\n\r\n<script src="https://tools.liom.app/plasmic/i18next.min.js"></script>\r\n<script>\r\n  const resources = {\r\n     fa: {\r\n    translation: {\r\n      "result.main.title": "\u0646\u062a\u06cc\u062c\u0647  \u0634\u0645\u0627",\r\n      "result.title1": "\u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627\u060c \u062a\u0634\u062e\u06cc\u0635 \u0645\u0627 \u0628\u0647 \u0635\u0648\u0631\u062a \u0632\u06cc\u0631 \u0627\u0633\u062a:",\r\n      "result.again": "\u0627\u0646\u062c\u0627\u0645 \u0645\u062c\u062f\u062f \u062a\u0633\u062a",\r\n      "result.title2": "\u0627\u0644\u0627\u0646 \u0628\u0627\u06cc\u062f \u0686\u06cc\u06a9\u0627\u0631 \u06a9\u0646\u0645\u061f",\r\n      "result.description": "\u0628\u0627 \u062a\u0648\u062c\u0647 \u0628\u0647 \u062a\u0634\u062e\u06cc\u0635 \u0627\u0646\u062c\u0627\u0645 \u0634\u062f\u0647\u060c \u067e\u06cc\u0634\u0646\u0647\u0627\u062f \u0645\u06cc\u06a9\u0646\u0645 \u06a9\u0627\u0631 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u0631\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0647\u06cc\u062f:",\r\n      "result.title3": "\u0622\u06cc\u0627 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0645\u0631\u0627\u062c\u0639\u0647 \u0641\u0648\u0631\u06cc \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0627\u0633\u062a\u061f",\r\n      "result.description2": "\u062e\u06cc\u0631\u060c \u0646\u06cc\u0627\u0632\u06cc \u0628\u0647 \u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0641\u0639\u0644\u0627 \u0648\u062c\u0648\u062f \u0646\u062f\u0627\u0631\u062f. \u0645\u0648\u0627\u0631\u062f\u06cc \u06a9\u0647 \u062f\u0631 \u0628\u062e\u0634 \\"\u0627\u0644\u0627\u0646 \u0628\u0627\u06cc\u062f \u0686\u06cc\u06a9\u0627\u0631 \u06a9\u0646\u0645\u061f\\" \u0631\u0627 \u0644\u0637\u0641\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0647\u06cc\u062f.",\r\n      "result.title4": "\u0622\u06cc\u0627 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u062f\u0627\u0631\u0648 \u06cc\u0627 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062f\u0627\u0631\u0645\u061f",\r\n      "result.description3": "\u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u00ab\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9\u00bb \u0648 \u067e\u0631 \u06a9\u0631\u062f\u0646 \u0641\u0631\u0645\u060c \u067e\u0632\u0634\u06a9 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0634\u0645\u0627 \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632\u060c \u0646\u0633\u062e\u0647 \u06cc\u0627 \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0622\u0632\u0645\u0627\u06cc\u0634 \u0635\u0627\u062f\u0631 \u0648 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u062f\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f.",\r\n      "result.title5": "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u0628\u0647 \u06a9\u0645\u06a9 \u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc",\r\n      "result.title6": "\u0622\u06cc\u0627 \u0627\u0632 \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc \u061f",\r\n      "result.comment.btn": "\u062b\u0628\u062a \u0646\u0638\u0631",\r\n      "prescription.btn": "\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9",\r\n      "result.comment.title": "\u0622\u06cc\u0627 \u0627\u0632 \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc \u061f",\r\n      "result.comment.btn2": "\u062b\u0628\u062a",\r\n      "prescription.title": "\u062a\u06a9\u0645\u06cc\u0644 \u0627\u0637\u0644\u0627\u0639\u0627\u062a",\r\n      "prescription.t1": "\u0646\u0627\u0645",\r\n      "prescription.t2": "\u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc",\r\n      "prescription.t3": "\u06a9\u062f \u0645\u0644\u06cc",\r\n      "prescription.t4": "\u0646\u0648\u0639 \u0628\u06cc\u0645\u0647",\r\n      "prescription.t5": "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644",\r\n      "prescription.t6": "\u062c\u0646\u0633\u06cc\u062a",\r\n      "female": "\u0632\u0646",\r\n      "male": "\u0645\u0631\u062f",\r\n      "prescription.t7": "\u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc",\r\n      "prescription.btn2": "\u062b\u0628\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a",\r\n      "loading.title": "\u0644\u0637\u0641\u0627 \u06a9\u0645\u06cc \u0645\u0646\u062a\u0638\u0631 \u0628\u0645\u0627\u0646\u06cc\u062f",\r\n"loading.1": "\u0622\u0646\u0627\u0644\u06cc\u0632 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627",\r\n"loading.2": "\u0628\u0631\u0631\u0633\u06cc \u0634\u0627\u062e\u0635 \u0647\u0627\u06cc \u0627\u0631\u0632\u06cc\u0627\u0628\u06cc",\r\n"loading.3": "\u0622\u0645\u0627\u062f\u0647 \u0633\u0627\u0632\u06cc \u0646\u062a\u06cc\u062c\u0647",\r\n"star.no": "\u0646\u0647 \u0627\u0635\u0644\u0627\u064b",\r\n"star.yes": "\u062e\u06cc\u0644\u06cc \u0632\u06cc\u0627\u062f",\r\n"feedback.invite": "\u062e\u0648\u0634\u062d\u0627\u0644 \u0645\u06cc\u200c\u0634\u0645 \u0646\u0638\u0631\u062a\u0648 \u0628\u062f\u0648\u0646\u0645 ..."\r\n\r\n\r\n\r\n    }\r\n  },\r\n  en: {\r\n    translation: {\r\n      "result.main.title": "Your Result",\r\n      "result.title1": "Based on your answers, our diagnosis is as follows:",\r\n      "result.again": "Retake the Test",\r\n      "result.title2": "What should I do now?",\r\n      "result.description": "Based on the diagnosis, we recommend the following steps:",\r\n      "result.title3": "Do I need to see a doctor immediately?",\r\n      "result.description2": "No, there\'s no need to see a doctor right now. Please follow the steps mentioned in the \'What should I do now?\' section.",\r\n      "result.title4": "Do I need medication or lab tests?",\r\n      "result.description3": "Click on \'Get Electronic Prescription\' and fill out the form. A doctor will review your information and issue a prescription or lab request if needed. You\'ll be notified via SMS.",\r\n      "result.title5": "Detailed Result with AI Assistance",\r\n      "result.title6": "Are you satisfied with the test result?",\r\n      "result.comment.btn": "Submit Feedback",\r\n      "prescription.btn": "Get Electronic Prescription",\r\n      "result.comment.title": "Are you satisfied with the test result?",\r\n      "result.comment.btn2": "Submit",\r\n      "prescription.title": "Complete Your Information",\r\n      "prescription.t1": "First Name",\r\n      "prescription.t2": "Last Name",\r\n      "prescription.t3": "National ID",\r\n      "prescription.t4": "Insurance Type",\r\n      "prescription.t5": "Mobile Number",\r\n      "prescription.t6": "Gender",\r\n      "female": "Female",\r\n      "male": "Male",\r\n      "prescription.t7": "Additional Notes",\r\n      "prescription.btn2": "Submit Information",\r\n      "loading.title": "Please wait a moment",\r\n"loading.1": "Analyzing your answers",\r\n"loading.2": "Reviewing evaluation indicators",\r\n"loading.3": "Preparing your result",\r\n"star.no": "Not at all",\r\n"star.yes": "Very much",\r\n"feedback.invite": "I\'d love to hear your thoughts..."\r\n\r\n\r\n    }\r\n  },\r\n  ar: {\r\n    translation: {\r\n      "result.main.title": "\u0646\u062a\u064a\u062c\u062a\u0643",\r\n      "result.title1": "\u0627\u0633\u062a\u0646\u0627\u062f\u064b\u0627 \u0625\u0644\u0649 \u0625\u062c\u0627\u0628\u0627\u062a\u0643\u060c \u0641\u0625\u0646 \u062a\u0634\u062e\u064a\u0635\u0646\u0627 \u0643\u0627\u0644\u062a\u0627\u0644\u064a:",\r\n      "result.again": "\u0625\u0639\u0627\u062f\u0629 \u0625\u062c\u0631\u0627\u0621 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631",\r\n      "result.title2": "\u0645\u0627\u0630\u0627 \u064a\u062c\u0628 \u0623\u0646 \u0623\u0641\u0639\u0644 \u0627\u0644\u0622\u0646\u061f",\r\n      "result.description": "\u0628\u0646\u0627\u0621\u064b \u0639\u0644\u0649 \u0627\u0644\u062a\u0634\u062e\u064a\u0635\u060c \u0646\u0648\u0635\u064a \u0628\u0627\u062a\u0628\u0627\u0639 \u0627\u0644\u062e\u0637\u0648\u0627\u062a \u0627\u0644\u062a\u0627\u0644\u064a\u0629:",\r\n      "result.title3": "\u0647\u0644 \u0623\u062d\u062a\u0627\u062c \u0625\u0644\u0649 \u0632\u064a\u0627\u0631\u0629 \u0627\u0644\u0637\u0628\u064a\u0628 \u0641\u0648\u0631\u0627\u064b\u061f",\r\n      "result.description2": "\u0644\u0627\u060c \u0644\u0627 \u062d\u0627\u062c\u0629 \u0644\u0632\u064a\u0627\u0631\u0629 \u0627\u0644\u0637\u0628\u064a\u0628 \u062d\u0627\u0644\u064a\u0627\u064b. \u064a\u0631\u062c\u0649 \u0627\u062a\u0628\u0627\u0639 \u0627\u0644\u062a\u0639\u0644\u064a\u0645\u0627\u062a \u0627\u0644\u0645\u0630\u0643\u0648\u0631\u0629 \u0641\u064a \u0642\u0633\u0645 \\"\u0645\u0627\u0630\u0627 \u064a\u062c\u0628 \u0623\u0646 \u0623\u0641\u0639\u0644 \u0627\u0644\u0622\u0646\u061f\\".",\r\n      "result.title4": "\u0647\u0644 \u0623\u062d\u062a\u0627\u062c \u0625\u0644\u0649 \u062f\u0648\u0627\u0621 \u0623\u0648 \u062a\u062d\u0627\u0644\u064a\u0644\u061f",\r\n      "result.description3": "\u0627\u0646\u0642\u0631 \u0639\u0644\u0649 \\"\u0627\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u0648\u0635\u0641\u0629 \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629\\" \u0648\u0627\u0645\u0644\u0623 \u0627\u0644\u0646\u0645\u0648\u0630\u062c. \u0633\u064a\u0642\u0648\u0645 \u0627\u0644\u0637\u0628\u064a\u0628 \u0628\u0645\u0631\u0627\u062c\u0639\u0629 \u0645\u0639\u0644\u0648\u0645\u0627\u062a\u0643\u060c \u0648\u0625\u0630\u0627 \u0644\u0632\u0645 \u0627\u0644\u0623\u0645\u0631\u060c \u0633\u064a\u0635\u062f\u0631 \u0648\u0635\u0641\u0629 \u0623\u0648 \u0637\u0644\u0628 \u062a\u062d\u0644\u064a\u0644 \u0648\u0633\u064a\u062a\u0645 \u0625\u0639\u0644\u0627\u0645\u0643 \u0639\u0628\u0631 \u0631\u0633\u0627\u0644\u0629 \u0646\u0635\u064a\u0629.",\r\n      "result.title5": "\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u062a\u0641\u0635\u064a\u0644\u064a\u0629 \u0628\u0645\u0633\u0627\u0639\u062f\u0629 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a",\r\n      "result.title6": "\u0647\u0644 \u0623\u0646\u062a \u0631\u0627\u0636\u064d \u0639\u0646 \u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u061f",\r\n      "result.comment.btn": "\u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u0631\u0623\u064a",\r\n      "prescription.btn": "\u0627\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u0648\u0635\u0641\u0629 \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629",\r\n      "result.comment.title": "\u0647\u0644 \u0623\u0646\u062a \u0631\u0627\u0636\u064d \u0639\u0646 \u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u061f",\r\n      "result.comment.btn2": "\u0625\u0631\u0633\u0627\u0644",\r\n      "prescription.title": "\u0625\u0643\u0645\u0627\u0644 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a",\r\n      "prescription.t1": "\u0627\u0644\u0627\u0633\u0645",\r\n      "prescription.t2": "\u0627\u0633\u0645 \u0627\u0644\u0639\u0627\u0626\u0644\u0629",\r\n      "prescription.t3": "\u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0648\u0637\u0646\u064a",\r\n      "prescription.t4": "\u0646\u0648\u0639 \u0627\u0644\u062a\u0623\u0645\u064a\u0646",\r\n      "prescription.t5": "\u0631\u0642\u0645 \u0627\u0644\u062c\u0648\u0627\u0644",\r\n      "prescription.t6": "\u0627\u0644\u062c\u0646\u0633",\r\n      "female": "\u0623\u0646\u062b\u0649",\r\n      "male": "\u0630\u0643\u0631",\r\n      "prescription.t7": "\u0645\u0644\u0627\u062d\u0638\u0627\u062a \u0625\u0636\u0627\u0641\u064a\u0629",\r\n      "prescription.btn2": "\u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a",\r\n      "loading.title": "\u064a\u0631\u062c\u0649 \u0627\u0644\u0627\u0646\u062a\u0638\u0627\u0631 \u0642\u0644\u064a\u0644\u0627\u064b",\r\n"loading.1": "\u062a\u062d\u0644\u064a\u0644 \u0625\u062c\u0627\u0628\u0627\u062a\u0643",\r\n"loading.2": "\u0645\u0631\u0627\u062c\u0639\u0629 \u0645\u0624\u0634\u0631\u0627\u062a \u0627\u0644\u062a\u0642\u064a\u064a\u0645",\r\n"loading.3": "\u062a\u062d\u0636\u064a\u0631 \u0627\u0644\u0646\u062a\u064a\u062c\u0629",\r\n"star.no": "\u0644\u0627 \u0639\u0644\u0649 \u0627\u0644\u0625\u0637\u0644\u0627\u0642",\r\n"star.yes": "\u062c\u062f\u0627\u064b",\r\n"feedback.invite": "\u0633\u0623\u0643\u0648\u0646 \u0633\u0639\u064a\u062f\u064b\u0627 \u0628\u0645\u0639\u0631\u0641\u0629 \u0631\u0623\u064a\u0643..."\r\n\r\n\r\n    }\r\n  }\r\n  };\r\nconst dropdown = document.getElementById(\'langDropdown\');\r\nconst toggle = dropdown.querySelector(\'.toggle\');\r\nconst menu = dropdown.querySelector(\'.menu\');\r\nconst selectedFlag = document.getElementById(\'selectedFlag\');\r\nconst options = menu.querySelectorAll(\'li\');\r\n\r\n  function createI18nManager({ i18nextInstance, root = document.body }) {\r\n    const translatedElements = new WeakMap();\r\n\r\n    const translateElement = el => {\r\n      const key = el.getAttribute(\'data-i18n\');\r\n      if (!key || !i18nextInstance.t) return;\r\n      const translated = i18nextInstance.t(key);\r\n      if (el.textContent.trim() !== translated.trim()) {\r\n        el.textContent = translated;\r\n        translatedElements.set(el, key);\r\n      }\r\n    };\r\n\r\n    const translateAll = () => {\r\n      root.querySelectorAll(\'[data-i18n]\').forEach(translateElement);\r\n              if (i18nextInstance.language === \'en\') {\r\n            document.body.classList.add(\'english-font\');\r\n          } else {\r\n            document.body.classList.remove(\'english-font\');\r\n        }\r\n      document.body.dir = [\'fa\', \'ar\'].includes(i18nextInstance.language) ? \'rtl\' : \'ltr\';\r\n    };\r\n\r\n    const observer = new MutationObserver(mutations => {\r\n      mutations.forEach(m => {\r\n        m.addedNodes.forEach(node => {\r\n          if (node.nodeType !== 1) return;\r\n          if (node.matches?.(\'[data-i18n]\')) translateElement(node);\r\n          node.querySelectorAll?.(\'[data-i18n]\').forEach(translateElement);\r\n        });\r\n      });\r\n    });\r\n\r\n    observer.observe(root, { childList: true, subtree: true });\r\n\r\n    i18nextInstance.on(\'languageChanged\', () => {\r\n      translateAll();\r\n    });\r\n\r\n    return { translateAll, disconnect: () => observer.disconnect() };\r\n  }\r\n\r\n  i18next.init({\r\n    lng: \'fa\',\r\n    debug: false,\r\n    resources\r\n  }).then(() => {\r\n    const i18nManager = createI18nManager({ i18nextInstance: i18next });\r\n\r\n    // \u0627\u0646\u062a\u062e\u0627\u0628 \u0632\u0628\u0627\u0646\r\n    // const options = document.querySelectorAll(\'#langDropdown [data-lang]\');\r\n    // const selectedFlag = document.getElementById(\'selectedFlag\');\r\n\r\n    options.forEach(li => {\r\n      li.addEventListener(\'click\', () => {\r\n        const lang = li.getAttribute(\'data-lang\');\r\n        localStorage.setItem(\'selectedLang\', lang);\r\n        selectedFlag.textContent = lang;\r\n        dropdown.classList.toggle(\'open\');\r\n        window.location.reload(); \r\n      });\r\n    });\r\n    toggle.onclick = () => dropdown.classList.toggle(\'open\');\r\n\r\n  document.addEventListener(\'click\', e => {\r\n    if (!dropdown.contains(e.target)) dropdown.classList.remove(\'open\');\r\n  });\r\n\r\n  toggle.onkeydown = e => {\r\n    if (e.key === \'Enter\' || e.key === \' \') {\r\n      e.preventDefault();\r\n      dropdown.classList.toggle(\'open\');\r\n    }\r\n  };\r\n\r\n    // \u0627\u0646\u062a\u062e\u0627\u0628 \u0627\u0648\u0644\u06cc\u0647 \u0632\u0628\u0627\u0646\r\n    const urlLang = new URLSearchParams(window.location.search).get(\'lang\');\r\n    const savedLang = localStorage.getItem(\'selectedLang\');\r\n    const initialLang = urlLang || savedLang || \'fa\';\r\n    i18next.changeLanguage(initialLang);\r\n    selectedFlag.textContent = initialLang;\r\n  });\r\n</script> \r\n\r\n'
                 }
               />
-
-              {(() => {
-                try {
-                  return window.history?.length != 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <ButtonLiom
-                  data-plasmic-name={"buttonLiom2"}
-                  data-plasmic-override={overrides.buttonLiom2}
-                  className={classNames("__wab_instance", sty.buttonLiom2, {
-                    [sty.buttonLiom2global_theme_dark]: hasVariant(
-                      globalVariants,
-                      "theme",
-                      "dark"
-                    ),
-                    [sty.buttonLiom2specialized]: hasVariant(
-                      $state,
-                      "specialized",
-                      "specialized"
-                    )
-                  })}
-                  color={generateStateValueProp($state, [
-                    "buttonLiom2",
-                    "color"
-                  ])}
-                  load={generateStateValueProp($state, ["buttonLiom2", "load"])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                const currentUrl = new URL(
-                                  window.location.href
-                                );
-                                const params = new URLSearchParams(
-                                  currentUrl.search
-                                );
-                                params.set("type", $state.apiRequest.data.type);
-                                const newUrl = `${
-                                  currentUrl.origin
-                                }/self-test?${params.toString()}`;
-                                return window.open(newUrl);
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, [
-                        "buttonLiom2",
-                        "color"
-                      ])(eventArgs[0]);
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onLoadChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, [
-                        "buttonLiom2",
-                        "load"
-                      ])(eventArgs[0]);
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  size={"compact"}
-                  startIcon={
-                    <Icon136Icon
-                      className={classNames(projectcss.all, sty.svg__zPal3)}
-                      role={"img"}
-                    />
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__z8C5
-                    )}
-                    data-i18n={"result.again"}
-                  >
-                    {
-                      " \u0627\u0646\u062c\u0627\u0645 \u0645\u062c\u062f\u062f \u062a\u0633\u062a\r"
-                    }
-                  </div>
-                </ButtonLiom>
-              ) : null}
             </Stack__>
           ) : null}
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox___81Who, {
-              [sty.freeBoxspecialized___81WhofomOb]: hasVariant(
+          <section
+            className={classNames(projectcss.all, sty.section__r0Pb1, {
+              [sty.sectionspecialized__r0Pb1FomOb]: hasVariant(
                 $state,
                 "specialized",
                 "specialized"
@@ -12574,7 +12692,7 @@ function PlasmicResult__RenderFunc(props: {
                 }
               </div>
             </ButtonLiom>
-          </Stack__>
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -12602,7 +12720,6 @@ const PlasmicDescendants = {
     "h2",
     "paziresh24LineClamp",
     "cardSubtitle",
-    "section",
     "dialog2",
     "textArea2",
     "directDialog",
@@ -12618,7 +12735,6 @@ const PlasmicDescendants = {
     "textArea3",
     "buttonLiom5",
     "embedHtml",
-    "buttonLiom2",
     "buttonLiom6"
   ],
   modal: ["modal", "backgrond"],
@@ -12652,7 +12768,6 @@ const PlasmicDescendants = {
   h2: ["h2"],
   paziresh24LineClamp: ["paziresh24LineClamp", "cardSubtitle"],
   cardSubtitle: ["cardSubtitle"],
-  section: ["section"],
   dialog2: ["dialog2", "textArea2"],
   textArea2: ["textArea2"],
   directDialog: ["directDialog"],
@@ -12680,7 +12795,6 @@ const PlasmicDescendants = {
   textArea3: ["textArea3"],
   buttonLiom5: ["buttonLiom5"],
   embedHtml: ["embedHtml"],
-  buttonLiom2: ["buttonLiom2"],
   buttonLiom6: ["buttonLiom6"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -12706,7 +12820,6 @@ type NodeDefaultElementType = {
   h2: "h2";
   paziresh24LineClamp: typeof Paziresh24LineClamp;
   cardSubtitle: "span";
-  section: "section";
   dialog2: typeof Paziresh24Dialog;
   textArea2: typeof AntdTextArea;
   directDialog: typeof DirectDialog;
@@ -12722,7 +12835,6 @@ type NodeDefaultElementType = {
   textArea3: typeof AntdTextArea;
   buttonLiom5: typeof ButtonLiom;
   embedHtml: typeof Embed;
-  buttonLiom2: typeof ButtonLiom;
   buttonLiom6: typeof ButtonLiom;
 };
 
@@ -12829,7 +12941,6 @@ export const PlasmicResult = Object.assign(
     h2: makeNodeComponent("h2"),
     paziresh24LineClamp: makeNodeComponent("paziresh24LineClamp"),
     cardSubtitle: makeNodeComponent("cardSubtitle"),
-    section: makeNodeComponent("section"),
     dialog2: makeNodeComponent("dialog2"),
     textArea2: makeNodeComponent("textArea2"),
     directDialog: makeNodeComponent("directDialog"),
@@ -12845,7 +12956,6 @@ export const PlasmicResult = Object.assign(
     textArea3: makeNodeComponent("textArea3"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
     embedHtml: makeNodeComponent("embedHtml"),
-    buttonLiom2: makeNodeComponent("buttonLiom2"),
     buttonLiom6: makeNodeComponent("buttonLiom6"),
 
     // Metadata about props expected for PlasmicResult
