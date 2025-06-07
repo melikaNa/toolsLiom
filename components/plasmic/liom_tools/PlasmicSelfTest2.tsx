@@ -618,7 +618,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         path: "load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "sidebarWindow.load2",

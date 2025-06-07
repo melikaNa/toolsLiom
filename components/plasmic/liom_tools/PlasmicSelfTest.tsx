@@ -3467,6 +3467,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   return {
                                     question_id: $state.nextQuesionId,
                                     session_id: $state.sessionId,
+                                    user_id: $state.userId,
                                     type: $state.type
                                   };
                                 } catch (e) {
