@@ -192,7 +192,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "action",
@@ -449,7 +449,11 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         "https://n8n.staas.ir/webhook/user/prescription",
                         (() => {
                           try {
-                            return { tracking: $state.paramsObject.code };
+                            return {
+                              code: new URLSearchParams(
+                                window.location.search
+                              ).get("code")
+                            };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

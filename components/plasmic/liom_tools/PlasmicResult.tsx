@@ -1173,7 +1173,13 @@ function PlasmicResult__RenderFunc(props: {
               <HeaderLiom
                 data-plasmic-name={"headerLiom"}
                 data-plasmic-override={overrides.headerLiom}
-                className={classNames("__wab_instance", sty.headerLiom)}
+                className={classNames("__wab_instance", sty.headerLiom, {
+                  [sty.headerLiomspecialized]: hasVariant(
+                    $state,
+                    "specialized",
+                    "specialized"
+                  )
+                })}
                 slot={
                   <React.Fragment>
                     {(() => {
