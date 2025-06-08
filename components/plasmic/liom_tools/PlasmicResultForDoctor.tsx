@@ -4672,40 +4672,27 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["updateDialog2Open"] = true
+                        $steps["runCode"] = true
                           ? (() => {
                               const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dialog2", "open"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
+                                customFunction: async () => {
+                                  return window.open(
+                                    `/entry-prescription?session_id=${$ctx.query.session_id}`,
+                                    "_self"
+                                  );
                                 }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                         if (
-                          $steps["updateDialog2Open"] != null &&
-                          typeof $steps["updateDialog2Open"] === "object" &&
-                          typeof $steps["updateDialog2Open"].then === "function"
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
                         ) {
-                          $steps["updateDialog2Open"] = await $steps[
-                            "updateDialog2Open"
-                          ];
+                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
                       showStartIcon={true}

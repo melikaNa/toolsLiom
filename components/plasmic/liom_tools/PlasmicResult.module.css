@@ -905,6 +905,7 @@
   min-width: 0;
 }
 .textspecialized__mGj9ZfomOb {
+  display: none;
   padding: 0px;
 }
 .freeBox__qbs7C {
@@ -1814,6 +1815,9 @@
   }
 }
 .freeBoxinformation__bKpwS8P0Rz {
+  display: none;
+}
+.freeBoxspecialized__bKpwSfomOb {
   display: none;
 }
 .freeBox__kgya4 {

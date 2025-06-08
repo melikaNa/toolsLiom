@@ -2940,17 +2940,17 @@
         },
         {
           "id": "4Uoers0uAwQ4",
-          "name": "NewPage3",
+          "name": "EntryPrescription",
           "type": "managed",
           "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicNewPage3.tsx",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicEntryPrescription.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/new-page-2.tsx"
+            "modulePath": "../src/pages/entry-prescription.tsx"
           },
-          "cssFilePath": "plasmic/liom_tools/PlasmicNewPage3.module.css",
+          "cssFilePath": "plasmic/liom_tools/PlasmicEntryPrescription.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/new-page-2"
+          "path": "/entry-prescription"
         }
       ],
       "icons": [

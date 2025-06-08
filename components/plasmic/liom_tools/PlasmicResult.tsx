@@ -1395,6 +1395,11 @@ function PlasmicResult__RenderFunc(props: {
                   $state,
                   "information",
                   "information"
+                ),
+                [sty.freeBoxspecialized__hvSteFomOb]: hasVariant(
+                  $state,
+                  "specialized",
+                  "specialized"
                 )
               })}
             >
@@ -2518,7 +2523,7 @@ function PlasmicResult__RenderFunc(props: {
               data-i18n={"result.title5"}
             >
               {hasVariant($state, "specialized", "specialized")
-                ? "\u0646\u0638\u0631 \u062a\u062e\u0635\u0635\u06cc \u067e\u0632\u0634\u06a9 \u062f\u0631\u0628\u0627\u0631\u0647 \u062a\u0633\u062a"
+                ? "\u0646\u0638\u0631 \u062a\u062e\u0635\u0635\u06cc \u067e\u0632\u0634\u06a9"
                 : "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u0628\u0647 \u06a9\u0645\u06a9 \u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc"}
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__umGrc)}>
@@ -5055,7 +5060,9 @@ function PlasmicResult__RenderFunc(props: {
             </Stack__>
           ) : null}
           {(
-            hasVariant($state, "information", "information")
+            hasVariant($state, "specialized", "specialized")
+              ? true
+              : hasVariant($state, "information", "information")
               ? true
               : hasVariant(globalVariants, "screen", "mobileOnly")
               ? (() => {
