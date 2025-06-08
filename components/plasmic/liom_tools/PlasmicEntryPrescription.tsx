@@ -269,7 +269,7 @@ function PlasmicEntryPrescription__RenderFunc(props: {
               data-plasmic-override={overrides.embedHtml}
               className={classNames("__wab_instance", sty.embedHtml)}
               code={
-                '<div id="editors-container"></div>\r\n<script>\r\n\r\n  if (!window.editorConfigs) {\r\nwindow.editorConfigs = [\r\n    { id: \'description\', title: \'\ud83d\udccb \u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u06a9\u0644\u06cc \u062a\u0647\u06cc\u0647 \u062f\u0627\u0631\u0648\', placeholder: \'\u0627\u06cc\u0646\u062c\u0627 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u06a9\u0644\u06cc \u062a\u0647\u06cc\u0647 \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' },\r\n    { id: \'usage\', title: \'\ud83d\udc8a \u0646\u062d\u0648\u0647 \u0645\u0635\u0631\u0641\', placeholder: \'\u0646\u062d\u0648\u0647 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' },\r\n    { id: \'precautions\', title: \'\u26a0\ufe0f \u062a\u0648\u062c\u0647\u0627\u062a \u0644\u0627\u0632\u0645 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648\', placeholder: \'\u062a\u0648\u062c\u0647\u0627\u062a \u0644\u0627\u0632\u0645 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' },\r\n    { id: \'sideEffects\', title: \'\u26a0\ufe0f \u0639\u0648\u0627\u0631\u0636 \u0648 \u062a\u062f\u0627\u062e\u0644\u0627\u062a \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062f\u0627\u0631\u0648\', placeholder: \'\u0639\u0648\u0627\u0631\u0636 \u0648 \u062a\u062f\u0627\u062e\u0644\u0627\u062a \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' },\r\n    { id: \'duration\', title: \'\u23f3 \u062a\u0627 \u06a9\u06cc \u062f\u0627\u0631\u0648 \u0645\u0635\u0631\u0641 \u06a9\u0646\u0645\u061f\', placeholder: \'\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' }\r\n  ];}\r\nvar editorConfigs = window.editorConfigs;\r\n\r\n  var container = document.getElementById(\'editors-container\');\r\n  container.innerHTML = \'\';\r\n  editorConfigs.forEach(({ id, title, placeholder }) => {\r\n    var wrapper = document.createElement(\'div\');\r\n    wrapper.className = \'editor-wrapper\';\r\n    wrapper.innerHTML = `\r\n      <div class="editor-title">${title}</div>\r\n      <div class="toolbar" data-editor="${id}">\r\n        <button onclick="execCmd(\'bold\')"><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H12.5C14.9853 12 17 9.98528 17 7.5C17 5.01472 14.9853 3 12.5 3H6V12ZM6 12H13.5C15.9853 12 18 14.0147 18 16.5C18 18.9853 15.9853 21 13.5 21H6V12Z" stroke="#4f4f4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>\r\n</button>\r\n        <button onclick="execCmd(\'italic\')"><i><em><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 3H20M4 21H14M15 3L9 21" stroke="#4f4f4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>\r\n</em></i></button>\r\n        <button onclick="execCmd(\'underline\')"><u><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 21H20M18 4V11C18 14.3137 15.3137 17 12 17C8.68629 17 6 14.3137 6 11V4M4 3H8M16 3H20" stroke="#4f4f4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>\r\n</u></button>\r\n        <button onclick="execCmd(\'insertUnorderedList\')"><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 6.00067L21 6.00139M8 12.0007L21 12.0015M8 18.0007L21 18.0015M3.5 6H3.51M3.5 12H3.51M3.5 18H3.51M4 6C4 6.27614 3.77614 6.5 3.5 6.5C3.22386 6.5 3 6.27614 3 6C3 5.72386 3.22386 5.5 3.5 5.5C3.77614 5.5 4 5.72386 4 6ZM4 12C4 12.2761 3.77614 12.5 3.5 12.5C3.22386 12.5 3 12.2761 3 12C3 11.7239 3.22386 11.5 3.5 11.5C3.77614 11.5 4 11.7239 4 12ZM4 18C4 18.2761 3.77614 18.5 3.5 18.5C3.22386 18.5 3 18.2761 3 18C3 17.7239 3.22386 17.5 3.5 17.5C3.77614 17.5 4 17.7239 4 18Z" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>\r\n        <button onclick="execCmd(\'insertOrderedList\')"><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 6L21 6.00066M10 12L21 12.0007M10 18L21 18.0007M3 5L5 4V10M5 10H3M5 10H7M7 20H3L6.41274 17.0139C6.78593 16.6873 7 16.2156 7 15.7197C7 14.7699 6.23008 14 5.28033 14H5C4.06808 14 3.28503 14.6374 3.06301 15.5" stroke="#4f4f4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>\r\n        <select onchange="execCmd(\'formatBlock\', this.value)">\r\n          <option value="">\u062a\u06cc\u062a\u0631</option>\r\n          <option value="h3">\u0639\u0646\u0648\u0627\u0646 (H3)</option>\r\n          <option value="h4">\u0632\u06cc\u0631\u0639\u0646\u0648\u0627\u0646 (H4)</option>\r\n          <option value="p">\u0645\u062a\u0646 \u0639\u0627\u062f\u06cc</option>\r\n        </select>\r\n        <select onchange="execCmd(\'foreColor\',this.value)">\r\n          <option value="">\ud83c\udfa8 \u0631\u0646\u06af</option>\r\n          <option value="red">\ud83d\udd34 \u0642\u0631\u0645\u0632</option>\r\n          <option value="blue">\ud83d\udd35 \u0622\u0628\u06cc</option>\r\n          <option value="green">\ud83d\udfe2 \u0633\u0628\u0632</option>\r\n          <option value="orange">\ud83d\udfe0 \u0646\u0627\u0631\u0646\u062c\u06cc</option>\r\n          <option value="remove">\u26ab \u0645\u0634\u06a9\u06cc</option>\r\n        </select>\r\n      </div>\r\n      <div id="${id}" class="editor empty" contenteditable="true" data-placeholder="${placeholder}"></div>\r\n    `;\r\n    container.appendChild(wrapper);\r\n  });\r\n\r\n  // \u0627\u062c\u0631\u0627\u06cc \u0641\u0631\u0645\u062a\r\n  function execCmd(command, value = null) {\r\n    if (activeEditor) {\r\n      activeEditor.focus();\r\n      document.execCommand(command, false, value);\r\n      updateEmptyClass();\r\n    }\r\n  }\r\n\r\n  // \u0631\u062f\u06cc\u0627\u0628\u06cc \u0641\u0648\u06a9\u0648\u0633 \u0628\u0631\u0627\u06cc \u0641\u0647\u0645\u06cc\u062f\u0646 \u06a9\u062f\u0648\u0645 \u0648\u06cc\u0631\u0627\u06cc\u0634\u06af\u0631 \u0641\u0639\u0627\u0644\u0647\r\n  document.addEventListener(\'focusin\', (e) => {\r\n    if (e.target.classList.contains(\'editor\')) {\r\n      activeEditor = e.target;\r\n    }\r\n  });\r\n\r\n  // \u0628\u0631\u0627\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0686\u0633\u0628\u0627\u0646\u062f\u0646 HTML \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a placeholder\r\n  setTimeout(() => {\r\n    document.querySelectorAll(\'.editor\').forEach(editor => {\r\n      editor.addEventListener(\'input\', updateEmptyClass);\r\n      editor.addEventListener(\'paste\', e => {\r\n        e.preventDefault();\r\n        var text = e.clipboardData.getData(\'text/plain\');\r\n        document.execCommand(\'insertText\', false, text);\r\n      });\r\n    });\r\n    updateEmptyClass();\r\n  }, 0);\r\n\r\n  function updateEmptyClass() {\r\n    document.querySelectorAll(\'.editor\').forEach(editor => {\r\n      editor.classList.toggle(\'empty\', editor.textContent.trim() === \'\');\r\n    });\r\n  }\r\n\r\n  function saveAll() {\r\n    var data = {};\r\n    editorConfigs.forEach(({ id }) => {\r\n      data[id] = document.getElementById(id).innerHTML;\r\n    });\r\n    window.data = JSON.stringify(data);\r\n  }\r\n</script>\r\n'
+                '<div id="editors-container"></div>\r\n<script>\r\n  var activeEditor = null;\r\n  if (!window.editorConfigs) {\r\nwindow.editorConfigs = [\r\n    { id: \'description\', title: \'\ud83d\udccb \u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u06a9\u0644\u06cc \u062a\u0647\u06cc\u0647 \u062f\u0627\u0631\u0648\', placeholder: \'\u0627\u06cc\u0646\u062c\u0627 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u06a9\u0644\u06cc \u062a\u0647\u06cc\u0647 \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' },\r\n    { id: \'usage\', title: \'\ud83d\udc8a \u0646\u062d\u0648\u0647 \u0645\u0635\u0631\u0641\', placeholder: \'\u0646\u062d\u0648\u0647 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' },\r\n    { id: \'precautions\', title: \'\u26a0\ufe0f \u062a\u0648\u062c\u0647\u0627\u062a \u0644\u0627\u0632\u0645 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648\', placeholder: \'\u062a\u0648\u062c\u0647\u0627\u062a \u0644\u0627\u0632\u0645 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' },\r\n    { id: \'sideEffects\', title: \'\u26a0\ufe0f \u0639\u0648\u0627\u0631\u0636 \u0648 \u062a\u062f\u0627\u062e\u0644\u0627\u062a \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062f\u0627\u0631\u0648\', placeholder: \'\u0639\u0648\u0627\u0631\u0636 \u0648 \u062a\u062f\u0627\u062e\u0644\u0627\u062a \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' },\r\n    { id: \'duration\', title: \'\u23f3 \u062a\u0627 \u06a9\u06cc \u062f\u0627\u0631\u0648 \u0645\u0635\u0631\u0641 \u06a9\u0646\u0645\u061f\', placeholder: \'\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0645\u0635\u0631\u0641 \u062f\u0627\u0631\u0648 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f...\' }\r\n  ];}\r\nvar editorConfigs = window.editorConfigs;\r\n\r\n  var container = document.getElementById(\'editors-container\');\r\n  container.innerHTML = \'\';\r\n  editorConfigs.forEach(({ id, title, placeholder }) => {\r\n    var wrapper = document.createElement(\'div\');\r\n    wrapper.className = \'editor-wrapper\';\r\n    wrapper.innerHTML = `\r\n      <div class="editor-title">${title}</div>\r\n      <div class="toolbar" data-editor="${id}">\r\n        <button onclick="execCmd(\'bold\')"><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H12.5C14.9853 12 17 9.98528 17 7.5C17 5.01472 14.9853 3 12.5 3H6V12ZM6 12H13.5C15.9853 12 18 14.0147 18 16.5C18 18.9853 15.9853 21 13.5 21H6V12Z" stroke="#4f4f4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>\r\n</button>\r\n        <button onclick="execCmd(\'italic\')"><i><em><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 3H20M4 21H14M15 3L9 21" stroke="#4f4f4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>\r\n</em></i></button>\r\n        <button onclick="execCmd(\'underline\')"><u><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 21H20M18 4V11C18 14.3137 15.3137 17 12 17C8.68629 17 6 14.3137 6 11V4M4 3H8M16 3H20" stroke="#4f4f4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>\r\n</u></button>\r\n        <button onclick="execCmd(\'insertUnorderedList\')"><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 6.00067L21 6.00139M8 12.0007L21 12.0015M8 18.0007L21 18.0015M3.5 6H3.51M3.5 12H3.51M3.5 18H3.51M4 6C4 6.27614 3.77614 6.5 3.5 6.5C3.22386 6.5 3 6.27614 3 6C3 5.72386 3.22386 5.5 3.5 5.5C3.77614 5.5 4 5.72386 4 6ZM4 12C4 12.2761 3.77614 12.5 3.5 12.5C3.22386 12.5 3 12.2761 3 12C3 11.7239 3.22386 11.5 3.5 11.5C3.77614 11.5 4 11.7239 4 12ZM4 18C4 18.2761 3.77614 18.5 3.5 18.5C3.22386 18.5 3 18.2761 3 18C3 17.7239 3.22386 17.5 3.5 17.5C3.77614 17.5 4 17.7239 4 18Z" stroke="#4a4a4a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>\r\n        <button onclick="execCmd(\'insertOrderedList\')"><svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 6L21 6.00066M10 12L21 12.0007M10 18L21 18.0007M3 5L5 4V10M5 10H3M5 10H7M7 20H3L6.41274 17.0139C6.78593 16.6873 7 16.2156 7 15.7197C7 14.7699 6.23008 14 5.28033 14H5C4.06808 14 3.28503 14.6374 3.06301 15.5" stroke="#4f4f4f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>\r\n        <select onchange="execCmd(\'formatBlock\', this.value)">\r\n          <option value="">\u062a\u06cc\u062a\u0631</option>\r\n          <option value="h3">\u0639\u0646\u0648\u0627\u0646 (H3)</option>\r\n          <option value="h4">\u0632\u06cc\u0631\u0639\u0646\u0648\u0627\u0646 (H4)</option>\r\n          <option value="p">\u0645\u062a\u0646 \u0639\u0627\u062f\u06cc</option>\r\n        </select>\r\n        <select onchange="execCmd(\'foreColor\',this.value)">\r\n          <option value="">\ud83c\udfa8 \u0631\u0646\u06af</option>\r\n          <option value="red">\ud83d\udd34 \u0642\u0631\u0645\u0632</option>\r\n          <option value="blue">\ud83d\udd35 \u0622\u0628\u06cc</option>\r\n          <option value="green">\ud83d\udfe2 \u0633\u0628\u0632</option>\r\n          <option value="orange">\ud83d\udfe0 \u0646\u0627\u0631\u0646\u062c\u06cc</option>\r\n          <option value="black">\u26ab \u0645\u0634\u06a9\u06cc</option>\r\n        </select>\r\n      </div>\r\n      <div id="${id}" class="editor empty" contenteditable="true" data-placeholder="${placeholder}"></div>\r\n    `;\r\n    container.appendChild(wrapper);\r\n  });\r\n\r\n  // \u0627\u062c\u0631\u0627\u06cc \u0641\u0631\u0645\u062a\r\n  function execCmd(command, value = null) {\r\n    if (activeEditor) {\r\n      activeEditor.focus();\r\n      document.execCommand(command, false, value);\r\n      updateEmptyClass();\r\n    }\r\n  }\r\n\r\n  // \u0631\u062f\u06cc\u0627\u0628\u06cc \u0641\u0648\u06a9\u0648\u0633 \u0628\u0631\u0627\u06cc \u0641\u0647\u0645\u06cc\u062f\u0646 \u06a9\u062f\u0648\u0645 \u0648\u06cc\u0631\u0627\u06cc\u0634\u06af\u0631 \u0641\u0639\u0627\u0644\u0647\r\n  document.addEventListener(\'focusin\', (e) => {\r\n    if (e.target.classList.contains(\'editor\')) {\r\n      activeEditor = e.target;\r\n    }\r\n  });\r\n\r\n  // \u0628\u0631\u0627\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0686\u0633\u0628\u0627\u0646\u062f\u0646 HTML \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a placeholder\r\n  setTimeout(() => {\r\n    document.querySelectorAll(\'.editor\').forEach(editor => {\r\n      editor.addEventListener(\'input\', updateEmptyClass);\r\n      editor.addEventListener(\'paste\', e => {\r\n        e.preventDefault();\r\n        var text = e.clipboardData.getData(\'text/plain\');\r\n        document.execCommand(\'insertText\', false, text);\r\n      });\r\n    });\r\n    updateEmptyClass();\r\n  }, 0);\r\n\r\n  function updateEmptyClass() {\r\n    document.querySelectorAll(\'.editor\').forEach(editor => {\r\n      editor.classList.toggle(\'empty\', editor.textContent.trim() === \'\');\r\n    });\r\n  }\r\n\r\n  function saveAll() {\r\n  let resultHTML = \'\';\r\n\r\n  editorConfigs.forEach(({ id, title }) => {\r\n    const content = document.getElementById(id).innerHTML.trim();\r\n    if (content !== \'\') {\r\n      resultHTML += `\r\n        <div class="result-card">\r\n          <h3 class="result-title">${title}</h3>\r\n          <div class="result-content">${content}</div>\r\n        </div>\r\n      `;\r\n    }\r\n  });\r\n    window.data =resultHTML;\r\n  }\r\n</script>\r\n'
               }
             />
           </Stack__>
@@ -397,7 +397,8 @@ function PlasmicEntryPrescription__RenderFunc(props: {
                             objRoot: $state,
                             variablePath: ["btnLoad"]
                           },
-                          operation: 0
+                          operation: 0,
+                          value: true
                         };
                         return (({
                           variable,
@@ -491,18 +492,19 @@ function PlasmicEntryPrescription__RenderFunc(props: {
                     $steps["runCode2"] = await $steps["runCode2"];
                   }
 
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return saveAll();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                  $steps["runCode"] =
+                    $state.errors.length == 0
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return saveAll();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                   if (
                     $steps["runCode"] != null &&
                     typeof $steps["runCode"] === "object" &&
@@ -581,6 +583,40 @@ function PlasmicEntryPrescription__RenderFunc(props: {
                     ];
                   }
 
+                  $steps["updateBtnLoad2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["btnLoad"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateBtnLoad2"] != null &&
+                    typeof $steps["updateBtnLoad2"] === "object" &&
+                    typeof $steps["updateBtnLoad2"].then === "function"
+                  ) {
+                    $steps["updateBtnLoad2"] = await $steps["updateBtnLoad2"];
+                  }
+
                   $steps["invokeGlobalAction3"] = true
                     ? (() => {
                         const actionArgs = { args: [3000] };
@@ -599,18 +635,19 @@ function PlasmicEntryPrescription__RenderFunc(props: {
                     ];
                   }
 
-                  $steps["runCode3"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return window.history.back();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                  $steps["runCode3"] =
+                    $steps.invokeGlobalAction?.data?.status == true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return window.history.back();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                   if (
                     $steps["runCode3"] != null &&
                     typeof $steps["runCode3"] === "object" &&
