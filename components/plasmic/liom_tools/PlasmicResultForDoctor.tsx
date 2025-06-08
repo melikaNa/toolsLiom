@@ -111,6 +111,7 @@ import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-impor
 import ChevronUpIcon from "./icons/PlasmicIcon__ChevronUp"; // plasmic-import: s9eeF5PzS4-y/icon
 import Icon136Icon from "./icons/PlasmicIcon__Icon136"; // plasmic-import: e82dJRWQjnC2/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
+import Icon160Icon from "./icons/PlasmicIcon__Icon160"; // plasmic-import: VDxWJe2hoa-8/icon
 import Icon125Icon from "./icons/PlasmicIcon__Icon125"; // plasmic-import: b8AgXrwwp9nu/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon127Icon from "./icons/PlasmicIcon__Icon127"; // plasmic-import: HCowqgxIwEnQ/icon
@@ -147,6 +148,7 @@ export type PlasmicResultForDoctor__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   timer?: Flex__<typeof Timer>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
+  buttonLiom2?: Flex__<typeof ButtonLiom>;
   collapse5?: Flex__<typeof AntdSingleCollapse>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
   icons?: Flex__<typeof Icons>;
@@ -507,6 +509,115 @@ function PlasmicResultForDoctor__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "buttonLiom2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
+      },
+      {
+        path: "buttonLiom2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "liomInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                var rawText = $state.liomInfo.result;
+                function parseHealthData(text) {
+                  const fields = [
+                    {
+                      key: "name",
+                      label: "نام",
+                      pattern: /نام:\s*(.+)/
+                    },
+                    {
+                      key: "age",
+                      label: "سن",
+                      pattern: /سن:\s*(\d+)/
+                    },
+                    {
+                      key: "marital",
+                      label: "وضعیت تاهل",
+                      pattern: /وضعیت تاهل:\s*(.+)/
+                    },
+                    {
+                      key: "education",
+                      label: "وضعیت تحصیل",
+                      pattern: /وضعیت تحصیل:\s*(.+)/
+                    },
+                    {
+                      key: "job",
+                      label: "وضعیت شغل",
+                      pattern: /وضعیت شغل:\s*(.+)/
+                    }
+                  ];
+
+                  const personal = [];
+                  for (const field of fields) {
+                    const match = text.match(field.pattern);
+                    personal.push({
+                      key: field.key,
+                      label: field.label,
+                      value: match?.[1]?.trim() || null
+                    });
+                  }
+                  const periodMatch = text.match(/وضعیت پریود:.*?(?=\n)/);
+                  const lastUpdateMatch = text.match(
+                    /📅 آخرین نشانه‌های ثبت‌شده در تاریخ (.+?):/
+                  );
+                  const categories = [];
+                  const sectionPattern = /🔹\s*(.+?):\s*\n((?:- .*\n?)*)/g;
+                  let match;
+                  while ((match = sectionPattern.exec(text)) !== null) {
+                    const title = match[1].trim();
+                    const items = match[2]
+                      .split("\n")
+                      .map(i => i.replace(/^- /, "").trim())
+                      .filter(Boolean);
+                    categories.push({
+                      title,
+                      items
+                    });
+                  }
+                  return {
+                    personal,
+                    period: {
+                      label: "وضعیت فعلی",
+                      value: periodMatch?.[0] || null
+                    },
+                    lastUpdate: {
+                      label: "آخرین ثبت",
+                      value: lastUpdateMatch?.[1] || null
+                    },
+                    categories
+                  };
+                }
+                return parseHealthData(rawText);
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1905,6 +2016,486 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   }
                 </div>
               </ButtonLiom>
+              <ButtonLiom
+                data-plasmic-name={"buttonLiom2"}
+                data-plasmic-override={overrides.buttonLiom2}
+                className={classNames("__wab_instance", sty.buttonLiom2)}
+                color={generateStateValueProp($state, ["buttonLiom2", "color"])}
+                load={generateStateValueProp($state, ["buttonLiom2", "load"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "GET",
+                            "https://n8n.staas.ir/webhook/self-test/userinfo/liom",
+                            (() => {
+                              try {
+                                return { user_id: $ctx.query.user_id };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["updateLiomInfo"] = $steps.invokeGlobalAction?.data
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["liomInfo"]
+                          },
+                          operation: 0,
+                          value: $steps.invokeGlobalAction?.data
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLiomInfo"] != null &&
+                    typeof $steps["updateLiomInfo"] === "object" &&
+                    typeof $steps["updateLiomInfo"].then === "function"
+                  ) {
+                    $steps["updateLiomInfo"] = await $steps["updateLiomInfo"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom2", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom2", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                showStartIcon={true}
+                startIcon={
+                  <Icon160Icon
+                    className={classNames(projectcss.all, sty.svg___7XZld)}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rtDig
+                  )}
+                >
+                  {
+                    "\u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631 \u0627\u0632 \u0644\u06cc\u0648\u0645 "
+                  }
+                </div>
+              </ButtonLiom>
+              {(() => {
+                try {
+                  return Object.keys($state.liomInfo).length != 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___1CsnS)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__gyXtD)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__iLeB1
+                      )}
+                    >
+                      {
+                        "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u067e\u0631\u0648\u0641\u0627\u06cc\u0644 \u06a9\u0627\u0631\u0628\u0631"
+                      }
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__nhaG2)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.variable.personal;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__cGpBe
+                            )}
+                            key={currentIndex}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___9RCv9
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.label + ":";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___2EnZu
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.value;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </Stack__>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $state.variable.lastUpdate;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__jDcQt
+                        )}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__pm6L
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.label + ":";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u067e\u0631\u0648\u0641\u0627\u06cc\u0644 \u06a9\u0627\u0631\u0628\u0631";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__vvfFn
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.value;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u067e\u0631\u0648\u0641\u0627\u06cc\u0644 \u06a9\u0627\u0631\u0628\u0631";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </Stack__>
+                    );
+                  })}
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $state.variable.period;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__xoe3W
+                        )}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__isIw3
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  var p = currentItem.value.split(" | ");
+                                  return `${p[0]}\n${p[1]}`;
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u067e\u0631\u0648\u0641\u0627\u06cc\u0644 \u06a9\u0627\u0631\u0628\u0631";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </div>
+                    );
+                  })}
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $state.variable.categories;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__wnCd4
+                        )}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___9VmjV
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.title;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__darQq
+                          )}
+                        >
+                          {(_par =>
+                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                            (() => {
+                              try {
+                                return currentItem.items;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                            const currentItem = __plasmic_item_1;
+                            const currentIndex = __plasmic_idx_1;
+                            return (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__hHnrO
+                                )}
+                                key={currentIndex}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : null}
             </Stack__>
           ) : null}
           {(() => {
@@ -5273,6 +5864,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "timer",
     "buttonLiom3",
+    "buttonLiom2",
     "collapse5",
     "buttonLiom5",
     "icons",
@@ -5296,6 +5888,7 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom"],
   timer: ["timer"],
   buttonLiom3: ["buttonLiom3"],
+  buttonLiom2: ["buttonLiom2"],
   collapse5: ["collapse5"],
   buttonLiom5: ["buttonLiom5"],
   icons: ["icons"],
@@ -5337,6 +5930,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   timer: typeof Timer;
   buttonLiom3: typeof ButtonLiom;
+  buttonLiom2: typeof ButtonLiom;
   collapse5: typeof AntdSingleCollapse;
   buttonLiom5: typeof ButtonLiom;
   icons: typeof Icons;
@@ -5446,6 +6040,7 @@ export const PlasmicResultForDoctor = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     timer: makeNodeComponent("timer"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
+    buttonLiom2: makeNodeComponent("buttonLiom2"),
     collapse5: makeNodeComponent("collapse5"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
     icons: makeNodeComponent("icons"),

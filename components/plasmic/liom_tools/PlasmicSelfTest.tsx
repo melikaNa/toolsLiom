@@ -3228,16 +3228,103 @@ function PlasmicSelfTest__RenderFunc(props: {
                                               err
                                             );
                                           });
+                                        fetch(
+                                          "https://n8n.staas.ir/webhook/selfTestPayment",
+                                          {
+                                            method: "POST",
+                                            headers: {
+                                              "Content-Type": "application/json"
+                                            },
+                                            body: JSON.stringify({
+                                              pt: receipt_id,
+                                              status: "OK",
+                                              extra: {
+                                                price: 99000,
+                                                user_id: $state.userId,
+                                                session_id: $state.sessionId,
+                                                type: $ctx.query.type
+                                              }
+                                            })
+                                          }
+                                        )
+                                          .then(response => response.json())
+                                          .then(data => {
+                                            console.log("تایید پرداخت:", data);
+                                          })
+                                          .catch(err => {
+                                            console.error(
+                                              "خطا در تایید پرداخت:",
+                                              err
+                                            );
+                                          });
                                       } else if (
                                         event === "HAMDAST_PAYMENT_CANCEL"
                                       ) {
                                         $state.status = "NOK";
                                         console.log("پرداخت لغو شد.");
+                                        fetch(
+                                          "https://n8n.staas.ir/webhook/selfTestPayment",
+                                          {
+                                            method: "POST",
+                                            headers: {
+                                              "Content-Type": "application/json"
+                                            },
+                                            body: JSON.stringify({
+                                              pt: "Failed",
+                                              status: "NOK",
+                                              extra: {
+                                                price: 99000,
+                                                user_id: $state.userId,
+                                                session_id: $state.sessionId,
+                                                type: $ctx.query.type
+                                              }
+                                            })
+                                          }
+                                        )
+                                          .then(response => response.json())
+                                          .then(data => {
+                                            console.log("تایید پرداخت:", data);
+                                          })
+                                          .catch(err => {
+                                            console.error(
+                                              "خطا در تایید پرداخت:",
+                                              err
+                                            );
+                                          });
                                       } else if (
                                         event === "HAMDAST_PAYMENT_ERROR"
                                       ) {
                                         $state.status = "NOK";
                                         console.log("پرداخت ناموفق بود.");
+                                        fetch(
+                                          "https://n8n.staas.ir/webhook/selfTestPayment",
+                                          {
+                                            method: "POST",
+                                            headers: {
+                                              "Content-Type": "application/json"
+                                            },
+                                            body: JSON.stringify({
+                                              pt: "Failed",
+                                              status: "NOK",
+                                              extra: {
+                                                price: 99000,
+                                                user_id: $state.userId,
+                                                session_id: $state.sessionId,
+                                                type: $ctx.query.type
+                                              }
+                                            })
+                                          }
+                                        )
+                                          .then(response => response.json())
+                                          .then(data => {
+                                            console.log("تایید پرداخت:", data);
+                                          })
+                                          .catch(err => {
+                                            console.error(
+                                              "خطا در تایید پرداخت:",
+                                              err
+                                            );
+                                          });
                                       }
                                     })
                                     .catch(function (error) {
