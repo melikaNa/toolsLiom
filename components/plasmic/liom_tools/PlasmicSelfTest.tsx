@@ -3450,55 +3450,6 @@ function PlasmicSelfTest__RenderFunc(props: {
                       $steps["runCode"] = await $steps["runCode"];
                     }
 
-                    $steps["invokeGlobalAction6"] = (
-                      $state.variable?.question?.metricChecks
-                        ? $state.variable?.question?.metricChecks !== "" &&
-                          $state.variable?.question?.metricChecks !== null
-                        : false
-                    )
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://n8n.staas.ir/webhook/metricCheck",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    question_id: $state.nextQuesionId,
-                                    session_id: $state.sessionId,
-                                    user_id: $state.userId,
-                                    type: $state.type
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction6"] != null &&
-                      typeof $steps["invokeGlobalAction6"] === "object" &&
-                      typeof $steps["invokeGlobalAction6"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction6"] = await $steps[
-                        "invokeGlobalAction6"
-                      ];
-                    }
-
                     $steps["invokeGlobalAction3"] =
                       $state.ferst == true && $state.retestTest == true
                         ? (() => {
@@ -3582,6 +3533,55 @@ function PlasmicSelfTest__RenderFunc(props: {
                     ) {
                       $steps["invokeGlobalAction3"] = await $steps[
                         "invokeGlobalAction3"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction6"] = (
+                      $state.variable?.question?.metricChecks
+                        ? $state.variable?.question?.metricChecks !== "" &&
+                          $state.variable?.question?.metricChecks !== null
+                        : false
+                    )
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/metricCheck",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    question_id: $state.nextQuesionId,
+                                    session_id: $state.sessionId,
+                                    user_id: $state.userId,
+                                    type: $state.type
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction6"] != null &&
+                      typeof $steps["invokeGlobalAction6"] === "object" &&
+                      typeof $steps["invokeGlobalAction6"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction6"] = await $steps[
+                        "invokeGlobalAction6"
                       ];
                     }
 

@@ -415,7 +415,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["runCode"] = true
+              $steps["runCode"] = false
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {

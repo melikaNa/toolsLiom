@@ -4890,7 +4890,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                     )}
                   >
                     {
-                      "\u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc"
+                      "\u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u06a9\u0644\u06cc \u062a\u0647\u06cc\u0647 \u062f\u0627\u0631\u0648"
                     }
                   </div>
                   <div

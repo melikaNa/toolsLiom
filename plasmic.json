@@ -2937,6 +2937,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/medicine"
+        },
+        {
+          "id": "4Uoers0uAwQ4",
+          "name": "NewPage3",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicNewPage3.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/new-page-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicNewPage3.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page-2"
         }
       ],
       "icons": [

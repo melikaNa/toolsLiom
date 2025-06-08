@@ -7730,7 +7730,11 @@ window.typewriter = function(elementId) {
 
         {(() => {
           try {
-            return $state.paramsObject.hamyar == "true";
+            return (
+              $state.paramsObject.hamyar == "true" &&
+              new URLSearchParams(window.location.search).get("footer") !=
+                "false"
+            );
           } catch (e) {
             if (
               e instanceof TypeError ||
