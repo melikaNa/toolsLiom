@@ -3236,7 +3236,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                               "Content-Type": "application/json"
                                             },
                                             body: JSON.stringify({
-                                              pt: receipt_id,
+                                              id: receipt_id,
                                               status: "OK",
                                               extra: {
                                                 price: 99000,
@@ -3270,7 +3270,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                               "Content-Type": "application/json"
                                             },
                                             body: JSON.stringify({
-                                              pt: "Failed",
+                                              id: "Failed",
                                               status: "NOK",
                                               extra: {
                                                 price: 99000,
@@ -3304,7 +3304,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                               "Content-Type": "application/json"
                                             },
                                             body: JSON.stringify({
-                                              pt: "Failed",
+                                              id: "Failed",
                                               status: "NOK",
                                               extra: {
                                                 price: 99000,
