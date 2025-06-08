@@ -7082,11 +7082,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                                   const newUrl = `${
                                     window.location.pathname
                                   }?${searchParams.toString()}`;
-                                  return window.history.replaceState(
-                                    null,
-                                    "",
-                                    newUrl
-                                  );
+                                  window.history.replaceState(null, "", newUrl);
+                                  return window.location.reload();
                                 })();
                               }
                             };
