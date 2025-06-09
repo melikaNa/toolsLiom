@@ -411,6 +411,12 @@ function PlasmicSidebarWindow__RenderFunc(props: {
                     )
                   }
                 )}
+                data-i18n={
+                  hasVariant($state, "opening", "opening") &&
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "chat.history"
+                    : undefined
+                }
               >
                 {hasVariant($state, "opening", "opening") &&
                 hasVariant(globalVariants, "screen", "mobileOnly")
@@ -618,8 +624,21 @@ function PlasmicSidebarWindow__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text___3HiXp
+              sty.text___3HiXp,
+              {
+                [sty.textopening___3HiXprPBw2]: hasVariant(
+                  $state,
+                  "opening",
+                  "opening"
+                )
+              }
             )}
+            data-i18n={
+              hasVariant($state, "opening", "opening") &&
+              hasVariant(globalVariants, "screen", "mobileOnly")
+                ? "chat.btn.new"
+                : undefined
+            }
           >
             {"\u067e\u06cc\u0627\u0645 \u062c\u062f\u06cc\u062f"}
           </div>

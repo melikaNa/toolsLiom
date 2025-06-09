@@ -1620,6 +1620,23 @@
     display: none;
   }
 }
+.text__asAh8 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: var(--token-7E1YyiP6sAP9);
+  color: var(--token-qc3RjKzQDJ33);
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  min-width: 0;
+}
 .freeBox__v3O3A {
   display: flex;
   flex-direction: row;
@@ -3072,5 +3089,26 @@
     align-self: center;
     color: var(--token-y50Rafqey4Ec);
     font-size: 12px;
+  }
+}
+.embedHtml__uPKuU:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.embedHtml__s6BY:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  position: fixed;
+  right: auto;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .embedHtml__s6BY:global(.__wab_instance) {
+    left: auto;
+    top: 0;
+    position: fixed;
+    right: 0;
   }
 }
