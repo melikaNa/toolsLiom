@@ -1521,10 +1521,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 $state.paziresh24.email ||
                                 $state.userInfo.email ||
                                 null,
-                              name:
-                                $state.paziresh24.name ||
-                                $state.userInfo.name ||
-                                null,
+                              name: $state.paziresh24.name
+                                ? $state.paziresh24.name +
+                                  ($state.paziresh24.family
+                                    ? " " + $state.paziresh24.family
+                                    : "")
+                                : $state.userInfo.name || null,
                               origin:
                                 $state.paramsObject.origin ||
                                 $state.paramsObject.app ||
@@ -1534,7 +1536,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 $state.userInfo.id ||
                                 $state.paramsObject.user_id ||
                                 $state.paramsObject.userId,
-                              token: $state.userInfo.token || ""
+                              token: $state.userInfo.token || "",
+                              nationalCode:
+                                $state.paziresh24.national_code || "",
+                              gender: $state.paziresh24.gender || ""
                             };
                           } catch (e) {
                             if (
