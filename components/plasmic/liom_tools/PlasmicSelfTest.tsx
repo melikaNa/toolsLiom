@@ -813,6 +813,12 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "paziresh24",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1184,7 +1190,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             }
 
             $steps["user"] =
-              $state.token != ""
+              $state.token != "" && $state.paramsObject.gw != "paziresh24"
                 ? (() => {
                     const actionArgs = {
                       args: [
@@ -1220,6 +1226,30 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["user"] = await $steps["user"];
             }
 
+            $steps["paziresh24"] =
+              $state.paramsObject.gw == "paziresh24"
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (async () => {
+                          return ($state.paziresh24 =
+                            await window.hamdast.getState("user"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+            if (
+              $steps["paziresh24"] != null &&
+              typeof $steps["paziresh24"] === "object" &&
+              typeof $steps["paziresh24"].then === "function"
+            ) {
+              $steps["paziresh24"] = await $steps["paziresh24"];
+            }
+
             $steps["userInfoUpdate"] =
               $steps.user?.data?.success ?? false
                 ? (() => {
@@ -1251,7 +1281,7 @@ function PlasmicSelfTest__RenderFunc(props: {
             }
 
             $steps["usergust"] =
-              $state.token == ""
+              $state.token == "" && $state.paramsObject.gw != "paziresh24"
                 ? (() => {
                     const actionArgs = {
                       args: [
@@ -1472,7 +1502,8 @@ function PlasmicSelfTest__RenderFunc(props: {
 
             $steps["selfTestUserPost"] =
               $steps.user?.data?.success == true ||
-              $steps.usergust?.data?.success == true
+              $steps.usergust?.data?.success == true ||
+              Object.keys($state.paziresh24).length > 0
                 ? (() => {
                     const actionArgs = {
                       args: [
@@ -1482,18 +1513,28 @@ function PlasmicSelfTest__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              mobile: $state.userInfo.mobile || null,
-                              email: $state.userInfo.email || null,
-                              name: $state.userInfo.name || null,
+                              mobile:
+                                $state.paziresh24.cell ||
+                                $state.userInfo.mobile ||
+                                null,
+                              email:
+                                $state.paziresh24.email ||
+                                $state.userInfo.email ||
+                                null,
+                              name:
+                                $state.paziresh24.name ||
+                                $state.userInfo.name ||
+                                null,
                               origin:
                                 $state.paramsObject.origin ||
                                 $state.paramsObject.app ||
                                 "liomSite",
                               origin_user_id:
+                                $state.paziresh24.id ||
                                 $state.userInfo.id ||
-                                state.paramsObject.user_id ||
-                                state.paramsObject.userId,
-                              token: $state.userInfo.token
+                                $state.paramsObject.user_id ||
+                                $state.paramsObject.userId,
+                              token: $state.userInfo.token || ""
                             };
                           } catch (e) {
                             if (
