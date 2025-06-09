@@ -253,7 +253,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 3
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "apiRequest.data",
@@ -2016,136 +2016,250 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   }
                 </div>
               </ButtonLiom>
-              <ButtonLiom
-                data-plasmic-name={"buttonLiom2"}
-                data-plasmic-override={overrides.buttonLiom2}
-                className={classNames("__wab_instance", sty.buttonLiom2)}
-                color={generateStateValueProp($state, ["buttonLiom2", "color"])}
-                load={generateStateValueProp($state, ["buttonLiom2", "load"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "GET",
-                            "https://n8n.staas.ir/webhook/self-test/userinfo/liom",
-                            (() => {
-                              try {
-                                return { user_id: $ctx.query.user_id };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
+              {(() => {
+                try {
+                  return Object.keys($state.liomInfo).length == 0;
+                } catch (e) {
                   if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    return true;
                   }
-
-                  $steps["updateLiomInfo"] = $steps.invokeGlobalAction?.data
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["liomInfo"]
-                          },
-                          operation: 0,
-                          value: $steps.invokeGlobalAction?.data
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLiomInfo"] != null &&
-                    typeof $steps["updateLiomInfo"] === "object" &&
-                    typeof $steps["updateLiomInfo"].then === "function"
-                  ) {
-                    $steps["updateLiomInfo"] = await $steps["updateLiomInfo"];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["buttonLiom2", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                onLoadChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["buttonLiom2", "load"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                showStartIcon={true}
-                startIcon={
-                  <Icon160Icon
-                    className={classNames(projectcss.all, sty.svg___7XZld)}
-                    role={"img"}
-                  />
+                  throw e;
                 }
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rtDig
-                  )}
-                >
-                  {
-                    "\u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631 \u0627\u0632 \u0644\u06cc\u0648\u0645 "
+              })() ? (
+                <ButtonLiom
+                  data-plasmic-name={"buttonLiom2"}
+                  data-plasmic-override={overrides.buttonLiom2}
+                  className={classNames("__wab_instance", sty.buttonLiom2)}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom2",
+                    "color"
+                  ])}
+                  isDisabled={(() => {
+                    try {
+                      return $state.loadbtn;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                  load={generateStateValueProp($state, ["buttonLiom2", "load"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateLoadbtn"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["loadbtn"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoadbtn"] != null &&
+                      typeof $steps["updateLoadbtn"] === "object" &&
+                      typeof $steps["updateLoadbtn"].then === "function"
+                    ) {
+                      $steps["updateLoadbtn"] = await $steps["updateLoadbtn"];
+                    }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "GET",
+                              "https://n8n.staas.ir/webhook/self-test/userinfo/liom",
+                              (() => {
+                                try {
+                                  return { user_id: $ctx.query.user_id };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+
+                    $steps["updateLiomInfo"] = $steps.invokeGlobalAction?.data
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["liomInfo"]
+                            },
+                            operation: 0,
+                            value: $steps.invokeGlobalAction?.data
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLiomInfo"] != null &&
+                      typeof $steps["updateLiomInfo"] === "object" &&
+                      typeof $steps["updateLiomInfo"].then === "function"
+                    ) {
+                      $steps["updateLiomInfo"] = await $steps["updateLiomInfo"];
+                    }
+
+                    $steps["updateLoadbtn2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["loadbtn"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoadbtn2"] != null &&
+                      typeof $steps["updateLoadbtn2"] === "object" &&
+                      typeof $steps["updateLoadbtn2"].then === "function"
+                    ) {
+                      $steps["updateLoadbtn2"] = await $steps["updateLoadbtn2"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom2",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom2",
+                        "load"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  showStartIcon={true}
+                  startIcon={
+                    <Icon160Icon
+                      className={classNames(projectcss.all, sty.svg___7XZld)}
+                      role={"img"}
+                    />
                   }
-                </div>
-              </ButtonLiom>
+                  unnamedVariant={(() => {
+                    try {
+                      return $state.loadbtn;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__rtDig
+                    )}
+                  >
+                    {
+                      "\u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631 \u0627\u0632 \u0644\u06cc\u0648\u0645 "
+                    }
+                  </div>
+                </ButtonLiom>
+              ) : null}
               {(() => {
                 try {
                   return Object.keys($state.liomInfo).length != 0;

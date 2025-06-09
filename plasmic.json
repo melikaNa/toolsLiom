@@ -2951,6 +2951,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/entry-prescription"
+        },
+        {
+          "id": "DhYKz6btPd-E",
+          "name": "MainToolsPage",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicMainToolsPage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/main-tools-page.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicMainToolsPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/main-tools-page"
         }
       ],
       "icons": [
