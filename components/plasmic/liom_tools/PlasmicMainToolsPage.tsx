@@ -616,6 +616,75 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                                   throw e;
                                 }
                               })()}
+                              style={(() => {
+                                try {
+                                  return (() => {
+                                    const hexColor = "#FF4500";
+                                    let hex = hexColor.replace("#", "");
+                                    if (hex.length === 3) {
+                                      hex = hex
+                                        .split("")
+                                        .map(h => h + h)
+                                        .join("");
+                                    }
+                                    const r = parseInt(hex.substring(0, 2), 16);
+                                    const g = parseInt(hex.substring(2, 4), 16);
+                                    const b = parseInt(hex.substring(4, 6), 16);
+                                    const rNorm = r / 255;
+                                    const gNorm = g / 255;
+                                    const bNorm = b / 255;
+                                    const max = Math.max(rNorm, gNorm, bNorm);
+                                    const min = Math.min(rNorm, gNorm, bNorm);
+                                    let h,
+                                      s,
+                                      l = (max + min) / 2;
+                                    if (max === min) {
+                                      h = s = 0;
+                                    } else {
+                                      const d = max - min;
+                                      s =
+                                        l > 0.5
+                                          ? d / (2 - max - min)
+                                          : d / (max + min);
+                                      switch (max) {
+                                        case rNorm:
+                                          h =
+                                            (gNorm - bNorm) / d +
+                                            (gNorm < bNorm ? 6 : 0);
+                                          break;
+                                        case gNorm:
+                                          h = (bNorm - rNorm) / d + 2;
+                                          break;
+                                        case bNorm:
+                                          h = (rNorm - gNorm) / d + 4;
+                                          break;
+                                      }
+                                      h /= 6;
+                                    }
+                                    const hueRotateDeg = Math.round(h * 360);
+                                    const saturate = s * 3 + 1;
+                                    const brightness = l * 2;
+                                    const filterValue = `grayscale(1) brightness(${brightness.toFixed(
+                                      2
+                                    )}) saturate(${saturate.toFixed(
+                                      2
+                                    )}) hue-rotate(${hueRotateDeg}deg)`;
+                                    return {
+                                      filter:
+                                        "brightness(0) saturate(100%) invert(22%) sepia(94%) saturate(2276%) hue-rotate(0deg) brightness(97%) contrast(102%)"
+                                    };
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
                               width={"30"}
                             />
 
