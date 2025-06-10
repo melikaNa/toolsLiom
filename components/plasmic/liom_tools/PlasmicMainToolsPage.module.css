@@ -25,6 +25,14 @@
   max-width: 100%;
   object-fit: cover;
 }
+.text__h2RaW {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 18px;
+  min-width: 0;
+}
 .freeBox__uBj3W {
   display: flex;
   flex-direction: column;
