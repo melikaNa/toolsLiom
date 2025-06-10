@@ -801,6 +801,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
             projectcss.all,
             projectcss.__wab_text,
             sty.text__v7Tmw,
+            hasVariant($state, "opening", "opening") ? "chat.pppt" : undefined,
             {
               [sty.textopening__v7TmwrPBw2]: hasVariant(
                 $state,

@@ -2259,8 +2259,7 @@
 .drawer:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  width: 250px;
-  flex-shrink: 0;
+  width: 70%;
   display: none;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -2332,12 +2331,11 @@
 }
 .sidebarWindow3:global(.__wab_instance) {
   position: absolute;
-  width: 250px;
   z-index: 5;
-  left: auto;
+  left: 0;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: auto;
 }
 .freeBox__eqGpu {
   display: flex;
