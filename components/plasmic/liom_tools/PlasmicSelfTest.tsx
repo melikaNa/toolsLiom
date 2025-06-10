@@ -1671,7 +1671,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["infoTest"] = await $steps["infoTest"];
             }
 
-            $steps["updateTestChat6"] = true
+            $steps["updateTestChat6"] = $steps.infoTest?.data?.info?.shopId
               ? (() => {
                   const actionArgs = {
                     variable: {
