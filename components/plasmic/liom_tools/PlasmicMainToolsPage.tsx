@@ -379,6 +379,26 @@ function PlasmicMainToolsPage__RenderFunc(props: {
               ) {
                 $steps["updateLoading"] = await $steps["updateLoading"];
               }
+
+              $steps["log"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return console.log($ctx.query);
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["log"] != null &&
+                typeof $steps["log"] === "object" &&
+                typeof $steps["log"].then === "function"
+              ) {
+                $steps["log"] = await $steps["log"];
+              }
             }}
           />
 
