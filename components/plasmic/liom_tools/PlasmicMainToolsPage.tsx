@@ -201,32 +201,34 @@ function PlasmicMainToolsPage__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
-              $steps["getInfo"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/userInfo",
-                        (() => {
-                          try {
-                            return { token: $ctx.query.token };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
+              $steps["getInfo"] =
+                ($ctx.query?.token ?? "") != ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/userInfo",
+                          (() => {
+                            try {
+                              return { token: $ctx.query.token };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
               if (
                 $steps["getInfo"] != null &&
                 typeof $steps["getInfo"] === "object" &&
@@ -235,27 +237,33 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                 $steps["getInfo"] = await $steps["getInfo"];
               }
 
-              $steps["updateUser"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["user"]
-                      },
-                      operation: 0,
-                      value: $steps.getInfo.data?.[0]
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
+              $steps["updateUser"] =
+                ($ctx.query?.token ?? "") != ""
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["user"]
+                        },
+                        operation: 0,
+                        value: $steps.getInfo.data?.[0]
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["updateUser"] != null &&
                 typeof $steps["updateUser"] === "object" &&
@@ -264,34 +272,36 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                 $steps["updateUser"] = await $steps["updateUser"];
               }
 
-              $steps["getTools"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/tools/getToolsByAlgorithm",
-                        (() => {
-                          try {
-                            return { authorization: $ctx.query.token };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
+              $steps["getTools"] =
+                ($ctx.query?.token ?? "") != ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/tools/getToolsByAlgorithm",
+                          (() => {
+                            try {
+                              return { authorization: $ctx.query.token };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })(),
-                        undefined,
-                        undefined
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+                          })(),
+                          undefined,
+                          undefined
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
               if (
                 $steps["getTools"] != null &&
                 typeof $steps["getTools"] === "object" &&
@@ -300,27 +310,33 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                 $steps["getTools"] = await $steps["getTools"];
               }
 
-              $steps["updateTools"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["toolse"]
-                      },
-                      operation: 0,
-                      value: $steps.getTools.data
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
+              $steps["updateTools"] =
+                ($ctx.query?.token ?? "") != ""
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["toolse"]
+                        },
+                        operation: 0,
+                        value: $steps.getTools.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["updateTools"] != null &&
                 typeof $steps["updateTools"] === "object" &&
