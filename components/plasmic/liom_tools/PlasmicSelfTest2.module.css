@@ -2116,7 +2116,7 @@
   height: auto;
   max-width: 100%;
   border-radius: 50px;
-  padding: 0px 8px 0px 0px;
+  padding: 0px;
   border-width: 1px;
 }
 .freeBox___2JhaV > :global(.__wab_flex-container) {
@@ -2176,30 +2176,30 @@
   margin-left: 4px;
 }
 .text__y3LX3 {
-  width: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: pre-wrap;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.text__cstBu {
+  width: auto;
   height: auto;
   max-width: 100%;
   align-self: center;
   font-weight: 400;
   font-size: 14px;
   white-space: pre;
-  min-width: 0;
-}
-.text__cstBu {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  align-self: center;
-  font-weight: 400;
-  font-size: 14px;
-  min-width: 0;
 }
 .svg__ctuGq {
   object-fit: cover;
   max-width: 100%;
-  width: 70px;
+  width: auto;
   height: 25px;
-  flex-shrink: 0;
 }
 .svg__w3PcR {
   object-fit: cover;
