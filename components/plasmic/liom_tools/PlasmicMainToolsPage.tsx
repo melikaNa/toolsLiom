@@ -201,6 +201,26 @@ function PlasmicMainToolsPage__RenderFunc(props: {
             onMount={async () => {
               const $steps = {};
 
+              $steps["log"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return console.log($ctx.query);
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["log"] != null &&
+                typeof $steps["log"] === "object" &&
+                typeof $steps["log"].then === "function"
+              ) {
+                $steps["log"] = await $steps["log"];
+              }
+
               $steps["getInfo"] =
                 ($ctx.query?.token ?? "") != ""
                   ? (() => {
@@ -272,36 +292,34 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                 $steps["updateUser"] = await $steps["updateUser"];
               }
 
-              $steps["getTools"] =
-                ($ctx.query?.token ?? "") != ""
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "https://n8n.staas.ir/webhook/tools/getToolsByAlgorithm",
-                          (() => {
-                            try {
-                              return { authorization: $ctx.query.token };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
+              $steps["getTools"] = false
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "https://n8n.staas.ir/webhook/tools/getToolsByAlgorithm",
+                        (() => {
+                          try {
+                            return { authorization: $ctx.query.token };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
                             }
-                          })(),
-                          undefined,
-                          undefined
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
+                            throw e;
+                          }
+                        })(),
+                        undefined,
+                        undefined
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
               if (
                 $steps["getTools"] != null &&
                 typeof $steps["getTools"] === "object" &&
@@ -310,33 +328,27 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                 $steps["getTools"] = await $steps["getTools"];
               }
 
-              $steps["updateTools"] =
-                ($ctx.query?.token ?? "") != ""
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["toolse"]
-                        },
-                        operation: 0,
-                        value: $steps.getTools.data
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
+              $steps["updateTools"] = false
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["toolse"]
+                      },
+                      operation: 0,
+                      value: $steps.getTools.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
 
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
               if (
                 $steps["updateTools"] != null &&
                 typeof $steps["updateTools"] === "object" &&
@@ -378,26 +390,6 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                 typeof $steps["updateLoading"].then === "function"
               ) {
                 $steps["updateLoading"] = await $steps["updateLoading"];
-              }
-
-              $steps["log"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return console.log($ctx.query);
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["log"] != null &&
-                typeof $steps["log"] === "object" &&
-                typeof $steps["log"].then === "function"
-              ) {
-                $steps["log"] = await $steps["log"];
               }
             }}
           />
