@@ -110,6 +110,7 @@ export type PlasmicTestOptionsLiom__ArgsType = {
   p?: string;
   fp?: string;
   gw?: boolean;
+  t?: string;
 };
 type ArgPropType = keyof PlasmicTestOptionsLiom__ArgsType;
 export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
@@ -130,7 +131,8 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
   "b",
   "p",
   "fp",
-  "gw"
+  "gw",
+  "t"
 );
 
 export type PlasmicTestOptionsLiom__OverridesType = {
@@ -166,6 +168,7 @@ export interface DefaultTestOptionsLiomProps {
   p?: string;
   fp?: string;
   gw?: boolean;
+  t?: string;
   className?: string;
 }
 
@@ -385,8 +388,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
       style={(() => {
         try {
           return {
-            background: $props.gw ? "transparent" : "white",
-            "box-shadow": $props.gw ? "none" : ""
+            background: $props.buy && $props.gw ? "transparent" : "white",
+            "box-shadow": $props.buy && $props.gw ? "none" : ""
           };
         } catch (e) {
           if (
@@ -1395,6 +1398,29 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__aSdZt)}
           >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__i8IcM
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.t;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__yhFkP)}>
               <div
                 className={classNames(
@@ -1429,7 +1455,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
-                      return $props.p;
+                      return " تومان " + $props.p;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

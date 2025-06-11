@@ -4552,6 +4552,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                       throw e;
                     }
                   })()}
+                  t={(() => {
+                    try {
+                      return $state.shoping?.type_fa;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                 >
                   {(() => {
                     try {

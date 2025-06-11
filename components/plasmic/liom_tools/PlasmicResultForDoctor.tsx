@@ -1417,7 +1417,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc:"
+                        "\u0634\u0645\u0627\u0631\u0647 \u0647\u0645\u0631\u0627\u0647:"
                       }
                     </div>
                     <div
@@ -1430,7 +1430,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.apiRequest.data.userInfo.name;
+                            return $state.apiRequest.data.userInfo.mobile;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
