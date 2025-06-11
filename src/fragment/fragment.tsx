@@ -333,6 +333,7 @@ export const Fragment = ({
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
+                  const queryString = buildQueryString(params);
                   let link = `https://apps.liom.app/status-day/?token=${token}&userId=${userId}&${queryString}&inApp=${inApp}`;
                   window.open(link, "_self");
               }
