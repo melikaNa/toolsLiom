@@ -245,8 +245,8 @@
 }
 .freeBox__pyLuH > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   min-width: 0;
   margin-top: calc(0px - 8px);
   height: calc(100% + 8px);
@@ -275,7 +275,7 @@
 .freeBox__aSdZt > :global(.__wab_flex-container) {
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   min-width: 0;
   margin-left: calc(0px - 8px);
   width: calc(100% + 8px);
@@ -290,27 +290,41 @@
   > img {
   margin-left: 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__aSdZt > :global(.__wab_flex-container) {
+    justify-content: space-between;
+  }
+}
 .text__i8IcM {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   align-self: auto;
   text-align: right;
   font-weight: 700;
   font-size: 18px;
-  min-width: 0;
+  white-space: pre;
+}
+.freeBox__wbcd {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 0px;
 }
 .freeBox__yhFkP {
   display: flex;
   flex-direction: column;
-  position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
-  align-items: flex-end;
-  min-width: 0;
+  align-items: flex-start;
   padding: 8px;
 }
 .text__soPj {
@@ -319,6 +333,9 @@
   max-width: 100%;
   text-align: right;
   text-decoration-line: line-through;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--token-LqpCVPPZF4_r);
 }
 .text__wrpq1 {
   position: relative;
@@ -327,17 +344,19 @@
   max-width: 100%;
   text-align: right;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
+  white-space: pre;
 }
 .text___7M5M6 {
   position: relative;
   width: auto;
   height: auto;
   max-width: 100%;
-  text-align: right;
+  text-align: center;
   background: var(--token-jIJbQUPw_oHQ);
   color: var(--token-ieogzVSSyrRx);
   font-weight: 700;
+  align-self: center;
   border-radius: 8px;
   padding: 4px 8px;
 }

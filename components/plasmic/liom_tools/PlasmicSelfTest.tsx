@@ -3483,7 +3483,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                   })()}
                   fp={(() => {
                     try {
-                      return $state.shoping.fullPrice_rial;
+                      return $state.shoping.fullPrice_rial.toLocaleString();
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -4511,7 +4511,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                   }}
                   p={(() => {
                     try {
-                      return $state.shoping.price_rial;
+                      return (() => {
+                        return $state.shoping.price_rial.toLocaleString();
+                      })();
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
