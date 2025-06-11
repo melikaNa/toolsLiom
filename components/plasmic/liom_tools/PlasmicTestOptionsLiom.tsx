@@ -106,6 +106,10 @@ export type PlasmicTestOptionsLiom__ArgsType = {
   buy?: boolean;
   number?: number;
   onNumberChange?: (val: string) => void;
+  b?: string;
+  p?: string;
+  fp?: string;
+  gw?: boolean;
 };
 type ArgPropType = keyof PlasmicTestOptionsLiom__ArgsType;
 export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
@@ -122,7 +126,11 @@ export const PlasmicTestOptionsLiom__ArgProps = new Array<ArgPropType>(
   "children",
   "buy",
   "number",
-  "onNumberChange"
+  "onNumberChange",
+  "b",
+  "p",
+  "fp",
+  "gw"
 );
 
 export type PlasmicTestOptionsLiom__OverridesType = {
@@ -134,6 +142,7 @@ export type PlasmicTestOptionsLiom__OverridesType = {
   antdInput2?: Flex__<typeof Input>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
   button?: Flex__<typeof ButtonLiom>;
+  button4?: Flex__<typeof ButtonLiom>;
   button3?: Flex__<typeof ButtonLiom>;
   button2?: Flex__<typeof ButtonLiom>;
 };
@@ -153,6 +162,10 @@ export interface DefaultTestOptionsLiomProps {
   buy?: boolean;
   number?: number;
   onNumberChange?: (val: string) => void;
+  b?: string;
+  p?: string;
+  fp?: string;
+  gw?: boolean;
   className?: string;
 }
 
@@ -201,7 +214,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           ferst: true,
           retestTest: true,
           showgreen: false,
-          buy: false
+          buy: false,
+          gw: false
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -323,6 +337,18 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
 
         valueProp: "number",
         onChangeProp: "onNumberChange"
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -356,6 +382,22 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         plasmic_hamdast_sdk_css.plasmic_tokens,
         sty.root
       )}
+      style={(() => {
+        try {
+          return {
+            background: $props.gw ? "transparent" : "white",
+            "box-shadow": $props.gw ? "none" : ""
+          };
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return undefined;
+          }
+          throw e;
+        }
+      })()}
     >
       <div className={classNames(projectcss.all, sty.freeBox__rHKq5)}>
         {renderPlasmicSlot({
@@ -1267,7 +1309,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
       ) : null}
       {(() => {
         try {
-          return $props.buy;
+          return $props.buy && !$props.gw;
         } catch (e) {
           if (
             e instanceof TypeError ||
@@ -1279,15 +1321,15 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         }
       })() ? (
         <ButtonLiom
-          data-plasmic-name={"button3"}
-          data-plasmic-override={overrides.button3}
-          className={classNames("__wab_instance", sty.button3)}
-          color={generateStateValueProp($state, ["button3", "color"])}
-          load={generateStateValueProp($state, ["button3", "load"])}
+          data-plasmic-name={"button4"}
+          data-plasmic-override={overrides.button4}
+          className={classNames("__wab_instance", sty.button4)}
+          color={generateStateValueProp($state, ["button4", "color"])}
+          load={generateStateValueProp($state, ["button4", "load"])}
           onClick={args.buyClick}
           onColorChange={async (...eventArgs: any) => {
             ((...eventArgs) => {
-              generateStateOnChangeProp($state, ["button3", "color"])(
+              generateStateOnChangeProp($state, ["button4", "color"])(
                 eventArgs[0]
               );
             }).apply(null, eventArgs);
@@ -1302,7 +1344,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           }}
           onLoadChange={async (...eventArgs: any) => {
             ((...eventArgs) => {
-              generateStateOnChangeProp($state, ["button3", "load"])(
+              generateStateOnChangeProp($state, ["button4", "load"])(
                 eventArgs[0]
               );
             }).apply(null, eventArgs);
@@ -1320,7 +1362,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__i2Jnt
+              sty.text__fKa8P
             )}
             data-i18n={"btn.pay"}
           >
@@ -1329,6 +1371,182 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             }
           </div>
         </ButtonLiom>
+      ) : null}
+      {(() => {
+        try {
+          return $props.buy && $props.gw;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__pyLuH)}
+        >
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__aSdZt)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__yhFkP)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__soPj
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.fp;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wrpq1
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.p;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            </div>
+            {(() => {
+              try {
+                return $props.b;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___7M5M6
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.b;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "60%";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            ) : null}
+          </Stack__>
+          {(() => {
+            try {
+              return $props.buy;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <ButtonLiom
+              data-plasmic-name={"button3"}
+              data-plasmic-override={overrides.button3}
+              className={classNames("__wab_instance", sty.button3)}
+              color={generateStateValueProp($state, ["button3", "color"])}
+              load={generateStateValueProp($state, ["button3", "load"])}
+              onClick={args.buyClick}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button3", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onLoadChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button3", "load"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__i2Jnt
+                )}
+                data-i18n={"btn.pay"}
+              >
+                {
+                  "\u067e\u0631\u062f\u0627\u062e\u062a \u0648 \u0634\u0631\u0648\u0639 \u062a\u0633\u062a"
+                }
+              </div>
+            </ButtonLiom>
+          ) : null}
+        </Stack__>
       ) : null}
       {(() => {
         try {
@@ -1411,6 +1629,7 @@ const PlasmicDescendants = {
     "antdInput2",
     "paziresh24Button",
     "button",
+    "button4",
     "button3",
     "button2"
   ],
@@ -1421,6 +1640,7 @@ const PlasmicDescendants = {
   antdInput2: ["antdInput2"],
   paziresh24Button: ["paziresh24Button"],
   button: ["button"],
+  button4: ["button4"],
   button3: ["button3"],
   button2: ["button2"]
 } as const;
@@ -1436,6 +1656,7 @@ type NodeDefaultElementType = {
   antdInput2: typeof Input;
   paziresh24Button: typeof Paziresh24Button;
   button: typeof ButtonLiom;
+  button4: typeof ButtonLiom;
   button3: typeof ButtonLiom;
   button2: typeof ButtonLiom;
 };
@@ -1507,6 +1728,7 @@ export const PlasmicTestOptionsLiom = Object.assign(
     antdInput2: makeNodeComponent("antdInput2"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
     button: makeNodeComponent("button"),
+    button4: makeNodeComponent("button4"),
     button3: makeNodeComponent("button3"),
     button2: makeNodeComponent("button2"),
 

@@ -840,6 +840,12 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "shoping",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1739,6 +1745,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           $steps.infoTest?.data?.info?.product_key;
                         $state.rate = $steps.infoTest?.data?.info?.rate;
                         $state.cRate = $steps.infoTest?.data.info.cRate;
+                        $state.shoping = $steps.infoTest?.data.info;
                         window.sessionStorage.setItem(
                           "testID",
                           $steps.infoTest?.data?.info?.id
@@ -3212,6 +3219,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                       throw e;
                     }
                   })()}
+                  b={(() => {
+                    try {
+                      return $state.shoping.badge;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                   buy={(() => {
                     try {
                       return (
@@ -3451,6 +3471,32 @@ function PlasmicSelfTest__RenderFunc(props: {
                   ferst={(() => {
                     try {
                       return $state.ferst;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  fp={(() => {
+                    try {
+                      return $state.shoping.fullPrice_rial;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  gw={(() => {
+                    try {
+                      return $state.paramsObject.gw == "paziresh24";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -4463,6 +4509,19 @@ function PlasmicSelfTest__RenderFunc(props: {
                       return;
                     }
                   }}
+                  p={(() => {
+                    try {
+                      return $state.shoping.price_rial;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                   retestTest={(() => {
                     try {
                       return $state.retestTest;
