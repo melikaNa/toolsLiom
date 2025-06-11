@@ -2121,7 +2121,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `https://tools.liom.app/main-tools-page/?token=${$state.token}`;
+                                  return `https://tools.liom.app/main-tools-page/?token=${$state.token}&inApp=${$state.paramsObject.inApp}&theme=${$state.paramsObject.theme}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
