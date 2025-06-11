@@ -142,7 +142,7 @@ export const Fragment = ({
               sendMessage("تست ADHD", link,inWebViow);
               break;
             }
-            case "#clinic": {
+            case "#clinic": case "#counseling" :{
               const generateRandomString = (length: number) => {
                 const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
                 return Array.from({ length }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
@@ -245,7 +245,7 @@ export const Fragment = ({
               window.FlutterChannel.postMessage(action);}
               break;
             }
-            case "#hamyarInfo": {
+            case "#hamyarInfo": case "#carePartner":  {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage(action);}
               else {    
@@ -287,7 +287,7 @@ export const Fragment = ({
               }
               break;
             }
-            case "#breastCancer": {
+            case "#breastCancer": case "#breastCancerDatePage":{
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage("#breastCancerDatePage");}
               else {    
@@ -301,7 +301,43 @@ export const Fragment = ({
               }
               break;
             }
-              
+            case "#pcos": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                      duration: 3000,
+                      position: "top-right",
+                    });
+                // const link = `https://tools.liom.app/self-medication/?type=pcos&token=${token}&userId=${userId}&inApp=${inApp}`;
+                // sendMessage("درمان تنبلی تخمدان", link,inWebViow);
+              }
+
+              break;
+            }
+            case "#rediucePain": case "#reports" :  case "#irregularTest" :  case "#pcos" : {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                    toast.error("برای استفاده از این ویژگی لطفا لیوم رو از مارکت های معتبر دانلود و نصب کنید.", {
+                      duration: 3000,
+                      position: "top-right",
+                    });
+                  // let link = `/hamyar-add/?token=${token}`;
+                  // link=`/web-viow?link=${encodeURIComponent(link)}`;
+                  // window.open(link, "_self");
+              }
+              break;
+            }
+            case "#events": {
+              if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
+                window.FlutterChannel.postMessage(action);}
+              else {    
+                  let link = `https://apps.liom.app/status-day/?token=${token}&userId=${userId}&${queryString}&inApp=${inApp}`;
+                  window.open(link, "_self");
+              }
+              break;
+            }
             case "#biorhythm": {
               if (typeof window !== "undefined" && window.FlutterChannel && typeof window.FlutterChannel.postMessage === "function") {
                 window.FlutterChannel.postMessage("#biorhythm");}
@@ -346,11 +382,11 @@ export const Fragment = ({
                 sendMessage("درمان تنبلی تخمدان", link,inWebViow);
                 break;
             }
-            case "#rediucePain": {
-                const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}&inApp=${inApp}`;
-                sendMessage("کاهش درد", link,inWebViow);
-                break;
-            }
+            // case "#rediucePain": {
+            //     const link = `https://tools.liom.app/self-medication/?type=irregular&token=${token}&userId=${userId}&inApp=${inApp}`;
+            //     sendMessage("کاهش درد", link,inWebViow);
+            //     break;
+            // }
             case "#video": {
                 const link = `https://tools.liom.app/play-list/?inApp=${inApp}`;
                 sendMessage("محتوا آموزشی", link,inWebViow);
@@ -366,6 +402,11 @@ export const Fragment = ({
                 let urlLink="";
                 if (param.has("inApp")) {
                     param.set("inApp",inApp );
+                    url.search = param.toString();
+                    urlLink = url.toString();
+                }
+                if (param.has("token")&& token) {
+                    param.set("token",token );
                     url.search = param.toString();
                     urlLink = url.toString();
                 }
