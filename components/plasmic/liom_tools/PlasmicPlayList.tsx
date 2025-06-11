@@ -384,7 +384,7 @@ function PlasmicPlayList__RenderFunc(props: {
                         variablePath: ["playIndex"]
                       },
                       operation: 0,
-                      value: $state.paramsObject.initIndex
+                      value: parseInt($state.paramsObject?.initIndex) || 0
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {

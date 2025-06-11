@@ -1407,30 +1407,30 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__kOYao)}
+                    className={classNames(projectcss.all, sty.freeBox__fd5Sk)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___6GBct
+                        sty.text__gKjgq
                       )}
                     >
                       {
-                        "\u0634\u0645\u0627\u0631\u0647 \u0647\u0645\u0631\u0627\u0647:"
+                        "\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc:"
                       }
                     </div>
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___8WAph
+                        sty.text___5UG0V
                       )}
                     >
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.apiRequest.data.userInfo.mobile;
+                            return $state.apiRequest.data.userInfo.name;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1445,6 +1445,44 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                     </div>
                   </Stack__>
                 </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__kOYao)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___6GBct
+                    )}
+                  >
+                    {"\u0646\u0648\u0639 \u0628\u06cc\u0645\u0647:"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___8WAph
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.apiRequest.data.userInfo.insurance;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0646\u0627\u0645";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </Stack__>
                 <div className={classNames(projectcss.all, sty.freeBox__cInI8)}>
                   <Stack__
                     as={"div"}
@@ -1926,6 +1964,60 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   </Stack__>
                 ) : null}
               </div>
+              {(() => {
+                try {
+                  return $state.apiRequest.data.userInfo.description != "";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__selBh)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xbkXn
+                    )}
+                  >
+                    {
+                      "\u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc \u0628\u06cc\u0645\u0627\u0631:"
+                    }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__pzSeE
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.apiRequest.data.userInfo.description;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc \u0628\u06cc\u0645\u0627\u0631:";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </Stack__>
+              ) : null}
               <ButtonLiom
                 data-plasmic-name={"buttonLiom3"}
                 data-plasmic-override={overrides.buttonLiom3}

@@ -135,6 +135,8 @@
   --plasmic-token-size-20: var(--token-A2dA9bbnaPI0);
   --token-qj2QmxcUZ5az: 2rem;
   --plasmic-token-size-32: var(--token-qj2QmxcUZ5az);
+  --token-va8MDOUYwN-t: #9ca3af;
+  --plasmic-token-basic-ring: var(--token-va8MDOUYwN-t);
 }
 
 @media (max-width: 640px) {

@@ -85,6 +85,8 @@ import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyE
 import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
 import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
+import RadioGroup from "../../RadioGroup"; // plasmic-import: XVaVorKU1BgY/component
+import Radio from "../../Radio"; // plasmic-import: -mvxyQjykw-c/component
 import TextInput from "../../TextInput"; // plasmic-import: aEno43N2WkPr/component
 import { Select } from "@/fragment/components/select"; // plasmic-import: P0EOGSZ4bQLZ/codeComponent
 import RadioGrop from "../../RadioGrop"; // plasmic-import: oaU2G97TOKr2/component
@@ -178,6 +180,7 @@ export type PlasmicResult__OverridesType = {
   textArea2?: Flex__<typeof AntdTextArea>;
   directDialog?: Flex__<typeof DirectDialog>;
   profile?: Flex__<typeof Paziresh24Dialog>;
+  radioGroup?: Flex__<typeof RadioGroup>;
   name?: Flex__<typeof TextInput>;
   name2?: Flex__<typeof TextInput>;
   code?: Flex__<typeof TextInput>;
@@ -689,6 +692,12 @@ function PlasmicResult__RenderFunc(props: {
         path: "buttonLiom7[].load",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "radioGroup.value",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "false"
       }
     ],
     [$props, $ctx, $refs]
@@ -11512,6 +11521,62 @@ function PlasmicResult__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox___1LcnB)}
               >
+                <RadioGroup
+                  data-plasmic-name={"radioGroup"}
+                  data-plasmic-override={overrides.radioGroup}
+                  className={classNames("__wab_instance", sty.radioGroup)}
+                  disabled={false}
+                  label={null}
+                  onChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "radioGroup",
+                      "value"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  options={
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__dBvud)}
+                    >
+                      <Radio
+                        className={classNames(
+                          "__wab_instance",
+                          sty.radio__j7NzX
+                        )}
+                        label={
+                          "\u0628\u0631\u0627\u06cc \u062e\u0648\u062f\u0645"
+                        }
+                        value={"false"}
+                      />
+
+                      <Radio
+                        className={classNames(
+                          "__wab_instance",
+                          sty.radio__mOhSd
+                        )}
+                        label={
+                          "\u0628\u0631\u0627\u06cc \u062f\u06cc\u06af\u0631\u06cc"
+                        }
+                        value={"true"}
+                      />
+                    </Stack__>
+                  }
+                  showDescription={false}
+                  value={generateStateValueProp($state, [
+                    "radioGroup",
+                    "value"
+                  ])}
+                />
+
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -12449,7 +12514,8 @@ function PlasmicResult__RenderFunc(props: {
                                       gender: $state.gender,
                                       type: $state.apiRequest.data.type,
                                       insurance: $state.select.value,
-                                      description: $state.textArea3.value || ""
+                                      description: $state.textArea3.value || "",
+                                      user: $state.radioGroup.value
                                     };
                                   } catch (e) {
                                     if (
@@ -12853,6 +12919,7 @@ const PlasmicDescendants = {
     "textArea2",
     "directDialog",
     "profile",
+    "radioGroup",
     "name",
     "name2",
     "code",
@@ -12902,6 +12969,7 @@ const PlasmicDescendants = {
   directDialog: ["directDialog"],
   profile: [
     "profile",
+    "radioGroup",
     "name",
     "name2",
     "code",
@@ -12913,6 +12981,7 @@ const PlasmicDescendants = {
     "textArea3",
     "buttonLiom5"
   ],
+  radioGroup: ["radioGroup"],
   name: ["name"],
   name2: ["name2"],
   code: ["code"],
@@ -12953,6 +13022,7 @@ type NodeDefaultElementType = {
   textArea2: typeof AntdTextArea;
   directDialog: typeof DirectDialog;
   profile: typeof Paziresh24Dialog;
+  radioGroup: typeof RadioGroup;
   name: typeof TextInput;
   name2: typeof TextInput;
   code: typeof TextInput;
@@ -13074,6 +13144,7 @@ export const PlasmicResult = Object.assign(
     textArea2: makeNodeComponent("textArea2"),
     directDialog: makeNodeComponent("directDialog"),
     profile: makeNodeComponent("profile"),
+    radioGroup: makeNodeComponent("radioGroup"),
     _name: makeNodeComponent("name"),
     name2: makeNodeComponent("name2"),
     code: makeNodeComponent("code"),
