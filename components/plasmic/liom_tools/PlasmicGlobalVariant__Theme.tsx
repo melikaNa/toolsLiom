@@ -10,6 +10,15 @@ export type ThemeValue = "dark";
 export const ThemeContext = React.createContext<ThemeValue | undefined>(
   "PLEASE_RENDER_INSIDE_PROVIDER" as any
 );
+export function ThemeContextProvider(
+  props: React.PropsWithChildren<{ value: ThemeValue | undefined }>
+) {
+  return (
+    <ThemeContext.Provider value={props.value}>
+      {props.children}
+    </ThemeContext.Provider>
+  );
+}
 
 export function useTheme() {
   return React.useContext(ThemeContext);
