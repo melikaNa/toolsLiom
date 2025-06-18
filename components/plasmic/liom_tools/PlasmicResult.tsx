@@ -698,6 +698,12 @@ function PlasmicResult__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => "false"
+      },
+      {
+        path: "requestP",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -3160,6 +3166,50 @@ function PlasmicResult__RenderFunc(props: {
                                     "invokeGlobalAction"
                                   ];
                                 }
+
+                                $steps["updateRequestP"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["requestP"]
+                                        },
+                                        operation: 0,
+                                        value:
+                                          currentItem.actionBtnTxt.includes(
+                                            "آزمایش"
+                                          )
+                                            ? "نسخه آزمایش"
+                                            : "نسخه دارو"
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateRequestP"] != null &&
+                                  typeof $steps["updateRequestP"] ===
+                                    "object" &&
+                                  typeof $steps["updateRequestP"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateRequestP"] = await $steps[
+                                    "updateRequestP"
+                                  ];
+                                }
                               }}
                               outline={
                                 hasVariant($state, "specialized", "specialized")
@@ -3354,6 +3404,50 @@ function PlasmicResult__RenderFunc(props: {
                               }
                               onClick={async event => {
                                 const $steps = {};
+
+                                $steps["updateRequestP"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["requestP"]
+                                        },
+                                        operation: 0,
+                                        value:
+                                          currentItem.actionBtnTxt.includes(
+                                            "آزمایش"
+                                          )
+                                            ? "آزمایش"
+                                            : "دارو"
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateRequestP"] != null &&
+                                  typeof $steps["updateRequestP"] ===
+                                    "object" &&
+                                  typeof $steps["updateRequestP"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateRequestP"] = await $steps[
+                                    "updateRequestP"
+                                  ];
+                                }
 
                                 $steps["updateProfileOpen"] = true
                                   ? (() => {
@@ -12515,7 +12609,8 @@ function PlasmicResult__RenderFunc(props: {
                                       type: $state.apiRequest.data.type,
                                       insurance: $state.select.value,
                                       description: $state.textArea3.value || "",
-                                      user: $state.radioGroup.value
+                                      user: $state.radioGroup.value,
+                                      request_p: $state.requestP || ""
                                     };
                                   } catch (e) {
                                     if (
