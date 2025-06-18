@@ -1216,35 +1216,34 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["getCookie"] = await $steps["getCookie"];
             }
 
-            $steps["user"] =
-              $state.token != "" && $state.paramsObject.gw != "paziresh24"
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/users/profile",
-                        undefined,
-                        undefined,
-                        (() => {
-                          try {
-                            return { headers: { Authorization: $state.token } };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
+            $steps["user"] = false
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      undefined,
+                      "https://n8n.staas.ir/webhook/users/profile",
+                      undefined,
+                      undefined,
+                      (() => {
+                        try {
+                          return { headers: { Authorization: $state.token } };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
                           }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+                          throw e;
+                        }
+                      })()
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
             if (
               $steps["user"] != null &&
               typeof $steps["user"] === "object" &&
@@ -1258,10 +1257,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return (async () => {
-                          return ($state.paziresh24 =
-                            await window.hamdast.getState("user"));
-                        })();
+                        return ($state.paziresh24 =
+                          await window.hamdast.getState("user"));
                       }
                     };
                     return (({ customFunction }) => {
@@ -1307,111 +1304,105 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["userInfoUpdate"] = await $steps["userInfoUpdate"];
             }
 
-            $steps["usergust"] =
-              $state.token == "" && $state.paramsObject.gw != "paziresh24"
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://api.liom.app/auth/signup/guest",
-                        undefined,
-                        (() => {
-                          try {
-                            return (() => {
-                              function pseudoUUID() {
-                                let timestamp = Date.now().toString(36);
-                                let randomStr = Math.random()
-                                  .toString(36)
-                                  .substr(2, 8);
-                                return timestamp + "-" + randomStr;
-                              }
-                              return {
-                                name: "کاربر مهمان",
-                                gateway: "self_test",
-                                country: "98",
-                                isCountryPending: false,
-                                lang: "fa",
-                                version: "",
-                                os: (() => {
-                                  const userAgent = window.navigator.userAgent;
-                                  const platform = window.navigator.userAgent;
-                                  if (/Windows/i.test(platform))
-                                    return "Windows";
-                                  if (/Mac/i.test(platform)) return "macOS";
-                                  if (/Linux/i.test(platform)) return "Linux";
-                                  if (/Android/i.test(userAgent))
-                                    return "Android";
-                                  if (/iPhone|iPad|iPod/i.test(userAgent))
-                                    return "iOS";
-                                  return "Unknown OS";
-                                })(),
-                                osVersion: (() => {
-                                  const userAgent = window.navigator.userAgent;
-                                  if (/Windows NT 10.0/.test(userAgent))
-                                    return "Windows 10";
-                                  if (/Windows NT 6.3/.test(userAgent))
-                                    return "Windows 8.1";
-                                  if (/Windows NT 6.2/.test(userAgent))
-                                    return "Windows 8";
-                                  if (/Windows NT 6.1/.test(userAgent))
-                                    return "Windows 7";
-                                  if (/Mac OS X (\d+[\._]\d+)/.test(userAgent))
-                                    return `macOS ${RegExp.$1.replace(
-                                      "_",
-                                      "."
-                                    )}`;
-                                  if (/Android (\d+(\.\d+)?)/.test(userAgent))
-                                    return `Android ${RegExp.$1}`;
-                                  if (
-                                    /CPU (iPhone )?OS (\d+_\d+)/.test(userAgent)
-                                  )
-                                    return `iOS ${RegExp.$2.replace("_", ".")}`;
-                                  return "Unknown Version";
-                                })(),
-                                sex: $state.gender || "",
-                                additionalData: {
-                                  ip: "132465",
-                                  name: "test1"
-                                },
-                                device: (() => {
-                                  const userAgent = window.navigator.userAgent;
-                                  if (
-                                    /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                      userAgent
-                                    )
-                                  ) {
-                                    return "Mobile";
-                                  } else if (/Tablet|iPad/i.test(userAgent)) {
-                                    return "Tablet";
-                                  } else {
-                                    return "Desktop";
-                                  }
-                                })(),
-                                fcm:
-                                  window.localStorage.getItem("fcmToken") ||
-                                  " ",
-                                uniqueId: pseudoUUID(),
-                                device_type: window.navigator.platform,
-                                postLang: "fa"
-                              };
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
+            $steps["usergust"] = false
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "POST",
+                      "https://api.liom.app/auth/signup/guest",
+                      undefined,
+                      (() => {
+                        try {
+                          return (() => {
+                            function pseudoUUID() {
+                              let timestamp = Date.now().toString(36);
+                              let randomStr = Math.random()
+                                .toString(36)
+                                .substr(2, 8);
+                              return timestamp + "-" + randomStr;
                             }
-                            throw e;
+                            return {
+                              name: "کاربر مهمان",
+                              gateway: "self_test",
+                              country: "98",
+                              isCountryPending: false,
+                              lang: "fa",
+                              version: "",
+                              os: (() => {
+                                const userAgent = window.navigator.userAgent;
+                                const platform = window.navigator.userAgent;
+                                if (/Windows/i.test(platform)) return "Windows";
+                                if (/Mac/i.test(platform)) return "macOS";
+                                if (/Linux/i.test(platform)) return "Linux";
+                                if (/Android/i.test(userAgent))
+                                  return "Android";
+                                if (/iPhone|iPad|iPod/i.test(userAgent))
+                                  return "iOS";
+                                return "Unknown OS";
+                              })(),
+                              osVersion: (() => {
+                                const userAgent = window.navigator.userAgent;
+                                if (/Windows NT 10.0/.test(userAgent))
+                                  return "Windows 10";
+                                if (/Windows NT 6.3/.test(userAgent))
+                                  return "Windows 8.1";
+                                if (/Windows NT 6.2/.test(userAgent))
+                                  return "Windows 8";
+                                if (/Windows NT 6.1/.test(userAgent))
+                                  return "Windows 7";
+                                if (/Mac OS X (\d+[\._]\d+)/.test(userAgent))
+                                  return `macOS ${RegExp.$1.replace("_", ".")}`;
+                                if (/Android (\d+(\.\d+)?)/.test(userAgent))
+                                  return `Android ${RegExp.$1}`;
+                                if (
+                                  /CPU (iPhone )?OS (\d+_\d+)/.test(userAgent)
+                                )
+                                  return `iOS ${RegExp.$2.replace("_", ".")}`;
+                                return "Unknown Version";
+                              })(),
+                              sex: $state.gender || "",
+                              additionalData: {
+                                ip: "132465",
+                                name: "test1"
+                              },
+                              device: (() => {
+                                const userAgent = window.navigator.userAgent;
+                                if (
+                                  /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                    userAgent
+                                  )
+                                ) {
+                                  return "Mobile";
+                                } else if (/Tablet|iPad/i.test(userAgent)) {
+                                  return "Tablet";
+                                } else {
+                                  return "Desktop";
+                                }
+                              })(),
+                              fcm:
+                                window.localStorage.getItem("fcmToken") || " ",
+                              uniqueId: pseudoUUID(),
+                              device_type: window.navigator.platform,
+                              postLang: "fa"
+                            };
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
                           }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+                          throw e;
+                        }
+                      })()
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
             if (
               $steps["usergust"] != null &&
               typeof $steps["usergust"] === "object" &&
@@ -1487,6 +1478,40 @@ function PlasmicSelfTest__RenderFunc(props: {
               $steps["setCookieGust"] = await $steps["setCookieGust"];
             }
 
+            $steps["noProfile"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["userInfo"]
+                    },
+                    operation: 0,
+                    value: {
+                      id:
+                        $state.paramsObject.userId ||
+                        $state.paramsObject.user_id ||
+                        $state.paramsObject.origin_user_id
+                    }
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["noProfile"] != null &&
+              typeof $steps["noProfile"] === "object" &&
+              typeof $steps["noProfile"].then === "function"
+            ) {
+              $steps["noProfile"] = await $steps["noProfile"];
+            }
+
             $steps["selfTestUser"] =
               !localStorage.getItem("user_id") &&
               new URLSearchParams(window.location.search).get("origin") ===
@@ -1528,9 +1553,8 @@ function PlasmicSelfTest__RenderFunc(props: {
             }
 
             $steps["selfTestUserPost"] =
-              $steps.user?.data?.success == true ||
-              $steps.usergust?.data?.success == true ||
-              Object.keys($state.paziresh24).length > 0
+              //$steps.user?.data?.success == true || $steps.usergust?.data?.success == true ||
+              $state.userInfo || Object.keys($state.paziresh24).length > 0
                 ? (() => {
                     const actionArgs = {
                       args: [
