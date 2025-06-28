@@ -768,6 +768,9 @@ function PlasmicResult__RenderFunc(props: {
                 "dercentage",
                 "dercentage"
               ),
+              [sty.rootdercentage_specialized]:
+                hasVariant($state, "specialized", "specialized") &&
+                hasVariant($state, "dercentage", "dercentage"),
               [sty.rootglobal_theme_dark]: hasVariant(
                 globalVariants,
                 "theme",
@@ -5251,7 +5254,12 @@ function PlasmicResult__RenderFunc(props: {
                           globalVariants,
                           "unnamedGlobalGroupOfVariants",
                           "unnamedVariant"
-                        )
+                        ),
+                      [sty.textspecialized__hyDnvFomOb]: hasVariant(
+                        $state,
+                        "specialized",
+                        "specialized"
+                      )
                     }
                   )}
                   data-i18n={"result.description3"}

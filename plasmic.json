@@ -2991,6 +2991,32 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicRadioGroup.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "gyGUSWpb8joh",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicButton.tsx",
+          "importSpec": {
+            "modulePath": "Button.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "ETQBF9jRIlSf",
+          "name": "Modal",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicModal.tsx",
+          "importSpec": {
+            "modulePath": "Modal.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicModal.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -4233,6 +4259,11 @@
           "id": "0jQ6YDX1Yu0U",
           "name": "Icon196Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon196.tsx"
+        },
+        {
+          "id": "DJm3EFMA22X0",
+          "name": "CircleIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Circle.tsx"
         }
       ],
       "images": [
@@ -4610,6 +4641,11 @@
           "id": "eG8hLAT7vI4s",
           "name": "image 42",
           "filePath": "../public/plasmic/liom_tools/images/image42.svg"
+        },
+        {
+          "id": "EUdkuRLiY3cN",
+          "name": "image 43",
+          "filePath": "../public/plasmic/liom_tools/images/image43.svg"
         }
       ],
       "indirect": false,

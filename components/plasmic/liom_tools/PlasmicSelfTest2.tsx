@@ -76,6 +76,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import DirectDialogChatbot from "../../DirectDialogChatbot"; // plasmic-import: ySuxtC2bY6yN/component
 import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -118,6 +119,7 @@ import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: hr_bp
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4LeWEqGr/icon
 import Icon161Icon from "./icons/PlasmicIcon__Icon161"; // plasmic-import: RaOYP4ifjT-P/icon
 import Icon160Icon from "./icons/PlasmicIcon__Icon160"; // plasmic-import: VDxWJe2hoa-8/icon
+import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: 8W-HC9J9wkFf/icon
 
 createPlasmicElementProxy;
 
@@ -157,6 +159,8 @@ export type PlasmicSelfTest2__OverridesType = {
   lineClomp4?: Flex__<typeof LineClomp>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
   footer?: Flex__<"div">;
+  modal?: Flex__<typeof AntdModal>;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultSelfTest2Props {}
@@ -814,6 +818,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -8093,6 +8103,91 @@ window.typewriter = function(elementId) {
             }
           />
         ) : null}
+        <AntdModal
+          data-plasmic-name={"modal"}
+          data-plasmic-override={overrides.modal}
+          className={classNames("__wab_instance", sty.modal)}
+          closeIcon={
+            <Icon2Icon
+              className={classNames(projectcss.all, sty.svg__oiSc)}
+              role={"img"}
+            />
+          }
+          defaultStylesClassName={classNames(
+            projectcss.root_reset,
+            projectcss.plasmic_default_styles,
+            projectcss.plasmic_mixins,
+            projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
+            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            plasmic_paziresh_24_design_system_css.plasmic_tokens,
+            plasmic_hamdast_sdk_css.plasmic_tokens
+          )}
+          hideFooter={true}
+          maskClosable={false}
+          modalScopeClassName={sty["modal__modal"]}
+          onOpenChange={async (...eventArgs: any) => {
+            generateStateOnChangeProp($state, ["modal", "open"]).apply(
+              null,
+              eventArgs
+            );
+          }}
+          open={generateStateValueProp($state, ["modal", "open"])}
+          title={
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__pSqbs)}
+            >
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"60%"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_tools/images/image43.svg",
+                  fullWidth: 500,
+                  fullHeight: 372.61,
+                  aspectRatio: 1.341886
+                }}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__bwFW
+                )}
+              >
+                {
+                  "\u0639\u0644\u0627\u0645\u0647 \u0645\u0648\u0642\u062a\u0627\u064b \u063a\u06cc\u0631\u0641\u0639\u0627\u0644 \u0627\u0633\u062a"
+                }
+              </div>
+            </Stack__>
+          }
+          trigger={null}
+        >
+          <div className={classNames(projectcss.all, sty.freeBox__zuNc9)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___7DN9F
+              )}
+            >
+              {
+                "\u0645\u062a\u0623\u0633\u0641\u06cc\u0645! \u0641\u0639\u0644\u0627\u064b \u0627\u06cc\u0646 \u0633\u0631\u0648\u06cc\u0633 \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u0646\u06cc\u0633\u062a.\n\u062f\u0627\u0631\u06cc\u0645 \u0631\u0648\u06cc \u062d\u0644 \u0645\u0634\u06a9\u0644 \u06a9\u0627\u0631 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645. \u0627\u0632 \u0635\u0628\u0648\u0631\u06cc \u0648 \u0647\u0645\u0631\u0627\u0647\u06cc \u0634\u0645\u0627 \u0645\u0645\u0646\u0648\u0646\u06cc\u0645."
+              }
+            </div>
+          </div>
+        </AntdModal>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -8125,7 +8220,9 @@ const PlasmicDescendants = {
     "buttonLiom6",
     "lineClomp4",
     "buttonLiom5",
-    "footer"
+    "footer",
+    "modal",
+    "img"
   ],
   headerLiom: ["headerLiom"],
   sideEffect: ["sideEffect"],
@@ -8158,7 +8255,9 @@ const PlasmicDescendants = {
   buttonLiom6: ["buttonLiom6", "lineClomp4"],
   lineClomp4: ["lineClomp4"],
   buttonLiom5: ["buttonLiom5"],
-  footer: ["footer"]
+  footer: ["footer"],
+  modal: ["modal", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -8190,6 +8289,8 @@ type NodeDefaultElementType = {
   lineClomp4: typeof LineClomp;
   buttonLiom5: typeof ButtonLiom;
   footer: "div";
+  modal: typeof AntdModal;
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -8302,6 +8403,8 @@ export const PlasmicSelfTest2 = Object.assign(
     lineClomp4: makeNodeComponent("lineClomp4"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
     footer: makeNodeComponent("footer"),
+    modal: makeNodeComponent("modal"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicSelfTest2
     internalVariantProps: PlasmicSelfTest2__VariantProps,
