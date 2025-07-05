@@ -823,7 +823,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -912,6 +912,13 @@ function PlasmicSelfTest2__RenderFunc(props: {
               "dark"
             ),
             [sty.rootglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
+              hasVariant(
+                globalVariants,
+                "unnamedGlobalGroupOfVariants",
+                "unnamedVariant"
+              ),
+            [sty.rootglobal_unnamedGlobalGroupOfVariants_unnamedVariant_global_theme_dark]:
+              hasVariant(globalVariants, "theme", "dark") &&
               hasVariant(
                 globalVariants,
                 "unnamedGlobalGroupOfVariants",
@@ -3069,6 +3076,43 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           throw e;
                         }
                       })()}
+                      feedback={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? (() => {
+                              try {
+                                return (
+                                  new window.URLSearchParams(
+                                    window.location.search
+                                  ).get("origin") != "diaco"
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          : (() => {
+                              try {
+                                return (
+                                  new window.URLSearchParams(
+                                    window.location.search
+                                  ).get("origin") != "diaco"
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                      }
                       hint={(() => {
                         try {
                           return currentItem.tip;
@@ -5781,7 +5825,26 @@ function PlasmicSelfTest2__RenderFunc(props: {
           <Stack__
             as={"div"}
             hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__atu6W)}
+            className={classNames(projectcss.all, sty.freeBox__atu6W, {
+              [sty.freeBoxglobal_theme_dark__atu6We9E9C]: hasVariant(
+                globalVariants,
+                "theme",
+                "dark"
+              ),
+              [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant__atu6WYcZU]:
+                hasVariant(
+                  globalVariants,
+                  "unnamedGlobalGroupOfVariants",
+                  "unnamedVariant"
+                ),
+              [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant_global_theme_dark__atu6WYcZUE9E9C]:
+                hasVariant(globalVariants, "theme", "dark") &&
+                hasVariant(
+                  globalVariants,
+                  "unnamedGlobalGroupOfVariants",
+                  "unnamedVariant"
+                )
+            })}
             onClick={async event => {
               const $steps = {};
 

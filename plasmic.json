@@ -3017,6 +3017,32 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicModal.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "VT-zRjgL9JA9",
+          "name": "Like",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicLike.tsx",
+          "importSpec": {
+            "modulePath": "Like.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicLike.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "bmZmPfCWacWw",
+          "name": "UnLike",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicUnLike.tsx",
+          "importSpec": {
+            "modulePath": "UnLike.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicUnLike.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -4264,6 +4290,36 @@
           "id": "DJm3EFMA22X0",
           "name": "CircleIcon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Circle.tsx"
+        },
+        {
+          "id": "O9XJxtC67hQj",
+          "name": "Icon197Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon197.tsx"
+        },
+        {
+          "id": "0gJtrBOZJ3uy",
+          "name": "Icon198Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon198.tsx"
+        },
+        {
+          "id": "xwPh58EuABnD",
+          "name": "Icon199Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon199.tsx"
+        },
+        {
+          "id": "wiTkzBDMXd5X",
+          "name": "Icon200Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon200.tsx"
+        },
+        {
+          "id": "mWCQ2-IGxKCd",
+          "name": "Icon201Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon201.tsx"
+        },
+        {
+          "id": "4DfHlBfqDNRo",
+          "name": "Icon203Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon203.tsx"
         }
       ],
       "images": [
@@ -5216,6 +5272,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.338",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.338/dist/plasmic.schema.json"
+  "cliVersion": "0.1.340",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.340/dist/plasmic.schema.json"
 }

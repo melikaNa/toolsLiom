@@ -73,6 +73,7 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { Input } from "@/fragment/components/input"; // plasmic-import: 31QElsfd4yPt/codeComponent
+import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
@@ -128,6 +129,7 @@ export type PlasmicTest__OverridesType = {
   city?: Flex__<typeof Input>;
   location?: Flex__<typeof Input>;
   button5?: Flex__<typeof ButtonLiom>;
+  paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
 };
 
 export interface DefaultTestProps {}
@@ -1906,6 +1908,11 @@ function PlasmicTest__RenderFunc(props: {
               </div>
             </ButtonLiom>
           </Stack__>
+          <Paziresh24Avatar
+            data-plasmic-name={"paziresh24Avatar"}
+            data-plasmic-override={overrides.paziresh24Avatar}
+            className={classNames("__wab_instance", sty.paziresh24Avatar)}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -1934,7 +1941,8 @@ const PlasmicDescendants = {
     "fathername",
     "city",
     "location",
-    "button5"
+    "button5",
+    "paziresh24Avatar"
   ],
   paziresh24LineClamp: ["paziresh24LineClamp"],
   button: ["button"],
@@ -1955,7 +1963,8 @@ const PlasmicDescendants = {
   fathername: ["fathername"],
   city: ["city"],
   location: ["location"],
-  button5: ["button5"]
+  button5: ["button5"],
+  paziresh24Avatar: ["paziresh24Avatar"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1982,6 +1991,7 @@ type NodeDefaultElementType = {
   city: typeof Input;
   location: typeof Input;
   button5: typeof ButtonLiom;
+  paziresh24Avatar: typeof Paziresh24Avatar;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2089,6 +2099,7 @@ export const PlasmicTest = Object.assign(
     city: makeNodeComponent("city"),
     location: makeNodeComponent("location"),
     button5: makeNodeComponent("button5"),
+    paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

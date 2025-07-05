@@ -949,7 +949,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                           "&inBot" +
                                           $ctx.query.inBot +
                                           "&version=" +
-                                          $ctx.query.versio
+                                          $ctx.query.version
                                         );
                                     })();
                                   } catch (e) {

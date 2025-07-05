@@ -1640,3 +1640,6 @@
   width: 150%;
   height: 150%;
 }
+.paziresh24Avatar:global(.__wab_instance) {
+  max-width: 100%;
+}

@@ -22,11 +22,21 @@
 .rootdisable {
   background: var(--token-AekDIPv7FLCv);
 }
+.rootcolor_grey {
+  background: var(--token-naOKKZC5rCrA);
+  border-width: 0px;
+}
 .rootstyle2_line {
   border-width: 0px;
 }
+.rootstyle2_meddiom {
+  padding: 4px;
+}
 .rootcolor_light_selected {
   background: var(--token-ISd9D2gShbJx);
+}
+.rootcolor_grey_selected {
+  background: var(--token-H-RoLfiTtSmm);
 }
 .freeBox {
   width: 100%;
@@ -45,6 +55,12 @@
 .slotTargetChildrenselected {
   color: var(--token-jgohepLVeKvh);
 }
+.slotTargetChildrenstyle2_meddiom {
+  font-size: 14px;
+}
 .slotTargetChildrencolor_light_selected {
   color: var(--token-PvbqFVJaOepe);
+}
+.slotTargetChildrencolor_grey_selected {
+  color: var(--token-ZNUpvc5pgEIF);
 }

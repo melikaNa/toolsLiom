@@ -63,6 +63,8 @@ import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import LoadingCompopnentGray from "../../LoadingCompopnentGray"; // plasmic-import: OUwywVcxKl5x/component
+import UnLike from "../../UnLike"; // plasmic-import: bmZmPfCWacWw/component
+import Like from "../../Like"; // plasmic-import: VT-zRjgL9JA9/component
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 
@@ -83,6 +85,7 @@ import Icon171Icon from "./icons/PlasmicIcon__Icon171"; // plasmic-import: o5TkW
 import Icon169Icon from "./icons/PlasmicIcon__Icon169"; // plasmic-import: c2LVCJdhSdPN/icon
 import Icon109Icon from "./icons/PlasmicIcon__Icon109"; // plasmic-import: FdWVKA90TGYv/icon
 import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
+import Icon200Icon from "./icons/PlasmicIcon__Icon200"; // plasmic-import: wiTkzBDMXd5X/icon
 
 createPlasmicElementProxy;
 
@@ -94,6 +97,7 @@ export type PlasmicMessageLiom__VariantMembers = {
   hint: "hint";
   bot: "bot";
   owner: "owner";
+  feedback: "feedback";
 };
 export type PlasmicMessageLiom__VariantsArgs = {
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -103,6 +107,7 @@ export type PlasmicMessageLiom__VariantsArgs = {
   hint?: SingleBooleanChoiceArg<"hint">;
   bot?: SingleBooleanChoiceArg<"bot">;
   owner?: SingleBooleanChoiceArg<"owner">;
+  feedback?: SingleBooleanChoiceArg<"feedback">;
 };
 type VariantPropType = keyof PlasmicMessageLiom__VariantsArgs;
 export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
@@ -112,7 +117,8 @@ export const PlasmicMessageLiom__VariantProps = new Array<VariantPropType>(
   "endMessege",
   "hint",
   "bot",
-  "owner"
+  "owner",
+  "feedback"
 );
 
 export type PlasmicMessageLiom__ArgsType = {
@@ -121,6 +127,9 @@ export type PlasmicMessageLiom__ArgsType = {
   resend?: (event: any) => void;
   _delete?: (event: any) => void;
   credit?: (event: any) => void;
+  copy?: (event: any) => void;
+  like?: (event: any) => void;
+  unLike?: (event: any) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -131,6 +140,9 @@ export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
   "resend",
   "_delete",
   "credit",
+  "copy",
+  "like",
+  "unLike",
   "children",
   "slot"
 );
@@ -142,6 +154,8 @@ export type PlasmicMessageLiom__OverridesType = {
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   loadingCompopnentGray?: Flex__<typeof LoadingCompopnentGray>;
+  unLike?: Flex__<typeof UnLike>;
+  like?: Flex__<typeof Like>;
   img?: Flex__<typeof PlasmicImg__>;
 };
 
@@ -151,6 +165,9 @@ export interface DefaultMessageLiomProps {
   resend?: (event: any) => void;
   _delete?: (event: any) => void;
   credit?: (event: any) => void;
+  copy?: (event: any) => void;
+  like?: (event: any) => void;
+  unLike?: (event: any) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -160,6 +177,7 @@ export interface DefaultMessageLiomProps {
   hint?: SingleBooleanChoiceArg<"hint">;
   bot?: SingleBooleanChoiceArg<"bot">;
   owner?: SingleBooleanChoiceArg<"owner">;
+  feedback?: SingleBooleanChoiceArg<"feedback">;
   className?: string;
 }
 
@@ -295,6 +313,12 @@ function PlasmicMessageLiom__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "feedback",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.feedback
       }
     ],
     [$props, $ctx, $refs]
@@ -339,6 +363,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
           [sty.rootendMessege_pazireshAnswer]:
             hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
             hasVariant($state, "endMessege", "endMessege"),
+          [sty.rootfeedback]: hasVariant($state, "feedback", "feedback"),
           [sty.roothint]: hasVariant($state, "hint", "hint"),
           [sty.rootliomAnswer]: hasVariant($state, "liomAnswer", "liomAnswer"),
           [sty.rootliomAnswer_bot]:
@@ -886,6 +911,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
             [sty.freeBoxendMessege_hint___7TlWyTjzqgETAel]:
               hasVariant($state, "hint", "hint") &&
               hasVariant($state, "endMessege", "endMessege"),
+            [sty.freeBoxfeedback___7TlWymfRru]: hasVariant(
+              $state,
+              "feedback",
+              "feedback"
+            ),
             [sty.freeBoxhint___7TlWyeTAel]: hasVariant($state, "hint", "hint"),
             [sty.freeBoxliomAnswer___7TlWy6WM5Z]: hasVariant(
               $state,
@@ -952,6 +982,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "endMessege",
                 "endMessege"
               ),
+              [sty.freeBoxfeedback__fCi1QmfRru]: hasVariant(
+                $state,
+                "feedback",
+                "feedback"
+              ),
               [sty.freeBoxhint__fCi1QeTAel]: hasVariant($state, "hint", "hint"),
               [sty.freeBoxliomAnswer__fCi1Q6WM5Z]: hasVariant(
                 $state,
@@ -1000,6 +1035,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
               [sty.slotTargetChildrenendMessege_pazireshAnswer]:
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
                 hasVariant($state, "endMessege", "endMessege"),
+              [sty.slotTargetChildrenfeedback]: hasVariant(
+                $state,
+                "feedback",
+                "feedback"
+              ),
               [sty.slotTargetChildrenglobal_theme_dark_hint]:
                 hasVariant($state, "hint", "hint") &&
                 hasVariant(globalVariants, "theme", "dark"),
@@ -1161,6 +1201,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
               "endMessege",
               "endMessege"
             ),
+            [sty.freeBoxfeedback__z0D5MfRru]: hasVariant(
+              $state,
+              "feedback",
+              "feedback"
+            ),
             [sty.freeBoxliomAnswer__z0D56WM5Z]: hasVariant(
               $state,
               "liomAnswer",
@@ -1199,6 +1244,53 @@ function PlasmicMessageLiom__RenderFunc(props: {
             {"Enter some text"}
           </div>
         </div>
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__ycWkl, {
+            [sty.freeBoxfeedback__ycWklmfRru]: hasVariant(
+              $state,
+              "feedback",
+              "feedback"
+            )
+          })}
+        >
+          <UnLike
+            data-plasmic-name={"unLike"}
+            data-plasmic-override={overrides.unLike}
+            className={classNames("__wab_instance", sty.unLike, {
+              [sty.unLikefeedback]: hasVariant($state, "feedback", "feedback")
+            })}
+            onClick={args.unLike}
+            warning={
+              hasVariant($state, "feedback", "feedback") ? true : undefined
+            }
+          />
+
+          <Like
+            data-plasmic-name={"like"}
+            data-plasmic-override={overrides.like}
+            className={classNames("__wab_instance", sty.like, {
+              [sty.likefeedback]: hasVariant($state, "feedback", "feedback")
+            })}
+            onClick={args.like}
+            warning={
+              hasVariant($state, "feedback", "feedback") ? true : undefined
+            }
+          />
+
+          <Icon200Icon
+            className={classNames(projectcss.all, sty.svg__lfw4N, {
+              [sty.svgfeedback__lfw4NmfRru]: hasVariant(
+                $state,
+                "feedback",
+                "feedback"
+              )
+            })}
+            onClick={args.copy}
+            role={"img"}
+          />
+        </Stack__>
       </div>
       {(() => {
         try {
@@ -1293,6 +1385,8 @@ const PlasmicDescendants = {
     "buttonLiom4",
     "buttonLiom3",
     "loadingCompopnentGray",
+    "unLike",
+    "like",
     "img"
   ],
   popover: ["popover", "buttonLiom2", "buttonLiom4", "buttonLiom3"],
@@ -1300,6 +1394,8 @@ const PlasmicDescendants = {
   buttonLiom4: ["buttonLiom4"],
   buttonLiom3: ["buttonLiom3"],
   loadingCompopnentGray: ["loadingCompopnentGray"],
+  unLike: ["unLike"],
+  like: ["like"],
   img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1312,6 +1408,8 @@ type NodeDefaultElementType = {
   buttonLiom4: typeof ButtonLiom;
   buttonLiom3: typeof ButtonLiom;
   loadingCompopnentGray: typeof LoadingCompopnentGray;
+  unLike: typeof UnLike;
+  like: typeof Like;
   img: typeof PlasmicImg__;
 };
 
@@ -1380,6 +1478,8 @@ export const PlasmicMessageLiom = Object.assign(
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     loadingCompopnentGray: makeNodeComponent("loadingCompopnentGray"),
+    unLike: makeNodeComponent("unLike"),
+    like: makeNodeComponent("like"),
     img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicMessageLiom
