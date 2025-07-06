@@ -364,6 +364,12 @@ function PlasmicMessageLiom__RenderFunc(props: {
             hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
             hasVariant($state, "endMessege", "endMessege"),
           [sty.rootfeedback]: hasVariant($state, "feedback", "feedback"),
+          [sty.rootfeedback_owner]:
+            hasVariant($state, "feedback", "feedback") &&
+            hasVariant($state, "owner", "owner"),
+          [sty.rootfeedback_pazireshAnswer]:
+            hasVariant($state, "feedback", "feedback") &&
+            hasVariant($state, "pazireshAnswer", "pazireshAnswer"),
           [sty.roothint]: hasVariant($state, "hint", "hint"),
           [sty.rootliomAnswer]: hasVariant($state, "liomAnswer", "liomAnswer"),
           [sty.rootliomAnswer_bot]:
@@ -372,10 +378,23 @@ function PlasmicMessageLiom__RenderFunc(props: {
           [sty.rootliomAnswer_endMessege]:
             hasVariant($state, "endMessege", "endMessege") &&
             hasVariant($state, "liomAnswer", "liomAnswer"),
+          [sty.rootliomAnswer_feedback_pazireshAnswer]:
+            hasVariant($state, "feedback", "feedback") &&
+            hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+            hasVariant($state, "liomAnswer", "liomAnswer"),
           [sty.rootliomAnswer_hint]:
             hasVariant($state, "hint", "hint") &&
             hasVariant($state, "liomAnswer", "liomAnswer"),
           [sty.rootliomAnswer_loadingMessage]:
+            hasVariant($state, "liomAnswer", "liomAnswer") &&
+            hasVariant($state, "loadingMessage", "loadingMessage"),
+          [sty.rootliomAnswer_loadingMessage_feedback_pazireshAnswer]:
+            hasVariant($state, "feedback", "feedback") &&
+            hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+            hasVariant($state, "liomAnswer", "liomAnswer") &&
+            hasVariant($state, "loadingMessage", "loadingMessage"),
+          [sty.rootliomAnswer_loadingMessage_pazireshAnswer]:
+            hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
             hasVariant($state, "liomAnswer", "liomAnswer") &&
             hasVariant($state, "loadingMessage", "loadingMessage"),
           [sty.rootliomAnswer_pazireshAnswer]:
@@ -1248,11 +1267,40 @@ function PlasmicMessageLiom__RenderFunc(props: {
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__ycWkl, {
+            [sty.freeBoxendMessege_feedback__ycWklTjzqgMfRru]:
+              hasVariant($state, "feedback", "feedback") &&
+              hasVariant($state, "endMessege", "endMessege"),
             [sty.freeBoxfeedback__ycWklmfRru]: hasVariant(
               $state,
               "feedback",
               "feedback"
-            )
+            ),
+            [sty.freeBoxfeedback_bot__ycWklmfRruXxwGw]:
+              hasVariant($state, "feedback", "feedback") &&
+              hasVariant($state, "bot", "bot"),
+            [sty.freeBoxfeedback_owner__ycWklmfRruXJPes]:
+              hasVariant($state, "feedback", "feedback") &&
+              hasVariant($state, "owner", "owner"),
+            [sty.freeBoxfeedback_pazireshAnswer__ycWklmfRruYPoRs]:
+              hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+              hasVariant($state, "feedback", "feedback"),
+            [sty.freeBoxhint_feedback__ycWkleTAelMfRru]:
+              hasVariant($state, "feedback", "feedback") &&
+              hasVariant($state, "hint", "hint"),
+            [sty.freeBoxhint_feedback_bot__ycWkleTAelMfRruXxwGw]:
+              hasVariant($state, "feedback", "feedback") &&
+              hasVariant($state, "bot", "bot") &&
+              hasVariant($state, "hint", "hint"),
+            [sty.freeBoxliomAnswer_feedback__ycWkl6WM5ZMfRru]:
+              hasVariant($state, "feedback", "feedback") &&
+              hasVariant($state, "liomAnswer", "liomAnswer"),
+            [sty.freeBoxliomAnswer_feedback_pazireshAnswer__ycWkl6WM5ZMfRruYPoRs]:
+              hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+              hasVariant($state, "feedback", "feedback") &&
+              hasVariant($state, "liomAnswer", "liomAnswer"),
+            [sty.freeBoxloadingMessage_feedback__ycWklNjKFmMfRru]:
+              hasVariant($state, "feedback", "feedback") &&
+              hasVariant($state, "loadingMessage", "loadingMessage")
           })}
         >
           <UnLike
@@ -1271,7 +1319,10 @@ function PlasmicMessageLiom__RenderFunc(props: {
             data-plasmic-name={"like"}
             data-plasmic-override={overrides.like}
             className={classNames("__wab_instance", sty.like, {
-              [sty.likefeedback]: hasVariant($state, "feedback", "feedback")
+              [sty.likefeedback]: hasVariant($state, "feedback", "feedback"),
+              [sty.likefeedback_pazireshAnswer]:
+                hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+                hasVariant($state, "feedback", "feedback")
             })}
             onClick={args.like}
             warning={

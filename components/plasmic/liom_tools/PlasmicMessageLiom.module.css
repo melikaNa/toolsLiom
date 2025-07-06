@@ -482,6 +482,15 @@
 .freeBoxfeedback__ycWklmfRru {
   display: flex;
 }
+.freeBoxfeedback_pazireshAnswer__ycWklmfRruYPoRs {
+  display: none;
+}
+.freeBoxliomAnswer_feedback__ycWkl6WM5ZMfRru {
+  display: none;
+}
+.freeBoxloadingMessage_feedback__ycWklNjKFmMfRru {
+  display: none;
+}
 .unLike:global(.__wab_instance) {
   position: relative;
 }

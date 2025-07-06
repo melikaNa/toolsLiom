@@ -823,7 +823,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -3100,7 +3100,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 return (
                                   new window.URLSearchParams(
                                     window.location.search
-                                  ).get("origin") != "diaco"
+                                  ).get("origin") == "diaco"
                                 );
                               } catch (e) {
                                 if (
