@@ -87,9 +87,15 @@ export const PlasmicLike__VariantProps = new Array<VariantPropType>(
   "like"
 );
 
-export type PlasmicLike__ArgsType = { onClick?: (event: any) => void };
+export type PlasmicLike__ArgsType = {
+  onClick?: (event: any) => void;
+  feedbackData?: any;
+};
 type ArgPropType = keyof PlasmicLike__ArgsType;
-export const PlasmicLike__ArgProps = new Array<ArgPropType>("onClick");
+export const PlasmicLike__ArgProps = new Array<ArgPropType>(
+  "onClick",
+  "feedbackData"
+);
 
 export type PlasmicLike__OverridesType = {
   root?: Flex__<"div">;
@@ -98,6 +104,7 @@ export type PlasmicLike__OverridesType = {
 
 export interface DefaultLikeProps {
   onClick?: (event: any) => void;
+  feedbackData?: any;
   warning?: SingleBooleanChoiceArg<"warning">;
   like?: SingleBooleanChoiceArg<"like">;
   className?: string;
@@ -141,6 +148,8 @@ function PlasmicLike__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -213,6 +222,61 @@ function PlasmicLike__RenderFunc(props: {
           typeof $steps["updateLike"].then === "function"
         ) {
           $steps["updateLike"] = await $steps["updateLike"];
+        }
+
+        $steps["invokeGlobalAction"] = true
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  "POST",
+                  "https://n8n.staas.ir/webhook/chat-bot/feedback",
+                  undefined,
+                  (() => {
+                    try {
+                      return {
+                        chat_id: $props.feedbackData.chat_id,
+                        session_id: $props.feedbackData.session_id,
+                        user_id: $props.feedbackData.user_id,
+                        likeStatus: "like"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })(),
+                  (() => {
+                    try {
+                      return {
+                        headers: { Authorization: "Bearer " + window.token }
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                ]
+              };
+              return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["invokeGlobalAction"] != null &&
+          typeof $steps["invokeGlobalAction"] === "object" &&
+          typeof $steps["invokeGlobalAction"].then === "function"
+        ) {
+          $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
         }
 
         $steps["runOnClick"] = true

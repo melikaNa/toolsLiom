@@ -95,9 +95,15 @@ export const PlasmicUnLike__VariantProps = new Array<VariantPropType>(
   "unLike"
 );
 
-export type PlasmicUnLike__ArgsType = { onClick?: (event: any) => void };
+export type PlasmicUnLike__ArgsType = {
+  onClick?: (event: any) => void;
+  feedbackData?: any;
+};
 type ArgPropType = keyof PlasmicUnLike__ArgsType;
-export const PlasmicUnLike__ArgProps = new Array<ArgPropType>("onClick");
+export const PlasmicUnLike__ArgProps = new Array<ArgPropType>(
+  "onClick",
+  "feedbackData"
+);
 
 export type PlasmicUnLike__OverridesType = {
   root?: Flex__<"div">;
@@ -110,6 +116,7 @@ export type PlasmicUnLike__OverridesType = {
 
 export interface DefaultUnLikeProps {
   onClick?: (event: any) => void;
+  feedbackData?: any;
   warning?: SingleBooleanChoiceArg<"warning">;
   unLike?: SingleBooleanChoiceArg<"unLike">;
   className?: string;
@@ -154,6 +161,8 @@ function PlasmicUnLike__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -174,7 +183,7 @@ function PlasmicUnLike__RenderFunc(props: {
         path: "dialog3.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "buttonLiom.color",
@@ -193,10 +202,9 @@ function PlasmicUnLike__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
-          "\u0627\u0632 \u0634\u062e\u0635\u06cc\u062a \u062e\u0648\u0634\u0645 \u0646\u06cc\u0627\u0645\u062f",
+          "\u0633\u0628\u06a9 \u067e\u0627\u0633\u062e\u200c\u06af\u0648\u06cc\u06cc \u0631\u0627 \u062f\u0648\u0633\u062a \u0646\u062f\u0627\u0634\u062a\u0645",
           "\u0627\u0632 \u0633\u0628\u06a9 \u067e\u0627\u0633\u062e\u200c\u06af\u0648\u06cc\u06cc \u062e\u0648\u0634\u0645 \u0646\u06cc\u0627\u0645\u062f",
-          "\u0627\u0632 \u0646\u0638\u0631 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u06cc \u062f\u0642\u06cc\u0642 \u0646\u0628\u0648\u062f",
-          "\u0645\u0648\u0627\u0631\u062f \u0628\u06cc\u0634\u062a\u0631..."
+          "\u0627\u0632 \u0646\u0638\u0631 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u06cc \u062f\u0642\u06cc\u0642 \u0646\u0628\u0648\u062f"
         ]
       },
       {
@@ -393,6 +401,44 @@ function PlasmicUnLike__RenderFunc(props: {
                     ) {
                       $steps["updateFeed"] = await $steps["updateFeed"];
                     }
+
+                    $steps["updateAntdInputTextAreaValue"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["antdInputTextArea", "value"]
+                            },
+                            operation: 0,
+                            value: currentItem
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateAntdInputTextAreaValue"] != null &&
+                      typeof $steps["updateAntdInputTextAreaValue"] ===
+                        "object" &&
+                      typeof $steps["updateAntdInputTextAreaValue"].then ===
+                        "function"
+                    ) {
+                      $steps["updateAntdInputTextAreaValue"] = await $steps[
+                        "updateAntdInputTextAreaValue"
+                      ];
+                    }
                   }}
                   selected={(() => {
                     try {
@@ -503,6 +549,96 @@ function PlasmicUnLike__RenderFunc(props: {
                 typeof $steps["updateUnLike"].then === "function"
               ) {
                 $steps["updateUnLike"] = await $steps["updateUnLike"];
+              }
+
+              $steps["updateDialog3Opendialog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["dialog3", "opendialog"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDialog3Opendialog"] != null &&
+                typeof $steps["updateDialog3Opendialog"] === "object" &&
+                typeof $steps["updateDialog3Opendialog"].then === "function"
+              ) {
+                $steps["updateDialog3Opendialog"] = await $steps[
+                  "updateDialog3Opendialog"
+                ];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/chat-bot/feedback",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              chat_id: $props.feedbackData.chat_id,
+                              session_id: $props.feedbackData.session_id,
+                              user_id: $props.feedbackData.user_id,
+                              comment: $state.antdInputTextArea.value,
+                              likeStatus: "UNlike"
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return {
+                              headers: {
+                                Authorization: "Bearer " + window.token
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
               }
 
               $steps["runOnClick"] = true

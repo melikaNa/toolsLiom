@@ -118,6 +118,7 @@ export type PlasmicSelfMedication__OverridesType = {
   linearCalendar2?: Flex__<typeof LinearCalendar2>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
   directDialog?: Flex__<typeof DirectDialog>;
+  setFcm?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSelfMedicationProps {}
@@ -374,6 +375,24 @@ function PlasmicSelfMedication__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "setFcm.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "setFcm.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "setFcm.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2923,11 +2942,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               ].name +
                                               " اُم";
                                             if (
-                                              $ctx.query.type ==
-                                                "stretch_marks" ||
-                                              $ctx.query.type == "hair_care" ||
-                                              $ctx.query.type ==
-                                                "adhd_treatment_sub"
+                                              $state.getStep.data.info
+                                                .unlockMode != "daily"
                                             )
                                               title = currentItem.title;
                                             if (
@@ -3165,11 +3181,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 $state.selectedStep
                                               ].name;
                                           if (
-                                            $ctx.query.type ==
-                                              "stretch_marks" ||
-                                            $ctx.query.type == "hair_care" ||
-                                            $ctx.query.type ==
-                                              "adhd_treatment_sub"
+                                            $state.getStep.data.info
+                                              .unlockMode != "daily"
                                           )
                                             title = currentItem.title;
                                           return window.FlutterChannel.postMessage(
@@ -3609,6 +3622,69 @@ function PlasmicSelfMedication__RenderFunc(props: {
               }
             })()}
           />
+
+          <ApiRequest
+            data-plasmic-name={"setFcm"}
+            data-plasmic-override={overrides.setFcm}
+            className={classNames("__wab_instance", sty.setFcm)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__hQGo
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sxiRz
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["setFcm", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["setFcm", "loading"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["setFcm", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            params={(() => {
+              try {
+                return {
+                  token: $state.token
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/selfTreatment/setFcm"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3627,7 +3703,8 @@ const PlasmicDescendants = {
     "buttonLiom",
     "linearCalendar2",
     "loadingConclusion",
-    "directDialog"
+    "directDialog",
+    "setFcm"
   ],
   sideEffect: ["sideEffect"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
@@ -3638,7 +3715,8 @@ const PlasmicDescendants = {
   buttonLiom: ["buttonLiom"],
   linearCalendar2: ["linearCalendar2"],
   loadingConclusion: ["loadingConclusion"],
-  directDialog: ["directDialog"]
+  directDialog: ["directDialog"],
+  setFcm: ["setFcm"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3655,6 +3733,7 @@ type NodeDefaultElementType = {
   linearCalendar2: typeof LinearCalendar2;
   loadingConclusion: typeof LoadingConclusion;
   directDialog: typeof DirectDialog;
+  setFcm: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3752,6 +3831,7 @@ export const PlasmicSelfMedication = Object.assign(
     linearCalendar2: makeNodeComponent("linearCalendar2"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
     directDialog: makeNodeComponent("directDialog"),
+    setFcm: makeNodeComponent("setFcm"),
 
     // Metadata about props expected for PlasmicSelfMedication
     internalVariantProps: PlasmicSelfMedication__VariantProps,

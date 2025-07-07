@@ -121,6 +121,8 @@ import Icon161Icon from "./icons/PlasmicIcon__Icon161"; // plasmic-import: RaOYP
 import Icon160Icon from "./icons/PlasmicIcon__Icon160"; // plasmic-import: VDxWJe2hoa-8/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: 8W-HC9J9wkFf/icon
 
+import __lib_copyToClipboard from "copy-to-clipboard";
+
 createPlasmicElementProxy;
 
 export type PlasmicSelfTest2__VariantMembers = {};
@@ -165,7 +167,9 @@ export type PlasmicSelfTest2__OverridesType = {
 
 export interface DefaultSelfTest2Props {}
 
-const $$ = {};
+const $$ = {
+  copyToClipboard: __lib_copyToClipboard
+};
 
 function useNextRouter() {
   try {
@@ -823,7 +827,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -3014,6 +3018,54 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       }}
                       bot={true}
                       className={classNames("__wab_instance", sty.messageLiom)}
+                      copy={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return $$.copyToClipboard(currentItem.text);
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "\u0645\u062a\u0646 \u06a9\u067e\u06cc \u0634\u062f",
+                                  "bottom-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
                       credit={async event => {
                         const $steps = {};
 

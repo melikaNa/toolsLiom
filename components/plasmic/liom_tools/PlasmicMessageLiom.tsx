@@ -130,6 +130,7 @@ export type PlasmicMessageLiom__ArgsType = {
   copy?: (event: any) => void;
   like?: (event: any) => void;
   unLike?: (event: any) => void;
+  feedbackData?: any;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -143,6 +144,7 @@ export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
   "copy",
   "like",
   "unLike",
+  "feedbackData",
   "children",
   "slot"
 );
@@ -168,6 +170,7 @@ export interface DefaultMessageLiomProps {
   copy?: (event: any) => void;
   like?: (event: any) => void;
   unLike?: (event: any) => void;
+  feedbackData?: any;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -1006,6 +1009,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "feedback",
                 "feedback"
               ),
+              [sty.freeBoxfeedback_owner__fCi1QmfRruXJPes]:
+                hasVariant($state, "owner", "owner") &&
+                hasVariant($state, "feedback", "feedback"),
               [sty.freeBoxhint__fCi1QeTAel]: hasVariant($state, "hint", "hint"),
               [sty.freeBoxliomAnswer__fCi1Q6WM5Z]: hasVariant(
                 $state,
@@ -1016,6 +1022,11 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 $state,
                 "loadingMessage",
                 "loadingMessage"
+              ),
+              [sty.freeBoxowner__fCi1QxJPes]: hasVariant(
+                $state,
+                "owner",
+                "owner"
               ),
               [sty.freeBoxpazireshAnswer__fCi1QyPoRs]: hasVariant(
                 $state,
@@ -1309,6 +1320,23 @@ function PlasmicMessageLiom__RenderFunc(props: {
             className={classNames("__wab_instance", sty.unLike, {
               [sty.unLikefeedback]: hasVariant($state, "feedback", "feedback")
             })}
+            feedbackData={
+              hasVariant($state, "feedback", "feedback")
+                ? (() => {
+                    try {
+                      return $props.feedbackData;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : undefined
+            }
             onClick={args.unLike}
             warning={
               hasVariant($state, "feedback", "feedback") ? true : undefined
@@ -1324,6 +1352,23 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
                 hasVariant($state, "feedback", "feedback")
             })}
+            feedbackData={
+              hasVariant($state, "feedback", "feedback")
+                ? (() => {
+                    try {
+                      return $props.feedbackData;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : undefined
+            }
             onClick={args.like}
             warning={
               hasVariant($state, "feedback", "feedback") ? true : undefined
