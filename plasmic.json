@@ -2736,20 +2736,6 @@
           "componentType": "component"
         },
         {
-          "id": "o_YvtQ9fhleE",
-          "name": "SelfMedicationStep2",
-          "type": "managed",
-          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/self-medication-step-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/self-medication-step-2"
-        },
-        {
           "id": "rKKVawIztsLk",
           "name": "LineClomp2",
           "type": "managed",
@@ -3043,6 +3029,20 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicUnLike.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "n3DLa9cAqy6t",
+          "name": "SelfMedicationStep2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-medication-step-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-medication-step-2"
         }
       ],
       "icons": [
