@@ -96,11 +96,13 @@ export const PlasmicUnLike__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicUnLike__ArgsType = {
+  onUnLikeChange?: (val: any) => void;
   onClick?: (event: any) => void;
   feedbackData?: any;
 };
 type ArgPropType = keyof PlasmicUnLike__ArgsType;
 export const PlasmicUnLike__ArgProps = new Array<ArgPropType>(
+  "onUnLikeChange",
   "onClick",
   "feedbackData"
 );
@@ -115,6 +117,7 @@ export type PlasmicUnLike__OverridesType = {
 };
 
 export interface DefaultUnLikeProps {
+  onUnLikeChange?: (val: any) => void;
   onClick?: (event: any) => void;
   feedbackData?: any;
   warning?: SingleBooleanChoiceArg<"warning">;
@@ -175,9 +178,11 @@ function PlasmicUnLike__RenderFunc(props: {
       },
       {
         path: "unLike",
-        type: "private",
+        type: "writable",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unLike
+
+        valueProp: "unLike",
+        onChangeProp: "onUnLikeChange"
       },
       {
         path: "dialog3.opendialog",
@@ -558,7 +563,8 @@ function PlasmicUnLike__RenderFunc(props: {
                         objRoot: $state,
                         variablePath: ["dialog3", "opendialog"]
                       },
-                      operation: 0
+                      operation: 0,
+                      value: false
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -655,6 +661,30 @@ function PlasmicUnLike__RenderFunc(props: {
                 typeof $steps["runOnClick"].then === "function"
               ) {
                 $steps["runOnClick"] = await $steps["runOnClick"];
+              }
+
+              $steps["updateDialog3Opendialog2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "\u0645\u0645\u0646\u0648\u0646 \u0627\u0632 \u0628\u0627\u0632\u062e\u0648\u0631\u062f \u0634\u0645\u0627 !",
+                        "bottom-center"
+                      ]
+                    };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateDialog3Opendialog2"] != null &&
+                typeof $steps["updateDialog3Opendialog2"] === "object" &&
+                typeof $steps["updateDialog3Opendialog2"].then === "function"
+              ) {
+                $steps["updateDialog3Opendialog2"] = await $steps[
+                  "updateDialog3Opendialog2"
+                ];
               }
             }}
             onColorChange={async (...eventArgs: any) => {

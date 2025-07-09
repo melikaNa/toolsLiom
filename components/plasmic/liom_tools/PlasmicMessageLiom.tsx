@@ -156,8 +156,8 @@ export type PlasmicMessageLiom__OverridesType = {
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   loadingCompopnentGray?: Flex__<typeof LoadingCompopnentGray>;
-  unLike?: Flex__<typeof UnLike>;
-  like?: Flex__<typeof Like>;
+  unLike2?: Flex__<typeof UnLike>;
+  like2?: Flex__<typeof Like>;
   img?: Flex__<typeof PlasmicImg__>;
 };
 
@@ -322,6 +322,18 @@ function PlasmicMessageLiom__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.feedback
+      },
+      {
+        path: "unLike2.unLike",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "like2.like",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1314,85 +1326,153 @@ function PlasmicMessageLiom__RenderFunc(props: {
               hasVariant($state, "loadingMessage", "loadingMessage")
           })}
         >
-          <UnLike
-            data-plasmic-name={"unLike"}
-            data-plasmic-override={overrides.unLike}
-            className={classNames("__wab_instance", sty.unLike, {
-              [sty.unLikefeedback]: hasVariant($state, "feedback", "feedback")
-            })}
-            feedbackData={
-              hasVariant($state, "feedback", "feedback")
-                ? (() => {
-                    try {
-                      return $props.feedbackData;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
+          {(
+            hasVariant($state, "feedback", "feedback")
+              ? (() => {
+                  try {
+                    return $state.like2.like != true;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
                     }
-                  })()
-                : (() => {
-                    try {
-                      return $props.feedbackData;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-            }
-            onClick={args.unLike}
-          />
-
-          <Like
-            data-plasmic-name={"like"}
-            data-plasmic-override={overrides.like}
-            className={classNames("__wab_instance", sty.like, {
-              [sty.likefeedback]: hasVariant($state, "feedback", "feedback"),
-              [sty.likefeedback_pazireshAnswer]:
-                hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+                    throw e;
+                  }
+                })()
+              : false
+          ) ? (
+            <UnLike
+              data-plasmic-name={"unLike2"}
+              data-plasmic-override={overrides.unLike2}
+              className={classNames("__wab_instance", sty.unLike2, {
+                [sty.unLike2feedback]: hasVariant(
+                  $state,
+                  "feedback",
+                  "feedback"
+                )
+              })}
+              feedbackData={
                 hasVariant($state, "feedback", "feedback")
-            })}
-            feedbackData={
-              hasVariant($state, "feedback", "feedback")
-                ? (() => {
-                    try {
-                      return $props.feedbackData;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
+                  ? (() => {
+                      try {
+                        return $props.feedbackData;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()
-                : (() => {
-                    try {
-                      return $props.feedbackData;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
+                    })()
+                  : (() => {
+                      try {
+                        return $props.feedbackData;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()
-            }
-            onClick={args.like}
-          />
+                    })()
+              }
+              onClick={args.unLike}
+              onUnLikeChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["unLike2", "unLike"]).apply(
+                  null,
+                  eventArgs
+                );
 
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              unLike={generateStateValueProp($state, ["unLike2", "unLike"])}
+            />
+          ) : null}
+          {(
+            hasVariant($state, "feedback", "feedback")
+              ? (() => {
+                  try {
+                    return $state.unLike2.unLike != true;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+              : false
+          ) ? (
+            <Like
+              data-plasmic-name={"like2"}
+              data-plasmic-override={overrides.like2}
+              className={classNames("__wab_instance", sty.like2, {
+                [sty.like2feedback]: hasVariant($state, "feedback", "feedback"),
+                [sty.like2feedback_pazireshAnswer]:
+                  hasVariant($state, "pazireshAnswer", "pazireshAnswer") &&
+                  hasVariant($state, "feedback", "feedback")
+              })}
+              feedbackData={
+                hasVariant($state, "feedback", "feedback")
+                  ? (() => {
+                      try {
+                        return $props.feedbackData;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : (() => {
+                      try {
+                        return $props.feedbackData;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+              }
+              like={generateStateValueProp($state, ["like2", "like"])}
+              onClick={args.like}
+              onLikeChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["like2", "like"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+            />
+          ) : null}
           <Icon200Icon
             className={classNames(projectcss.all, sty.svg__lfw4N, {
               [sty.svgfeedback__lfw4NmfRru]: hasVariant(
@@ -1499,8 +1579,8 @@ const PlasmicDescendants = {
     "buttonLiom4",
     "buttonLiom3",
     "loadingCompopnentGray",
-    "unLike",
-    "like",
+    "unLike2",
+    "like2",
     "img"
   ],
   popover: ["popover", "buttonLiom2", "buttonLiom4", "buttonLiom3"],
@@ -1508,8 +1588,8 @@ const PlasmicDescendants = {
   buttonLiom4: ["buttonLiom4"],
   buttonLiom3: ["buttonLiom3"],
   loadingCompopnentGray: ["loadingCompopnentGray"],
-  unLike: ["unLike"],
-  like: ["like"],
+  unLike2: ["unLike2"],
+  like2: ["like2"],
   img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1522,8 +1602,8 @@ type NodeDefaultElementType = {
   buttonLiom4: typeof ButtonLiom;
   buttonLiom3: typeof ButtonLiom;
   loadingCompopnentGray: typeof LoadingCompopnentGray;
-  unLike: typeof UnLike;
-  like: typeof Like;
+  unLike2: typeof UnLike;
+  like2: typeof Like;
   img: typeof PlasmicImg__;
 };
 
@@ -1592,8 +1672,8 @@ export const PlasmicMessageLiom = Object.assign(
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     loadingCompopnentGray: makeNodeComponent("loadingCompopnentGray"),
-    unLike: makeNodeComponent("unLike"),
-    like: makeNodeComponent("like"),
+    unLike2: makeNodeComponent("unLike2"),
+    like2: makeNodeComponent("like2"),
     img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicMessageLiom

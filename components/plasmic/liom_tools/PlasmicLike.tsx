@@ -91,11 +91,13 @@ export const PlasmicLike__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicLike__ArgsType = {
+  onLikeChange?: (val: any) => void;
   onClick?: (event: any) => void;
   feedbackData?: any;
 };
 type ArgPropType = keyof PlasmicLike__ArgsType;
 export const PlasmicLike__ArgProps = new Array<ArgPropType>(
+  "onLikeChange",
   "onClick",
   "feedbackData"
 );
@@ -106,6 +108,7 @@ export type PlasmicLike__OverridesType = {
 };
 
 export interface DefaultLikeProps {
+  onLikeChange?: (val: any) => void;
   onClick?: (event: any) => void;
   feedbackData?: any;
   warning?: SingleBooleanChoiceArg<"warning">;
@@ -167,9 +170,11 @@ function PlasmicLike__RenderFunc(props: {
       },
       {
         path: "like",
-        type: "private",
+        type: "writable",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
+
+        valueProp: "like",
+        onChangeProp: "onLikeChange"
       },
       {
         path: "diasble",
@@ -215,15 +220,14 @@ function PlasmicLike__RenderFunc(props: {
 
         $steps["updateLike"] = true
           ? (() => {
-              const actionArgs = { vgroup: "like", operation: 2 };
+              const actionArgs = { vgroup: "like", operation: 4 };
               return (({ vgroup, value }) => {
                 if (typeof value === "string") {
                   value = [value];
                 }
 
-                const oldValue = $stateGet($state, vgroup);
-                $stateSet($state, vgroup, !oldValue);
-                return !oldValue;
+                $stateSet($state, vgroup, true);
+                return true;
               })?.apply(null, [actionArgs]);
             })()
           : undefined;
@@ -304,6 +308,28 @@ function PlasmicLike__RenderFunc(props: {
           typeof $steps["runOnClick"].then === "function"
         ) {
           $steps["runOnClick"] = await $steps["runOnClick"];
+        }
+
+        $steps["invokeGlobalAction2"] = true
+          ? (() => {
+              const actionArgs = {
+                args: [
+                  undefined,
+                  "\u0645\u0645\u0646\u0648\u0646 \u0627\u0632 \u0628\u0627\u0632\u062e\u0648\u0631\u062f \u0634\u0645\u0627 !",
+                  "bottom-center"
+                ]
+              };
+              return $globalActions["Fragment.showToast"]?.apply(null, [
+                ...actionArgs.args
+              ]);
+            })()
+          : undefined;
+        if (
+          $steps["invokeGlobalAction2"] != null &&
+          typeof $steps["invokeGlobalAction2"] === "object" &&
+          typeof $steps["invokeGlobalAction2"].then === "function"
+        ) {
+          $steps["invokeGlobalAction2"] = await $steps["invokeGlobalAction2"];
         }
       }}
     >

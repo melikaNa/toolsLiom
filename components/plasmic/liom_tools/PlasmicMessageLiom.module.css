@@ -489,17 +489,19 @@
 .freeBoxloadingMessage_feedback__ycWklNjKFmMfRru {
   display: none;
 }
-.unLike:global(.__wab_instance) {
+.unLike2:global(.__wab_instance) {
   position: relative;
 }
-.unLikefeedback:global(.__wab_instance) {
+.unLike2feedback:global(.__wab_instance) {
   width: auto;
+  display: flex;
 }
-.like:global(.__wab_instance) {
+.like2:global(.__wab_instance) {
   position: relative;
 }
-.likefeedback:global(.__wab_instance) {
+.like2feedback:global(.__wab_instance) {
   width: auto;
+  display: flex;
 }
 .svg__lfw4N {
   object-fit: cover;
