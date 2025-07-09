@@ -1242,6 +1242,41 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
+                      return (
+                        ($state.getData.data?.[0]?.title ?? "") != "" &&
+                        $ctx.query.type != "danger"
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__vbVG,
+                        {
+                          [sty.textdark__vbVG5Auqx]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      <React.Fragment>
+                        {$state.getData.data?.[0]?.title}
+                      </React.Fragment>
+                    </div>
+                  ) : null}
+                  {(() => {
+                    try {
                       return ($state.getData.data?.[0]?.image ?? "") != "";
                     } catch (e) {
                       if (
@@ -1286,41 +1321,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         }
                       })()}
                     />
-                  ) : null}
-                  {(() => {
-                    try {
-                      return (
-                        ($state.getData.data?.[0]?.title ?? "") != "" &&
-                        $ctx.query.type != "danger"
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return false;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__vbVG,
-                        {
-                          [sty.textdark__vbVG5Auqx]: hasVariant(
-                            $state,
-                            "dark",
-                            "dark"
-                          )
-                        }
-                      )}
-                    >
-                      <React.Fragment>
-                        {$state.getData.data?.[0]?.title}
-                      </React.Fragment>
-                    </div>
                   ) : null}
                   {(() => {
                     try {
