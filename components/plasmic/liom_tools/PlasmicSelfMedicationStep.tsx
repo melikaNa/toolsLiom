@@ -1242,6 +1242,44 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
+                      return ($state.getData.data?.[0]?.image ?? "") != "";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__opwDd)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      loading={"lazy"}
+                      src={(() => {
+                        try {
+                          return $state.getData.data?.[0]?.image ?? "";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  ) : null}
+                  {(() => {
+                    try {
                       return (
                         ($state.getData.data?.[0]?.title ?? "") != "" &&
                         $ctx.query.type != "danger"

@@ -519,6 +519,13 @@
   height: 20px;
   flex-shrink: 0;
 }
+.img__opwDd {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img__opwDd > picture > img {
+  object-fit: cover;
+}
 .text__vbVG {
   position: relative;
   font-weight: 700;
