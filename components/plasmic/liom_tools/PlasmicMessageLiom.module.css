@@ -458,7 +458,7 @@
   height: auto;
   max-width: 100%;
   display: none;
-  padding: 0px 4px 4px;
+  padding: 0px 8px 4px;
 }
 .freeBox__ycWkl > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -492,8 +492,14 @@
 .unLike:global(.__wab_instance) {
   position: relative;
 }
+.unLikefeedback:global(.__wab_instance) {
+  width: auto;
+}
 .like:global(.__wab_instance) {
   position: relative;
+}
+.likefeedback:global(.__wab_instance) {
+  width: auto;
 }
 .svg__lfw4N {
   object-fit: cover;

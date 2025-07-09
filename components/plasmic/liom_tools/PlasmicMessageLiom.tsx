@@ -1350,9 +1350,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
                   })()
             }
             onClick={args.unLike}
-            warning={
-              hasVariant($state, "feedback", "feedback") ? true : undefined
-            }
           />
 
           <Like
@@ -1394,9 +1391,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
                   })()
             }
             onClick={args.like}
-            warning={
-              hasVariant($state, "feedback", "feedback") ? true : undefined
-            }
           />
 
           <Icon200Icon

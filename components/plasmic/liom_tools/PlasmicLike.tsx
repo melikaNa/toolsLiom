@@ -76,15 +76,18 @@ createPlasmicElementProxy;
 export type PlasmicLike__VariantMembers = {
   warning: "warning";
   like: "like";
+  diasble: "diasble";
 };
 export type PlasmicLike__VariantsArgs = {
   warning?: SingleBooleanChoiceArg<"warning">;
   like?: SingleBooleanChoiceArg<"like">;
+  diasble?: SingleBooleanChoiceArg<"diasble">;
 };
 type VariantPropType = keyof PlasmicLike__VariantsArgs;
 export const PlasmicLike__VariantProps = new Array<VariantPropType>(
   "warning",
-  "like"
+  "like",
+  "diasble"
 );
 
 export type PlasmicLike__ArgsType = {
@@ -107,6 +110,7 @@ export interface DefaultLikeProps {
   feedbackData?: any;
   warning?: SingleBooleanChoiceArg<"warning">;
   like?: SingleBooleanChoiceArg<"like">;
+  diasble?: SingleBooleanChoiceArg<"diasble">;
   className?: string;
 }
 
@@ -166,6 +170,12 @@ function PlasmicLike__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
+      },
+      {
+        path: "diasble",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.diasble
       }
     ],
     [$props, $ctx, $refs]
@@ -195,6 +205,7 @@ function PlasmicLike__RenderFunc(props: {
         plasmic_hamdast_sdk_css.plasmic_tokens,
         sty.root,
         {
+          [sty.rootdiasble]: hasVariant($state, "diasble", "diasble"),
           [sty.rootlike]: hasVariant($state, "like", "like"),
           [sty.rootwarning]: hasVariant($state, "warning", "warning")
         }
@@ -303,6 +314,7 @@ function PlasmicLike__RenderFunc(props: {
           hasVariant($state, "like", "like") ? Icon201Icon : Icon198Icon
         }
         className={classNames(projectcss.all, sty.svg, {
+          [sty.svgdiasble]: hasVariant($state, "diasble", "diasble"),
           [sty.svglike]: hasVariant($state, "like", "like")
         })}
         onClick={async event => {

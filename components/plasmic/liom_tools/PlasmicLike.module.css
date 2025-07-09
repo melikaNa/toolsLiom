@@ -11,6 +11,9 @@
   min-width: 0;
   padding: 0px;
 }
+.rootdiasble {
+  opacity: 0.5;
+}
 .svg {
   object-fit: cover;
   max-width: 100%;
