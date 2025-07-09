@@ -2330,7 +2330,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                 return console.log(
                                   JSON.parse(
                                     $state.getData?.data?.[0].categoryInfo
-                                  )
+                                  ).unlockMode == "openAll"
                                 );
                               })();
                             }
