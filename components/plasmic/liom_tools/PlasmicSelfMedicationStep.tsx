@@ -234,12 +234,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   $state.paramsObject.stepId == 132
                 )
                   return true;
-                else if (
-                  JSON.parse($state.getData?.data?.[0]?.categoryInfo)
-                    ?.unlockMode == "openAll" ||
-                  false
-                )
-                  return true;
                 else {
                   return $state.getData?.data?.[0]?.isDone == 1 ? true : false;
                 }
@@ -2268,44 +2262,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["updateListDetails2"] =
-                      Object.keys($state.getData?.data?.[0] || {}).length !=
-                        0 && $state.getData?.data?.[0]?.id == null
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadshop"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["updateListDetails2"] != null &&
-                      typeof $steps["updateListDetails2"] === "object" &&
-                      typeof $steps["updateListDetails2"].then === "function"
-                    ) {
-                      $steps["updateListDetails2"] = await $steps[
-                        "updateListDetails2"
-                      ];
-                    }
-
                     $steps["updateListDetails"] = (() => {
                       if (
                         typeof $state.getData?.data?.[0]?.data !== "undefined"
@@ -2348,6 +2304,68 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     ) {
                       $steps["updateListDetails"] = await $steps[
                         "updateListDetails"
+                      ];
+                    }
+
+                    $steps["updateListDetails2"] =
+                      Object.keys($state.getData?.data?.[0] || {}).length !=
+                        0 && $state.getData?.data?.[0]?.id == null
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadshop"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateListDetails2"] != null &&
+                      typeof $steps["updateListDetails2"] === "object" &&
+                      typeof $steps["updateListDetails2"].then === "function"
+                    ) {
+                      $steps["updateListDetails2"] = await $steps[
+                        "updateListDetails2"
+                      ];
+                    }
+
+                    $steps["updateListDetails4"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return console.log($state.getData.data[0]);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateListDetails4"] != null &&
+                      typeof $steps["updateListDetails4"] === "object" &&
+                      typeof $steps["updateListDetails4"].then === "function"
+                    ) {
+                      $steps["updateListDetails4"] = await $steps[
+                        "updateListDetails4"
                       ];
                     }
                   }).apply(null, eventArgs);
