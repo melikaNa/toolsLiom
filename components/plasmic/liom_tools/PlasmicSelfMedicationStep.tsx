@@ -1256,12 +1256,21 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     <PlasmicImg__
                       alt={""}
                       className={classNames(sty.img__opwDd)}
-                      displayHeight={"auto"}
+                      displayHeight={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "200px"
+                          : "250px"
+                      }
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
                       displayMinHeight={"0"}
                       displayMinWidth={"0"}
-                      displayWidth={"auto"}
+                      displayWidth={
+                        hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "70%"
+                          : "40%"
+                      }
+                      height={``}
                       loading={"lazy"}
                       src={(() => {
                         try {
@@ -2177,8 +2186,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           type = "sunkenEyesIsActive";
                           break;
                       }
-                      console.log($state.paramsObject);
-                      console.log($state.getUser?.data?.[0]);
                       return {
                         stepId: $state.paramsObject.stepId,
                         sectionId: $state.paramsObject.secId,

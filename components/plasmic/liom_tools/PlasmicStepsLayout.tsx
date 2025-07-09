@@ -246,7 +246,61 @@ function PlasmicStepsLayout__RenderFunc(props: {
                   }
                   throw e;
                 }
-              })()
+              })(),
+              {
+                [sty.freeBoxlayout_advice___1ZYrQaRcX]: hasVariant(
+                  $state,
+                  "layout",
+                  "advice"
+                ),
+                [sty.freeBoxlayout_banner___1ZYrqHmk]: hasVariant(
+                  $state,
+                  "layout",
+                  "banner"
+                ),
+                [sty.freeBoxlayout_card___1ZYr7B6JK]: hasVariant(
+                  $state,
+                  "layout",
+                  "card"
+                )
+              }
+            )}
+          />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__xwlnp,
+              (() => {
+                try {
+                  return $props.theme == "dark" ? "shimmerDark" : "shimmer";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })(),
+              {
+                [sty.freeBoxlayout_advice__xwlnpQaRcX]: hasVariant(
+                  $state,
+                  "layout",
+                  "advice"
+                ),
+                [sty.freeBoxlayout_banner__xwlnpqHmk]: hasVariant(
+                  $state,
+                  "layout",
+                  "banner"
+                ),
+                [sty.freeBoxlayout_card__xwlnp7B6JK]: hasVariant(
+                  $state,
+                  "layout",
+                  "card"
+                )
+              }
             )}
           />
 

@@ -522,9 +522,17 @@
 .img__opwDd {
   object-fit: cover;
   max-width: 100%;
+  width: 40%;
+  height: 250px;
 }
 .img__opwDd > picture > img {
   object-fit: cover;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__opwDd {
+    width: 70%;
+    height: 200px;
+  }
 }
 .text__vbVG {
   position: relative;
