@@ -3135,7 +3135,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 return (
                                   new window.URLSearchParams(
                                     window.location.search
-                                  ).get("origin") != "diaco"
+                                  ).get("origin") == "diaco"
                                 );
                               } catch (e) {
                                 if (
