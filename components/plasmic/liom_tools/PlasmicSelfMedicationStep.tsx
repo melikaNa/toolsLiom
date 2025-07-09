@@ -2314,6 +2314,36 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       ];
                     }
 
+                    $steps["log"] = (() => {
+                      if (
+                        typeof $state.getData?.data?.[0]?.data !== "undefined"
+                      ) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    })()
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return console.log(
+                                JSON.parse($state.getData?.data?.[0])
+                              );
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["log"] != null &&
+                      typeof $steps["log"] === "object" &&
+                      typeof $steps["log"].then === "function"
+                    ) {
+                      $steps["log"] = await $steps["log"];
+                    }
+
                     $steps["updateListDetails2"] =
                       Object.keys($state.getData?.data?.[0] || {}).length !=
                         0 && $state.getData?.data?.[0]?.id == null
