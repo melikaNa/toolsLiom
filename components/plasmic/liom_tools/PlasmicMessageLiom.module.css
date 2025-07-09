@@ -454,10 +454,9 @@
 .freeBox__ycWkl {
   flex-direction: row;
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  min-width: 0;
   display: none;
   padding: 0px 4px 4px;
 }
@@ -465,7 +464,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  min-width: 0;
   margin-left: calc(0px - 8px);
   width: calc(100% + 8px);
 }

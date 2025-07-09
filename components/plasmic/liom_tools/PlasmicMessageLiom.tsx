@@ -1335,7 +1335,19 @@ function PlasmicMessageLiom__RenderFunc(props: {
                       throw e;
                     }
                   })()
-                : undefined
+                : (() => {
+                    try {
+                      return $props.feedbackData;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
             }
             onClick={args.unLike}
             warning={
@@ -1367,7 +1379,19 @@ function PlasmicMessageLiom__RenderFunc(props: {
                       throw e;
                     }
                   })()
-                : undefined
+                : (() => {
+                    try {
+                      return $props.feedbackData;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
             }
             onClick={args.like}
             warning={

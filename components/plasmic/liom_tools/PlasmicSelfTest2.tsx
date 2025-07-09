@@ -3165,6 +3165,23 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               }
                             })()
                       }
+                      feedbackData={(() => {
+                        try {
+                          return {
+                            chat_id: currentItem.id,
+                            session_id: $state.sessionId,
+                            user_id: $state.userId
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                       hint={(() => {
                         try {
                           return currentItem.tip;
@@ -4454,6 +4471,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                       $state.testChat.length - 1
                                     ] = {
                                       text: $steps.chat.data.message,
+                                      id: $steps.chat.data.id,
                                       from: "system"
                                     };
                                     $state.indexchat =
