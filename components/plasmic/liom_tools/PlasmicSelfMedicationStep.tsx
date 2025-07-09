@@ -234,6 +234,12 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   $state.paramsObject.stepId == 132
                 )
                   return true;
+                else if (
+                  JSON.parse($state.getData?.data?.[0]?.categoryInfo)
+                    ?.unlockMode == "openAll" ||
+                  false
+                )
+                  return true;
                 else {
                   return $state.getData?.data?.[0]?.isDone == 1 ? true : false;
                 }
