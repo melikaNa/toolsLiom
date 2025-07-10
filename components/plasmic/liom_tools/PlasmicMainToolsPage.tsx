@@ -410,13 +410,13 @@ function PlasmicMainToolsPage__RenderFunc(props: {
             <div className={classNames(projectcss.all, sty.freeBox__uBj3W)}>
               {(() => {
                 try {
-                  return true;
+                  return currentItem.data.length > 0 ? true : false;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return true;
+                    return false;
                   }
                   throw e;
                 }
@@ -448,44 +448,29 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                         )}
                         key={currentIndex}
                       >
-                        {(() => {
-                          try {
-                            return true;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__m4P5Y
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return currentItem.text;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__m4P5Y
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.text;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
                                 }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        ) : null}
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
