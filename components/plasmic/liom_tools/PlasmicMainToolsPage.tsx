@@ -578,12 +578,13 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                                               ) {
                                                 action =
                                                   $steps.invokeGlobalAction2
-                                                    .result;
+                                                    .data.result;
                                               } else {
                                                 action = currentItem.action;
                                               }
                                               console.log(
-                                                $steps.invokeGlobalAction2
+                                                $steps.invokeGlobalAction2.data
+                                                  .result
                                               );
                                               return window.FlutterChannel.postMessage(
                                                 action
