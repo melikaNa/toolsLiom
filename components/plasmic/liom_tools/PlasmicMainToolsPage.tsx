@@ -565,98 +565,140 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                                   ];
                                 }
 
-                                $steps["deepLink"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        args: [
-                                          (() => {
-                                            try {
-                                              return (() => {
+                                $steps["goTo"] =
+                                  $ctx.query.inApp == "true"
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return (() => {
+                                              var action = "";
+                                              if (
+                                                currentItem.linkType != null &&
+                                                currentItem.linkType != ""
+                                              ) {
+                                                action =
+                                                  $steps.invokeGlobalAction2
+                                                    .result;
+                                              } else {
+                                                action = currentItem.action;
+                                              }
+                                              console.log(
+                                                $steps.invokeGlobalAction2
+                                              );
+                                              return window.FlutterChannel.postMessage(
+                                                action
+                                              );
+                                            })();
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["goTo"] != null &&
+                                  typeof $steps["goTo"] === "object" &&
+                                  typeof $steps["goTo"].then === "function"
+                                ) {
+                                  $steps["goTo"] = await $steps["goTo"];
+                                }
+
+                                $steps["deepLink"] =
+                                  $ctx.query.inApp != "true"
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            (() => {
+                                              try {
+                                                return (() => {
+                                                  if (
+                                                    currentItem.linkType !=
+                                                      null &&
+                                                    currentItem.linkType != ""
+                                                  ) {
+                                                    return $steps
+                                                      .invokeGlobalAction2
+                                                      .result;
+                                                  } else {
+                                                    return currentItem.action;
+                                                  }
+                                                })();
+                                              } catch (e) {
                                                 if (
-                                                  currentItem.linkType !=
-                                                    null &&
-                                                  currentItem.linkType != ""
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
                                                 ) {
-                                                  return $steps
-                                                    .invokeGlobalAction2.result;
-                                                } else {
-                                                  return currentItem.action;
+                                                  return undefined;
                                                 }
-                                              })();
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
+                                                throw e;
                                               }
-                                              throw e;
-                                            }
-                                          })(),
-                                          (() => {
-                                            try {
-                                              return $ctx.query.token;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
+                                            })(),
+                                            (() => {
+                                              try {
+                                                return $ctx.query.token;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
                                               }
-                                              throw e;
-                                            }
-                                          })(),
-                                          (() => {
-                                            try {
-                                              return $state.user.result.user.id;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
+                                            })(),
+                                            (() => {
+                                              try {
+                                                return $state.user.result.user
+                                                  .id;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
                                               }
-                                              throw e;
-                                            }
-                                          })(),
-                                          (() => {
-                                            try {
-                                              return $ctx.query.inApp;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
+                                            })(),
+                                            (() => {
+                                              try {
+                                                return $ctx.query.inApp;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
                                               }
-                                              throw e;
-                                            }
-                                          })(),
-                                          (() => {
-                                            try {
-                                              return $ctx.query.theme;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
+                                            })(),
+                                            (() => {
+                                              try {
+                                                return $ctx.query.theme;
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
                                               }
-                                              throw e;
-                                            }
-                                          })()
-                                        ]
-                                      };
-                                      return $globalActions[
-                                        "Fragment.deepLink"
-                                      ]?.apply(null, [...actionArgs.args]);
-                                    })()
-                                  : undefined;
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.deepLink"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
                                 if (
                                   $steps["deepLink"] != null &&
                                   typeof $steps["deepLink"] === "object" &&
