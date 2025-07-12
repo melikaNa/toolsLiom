@@ -520,13 +520,69 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                               onClick={async event => {
                                 const $steps = {};
 
-                                $steps["invokeGlobalAction"] = true
+                                $steps["invokeGlobalAction2"] =
+                                  currentItem.linkType != null &&
+                                  currentItem.linkType != ""
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "GET",
+                                            "https://n8n.staas.ir/webhook/getAction",
+                                            (() => {
+                                              try {
+                                                return {
+                                                  authorization:
+                                                    $ctx.query.token,
+                                                  type: currentItem.linkType
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["invokeGlobalAction2"] != null &&
+                                  typeof $steps["invokeGlobalAction2"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction2"] = await $steps[
+                                    "invokeGlobalAction2"
+                                  ];
+                                }
+
+                                $steps["deepLink"] = true
                                   ? (() => {
                                       const actionArgs = {
                                         args: [
                                           (() => {
                                             try {
-                                              return currentItem.action;
+                                              return (() => {
+                                                if (
+                                                  currentItem.linkType !=
+                                                    null &&
+                                                  currentItem.linkType != ""
+                                                ) {
+                                                  return $steps
+                                                    .invokeGlobalAction2.result;
+                                                } else {
+                                                  return currentItem.action;
+                                                }
+                                              })();
                                             } catch (e) {
                                               if (
                                                 e instanceof TypeError ||
@@ -602,15 +658,11 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                                     })()
                                   : undefined;
                                 if (
-                                  $steps["invokeGlobalAction"] != null &&
-                                  typeof $steps["invokeGlobalAction"] ===
-                                    "object" &&
-                                  typeof $steps["invokeGlobalAction"].then ===
-                                    "function"
+                                  $steps["deepLink"] != null &&
+                                  typeof $steps["deepLink"] === "object" &&
+                                  typeof $steps["deepLink"].then === "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["deepLink"] = await $steps["deepLink"];
                                 }
                               }}
                               style={(() => {
@@ -646,55 +698,72 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                                 }
                               })()}
                             >
-                              <PlasmicImg__
-                                data-plasmic-name={"img"}
-                                data-plasmic-override={overrides.img}
-                                alt={""}
-                                className={classNames(sty.img)}
-                                displayHeight={"auto"}
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={"auto"}
-                                loading={"lazy"}
-                                src={(() => {
-                                  try {
-                                    return currentItem.icon;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                              {(() => {
+                                try {
+                                  return (
+                                    currentItem.icon != null &&
+                                    currentItem.icon != ""
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
                                   }
-                                })()}
-                                style={(() => {
-                                  try {
-                                    return (() => {
-                                      if (currentItem.iconColor == "#ffffff")
-                                        return {
-                                          filter: "brightness(0) invert(1)"
-                                        };
-                                      else return { filter: "brightness(0)" };
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
+                                  throw e;
+                                }
+                              })() ? (
+                                <PlasmicImg__
+                                  data-plasmic-name={"img"}
+                                  data-plasmic-override={overrides.img}
+                                  alt={""}
+                                  className={classNames(sty.img)}
+                                  displayHeight={"auto"}
+                                  displayMaxHeight={"none"}
+                                  displayMaxWidth={"100%"}
+                                  displayMinHeight={"0"}
+                                  displayMinWidth={"0"}
+                                  displayWidth={"auto"}
+                                  loading={"lazy"}
+                                  src={(() => {
+                                    try {
+                                      return currentItem.icon;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()}
-                                width={"30"}
-                              />
-
+                                  })()}
+                                  style={(() => {
+                                    try {
+                                      return (() => {
+                                        if (currentItem.iconColor == "#ffffff")
+                                          return {
+                                            filter: "brightness(0) invert(1)"
+                                          };
+                                        else return { filter: "brightness(0)" };
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                  width={"30"}
+                                />
+                              ) : null}
                               <div
                                 className={classNames(
                                   projectcss.all,

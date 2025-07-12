@@ -118,7 +118,8 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  white-space: pre;
+  white-space: pre-wrap;
+  text-align: right;
 }
 .freeBox___2UV8T {
   display: flex;
