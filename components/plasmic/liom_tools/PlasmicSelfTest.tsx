@@ -1227,7 +1227,12 @@ function PlasmicSelfTest__RenderFunc(props: {
                         undefined,
                         (() => {
                           try {
-                            return { headers: { Authorization: $state.token } };
+                            return {
+                              headers: {
+                                Authorization: $state.token,
+                                area: "selfTest"
+                              }
+                            };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

@@ -1141,7 +1141,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         (() => {
                           try {
                             return {
-                              headers: { Authorization: $state.tokenliom }
+                              headers: {
+                                Authorization: $state.tokenliom,
+                                area: "chatBot"
+                              }
                             };
                           } catch (e) {
                             if (
