@@ -2482,31 +2482,20 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["runCode"] =
-                          // const params = new URLSearchParams(window.location.search);
-                          // if (params.has("version")) {
-                          //   if($ctx.query.inApp == 'true' && )
-                          //     console.log("stepId موجود است:", params.get("stepId"));
-                          // } else {
-                          //     false
-                          // }
-                          false
-                            ? //$ctx.query.version
-                              (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      return window.FlutterChannel.postMessage(
-                                        "#toast-با موفقیت انجام شد\uD83D\uDE0D-confirm"
-                                      );
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                        $steps["runCode"] = false
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return window.FlutterChannel.postMessage(
+                                    "#toast-با موفقیت انجام شد\uD83D\uDE0D-confirm"
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                         if (
                           $steps["runCode"] != null &&
                           typeof $steps["runCode"] === "object" &&
@@ -2589,6 +2578,28 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           typeof $steps["updateIsDone"].then === "function"
                         ) {
                           $steps["updateIsDone"] = await $steps["updateIsDone"];
+                        }
+
+                        $steps["runCode2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return console.log($state.getUser?.data);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode2"] != null &&
+                          typeof $steps["runCode2"] === "object" &&
+                          typeof $steps["runCode2"].then === "function"
+                        ) {
+                          $steps["runCode2"] = await $steps["runCode2"];
                         }
 
                         $steps["invokeGlobalAction"] = true

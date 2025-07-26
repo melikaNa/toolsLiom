@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
-    "@ant-design/pro-components": "^2.8.9",
+    "@ant-design/pro-components": "^2.8.10",
     "@growthbook/growthbook-react": "^1.0.0",
     "@plasmicapp/cli": "^0.1.340",
     "@plasmicapp/host": "^1.0.196",
