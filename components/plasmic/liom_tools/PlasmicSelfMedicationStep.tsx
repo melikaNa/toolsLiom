@@ -302,8 +302,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "paramsObject",
@@ -2138,30 +2137,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
 
                 (async data => {
                   const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return console.log(
-                                $state.getUser?.data?.[0]?.userId ?? ""
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
                 }).apply(null, eventArgs);
               }}
               params={(() => {
@@ -2340,40 +2315,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       $steps["updateListDetails"] = await $steps[
                         "updateListDetails"
                       ];
-                    }
-
-                    $steps["log"] = (() => {
-                      if (
-                        typeof $state.getData?.data?.[0]?.data !== "undefined"
-                      ) {
-                        return true;
-                      } else {
-                        return false;
-                      }
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return console.log(
-                                  JSON.parse(
-                                    $state.getData?.data?.[0].categoryInfo
-                                  ).unlockMode == "openAll"
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["log"] != null &&
-                      typeof $steps["log"] === "object" &&
-                      typeof $steps["log"].then === "function"
-                    ) {
-                      $steps["log"] = await $steps["log"];
                     }
 
                     $steps["updateListDetails2"] =
