@@ -6631,7 +6631,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                       try {
                                         return {
                                           merchantID:
-                                            "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
+                                            "15e7df9e-5bef-4640-a597-ee501e65ff8c",
                                           id: $state.shopId,
                                           amount: $state.shop.data.result.price,
                                           type: `selfTest_${$ctx.query.type}`,
@@ -7566,7 +7566,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                     try {
                                       return {
                                         merchantID:
-                                          "c5b0a564-1cf5-4dd7-a0cb-f4f42c89b043",
+                                          "15e7df9e-5bef-4640-a597-ee501e65ff8c",
                                         id: $state.shopId,
                                         amount: $state.shop2.data.result.price,
                                         type: "selfTest",
