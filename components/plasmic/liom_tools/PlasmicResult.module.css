@@ -3704,7 +3704,6 @@
   height: 150%;
 }
 .freeBox__uh1Cb {
-  display: flex;
   flex-direction: row;
   position: fixed;
   width: 100%;
@@ -3715,6 +3714,7 @@
   right: auto;
   z-index: 55;
   min-width: 0;
+  display: none;
   padding: 14px 14px 8px;
 }
 .freeBox__uh1Cb > :global(.__wab_flex-container) {

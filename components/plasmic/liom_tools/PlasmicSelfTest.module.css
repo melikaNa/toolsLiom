@@ -2402,6 +2402,7 @@
   right: auto;
   width: auto;
   justify-self: flex-start;
+  display: none;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .embedHtml__zbw1H:global(.__wab_instance) {
