@@ -768,6 +768,9 @@ function PlasmicResult__RenderFunc(props: {
                 "dercentage",
                 "dercentage"
               ),
+              [sty.rootdercentage_information]:
+                hasVariant($state, "information", "information") &&
+                hasVariant($state, "dercentage", "dercentage"),
               [sty.rootdercentage_specialized]:
                 hasVariant($state, "specialized", "specialized") &&
                 hasVariant($state, "dercentage", "dercentage"),
@@ -8878,6 +8881,14 @@ function PlasmicResult__RenderFunc(props: {
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
             className={classNames("__wab_instance", sty.apiRequest, {
+              [sty.apiRequestdercentage]: hasVariant(
+                $state,
+                "dercentage",
+                "dercentage"
+              ),
+              [sty.apiRequestdercentage_specialized]:
+                hasVariant($state, "dercentage", "dercentage") &&
+                hasVariant($state, "specialized", "specialized"),
               [sty.apiRequestinformation]: hasVariant(
                 $state,
                 "information",

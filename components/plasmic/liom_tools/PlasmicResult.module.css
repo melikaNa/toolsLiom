@@ -69,6 +69,9 @@
 .rootspecialized > * {
   grid-column: 4;
 }
+.rootdercentage_information > * {
+  grid-column: 4;
+}
 .rootdercentage_specialized > * {
   grid-column: 4;
 }
