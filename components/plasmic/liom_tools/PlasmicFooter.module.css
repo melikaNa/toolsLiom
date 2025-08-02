@@ -26,23 +26,9 @@
   display: flex;
   flex-direction: row;
   position: relative;
-}
-.freeBox__grqx3 > :global(.__wab_flex-container) {
-  flex-direction: row;
   align-items: stretch;
   justify-content: center;
-  margin-left: calc(0px - 20px);
-  width: calc(100% + 20px);
-}
-.freeBox__grqx3 > :global(.__wab_flex-container) > *,
-.freeBox__grqx3 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__grqx3 > :global(.__wab_flex-container) > picture > img,
-.freeBox__grqx3
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 20px;
+  column-gap: 20px;
 }
 .toggleButton__gBq8V:global(.__wab_instance) {
   position: relative;

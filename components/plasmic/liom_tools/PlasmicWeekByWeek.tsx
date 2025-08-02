@@ -1005,9 +1005,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox___29I4M
@@ -1058,11 +1056,9 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                        </Stack__>
+                        </div>
                       ) : null}
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__jr8OY
@@ -1110,10 +1106,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                      </Stack__>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      </div>
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___1MaWg
@@ -1200,9 +1194,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                 throw e;
                               }
                             })() ? (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__krA4K
@@ -1247,7 +1239,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                     "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
                                   }
                                 </div>
-                              </Stack__>
+                              </div>
                             ) : null
                           }
                           modalScopeClassName={sty["modal__modal"]}
@@ -1392,7 +1384,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             </div>
                           </div>
                         ) : null}
-                      </Stack__>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1439,9 +1431,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                     }
                   }}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__iiSSx, {
                       [sty.freeBoxdark__iiSSxBt3Z3]: hasVariant(
                         $state,
@@ -1511,10 +1501,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                     >
                       {"\u0633\u0627\u06cc\u0632 \u062c\u0646\u06cc\u0646"}
                     </div>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__sxWn6, {
                       [sty.freeBoxdark__sxWn6Bt3Z3]: hasVariant(
                         $state,
@@ -1586,10 +1574,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647\u061f"
                       }
                     </div>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__ue6, {
                       [sty.freeBoxdark__ue6Bt3Z3]: hasVariant(
                         $state,
@@ -1658,7 +1644,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                     >
                       {"\u062e\u0627\u0637\u0631\u0627\u062a \u0645\u0646"}
                     </div>
-                  </Stack__>
+                  </div>
                 </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__kjeh0, {
@@ -2178,9 +2164,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__nTaP6)}
                       onClick={async event => {
                         const $steps = {};
@@ -2233,7 +2217,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
                         }
                       </div>
-                    </Stack__>
+                    </div>
                   ) : null}
                 </div>
               </div>

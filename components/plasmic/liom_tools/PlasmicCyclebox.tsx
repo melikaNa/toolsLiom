@@ -272,9 +272,7 @@ function PlasmicCyclebox__RenderFunc(props: {
         }
       )}
     >
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      <div
         className={classNames(projectcss.all, sty.freeBox__iDEuB, {
           [sty.freeBoxfertility__iDEuB0Xm40]: hasVariant(
             $state,
@@ -291,11 +289,7 @@ function PlasmicCyclebox__RenderFunc(props: {
       >
         {renderPlasmicSlot({
           defaultContents: (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__cfYm)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__cfYm)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -346,7 +340,7 @@ function PlasmicCyclebox__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-            </Stack__>
+            </div>
           ),
           value: args.children,
           className: classNames(sty.slotTargetChildren, {
@@ -357,7 +351,7 @@ function PlasmicCyclebox__RenderFunc(props: {
             )
           })
         })}
-      </Stack__>
+      </div>
       <div
         className={classNames(projectcss.all, sty.freeBox___3Dy9T, {
           [sty.freeBoxfertility___3Dy9T0Xm40]: hasVariant(

@@ -1559,14 +1559,8 @@ function PlasmicBmi__RenderFunc(props: {
               })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox__onWzc)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__kcXag)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                <div className={classNames(projectcss.all, sty.freeBox__kcXag)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__yrvB)}
                   >
                     <div
@@ -1599,7 +1593,7 @@ function PlasmicBmi__RenderFunc(props: {
                         }}
                       />
                     </div>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1611,9 +1605,7 @@ function PlasmicBmi__RenderFunc(props: {
                       "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0633\u0644\u0627\u0645\u062a\u06cc"
                     }
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___4LagW)}
                   >
                     <div
@@ -1721,7 +1713,7 @@ function PlasmicBmi__RenderFunc(props: {
                         />
                       </div>
                     </div>
-                  </Stack__>
+                  </div>
                   <Embed
                     className={classNames(
                       "__wab_instance",
@@ -1741,11 +1733,7 @@ function PlasmicBmi__RenderFunc(props: {
                       "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
                     }
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__zuT)}
-                  >
+                  <div className={classNames(projectcss.all, sty.freeBox__zuT)}>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__wzr4M)}
                     >
@@ -1875,7 +1863,7 @@ function PlasmicBmi__RenderFunc(props: {
                         />
                       </div>
                     </div>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__h6WtR)}
                   >
@@ -2007,7 +1995,7 @@ function PlasmicBmi__RenderFunc(props: {
                       ) : null}
                     </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
               <section
                 className={classNames(projectcss.all, sty.section___8G5Tq, {
@@ -2247,11 +2235,7 @@ function PlasmicBmi__RenderFunc(props: {
               })}
             >
               <div className={classNames(projectcss.all, sty.freeBox__cce33)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__oWYi)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__oWYi)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -2523,14 +2507,10 @@ function PlasmicBmi__RenderFunc(props: {
                       </div>
                     </ButtonLiom>
                   ) : null}
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__j1DUo)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__g4RiL)}
                     >
                       <div
@@ -2607,7 +2587,7 @@ function PlasmicBmi__RenderFunc(props: {
                       >
                         {"\u0647\u0633\u062a."}
                       </div>
-                    </Stack__>
+                    </div>
                     <div
                       className={classNames(
                         projectcss.all,
@@ -2661,9 +2641,7 @@ function PlasmicBmi__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__tiDzh,
@@ -2705,7 +2683,7 @@ function PlasmicBmi__RenderFunc(props: {
                           "\u0627\u06cc\u0646 BMI \u0628\u0631 \u0627\u0633\u0627\u0633 \u0648\u0632\u0646 \u0648\u0631\u0648\u062f\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0645\u06cc \u0634\u0648\u062f \u0648 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0627\u0633\u062a."
                         }
                       </div>
-                    </Stack__>
+                    </div>
                     <Embed
                       className={classNames(
                         "__wab_instance",
@@ -3006,7 +2984,7 @@ background: linear-gradient(to right,
                         }
                       </div>
                     </ButtonLiom>
-                  </Stack__>
+                  </div>
                   <ButtonLiom
                     data-plasmic-name={"buttonLiom7"}
                     data-plasmic-override={overrides.buttonLiom7}
@@ -3423,11 +3401,9 @@ background: linear-gradient(to right,
                       role={"img"}
                     />
                   </ButtonLiom>
-                </Stack__>
+                </div>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox___2ZcCh, {
                   [sty.freeBoxresalt___2ZcChCpkCp]: hasVariant(
                     $state,
@@ -3436,9 +3412,7 @@ background: linear-gradient(to right,
                   )
                 })}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__ocfdq, {
                     [sty.freeBoxresalt__ocfdqCpkCp]: hasVariant(
                       $state,
@@ -3447,9 +3421,7 @@ background: linear-gradient(to right,
                     )
                   })}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__hZahh, {
                       [sty.freeBoxresalt__hZahhCpkCp]: hasVariant(
                         $state,
@@ -3546,10 +3518,8 @@ ${parseInt($state.bmi.weight) + $state.bmi.min} کیلوگرم `;
                         }}
                       />
                     </div>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___1KN2Z, {
                       [sty.freeBoxresalt___1KN2ZCpkCp]: hasVariant(
                         $state,
@@ -3639,11 +3609,9 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم `;
                         }}
                       />
                     </div>
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                  </div>
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__oxfqf, {
                     [sty.freeBoxresalt__oxfqfCpkCp]: hasVariant(
                       $state,
@@ -4190,8 +4158,8 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                           })()
                     }
                   />
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             </div>
             <section
               className={classNames(projectcss.all, sty.section__swo9P, {
@@ -4202,11 +4170,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                 )
               })}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__blDyw)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__blDyw)}>
                 <ButtonLiom
                   data-plasmic-name={"buttonLiom2"}
                   data-plasmic-override={overrides.buttonLiom2}
@@ -4393,10 +4357,8 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     }
                   </div>
                 </ButtonLiom>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              </div>
+              <div
                 className={classNames(projectcss.all, sty.freeBox__ptZMs, {
                   [sty.freeBoxresalt__ptZMsCpkCp]: hasVariant(
                     $state,
@@ -4678,7 +4640,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     }
                   </div>
                 </ButtonLiom>
-              </Stack__>
+              </div>
             </section>
           </section>
           <Dialog3
@@ -4741,9 +4703,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
               }}
             >
               <div className={classNames(projectcss.all, sty.freeBox___4Vcb4)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___7Hk9)}
                   dir={"rtl"}
                 >
@@ -4776,10 +4736,8 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       </div>
                     </h5>
                   </DialogTitle>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__duJ4R)}
                   dir={"rtl"}
                 >
@@ -4795,9 +4753,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                   <div
                     className={classNames(projectcss.all, sty.freeBox__mjmO)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox___3MW6F
@@ -4889,9 +4845,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                           "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                         }
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__j9X2B
@@ -5024,7 +4978,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                             {"\u062a\u0627\u06cc\u06cc\u062f"}
                           </div>
                         </ButtonLiom>
-                      </Stack__>
+                      </div>
                       <ButtonLiom
                         data-plasmic-name={"button2"}
                         data-plasmic-override={overrides.button2}
@@ -5115,9 +5069,9 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                           "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                         }
                       </p>
-                    </Stack__>
+                    </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
             </ApiRequest>
           </Dialog3>

@@ -158,13 +158,11 @@ function PlasmicMassage__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"group2"}
       data-plasmic-override={overrides.group2}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -198,11 +196,7 @@ function PlasmicMassage__RenderFunc(props: {
               >
                 {"\u0633\u0644\u0627\u0645"}
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__adrOn)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__adrOn)}>
                 <Seen
                   className={classNames("__wab_instance", sty.seen__wMo7S, {
                     [sty.seenyou__wMo7SoRrw]: hasVariant($state, "you", "you")
@@ -225,13 +219,13 @@ function PlasmicMassage__RenderFunc(props: {
                 >
                   {"10:13"}
                 </div>
-              </Stack__>
+              </div>
             </React.Fragment>
           ),
           value: args.rectangle6
         })}
       </div>
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 

@@ -3,8 +3,8 @@
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/liom_tools/PlasmicGlobalContextsProvider";
-import { ThemeContext } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__Theme";
-import { UnnamedGlobalGroupOfVariantsContext } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants";
+import { ThemeContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__Theme";
+import { UnnamedGlobalGroupOfVariantsContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants";
 import { PlasmicNewPage3 } from "../../components/plasmic/liom_tools/PlasmicNewPage3";
 import { useRouter } from "next/router";
 
@@ -27,8 +27,8 @@ function NewPage3() {
   // (https://nextjs.org/docs/advanced-features/custom-app).
 
   return (
-    <UnnamedGlobalGroupOfVariantsContext.Provider value={undefined}>
-      <ThemeContext.Provider value={undefined}>
+    <UnnamedGlobalGroupOfVariantsContextProvider value={undefined}>
+      <ThemeContextProvider value={undefined}>
         <GlobalContextsProvider>
           <PageParamsProvider__
             route={useRouter()?.pathname}
@@ -38,8 +38,8 @@ function NewPage3() {
             <PlasmicNewPage3 />
           </PageParamsProvider__>
         </GlobalContextsProvider>
-      </ThemeContext.Provider>
-    </UnnamedGlobalGroupOfVariantsContext.Provider>
+      </ThemeContextProvider>
+    </UnnamedGlobalGroupOfVariantsContextProvider>
   );
 }
 

@@ -587,11 +587,7 @@ function PlasmicPanel__RenderFunc(props: {
               })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox__ussjy)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__qfQit)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__qfQit)}>
                   {(() => {
                     try {
                       return (
@@ -810,7 +806,7 @@ function PlasmicPanel__RenderFunc(props: {
                       })}
                     </Reveal>
                   ) : null}
-                </Stack__>
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__bnTbL)}>
                   <div
                     className={classNames(
@@ -964,14 +960,8 @@ function PlasmicPanel__RenderFunc(props: {
           })() ? (
             <div className={classNames(projectcss.all, sty.freeBox__wh3EH)}>
               <div className={classNames(projectcss.all, sty.freeBox__u29J)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__joCg2)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                <div className={classNames(projectcss.all, sty.freeBox__joCg2)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___86GKc)}
                   >
                     <PlasmicImg__
@@ -1064,7 +1054,7 @@ function PlasmicPanel__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     </div>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__dSRp)}
                   >
@@ -1242,10 +1232,8 @@ function PlasmicPanel__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.svg___8S4Dd)}
                     role={"img"}
                   />
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox___1FEgl)}
                   onScroll={async event => {
                     const $steps = {};
@@ -1316,9 +1304,7 @@ function PlasmicPanel__RenderFunc(props: {
                       const currentItem = __plasmic_item_0;
                       const currentIndex = __plasmic_idx_0;
                       return (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox___2Sx1N
@@ -1456,11 +1442,11 @@ function PlasmicPanel__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                           </div>
-                        </Stack__>
+                        </div>
                       );
                     })}
                   </div>
-                </Stack__>
+                </div>
               </div>
             </div>
           ) : null}
@@ -1497,11 +1483,7 @@ function PlasmicPanel__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__rSxBg)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__rSxBg)}>
               <div className={classNames(projectcss.all, sty.freeBox___5Hycv)}>
                 <Icon118Icon
                   className={classNames(projectcss.all, sty.svg__lc9Hb)}
@@ -1568,7 +1550,7 @@ function PlasmicPanel__RenderFunc(props: {
                   />
                 }
               />
-            </Stack__>
+            </div>
           ) : null}
         </div>
       </div>

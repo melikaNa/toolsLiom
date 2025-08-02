@@ -376,16 +376,8 @@ function PlasmicTest__RenderFunc(props: {
               }
             </div>
           </Paziresh24LineClamp>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__d661F)}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__vYj9V)}
-            >
+          <div className={classNames(projectcss.all, sty.freeBox__d661F)}>
+            <div className={classNames(projectcss.all, sty.freeBox__vYj9V)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -510,7 +502,7 @@ function PlasmicTest__RenderFunc(props: {
                   }
                 </div>
               </ButtonLiom>
-            </Stack__>
+            </div>
             <VigetLiom
               data-plasmic-name={"vigetLiom"}
               data-plasmic-override={overrides.vigetLiom}
@@ -538,15 +530,11 @@ function PlasmicTest__RenderFunc(props: {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__uuoLg)}
                     key={currentIndex}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__oJsnr)}
                     >
                       <div
@@ -586,9 +574,7 @@ function PlasmicTest__RenderFunc(props: {
                           arrow: false,
                           className: classNames("__wab_instance", sty.popover),
                           content: (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__t45E2
@@ -804,7 +790,7 @@ function PlasmicTest__RenderFunc(props: {
                                   </ButtonLiom>
                                 );
                               })()}
-                            </Stack__>
+                            </div>
                           ),
                           contentText: "Popover contents",
                           defaultStylesClassName: classNames(
@@ -875,7 +861,7 @@ function PlasmicTest__RenderFunc(props: {
                           </AntdPopover>
                         );
                       })()}
-                    </Stack__>
+                    </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__qdGv0)}
                     >
@@ -992,7 +978,7 @@ function PlasmicTest__RenderFunc(props: {
                       )}
                       code={"<hr></hr>"}
                     />
-                  </Stack__>
+                  </div>
                 );
               })}
             </VigetLiom>
@@ -1017,7 +1003,7 @@ function PlasmicTest__RenderFunc(props: {
                 aspectRatio: undefined
               }}
             />
-          </Stack__>
+          </div>
           <div className={classNames(projectcss.all, sty.freeBox__paCXs)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               []
@@ -1025,11 +1011,9 @@ function PlasmicTest__RenderFunc(props: {
               const currentItem = __plasmic_item_0;
               const currentIndex = __plasmic_idx_0;
               return (
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"card15"}
                   data-plasmic-override={overrides.card15}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card15)}
                   key={currentIndex}
                 >
@@ -1163,15 +1147,13 @@ function PlasmicTest__RenderFunc(props: {
                       </ButtonLiom>
                     );
                   })()}
-                </Stack__>
+                </div>
               );
             })}
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__wKej4)}>
             <div className={classNames(projectcss.all, sty.freeBox__d4SpL)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__l0HqL)}
                 id={"my-scroll-list"}
               >
@@ -1254,7 +1236,7 @@ function PlasmicTest__RenderFunc(props: {
                 >
                   {"Enter some text"}
                 </div>
-              </Stack__>
+              </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox___1RneI)}>
               <div className={classNames(projectcss.all, sty.freeBox___2Pah1)}>
@@ -1704,11 +1686,7 @@ function PlasmicTest__RenderFunc(props: {
                 );
               })()}
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__yKtOj)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__yKtOj)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -1731,13 +1709,9 @@ function PlasmicTest__RenderFunc(props: {
                   "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
                 }
               </div>
-            </Stack__>
+            </div>
           </div>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__r4KC1)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__r4KC1)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -1907,7 +1881,7 @@ function PlasmicTest__RenderFunc(props: {
                 }
               </div>
             </ButtonLiom>
-          </Stack__>
+          </div>
           <Paziresh24Avatar
             data-plasmic-name={"paziresh24Avatar"}
             data-plasmic-override={overrides.paziresh24Avatar}

@@ -528,9 +528,7 @@ function PlasmicButton__RenderFunc(props: {
         }
       />
 
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      <div
         className={classNames(projectcss.all, sty.freeBox___8UvAr, {
           [sty.freeBoxcolor_neutral___8UvArPsjLt]: hasVariant(
             $state,
@@ -947,7 +945,7 @@ function PlasmicButton__RenderFunc(props: {
             })
           })}
         </div>
-      </Stack__>
+      </div>
     </BaseButton>
   ) as React.ReactElement | null;
 }

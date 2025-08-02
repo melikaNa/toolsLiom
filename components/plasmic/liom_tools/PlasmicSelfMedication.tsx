@@ -1697,11 +1697,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   />
                 </ApiRequest>
               </ApiRequest>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__uJv)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__uJv)}>
                 {(() => {
                   try {
                     return (() => {
@@ -2126,9 +2122,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     ) : null}
                   </div>
                 ) : null}
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__imEyz)}
                   onClick={async event => {
                     const $steps = {};
@@ -2325,10 +2319,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       )}
                     />
                   ) : null}
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__s9KiX)}
                   id={"my-scroll-list11"}
                 >
@@ -2352,9 +2344,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     const currentItem = __plasmic_item_0;
                     const currentIndex = __plasmic_idx_0;
                     return (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__y9Cbt,
@@ -2745,10 +2735,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             })()}
                           />
                         ) : null}
-                      </Stack__>
+                      </div>
                     );
                   })}
-                </Stack__>
+                </div>
                 {(() => {
                   try {
                     return $state.getStep.loading;
@@ -3306,9 +3296,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                     : true
                                 }
                               >
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox___8Kyoi,
@@ -3390,7 +3378,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                       }}
                                     />
                                   ) : null}
-                                </Stack__>
+                                </div>
                               </LoadingConclusion>
                               <ChevronLeftIcon
                                 className={classNames(
@@ -3469,7 +3457,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       );
                     })
                   : null}
-              </Stack__>
+              </div>
               {(() => {
                 try {
                   return (

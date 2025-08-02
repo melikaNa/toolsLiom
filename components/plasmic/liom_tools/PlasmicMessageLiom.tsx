@@ -495,9 +495,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
               )
             })}
             content={
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__gyJtn, {
                   [sty.freeBoxliomAnswer__gyJtn6WM5Z]: hasVariant(
                     $state,
@@ -880,7 +878,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
                       : "Button"}
                   </div>
                 </ButtonLiom>
-              </Stack__>
+              </div>
             }
             contentText={"Popover contents"}
             defaultOpen={false}
@@ -1286,9 +1284,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
             {"Enter some text"}
           </div>
         </div>
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__ycWkl, {
             [sty.freeBoxendMessege_feedback__ycWklTjzqgMfRru]:
               hasVariant($state, "feedback", "feedback") &&
@@ -1484,7 +1480,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
             onClick={args.copy}
             role={"img"}
           />
-        </Stack__>
+        </div>
       </div>
       {(() => {
         try {

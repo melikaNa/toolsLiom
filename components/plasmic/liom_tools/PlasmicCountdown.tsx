@@ -62,8 +62,6 @@ import {
 import CountdownNumber from "../../CountdownNumber"; // plasmic-import: xzpsChHOVqpk/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
-import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -168,10 +166,6 @@ function PlasmicCountdown__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsyg4Uf6WCaaLe()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -191,11 +185,9 @@ function PlasmicCountdown__RenderFunc(props: {
         sty.root
       )}
     >
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox)}
       >
         <CountdownNumber
@@ -317,7 +309,7 @@ function PlasmicCountdown__RenderFunc(props: {
             </div>
           }
         />
-      </Stack__>
+      </div>
       <Timer
         data-plasmic-name={"timer"}
         data-plasmic-override={overrides.timer}

@@ -503,19 +503,58 @@ function PlasmicResult__RenderFunc(props: {
         path: "name.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.apiRequest.data.userInfo.name;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "code.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.apiRequest.data.userInfo.nationalCode;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "mobile.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.apiRequest.data.userInfo.mobile;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "buttonLiom5.color",
@@ -539,7 +578,20 @@ function PlasmicResult__RenderFunc(props: {
         path: "gender",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.apiRequest.data.userInfo.Gender;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "errors",
@@ -922,11 +974,7 @@ function PlasmicResult__RenderFunc(props: {
                   )
                 })}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__tAoo6)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__tAoo6)}>
                   {(() => {
                     try {
                       return (
@@ -1146,7 +1194,7 @@ function PlasmicResult__RenderFunc(props: {
                       })}
                     </Reveal>
                   ) : null}
-                </Stack__>
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__tOJjM)}>
                   <div
                     className={classNames(
@@ -1414,9 +1462,7 @@ function PlasmicResult__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__hvSte, {
                 [sty.freeBoxinformation__hvSte8P0Rz]: hasVariant(
                   $state,
@@ -1502,9 +1548,7 @@ function PlasmicResult__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__sy1Ij,
@@ -1551,9 +1595,7 @@ function PlasmicResult__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__lwrUx,
@@ -1576,9 +1618,7 @@ function PlasmicResult__RenderFunc(props: {
                             }
                           )}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__jSzzL,
@@ -1592,9 +1632,7 @@ function PlasmicResult__RenderFunc(props: {
                               }
                             )}
                           >
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__yIfMq,
@@ -1811,7 +1849,7 @@ function PlasmicResult__RenderFunc(props: {
                                   </div>
                                 </PercentageBox>
                               ) : null}
-                            </Stack__>
+                            </div>
                             {(() => {
                               try {
                                 return (() => {})();
@@ -1977,8 +2015,8 @@ function PlasmicResult__RenderFunc(props: {
                                   );
                                 })()
                               : null}
-                          </Stack__>
-                        </Stack__>
+                          </div>
+                        </div>
                       ) : null}
                       {(() => {
                         try {
@@ -2309,7 +2347,7 @@ function PlasmicResult__RenderFunc(props: {
                           }
                         </div>
                       ) : null}
-                    </Stack__>
+                    </div>
                   );
                 })}
                 {(() => {
@@ -2328,9 +2366,7 @@ function PlasmicResult__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__q9Qjc, {
                       [sty.freeBoxinformation__q9Qjc8P0Rz]: hasVariant(
                         $state,
@@ -2412,7 +2448,7 @@ function PlasmicResult__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.svg__zgok)}
                       role={"img"}
                     />
-                  </Stack__>
+                  </div>
                 ) : null}
                 {(() => {
                   try {
@@ -2434,9 +2470,7 @@ function PlasmicResult__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__crz8R)}
                     onClick={async event => {
                       const $steps = {};
@@ -2518,14 +2552,12 @@ function PlasmicResult__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.svg__sznxy)}
                       role={"img"}
                     />
-                  </Stack__>
+                  </div>
                 ) : null}
               </div>
-            </Stack__>
+            </div>
           ) : null}
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__bUoDo, {
               [sty.freeBoxspecialized__bUoDoFomOb]: hasVariant(
                 $state,
@@ -2606,7 +2638,7 @@ function PlasmicResult__RenderFunc(props: {
                 )}
               </div>
             </div>
-          </Stack__>
+          </div>
           {(
             hasVariant($state, "information", "information")
               ? true
@@ -2627,9 +2659,7 @@ function PlasmicResult__RenderFunc(props: {
                   }
                 })()
           ) ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__f1R9S, {
                 [sty.freeBoxinformation__f1R9S8P0Rz]: hasVariant(
                   $state,
@@ -2699,9 +2729,7 @@ function PlasmicResult__RenderFunc(props: {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__qbs7C, {
                       [sty.freeBoxspecialized__qbs7CfomOb]: hasVariant(
                         $state,
@@ -2711,9 +2739,7 @@ function PlasmicResult__RenderFunc(props: {
                     })}
                     key={currentIndex}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox__xarJz,
@@ -2749,9 +2775,7 @@ function PlasmicResult__RenderFunc(props: {
                         }
                       })()}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__r7HyV,
@@ -2906,7 +2930,7 @@ function PlasmicResult__RenderFunc(props: {
                             )}
                           </div>
                         </PercentageBox>
-                      </Stack__>
+                      </div>
                       {(() => {
                         try {
                           return currentItem.actionBtn != "eNoskhe";
@@ -3268,9 +3292,7 @@ function PlasmicResult__RenderFunc(props: {
                               }
                             })()
                       ) ? (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__lcS8B,
@@ -3520,7 +3542,7 @@ function PlasmicResult__RenderFunc(props: {
                               }
                             />
                           ) : null}
-                        </Stack__>
+                        </div>
                       ) : null}
                       <div
                         className={classNames(
@@ -3871,8 +3893,8 @@ function PlasmicResult__RenderFunc(props: {
                             : null}
                         </HamdastUtilsOpenLink>
                       </div>
-                    </Stack__>
-                  </Stack__>
+                    </div>
+                  </div>
                 );
               })}
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -3893,9 +3915,7 @@ function PlasmicResult__RenderFunc(props: {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__ryI9S, {
                       [sty.freeBoxspecialized__ryI9SFomOb]: hasVariant(
                         $state,
@@ -3941,9 +3961,7 @@ function PlasmicResult__RenderFunc(props: {
                         }
                       })()}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___6HD7F,
@@ -4087,7 +4105,7 @@ function PlasmicResult__RenderFunc(props: {
                             </div>
                           </PercentageBox>
                         ) : null}
-                      </Stack__>
+                      </div>
                       {(() => {
                         try {
                           return $ctx.query.Share != "true";
@@ -4708,10 +4726,10 @@ function PlasmicResult__RenderFunc(props: {
                         </div>
                       ) : null}
                     </div>
-                  </Stack__>
+                  </div>
                 );
               })}
-            </Stack__>
+            </div>
           ) : null}
           {(
             hasVariant($state, "information", "information")
@@ -4734,9 +4752,7 @@ function PlasmicResult__RenderFunc(props: {
                   }
                 })()
           ) ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__mzAy8, {
                 [sty.freeBoxinformation__mzAy88P0Rz]: hasVariant(
                   $state,
@@ -4864,9 +4880,7 @@ function PlasmicResult__RenderFunc(props: {
                     const currentItem = __plasmic_item_0;
                     const currentIndex = __plasmic_idx_0;
                     return (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___3GvY6,
@@ -4880,9 +4894,7 @@ function PlasmicResult__RenderFunc(props: {
                         )}
                         key={currentIndex}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__rZgJu
@@ -4910,9 +4922,7 @@ function PlasmicResult__RenderFunc(props: {
                             }
                           })()}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__b45Lz,
@@ -5145,7 +5155,7 @@ function PlasmicResult__RenderFunc(props: {
                                 </div>
                               </PercentageBox>
                             ) : null}
-                          </Stack__>
+                          </div>
                           {(() => {
                             try {
                               return $ctx.query.Share != "true";
@@ -5166,13 +5176,13 @@ function PlasmicResult__RenderFunc(props: {
                               )}
                             />
                           ) : null}
-                        </Stack__>
-                      </Stack__>
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
               ) : null}
-            </Stack__>
+            </div>
           ) : null}
           {(
             hasVariant($state, "specialized", "specialized")
@@ -5211,9 +5221,7 @@ function PlasmicResult__RenderFunc(props: {
                   }
                 })()
           ) ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__bKpwS, {
                 [sty.freeBoxinformation__bKpwS8P0Rz]: hasVariant(
                   $state,
@@ -5241,11 +5249,7 @@ function PlasmicResult__RenderFunc(props: {
                   }
                 </div>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__djnjd)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__djnjd)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -8874,8 +8878,8 @@ function PlasmicResult__RenderFunc(props: {
                   }}
                   className={classNames("__wab_instance", sty.lottie)}
                 />
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
           ) : null}
           <ApiRequest
             data-plasmic-name={"apiRequest"}
@@ -9051,9 +9055,7 @@ function PlasmicResult__RenderFunc(props: {
                   }
                 })()
           ) ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__rQkBj, {
                 [sty.freeBoxspecialized__rQkBjFomOb]: hasVariant(
                   $state,
@@ -9109,7 +9111,7 @@ function PlasmicResult__RenderFunc(props: {
                   />
                 </div>
               </div>
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -9126,11 +9128,7 @@ function PlasmicResult__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__h7NwZ)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__h7NwZ)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -9143,11 +9141,7 @@ function PlasmicResult__RenderFunc(props: {
                   "\u0622\u06cc\u0627 \u0627\u0632 \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc \u061f"
                 }
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__cwThE)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__cwThE)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -9310,7 +9304,7 @@ function PlasmicResult__RenderFunc(props: {
                     </Stars>
                   );
                 })}
-              </Stack__>
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__xlHjm)}>
                 {false
                   ? (() => {
@@ -9620,7 +9614,7 @@ function PlasmicResult__RenderFunc(props: {
                   />
                 }
               />
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -9730,9 +9724,7 @@ function PlasmicResult__RenderFunc(props: {
                     const currentItem = __plasmic_item_0;
                     const currentIndex = __plasmic_idx_0;
                     return (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__cIuuh
@@ -9800,9 +9792,7 @@ function PlasmicResult__RenderFunc(props: {
                                 sty.freeBox__ncdy0
                               )}
                             >
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox___8Mbe
@@ -9922,9 +9912,7 @@ function PlasmicResult__RenderFunc(props: {
                                     </React.Fragment>
                                   </span>
                                 </Paziresh24LineClamp>
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__vhDZa
@@ -9994,8 +9982,8 @@ function PlasmicResult__RenderFunc(props: {
                                       })()}
                                     </React.Fragment>
                                   </span>
-                                </Stack__>
-                              </Stack__>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <Alert
@@ -10112,7 +10100,7 @@ function PlasmicResult__RenderFunc(props: {
                             }
                           />
                         </HamdastUtilsOpenLink>
-                      </Stack__>
+                      </div>
                     );
                   })}
                 </div>
@@ -10154,9 +10142,7 @@ function PlasmicResult__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__iL8Gu, {
                 [sty.freeBoxspecialized__iL8GuFomOb]: hasVariant(
                   $state,
@@ -10240,7 +10226,7 @@ function PlasmicResult__RenderFunc(props: {
                   />
                 }
               />
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -10256,9 +10242,7 @@ function PlasmicResult__RenderFunc(props: {
             }
           })() ? (
             <section className={classNames(projectcss.all, sty.section___72Rh)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__cgHuj, {
                   [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant__cgHujYcZU]:
                     hasVariant(
@@ -10963,23 +10947,15 @@ function PlasmicResult__RenderFunc(props: {
                   }
                   startIcon={null}
                 />
-              </Stack__>
+              </div>
             </section>
           ) : null}
           <Paziresh24Dialog
             data-plasmic-name={"dialog2"}
             data-plasmic-override={overrides.dialog2}
             body={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___4Me8O)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__gVnJr)}
-                >
+              <div className={classNames(projectcss.all, sty.freeBox___4Me8O)}>
+                <div className={classNames(projectcss.all, sty.freeBox__gVnJr)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -11110,7 +11086,7 @@ function PlasmicResult__RenderFunc(props: {
                       </Stars>
                     );
                   })}
-                </Stack__>
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__mApC)}>
                   {(() => {
                     const child$Props = {
@@ -11552,7 +11528,7 @@ function PlasmicResult__RenderFunc(props: {
                     />
                   }
                 />
-              </Stack__>
+              </div>
             }
             className={classNames("__wab_instance", sty.dialog2)}
             onOpenChange={async (...eventArgs: any) => {
@@ -11629,11 +11605,7 @@ function PlasmicResult__RenderFunc(props: {
             data-plasmic-name={"profile"}
             data-plasmic-override={overrides.profile}
             body={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___1LcnB)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___1LcnB)}>
                 <RadioGroup
                   data-plasmic-name={"radioGroup"}
                   data-plasmic-override={overrides.radioGroup}
@@ -11653,11 +11625,52 @@ function PlasmicResult__RenderFunc(props: {
                     ) {
                       return;
                     }
+
+                    (async val => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  if ($state.radioGroup.value == "true") {
+                                    $state.name.value = "";
+                                    $state.email.value = "";
+                                    $state.mobile.value = "";
+                                    $state.code.value = "";
+                                    return ($state.gender = "");
+                                  } else {
+                                    $state.name.value =
+                                      $state.apiRequest.data.userInfo.name;
+                                    $state.email.value =
+                                      $state.apiRequest.data.userInfo.email;
+                                    $state.mobile.value =
+                                      $state.apiRequest.data.userInfo.mobile;
+                                    $state.code.value =
+                                      $state.apiRequest.data.userInfo.nationalCode;
+                                    return ($state.gender =
+                                      $state.apiRequest.data.userInfo.Gender);
+                                  }
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }).apply(null, eventArgs);
                   }}
                   options={
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__dBvud)}
                     >
                       <Radio
@@ -11681,7 +11694,7 @@ function PlasmicResult__RenderFunc(props: {
                         }
                         value={"true"}
                       />
-                    </Stack__>
+                    </div>
                   }
                   showDescription={false}
                   value={generateStateValueProp($state, [
@@ -11690,14 +11703,8 @@ function PlasmicResult__RenderFunc(props: {
                   ])}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__lvyS5)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                <div className={classNames(projectcss.all, sty.freeBox__lvyS5)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__uFEwt)}
                   >
                     <TextInput
@@ -11772,14 +11779,14 @@ function PlasmicResult__RenderFunc(props: {
                           )}
                           data-i18n={"prescription.t1"}
                         >
-                          {"\u0646\u0627\u0645"}
+                          {
+                            "\u0646\u0627\u0645 \u0648 \u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc"
+                          }
                         </div>
                       </div>
                     </TextInput>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__ks4Vm)}
                   >
                     <TextInput
@@ -11860,13 +11867,9 @@ function PlasmicResult__RenderFunc(props: {
                         </div>
                       </div>
                     </TextInput>
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__m9AMe)}
-                >
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__m9AMe)}>
                   <TextInput
                     data-plasmic-name={"code"}
                     data-plasmic-override={overrides.code}
@@ -11936,9 +11939,7 @@ function PlasmicResult__RenderFunc(props: {
                       {"\u06a9\u062f \u0645\u0644\u06cc"}
                     </div>
                   </TextInput>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__ke6Or)}
                   >
                     <div
@@ -12023,13 +12024,9 @@ function PlasmicResult__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__okDm5)}
-                >
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__okDm5)}>
                   <TextInput
                     data-plasmic-name={"mobile"}
                     data-plasmic-override={overrides.mobile}
@@ -12166,17 +12163,13 @@ function PlasmicResult__RenderFunc(props: {
                       {"\u0627\u06cc\u0645\u06cc\u0644"}
                     </div>
                   </TextInput>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox___91NgY)}
                 >
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"gender2"}
                     data-plasmic-override={overrides.gender2}
-                    hasGap={true}
                     className={classNames(projectcss.all, sty.gender2)}
                   >
                     <div
@@ -12189,9 +12182,7 @@ function PlasmicResult__RenderFunc(props: {
                     >
                       {"\u062c\u0646\u0633\u06cc\u062a "}
                     </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox___2KXc2,
@@ -12324,7 +12315,7 @@ function PlasmicResult__RenderFunc(props: {
                           </RadioGrop>
                         );
                       })}
-                    </Stack__>
+                    </div>
                     <div
                       className={classNames(
                         projectcss.all,
@@ -12350,13 +12341,9 @@ function PlasmicResult__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                  </Stack__>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__rBzfs)}
-                >
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__rBzfs)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -12437,7 +12424,7 @@ function PlasmicResult__RenderFunc(props: {
                       );
                     })()}
                   </div>
-                </Stack__>
+                </div>
                 <ButtonLiom
                   data-plasmic-name={"buttonLiom5"}
                   data-plasmic-override={overrides.buttonLiom5}
@@ -12532,12 +12519,6 @@ function PlasmicResult__RenderFunc(props: {
                                     message: "لطفاً نام را وارد کنید."
                                   });
                                 }
-                                if (!$state.name2?.value) {
-                                  errors.push({
-                                    type: "lastName",
-                                    message: "لطفاً نام خانوادگی را وارد کنید."
-                                  });
-                                }
                                 if (!$state.code?.value) {
                                   errors.push({
                                     type: "nationalCode",
@@ -12617,10 +12598,7 @@ function PlasmicResult__RenderFunc(props: {
                                     return {
                                       user_id: $ctx.query.user_id,
                                       session_id: $ctx.query.session_id,
-                                      name:
-                                        $state.name.value +
-                                        " " +
-                                        $state.name2.value,
+                                      name: $state.name.value,
                                       email: $state.email.value,
                                       mobile: $state.mobile.value,
                                       nationalCode: $state.code.value,
@@ -12805,7 +12783,7 @@ function PlasmicResult__RenderFunc(props: {
                     }
                   </div>
                 </ButtonLiom>
-              </Stack__>
+              </div>
             }
             className={classNames("__wab_instance", sty.profile)}
             onOpenChange={async (...eventArgs: any) => {
@@ -12847,9 +12825,7 @@ function PlasmicResult__RenderFunc(props: {
             trigger={null}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__uh1Cb, {
               [sty.freeBoxspecialized__uh1CbFomOb]: hasVariant(
                 $state,
@@ -12872,7 +12848,7 @@ function PlasmicResult__RenderFunc(props: {
                 '<!-- \r\n<div class="dropdown" id="langDropdown">\r\n  <div class="toggle" tabindex="0">\r\n    <span class="flag" id="selectedFlag">fa</span>\r\n      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 15px; height: 15px;">\r\n    <path d="M20.58 19.37L17.59 11.01C17.38 10.46 16.91 10.12 16.37 10.12C15.83 10.12 15.37 10.46 15.14 11.03L12.16 19.37C12.02 19.76 12.22 20.19 12.61 20.33C13 20.47 13.43 20.27 13.57 19.88L14.19 18.15H18.54L19.16 19.88C19.27 20.19 19.56 20.38 19.87 20.38C19.95 20.38 20.04 20.37 20.12 20.34C20.51 20.2 20.71 19.77 20.57 19.38L20.58 19.37ZM14.74 16.64L16.38 12.05L18.02 16.64H14.74ZM12.19 7.85C9.92999 11.42 7.89 13.58 5.41 15.02C5.29 15.09 5.16 15.12 5.04 15.12C4.78 15.12 4.53 14.99 4.39 14.75C4.18 14.39 4.3 13.93 4.66 13.73C6.75999 12.51 8.48 10.76 10.41 7.86H4.12C3.71 7.86 3.37 7.52 3.37 7.11C3.37 6.7 3.71 6.36 4.12 6.36H7.87V4.38C7.87 3.97 8.21 3.63 8.62 3.63C9.02999 3.63 9.37 3.97 9.37 4.38V6.36H13.12C13.53 6.36 13.87 6.7 13.87 7.11C13.87 7.52 13.53 7.86 13.12 7.86H12.18L12.19 7.85ZM12.23 15.12C12.1 15.12 11.97 15.09 11.85 15.02C11.2 14.64 10.57 14.22 9.97999 13.78C9.64999 13.53 9.58 13.06 9.83 12.73C10.08 12.4 10.55 12.33 10.88 12.58C11.42 12.99 12.01 13.37 12.61 13.72C12.97 13.93 13.09 14.39 12.88 14.75C12.74 14.99 12.49 15.12 12.23 15.12Z" fill="#000000"></path>\r\n  </svg>\r\n  </div>\r\n  <ul class="menu" role="listbox" aria-label="Select Language">\r\n    <li data-lang="en" role="option" aria-selected="false"><span class="flag"> en </span> English</li>\r\n    <li data-lang="fa" role="option" aria-selected="true"><span class="flag"> fa </span> \u0641\u0627\u0631\u0633\u06cc</li>\r\n    <li data-lang="ar" role="option" aria-selected="false"><span class="flag"> ar </span> \u0627\u0644\u0639\u0631\u0628\u064a\u0629</li>\r\n  </ul>\r\n</div>\r\n\r\n\r\n<script src="https://tools.liom.app/plasmic/i18next.min.js"></script>\r\n<script>\r\n  const resources = {\r\n     fa: {\r\n    translation: {\r\n      "result.main.title": "\u0646\u062a\u06cc\u062c\u0647  \u0634\u0645\u0627",\r\n      "result.title1": "\u0628\u0631 \u0627\u0633\u0627\u0633 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627\u060c \u062a\u0634\u062e\u06cc\u0635 \u0645\u0627 \u0628\u0647 \u0635\u0648\u0631\u062a \u0632\u06cc\u0631 \u0627\u0633\u062a:",\r\n      "result.again": "\u0627\u0646\u062c\u0627\u0645 \u0645\u062c\u062f\u062f \u062a\u0633\u062a",\r\n      "result.title2": "\u0627\u0644\u0627\u0646 \u0628\u0627\u06cc\u062f \u0686\u06cc\u06a9\u0627\u0631 \u06a9\u0646\u0645\u061f",\r\n      "result.description": "\u0628\u0627 \u062a\u0648\u062c\u0647 \u0628\u0647 \u062a\u0634\u062e\u06cc\u0635 \u0627\u0646\u062c\u0627\u0645 \u0634\u062f\u0647\u060c \u067e\u06cc\u0634\u0646\u0647\u0627\u062f \u0645\u06cc\u06a9\u0646\u0645 \u06a9\u0627\u0631 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u0631\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0647\u06cc\u062f:",\r\n      "result.title3": "\u0622\u06cc\u0627 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0645\u0631\u0627\u062c\u0639\u0647 \u0641\u0648\u0631\u06cc \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0627\u0633\u062a\u061f",\r\n      "result.description2": "\u062e\u06cc\u0631\u060c \u0646\u06cc\u0627\u0632\u06cc \u0628\u0647 \u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u067e\u0632\u0634\u06a9 \u0641\u0639\u0644\u0627 \u0648\u062c\u0648\u062f \u0646\u062f\u0627\u0631\u062f. \u0645\u0648\u0627\u0631\u062f\u06cc \u06a9\u0647 \u062f\u0631 \u0628\u062e\u0634 \\"\u0627\u0644\u0627\u0646 \u0628\u0627\u06cc\u062f \u0686\u06cc\u06a9\u0627\u0631 \u06a9\u0646\u0645\u061f\\" \u0631\u0627 \u0644\u0637\u0641\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0647\u06cc\u062f.",\r\n      "result.title4": "\u0622\u06cc\u0627 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u062f\u0627\u0631\u0648 \u06cc\u0627 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062f\u0627\u0631\u0645\u061f",\r\n      "result.description3": "\u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u00ab\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9\u00bb \u0648 \u067e\u0631 \u06a9\u0631\u062f\u0646 \u0641\u0631\u0645\u060c \u067e\u0632\u0634\u06a9 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0634\u0645\u0627 \u0631\u0627 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u0646\u06cc\u0627\u0632\u060c \u0646\u0633\u062e\u0647 \u06cc\u0627 \u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0622\u0632\u0645\u0627\u06cc\u0634 \u0635\u0627\u062f\u0631 \u0648 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u062f\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f.",\r\n      "result.title5": "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u0628\u0647 \u06a9\u0645\u06a9 \u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc",\r\n      "result.title6": "\u0622\u06cc\u0627 \u0627\u0632 \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc \u061f",\r\n      "result.comment.btn": "\u062b\u0628\u062a \u0646\u0638\u0631",\r\n      "prescription.btn": "\u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0633\u062e\u0647 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9",\r\n      "result.comment.title": "\u0622\u06cc\u0627 \u0627\u0632 \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc \u061f",\r\n      "result.comment.btn2": "\u062b\u0628\u062a",\r\n      "prescription.title": "\u062a\u06a9\u0645\u06cc\u0644 \u0627\u0637\u0644\u0627\u0639\u0627\u062a",\r\n      "prescription.t1": "\u0646\u0627\u0645",\r\n      "prescription.t2": "\u0646\u0627\u0645 \u062e\u0627\u0646\u0648\u0627\u062f\u06af\u06cc",\r\n      "prescription.t3": "\u06a9\u062f \u0645\u0644\u06cc",\r\n      "prescription.t4": "\u0646\u0648\u0639 \u0628\u06cc\u0645\u0647",\r\n      "prescription.t5": "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644",\r\n      "prescription.t6": "\u062c\u0646\u0633\u06cc\u062a",\r\n      "female": "\u0632\u0646",\r\n      "male": "\u0645\u0631\u062f",\r\n      "prescription.t7": "\u062a\u0648\u0636\u06cc\u062d\u0627\u062a \u062a\u06a9\u0645\u06cc\u0644\u06cc",\r\n      "prescription.btn2": "\u062b\u0628\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a",\r\n      "loading.title": "\u0644\u0637\u0641\u0627 \u06a9\u0645\u06cc \u0645\u0646\u062a\u0638\u0631 \u0628\u0645\u0627\u0646\u06cc\u062f",\r\n"loading.1": "\u0622\u0646\u0627\u0644\u06cc\u0632 \u067e\u0627\u0633\u062e \u0647\u0627\u06cc \u0634\u0645\u0627",\r\n"loading.2": "\u0628\u0631\u0631\u0633\u06cc \u0634\u0627\u062e\u0635 \u0647\u0627\u06cc \u0627\u0631\u0632\u06cc\u0627\u0628\u06cc",\r\n"loading.3": "\u0622\u0645\u0627\u062f\u0647 \u0633\u0627\u0632\u06cc \u0646\u062a\u06cc\u062c\u0647",\r\n"star.no": "\u0646\u0647 \u0627\u0635\u0644\u0627\u064b",\r\n"star.yes": "\u062e\u06cc\u0644\u06cc \u0632\u06cc\u0627\u062f",\r\n"feedback.invite": "\u062e\u0648\u0634\u062d\u0627\u0644 \u0645\u06cc\u200c\u0634\u0645 \u0646\u0638\u0631\u062a\u0648 \u0628\u062f\u0648\u0646\u0645 ..."\r\n\r\n\r\n\r\n    }\r\n  },\r\n  en: {\r\n    translation: {\r\n      "result.main.title": "Your Result",\r\n      "result.title1": "Based on your answers, our diagnosis is as follows:",\r\n      "result.again": "Retake the Test",\r\n      "result.title2": "What should I do now?",\r\n      "result.description": "Based on the diagnosis, we recommend the following steps:",\r\n      "result.title3": "Do I need to see a doctor immediately?",\r\n      "result.description2": "No, there\'s no need to see a doctor right now. Please follow the steps mentioned in the \'What should I do now?\' section.",\r\n      "result.title4": "Do I need medication or lab tests?",\r\n      "result.description3": "Click on \'Get Electronic Prescription\' and fill out the form. A doctor will review your information and issue a prescription or lab request if needed. You\'ll be notified via SMS.",\r\n      "result.title5": "Detailed Result with AI Assistance",\r\n      "result.title6": "Are you satisfied with the test result?",\r\n      "result.comment.btn": "Submit Feedback",\r\n      "prescription.btn": "Get Electronic Prescription",\r\n      "result.comment.title": "Are you satisfied with the test result?",\r\n      "result.comment.btn2": "Submit",\r\n      "prescription.title": "Complete Your Information",\r\n      "prescription.t1": "First Name",\r\n      "prescription.t2": "Last Name",\r\n      "prescription.t3": "National ID",\r\n      "prescription.t4": "Insurance Type",\r\n      "prescription.t5": "Mobile Number",\r\n      "prescription.t6": "Gender",\r\n      "female": "Female",\r\n      "male": "Male",\r\n      "prescription.t7": "Additional Notes",\r\n      "prescription.btn2": "Submit Information",\r\n      "loading.title": "Please wait a moment",\r\n"loading.1": "Analyzing your answers",\r\n"loading.2": "Reviewing evaluation indicators",\r\n"loading.3": "Preparing your result",\r\n"star.no": "Not at all",\r\n"star.yes": "Very much",\r\n"feedback.invite": "I\'d love to hear your thoughts..."\r\n\r\n\r\n    }\r\n  },\r\n  ar: {\r\n    translation: {\r\n      "result.main.title": "\u0646\u062a\u064a\u062c\u062a\u0643",\r\n      "result.title1": "\u0627\u0633\u062a\u0646\u0627\u062f\u064b\u0627 \u0625\u0644\u0649 \u0625\u062c\u0627\u0628\u0627\u062a\u0643\u060c \u0641\u0625\u0646 \u062a\u0634\u062e\u064a\u0635\u0646\u0627 \u0643\u0627\u0644\u062a\u0627\u0644\u064a:",\r\n      "result.again": "\u0625\u0639\u0627\u062f\u0629 \u0625\u062c\u0631\u0627\u0621 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631",\r\n      "result.title2": "\u0645\u0627\u0630\u0627 \u064a\u062c\u0628 \u0623\u0646 \u0623\u0641\u0639\u0644 \u0627\u0644\u0622\u0646\u061f",\r\n      "result.description": "\u0628\u0646\u0627\u0621\u064b \u0639\u0644\u0649 \u0627\u0644\u062a\u0634\u062e\u064a\u0635\u060c \u0646\u0648\u0635\u064a \u0628\u0627\u062a\u0628\u0627\u0639 \u0627\u0644\u062e\u0637\u0648\u0627\u062a \u0627\u0644\u062a\u0627\u0644\u064a\u0629:",\r\n      "result.title3": "\u0647\u0644 \u0623\u062d\u062a\u0627\u062c \u0625\u0644\u0649 \u0632\u064a\u0627\u0631\u0629 \u0627\u0644\u0637\u0628\u064a\u0628 \u0641\u0648\u0631\u0627\u064b\u061f",\r\n      "result.description2": "\u0644\u0627\u060c \u0644\u0627 \u062d\u0627\u062c\u0629 \u0644\u0632\u064a\u0627\u0631\u0629 \u0627\u0644\u0637\u0628\u064a\u0628 \u062d\u0627\u0644\u064a\u0627\u064b. \u064a\u0631\u062c\u0649 \u0627\u062a\u0628\u0627\u0639 \u0627\u0644\u062a\u0639\u0644\u064a\u0645\u0627\u062a \u0627\u0644\u0645\u0630\u0643\u0648\u0631\u0629 \u0641\u064a \u0642\u0633\u0645 \\"\u0645\u0627\u0630\u0627 \u064a\u062c\u0628 \u0623\u0646 \u0623\u0641\u0639\u0644 \u0627\u0644\u0622\u0646\u061f\\".",\r\n      "result.title4": "\u0647\u0644 \u0623\u062d\u062a\u0627\u062c \u0625\u0644\u0649 \u062f\u0648\u0627\u0621 \u0623\u0648 \u062a\u062d\u0627\u0644\u064a\u0644\u061f",\r\n      "result.description3": "\u0627\u0646\u0642\u0631 \u0639\u0644\u0649 \\"\u0627\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u0648\u0635\u0641\u0629 \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629\\" \u0648\u0627\u0645\u0644\u0623 \u0627\u0644\u0646\u0645\u0648\u0630\u062c. \u0633\u064a\u0642\u0648\u0645 \u0627\u0644\u0637\u0628\u064a\u0628 \u0628\u0645\u0631\u0627\u062c\u0639\u0629 \u0645\u0639\u0644\u0648\u0645\u0627\u062a\u0643\u060c \u0648\u0625\u0630\u0627 \u0644\u0632\u0645 \u0627\u0644\u0623\u0645\u0631\u060c \u0633\u064a\u0635\u062f\u0631 \u0648\u0635\u0641\u0629 \u0623\u0648 \u0637\u0644\u0628 \u062a\u062d\u0644\u064a\u0644 \u0648\u0633\u064a\u062a\u0645 \u0625\u0639\u0644\u0627\u0645\u0643 \u0639\u0628\u0631 \u0631\u0633\u0627\u0644\u0629 \u0646\u0635\u064a\u0629.",\r\n      "result.title5": "\u0627\u0644\u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u062a\u0641\u0635\u064a\u0644\u064a\u0629 \u0628\u0645\u0633\u0627\u0639\u062f\u0629 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a",\r\n      "result.title6": "\u0647\u0644 \u0623\u0646\u062a \u0631\u0627\u0636\u064d \u0639\u0646 \u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u061f",\r\n      "result.comment.btn": "\u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u0631\u0623\u064a",\r\n      "prescription.btn": "\u0627\u0644\u062d\u0635\u0648\u0644 \u0639\u0644\u0649 \u0648\u0635\u0641\u0629 \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629",\r\n      "result.comment.title": "\u0647\u0644 \u0623\u0646\u062a \u0631\u0627\u0636\u064d \u0639\u0646 \u0646\u062a\u064a\u062c\u0629 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u061f",\r\n      "result.comment.btn2": "\u0625\u0631\u0633\u0627\u0644",\r\n      "prescription.title": "\u0625\u0643\u0645\u0627\u0644 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a",\r\n      "prescription.t1": "\u0627\u0644\u0627\u0633\u0645",\r\n      "prescription.t2": "\u0627\u0633\u0645 \u0627\u0644\u0639\u0627\u0626\u0644\u0629",\r\n      "prescription.t3": "\u0627\u0644\u0631\u0642\u0645 \u0627\u0644\u0648\u0637\u0646\u064a",\r\n      "prescription.t4": "\u0646\u0648\u0639 \u0627\u0644\u062a\u0623\u0645\u064a\u0646",\r\n      "prescription.t5": "\u0631\u0642\u0645 \u0627\u0644\u062c\u0648\u0627\u0644",\r\n      "prescription.t6": "\u0627\u0644\u062c\u0646\u0633",\r\n      "female": "\u0623\u0646\u062b\u0649",\r\n      "male": "\u0630\u0643\u0631",\r\n      "prescription.t7": "\u0645\u0644\u0627\u062d\u0638\u0627\u062a \u0625\u0636\u0627\u0641\u064a\u0629",\r\n      "prescription.btn2": "\u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a",\r\n      "loading.title": "\u064a\u0631\u062c\u0649 \u0627\u0644\u0627\u0646\u062a\u0638\u0627\u0631 \u0642\u0644\u064a\u0644\u0627\u064b",\r\n"loading.1": "\u062a\u062d\u0644\u064a\u0644 \u0625\u062c\u0627\u0628\u0627\u062a\u0643",\r\n"loading.2": "\u0645\u0631\u0627\u062c\u0639\u0629 \u0645\u0624\u0634\u0631\u0627\u062a \u0627\u0644\u062a\u0642\u064a\u064a\u0645",\r\n"loading.3": "\u062a\u062d\u0636\u064a\u0631 \u0627\u0644\u0646\u062a\u064a\u062c\u0629",\r\n"star.no": "\u0644\u0627 \u0639\u0644\u0649 \u0627\u0644\u0625\u0637\u0644\u0627\u0642",\r\n"star.yes": "\u062c\u062f\u0627\u064b",\r\n"feedback.invite": "\u0633\u0623\u0643\u0648\u0646 \u0633\u0639\u064a\u062f\u064b\u0627 \u0628\u0645\u0639\u0631\u0641\u0629 \u0631\u0623\u064a\u0643..."\r\n\r\n\r\n    }\r\n  }\r\n  };\r\nconst dropdown = document.getElementById(\'langDropdown\');\r\nconst toggle = dropdown.querySelector(\'.toggle\');\r\nconst menu = dropdown.querySelector(\'.menu\');\r\nconst selectedFlag = document.getElementById(\'selectedFlag\');\r\nconst options = menu.querySelectorAll(\'li\');\r\n\r\n  function createI18nManager({ i18nextInstance, root = document.body }) {\r\n    const translatedElements = new WeakMap();\r\n\r\n    const translateElement = el => {\r\n      const key = el.getAttribute(\'data-i18n\');\r\n      if (!key || !i18nextInstance.t) return;\r\n      const translated = i18nextInstance.t(key);\r\n      if (el.textContent.trim() !== translated.trim()) {\r\n        el.textContent = translated;\r\n        translatedElements.set(el, key);\r\n      }\r\n    };\r\n\r\n    const translateAll = () => {\r\n      root.querySelectorAll(\'[data-i18n]\').forEach(translateElement);\r\n              if (i18nextInstance.language === \'en\') {\r\n            document.body.classList.add(\'english-font\');\r\n          } else {\r\n            document.body.classList.remove(\'english-font\');\r\n        }\r\n      document.body.dir = [\'fa\', \'ar\'].includes(i18nextInstance.language) ? \'rtl\' : \'ltr\';\r\n    };\r\n\r\n    const observer = new MutationObserver(mutations => {\r\n      mutations.forEach(m => {\r\n        m.addedNodes.forEach(node => {\r\n          if (node.nodeType !== 1) return;\r\n          if (node.matches?.(\'[data-i18n]\')) translateElement(node);\r\n          node.querySelectorAll?.(\'[data-i18n]\').forEach(translateElement);\r\n        });\r\n      });\r\n    });\r\n\r\n    observer.observe(root, { childList: true, subtree: true });\r\n\r\n    i18nextInstance.on(\'languageChanged\', () => {\r\n      translateAll();\r\n    });\r\n\r\n    return { translateAll, disconnect: () => observer.disconnect() };\r\n  }\r\n\r\n  i18next.init({\r\n    lng: \'fa\',\r\n    debug: false,\r\n    resources\r\n  }).then(() => {\r\n    const i18nManager = createI18nManager({ i18nextInstance: i18next });\r\n\r\n    // \u0627\u0646\u062a\u062e\u0627\u0628 \u0632\u0628\u0627\u0646\r\n    // const options = document.querySelectorAll(\'#langDropdown [data-lang]\');\r\n    // const selectedFlag = document.getElementById(\'selectedFlag\');\r\n\r\n    options.forEach(li => {\r\n      li.addEventListener(\'click\', () => {\r\n        const lang = li.getAttribute(\'data-lang\');\r\n        localStorage.setItem(\'selectedLang\', lang);\r\n        selectedFlag.textContent = lang;\r\n        dropdown.classList.toggle(\'open\');\r\n        window.location.reload(); \r\n      });\r\n    });\r\n    toggle.onclick = () => dropdown.classList.toggle(\'open\');\r\n\r\n  document.addEventListener(\'click\', e => {\r\n    if (!dropdown.contains(e.target)) dropdown.classList.remove(\'open\');\r\n  });\r\n\r\n  toggle.onkeydown = e => {\r\n    if (e.key === \'Enter\' || e.key === \' \') {\r\n      e.preventDefault();\r\n      dropdown.classList.toggle(\'open\');\r\n    }\r\n  };\r\n\r\n    // \u0627\u0646\u062a\u062e\u0627\u0628 \u0627\u0648\u0644\u06cc\u0647 \u0632\u0628\u0627\u0646\r\n    const urlLang = new URLSearchParams(window.location.search).get(\'lang\');\r\n    const savedLang = localStorage.getItem(\'selectedLang\');\r\n        const initialLang = urlLang || savedLang || \'fa\';\r\n\r\n    if (urlLang) {\r\n  localStorage.setItem(\'selectedLang\', urlLang);\r\n\r\n  // \u062d\u0630\u0641 lang \u0627\u0632 URL \u0628\u062f\u0648\u0646 \u0631\u06cc\u0644\u0648\u062f \u0635\u0641\u062d\u0647\r\n  urlParams.delete(\'lang\');\r\n  const newUrl = window.location.pathname + (urlParams.toString() ? \'?\' + urlParams.toString() : \'\');\r\n  history.replaceState(null, \'\', newUrl);\r\n}\r\n    i18next.changeLanguage(initialLang);\r\n    selectedFlag.textContent = initialLang;\r\n  });\r\n</script> \r\n -->\r\n'
               }
             />
-          </Stack__>
+          </div>
           <section
             className={classNames(projectcss.all, sty.section__r0Pb1, {
               [sty.sectionspecialized__r0Pb1FomOb]: hasVariant(

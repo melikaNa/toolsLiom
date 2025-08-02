@@ -164,9 +164,7 @@ function PlasmicVideoPlayer__RenderFunc(props: {
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox___8F6BD)}>
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__rSUg7)}
               onClick={async event => {
                 const $steps = {};
@@ -239,7 +237,7 @@ function PlasmicVideoPlayer__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-            </Stack__>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__zrR5K)}>
               <Video
                 data-plasmic-name={"htmlVideo"}

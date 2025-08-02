@@ -509,9 +509,7 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                           const currentItem = __plasmic_item_1;
                           const currentIndex = __plasmic_idx_1;
                           return (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
+                            <div
                               className={classNames(
                                 projectcss.all,
                                 sty.freeBox__p8Nxo
@@ -846,7 +844,7 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                                   })()}
                                 </React.Fragment>
                               </div>
-                            </Stack__>
+                            </div>
                           );
                         })}
                       </div>
@@ -929,9 +927,7 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                         const currentItem = __plasmic_item_1;
                         const currentIndex = __plasmic_idx_1;
                         return (
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox___6IPXv,

@@ -1871,9 +1871,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__bHvS6
@@ -1909,9 +1907,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                             })()}
                           />
 
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__iWejx
@@ -1965,8 +1961,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </Stack__>
-                        </Stack__>
+                          </div>
+                        </div>
                       ) : null}
                     </div>
                   ) : null}
@@ -3314,11 +3310,9 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       }
                     })()
               ) ? (
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"peyliom"}
                   data-plasmic-override={overrides.peyliom}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.peyliom)}
                 >
                   <div
@@ -3365,17 +3359,13 @@ function PlasmicSelfTest3__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___6PsF
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__osBg
@@ -3449,7 +3439,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                        </Stack__>
+                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -3459,7 +3449,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         >
                           {"50%"}
                         </div>
-                      </Stack__>
+                      </div>
                     </div>
                   </div>
                   <ButtonLiom
@@ -3744,7 +3734,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       </div>
                     ) : null}
                   </ButtonLiom>
-                </Stack__>
+                </div>
               ) : null}
               {(
                 hasVariant(globalVariants, "screen", "mobileOnly")
@@ -3784,11 +3774,9 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       }
                     })()
               ) ? (
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"peyPardakht24"}
                   data-plasmic-override={overrides.peyPardakht24}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.peyPardakht24)}
                 >
                   <div
@@ -3835,17 +3823,13 @@ function PlasmicSelfTest3__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__ktaFs
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__vFHg
@@ -3919,7 +3903,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                        </Stack__>
+                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -3929,7 +3913,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         >
                           {"50%"}
                         </div>
-                      </Stack__>
+                      </div>
                     </div>
                   </div>
                   <Paziresh24Button
@@ -4179,7 +4163,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       />
                     }
                   />
-                </Stack__>
+                </div>
               ) : null}
               {(() => {
                 try {
@@ -4194,11 +4178,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__vTj9V)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__vTj9V)}>
                   <Paziresh24Button
                     children2={
                       (() => {
@@ -4428,7 +4408,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       />
                     }
                   />
-                </Stack__>
+                </div>
               ) : null}
             </Reveal>
           </div>
@@ -4453,11 +4433,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
           data-plasmic-name={"dialog"}
           data-plasmic-override={overrides.dialog}
           body={
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__yGaFz)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__yGaFz)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -4703,7 +4679,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                   );
                 })();
               })}
-            </Stack__>
+            </div>
           }
           className={classNames("__wab_instance", sty.dialog)}
           onOpenChange={async (...eventArgs: any) => {
@@ -4851,9 +4827,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
               url={"https://n8n.staas.ir/webhook/selfTest/shop"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__bKyZq)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__voz5)}
                   dir={"rtl"}
                 >
@@ -4891,19 +4865,15 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__bfz1Q)}
                   dir={"rtl"}
                 >
                   <div
                     className={classNames(projectcss.all, sty.freeBox__jf6W)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox___6DLs2
@@ -5055,9 +5025,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                           "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                         }
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___3NwYf
@@ -5190,7 +5158,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                             {"\u062a\u0627\u06cc\u06cc\u062f"}
                           </div>
                         </ButtonLiom>
-                      </Stack__>
+                      </div>
                       <ButtonLiom
                         data-plasmic-name={"buttonLiom6"}
                         data-plasmic-override={overrides.buttonLiom6}
@@ -5485,15 +5453,11 @@ function PlasmicSelfTest3__RenderFunc(props: {
                           </div>
                         ) : null}
                       </ButtonLiom>
-                    </Stack__>
+                    </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__yiwdE)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__yiwdE)}>
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img___1L97N)}
@@ -5523,7 +5487,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                     "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u0628\u0632\u0627\u0631 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a \u060c \u067e\u0631\u062f\u0627\u062e\u062a \u0631\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0647\u06cc\u062f."
                   }
                 </div>
-              </Stack__>
+              </div>
             </ApiRequest>
           }
           className={classNames("__wab_instance", sty.dialog2)}
@@ -5758,11 +5722,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__tevnN)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__tevnN)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox___95QCs)}
                 >
@@ -5808,9 +5768,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       : "Enter some text"}
                   </div>
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___93QwG)}
                 >
                   <ButtonLiom
@@ -5972,8 +5930,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       {"\u062a\u0627\u06cc\u06cc\u062f"}
                     </div>
                   </ButtonLiom>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             ) : null}
             <ApiRequest
               data-plasmic-name={"shop2"}
@@ -6086,11 +6044,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__tMgLu)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__tMgLu)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__axuCz)}
                   >
@@ -6138,9 +6092,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         : "Enter some text"}
                     </div>
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__zeoBy)}
                   >
                     <ButtonLiom
@@ -6489,18 +6441,16 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         </div>
                       ) : null}
                     </ButtonLiom>
-                  </Stack__>
-                </Stack__>
+                  </div>
+                </div>
               ) : null}
             </ApiRequest>
           </ApiRequest>
           <div className={classNames(projectcss.all, sty.freeBox__m7Bp5)} />
         </AntdModal>
-        <Stack__
-          as={"div"}
+        <div
           data-plasmic-name={"rate2"}
           data-plasmic-override={overrides.rate2}
-          hasGap={true}
           className={classNames(projectcss.all, sty.rate2)}
           onClick={async event => {
             const $steps = {};
@@ -6655,7 +6605,7 @@ generateStars(${$state.rate});
               })()}
             />
           </div>
-        </Stack__>
+        </div>
         <AntdModal
           data-plasmic-name={"rateinfo"}
           data-plasmic-override={overrides.rateinfo}
@@ -6694,11 +6644,7 @@ generateStars(${$state.rate});
           }
           trigger={null}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__roF2E)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__roF2E)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -6710,11 +6656,7 @@ generateStars(${$state.rate});
                 "\u0627\u0645\u062a\u06cc\u0627\u0632 \u0646\u0645\u0627\u06cc\u0634 \u062f\u0627\u062f\u0647 \u0634\u062f\u0647\u060c \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \u0646\u0638\u0631\u0627\u062a \u0648 \u0627\u0645\u062a\u06cc\u0627\u0632\u0647\u0627\u06cc \u062b\u0628\u062a\u200c\u0634\u062f\u0647 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u062f\u0631 \u0646\u0638\u0631\u0633\u0646\u062c\u06cc\u200c\u0647\u0627 \u0628\u0647 \u062f\u0633\u062a \u0622\u0645\u062f\u0647 \u0648 \u0646\u0634\u0627\u0646\u200c\u062f\u0647\u0646\u062f\u0647 \u0633\u0637\u062d \u0631\u0636\u0627\u06cc\u062a \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0627\u0633\u062a."
               }
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__tdiyq)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__tdiyq)}>
               <ButtonLiom
                 data-plasmic-name={"buttonLiom4"}
                 data-plasmic-override={overrides.buttonLiom4}
@@ -6958,8 +6900,8 @@ generateStars(${$state.rate});
                   {"\u0645\u062a\u0648\u062c\u0647 \u0634\u062f\u0645"}
                 </div>
               </ButtonLiom>
-            </Stack__>
-          </Stack__>
+            </div>
+          </div>
         </AntdModal>
         <Paziresh24Dialog
           data-plasmic-name={"comments"}
@@ -7015,11 +6957,7 @@ generateStars(${$state.rate});
               })()}
               url={"https://n8n.staas.ir/webhook/selfTest_comments"}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__bUkto)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__bUkto)}>
                 {(() => {
                   try {
                     return $state.comment.data.list.length == 0;
@@ -7045,14 +6983,8 @@ generateStars(${$state.rate});
                     }
                   </div>
                 ) : null}
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__rzD9U)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                <div className={classNames(projectcss.all, sty.freeBox__rzD9U)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__t7Iz)}
                   >
                     <div
@@ -7203,7 +7135,7 @@ drawRating(${$state.rate});
                         })()}
                       </React.Fragment>
                     </div>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -7250,7 +7182,7 @@ drawRating(${$state.rate});
                       </React.Fragment>
                     )}
                   </div>
-                </Stack__>
+                </div>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -7497,7 +7429,7 @@ drawRating(${$state.rate});
                     </div>
                   );
                 })}
-              </Stack__>
+              </div>
             </ApiRequest>
           }
           className={classNames("__wab_instance", sty.comments)}

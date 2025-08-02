@@ -118,28 +118,11 @@
   flex-direction: column;
   width: 100%;
   max-width: 100%;
-  min-width: 0;
-}
-.freeBox__yjtiU > :global(.__wab_flex-container) {
-  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  column-gap: 8px;
+  row-gap: var(--token-3WxvfyIdJppy);
   min-width: 0;
-  margin-left: calc(0px - 8px);
-  width: calc(100% + 8px);
-  margin-top: calc(0px - var(--token-3WxvfyIdJppy));
-  height: calc(100% + var(--token-3WxvfyIdJppy));
-}
-.freeBox__yjtiU > :global(.__wab_flex-container) > *,
-.freeBox__yjtiU > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__yjtiU > :global(.__wab_flex-container) > picture > img,
-.freeBox__yjtiU
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 8px;
-  margin-top: var(--token-3WxvfyIdJppy);
 }
 .freeBox__rLuKm {
   width: 100px;
@@ -154,10 +137,7 @@
 .dialogTitle___9Yoe8:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  margin-top: calc(0px + var(--token-3WxvfyIdJppy)) !important;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: calc(0px + 8px) !important;
+  margin: 0px;
 }
 .h5___5Vwcw {
   width: 100%;
@@ -187,30 +167,15 @@
   display: flex;
   position: relative;
   flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
   max-height: 100%;
   margin-top: var(--token-3WxvfyIdJppy);
+  row-gap: 8px;
   min-width: 0;
-}
-.freeBox__kyPq > :global(.__wab_flex-container) {
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-top: calc(0px - 8px);
-  height: calc(100% + 8px);
-}
-.freeBox__kyPq > :global(.__wab_flex-container) > *,
-.freeBox__kyPq > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__kyPq > :global(.__wab_flex-container) > picture > img,
-.freeBox__kyPq
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 8px;
 }
 .text__moDv1 {
   width: 100%;
@@ -248,6 +213,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -255,28 +222,11 @@
   box-shadow: none;
   left: auto;
   top: auto;
+  row-gap: 5px;
   min-width: 0;
   border-radius: 8px;
   padding: 0px;
   border: 1px solid #d2d2d2;
-}
-.freeBox__uk7Bt > :global(.__wab_flex-container) {
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-top: calc(0px - 5px);
-  height: calc(100% + 5px);
-}
-.freeBox__uk7Bt > :global(.__wab_flex-container) > *,
-.freeBox__uk7Bt > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__uk7Bt > :global(.__wab_flex-container) > picture > img,
-.freeBox__uk7Bt
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 5px;
 }
 .freeBox__zxpIn {
   display: block;
@@ -454,33 +404,16 @@
 .freeBox__rpLa3 {
   flex-direction: row;
   position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
   width: auto;
   height: auto;
   max-width: 100%;
-  margin-top: calc(8px + 5px) !important;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  margin-left: 8px;
+  column-gap: 10px;
   display: none;
   border-radius: 8px;
   padding: 0px;
-}
-.freeBox__rpLa3 > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
-  margin-left: calc(0px - 10px);
-  width: calc(100% + 10px);
-}
-.freeBox__rpLa3 > :global(.__wab_flex-container) > *,
-.freeBox__rpLa3 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__rpLa3 > :global(.__wab_flex-container) > picture > img,
-.freeBox__rpLa3
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 10px;
+  margin: 8px;
 }
 .freeBox__vWmFj {
   display: flex;
@@ -491,14 +424,11 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: calc(0px + 10px) !important;
   background: #ffffff;
   min-width: 0;
   border-radius: 8px;
   padding: 0px;
+  margin: 0px;
   border-width: 2px;
   border-style: solid;
 }

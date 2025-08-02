@@ -66,8 +66,6 @@ import TabWidget from "../../TabWidget"; // plasmic-import: TgQ-n3w6yOfs/compone
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 
-import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -664,10 +662,6 @@ function PlasmicFaqPage__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariantsqiBuxNlixBgQ()
-  });
-
   return (
     <React.Fragment>
       <Head></Head>
@@ -697,21 +691,13 @@ function PlasmicFaqPage__RenderFunc(props: {
             sty.root
           )}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__v7ZDr)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__v7ZDr)}>
             <section
               data-plasmic-name={"section"}
               data-plasmic-override={overrides.section}
               className={classNames(projectcss.all, sty.section)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__ncqR)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__ncqR)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -801,7 +787,7 @@ function PlasmicFaqPage__RenderFunc(props: {
                     />
                   );
                 })}
-              </Stack__>
+              </div>
             </section>
             <div className={classNames(projectcss.all, sty.freeBox__pPbk)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -940,7 +926,7 @@ function PlasmicFaqPage__RenderFunc(props: {
                 );
               })}
             </div>
-          </Stack__>
+          </div>
         </div>
       </div>
     </React.Fragment>

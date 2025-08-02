@@ -589,9 +589,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
               })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox__kocA5)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___4Amwn)}
                 >
                   {(() => {
@@ -812,7 +810,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                       })}
                     </Reveal>
                   ) : null}
-                </Stack__>
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__rFd3T)}>
                   <div
                     className={classNames(
@@ -976,14 +974,10 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
           })() ? (
             <div className={classNames(projectcss.all, sty.freeBox__ibjdi)}>
               <div className={classNames(projectcss.all, sty.freeBox__huIeU)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___6GaOf)}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__oAtkG)}
                   >
                     <div
@@ -1022,10 +1016,8 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__bs95Y)}
                   >
                     <PlasmicImg__
@@ -1118,7 +1110,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     </div>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1142,9 +1134,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__nQuY)}
                     onClick={async event => {
                       const $steps = {};
@@ -1235,7 +1225,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.svg__bDuX)}
                       role={"img"}
                     />
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1247,9 +1237,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                       ? "\ud83d\udccc \u0644\u0637\u0641\u0627\u064b \u0627\u06cc\u0646 \u06a9\u062f \u0631\u0627 \u0647\u0646\u06af\u0627\u0645 \u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u062f\u0627\u0631\u0648\u062e\u0627\u0646\u0647 \u0627\u0631\u0627\u0626\u0647 \u062f\u0647\u06cc\u062f.\r"
                       : "\ud83d\udccc \u0644\u0637\u0641\u0627\u064b \u0627\u06cc\u0646 \u06a9\u062f \u0631\u0627 \u0647\u0646\u06af\u0627\u0645 \u0645\u0631\u0627\u062c\u0639\u0647 \u0628\u0647 \u062f\u0627\u0631\u0648\u062e\u0627\u0646\u0647 \u06cc\u0627 \u0622\u0632\u0645\u0627\u06cc\u0634\u06af\u0627\u0647 \u0627\u0631\u0627\u0626\u0647 \u062f\u0647\u06cc\u062f.\r"}
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__heU7R)}
                   >
                     {(() => {
@@ -1329,8 +1317,8 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         />
                       </div>
                     ) : null}
-                  </Stack__>
-                </Stack__>
+                  </div>
+                </div>
               </div>
             </div>
           ) : null}
@@ -1367,11 +1355,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__ddQz8)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__ddQz8)}>
               <div className={classNames(projectcss.all, sty.freeBox__kJSxJ)}>
                 <Icon118Icon
                   className={classNames(projectcss.all, sty.svg__dJVa)}
@@ -1438,7 +1422,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                   />
                 }
               />
-            </Stack__>
+            </div>
           ) : null}
         </div>
       </div>

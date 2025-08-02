@@ -262,11 +262,7 @@ function PlasmicSlider__RenderFunc(props: {
       value={generateStateValueProp($state, ["ariaSlider", "value"])}
     >
       {$props.showLabel || $props.showOutputText ? (
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox___6YxOt)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox___6YxOt)}>
           {$props.showLabel ? (
             <Label
               data-plasmic-name={"label"}
@@ -312,7 +308,7 @@ function PlasmicSlider__RenderFunc(props: {
               </React.Fragment>
             </BaseSliderOutput>
           ) : null}
-        </Stack__>
+        </div>
       ) : null}
       <div className={classNames(projectcss.all, sty.freeBox__t0KeF)}>
         <div

@@ -380,9 +380,7 @@ function PlasmicClinic__RenderFunc(props: {
             }
           )}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__uJakj, {
               [sty.freeBox_1_chatviow__uJakjlEmdG]: hasVariant(
                 $state,
@@ -413,11 +411,7 @@ function PlasmicClinic__RenderFunc(props: {
                   [sty.rectangle2_1_docter]: hasVariant($state, "_1", "docter")
                 })}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__jySlz)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__jySlz)}>
                   <div
                     data-plasmic-name={"\u0627"}
                     data-plasmic-override={overrides.ا}
@@ -472,7 +466,7 @@ function PlasmicClinic__RenderFunc(props: {
                       "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0645\u0644 \u067e\u0632\u0634\u06a9\u0627\u0646  >"
                     }
                   </div>
-                </Stack__>
+                </div>
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img___2SiF8)}
@@ -539,11 +533,7 @@ function PlasmicClinic__RenderFunc(props: {
                   }
                 }}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__o1CxK)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__o1CxK)}>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -568,7 +558,7 @@ function PlasmicClinic__RenderFunc(props: {
                       "\u067e\u06cc\u0627\u0645\u200c\u0647\u0627\u06cc \u0631\u062f \u0648 \u0628\u062f\u0644 \u0634\u062f\u0647 \u0628\u0627 \u067e\u0632\u0634\u06a9\u0627\u0646"
                     }
                   </div>
-                </Stack__>
+                </div>
                 <div
                   data-plasmic-name={"rectangle3"}
                   data-plasmic-override={overrides.rectangle3}
@@ -581,11 +571,9 @@ function PlasmicClinic__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <Stack__
-              as={"div"}
+            <div
               data-plasmic-name={"speciality"}
               data-plasmic-override={overrides.speciality}
-              hasGap={true}
               className={classNames(projectcss.all, sty.speciality, {
                 [sty.speciality_1_chatviow]: hasVariant(
                   $state,
@@ -608,11 +596,9 @@ function PlasmicClinic__RenderFunc(props: {
                 }
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__u9RA4)}>
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"card6"}
                   data-plasmic-override={overrides.card6}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card6)}
                 >
                   <Icon75Icon
@@ -629,12 +615,10 @@ function PlasmicClinic__RenderFunc(props: {
                   >
                     {"\u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc"}
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"card4"}
                   data-plasmic-override={overrides.card4}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card4)}
                 >
                   <MindSvgIcon
@@ -651,12 +635,10 @@ function PlasmicClinic__RenderFunc(props: {
                   >
                     {"\u0631\u0648\u0646\u0634\u0646\u0627\u0633\u06cc"}
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"card8"}
                   data-plasmic-override={overrides.card8}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card8)}
                 >
                   <DermisSvgIcon
@@ -673,12 +655,10 @@ function PlasmicClinic__RenderFunc(props: {
                   >
                     {"\u067e\u0648\u0633\u062a \u0648 \u0645\u0648"}
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"card5"}
                   data-plasmic-override={overrides.card5}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card5)}
                 >
                   <DietFoodSvgIcon
@@ -695,14 +675,12 @@ function PlasmicClinic__RenderFunc(props: {
                   >
                     {"\u062a\u063a\u0630\u06cc\u0647"}
                   </div>
-                </Stack__>
+                </div>
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
+            </div>
+            <div
               data-plasmic-name={"speciality2"}
               data-plasmic-override={overrides.speciality2}
-              hasGap={true}
               className={classNames(projectcss.all, sty.speciality2, {
                 [sty.speciality2_1_chatviow]: hasVariant(
                   $state,
@@ -735,16 +713,10 @@ function PlasmicClinic__RenderFunc(props: {
                   "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"
                 }
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__ziaYt)}
-              >
-                <Stack__
-                  as={"div"}
+              <div className={classNames(projectcss.all, sty.freeBox__ziaYt)}>
+                <div
                   data-plasmic-name={"card9"}
                   data-plasmic-override={overrides.card9}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card9)}
                 >
                   <div
@@ -815,12 +787,10 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     </div>
                   </ButtonLiom>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"card10"}
                   data-plasmic-override={overrides.card10}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card10)}
                 >
                   <div
@@ -891,12 +861,10 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     </div>
                   </ButtonLiom>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"card11"}
                   data-plasmic-override={overrides.card11}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card11)}
                 >
                   <div
@@ -967,14 +935,12 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     </div>
                   </ButtonLiom>
-                </Stack__>
-              </Stack__>
-            </Stack__>
-            <Stack__
-              as={"div"}
+                </div>
+              </div>
+            </div>
+            <div
               data-plasmic-name={"speciality3"}
               data-plasmic-override={overrides.speciality3}
-              hasGap={true}
               className={classNames(projectcss.all, sty.speciality3, {
                 [sty.speciality3_1_chatviow]: hasVariant(
                   $state,
@@ -1007,16 +973,10 @@ function PlasmicClinic__RenderFunc(props: {
                   "\u0645\u0634\u0627\u0648\u0631\u0647 \u0628\u06cc\u0645\u0627\u0631\u06cc\u200c\u0647\u0627\u06cc \u067e\u0648\u0633\u062a \u0648 \u0645\u0648 "
                 }
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__nnod0)}
-              >
-                <Stack__
-                  as={"div"}
+              <div className={classNames(projectcss.all, sty.freeBox__nnod0)}>
+                <div
                   data-plasmic-name={"card12"}
                   data-plasmic-override={overrides.card12}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card12)}
                 >
                   <div
@@ -1087,12 +1047,10 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     </div>
                   </ButtonLiom>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"card13"}
                   data-plasmic-override={overrides.card13}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card13)}
                 >
                   <div
@@ -1163,12 +1121,10 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     </div>
                   </ButtonLiom>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"card14"}
                   data-plasmic-override={overrides.card14}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.card14)}
                 >
                   <div
@@ -1239,9 +1195,9 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     </div>
                   </ButtonLiom>
-                </Stack__>
-              </Stack__>
-            </Stack__>
+                </div>
+              </div>
+            </div>
             <div
               className={classNames(projectcss.all, sty.freeBox__tz8K, {
                 [sty.freeBox_1_chatviow__tz8KlEmdG]: hasVariant(
@@ -1382,10 +1338,8 @@ function PlasmicClinic__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </div>
-          </Stack__>
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          </div>
+          <div
             className={classNames(projectcss.all, sty.freeBox__hHlGe, {
               [sty.freeBox_1_chatviow__hHlGelEmdG]: hasVariant(
                 $state,
@@ -1574,9 +1528,7 @@ function PlasmicClinic__RenderFunc(props: {
                 }}
               />
 
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__nsrYp, {
                   [sty.freeBox_1_chatviow__nsrYPlEmdG]: hasVariant(
                     $state,
@@ -1632,7 +1584,7 @@ function PlasmicClinic__RenderFunc(props: {
                 >
                   {"Oncologists"}
                 </div>
-              </Stack__>
+              </div>
               <div
                 className={classNames(projectcss.all, sty.freeBox__knh5G, {
                   [sty.freeBox_1_chatviow__knh5GlEmdG]: hasVariant(
@@ -1782,7 +1734,7 @@ function PlasmicClinic__RenderFunc(props: {
                 </div>
               </div>
             </div>
-          </Stack__>
+          </div>
           {(
             hasVariant($state, "_1", "chatviow")
               ? true
@@ -1790,9 +1742,7 @@ function PlasmicClinic__RenderFunc(props: {
               ? true
               : false
           ) ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__iriVs, {
                 [sty.freeBox_1_chatviow__iriVslEmdG]: hasVariant(
                   $state,
@@ -2013,9 +1963,7 @@ function PlasmicClinic__RenderFunc(props: {
                   }}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__rIpS, {
                     [sty.freeBox_1_chatviow__rIpSlEmdG]: hasVariant(
                       $state,
@@ -2073,7 +2021,7 @@ function PlasmicClinic__RenderFunc(props: {
                       ? "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f"
                       : "Oncologists"}
                   </div>
-                </Stack__>
+                </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__qG4Ar, {
                     [sty.freeBox_1_chatviow__qG4ArlEmdG]: hasVariant(
@@ -2227,7 +2175,7 @@ function PlasmicClinic__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-            </Stack__>
+            </div>
           ) : null}
           {(
             hasVariant($state, "_1", "chatviow")
@@ -2236,11 +2184,9 @@ function PlasmicClinic__RenderFunc(props: {
               ? true
               : false
           ) ? (
-            <Stack__
-              as={"div"}
+            <div
               data-plasmic-name={"doctorsDetails"}
               data-plasmic-override={overrides.doctorsDetails}
-              hasGap={true}
               className={classNames(projectcss.all, sty.doctorsDetails, {
                 [sty.doctorsDetails_1_chatviow]: hasVariant(
                   $state,
@@ -2277,11 +2223,9 @@ function PlasmicClinic__RenderFunc(props: {
                 role={"img"}
               />
 
-              <Stack__
-                as={"div"}
+              <div
                 data-plasmic-name={"bg2"}
                 data-plasmic-override={overrides.bg2}
-                hasGap={true}
                 className={classNames(projectcss.all, sty.bg2, {
                   [sty.bg2_1_chatviow]: hasVariant($state, "_1", "chatviow"),
                   [sty.bg2_1_docter]: hasVariant($state, "_1", "docter"),
@@ -2317,9 +2261,7 @@ function PlasmicClinic__RenderFunc(props: {
                   }}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___0S8W5, {
                     [sty.freeBox_1_chatviow___0S8W5LEmdG]: hasVariant(
                       $state,
@@ -2375,10 +2317,8 @@ function PlasmicClinic__RenderFunc(props: {
                   >
                     {"Viralogist"}
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox___4MCh, {
                     [sty.freeBox_1_chatviow___4MChlEmdG]: hasVariant(
                       $state,
@@ -2750,11 +2690,9 @@ function PlasmicClinic__RenderFunc(props: {
                       </div>
                     </div>
                   </div>
-                </Stack__>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+                </div>
+              </div>
+              <div
                 className={classNames(projectcss.all, sty.freeBox__lHiTa, {
                   [sty.freeBox_1_chatviow__lHiTalEmdG]: hasVariant(
                     $state,
@@ -2768,11 +2706,9 @@ function PlasmicClinic__RenderFunc(props: {
                   )
                 })}
               >
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"about"}
                   data-plasmic-override={overrides.about}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.about, {
                     [sty.about_1_chatviow]: hasVariant(
                       $state,
@@ -2834,12 +2770,10 @@ function PlasmicClinic__RenderFunc(props: {
                       ? "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f."
                       : "Dr. Bellamy Nicholas is a top specialist at London Bridge Hospital at London. He has achieved several awards and recognition for is contribution and service in his own field. He is available for private consultation. "}
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
+                </div>
+                <div
                   data-plasmic-name={"workingTime"}
                   data-plasmic-override={overrides.workingTime}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.workingTime, {
                     [sty.workingTime_1_chatviow]: hasVariant(
                       $state,
@@ -2905,8 +2839,8 @@ function PlasmicClinic__RenderFunc(props: {
                       ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0632\u0648\u062c (\u0633\u0627\u0639\u062a 9 \u0627\u0644\u06cc 15)"
                       : "Mon - Sat (08:30 AM - 09:00 PM)"}
                   </div>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
               <ButtonLiom
                 data-plasmic-name={"button"}
                 data-plasmic-override={overrides.button}
@@ -2973,7 +2907,7 @@ function PlasmicClinic__RenderFunc(props: {
                     : "Button"}
                 </div>
               </ButtonLiom>
-            </Stack__>
+            </div>
           ) : null}
           <Timer
             data-plasmic-name={"timer"}

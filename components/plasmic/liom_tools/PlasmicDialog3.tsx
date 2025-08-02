@@ -417,9 +417,7 @@ function PlasmicDialog3__RenderFunc(props: {
               method={"GET"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__sr8Bw)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__yjtiU)}
                   dir={"rtl"}
                 >
@@ -451,10 +449,8 @@ function PlasmicDialog3__RenderFunc(props: {
                       </div>
                     </h5>
                   </DialogTitle>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__kyPq)}
                   dir={"rtl"}
                 >
@@ -470,9 +466,7 @@ function PlasmicDialog3__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__hsfR)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__uk7Bt)}
                     >
                       <div
@@ -561,9 +555,7 @@ function PlasmicDialog3__RenderFunc(props: {
                           "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                         }
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__rpLa3
@@ -627,7 +619,7 @@ function PlasmicDialog3__RenderFunc(props: {
                             {"\u062a\u0627\u06cc\u06cc\u062f"}
                           </div>
                         </ButtonLiom>
-                      </Stack__>
+                      </div>
                       <ButtonLiom
                         className={classNames(
                           "__wab_instance",
@@ -679,9 +671,9 @@ function PlasmicDialog3__RenderFunc(props: {
                           "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                         }
                       </p>
-                    </Stack__>
+                    </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
             </ApiRequest>
           ),

@@ -247,11 +247,7 @@ function PlasmicNewPage2__RenderFunc(props: {
               className={classNames("__wab_instance", sty.headerLiom)}
             />
 
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__bnSmp)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__bnSmp)}>
               <Reveal
                 className={classNames("__wab_instance", sty.reveal__iHlTc)}
                 direction={"up"}
@@ -310,9 +306,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__y4Xev
@@ -364,7 +358,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </Stack__>
+                          </div>
                         </React.Fragment>
                       }
                       you={(() => {
@@ -384,12 +378,10 @@ function PlasmicNewPage2__RenderFunc(props: {
                   );
                 })}
               </Reveal>
-            </Stack__>
-            <Stack__
-              as={"div"}
+            </div>
+            <div
               data-plasmic-name={"bottomInput"}
               data-plasmic-override={overrides.bottomInput}
-              hasGap={true}
               className={classNames(projectcss.all, sty.bottomInput)}
             >
               <Reveal
@@ -618,7 +610,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                   '<input type="file" id="fileInput" accept=".jpg, .jpeg, .png">'
                 }
               />
-            </Stack__>
+            </div>
           </div>
         </div>
       </div>

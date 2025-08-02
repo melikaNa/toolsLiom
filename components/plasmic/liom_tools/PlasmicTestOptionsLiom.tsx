@@ -678,11 +678,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             throw e;
           }
         })() ? (
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__oklJv)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__oklJv)}>
             <div className={classNames(projectcss.all, sty.freeBox__vzHch)}>
               {(() => {
                 const child$Props = {
@@ -914,7 +910,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                 );
               })}
             </div>
-          </Stack__>
+          </div>
         ) : null}
         {(() => {
           try {
@@ -1388,16 +1384,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__pyLuH)}
-        >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__aSdZt)}
-          >
+        <div className={classNames(projectcss.all, sty.freeBox__pyLuH)}>
+          <div className={classNames(projectcss.all, sty.freeBox__aSdZt)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -1508,7 +1496,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                 </div>
               ) : null}
             </div>
-          </Stack__>
+          </div>
           {(() => {
             try {
               return $props.buy;
@@ -1574,7 +1562,7 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
               </div>
             </ButtonLiom>
           ) : null}
-        </Stack__>
+        </div>
       ) : null}
       {(() => {
         try {

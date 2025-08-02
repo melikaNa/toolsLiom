@@ -24,26 +24,11 @@
   max-width: 100%;
   align-self: center;
   flex-direction: column;
-  min-width: 0;
-  padding: 0px;
-}
-.freeBox__ub47T > :global(.__wab_flex-container) {
-  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  row-gap: 4px;
   min-width: 0;
-  margin-top: calc(0px - 4px);
-  height: calc(100% + 4px);
-}
-.freeBox__ub47T > :global(.__wab_flex-container) > *,
-.freeBox__ub47T > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__ub47T > :global(.__wab_flex-container) > picture > img,
-.freeBox__ub47T
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 4px;
+  padding: 0px;
 }
 .lock__hMnfl:global(.__wab_instance) {
   position: relative;

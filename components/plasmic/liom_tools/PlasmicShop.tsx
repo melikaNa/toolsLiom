@@ -288,17 +288,11 @@ function PlasmicShop__RenderFunc(props: {
                 }
               </div>
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__nCVuH)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__nCVuH)}>
               <div className={classNames(projectcss.all, sty.freeBox__kJ17Q)}>
-                <Stack__
-                  as={"ol"}
+                <ol
                   data-plasmic-name={"ol"}
                   data-plasmic-override={overrides.ol}
-                  hasGap={true}
                   className={classNames(projectcss.all, projectcss.ol, sty.ol)}
                 >
                   <li
@@ -357,15 +351,11 @@ function PlasmicShop__RenderFunc(props: {
                       "\u062a\u0648\u0635\u06cc\u0647 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u06a9\u0647 \u0628\u062a\u0648\u0646\u06cc \u0628\u0647 \u0633\u0644\u0627\u0645\u062a\u0634 \u06a9\u0645\u06a9 \u06a9\u0646\u06cc \u0648 \u062e\u0648\u0634\u062d\u0627\u0644\u0634 \u06a9\u0646\u06cc"
                     }
                   </li>
-                </Stack__>
+                </ol>
               </div>
-            </Stack__>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__gmqtV)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__n26Nd)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__n26Nd)}>
                 <div className={classNames(projectcss.all, sty.freeBox__dSNz)}>
                   <div
                     className={classNames(
@@ -489,9 +479,7 @@ function PlasmicShop__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__snyNs)}
                   >
                     <div
@@ -611,7 +599,7 @@ function PlasmicShop__RenderFunc(props: {
                         {"\u062a\u0627\u06cc\u06cc\u062f"}
                       </div>
                     </ButtonLiom>
-                  </Stack__>
+                  </div>
                 ) : null}
                 <ButtonLiom
                   data-plasmic-name={"button2"}
@@ -694,7 +682,7 @@ function PlasmicShop__RenderFunc(props: {
                     }
                   </p>
                 ) : null}
-              </Stack__>
+              </div>
             </div>
           </div>
           <ApiRequest

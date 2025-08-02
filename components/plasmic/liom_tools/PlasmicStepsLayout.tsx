@@ -175,13 +175,11 @@ function PlasmicStepsLayout__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -219,9 +217,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
           )
         })}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__rWg2R, {
             [sty.freeBoxlayout_card__rWg2R7B6JK]: hasVariant(
               $state,
@@ -423,12 +419,8 @@ function PlasmicStepsLayout__RenderFunc(props: {
               })()
             )}
           />
-        </Stack__>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__cRheE)}
-        >
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__cRheE)}>
           <div
             className={classNames(
               projectcss.all,
@@ -509,11 +501,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
             )}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox___7HfzO)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox___7HfzO)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -573,13 +561,9 @@ function PlasmicStepsLayout__RenderFunc(props: {
                 })()
               )}
             />
-          </Stack__>
-        </Stack__>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__gw83I)}
-        >
+          </div>
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__gw83I)}>
           <div
             className={classNames(
               projectcss.all,
@@ -719,11 +703,9 @@ function PlasmicStepsLayout__RenderFunc(props: {
               })()
             )}
           />
-        </Stack__>
+        </div>
       </div>
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      <div
         className={classNames(projectcss.all, sty.freeBox__x9Ogj, {
           [sty.freeBoxlayout_advice__x9OgjQaRcX]: hasVariant(
             $state,
@@ -771,11 +753,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
                   }
                 </div>
               </LineClomp>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__yCsuD)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__yCsuD)}>
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__hIwNl)}
@@ -794,14 +772,8 @@ function PlasmicStepsLayout__RenderFunc(props: {
                   }}
                 />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__vsiMn)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                <div className={classNames(projectcss.all, sty.freeBox__vsiMn)}>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___9KpYy)}
                   >
                     <div
@@ -827,7 +799,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
                     >
                       {"\u0646\u0627\u0647\u0627\u0631"}
                     </div>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -837,13 +809,13 @@ function PlasmicStepsLayout__RenderFunc(props: {
                   >
                     {"Enter some text"}
                   </div>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             </React.Fragment>
           ),
           value: args.children
         })}
-      </Stack__>
+      </div>
       {(
         hasVariant($state, "layout", "advice")
           ? true
@@ -851,9 +823,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
           ? true
           : false
       ) ? (
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__esDx6, {
             [sty.freeBoxlayout_advice__esDx6QaRcX]: hasVariant(
               $state,
@@ -901,17 +871,11 @@ function PlasmicStepsLayout__RenderFunc(props: {
                     }
                   </div>
                 </LineClomp>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__pIkQd)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__pIkQd)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__vx0Gt)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__vjE1W)}
                     >
                       <div
@@ -930,21 +894,17 @@ function PlasmicStepsLayout__RenderFunc(props: {
                       >
                         {"Enter some text"}
                       </div>
-                    </Stack__>
+                    </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__mywWb)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__dgSzw
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__eKri
@@ -959,16 +919,16 @@ function PlasmicStepsLayout__RenderFunc(props: {
                           >
                             {"Enter some text"}
                           </div>
-                        </Stack__>
-                      </Stack__>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </Stack__>
+                </div>
               </React.Fragment>
             ),
             value: args.slot2
           })}
-        </Stack__>
+        </div>
       ) : null}
       {(
         hasVariant($state, "layout", "banner")
@@ -977,9 +937,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
           ? true
           : false
       ) ? (
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__fczet, {
             [sty.freeBoxlayout_banner__fczetqHmk]: hasVariant(
               $state,
@@ -1022,9 +980,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
                     }
                   </div>
                 </LineClomp>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___2SydY)}
                 >
                   <div
@@ -1064,14 +1020,14 @@ function PlasmicStepsLayout__RenderFunc(props: {
                       </div>
                     </div>
                   </div>
-                </Stack__>
+                </div>
               </React.Fragment>
             ),
             value: args.slot
           })}
-        </Stack__>
+        </div>
       ) : null}
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 

@@ -199,11 +199,7 @@ function PlasmicLinearCalendar__RenderFunc(props: {
       {renderPlasmicSlot({
         defaultContents: (
           <React.Fragment>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__ub47T)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__ub47T)}>
               <Lock
                 className={classNames("__wab_instance", sty.lock__hMnfl)}
                 open={(() => {
@@ -260,7 +256,7 @@ function PlasmicLinearCalendar__RenderFunc(props: {
               >
                 <React.Fragment>{$props.title}</React.Fragment>
               </div>
-            </Stack__>
+            </div>
             <div
               className={classNames(
                 projectcss.all,

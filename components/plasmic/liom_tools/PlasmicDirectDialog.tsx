@@ -500,17 +500,11 @@ function PlasmicDirectDialog__RenderFunc(props: {
           url={"https://n8n.staas.ir/webhook/rest/shop/list"}
         >
           <div className={classNames(projectcss.all, sty.freeBox__y0Qik)}>
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox___7M4Vv)}
               dir={"rtl"}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__nNvcc)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__nNvcc)}>
                 <PlasmicImg__
                   data-plasmic-name={"img"}
                   data-plasmic-override={overrides.img}
@@ -554,7 +548,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-              </Stack__>
+              </div>
               <div
                 className={classNames(
                   projectcss.all,
@@ -607,19 +601,13 @@ function PlasmicDirectDialog__RenderFunc(props: {
                   }}
                 />
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            </div>
+            <div
               className={classNames(projectcss.all, sty.freeBox___1D3Kf)}
               dir={"rtl"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__a7L8L)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__qaKgd)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__qaKgd)}>
                   {(() => {
                     try {
                       return $state.topShop.topBadge;
@@ -802,9 +790,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                       "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                     }
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__exxwy)}
                   >
                     <div
@@ -928,7 +914,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                         {"\u062a\u0627\u06cc\u06cc\u062f"}
                       </div>
                     </ButtonLiom>
-                  </Stack__>
+                  </div>
                   <ButtonLiom
                     data-plasmic-name={"button8"}
                     data-plasmic-override={overrides.button8}
@@ -1302,9 +1288,9 @@ function PlasmicDirectDialog__RenderFunc(props: {
                       }
                     </p>
                   ) : null}
-                </Stack__>
+                </div>
               </div>
-            </Stack__>
+            </div>
           </div>
           <Dialog3
             data-plasmic-name={"dialog2"}
@@ -1329,16 +1315,8 @@ function PlasmicDirectDialog__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__abnMs)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___8UgJd)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__abnMs)}>
+              <div className={classNames(projectcss.all, sty.freeBox___8UgJd)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -1650,7 +1628,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                     );
                   })();
                 })}
-              </Stack__>
+              </div>
               <ButtonLiom
                 data-plasmic-name={"button9"}
                 data-plasmic-override={overrides.button9}
@@ -1914,7 +1892,7 @@ function PlasmicDirectDialog__RenderFunc(props: {
                   {"\u067e\u0631\u062f\u0627\u062e\u062a"}
                 </div>
               </ButtonLiom>
-            </Stack__>
+            </div>
           </Dialog3>
         </ApiRequest>
       </Dialog3>

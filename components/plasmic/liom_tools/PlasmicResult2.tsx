@@ -650,9 +650,7 @@ function PlasmicResult2__RenderFunc(props: {
               })()}
             >
               <div className={classNames(projectcss.all, sty.freeBox__c9Q9A)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___2Ok0N)}
                 >
                   {(() => {
@@ -873,7 +871,7 @@ function PlasmicResult2__RenderFunc(props: {
                       })}
                     </Reveal>
                   ) : null}
-                </Stack__>
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__haj3X)}>
                   <div
                     className={classNames(
@@ -1112,11 +1110,7 @@ function PlasmicResult2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___0NwZ)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox___0NwZ)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -1175,9 +1169,7 @@ function PlasmicResult2__RenderFunc(props: {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__ihUy8)}
                       key={currentIndex}
                       style={(() => {
@@ -1214,17 +1206,13 @@ function PlasmicResult2__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox___3Jd6Q
                           )}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__xMnIz
@@ -1328,8 +1316,8 @@ function PlasmicResult2__RenderFunc(props: {
                                 </div>
                               </PercentageBox>
                             ) : null}
-                          </Stack__>
-                        </Stack__>
+                          </div>
+                        </div>
                       ) : null}
                       {(() => {
                         try {
@@ -1642,7 +1630,7 @@ function PlasmicResult2__RenderFunc(props: {
                           }
                         </div>
                       ) : null}
-                    </Stack__>
+                    </div>
                   );
                 })}
                 {(() => {
@@ -1661,9 +1649,7 @@ function PlasmicResult2__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__rjqwt)}
                     onClick={async event => {
                       const $steps = {};
@@ -1734,7 +1720,7 @@ function PlasmicResult2__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.svg__g7TJn)}
                       role={"img"}
                     />
-                  </Stack__>
+                  </div>
                 ) : null}
                 {(() => {
                   try {
@@ -1756,9 +1742,7 @@ function PlasmicResult2__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__ny5Vk)}
                     onClick={async event => {
                       const $steps = {};
@@ -1840,7 +1824,7 @@ function PlasmicResult2__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.svg__gnjog)}
                       role={"img"}
                     />
-                  </Stack__>
+                  </div>
                 ) : null}
               </div>
               {(() => {
@@ -1952,7 +1936,7 @@ function PlasmicResult2__RenderFunc(props: {
                   </div>
                 </ButtonLiom>
               ) : null}
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -1969,11 +1953,7 @@ function PlasmicResult2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___1UqWv)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox___1UqWv)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -2014,9 +1994,7 @@ function PlasmicResult2__RenderFunc(props: {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___4OlOf)}
                     key={currentIndex}
                   >
@@ -2046,9 +2024,7 @@ function PlasmicResult2__RenderFunc(props: {
                         }
                       })()}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__ijIYu
@@ -2161,7 +2137,7 @@ function PlasmicResult2__RenderFunc(props: {
                             </div>
                           </PercentageBox>
                         ) : null}
-                      </Stack__>
+                      </div>
                       {(() => {
                         try {
                           return $ctx.query.Share != "true";
@@ -2744,10 +2720,10 @@ function PlasmicResult2__RenderFunc(props: {
                         </div>
                       ) : null}
                     </div>
-                  </Stack__>
+                  </div>
                 );
               })}
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -2764,11 +2740,7 @@ function PlasmicResult2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__aRMhm)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__aRMhm)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -2886,18 +2858,14 @@ function PlasmicResult2__RenderFunc(props: {
                     const currentItem = __plasmic_item_0;
                     const currentIndex = __plasmic_idx_0;
                     return (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__zuW5
                         )}
                         key={currentIndex}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__tBmKi
@@ -2925,9 +2893,7 @@ function PlasmicResult2__RenderFunc(props: {
                             }
                           })()}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__jAg73
@@ -3120,7 +3086,7 @@ function PlasmicResult2__RenderFunc(props: {
                                 </div>
                               </PercentageBox>
                             ) : null}
-                          </Stack__>
+                          </div>
                           {(() => {
                             try {
                               return $ctx.query.Share != "true";
@@ -3141,13 +3107,13 @@ function PlasmicResult2__RenderFunc(props: {
                               )}
                             />
                           ) : null}
-                        </Stack__>
-                      </Stack__>
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
               ) : null}
-            </Stack__>
+            </div>
           ) : null}
           <ApiRequest
             data-plasmic-name={"apiRequest"}
@@ -3215,11 +3181,7 @@ function PlasmicResult2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__qNoT1)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__qNoT1)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -3259,7 +3221,7 @@ function PlasmicResult2__RenderFunc(props: {
                   />
                 </div>
               </div>
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -3276,11 +3238,7 @@ function PlasmicResult2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__xFt98)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__xFt98)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -3292,11 +3250,7 @@ function PlasmicResult2__RenderFunc(props: {
                   "\u0622\u06cc\u0627 \u0627\u0632 \u0646\u062a\u06cc\u062c\u0647 \u062a\u0633\u062a \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc \u061f"
                 }
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__bkSwF)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__bkSwF)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -3427,7 +3381,7 @@ function PlasmicResult2__RenderFunc(props: {
                     </Stars>
                   );
                 })}
-              </Stack__>
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__fv5Sb)}>
                 {false
                   ? (() => {
@@ -3736,7 +3690,7 @@ function PlasmicResult2__RenderFunc(props: {
                   />
                 }
               />
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -3846,9 +3800,7 @@ function PlasmicResult2__RenderFunc(props: {
                     const currentItem = __plasmic_item_0;
                     const currentIndex = __plasmic_idx_0;
                     return (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__tIdzU
@@ -3916,9 +3868,7 @@ function PlasmicResult2__RenderFunc(props: {
                                 sty.freeBox__rPsC4
                               )}
                             >
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox___6P5Xq
@@ -4038,9 +3988,7 @@ function PlasmicResult2__RenderFunc(props: {
                                     </React.Fragment>
                                   </span>
                                 </Paziresh24LineClamp>
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__g3741
@@ -4110,8 +4058,8 @@ function PlasmicResult2__RenderFunc(props: {
                                       })()}
                                     </React.Fragment>
                                   </span>
-                                </Stack__>
-                              </Stack__>
+                                </div>
+                              </div>
                             </div>
                           </div>
                           <Alert
@@ -4228,7 +4176,7 @@ function PlasmicResult2__RenderFunc(props: {
                             }
                           />
                         </HamdastUtilsOpenLink>
-                      </Stack__>
+                      </div>
                     );
                   })}
                 </div>
@@ -4270,11 +4218,7 @@ function PlasmicResult2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__yd4Gk)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__yd4Gk)}>
               <div className={classNames(projectcss.all, sty.freeBox__a0Ul1)}>
                 <Icon118Icon
                   className={classNames(projectcss.all, sty.svg__l54T)}
@@ -4342,7 +4286,7 @@ function PlasmicResult2__RenderFunc(props: {
                   />
                 }
               />
-            </Stack__>
+            </div>
           ) : null}
           {(() => {
             try {
@@ -4362,9 +4306,7 @@ function PlasmicResult2__RenderFunc(props: {
               data-plasmic-override={overrides.section}
               className={classNames(projectcss.all, sty.section)}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__lGcGd, {
                   [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant__lGcGdYcZU]:
                     hasVariant(
@@ -4804,23 +4746,15 @@ function PlasmicResult2__RenderFunc(props: {
                   }
                   startIcon={null}
                 />
-              </Stack__>
+              </div>
             </section>
           ) : null}
           <Paziresh24Dialog
             data-plasmic-name={"dialog2"}
             data-plasmic-override={overrides.dialog2}
             body={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__iESwE)}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__uTga)}
-                >
+              <div className={classNames(projectcss.all, sty.freeBox__iESwE)}>
+                <div className={classNames(projectcss.all, sty.freeBox__uTga)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -4918,7 +4852,7 @@ function PlasmicResult2__RenderFunc(props: {
                       </Stars>
                     );
                   })}
-                </Stack__>
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__qTs6)}>
                   {(() => {
                     const child$Props = {
@@ -5263,7 +5197,7 @@ function PlasmicResult2__RenderFunc(props: {
                     />
                   }
                 />
-              </Stack__>
+              </div>
             }
             className={classNames("__wab_instance", sty.dialog2)}
             onOpenChange={async (...eventArgs: any) => {
@@ -5301,11 +5235,7 @@ function PlasmicResult2__RenderFunc(props: {
             data-plasmic-name={"dialog3"}
             data-plasmic-override={overrides.dialog3}
             body={
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__iTfRj)}
-              />
+              <div className={classNames(projectcss.all, sty.freeBox__iTfRj)} />
             }
             className={classNames("__wab_instance", sty.dialog3)}
             onOpenChange={async (...eventArgs: any) => {

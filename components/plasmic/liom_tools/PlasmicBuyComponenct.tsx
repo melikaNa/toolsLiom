@@ -131,13 +131,11 @@ function PlasmicBuyComponenct__RenderFunc(props: {
   const currentUser = useCurrentUser?.() || {};
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -180,7 +178,7 @@ function PlasmicBuyComponenct__RenderFunc(props: {
           "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0644\u0637\u0641\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
         }
       </div>
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 

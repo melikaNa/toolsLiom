@@ -4,26 +4,15 @@
   display: flex;
   overflow: hidden;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   border-bottom-width: 0.1rem;
   border-bottom-style: solid;
   background: #ffffff;
   position: relative;
+  column-gap: 10px;
   min-width: 0;
   padding: 8px;
-}
-.top > :global(.__wab_flex-container) {
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  min-width: 0;
-  margin-left: calc(0px - 10px);
-  width: calc(100% + 10px);
-}
-.top > :global(.__wab_flex-container) > *,
-.top > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.top > :global(.__wab_flex-container) > picture > img,
-.top > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-left: 10px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .top {

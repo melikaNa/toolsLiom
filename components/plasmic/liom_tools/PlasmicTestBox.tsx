@@ -152,11 +152,9 @@ function PlasmicTestBox__RenderFunc(props: {
         sty.root
       )}
     >
-      <Stack__
-        as={"div"}
+      <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        hasGap={true}
         className={classNames(projectcss.all, sty.freeBox)}
       >
         <Icon110Icon
@@ -177,7 +175,7 @@ function PlasmicTestBox__RenderFunc(props: {
         >
           {"Enter some text"}
         </div>
-      </Stack__>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }

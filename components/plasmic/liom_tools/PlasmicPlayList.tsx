@@ -534,9 +534,7 @@ function PlasmicPlayList__RenderFunc(props: {
               />
 
               <div className={classNames(projectcss.all, sty.freeBox__bvmsB)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___8Ylvt)}
                 >
                   <div
@@ -566,7 +564,7 @@ function PlasmicPlayList__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   </div>
-                </Stack__>
+                </div>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -592,11 +590,7 @@ function PlasmicPlayList__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___847M)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox___847M)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -615,9 +609,7 @@ function PlasmicPlayList__RenderFunc(props: {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__z5IF)}
                     key={currentIndex}
                     onClick={async event => {
@@ -718,9 +710,7 @@ function PlasmicPlayList__RenderFunc(props: {
                       })()}
                     />
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__dmU5J)}
                     >
                       <div
@@ -818,11 +808,11 @@ function PlasmicPlayList__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </LineClomp>
-                    </Stack__>
-                  </Stack__>
+                    </div>
+                  </div>
                 );
               })}
-            </Stack__>
+            </div>
           </div>
           <Embed
             data-plasmic-name={"favicon"}

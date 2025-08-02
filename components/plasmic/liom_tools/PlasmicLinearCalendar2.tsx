@@ -251,9 +251,7 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
             />
           </div>
         ) : null}
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__andKa, {
             [sty.freeBoxdark__andKaRiNjQ]: hasVariant($state, "dark", "dark")
           })}
@@ -271,9 +269,7 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox__pTv54, {
                 [sty.freeBoxdark__pTv54RiNjQ]: hasVariant(
                   $state,
@@ -346,7 +342,7 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
                   })()}
                 />
               ) : null}
-            </Stack__>
+            </div>
           ) : null}
           <div
             className={classNames(
@@ -364,7 +360,7 @@ function PlasmicLinearCalendar2__RenderFunc(props: {
               }}
             />
           </div>
-        </Stack__>
+        </div>
         {(() => {
           try {
             return $props.isShowDate;

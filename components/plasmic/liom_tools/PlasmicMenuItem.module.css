@@ -31,29 +31,12 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  min-width: 0;
-  padding: var(--token-v9UFcd2_ClYT) var(--token-4aPuAYbF3VsF);
-}
-.freeBox___7TIt0 > :global(.__wab_flex-container) {
-  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  column-gap: 2px;
+  row-gap: var(--token-s5B1n5jFAIZn);
   min-width: 0;
-  margin-left: calc(0px - 2px);
-  width: calc(100% + 2px);
-  margin-top: calc(0px - var(--token-s5B1n5jFAIZn));
-  height: calc(100% + var(--token-s5B1n5jFAIZn));
-}
-.freeBox___7TIt0 > :global(.__wab_flex-container) > *,
-.freeBox___7TIt0 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox___7TIt0 > :global(.__wab_flex-container) > picture > img,
-.freeBox___7TIt0
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 2px;
-  margin-top: var(--token-s5B1n5jFAIZn);
+  padding: var(--token-v9UFcd2_ClYT) var(--token-4aPuAYbF3VsF);
 }
 .freeBox__ya6EM {
   position: relative;

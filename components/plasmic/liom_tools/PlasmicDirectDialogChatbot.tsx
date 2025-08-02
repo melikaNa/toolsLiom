@@ -502,17 +502,11 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
           url={"https://n8n.staas.ir/webhook/chatBot/shop/items"}
         >
           <div className={classNames(projectcss.all, sty.freeBox__l6VHh)}>
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox___6Fv8D)}
               dir={"rtl"}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__jj9Qx)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__jj9Qx)}>
                 <PlasmicImg__
                   data-plasmic-name={"img"}
                   data-plasmic-override={overrides.img}
@@ -556,7 +550,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-              </Stack__>
+              </div>
               <div
                 className={classNames(
                   projectcss.all,
@@ -609,17 +603,13 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                   }}
                 />
               </div>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            </div>
+            <div
               className={classNames(projectcss.all, sty.freeBox__h3Ci)}
               dir={"rtl"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__rAh1S)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___1RpXa)}
                 >
                   {(() => {
@@ -801,9 +791,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                       "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                     }
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__f3IyA)}
                   >
                     <div
@@ -927,7 +915,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         {"\u062a\u0627\u06cc\u06cc\u062f"}
                       </div>
                     </ButtonLiom>
-                  </Stack__>
+                  </div>
                   <ButtonLiom
                     data-plasmic-name={"button8"}
                     data-plasmic-override={overrides.button8}
@@ -1313,9 +1301,9 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                       }
                     </p>
                   ) : null}
-                </Stack__>
+                </div>
               </div>
-            </Stack__>
+            </div>
           </div>
           <Dialog3
             data-plasmic-name={"dialog2"}
@@ -1340,16 +1328,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__qhtTr)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___8LesT)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox__qhtTr)}>
+              <div className={classNames(projectcss.all, sty.freeBox___8LesT)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -1661,7 +1641,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                     );
                   })();
                 })}
-              </Stack__>
+              </div>
               <ButtonLiom
                 data-plasmic-name={"button9"}
                 data-plasmic-override={overrides.button9}
@@ -1937,7 +1917,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                   {"\u067e\u0631\u062f\u0627\u062e\u062a"}
                 </div>
               </ButtonLiom>
-            </Stack__>
+            </div>
           </Dialog3>
         </ApiRequest>
       </Dialog3>

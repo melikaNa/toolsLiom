@@ -367,29 +367,14 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
+  column-gap: 12px;
   min-width: 0;
   padding: 0px;
-}
-.freeBox__slOek > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  margin-left: calc(0px - 12px);
-  width: calc(100% + 12px);
-}
-.freeBox__slOek > :global(.__wab_flex-container) > *,
-.freeBox__slOek > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__slOek > :global(.__wab_flex-container) > picture > img,
-.freeBox__slOek
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 12px;
 }
 .freeBox__pcRfB {
   display: flex;
@@ -496,30 +481,15 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
+  column-gap: 12px;
   min-width: 0;
   padding: 0px;
   margin: 0px;
-}
-.freeBox__dmEc7 > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  margin-left: calc(0px - 12px);
-  width: calc(100% + 12px);
-}
-.freeBox__dmEc7 > :global(.__wab_flex-container) > *,
-.freeBox__dmEc7 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__dmEc7 > :global(.__wab_flex-container) > picture > img,
-.freeBox__dmEc7
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 12px;
 }
 .freeBox__lTbb5 {
   display: flex;
@@ -628,29 +598,14 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
+  column-gap: 12px;
   min-width: 0;
   padding: 0px;
-}
-.freeBox__pw5Fd > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  margin-left: calc(0px - 12px);
-  width: calc(100% + 12px);
-}
-.freeBox__pw5Fd > :global(.__wab_flex-container) > *,
-.freeBox__pw5Fd > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__pw5Fd > :global(.__wab_flex-container) > picture > img,
-.freeBox__pw5Fd
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 12px;
 }
 .freeBox__cMl9W {
   display: flex;

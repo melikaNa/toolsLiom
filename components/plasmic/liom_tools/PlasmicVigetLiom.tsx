@@ -132,13 +132,11 @@ function PlasmicVigetLiom__RenderFunc(props: {
   const currentUser = useCurrentUser?.() || {};
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -174,7 +172,7 @@ function PlasmicVigetLiom__RenderFunc(props: {
         ),
         value: args.children
       })}
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 

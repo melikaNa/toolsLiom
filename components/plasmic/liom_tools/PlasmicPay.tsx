@@ -516,11 +516,7 @@ function PlasmicPay__RenderFunc(props: {
                   </span>
                 </React.Fragment>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__slOek)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__slOek)}>
                 <div className={classNames(projectcss.all, sty.freeBox__pcRfB)}>
                   <PlasmicImg__
                     alt={""}
@@ -618,17 +614,13 @@ function PlasmicPay__RenderFunc(props: {
                     }
                   </div>
                 </div>
-              </Stack__>
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__aAnLz)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__eActP)}
                 />
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__dmEc7)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__dmEc7)}>
                 <div className={classNames(projectcss.all, sty.freeBox__lTbb5)}>
                   <div
                     className={classNames(
@@ -699,17 +691,13 @@ function PlasmicPay__RenderFunc(props: {
                     }}
                   />
                 </div>
-              </Stack__>
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__g1RZr)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__clZl1)}
                 />
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__pw5Fd)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__pw5Fd)}>
                 <div className={classNames(projectcss.all, sty.freeBox__cMl9W)}>
                   <PlasmicImg__
                     alt={""}
@@ -763,7 +751,7 @@ function PlasmicPay__RenderFunc(props: {
                     }
                   </div>
                 </div>
-              </Stack__>
+              </div>
             </div>
             <section
               data-plasmic-name={"section"}

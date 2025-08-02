@@ -452,11 +452,7 @@ function PlasmicTodoApp__RenderFunc(props: {
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__zvGx)} />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox___9Gu6C)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox___9Gu6C)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -477,7 +473,7 @@ function PlasmicTodoApp__RenderFunc(props: {
             >
               {"\u0627\u0646\u062c\u0627\u0645 \u062a\u0633\u062a"}
             </div>
-          </Stack__>
+          </div>
         </div>
       </div>
     </React.Fragment>

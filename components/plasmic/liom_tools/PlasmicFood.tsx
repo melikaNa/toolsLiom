@@ -1021,16 +1021,8 @@ function PlasmicFood__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___0DjR)}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__jbni)}
-              >
+            <div className={classNames(projectcss.all, sty.freeBox___0DjR)}>
+              <div className={classNames(projectcss.all, sty.freeBox__jbni)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -1053,13 +1045,9 @@ function PlasmicFood__RenderFunc(props: {
                     "\u062a\u0648 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062a\u0639\u062f\u0627\u062f \u063a\u0630\u0627\u0647\u0627\u06cc \u0645\u0636\u0631 \u0647\u0641\u062a\u0647 \u067e\u06cc\u0634\u062a \u0631\u0648 \u0628\u0628\u06cc\u0646\u06cc\u060c \u0628\u0647\u0634 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u06cc \u0648 \u0628\u0627 \u0642\u062f\u0645 \u0647\u0627\u06cc \u06a9\u0648\u0686\u06cc\u06a9 \u0647\u0631 \u0647\u0641\u062a\u0647  \u0628\u0647\u062a\u0631 \u0628\u0634\u06cc!"
                   }
                 </div>
-              </Stack__>
+              </div>
               <div className={classNames(projectcss.all, sty.freeBox__utBjv)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__uHcEv)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__uHcEv)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__i3Hj6)}
                   >
@@ -1079,9 +1067,7 @@ function PlasmicFood__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__oCix)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___4QtrU
@@ -1096,7 +1082,7 @@ function PlasmicFood__RenderFunc(props: {
                         >
                           {"BMI"}
                         </div>
-                      </Stack__>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
@@ -1195,9 +1181,7 @@ function PlasmicFood__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__lsov6)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__cnAcm
@@ -1214,7 +1198,7 @@ function PlasmicFood__RenderFunc(props: {
                             "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \n\u0647\u0641\u062a\u0647 \u0642\u0628\u0644"
                           }
                         </div>
-                      </Stack__>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
@@ -1276,9 +1260,7 @@ function PlasmicFood__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__tTkLm)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__hUBbh
@@ -1361,9 +1343,7 @@ function PlasmicFood__RenderFunc(props: {
                           ])}
                         />
 
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__gmu2L
@@ -1541,9 +1521,7 @@ function PlasmicFood__RenderFunc(props: {
                                     </React.Fragment>
                                   </div>
                                 </div>
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__afd8W
@@ -1620,13 +1598,11 @@ function PlasmicFood__RenderFunc(props: {
                                       />
                                     );
                                   })()}
-                                </Stack__>
+                                </div>
                               </div>
                             );
                           })}
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__khxA
@@ -1645,9 +1621,7 @@ function PlasmicFood__RenderFunc(props: {
                                 throw e;
                               }
                             })() ? (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__laZhk
@@ -1777,10 +1751,10 @@ function PlasmicFood__RenderFunc(props: {
                                     })()}
                                   </React.Fragment>
                                 </div>
-                              </Stack__>
+                              </div>
                             ) : null}
-                          </Stack__>
-                        </Stack__>
+                          </div>
+                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -1928,7 +1902,7 @@ function PlasmicFood__RenderFunc(props: {
                             </div>
                           </ButtonLiom>
                         </div>
-                      </Stack__>
+                      </div>
                     </div>
                   </AntdModal>
                   {(() => {
@@ -2033,25 +2007,19 @@ function PlasmicFood__RenderFunc(props: {
                                 throw e;
                               }
                             })() ? (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__ymxpu
                                 )}
                               >
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__pzmAw
                                   )}
                                 >
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__cZt8
@@ -2068,10 +2036,8 @@ function PlasmicFood__RenderFunc(props: {
                                         "\u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u062a\u0648 \u067e\u0631 \u06a9\u0646 \u062a\u0627 \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645 \u0648 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0645\u0633\u06cc\u0631\u0648 \u062f\u0646\u0628\u0627\u0644 \u06a9\u0646\u06cc\u0645. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u0647\u0645\u0631\u0627\u0647\u062a \u0647\u0633\u062a\u06cc\u0645 \u062a\u0627 \u0632\u0646\u062f\u06af\u06cc \u0633\u0627\u0644\u0645\u200c\u062a\u0631\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc! \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31"
                                       }
                                     </div>
-                                  </Stack__>
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  </div>
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__pX8U6
@@ -2092,9 +2058,7 @@ function PlasmicFood__RenderFunc(props: {
                                       >
                                         {"\u0642\u062f"}
                                       </div>
-                                      <Stack__
-                                        as={"div"}
-                                        hasGap={true}
+                                      <div
                                         className={classNames(
                                           projectcss.all,
                                           sty.freeBox__rBcTm
@@ -2133,7 +2097,7 @@ function PlasmicFood__RenderFunc(props: {
                                             })()}
                                           </React.Fragment>
                                         </div>
-                                      </Stack__>
+                                      </div>
                                       <div
                                         className={classNames(
                                           projectcss.all,
@@ -2300,18 +2264,14 @@ function PlasmicFood__RenderFunc(props: {
                                         })()}
                                       </div>
                                     </div>
-                                  </Stack__>
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  </div>
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__zqYyn
                                     )}
                                   >
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__vneo6
@@ -2332,9 +2292,7 @@ function PlasmicFood__RenderFunc(props: {
                                         >
                                           {"\u0633\u0646"}
                                         </div>
-                                        <Stack__
-                                          as={"div"}
-                                          hasGap={true}
+                                        <div
                                           className={classNames(
                                             projectcss.all,
                                             sty.freeBox__m4ZkT
@@ -2554,12 +2512,10 @@ function PlasmicFood__RenderFunc(props: {
                                             }}
                                             role={"img"}
                                           />
-                                        </Stack__>
+                                        </div>
                                       </div>
-                                    </Stack__>
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    </div>
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__fQucr
@@ -2580,9 +2536,7 @@ function PlasmicFood__RenderFunc(props: {
                                         >
                                           {"\u0648\u0632\u0646 ( kg )"}
                                         </div>
-                                        <Stack__
-                                          as={"div"}
-                                          hasGap={true}
+                                        <div
                                           className={classNames(
                                             projectcss.all,
                                             sty.freeBox__hrLrv
@@ -2753,21 +2707,17 @@ function PlasmicFood__RenderFunc(props: {
                                             }}
                                             role={"img"}
                                           />
-                                        </Stack__>
+                                        </div>
                                       </div>
-                                    </Stack__>
-                                  </Stack__>
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                    </div>
+                                  </div>
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__xXlFi
                                     )}
                                   >
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
+                                    <div
                                       className={classNames(
                                         projectcss.all,
                                         sty.freeBox__n5Kbz
@@ -3085,9 +3035,9 @@ function PlasmicFood__RenderFunc(props: {
                                           </AntdRadio>
                                         </AntdRadioGroup>
                                       </div>
-                                    </Stack__>
-                                  </Stack__>
-                                </Stack__>
+                                    </div>
+                                  </div>
+                                </div>
                                 <ButtonLiom
                                   data-plasmic-name={"button3"}
                                   data-plasmic-override={overrides.button3}
@@ -3275,7 +3225,7 @@ function PlasmicFood__RenderFunc(props: {
                                     sty.freeBox__mDd0G
                                   )}
                                 />
-                              </Stack__>
+                              </div>
                             ) : null}
                           </Reveal>
                           <Reveal
@@ -3299,17 +3249,13 @@ function PlasmicFood__RenderFunc(props: {
                                 throw e;
                               }
                             })() ? (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__wi5Gv
                                 )}
                               >
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__xFqsh
@@ -3453,17 +3399,13 @@ function PlasmicFood__RenderFunc(props: {
                                                 })()}
                                               </React.Fragment>
                                             </div>
-                                            <Stack__
-                                              as={"div"}
-                                              hasGap={true}
+                                            <div
                                               className={classNames(
                                                 projectcss.all,
                                                 sty.freeBox__uo62P
                                               )}
                                             >
-                                              <Stack__
-                                                as={"div"}
-                                                hasGap={true}
+                                              <div
                                                 className={classNames(
                                                   projectcss.all,
                                                   sty.freeBox__eKThJ
@@ -3732,14 +3674,14 @@ function PlasmicFood__RenderFunc(props: {
                                                   }}
                                                   role={"img"}
                                                 />
-                                              </Stack__>
-                                            </Stack__>
+                                              </div>
+                                            </div>
                                           </div>
                                         );
                                       }
                                     )}
                                   </div>
-                                </Stack__>
+                                </div>
                                 <ButtonLiom
                                   data-plasmic-name={"button5"}
                                   data-plasmic-override={overrides.button5}
@@ -3904,7 +3846,7 @@ function PlasmicFood__RenderFunc(props: {
                                     sty.freeBox__cjihG
                                   )}
                                 />
-                              </Stack__>
+                              </div>
                             ) : null}
                           </Reveal>
                           <Reveal
@@ -3928,17 +3870,13 @@ function PlasmicFood__RenderFunc(props: {
                                 throw e;
                               }
                             })() ? (
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__b1XBj
                                 )}
                               >
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__jsDa
@@ -3962,9 +3900,7 @@ function PlasmicFood__RenderFunc(props: {
                                     }}
                                   />
 
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
+                                  <div
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__uLvJd
@@ -3992,8 +3928,8 @@ function PlasmicFood__RenderFunc(props: {
                                         "\u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0647\u062f\u0641\u0645\u0648\u0646 \u0627\u06cc\u0646\u0647 \u06a9\u0647 \u06a9\u0645\u06a9\u062a \u06a9\u0646\u06cc\u0645 \u0639\u0627\u062f\u062a \u0647\u0627\u06cc \u0628\u062f \u063a\u0630\u0627\u06cc\u06cc \u0631\u0648 \u06a9\u0646\u0627\u0631 \u0628\u0630\u0627\u0631\u06cc \u0648 \u0628\u0647 \u0645\u0631\u0648\u0631 \u0639\u0627\u062f\u062a\u200c\u0647\u0627\u06cc \u063a\u0630\u0627\u06cc\u06cc \u0628\u0647\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646\u06cc. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u0645\u06cc\u200c\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631\u062a\u06cc\u0645 \u062a\u0627 \u062a\u062c\u0631\u0628\u0647\u200c\u06cc \u06cc\u06a9 \u062a\u063a\u06cc\u06cc\u0631 \u0645\u062b\u0628\u062a \u0648 \u0645\u0627\u0646\u062f\u06af\u0627\u0631 \u0631\u0648 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc. \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31\n\n\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639\u060c \u0686\u0646\u062f \u0633\u0648\u0627\u0644 \u0633\u0627\u062f\u0647 \u062f\u0627\u0631\u06cc\u0645. \u0622\u0645\u0627\u062f\u0647\u200c\u0627\u06cc\u061f \ud83d\ude03"
                                       }
                                     </div>
-                                  </Stack__>
-                                </Stack__>
+                                  </div>
+                                </div>
                                 <ButtonLiom
                                   data-plasmic-name={"button6"}
                                   data-plasmic-override={overrides.button6}
@@ -4096,14 +4032,14 @@ function PlasmicFood__RenderFunc(props: {
                                     sty.freeBox__yo5R
                                   )}
                                 />
-                              </Stack__>
+                              </div>
                             ) : null}
                           </Reveal>
                         </div>
                       </AntdModal>
                     );
                   })()}
-                </Stack__>
+                </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__boEwk)}
                   onClick={async event => {
@@ -5137,11 +5073,7 @@ function PlasmicFood__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__bmVx)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__bmVx)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -5372,9 +5304,7 @@ function PlasmicFood__RenderFunc(props: {
                           role={"img"}
                         />
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__s8KJi
@@ -5792,7 +5722,7 @@ function PlasmicFood__RenderFunc(props: {
                             role={"img"}
                           />
                         ) : null}
-                      </Stack__>
+                      </div>
                     </div>
                   );
                 })}
@@ -5893,8 +5823,8 @@ function PlasmicFood__RenderFunc(props: {
                     }
                   </div>
                 </ButtonLiom>
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
           ) : null}
           <SlideinModal
             data-plasmic-name={"slideinModal"}
@@ -5916,11 +5846,7 @@ function PlasmicFood__RenderFunc(props: {
               }
             }}
           >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__p0FBt)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__p0FBt)}>
               <div
                 className={classNames(
                   projectcss.all,
@@ -5954,7 +5880,7 @@ function PlasmicFood__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-            </Stack__>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox__qBzkS)}>
               <Input
                 data-plasmic-name={"input4"}
@@ -6541,11 +6467,7 @@ function PlasmicFood__RenderFunc(props: {
               </div>
             </div>
           </AntdModal>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__puNtc)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__puNtc)}>
             <div
               className={classNames(projectcss.all, sty.freeBox__f7IgG)}
               onClick={async event => {
@@ -6662,7 +6584,7 @@ function PlasmicFood__RenderFunc(props: {
                 }
               </div>
             </div>
-          </Stack__>
+          </div>
           {(() => {
             try {
               return (

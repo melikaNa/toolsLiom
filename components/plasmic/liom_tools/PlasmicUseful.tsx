@@ -180,13 +180,11 @@ function PlasmicUseful__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -258,7 +256,7 @@ function PlasmicUseful__RenderFunc(props: {
           "\u0645\u0634\u0627\u0647\u062f\u0647 \u062c\u0632\u06cc\u06cc\u0627\u062a >"
         }
       </div>
-    </Stack__>
+    </div>
   ) as React.ReactElement | null;
 }
 

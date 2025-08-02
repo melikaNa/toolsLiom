@@ -3316,9 +3316,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox___2Ydx
@@ -3354,9 +3352,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             })()}
                           />
 
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__dgmGx
@@ -3410,8 +3406,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </Stack__>
-                        </Stack__>
+                          </div>
+                        </div>
                       ) : null}
                     </div>
                   ) : null}
@@ -4124,6 +4120,50 @@ function PlasmicSelfTest__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["smartCalc"] = (
+                        $state.variable?.question?.smartCalc ? true : false
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/smartCalc",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      question_id: $state.nextQuesionId,
+                                      session_id: $state.sessionId,
+                                      user_id: $state.userId,
+                                      question_type: $state.type
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["smartCalc"] != null &&
+                        typeof $steps["smartCalc"] === "object" &&
+                        typeof $steps["smartCalc"].then === "function"
+                      ) {
+                        $steps["smartCalc"] = await $steps["smartCalc"];
+                      }
+
                       $steps["next"] = true
                         ? (() => {
                             const actionArgs = {
@@ -4170,32 +4210,36 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 },
                                 operation: 0,
                                 value: (() => {
-                                  if (
-                                    $state.next == "" ||
-                                    $state.next == "-2"
-                                  ) {
-                                    if ($state.retestTest) {
-                                      if (
-                                        $steps.invokeGlobalAction6?.data &&
-                                        $steps.invokeGlobalAction6?.data
-                                          ?.nextQuestionId != -2
-                                      ) {
-                                        return $steps.invokeGlobalAction6?.data
-                                          .nextQuestionId;
+                                  if (!$steps.smartCalc?.data) {
+                                    if (
+                                      $state.next == "" ||
+                                      $state.next == "-2"
+                                    ) {
+                                      if ($state.retestTest) {
+                                        if (
+                                          $steps.invokeGlobalAction6?.data &&
+                                          $steps.invokeGlobalAction6?.data
+                                            ?.nextQuestionId != -2
+                                        ) {
+                                          return $steps.invokeGlobalAction6
+                                            ?.data.nextQuestionId;
+                                        } else {
+                                          return $state.variable.options.find(
+                                            option =>
+                                              option.id ==
+                                              $state.testOptionsLiom
+                                                .selectedIDs[0]
+                                          ).nextQuesion_id;
+                                        }
                                       } else {
-                                        return $state.variable.options.find(
-                                          option =>
-                                            option.id ==
-                                            $state.testOptionsLiom
-                                              .selectedIDs[0]
-                                        ).nextQuesion_id;
+                                        return parseInt(
+                                          $ctx.query.nextQuesion_id
+                                        );
                                       }
-                                    } else {
-                                      return parseInt(
-                                        $ctx.query.nextQuesion_id
-                                      );
-                                    }
-                                  } else return parseInt($state.next);
+                                    } else return parseInt($state.next);
+                                  } else
+                                    return $steps.smartCalc?.data
+                                      ?.nextQuestionId;
                                 })()
                               };
                               return (({
@@ -4976,11 +5020,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                         }
                       })()
                 ) ? (
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"peyliom"}
                     data-plasmic-override={overrides.peyliom}
-                    hasGap={true}
                     className={classNames(projectcss.all, sty.peyliom)}
                   >
                     <div
@@ -5033,17 +5075,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__fzriJ
                           )}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__lw1Sg
@@ -5117,7 +5155,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </Stack__>
+                          </div>
                           <div
                             className={classNames(
                               projectcss.all,
@@ -5127,7 +5165,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           >
                             {"50%"}
                           </div>
-                        </Stack__>
+                        </div>
                       </div>
                     </div>
                     <ButtonLiom
@@ -5413,7 +5451,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         </div>
                       ) : null}
                     </ButtonLiom>
-                  </Stack__>
+                  </div>
                 ) : null}
                 {(
                   hasVariant(globalVariants, "screen", "mobileOnly")
@@ -5453,11 +5491,9 @@ function PlasmicSelfTest__RenderFunc(props: {
                         }
                       })()
                 ) ? (
-                  <Stack__
-                    as={"div"}
+                  <div
                     data-plasmic-name={"peyPardakht24"}
                     data-plasmic-override={overrides.peyPardakht24}
-                    hasGap={true}
                     className={classNames(projectcss.all, sty.peyPardakht24)}
                   >
                     <div
@@ -5513,17 +5549,13 @@ function PlasmicSelfTest__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
                             sty.freeBox__tu96O
                           )}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__fLmCw
@@ -5597,7 +5629,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          </Stack__>
+                          </div>
                           <div
                             className={classNames(
                               projectcss.all,
@@ -5607,7 +5639,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           >
                             {"50%"}
                           </div>
-                        </Stack__>
+                        </div>
                       </div>
                     </div>
                     <Paziresh24Button
@@ -5859,7 +5891,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         />
                       }
                     />
-                  </Stack__>
+                  </div>
                 ) : null}
                 {(() => {
                   try {
@@ -5874,9 +5906,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__hc0LI)}
                   >
                     <Paziresh24Button
@@ -6114,7 +6144,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                         />
                       }
                     />
-                  </Stack__>
+                  </div>
                 ) : null}
               </Reveal>
             </div>
@@ -6133,11 +6163,7 @@ function PlasmicSelfTest__RenderFunc(props: {
           data-plasmic-name={"dialog"}
           data-plasmic-override={overrides.dialog}
           body={
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__rymi9)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__rymi9)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -6383,7 +6409,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                   );
                 })();
               })}
-            </Stack__>
+            </div>
           }
           className={classNames("__wab_instance", sty.dialog)}
           onOpenChange={async (...eventArgs: any) => {
@@ -6532,9 +6558,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               url={"https://n8n.staas.ir/webhook/selfTest/shop"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__g2VuF)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox__vi1Gs)}
                   dir={"rtl"}
                 >
@@ -6572,19 +6596,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__q6Dc0)}
                   dir={"rtl"}
                 >
                   <div
                     className={classNames(projectcss.all, sty.freeBox__ulBfG)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__v9Jau)}
                     >
                       <div
@@ -6733,9 +6753,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                           "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                         }
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__kGcM
@@ -6868,7 +6886,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                             {"\u062a\u0627\u06cc\u06cc\u062f"}
                           </div>
                         </ButtonLiom>
-                      </Stack__>
+                      </div>
                       <ButtonLiom
                         data-plasmic-name={"buttonLiom6"}
                         data-plasmic-override={overrides.buttonLiom6}
@@ -7163,15 +7181,11 @@ function PlasmicSelfTest__RenderFunc(props: {
                           </div>
                         ) : null}
                       </ButtonLiom>
-                    </Stack__>
+                    </div>
                   </div>
-                </Stack__>
+                </div>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__h1IyH)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__h1IyH)}>
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__fhS60)}
@@ -7201,7 +7215,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                     "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u0628\u0632\u0627\u0631 \u062a\u0633\u062a \u0633\u0644\u0627\u0645\u062a \u060c \u067e\u0631\u062f\u0627\u062e\u062a \u0631\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0647\u06cc\u062f."
                   }
                 </div>
-              </Stack__>
+              </div>
             </ApiRequest>
           }
           className={classNames("__wab_instance", sty.dialog2)}
@@ -7430,11 +7444,7 @@ function PlasmicSelfTest__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__gd2U)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__gd2U)}>
               <div className={classNames(projectcss.all, sty.freeBox___5JxJ9)}>
                 <EmojiHappySquareSvgrepoComSvg2Icon
                   className={classNames(projectcss.all, sty.svg__vHyEk)}
@@ -7478,11 +7488,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                     : "Enter some text"}
                 </div>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__iUi6R)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__iUi6R)}>
                 <ButtonLiom
                   data-plasmic-name={"button3"}
                   data-plasmic-override={overrides.button3}
@@ -7639,8 +7645,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                     {"\u062a\u0627\u06cc\u06cc\u062f"}
                   </div>
                 </ButtonLiom>
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
           ) : null}
           <div className={classNames(projectcss.all, sty.freeBox__mqWcN)} />
 
@@ -7755,11 +7761,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___60P5P)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox___60P5P)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox___4V5E2)}
                 >
@@ -7805,11 +7807,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                       : "Enter some text"}
                   </div>
                 </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__uq9Xa)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__uq9Xa)}>
                   <ButtonLiom
                     data-plasmic-name={"buttonLiom8"}
                     data-plasmic-override={overrides.buttonLiom8}
@@ -8149,21 +8147,15 @@ function PlasmicSelfTest__RenderFunc(props: {
                       </div>
                     ) : null}
                   </ButtonLiom>
-                </Stack__>
-              </Stack__>
+                </div>
+              </div>
             ) : null}
           </ApiRequest>
         </AntdModal>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__pVrt2)}
-        >
-          <Stack__
-            as={"div"}
+        <div className={classNames(projectcss.all, sty.freeBox__pVrt2)}>
+          <div
             data-plasmic-name={"rate2"}
             data-plasmic-override={overrides.rate2}
-            hasGap={true}
             className={classNames(projectcss.all, sty.rate2)}
             onClick={async event => {
               const $steps = {};
@@ -8340,7 +8332,7 @@ generateStars(${$state.rate});
                 })()}
               />
             </div>
-          </Stack__>
+          </div>
           <Embed
             className={classNames("__wab_instance", sty.embedHtml__zbw1H)}
             code={
@@ -8349,7 +8341,7 @@ generateStars(${$state.rate});
                 : '<!-- \r\n<div class="dropdown" id="langDropdown">\r\n  <div class="toggle" tabindex="0">\r\n    <span class="flag" id="selectedFlag">fa</span>\r\n      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 15px; height: 15px;">\r\n    <path d="M20.58 19.37L17.59 11.01C17.38 10.46 16.91 10.12 16.37 10.12C15.83 10.12 15.37 10.46 15.14 11.03L12.16 19.37C12.02 19.76 12.22 20.19 12.61 20.33C13 20.47 13.43 20.27 13.57 19.88L14.19 18.15H18.54L19.16 19.88C19.27 20.19 19.56 20.38 19.87 20.38C19.95 20.38 20.04 20.37 20.12 20.34C20.51 20.2 20.71 19.77 20.57 19.38L20.58 19.37ZM14.74 16.64L16.38 12.05L18.02 16.64H14.74ZM12.19 7.85C9.92999 11.42 7.89 13.58 5.41 15.02C5.29 15.09 5.16 15.12 5.04 15.12C4.78 15.12 4.53 14.99 4.39 14.75C4.18 14.39 4.3 13.93 4.66 13.73C6.75999 12.51 8.48 10.76 10.41 7.86H4.12C3.71 7.86 3.37 7.52 3.37 7.11C3.37 6.7 3.71 6.36 4.12 6.36H7.87V4.38C7.87 3.97 8.21 3.63 8.62 3.63C9.02999 3.63 9.37 3.97 9.37 4.38V6.36H13.12C13.53 6.36 13.87 6.7 13.87 7.11C13.87 7.52 13.53 7.86 13.12 7.86H12.18L12.19 7.85ZM12.23 15.12C12.1 15.12 11.97 15.09 11.85 15.02C11.2 14.64 10.57 14.22 9.97999 13.78C9.64999 13.53 9.58 13.06 9.83 12.73C10.08 12.4 10.55 12.33 10.88 12.58C11.42 12.99 12.01 13.37 12.61 13.72C12.97 13.93 13.09 14.39 12.88 14.75C12.74 14.99 12.49 15.12 12.23 15.12Z" fill="#000000"></path>\r\n  </svg>\r\n  </div>\r\n  <ul class="menu" role="listbox" aria-label="Select Language">\r\n    <li data-lang="en" role="option" aria-selected="false"><span class="flag"> en </span> English</li>\r\n    <li data-lang="fa" role="option" aria-selected="true"><span class="flag"> fa </span> \u0641\u0627\u0631\u0633\u06cc</li>\r\n    <li data-lang="ar" role="option" aria-selected="false"><span class="flag"> ar </span> \u0627\u0644\u0639\u0631\u0628\u064a\u0629</li>\r\n  </ul>\r\n</div>\r\n\r\n\r\n<script src="https://tools.liom.app/plasmic/i18next.min.js"></script>\r\n<script>\r\n  const resources = {\r\n    en: {\r\n      translation: {\r\n        "title": "Health Assistant",\r\n        "score": "Score:",\r\n        "score.title": "Ratings and Reviews",\r\n        "score.numberOf": "out of 5",\r\n        "score.number": "0 people",\r\n        "score.description": "In this section, you can read the experiences and opinions of other users who have taken this test before you. After completing the test, we\u2019d love it if you shared your experience with us and other users.",\r\n        "paysuccess.title": "Payment Successful",\r\n        "paysuccess.description": "Thanks for your purchase! The conversation has been activated and now you can answer questions about your health and body, and take better care of yourself.",\r\n        "paysuccess.btn": "Confirm",\r\n        "payunsuccess.title": "Payment Unsuccessful",\r\n        "payunsuccess.description": "It seems something went wrong and the transaction was not completed. Please click the retry button again.",\r\n        "payunsuccess.btn": "Retry",\r\n        "btn.pay": "Pay and Start Test",\r\n        "btn.result": "View Previous Results",\r\n        "previous.title":"Previous Test Results",\r\n        "start": "Let\'s start",\r\n        "startp": "Let\'s start",\r\n        "no.comment": "No comments to display."\r\n\r\n      }\r\n    },\r\n    fa: {\r\n      translation: {\r\n        "title": "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0633\u0644\u0627\u0645\u062a",\r\n        "score": "\u0627\u0645\u062a\u06cc\u0627\u0632 :",\r\n        "score.title": "\u0646\u0638\u0631\u0627\u062a \u0648 \u0627\u0645\u062a\u06cc\u0627\u0632 \u0647\u0627",\r\n        "score.numberOf": "\u0627\u0632 5",\r\n        "score.number": "0  \u0646\u0641\u0631",\r\n        "score.description": "\u062f\u0631 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u062a\u062c\u0631\u0628\u06cc\u0627\u062a \u0648 \u062f\u06cc\u062f\u06af\u0627\u0647\u200c\u0647\u0627\u06cc \u0633\u0627\u06cc\u0631 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646\u06cc \u0631\u0627 \u0628\u062e\u0648\u0627\u0646\u06cc\u062f \u06a9\u0647 \u067e\u06cc\u0634 \u0627\u0632 \u0634\u0645\u0627 \u0627\u06cc\u0646 \u062a\u0633\u062a \u0631\u0627 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0647\u200c\u0627\u0646\u062f. \u067e\u0633 \u0627\u0632 \u067e\u0627\u06cc\u0627\u0646 \u062a\u0633\u062a\u060c \u062e\u0648\u0634\u062d\u0627\u0644 \u0645\u06cc\u200c\u0634\u0648\u06cc\u0645 \u0627\u06af\u0631  \u0634\u0645\u0627 \u0647\u0645 \u062a\u062c\u0631\u0628\u0647\u200c\u062a\u0627\u0646 \u0631\u0627 \u0628\u0627 \u0645\u0627 \u0648 \u062f\u06cc\u06af\u0631 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0628\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0628\u06af\u0630\u0627\u0631\u06cc\u062f.",\r\n        "paysuccess.title": "\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642",\r\n        "paysuccess.description": "\u0627\u0632 \u062e\u0631\u06cc\u062f\u062a \u0645\u0645\u0646\u0648\u0646\u06cc\u0645! \u06af\u0641\u062a\u06af\u0648 \u0641\u0639\u0627\u0644 \u0634\u062f \u0648 \u062d\u0627\u0644\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647 \u0633\u0648\u0627\u0644\u0627\u062a\u062a \u062f\u0631\u0628\u0627\u0631\u0647 \u0633\u0644\u0627\u0645\u062a \u0648 \u0628\u062f\u0646\u062a \u067e\u0627\u0633\u062e \u0628\u062f\u06cc \u0648  \u0628\u0647 \u0633\u0644\u0627\u0645\u062a\u06cc \u062e\u0648\u062f\u062a \u0631\u0633\u06cc\u062f\u06af\u06cc \u06a9\u0646\u06cc.",\r\n        "paysuccess.btn": "\u062a\u0627\u06cc\u06cc\u062f",\r\n        "payunsuccess.title": "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642",\r\n        "payunsuccess.description": "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f.",\r\n        "payunsuccess.btn": "\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f",\r\n        "btn.pay": "\u067e\u0631\u062f\u0627\u062e\u062a \u0648 \u0634\u0631\u0648\u0639 \u062a\u0633\u062a",\r\n        "btn.result": "\u062f\u06cc\u062f\u0646 \u0646\u062a\u0627\u06cc\u062c \u0642\u0628\u0644\u06cc",\r\n        "previous.title":"\u0646\u062a\u0627\u06cc\u062c \u062a\u0633\u062a\u200c\u0647\u0627\u06cc \u0642\u0628\u0644\u06cc",\r\n        "start": "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645",\r\n        "startp": "\u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645",\r\n        "no.comment": "\u0646\u0638\u0631\u06cc \u0628\u0631\u0627\u06cc \u0646\u0645\u0627\u06cc\u0634 \u0648\u062c\u0648\u062f \u0646\u062f\u0627\u0631\u062f."\r\n      }\r\n    },\r\n    ar: {\r\n      translation: {\r\n        "title": "\u0645\u0633\u0627\u0639\u062f \u0627\u0644\u0635\u062d\u0629",\r\n        "score": "\u0627\u0644\u062a\u0642\u064a\u064a\u0645:",\r\n        "score.title": "\u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0627\u062a \u0648\u0627\u0644\u062a\u0642\u064a\u064a\u0645\u0627\u062a",\r\n        "score.numberOf": "\u0645\u0646 5",\r\n        "score.number": "0 \u0623\u0634\u062e\u0627\u0635",\r\n        "score.description": "\u0641\u064a \u0647\u0630\u0627 \u0627\u0644\u0642\u0633\u0645\u060c \u064a\u0645\u0643\u0646\u0643 \u0642\u0631\u0627\u0621\u0629 \u062a\u062c\u0627\u0631\u0628 \u0648\u0622\u0631\u0627\u0621 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\u064a\u0646 \u0627\u0644\u0622\u062e\u0631\u064a\u0646 \u0627\u0644\u0630\u064a\u0646 \u0642\u0627\u0645\u0648\u0627 \u0628\u0647\u0630\u0627 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631 \u0642\u0628\u0644\u0643. \u0628\u0639\u062f \u0627\u0644\u0627\u0646\u062a\u0647\u0627\u0621 \u0645\u0646 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u060c \u064a\u0633\u0639\u062f\u0646\u0627 \u0623\u0646 \u062a\u0634\u0627\u0631\u0643 \u062a\u062c\u0631\u0628\u062a\u0643 \u0645\u0639\u0646\u0627 \u0648\u0645\u0639 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645\u064a\u0646 \u0627\u0644\u0622\u062e\u0631\u064a\u0646.",\r\n        "paysuccess.title": "\u062a\u0645 \u0627\u0644\u062f\u0641\u0639 \u0628\u0646\u062c\u0627\u062d",\r\n        "paysuccess.description": "\u0634\u0643\u0631\u064b\u0627 \u0639\u0644\u0649 \u0634\u0631\u0627\u0626\u0643! \u062a\u0645 \u062a\u0641\u0639\u064a\u0644 \u0627\u0644\u0645\u062d\u0627\u062f\u062b\u0629 \u0648\u0627\u0644\u0622\u0646 \u064a\u0645\u0643\u0646\u0643 \u0627\u0644\u0625\u062c\u0627\u0628\u0629 \u0639\u0644\u0649 \u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u0627\u0644\u0645\u062a\u0639\u0644\u0642\u0629 \u0628\u0635\u062d\u062a\u0643 \u0648\u062c\u0633\u0645\u0643 \u0648\u0627\u0644\u0639\u0646\u0627\u064a\u0629 \u0628\u0646\u0641\u0633\u0643.",\r\n        "paysuccess.btn": "\u062a\u0623\u0643\u064a\u062f",\r\n        "payunsuccess.title": "\u0641\u0634\u0644 \u0627\u0644\u062f\u0641\u0639",\r\n        "payunsuccess.description": "\u064a\u0628\u062f\u0648 \u0623\u0646 \u0647\u0646\u0627\u0643 \u0645\u0634\u0643\u0644\u0629 \u0648\u0644\u0645 \u062a\u0643\u062a\u0645\u0644 \u0627\u0644\u0645\u0639\u0627\u0645\u0644\u0629. \u0627\u0644\u0631\u062c\u0627\u0621 \u0627\u0644\u0636\u063a\u0637 \u0639\u0644\u0649 \u0632\u0631 \u0627\u0644\u0645\u062d\u0627\u0648\u0644\u0629 \u0645\u0631\u0629 \u0623\u062e\u0631\u0649.",\r\n        "payunsuccess.btn": "\u0627\u0644\u0645\u062d\u0627\u0648\u0644\u0629 \u0645\u0631\u0629 \u0623\u062e\u0631\u0649",\r\n        "btn.pay": "\u0627\u0644\u062f\u0641\u0639 \u0648\u0628\u062f\u0621 \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631",\r\n        "btn.result": "\u0639\u0631\u0636 \u0627\u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0633\u0627\u0628\u0642\u0629",\r\n        "previous.title":"\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0627\u062e\u062a\u0628\u0627\u0631\u0627\u062a \u0627\u0644\u0633\u0627\u0628\u0642\u0629",\r\n        "start": "\u0644\u0646\u0628\u062f\u0623",\r\n        "startp": "\u0644\u0646\u0628\u062f\u0623",\r\n        "no.comment": "\u0644\u0627 \u062a\u0648\u062c\u062f \u062a\u0639\u0644\u064a\u0642\u0627\u062a \u0644\u0639\u0631\u0636\u0647\u0627."\r\n\r\n      }\r\n    }\r\n  };\r\nconst dropdown = document.getElementById(\'langDropdown\');\r\nconst toggle = dropdown.querySelector(\'.toggle\');\r\nconst menu = dropdown.querySelector(\'.menu\');\r\nconst selectedFlag = document.getElementById(\'selectedFlag\');\r\nconst options = menu.querySelectorAll(\'li\');\r\n\r\n  function createI18nManager({ i18nextInstance, root = document.body }) {\r\n    const translatedElements = new WeakMap();\r\n\r\n    const translateElement = el => {\r\n      const key = el.getAttribute(\'data-i18n\');\r\n      if (!key || !i18nextInstance.t) return;\r\n      const translated = i18nextInstance.t(key);\r\n      if (el.textContent.trim() !== translated.trim()) {\r\n        el.textContent = translated;\r\n        translatedElements.set(el, key);\r\n      }\r\n    };\r\n\r\n    const translateAll = () => {\r\n      root.querySelectorAll(\'[data-i18n]\').forEach(translateElement);\r\n        if (i18nextInstance.language === \'en\') {\r\n            document.body.classList.add(\'english-font\');\r\n          } else {\r\n            document.body.classList.remove(\'english-font\');\r\n        }\r\n      document.body.dir = [\'fa\', \'ar\'].includes(i18nextInstance.language) ? \'rtl\' : \'ltr\';\r\n    };\r\n\r\n    const observer = new MutationObserver(mutations => {\r\n      mutations.forEach(m => {\r\n        m.addedNodes.forEach(node => {\r\n          if (node.nodeType !== 1) return;\r\n          if (node.matches?.(\'[data-i18n]\')) translateElement(node);\r\n          node.querySelectorAll?.(\'[data-i18n]\').forEach(translateElement);\r\n        });\r\n      });\r\n    });\r\n\r\n    observer.observe(root, { childList: true, subtree: true });\r\n\r\n    i18nextInstance.on(\'languageChanged\', () => {\r\n      translateAll();\r\n    });\r\n\r\n    return { translateAll, disconnect: () => observer.disconnect() };\r\n  }\r\n\r\n  i18next.init({\r\n    lng: \'fa\',\r\n    debug: false,\r\n    resources\r\n  }).then(() => {\r\n    const i18nManager = createI18nManager({ i18nextInstance: i18next });\r\n\r\n    // \u0627\u0646\u062a\u062e\u0627\u0628 \u0632\u0628\u0627\u0646\r\n    // const options = document.querySelectorAll(\'#langDropdown [data-lang]\');\r\n    // const selectedFlag = document.getElementById(\'selectedFlag\');\r\n\r\n    options.forEach(li => {\r\n      li.addEventListener(\'click\', () => {\r\n        const lang = li.getAttribute(\'data-lang\');\r\n        localStorage.setItem(\'selectedLang\', lang);\r\n        selectedFlag.textContent = lang;\r\n        dropdown.classList.toggle(\'open\');\r\n        window.location.reload(); \r\n      });\r\n    });\r\n    toggle.onclick = () => dropdown.classList.toggle(\'open\');\r\n\r\n  document.addEventListener(\'click\', e => {\r\n    if (!dropdown.contains(e.target)) dropdown.classList.remove(\'open\');\r\n  });\r\n\r\n  toggle.onkeydown = e => {\r\n    if (e.key === \'Enter\' || e.key === \' \') {\r\n      e.preventDefault();\r\n      dropdown.classList.toggle(\'open\');\r\n    }\r\n  };\r\n\r\n    // \u0627\u0646\u062a\u062e\u0627\u0628 \u0627\u0648\u0644\u06cc\u0647 \u0632\u0628\u0627\u0646\r\n    const urlLang = new URLSearchParams(window.location.search).get(\'lang\');\r\n    const savedLang = localStorage.getItem(\'selectedLang\');\r\n    const initialLang = urlLang || savedLang || \'fa\';\r\n    if (urlLang) {\r\n  localStorage.setItem(\'selectedLang\', urlLang);\r\n\r\n  // \u062d\u0630\u0641 lang \u0627\u0632 URL \u0628\u062f\u0648\u0646 \u0631\u06cc\u0644\u0648\u062f \u0635\u0641\u062d\u0647\r\n  urlParams.delete(\'lang\');\r\n  const newUrl = window.location.pathname + (urlParams.toString() ? \'?\' + urlParams.toString() : \'\');\r\n  history.replaceState(null, \'\', newUrl);\r\n}\r\n    i18next.changeLanguage(initialLang);\r\n    selectedFlag.textContent = initialLang;\r\n  });\r\n</script> \r\n\r\n -->\r\n'
             }
           />
-        </Stack__>
+        </div>
         <AntdModal
           data-plasmic-name={"rateinfo"}
           data-plasmic-override={overrides.rateinfo}
@@ -8388,11 +8380,7 @@ generateStars(${$state.rate});
           }
           trigger={null}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__fyxSs)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__fyxSs)}>
             <div
               className={classNames(
                 projectcss.all,
@@ -8404,11 +8392,7 @@ generateStars(${$state.rate});
                 "\u0627\u0645\u062a\u06cc\u0627\u0632 \u0646\u0645\u0627\u06cc\u0634 \u062f\u0627\u062f\u0647 \u0634\u062f\u0647\u060c \u0627\u0632 \u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \u0646\u0638\u0631\u0627\u062a \u0648 \u0627\u0645\u062a\u06cc\u0627\u0632\u0647\u0627\u06cc \u062b\u0628\u062a\u200c\u0634\u062f\u0647 \u062a\u0648\u0633\u0637 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u062f\u0631 \u0646\u0638\u0631\u0633\u0646\u062c\u06cc\u200c\u0647\u0627 \u0628\u0647 \u062f\u0633\u062a \u0622\u0645\u062f\u0647 \u0648 \u0646\u0634\u0627\u0646\u200c\u062f\u0647\u0646\u062f\u0647 \u0633\u0637\u062d \u0631\u0636\u0627\u06cc\u062a \u06a9\u0627\u0631\u0628\u0631\u0627\u0646 \u0627\u0633\u062a."
               }
             </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___162Ul)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox___162Ul)}>
               <ButtonLiom
                 data-plasmic-name={"buttonLiom4"}
                 data-plasmic-override={overrides.buttonLiom4}
@@ -8652,8 +8636,8 @@ generateStars(${$state.rate});
                   {"\u0645\u062a\u0648\u062c\u0647 \u0634\u062f\u0645"}
                 </div>
               </ButtonLiom>
-            </Stack__>
-          </Stack__>
+            </div>
+          </div>
         </AntdModal>
         <Paziresh24Dialog
           data-plasmic-name={"comments"}
@@ -8709,11 +8693,7 @@ generateStars(${$state.rate});
               })()}
               url={"https://n8n.staas.ir/webhook/selfTest_comments"}
             >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__uKerc)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__uKerc)}>
                 {(() => {
                   try {
                     return $state.comment.data.list.length == 0;
@@ -8740,14 +8720,10 @@ generateStars(${$state.rate});
                     }
                   </div>
                 ) : null}
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
+                <div
                   className={classNames(projectcss.all, sty.freeBox___53UI0)}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__cHgjg)}
                   >
                     <div
@@ -8898,7 +8874,7 @@ drawRating(${$state.rate});
                         })()}
                       </React.Fragment>
                     </div>
-                  </Stack__>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -8945,7 +8921,7 @@ drawRating(${$state.rate});
                       </React.Fragment>
                     )}
                   </div>
-                </Stack__>
+                </div>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -9206,7 +9182,7 @@ drawRating(${$state.rate});
                     </div>
                   );
                 })}
-              </Stack__>
+              </div>
             </ApiRequest>
           }
           className={classNames("__wab_instance", sty.comments)}
@@ -9255,11 +9231,9 @@ drawRating(${$state.rate});
             throw e;
           }
         })() ? (
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"error"}
             data-plasmic-override={overrides.error}
-            hasGap={true}
             className={classNames(projectcss.all, sty.error)}
           >
             <div className={classNames(projectcss.all, sty.freeBox__e1V4D)}>
@@ -9360,7 +9334,7 @@ drawRating(${$state.rate});
                 }
               </div>
             </ButtonLiom>
-          </Stack__>
+          </div>
         ) : null}
       </div>
     </React.Fragment>

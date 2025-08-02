@@ -244,13 +244,11 @@ function PlasmicSidebarWindow__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -280,9 +278,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
         }
       })()}
     >
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      <div
         className={classNames(projectcss.all, sty.freeBox__rAiO, {
           [sty.freeBoxopening__rAiOrPBw2]: hasVariant(
             $state,
@@ -291,9 +287,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
           )
         })}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
+        <div
           className={classNames(projectcss.all, sty.freeBox__oukCe, {
             [sty.freeBoxopening__oukCErPBw2]: hasVariant(
               $state,
@@ -302,9 +296,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
             )
           })}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__vxE81, {
               [sty.freeBoxopening__vxE81RPBw2]: hasVariant(
                 $state,
@@ -466,7 +458,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
                   : "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645"}
               </div>
             ) : null}
-          </Stack__>
+          </div>
           <AntdTooltip
             className={classNames("__wab_instance", sty.tooltip__qA1, {
               [sty.tooltipopening__qA1RPBw2]: hasVariant(
@@ -553,7 +545,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
               />
             </div>
           </AntdTooltip>
-        </Stack__>
+        </div>
         <ButtonLiom
           data-plasmic-name={"buttonLiom"}
           data-plasmic-override={overrides.buttonLiom}
@@ -651,10 +643,8 @@ function PlasmicSidebarWindow__RenderFunc(props: {
           })}
           code={"<hr></hr>"}
         />
-      </Stack__>
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      </div>
+      <div
         className={classNames(projectcss.all, sty.freeBox__d3RXr, {
           [sty.freeBoxopening__d3RXrrPBw2]: hasVariant(
             $state,
@@ -700,9 +690,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
               })()
             : true
         ) ? (
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__y9T4, {
               [sty.freeBoxopening__y9T4RPBw2]: hasVariant(
                 $state,
@@ -761,12 +749,10 @@ function PlasmicSidebarWindow__RenderFunc(props: {
                 }
               )}
             />
-          </Stack__>
+          </div>
         ) : null}
-      </Stack__>
-      <Stack__
-        as={"div"}
-        hasGap={true}
+      </div>
+      <div
         className={classNames(projectcss.all, sty.freeBox__dvAEo, {
           [sty.freeBoxopening__dvAEorPBw2]: hasVariant(
             $state,
@@ -839,8 +825,8 @@ function PlasmicSidebarWindow__RenderFunc(props: {
             })}
           </div>
         ) : null}
-      </Stack__>
-    </Stack__>
+      </div>
+    </div>
   ) as React.ReactElement | null;
 }
 

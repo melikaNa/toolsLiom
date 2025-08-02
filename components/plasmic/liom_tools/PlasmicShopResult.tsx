@@ -325,9 +325,7 @@ function PlasmicShopResult__RenderFunc(props: {
             }
           )}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <div
             className={classNames(projectcss.all, sty.freeBox__keyi, {
               [sty.freeBoxfailed__keyicxnHj]: hasVariant(
                 $state,
@@ -571,11 +569,9 @@ function PlasmicShopResult__RenderFunc(props: {
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </div>
             </ButtonLiom>
-          </Stack__>
+          </div>
           {(hasVariant($state, "failed", "failed") ? true : false) ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
+            <div
               className={classNames(projectcss.all, sty.freeBox___9SeVr, {
                 [sty.freeBoxfailed___9SeVrcxnHj]: hasVariant(
                   $state,
@@ -666,9 +662,7 @@ function PlasmicShopResult__RenderFunc(props: {
                   {"Enter some text"}
                 </div>
               </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
+              <div
                 className={classNames(projectcss.all, sty.freeBox__rcs3I, {
                   [sty.freeBoxfailed__rcs3IcxnHj]: hasVariant(
                     $state,
@@ -1245,8 +1239,8 @@ function PlasmicShopResult__RenderFunc(props: {
                       : "\u062a\u0627\u06cc\u06cc\u062f"}
                   </div>
                 </ButtonLiom>
-              </Stack__>
-            </Stack__>
+              </div>
+            </div>
           ) : null}
           <ApiRequest
             data-plasmic-name={"fragmentApiRequest"}

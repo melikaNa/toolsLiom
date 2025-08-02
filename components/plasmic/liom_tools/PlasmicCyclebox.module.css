@@ -36,40 +36,25 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
   align-self: auto;
+  row-gap: 5px;
   min-width: 0;
   padding: 8px;
 }
-.freeBox__iDEuB > :global(.__wab_flex-container) {
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-width: 0;
-  margin-top: calc(0px - 5px);
-  height: calc(100% + 5px);
-}
-.freeBox__iDEuB > :global(.__wab_flex-container) > *,
-.freeBox__iDEuB > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__iDEuB > :global(.__wab_flex-container) > picture > img,
-.freeBox__iDEuB
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 5px;
-}
-.freeBoxpms__iDEuB90Evg > :global(.__wab_flex-container) {
+.freeBoxpms__iDEuB90Evg {
   align-items: center;
   justify-content: center;
 }
-.freeBoxfertility__iDEuB0Xm40 > :global(.__wab_flex-container) {
+.freeBoxfertility__iDEuB0Xm40 {
   align-items: center;
   justify-content: center;
 }
-.freeBoxperiod__iDEuByCb5W > :global(.__wab_flex-container) {
+.freeBoxperiod__iDEuByCb5W {
   align-items: center;
   justify-content: center;
 }
@@ -80,29 +65,14 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
+  column-gap: 10px;
   min-width: 0;
   padding: 0px;
-}
-.freeBox__cfYm > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  margin-left: calc(0px - 10px);
-  width: calc(100% + 10px);
-}
-.freeBox__cfYm > :global(.__wab_flex-container) > *,
-.freeBox__cfYm > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__cfYm > :global(.__wab_flex-container) > picture > img,
-.freeBox__cfYm
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 10px;
 }
 .text___0TcI5 {
   position: relative;
@@ -210,6 +180,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  column-gap: 0px;
   min-width: 0;
   display: flex;
   border-radius: 12px;
@@ -225,6 +196,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  column-gap: 0px;
   min-width: 0;
   display: flex;
   border-radius: 12px;
@@ -240,6 +212,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  column-gap: 0px;
   display: flex;
   border-radius: 12px;
   padding: 8px;

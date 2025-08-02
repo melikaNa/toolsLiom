@@ -327,11 +327,7 @@ function PlasmicUnLike__RenderFunc(props: {
         }}
         opendialog={generateStateValueProp($state, ["dialog3", "opendialog"])}
       >
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__qxyrX)}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__qxyrX)}>
           <div
             className={classNames(
               projectcss.all,
@@ -341,11 +337,7 @@ function PlasmicUnLike__RenderFunc(props: {
           >
             {"\u062b\u0628\u062a \u0628\u0627\u0632\u062e\u0648\u0631\u062f"}
           </div>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox___3OyVn)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox___3OyVn)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -486,7 +478,7 @@ function PlasmicUnLike__RenderFunc(props: {
                 </RadioGrop>
               );
             })}
-          </Stack__>
+          </div>
           {(() => {
             const child$Props = {
               className: classNames("__wab_instance", sty.antdInputTextArea),
@@ -729,7 +721,7 @@ function PlasmicUnLike__RenderFunc(props: {
               {"\u062b\u0628\u062a"}
             </div>
           </ButtonLiom>
-        </Stack__>
+        </div>
       </Dialog3>
     </div>
   ) as React.ReactElement | null;

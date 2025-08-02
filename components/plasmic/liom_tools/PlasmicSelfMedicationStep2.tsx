@@ -548,11 +548,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
               </div>
             </HeaderLiom>
           ) : null}
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__kIfbU)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__kIfbU)}>
             <StepsLayout
               data-plasmic-name={"stepsLayout"}
               data-plasmic-override={overrides.stepsLayout}
@@ -642,9 +638,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   ) : null}
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__zsQYl)}
                   >
                     {(_par =>
@@ -918,7 +912,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                         </div>
                       );
                     })}
-                  </Stack__>
+                  </div>
                 </React.Fragment>
               }
               slot2={
@@ -990,9 +984,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   ) : null}
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___7UgUh)}
                   >
                     {(_par =>
@@ -1030,9 +1022,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                           )}
                           key={currentIndex}
                         >
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
+                          <div
                             className={classNames(
                               projectcss.all,
                               sty.freeBox__h3PyG
@@ -1152,7 +1142,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                                 </div>
                               </PercentageBox>
                             ) : null}
-                          </Stack__>
+                          </div>
                           {(() => {
                             try {
                               return currentItem.text != "";
@@ -1179,9 +1169,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                                 }
                               )}
                             >
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
                                   sty.freeBox__gdQ2W,
@@ -1208,9 +1196,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                                   )}
                                 />
 
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
+                                <div
                                   className={classNames(
                                     projectcss.all,
                                     sty.freeBox__uOodd
@@ -1277,14 +1263,14 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                                       </React.Fragment>
                                     </div>
                                   </LineClomp>
-                                </Stack__>
-                              </Stack__>
+                                </div>
+                              </div>
                             </div>
                           ) : null}
                         </div>
                       );
                     })}
-                  </Stack__>
+                  </div>
                 </React.Fragment>
               }
               theme={(() => {
@@ -1388,9 +1374,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
                 return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
+                  <div
                     className={classNames(projectcss.all, sty.freeBox__w8YEq, {
                       [sty.freeBoxdark__w8YEqD3Yog]: hasVariant(
                         $state,
@@ -1577,9 +1561,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                       })()}
                     />
 
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
+                    <div
                       className={classNames(
                         projectcss.all,
                         sty.freeBox___1IvFv
@@ -1588,9 +1570,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                         const $steps = {};
                       }}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__fjmFy
@@ -1672,7 +1652,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                             {currentItem?.label ?? ""}
                           </React.Fragment>
                         </div>
-                      </Stack__>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
@@ -1735,8 +1715,8 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                           }
                         </div>
                       ) : null}
-                    </Stack__>
-                  </Stack__>
+                    </div>
+                  </div>
                 );
               })}
             </StepsLayout>
@@ -2349,7 +2329,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                 </div>
               </ApiRequest>
             </ApiRequest>
-          </Stack__>
+          </div>
           {(() => {
             try {
               return $state.loadshop;
