@@ -526,21 +526,22 @@ function PlasmicMyTests__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return window.open(
-                                        `https://tools.liom.app/medicine/?code=${currentItem.doctor_tracking_code}`,
-                                        "_self"
-                                      );
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                            $steps["runCode"] =
+                              currentItem.done == 1
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return window.open(
+                                          `https://tools.liom.app/medicine/?code=${currentItem.doctor_tracking_code}`,
+                                          "_self"
+                                        );
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["runCode"] != null &&
                               typeof $steps["runCode"] === "object" &&
