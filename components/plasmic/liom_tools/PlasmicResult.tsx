@@ -282,7 +282,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 3
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "buttonLiom.color",
@@ -3496,33 +3496,40 @@ function PlasmicResult__RenderFunc(props: {
                                   ];
                                 }
 
-                                $steps["updateProfileOpen"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["profile", "open"]
-                                        },
-                                        operation: 0,
-                                        value: true
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
+                                $steps["updateProfileOpen"] =
+                                  !$state.prescriptions.find(
+                                    i => i.request_p == $state.requestP
+                                  )
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["profile", "open"]
+                                          },
+                                          operation: 0,
+                                          value: true
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
 
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
                                 if (
                                   $steps["updateProfileOpen"] != null &&
                                   typeof $steps["updateProfileOpen"] ===
@@ -3533,6 +3540,71 @@ function PlasmicResult__RenderFunc(props: {
                                   $steps["updateProfileOpen"] = await $steps[
                                     "updateProfileOpen"
                                   ];
+                                }
+
+                                $steps["invokeGlobalAction"] =
+                                  $state.prescriptions.find(
+                                    i =>
+                                      i.request_p == $state.requestP &&
+                                      i.done == 0
+                                  )
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "custom",
+                                            "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u062b\u0628\u062a \u0634\u062f \u0648 \u062f\u0631 \u062d\u0627\u0644 \u0628\u0631\u0631\u0633\u06cc \u0627\u0633\u062a. \u0628\u0647 \u0645\u062d\u0636 \u0622\u0645\u0627\u062f\u0647 \u0634\u062f\u0646\u060c \u0627\u0637\u0644\u0627\u0639\u200c\u0631\u0633\u0627\u0646\u06cc \u062e\u0648\u0627\u0647\u06cc\u0645 \u06a9\u0631\u062f.",
+                                            "bottom-center"
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.showToast"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] = await $steps[
+                                    "invokeGlobalAction"
+                                  ];
+                                }
+
+                                $steps["runCode"] = $state.prescriptions.find(
+                                  i =>
+                                    i.request_p == $state.requestP &&
+                                    i.done == 1
+                                )
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return window.open(
+                                            `https://tools.liom.app/medicine/?code=${
+                                              $state.prescriptions.find(
+                                                i =>
+                                                  i.request_p ==
+                                                    $state.requestP &&
+                                                  i.done == 1
+                                              ).doctor_tracking_code
+                                            }`,
+                                            "_self"
+                                          );
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
                                 }
                               }}
                               outline={
@@ -5292,8 +5364,42 @@ function PlasmicResult__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
+                    $steps["updateRequestP"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["requestP"]
+                            },
+                            operation: 0,
+                            value: "دارو"
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateRequestP"] != null &&
+                      typeof $steps["updateRequestP"] === "object" &&
+                      typeof $steps["updateRequestP"].then === "function"
+                    ) {
+                      $steps["updateRequestP"] = await $steps["updateRequestP"];
+                    }
+
                     $steps["updateProfileOpen"] = !$state.prescriptions.find(
-                      i => i.request_p == "نسخه دارو"
+                      i => i.request_p == $state.requestP
                     )
                       ? (() => {
                           const actionArgs = {
@@ -5331,7 +5437,7 @@ function PlasmicResult__RenderFunc(props: {
                     }
 
                     $steps["invokeGlobalAction"] = $state.prescriptions.find(
-                      i => i.request_p == "نسخه دارو" && i.done == 0
+                      i => i.request_p == $state.requestP && i.done == 0
                     )
                       ? (() => {
                           const actionArgs = {
@@ -5358,7 +5464,7 @@ function PlasmicResult__RenderFunc(props: {
                     }
 
                     $steps["runCode"] = $state.prescriptions.find(
-                      i => i.request_p == "نسخه دارو" && i.done == 1
+                      i => i.request_p == $state.requestP && i.done == 1
                     )
                       ? (() => {
                           const actionArgs = {
@@ -5367,7 +5473,8 @@ function PlasmicResult__RenderFunc(props: {
                                 `https://tools.liom.app/medicine/?code=${
                                   $state.prescriptions.find(
                                     i =>
-                                      i.request_p == "نسخه دارو" && i.done == 1
+                                      i.request_p == $state.requestP &&
+                                      i.done == 1
                                   ).doctor_tracking_code
                                 }`,
                                 "_self"
@@ -10883,9 +10990,54 @@ function PlasmicResult__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
+                            $steps["runCode2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["requestP"]
+                                    },
+                                    operation: 0,
+                                    value: (() => {
+                                      if (
+                                        $state.apiRequest.data.result_type ==
+                                        "Specialized"
+                                      )
+                                        return $state.specialized2.actionBtnText.includes(
+                                          "آزمایش"
+                                        )
+                                          ? "آزمایش"
+                                          : "دارو";
+                                      else return "دارو";
+                                    })()
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode2"] != null &&
+                              typeof $steps["runCode2"] === "object" &&
+                              typeof $steps["runCode2"].then === "function"
+                            ) {
+                              $steps["runCode2"] = await $steps["runCode2"];
+                            }
+
                             $steps["updateProfileOpen"] =
                               !$state.prescriptions.find(
-                                i => i.request_p == "نسخه دارو"
+                                i => i.request_p == $state.requestP
                               )
                                 ? (() => {
                                     const actionArgs = {
@@ -10926,7 +11078,8 @@ function PlasmicResult__RenderFunc(props: {
 
                             $steps["invokeGlobalAction"] =
                               $state.prescriptions.find(
-                                i => i.request_p == "نسخه دارو" && i.done == 0
+                                i =>
+                                  i.request_p == $state.requestP && i.done == 0
                               )
                                 ? (() => {
                                     const actionArgs = {
@@ -10953,7 +11106,7 @@ function PlasmicResult__RenderFunc(props: {
                             }
 
                             $steps["runCode"] = $state.prescriptions.find(
-                              i => i.request_p == "نسخه دارو" && i.done == 1
+                              i => i.request_p == $state.requestP && i.done == 1
                             )
                               ? (() => {
                                   const actionArgs = {
