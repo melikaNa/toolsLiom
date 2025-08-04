@@ -496,6 +496,19 @@
   row-gap: 8px;
   padding: 0px;
 }
+.freeBox__femr5 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: var(--token-KVcr9NiMwFLr);
+  min-width: 0;
+  padding: 0px;
+}
 .text__q2VIi {
   width: auto;
   height: auto;
@@ -510,6 +523,9 @@
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre-wrap;
+}
+.percentageBox:global(.__wab_instance) {
+  max-width: 100%;
 }
 .lineClomp:global(.__wab_instance) {
   max-width: 100%;

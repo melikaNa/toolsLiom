@@ -66,6 +66,7 @@ import RadioGrop from "../../RadioGrop"; // plasmic-import: oaU2G97TOKr2/compone
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-/component
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -102,6 +103,7 @@ export type PlasmicMyTests__OverridesType = {
   root?: Flex__<"div">;
   apiRequest?: Flex__<typeof ApiRequest>;
   embedHtml?: Flex__<typeof Embed>;
+  percentageBox?: Flex__<typeof PercentageBox>;
   lineClomp?: Flex__<typeof LineClomp>;
 };
 
@@ -591,7 +593,16 @@ function PlasmicMyTests__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return currentItem.request_p;
+                                    return (() => {
+                                      const date = new Date(
+                                        currentItem.timestamp
+                                      );
+                                      const shamsiDate =
+                                        date.toLocaleDateString("fa-IR");
+                                      const time =
+                                        date.toLocaleTimeString("fa-IR");
+                                      return `${currentItem.request_p}  ${shamsiDate} ${time}`;
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -883,26 +894,114 @@ function PlasmicMyTests__RenderFunc(props: {
                             <div
                               className={classNames(
                                 projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__q2VIi
+                                sty.freeBox__femr5
                               )}
                             >
-                              <React.Fragment>
-                                {(() => {
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__q2VIi
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.type_fa;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u0639\u0646\u0648\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                              <PercentageBox
+                                data-plasmic-name={"percentageBox"}
+                                data-plasmic-override={overrides.percentageBox}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.percentageBox
+                                )}
+                                unnamedGroupOfVariants={(() => {
                                   try {
-                                    return currentItem.type_fa;
+                                    return (() => {
+                                      var details = JSON.parse(
+                                        currentItem.details
+                                      );
+                                      var maxItem = details.reduce(
+                                        (max, item) => {
+                                          return item.json.score >
+                                            (max?.json.score || 0)
+                                            ? item
+                                            : max;
+                                        },
+                                        null
+                                      );
+                                      maxItem.json.score;
+                                      let score = parseInt(maxItem.json.score);
+                                      let color =
+                                        score >= 80
+                                          ? "red"
+                                          : score >= 70
+                                          ? "oreng"
+                                          : score >= 60
+                                          ? "yellow"
+                                          : score >= 50
+                                          ? "blue"
+                                          : score >= 40
+                                          ? ""
+                                          : "";
+                                      return color;
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
                                       e?.plasmicType ===
                                         "PlasmicUndefinedDataError"
                                     ) {
-                                      return "\u0639\u0646\u0648\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9";
+                                      return [];
                                     }
                                     throw e;
                                   }
                                 })()}
-                              </React.Fragment>
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        var details = JSON.parse(
+                                          currentItem.details
+                                        );
+                                        var maxItem = details.reduce(
+                                          (max, item) => {
+                                            return item.json.score >
+                                              (max?.json.score || 0)
+                                              ? item
+                                              : max;
+                                          },
+                                          null
+                                        );
+                                        return `${maxItem.json.option_metric_fa} ${maxItem.json.badge}`;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </PercentageBox>
                             </div>
                             <LineClomp
                               data-plasmic-name={"lineClomp"}
@@ -1054,9 +1153,10 @@ function PlasmicMyTests__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "apiRequest", "embedHtml", "lineClomp"],
-  apiRequest: ["apiRequest", "embedHtml", "lineClomp"],
+  root: ["root", "apiRequest", "embedHtml", "percentageBox", "lineClomp"],
+  apiRequest: ["apiRequest", "embedHtml", "percentageBox", "lineClomp"],
   embedHtml: ["embedHtml"],
+  percentageBox: ["percentageBox"],
   lineClomp: ["lineClomp"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -1066,6 +1166,7 @@ type NodeDefaultElementType = {
   root: "div";
   apiRequest: typeof ApiRequest;
   embedHtml: typeof Embed;
+  percentageBox: typeof PercentageBox;
   lineClomp: typeof LineClomp;
 };
 
@@ -1156,6 +1257,7 @@ export const PlasmicMyTests = Object.assign(
     // Helper components rendering sub-elements
     apiRequest: makeNodeComponent("apiRequest"),
     embedHtml: makeNodeComponent("embedHtml"),
+    percentageBox: makeNodeComponent("percentageBox"),
     lineClomp: makeNodeComponent("lineClomp"),
 
     // Metadata about props expected for PlasmicMyTests
