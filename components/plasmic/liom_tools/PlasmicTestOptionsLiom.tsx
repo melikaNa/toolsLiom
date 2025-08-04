@@ -1289,21 +1289,30 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
             }
           }}
         >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.data.btnText;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "Button";
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__tqXo8
+            )}
+            data-i18n={"start"}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.data.btnText;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "Button";
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
+              })()}
+            </React.Fragment>
+          </div>
         </ButtonLiom>
       ) : null}
       {(() => {

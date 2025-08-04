@@ -188,6 +188,9 @@
   width: auto;
   height: 1em;
 }
+.text__tqXo8 {
+  text-align: center;
+}
 .svg__qvcUr {
   object-fit: cover;
   max-width: 100%;
@@ -208,6 +211,7 @@
 .text__fKa8P {
   font-size: 16px;
   font-weight: 700;
+  text-align: center;
 }
 .svg__xNwjM {
   object-fit: cover;
@@ -329,6 +333,7 @@
 .text__i2Jnt {
   font-size: 16px;
   font-weight: 700;
+  text-align: center;
 }
 .svg__yl0WF {
   object-fit: cover;

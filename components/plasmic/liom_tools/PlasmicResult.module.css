@@ -2224,6 +2224,9 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .text__ep2WH {
     font-size: var(--token-KUiXUfHPkqkm);
+    width: 100%;
+    text-align: center;
+    min-width: 0;
   }
 }
 .svg__hmVgk {
