@@ -1511,7 +1511,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         $steps["wait"] = await $steps["wait"];
                       }
 
-                      $steps["runCode"] = false
+                      $steps["runCode"] = true
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
@@ -2354,18 +2354,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["updateSelectedStep"] = (() => {
-                            if (currentIndex == $state.selectedStep)
-                              return false;
-                            else if (
-                              $state.getStep?.data?.info?.unlockMode ==
-                              "openAll"
-                            )
-                              return true;
-                            else if ($state.userStep < currentIndex)
-                              return false;
-                            else return true;
-                          })()
+                          $steps["updateSelectedStep"] = true
                             ? (() => {
                                 const actionArgs = {
                                   variable: {
@@ -2402,18 +2391,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["updateDetailsList"] = (() => {
-                            if (currentIndex == $state.selectedStep)
-                              return false;
-                            else if (
-                              $state.getStep?.data?.info?.unlockMode ==
-                              "openAll"
-                            )
-                              return true;
-                            else if ($state.userStep < currentIndex)
-                              return false;
-                            else return true;
-                          })()
+                          $steps["updateDetailsList"] = true
                             ? (() => {
                                 const actionArgs = {
                                   variable: {
@@ -2450,19 +2428,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["invokeGlobalAction"] = (() => {
-                            if (currentIndex == $state.selectedStep)
-                              return false;
-                            else if (
-                              $ctx.query.type == "danger" ||
-                              $ctx.query.type == "stretch_marks" ||
-                              $ctx.query.type == "hair_care"
-                            )
-                              return true;
-                            else if ($state.userStep < currentIndex)
-                              return false;
-                            else return true;
-                          })()
+                          $steps["invokeGlobalAction"] = true
                             ? (() => {
                                 const actionArgs = {
                                   args: [
@@ -2505,16 +2471,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["updateDetailsList4"] = (() => {
-                            if (
-                              $state.getStep?.data?.info?.unlockMode ==
-                              "openAll"
-                            )
-                              return false;
-                            else if ($state.userStep < currentIndex)
-                              return true;
-                            else return false;
-                          })()
+                          $steps["updateDetailsList4"] = false
                             ? (() => {
                                 const actionArgs = {
                                   args: [
@@ -2539,33 +2496,22 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["updateDetailsList2"] =
-                            //parseInt($ctx.query.version) > 286 &&
-                            // if( $ctx.query.inApp == 'true')
-                            // {
-                            // if($ctx.query.type == 'danger')
-                            // false
-                            // else if(($state.userStep) < currentIndex)
-                            //   true
-                            // else
-                            //   false
-                            // } else
-                            false
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        return window.FlutterChannel.postMessage(
-                                          "#toast-قدم بعدی چالش فردا برات باز میشه\u066C لطفا تا اون موقع صبر کن و کارهایی که تو برنامه امروزت هست رو انجام بده \uD83D\uDE0D-warning"
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                          $steps["updateDetailsList2"] = false
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return window.FlutterChannel.postMessage(
+                                        "#toast-قدم بعدی چالش فردا برات باز میشه\u066C لطفا تا اون موقع صبر کن و کارهایی که تو برنامه امروزت هست رو انجام بده \uD83D\uDE0D-warning"
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                           if (
                             $steps["updateDetailsList2"] != null &&
                             typeof $steps["updateDetailsList2"] === "object" &&
