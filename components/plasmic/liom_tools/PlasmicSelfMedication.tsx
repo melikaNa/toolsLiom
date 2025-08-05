@@ -1511,7 +1511,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         $steps["wait"] = await $steps["wait"];
                       }
 
-                      $steps["runCode"] = true
+                      $steps["runCode"] = false
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
@@ -2658,7 +2658,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                   else if ($state.userStep > currentIndex)
                                     return 1;
                                   else if ($state.userStep < currentIndex)
-                                    return 0;
+                                    return 2;
                                   else if ($state.userStep == currentIndex) {
                                     if (
                                       ($state.getStep?.data?.todayReady ?? 0) ==
@@ -2680,22 +2680,17 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             })()}
                             isLock={(() => {
                               try {
-                                return (() => {
-                                  if (
-                                    $state.getStep?.data?.info?.unlockMode ==
-                                      "openAll" ||
-                                    currentItem.orderr != 0
-                                  )
-                                    return false;
-                                  else if (
-                                    $state.userStep == currentIndex &&
-                                    ($state.getStep?.data?.todayReady ?? 0) == 1
-                                  )
-                                    return false;
-                                  else if ($state.userStep < currentIndex)
-                                    return true;
-                                  else return false;
-                                })();
+                                return (
+                                  // if ($state.getStep?.data?.info?.unlockMode == 'openAll' || currentItem.orderr != 0)
+                                  //   false
+                                  // else if ($state.userStep == currentIndex && (($state.getStep?.data?.todayReady ?? 0) == 1))
+                                  //   false
+                                  // else if (($state.userStep) < currentIndex)
+                                  //   true
+                                  // else
+                                  //   false
+                                  false
+                                );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
