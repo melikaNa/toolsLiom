@@ -1210,32 +1210,163 @@ function PlasmicMessageLiom__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode"] = true
+                $steps["updateButtonLiomLoad"] = false
                   ? (() => {
                       const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            var adDiv = document.getElementById("ad");
-                            if (adDiv) {
-                              var button = adDiv.querySelector("button");
-                              if (button) {
-                                return button.click();
-                              }
-                            }
-                          })();
-                        }
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["buttonLiom", "load"]
+                        },
+                        operation: 4
                       };
-                      return (({ customFunction }) => {
-                        return customFunction();
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        const oldValue = $stateGet(objRoot, variablePath);
+                        $stateSet(objRoot, variablePath, !oldValue);
+                        return !oldValue;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
+                if (
+                  $steps["updateButtonLiomLoad"] != null &&
+                  typeof $steps["updateButtonLiomLoad"] === "object" &&
+                  typeof $steps["updateButtonLiomLoad"].then === "function"
+                ) {
+                  $steps["updateButtonLiomLoad"] = await $steps[
+                    "updateButtonLiomLoad"
+                  ];
+                }
+
+                $steps["link"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/tools/selfCare/link",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                Authorization: $props.token,
+                                type: $props.ad.action
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["link"] != null &&
+                  typeof $steps["link"] === "object" &&
+                  typeof $steps["link"].then === "function"
+                ) {
+                  $steps["link"] = await $steps["link"];
+                }
+
+                $steps["runCode"] =
+                  $steps.link?.data?.success == true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return window.FlutterChannel.postMessage(
+                              $steps.link.data.result
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
                 if (
                   $steps["runCode"] != null &&
                   typeof $steps["runCode"] === "object" &&
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["invokeGlobalAction"] =
+                  $steps.link?.data?.success == false
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "error",
+                            "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0645\u0634\u06a9\u0644\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0645\u062c\u062f\u062f\u0627 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f."
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+
+                $steps["updateButtonLiomLoad2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["buttonLiom", "load"]
+                        },
+                        operation: 4
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        const oldValue = $stateGet(objRoot, variablePath);
+                        $stateSet(objRoot, variablePath, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateButtonLiomLoad2"] != null &&
+                  typeof $steps["updateButtonLiomLoad2"] === "object" &&
+                  typeof $steps["updateButtonLiomLoad2"].then === "function"
+                ) {
+                  $steps["updateButtonLiomLoad2"] = await $steps[
+                    "updateButtonLiomLoad2"
+                  ];
                 }
               }}
             >
@@ -1304,195 +1435,26 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateButtonLiomLoad"] = true
+                  $steps["runCode"] = true
                     ? (() => {
                         const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["buttonLiom", "load"]
-                          },
-                          operation: 4,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
+                          customFunction: async () => {
+                            return (() => {
+                              return document.getElementById("ad").click();
+                            })();
                           }
-                          const { objRoot, variablePath } = variable;
-
-                          const oldValue = $stateGet(objRoot, variablePath);
-                          $stateSet(objRoot, variablePath, !oldValue);
-                          return !oldValue;
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
-                    $steps["updateButtonLiomLoad"] != null &&
-                    typeof $steps["updateButtonLiomLoad"] === "object" &&
-                    typeof $steps["updateButtonLiomLoad"].then === "function"
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
                   ) {
-                    $steps["updateButtonLiomLoad"] = await $steps[
-                      "updateButtonLiomLoad"
-                    ];
-                  }
-
-                  $steps["link"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "POST",
-                            "https://n8n.staas.ir/webhook/tools/selfCare/link",
-                            undefined,
-                            (() => {
-                              try {
-                                return {
-                                  Authorization: $props.token,
-                                  type: $props.ad.action
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["link"] != null &&
-                    typeof $steps["link"] === "object" &&
-                    typeof $steps["link"].then === "function"
-                  ) {
-                    $steps["link"] = await $steps["link"];
-                  }
-
-                  $steps["invokeGlobalAction"] =
-                    $steps.link?.data?.success == true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "success",
-                              "\u062f\u0631\u062d\u0627\u0644 \u0627\u0646\u062a\u0642\u0627\u0644 \u0628\u0647 \u0627\u0628\u0632\u0627\u0631",
-                              "bottom-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
-
-                  $steps["invokeGlobalAction2"] =
-                    $steps.link?.data?.success == true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.FlutterChannel.postMessage(
-                                  $steps.link.data.result.link
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["invokeGlobalAction2"] != null &&
-                    typeof $steps["invokeGlobalAction2"] === "object" &&
-                    typeof $steps["invokeGlobalAction2"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
-                  }
-
-                  $steps["invokeGlobalAction3"] =
-                    $steps.link?.data?.success == false
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              undefined,
-                              "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0645\u0634\u06a9\u0644\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0645\u062c\u062f\u062f\u0627 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
-                              "bottom-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                  if (
-                    $steps["invokeGlobalAction3"] != null &&
-                    typeof $steps["invokeGlobalAction3"] === "object" &&
-                    typeof $steps["invokeGlobalAction3"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction3"] = await $steps[
-                      "invokeGlobalAction3"
-                    ];
-                  }
-
-                  $steps["updateButtonLiomLoad2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["buttonLiom", "load"]
-                          },
-                          operation: 4
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          const oldValue = $stateGet(objRoot, variablePath);
-                          $stateSet(objRoot, variablePath, !oldValue);
-                          return !oldValue;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateButtonLiomLoad2"] != null &&
-                    typeof $steps["updateButtonLiomLoad2"] === "object" &&
-                    typeof $steps["updateButtonLiomLoad2"].then === "function"
-                  ) {
-                    $steps["updateButtonLiomLoad2"] = await $steps[
-                      "updateButtonLiomLoad2"
-                    ];
+                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
