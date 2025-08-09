@@ -828,6 +828,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "botName",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "test"
       }
     ],
     [$props, $ctx, $refs]
@@ -2380,6 +2386,22 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                       item["from"] = "user";
                                     } else {
                                       item["from"] = "system";
+                                      if (
+                                        item.text &&
+                                        item.text.includes('"action"')
+                                      ) {
+                                        try {
+                                          var m = JSON.parse(item.text);
+                                          item["text"] = m.text || "";
+                                          item["cta"] = m.cta || "";
+                                          item["btnText"] = m.btnText || "";
+                                          item["action"] = m.action || "";
+                                        } catch (e) {
+                                          item["text"] = item.text || "";
+                                        }
+                                      } else {
+                                        item["text"] = item.text || "";
+                                      }
                                     }
                                   });
                                   return a;
@@ -3015,6 +3037,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
+                      ad={(() => {
+                        try {
+                          return currentItem;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return {};
+                          }
+                          throw e;
+                        }
+                      })()}
                       bot={true}
                       className={classNames("__wab_instance", sty.messageLiom)}
                       copy={async event => {
@@ -3681,6 +3716,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           ) : null}
                         </React.Fragment>
                       }
+                      token={(() => {
+                        try {
+                          return $state.tokenliom;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                     >
                       <div
                         className={classNames(
@@ -4209,7 +4257,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     undefined,
                                     (() => {
                                       try {
-                                        return { bot_name: "period_chat" };
+                                        return { bot_name: $state.botName };
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -4454,13 +4502,28 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return (() => {
-                                    $state.testChat[
-                                      $state.testChat.length - 1
-                                    ] = {
-                                      text: $steps.chat.data.message,
-                                      id: $steps.chat.data.id,
-                                      from: "system"
-                                    };
+                                    var msg = $steps.chat.data.message;
+                                    if (msg && msg.includes('"action"')) {
+                                      var m = JSON.parse(msg);
+                                      $state.testChat[
+                                        $state.testChat.length - 1
+                                      ] = {
+                                        text: m.text || "",
+                                        cta: m.cta || "",
+                                        btnText: m.btnText || "",
+                                        action: m.action || "",
+                                        id: $steps.chat.data.id,
+                                        from: "system"
+                                      };
+                                    } else {
+                                      $state.testChat[
+                                        $state.testChat.length - 1
+                                      ] = {
+                                        text: msg || "",
+                                        id: $steps.chat.data.id,
+                                        from: "system"
+                                      };
+                                    }
                                     $state.indexchat =
                                       $state.testChat.length - 1;
                                     return ($state.infoChat.credit =
@@ -7283,6 +7346,23 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                             item["from"] = "user";
                                           } else {
                                             item["from"] = "system";
+                                            if (
+                                              item.text &&
+                                              item.text.includes('"action"')
+                                            ) {
+                                              try {
+                                                var m = JSON.parse(item.text);
+                                                item["text"] = m.text || "";
+                                                item["cta"] = m.cta || "";
+                                                item["btnText"] =
+                                                  m.btnText || "";
+                                                item["action"] = m.action || "";
+                                              } catch (e) {
+                                                item["text"] = item.text || "";
+                                              }
+                                            } else {
+                                              item["text"] = item.text || "";
+                                            }
                                           }
                                         });
                                         return a;

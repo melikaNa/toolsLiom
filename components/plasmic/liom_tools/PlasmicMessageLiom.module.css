@@ -273,6 +273,11 @@
   width: 100%;
   min-width: 0;
 }
+.freeBoxbot__fCi1QxxwGw {
+  display: flex;
+  flex-direction: column;
+  column-gap: 0px;
+}
 .freeBoxfeedback__fCi1QmfRru {
   justify-content: center;
   align-items: center;
@@ -307,6 +312,119 @@
 }
 .loadingCompopnentGrayloadingMessage:global(.__wab_instance) {
   display: flex;
+}
+.loadingCompopnentGraybot:global(.__wab_instance) {
+  left: 0px;
+  top: 0px;
+}
+.freeBox___8EPkS {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  min-width: 0;
+  display: none;
+  padding: 8px;
+}
+.freeBoxbot___8EPkSxxwGw {
+  background: #7444bc33;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  left: auto;
+  top: auto;
+  position: relative;
+  column-gap: 0px;
+  min-width: 0;
+  min-height: 0;
+  border-radius: var(--token-KVcr9NiMwFLr);
+  padding: var(--token-omrXvBNBcWTN);
+  border-left: var(--token-omrXvBNBcWTN) solid var(--token-QR8ATjORhQqO);
+}
+.text___0PCmJ {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  min-width: 0;
+}
+.textbot___0PCmJxxwGw {
+  font-size: var(--token-KUiXUfHPkqkm);
+  position: relative;
+  left: auto;
+  top: auto;
+  color: var(--token-QR8ATjORhQqO);
+  font-weight: 700;
+}
+.text__kXs6S {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  min-width: 0;
+}
+.textbot__kXs6SxxwGw {
+  font-size: var(--token-KUiXUfHPkqkm);
+  position: relative;
+  left: auto;
+  top: auto;
+  text-align: justify;
+}
+.text__j71MO {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  min-width: 0;
+}
+.textbot__j71MOxxwGw {
+  position: relative;
+  left: auto;
+  top: auto;
+  height: 0px;
+  flex-shrink: 0;
+  border-top: 1px solid #7444bc80;
+}
+.buttonLiom:global(.__wab_instance) {
+  max-width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.buttonLiombot:global(.__wab_instance) {
+  width: 100%;
+  position: relative;
+  left: auto;
+  top: auto;
+  min-width: 0;
+}
+.svg__abWtg {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text___0Jm {
+  display: none;
+}
+.textbot___0JmXxwGw {
+  color: var(--token-QR8ATjORhQqO);
+  font-weight: 700;
+  font-size: var(--token-podr231_9RBN);
+  display: block;
+}
+.svg__c5Lbm {
+  object-fit: cover;
+  max-width: 100%;
+  width: 150%;
+  height: 150%;
 }
 .svg__lOael {
   object-fit: cover;

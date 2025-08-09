@@ -65,6 +65,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import LoadingCompopnentGray from "../../LoadingCompopnentGray"; // plasmic-import: OUwywVcxKl5x/component
 import UnLike from "../../UnLike"; // plasmic-import: bmZmPfCWacWw/component
 import Like from "../../Like"; // plasmic-import: VT-zRjgL9JA9/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 
@@ -131,6 +132,8 @@ export type PlasmicMessageLiom__ArgsType = {
   like?: (event: any) => void;
   unLike?: (event: any) => void;
   feedbackData?: any;
+  ad?: any;
+  token?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -145,6 +148,8 @@ export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
   "like",
   "unLike",
   "feedbackData",
+  "ad",
+  "token",
   "children",
   "slot"
 );
@@ -156,6 +161,7 @@ export type PlasmicMessageLiom__OverridesType = {
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   loadingCompopnentGray?: Flex__<typeof LoadingCompopnentGray>;
+  buttonLiom?: Flex__<typeof ButtonLiom>;
   unLike2?: Flex__<typeof UnLike>;
   like2?: Flex__<typeof Like>;
   img?: Flex__<typeof PlasmicImg__>;
@@ -171,6 +177,8 @@ export interface DefaultMessageLiomProps {
   like?: (event: any) => void;
   unLike?: (event: any) => void;
   feedbackData?: any;
+  ad?: any;
+  token?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -206,7 +214,8 @@ function PlasmicMessageLiom__RenderFunc(props: {
       Object.assign(
         {
           inApp: false,
-          error2: false
+          error2: false,
+          ad: {}
         },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
@@ -225,6 +234,8 @@ function PlasmicMessageLiom__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -334,6 +345,20 @@ function PlasmicMessageLiom__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "buttonLiom.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "bot", "bot") ? "clear" : undefined
+      },
+      {
+        path: "buttonLiom.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "bot", "bot") ? false : false
       }
     ],
     [$props, $ctx, $refs]
@@ -455,6 +480,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__ega5V, {
+            [sty.freeBoxbot__ega5VxxwGw]: hasVariant($state, "bot", "bot"),
             [sty.freeBoxendMessege__ega5VTjzqg]: hasVariant(
               $state,
               "endMessege",
@@ -971,6 +997,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
               "loadingMessage",
               "loadingMessage"
             ),
+            [sty.freeBoxloadingMessage_bot___7TlWyNjKFmXxwGw]:
+              hasVariant($state, "bot", "bot") &&
+              hasVariant($state, "loadingMessage", "loadingMessage"),
             [sty.freeBoxloadingMessage_endMessege___7TlWyNjKFmTjzqg]:
               hasVariant($state, "loadingMessage", "loadingMessage") &&
               hasVariant($state, "endMessege", "endMessege"),
@@ -979,6 +1008,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
               "owner",
               "owner"
             ),
+            [sty.freeBoxowner_bot___7TlWyxJPesXxwGw]:
+              hasVariant($state, "bot", "bot") &&
+              hasVariant($state, "owner", "owner"),
             [sty.freeBoxpazireshAnswer___7TlWyyPoRs]: hasVariant(
               $state,
               "pazireshAnswer",
@@ -1009,6 +1041,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
             sty.freeBox__fCi1Q,
             "text-box",
             {
+              [sty.freeBoxbot__fCi1QxxwGw]: hasVariant($state, "bot", "bot"),
               [sty.freeBoxendMessege__fCi1Qtjzqg]: hasVariant(
                 $state,
                 "endMessege",
@@ -1109,6 +1142,9 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 "owner",
                 "owner"
               ),
+              [sty.slotTargetChildrenowner_bot]:
+                hasVariant($state, "owner", "owner") &&
+                hasVariant($state, "bot", "bot"),
               [sty.slotTargetChildrenpazireshAnswer]: hasVariant(
                 $state,
                 "pazireshAnswer",
@@ -1120,6 +1156,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
             data-plasmic-name={"loadingCompopnentGray"}
             data-plasmic-override={overrides.loadingCompopnentGray}
             className={classNames("__wab_instance", sty.loadingCompopnentGray, {
+              [sty.loadingCompopnentGraybot]: hasVariant($state, "bot", "bot"),
               [sty.loadingCompopnentGrayendMessege]: hasVariant(
                 $state,
                 "endMessege",
@@ -1142,6 +1179,355 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 hasVariant($state, "loadingMessage", "loadingMessage")
             })}
           />
+
+          {(
+            hasVariant($state, "bot", "bot")
+              ? (() => {
+                  try {
+                    return (
+                      ($props.ad?.action ? true : false) &&
+                      typeof window !== "undefined" &&
+                      window.FlutterChannel &&
+                      typeof window.FlutterChannel.postMessage === "function"
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+              : true
+          ) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox___8EPkS, {
+                [sty.freeBoxbot___8EPkSxxwGw]: hasVariant($state, "bot", "bot")
+              })}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___0PCmJ,
+                  {
+                    [sty.textbot___0PCmJxxwGw]: hasVariant($state, "bot", "bot")
+                  }
+                )}
+              >
+                {hasVariant($state, "bot", "bot") ? "liom" : "Enter some text"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__kXs6S,
+                  {
+                    [sty.textbot__kXs6SxxwGw]: hasVariant($state, "bot", "bot")
+                  }
+                )}
+              >
+                {hasVariant($state, "bot", "bot") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $props.ad.cta;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                ) : (
+                  "Enter some text"
+                )}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__j71MO,
+                  {
+                    [sty.textbot__j71MOxxwGw]: hasVariant($state, "bot", "bot")
+                  }
+                )}
+              >
+                {hasVariant($state, "bot", "bot") ? "" : "Enter some text"}
+              </div>
+              <ButtonLiom
+                data-plasmic-name={"buttonLiom"}
+                data-plasmic-override={overrides.buttonLiom}
+                className={classNames("__wab_instance", sty.buttonLiom, {
+                  [sty.buttonLiombot]: hasVariant($state, "bot", "bot")
+                })}
+                color={generateStateValueProp($state, ["buttonLiom", "color"])}
+                load={generateStateValueProp($state, ["buttonLiom", "load"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateButtonLiomLoad"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["buttonLiom", "load"]
+                          },
+                          operation: 4,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateButtonLiomLoad"] != null &&
+                    typeof $steps["updateButtonLiomLoad"] === "object" &&
+                    typeof $steps["updateButtonLiomLoad"].then === "function"
+                  ) {
+                    $steps["updateButtonLiomLoad"] = await $steps[
+                      "updateButtonLiomLoad"
+                    ];
+                  }
+
+                  $steps["link"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://n8n.staas.ir/webhook/tools/selfCare/link",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  Authorization: $props.token,
+                                  type: $props.ad.action
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["link"] != null &&
+                    typeof $steps["link"] === "object" &&
+                    typeof $steps["link"].then === "function"
+                  ) {
+                    $steps["link"] = await $steps["link"];
+                  }
+
+                  $steps["invokeGlobalAction"] =
+                    $steps.link?.data?.success == true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "success",
+                              "\u062f\u0631\u062d\u0627\u0644 \u0627\u0646\u062a\u0642\u0627\u0644 \u0628\u0647 \u0627\u0628\u0632\u0627\u0631",
+                              "bottom-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction2"] =
+                    $steps.link?.data?.success == true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.FlutterChannel.postMessage(
+                                  $steps.link.data.result.link
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["invokeGlobalAction2"] != null &&
+                    typeof $steps["invokeGlobalAction2"] === "object" &&
+                    typeof $steps["invokeGlobalAction2"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction2"] = await $steps[
+                      "invokeGlobalAction2"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction3"] =
+                    $steps.link?.data?.success == false
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0645\u0634\u06a9\u0644\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0645\u062c\u062f\u062f\u0627 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                              "bottom-center"
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                  if (
+                    $steps["invokeGlobalAction3"] != null &&
+                    typeof $steps["invokeGlobalAction3"] === "object" &&
+                    typeof $steps["invokeGlobalAction3"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction3"] = await $steps[
+                      "invokeGlobalAction3"
+                    ];
+                  }
+
+                  $steps["updateButtonLiomLoad2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["buttonLiom", "load"]
+                          },
+                          operation: 4
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateButtonLiomLoad2"] != null &&
+                    typeof $steps["updateButtonLiomLoad2"] === "object" &&
+                    typeof $steps["updateButtonLiomLoad2"].then === "function"
+                  ) {
+                    $steps["updateButtonLiomLoad2"] = await $steps[
+                      "updateButtonLiomLoad2"
+                    ];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={hasVariant($state, "bot", "bot") ? "compact" : undefined}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___0Jm,
+                    {
+                      [sty.textbot___0JmXxwGw]: hasVariant($state, "bot", "bot")
+                    }
+                  )}
+                >
+                  {hasVariant($state, "bot", "bot") ? (
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $props.ad.btnText;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "Button";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  ) : (
+                    "Button"
+                  )}
+                </div>
+              </ButtonLiom>
+            </div>
+          ) : null}
         </div>
         {(
           hasVariant($state, "endMessege", "endMessege")
@@ -1575,6 +1961,7 @@ const PlasmicDescendants = {
     "buttonLiom4",
     "buttonLiom3",
     "loadingCompopnentGray",
+    "buttonLiom",
     "unLike2",
     "like2",
     "img"
@@ -1584,6 +1971,7 @@ const PlasmicDescendants = {
   buttonLiom4: ["buttonLiom4"],
   buttonLiom3: ["buttonLiom3"],
   loadingCompopnentGray: ["loadingCompopnentGray"],
+  buttonLiom: ["buttonLiom"],
   unLike2: ["unLike2"],
   like2: ["like2"],
   img: ["img"]
@@ -1598,6 +1986,7 @@ type NodeDefaultElementType = {
   buttonLiom4: typeof ButtonLiom;
   buttonLiom3: typeof ButtonLiom;
   loadingCompopnentGray: typeof LoadingCompopnentGray;
+  buttonLiom: typeof ButtonLiom;
   unLike2: typeof UnLike;
   like2: typeof Like;
   img: typeof PlasmicImg__;
@@ -1668,6 +2057,7 @@ export const PlasmicMessageLiom = Object.assign(
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     loadingCompopnentGray: makeNodeComponent("loadingCompopnentGray"),
+    buttonLiom: makeNodeComponent("buttonLiom"),
     unLike2: makeNodeComponent("unLike2"),
     like2: makeNodeComponent("like2"),
     img: makeNodeComponent("img"),

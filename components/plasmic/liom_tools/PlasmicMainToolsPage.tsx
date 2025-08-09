@@ -936,42 +936,6 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                             key={currentIndex}
                             onClick={async event => {
                               const $steps = {};
-
-                              $steps["updateUser"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["user"]
-                                      },
-                                      operation: 0
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateUser"] != null &&
-                                typeof $steps["updateUser"] === "object" &&
-                                typeof $steps["updateUser"].then === "function"
-                              ) {
-                                $steps["updateUser"] = await $steps[
-                                  "updateUser"
-                                ];
-                              }
                             }}
                             style={undefined}
                           />
