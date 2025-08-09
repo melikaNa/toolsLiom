@@ -265,6 +265,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   row-gap: 8px;
+  padding-top: 40px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -283,21 +284,24 @@
   position: relative;
   left: auto;
   top: auto;
-  height: 100%;
+  height: auto;
   width: 100%;
   object-fit: cover;
   max-width: 100%;
+  z-index: 1;
+  display: block;
   min-width: 0;
-  min-height: 0;
 }
 .messageLiom:global(.__wab_instance) {
   max-width: 100%;
   transition-property: all;
   transition-duration: 1s;
   transition-timing-function: ease-in-out;
-  width: 100%;
   height: auto;
-  min-width: 0;
+  position: relative;
+  left: auto;
+  top: auto;
+  align-self: center;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   -webkit-transition-duration: 1s;
