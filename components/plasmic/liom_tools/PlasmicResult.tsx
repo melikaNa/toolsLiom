@@ -282,7 +282,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "level",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 3
       },
       {
         path: "buttonLiom.color",
@@ -11084,8 +11084,9 @@ function PlasmicResult__RenderFunc(props: {
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
-                                        undefined,
-                                        "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u062b\u0628\u062a \u0634\u062f \u0648 \u062f\u0631 \u062d\u0627\u0644 \u0628\u0631\u0631\u0633\u06cc \u0627\u0633\u062a. \u0628\u0647 \u0645\u062d\u0636 \u0622\u0645\u0627\u062f\u0647 \u0634\u062f\u0646\u060c \u0627\u0637\u0644\u0627\u0639\u200c\u0631\u0633\u0627\u0646\u06cc \u062e\u0648\u0627\u0647\u06cc\u0645 \u06a9\u0631\u062f."
+                                        "custom",
+                                        "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u062b\u0628\u062a \u0634\u062f \u0648 \u062f\u0631 \u062d\u0627\u0644 \u0628\u0631\u0631\u0633\u06cc \u0627\u0633\u062a. \u0628\u0647 \u0645\u062d\u0636 \u0622\u0645\u0627\u062f\u0647 \u0634\u062f\u0646\u060c \u0627\u0637\u0644\u0627\u0639\u200c\u0631\u0633\u0627\u0646\u06cc \u062e\u0648\u0627\u0647\u06cc\u0645 \u06a9\u0631\u062f.",
+                                        "bottom-center"
                                       ]
                                     };
                                     return $globalActions[
@@ -13042,6 +13043,30 @@ function PlasmicResult__RenderFunc(props: {
                       $steps["updateButtonLiom5Load"] = await $steps[
                         "updateButtonLiom5Load"
                       ];
+                    }
+
+                    $steps["runCode2"] =
+                      $steps.invokeGlobalAction?.data?.success == true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return $state.prescriptions.push({
+                                  request_p: $state.requestP,
+                                  done: 0
+                                });
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["runCode2"] != null &&
+                      typeof $steps["runCode2"] === "object" &&
+                      typeof $steps["runCode2"].then === "function"
+                    ) {
+                      $steps["runCode2"] = await $steps["runCode2"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
