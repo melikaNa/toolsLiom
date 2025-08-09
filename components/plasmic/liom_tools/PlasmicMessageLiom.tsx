@@ -1210,42 +1210,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["updateButtonLiomLoad"] = false
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["buttonLiom", "load"]
-                        },
-                        operation: 4
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        const oldValue = $stateGet(objRoot, variablePath);
-                        $stateSet(objRoot, variablePath, !oldValue);
-                        return !oldValue;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateButtonLiomLoad"] != null &&
-                  typeof $steps["updateButtonLiomLoad"] === "object" &&
-                  typeof $steps["updateButtonLiomLoad"].then === "function"
-                ) {
-                  $steps["updateButtonLiomLoad"] = await $steps[
-                    "updateButtonLiomLoad"
-                  ];
-                }
-
                 $steps["link"] = true
                   ? (() => {
                       const actionArgs = {
@@ -1330,42 +1294,6 @@ function PlasmicMessageLiom__RenderFunc(props: {
                 ) {
                   $steps["invokeGlobalAction"] = await $steps[
                     "invokeGlobalAction"
-                  ];
-                }
-
-                $steps["updateButtonLiomLoad2"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["buttonLiom", "load"]
-                        },
-                        operation: 4
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        const oldValue = $stateGet(objRoot, variablePath);
-                        $stateSet(objRoot, variablePath, !oldValue);
-                        return !oldValue;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateButtonLiomLoad2"] != null &&
-                  typeof $steps["updateButtonLiomLoad2"] === "object" &&
-                  typeof $steps["updateButtonLiomLoad2"].then === "function"
-                ) {
-                  $steps["updateButtonLiomLoad2"] = await $steps[
-                    "updateButtonLiomLoad2"
                   ];
                 }
               }}
