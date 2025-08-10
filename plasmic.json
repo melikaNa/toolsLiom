@@ -3057,6 +3057,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/my-tests"
+        },
+        {
+          "id": "-SoKEb6qZYKB",
+          "name": "ImageOpload",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicImageOpload.tsx",
+          "importSpec": {
+            "modulePath": "ImageOpload.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicImageOpload.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -4364,6 +4377,26 @@
           "id": "cDQWE_Fa_aYu",
           "name": "Drugs97680451SvgIcon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Drugs97680451Svg.tsx"
+        },
+        {
+          "id": "oF8KcKzq4Vx6",
+          "name": "Icon207Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon207.tsx"
+        },
+        {
+          "id": "9THjoD4FD5L7",
+          "name": "Icon208Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon208.tsx"
+        },
+        {
+          "id": "MOiSePKhFBQr",
+          "name": "Icon209Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon209.tsx"
+        },
+        {
+          "id": "lXiR3SAmtr5y",
+          "name": "Icon210Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon210.tsx"
         }
       ],
       "images": [

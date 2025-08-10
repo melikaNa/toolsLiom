@@ -70,6 +70,9 @@ import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4Mcq
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: 2aT3CU7PBGyt/component
 import Paziresh24Avatar from "../../Paziresh24Avatar"; // plasmic-import: zljt-TXjec48/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
+import ImageOpload from "../../ImageOpload"; // plasmic-import: -SoKEb6qZYKB/component
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import {
@@ -93,6 +96,10 @@ import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGX
 import Icon118Icon from "./icons/PlasmicIcon__Icon118"; // plasmic-import: DnG_0B8ScC9o/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: 3GJi3NV2X6Zg/icon
 import Icon117Icon from "./icons/PlasmicIcon__Icon117"; // plasmic-import: v74DW-fSFwuD/icon
+import Icon207Icon from "./icons/PlasmicIcon__Icon207"; // plasmic-import: oF8KcKzq4Vx6/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
+import Icon210Icon from "./icons/PlasmicIcon__Icon210"; // plasmic-import: lXiR3SAmtr5y/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -118,6 +125,10 @@ export type PlasmicResultForDoctor3__OverridesType = {
   paziresh24Avatar?: Flex__<typeof Paziresh24Avatar>;
   img?: Flex__<typeof PlasmicImg__>;
   paziresh24Button?: Flex__<typeof Paziresh24Button>;
+  embedHtml?: Flex__<typeof Embed>;
+  buttonLiom2?: Flex__<typeof ButtonLiom>;
+  imageOpload?: Flex__<typeof ImageOpload>;
+  buttonLiom?: Flex__<typeof ButtonLiom>;
 };
 
 export interface DefaultResultForDoctor3Props {}
@@ -330,6 +341,54 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "buttonLiom.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "buttonLiom.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
+      },
+      {
+        path: "buttonLiom2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "imageLoad",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [
+                  "blob:https://tools.liom.app/dd5146e0-a8cd-45f9-8487-2b936b6dc9fd",
+                  "blob:https://tools.liom.app/e442f9be-2415-46f8-98f6-6eeaae789ba0",
+                  "blob:https://tools.liom.app/99798361-2130-49d2-8dda-10b58d871b91",
+                  "blob:https://tools.liom.app/315b4939-9b73-4894-9032-7e9dbf8070ea"
+                ];
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1424,6 +1483,407 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
               />
             </div>
           ) : null}
+          <div className={classNames(projectcss.all, sty.freeBox__znzRv)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__wLern
+              )}
+            >
+              {
+                "\u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634"
+              }
+            </div>
+            <Embed
+              data-plasmic-name={"embedHtml"}
+              data-plasmic-override={overrides.embedHtml}
+              className={classNames("__wab_instance", sty.embedHtml)}
+              code={
+                "\r\n<div id=\"dropArea\" class=\"drop-area\" tabindex=\"0\"></div>\r\n\r\n<div id=\"imageModal\" class=\"modal hidden\" onclick=\"this.classList.add('hidden')\">\r\n  <img id=\"modalImage\" src=\"\" alt=\"\u0646\u0645\u0627\u06cc\u0634 \u062a\u0635\u0648\u06cc\u0631\" />\r\n</div>\r\n\r\n<script>\r\n  var dropArea = document.getElementById('dropArea');\r\n  var modal = document.getElementById('imageModal');\r\n  var modalImage = document.getElementById('modalImage');\r\n  var fileInput = document.createElement('input');\r\n  fileInput.type = 'file';\r\n  fileInput.accept = 'image/*,application/pdf';\r\n  fileInput.multiple = true;\r\n  fileInput.style.display = 'none';\r\n  document.body.appendChild(fileInput);\r\n  \r\n\r\n\r\n  var image = document.getElementById('image');\r\n  let files = [];\r\n  window.objectUrls = []; // \u0622\u0631\u0627\u06cc\u0647 \u0644\u06cc\u0646\u06a9\u200c\u0647\u0627\u06cc \u0645\u0648\u0642\u062a \u0628\u0631\u0627\u06cc \u0622\u0632\u0627\u062f\u0633\u0627\u0632\u06cc\r\n\r\n  function isAccepted(type) {\r\n    return type.startsWith('image/') || type === 'application/pdf';\r\n  }\r\n\r\n  function removeFile(index) {\r\n    // \u0622\u0632\u0627\u062f\u0633\u0627\u0632\u06cc URL \u0645\u0648\u0642\u062a \u0641\u0627\u06cc\u0644 \u062d\u0630\u0641 \u0634\u062f\u0647\r\n    if (files[index] && window.objectUrls[index]) {\r\n      URL.revokeObjectURL(window.objectUrls[index]);\r\n      window.objectUrls.splice(index, 1);\r\n    }\r\n    document.getElementById('image').click();\r\n    files.splice(index, 1);\r\n    renderPreviews();\r\n  }\r\n\r\n  function showImage(src) {\r\n    modalImage.src = src;\r\n    modal.classList.remove('hidden');\r\n  }\r\n\r\n  function renderPreviews() {\r\n    dropArea.innerHTML = '';\r\n\r\n    if (files.length === 0) {\r\n      var emptyBox = document.createElement('div');\r\n      emptyBox.style.display = 'flex';\r\n      emptyBox.style.flexDirection = 'column';\r\n      emptyBox.style.alignItems = 'center';\r\n      emptyBox.style.justifyContent = 'center';\r\n      emptyBox.style.padding = '20px';\r\n      emptyBox.style.color = '#666';\r\n      emptyBox.style.fontSize = '14px';\r\n      emptyBox.style.width = '100%';\r\n      emptyBox.style.height = '100%';\r\n      emptyBox.style.minHeight = '120px';\r\n\r\n      var icon = document.createElement('div');\r\n      icon.innerHTML = '\ud83d\udcc4';\r\n      icon.style.fontSize = '32px';\r\n      icon.style.marginBottom = '8px';\r\n\r\n      var text = document.createElement('div');\r\n      text.textContent = '\u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062e\u0648\u062f \u0631\u0627 \u0628\u0631\u0627\u06cc \u0628\u0631\u0631\u0633\u06cc \u0622\u067e\u0644\u0648\u062f \u06a9\u0646\u06cc\u062f';\r\n\r\n      emptyBox.appendChild(icon);\r\n      emptyBox.appendChild(text);\r\n      dropArea.appendChild(emptyBox);\r\n      return;\r\n    }\r\n\r\n    files.forEach((file, index) => {\r\n      var preview = document.createElement('div');\r\n      preview.className = 'preview';\r\n\r\n      if (file.type.startsWith('image/')) {\r\n        var img = document.createElement('img');\r\n        img.src = window.objectUrls[index];\r\n        preview.onclick = () => showImage(window.objectUrls[index]);\r\n        preview.appendChild(img);\r\n      } else {\r\n        preview.textContent = file.name;\r\n      }\r\n\r\n      var removeBtn = document.createElement('button');\r\n      removeBtn.className = 'remove-btn';\r\n      removeBtn.textContent = '\u00d7';\r\n      removeBtn.onclick = (ev) => {\r\n        ev.stopPropagation();\r\n        removeFile(index);\r\n      };\r\n      preview.appendChild(removeBtn);\r\n\r\n      dropArea.appendChild(preview);\r\n    });\r\n\r\n    // \u062f\u06a9\u0645\u0647 \u0627\u0641\u0632\u0648\u062f\u0646 \u0641\u0627\u06cc\u0644\r\n    var addBox = document.createElement('div');\r\n    addBox.className = 'add-box';\r\n    addBox.textContent = '+ \u0627\u0641\u0632\u0648\u062f\u0646';\r\n    addBox.onclick = () => fileInput.click();\r\n    dropArea.appendChild(addBox);\r\n  }\r\n\r\n  function addFiles(newFiles) {\r\n    for (var f of newFiles) {\r\n      if (!isAccepted(f.type)) continue;\r\n      files.push(f);\r\n      window.objectUrls.push(URL.createObjectURL(f)); // \u0633\u0627\u062e\u062a URL \u0645\u0648\u0642\u062a \u0648 \u0630\u062e\u06cc\u0631\u0647\r\n    }\r\n    document.getElementById('image').click();\r\n    console.log(window.objectUrls);\r\n    renderPreviews();\r\n  }\r\n\r\n  fileInput.addEventListener('change', (e) => {\r\n    addFiles(e.target.files);\r\n    fileInput.value = '';\r\n  });\r\n\r\n  dropArea.addEventListener('drop', e => {\r\n    e.preventDefault();\r\n    addFiles(e.dataTransfer.files);\r\n  });\r\n\r\n  ['dragenter','dragover'].forEach(evt => {\r\n    dropArea.addEventListener(evt, e => {\r\n      e.preventDefault();\r\n      dropArea.classList.add('dragover');\r\n    });\r\n  });\r\n\r\n  ['dragleave','drop'].forEach(evt => {\r\n    dropArea.addEventListener(evt, e => {\r\n      e.preventDefault();\r\n      dropArea.classList.remove('dragover');\r\n    });\r\n  });\r\n\r\n  // \u062a\u0627\u0628\u0639 \u0622\u067e\u0644\u0648\u062f \u0642\u0627\u0628\u0644 \u0635\u062f\u0627 \u0632\u062f\u0646 \u0627\u0632 \u0628\u06cc\u0631\u0648\u0646\r\n  window.uploadFiles = function() {\r\n    if (!files.length) {\r\n      alert('\u0647\u06cc\u0686 \u0641\u0627\u06cc\u0644\u06cc \u0627\u0646\u062a\u062e\u0627\u0628 \u0646\u0634\u062f\u0647');\r\n      return;\r\n    }\r\n    var formData = new FormData();\r\n    files.forEach(f => formData.append('files', f));\r\n    fetch('/upload', {method:'POST', body:formData})\r\n      .then(res => {\r\n        if(res.ok) alert('\u0622\u067e\u0644\u0648\u062f \u0645\u0648\u0641\u0642');\r\n        else alert('\u062e\u0637\u0627 \u062f\u0631 \u0622\u067e\u0644\u0648\u062f');\r\n      })\r\n      .catch(() => alert('\u062e\u0637\u0627\u06cc \u0634\u0628\u06a9\u0647'));\r\n  }\r\n\r\n  renderPreviews();\r\n</script>\r\n"
+              }
+            />
+
+            <div
+              className={classNames(projectcss.all, sty.freeBox__ymd5S)}
+              onClick={async event => {
+                const $steps = {};
+              }}
+            >
+              {(() => {
+                try {
+                  return $state.imageLoad.length == 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__feh9C)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return fileInput.click();
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                >
+                  <Icon207Icon
+                    className={classNames(projectcss.all, sty.svg__w0UR)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zoFjH
+                    )}
+                  >
+                    {
+                      "\u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062e\u0648\u062f \u0631\u0627 \u0628\u0631\u0627\u06cc \u0628\u0631\u0631\u0633\u06cc \u067e\u0632\u0634\u06a9 \u0622\u067e\u0644\u0648\u062f \u06a9\u0646\u06cc\u062f"
+                    }
+                  </div>
+                  <ButtonLiom
+                    data-plasmic-name={"buttonLiom2"}
+                    data-plasmic-override={overrides.buttonLiom2}
+                    className={classNames("__wab_instance", sty.buttonLiom2)}
+                    color={generateStateValueProp($state, [
+                      "buttonLiom2",
+                      "color"
+                    ])}
+                    load={generateStateValueProp($state, [
+                      "buttonLiom2",
+                      "load"
+                    ])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom2",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom2",
+                          "load"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    size={"compact"}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___2WzOa
+                      )}
+                    >
+                      {
+                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0635\u0627\u0648\u06cc\u0631"
+                      }
+                    </div>
+                  </ButtonLiom>
+                </div>
+              ) : null}
+              {(() => {
+                try {
+                  return $state.imageLoad != 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__zJ14C)}>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $state.imageLoad;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <ImageOpload
+                        data-plasmic-name={"imageOpload"}
+                        data-plasmic-override={overrides.imageOpload}
+                        _delete={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return removeFile(currentIndex);
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.imageOpload
+                        )}
+                        currentItem={currentItem}
+                        key={currentIndex}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return showImage(currentItem);
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                      />
+                    );
+                  })}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__j2Muh)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return fileInput.click();
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    <Icon210Icon
+                      className={classNames(projectcss.all, sty.svg__ddShU)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__a5GxQ
+                      )}
+                    >
+                      {"\u0627\u0641\u0632\u0648\u062f\u0646"}
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__bK1Hz)}>
+              <ButtonLiom
+                data-plasmic-name={"buttonLiom"}
+                data-plasmic-override={overrides.buttonLiom}
+                className={classNames("__wab_instance", sty.buttonLiom)}
+                color={generateStateValueProp($state, ["buttonLiom", "color"])}
+                load={generateStateValueProp($state, ["buttonLiom", "load"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                onLoadChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["buttonLiom", "load"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__dq0ON
+                  )}
+                >
+                  {
+                    "\u0622\u067e\u0644\u0648\u062f \u062a\u0635\u0627\u0648\u06cc\u0631"
+                  }
+                </div>
+              </ButtonLiom>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__kqJiN
+                )}
+              >
+                {"Enter some text"}
+              </div>
+            </div>
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__k6Ttr
+            )}
+            id={"image"}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return console.log("chskchkhs");
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          $state.imageLoad = window.objectUrls;
+                          return console.log($state.imageLoad);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          >
+            {""}
+          </div>
         </div>
       </div>
     </React.Fragment>
@@ -1440,7 +1900,11 @@ const PlasmicDescendants = {
     "headerLiom",
     "paziresh24Avatar",
     "img",
-    "paziresh24Button"
+    "paziresh24Button",
+    "embedHtml",
+    "buttonLiom2",
+    "imageOpload",
+    "buttonLiom"
   ],
   sideEffect: ["sideEffect"],
   modal: ["modal", "backgrond"],
@@ -1449,7 +1913,11 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom", "paziresh24Avatar"],
   paziresh24Avatar: ["paziresh24Avatar"],
   img: ["img"],
-  paziresh24Button: ["paziresh24Button"]
+  paziresh24Button: ["paziresh24Button"],
+  embedHtml: ["embedHtml"],
+  buttonLiom2: ["buttonLiom2"],
+  imageOpload: ["imageOpload"],
+  buttonLiom: ["buttonLiom"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1464,6 +1932,10 @@ type NodeDefaultElementType = {
   paziresh24Avatar: typeof Paziresh24Avatar;
   img: typeof PlasmicImg__;
   paziresh24Button: typeof Paziresh24Button;
+  embedHtml: typeof Embed;
+  buttonLiom2: typeof ButtonLiom;
+  imageOpload: typeof ImageOpload;
+  buttonLiom: typeof ButtonLiom;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1559,6 +2031,10 @@ export const PlasmicResultForDoctor3 = Object.assign(
     paziresh24Avatar: makeNodeComponent("paziresh24Avatar"),
     img: makeNodeComponent("img"),
     paziresh24Button: makeNodeComponent("paziresh24Button"),
+    embedHtml: makeNodeComponent("embedHtml"),
+    buttonLiom2: makeNodeComponent("buttonLiom2"),
+    imageOpload: makeNodeComponent("imageOpload"),
+    buttonLiom: makeNodeComponent("buttonLiom"),
 
     // Metadata about props expected for PlasmicResultForDoctor3
     internalVariantProps: PlasmicResultForDoctor3__VariantProps,

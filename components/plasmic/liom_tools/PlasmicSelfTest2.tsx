@@ -3719,6 +3719,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           throw e;
                         }
                       })()}
+                      userId={(() => {
+                        try {
+                          return $state.userId;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
                     >
                       <div
                         className={classNames(
@@ -4818,6 +4831,66 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         ) {
                           $steps["invokeGlobalAction5"] = await $steps[
                             "invokeGlobalAction5"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction"] = (
+                          $steps.chat?.data?.message?.includes("action")
+                            ? true
+                            : false
+                        )
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/service/log",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        userId: $ctx.query.origin_user_id,
+                                        pageName: "chatBot",
+                                        action: "show_AD",
+                                        extraData: {
+                                          action:
+                                            $state.testChat[
+                                              $state.testChat.length - 1
+                                            ]?.action
+                                        }
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                    }
+                                  }
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
                           ];
                         }
                       }}

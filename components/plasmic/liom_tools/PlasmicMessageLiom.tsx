@@ -134,6 +134,7 @@ export type PlasmicMessageLiom__ArgsType = {
   feedbackData?: any;
   ad?: any;
   token?: string;
+  userId?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
 };
@@ -150,6 +151,7 @@ export const PlasmicMessageLiom__ArgProps = new Array<ArgPropType>(
   "feedbackData",
   "ad",
   "token",
+  "userId",
   "children",
   "slot"
 );
@@ -179,6 +181,7 @@ export interface DefaultMessageLiomProps {
   feedbackData?: any;
   ad?: any;
   token?: string;
+  userId?: string;
   children?: React.ReactNode;
   slot?: React.ReactNode;
   pazireshAnswer?: SingleBooleanChoiceArg<"pazireshAnswer">;
@@ -1296,6 +1299,58 @@ function PlasmicMessageLiom__RenderFunc(props: {
                     "invokeGlobalAction"
                   ];
                 }
+
+                $steps["invokeGlobalAction2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/service/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: $props.userId,
+                                pageName: "chatBot",
+                                action: "click_AD",
+                                extraData: {
+                                  action: $props.ad.action
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          {
+                            headers: {
+                              "Content-Type": "application/json",
+                              Authorization:
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                            }
+                          }
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction2"] != null &&
+                  typeof $steps["invokeGlobalAction2"] === "object" &&
+                  typeof $steps["invokeGlobalAction2"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction2"] = await $steps[
+                    "invokeGlobalAction2"
+                  ];
+                }
               }}
             >
               <div
@@ -1480,6 +1535,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
         ) : null}
         <div
           className={classNames(projectcss.all, sty.freeBox__q3Toq, {
+            [sty.freeBoxbot__q3ToqxxwGw]: hasVariant($state, "bot", "bot"),
             [sty.freeBoxendMessege__q3ToqTjzqg]: hasVariant(
               $state,
               "endMessege",
@@ -1522,6 +1578,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
         </div>
         <div
           className={classNames(projectcss.all, sty.freeBox__z0D5, {
+            [sty.freeBoxbot__z0D5XxwGw]: hasVariant($state, "bot", "bot"),
             [sty.freeBoxendMessege__z0D5Tjzqg]: hasVariant(
               $state,
               "endMessege",

@@ -1,0 +1,45 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: var(--token-6eH8UjLOmr7v);
+  padding: 0px;
+  border-width: 1px;
+}
+.img {
+  object-fit: cover;
+  max-width: 100%;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: var(--token-6eH8UjLOmr7v);
+  border-width: 1px;
+}
+.img > picture > img {
+  object-fit: cover;
+}
+.root:hover .img {
+  filter: brightness(50%);
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  position: absolute;
+  left: auto;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  color: var(--token-mIaQ7cfg3AGq);
+  opacity: 0.9;
+  height: 30px;
+  flex-shrink: 0;
+  display: none;
+}
+.root:hover .svg {
+  display: block;
+}
