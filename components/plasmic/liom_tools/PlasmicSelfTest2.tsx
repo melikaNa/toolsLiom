@@ -2886,6 +2886,22 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   item["from"] = "user";
                                 } else {
                                   item["from"] = "system";
+                                  if (
+                                    item.text &&
+                                    item.text.includes('"action"')
+                                  ) {
+                                    try {
+                                      var m = JSON.parse(item.text);
+                                      item["text"] = m.text || "";
+                                      item["cta"] = m.cta || "";
+                                      item["btnText"] = m.btnText || "";
+                                      item["action"] = m.action || "";
+                                    } catch (e) {
+                                      item["text"] = item.text || "";
+                                    }
+                                  } else {
+                                    item["text"] = item.text || "";
+                                  }
                                 }
                               });
                               $state.testChat = newData.concat($state.testChat);
@@ -3975,7 +3991,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 </div>
                 {(() => {
                   try {
-                    return $state.infoChat?.questions;
+                    return $state.infoChat?.questions?.length > 1;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
