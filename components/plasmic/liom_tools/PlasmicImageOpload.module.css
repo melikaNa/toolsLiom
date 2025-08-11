@@ -11,6 +11,10 @@
   padding: 0px;
   border-width: 1px;
 }
+.rootdocter {
+  width: 120px;
+  height: 120px;
+}
 .img {
   object-fit: cover;
   max-width: 100%;
@@ -25,6 +29,11 @@
 }
 .imgupload2 {
   filter: brightness(50%);
+}
+.imgdocter {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
 }
 .root:hover .img {
   filter: brightness(50%);
@@ -51,6 +60,14 @@
 }
 .rootupload2:hover .svgupload2___5Dvcq61Ma {
   display: none;
+}
+.rootdocter:hover .svgdocter___5Dvcd204E {
+  color: var(--token-QR8ATjORhQqO);
+  opacity: 1;
+  width: 40px;
+  height: 40px;
+  filter: brightness(129%);
+  flex-shrink: 0;
 }
 .svg__zvZid {
   object-fit: cover;

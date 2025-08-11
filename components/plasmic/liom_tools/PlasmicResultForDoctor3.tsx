@@ -440,7 +440,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
             try {
               return (() => {
                 if ($state.info.p?.test_photo)
-                  return JSON.parse($state.info.test_photo);
+                  return JSON.parse($state.info.p.test_photo);
                 else return [];
               })();
             } catch (e) {
@@ -1601,7 +1601,14 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__wLern
+                  sty.text__wLern,
+                  {
+                    [sty.textupload2__wLernB5Oun]: hasVariant(
+                      $state,
+                      "upload2",
+                      "upload2"
+                    )
+                  }
                 )}
               >
                 {
@@ -2346,6 +2353,31 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         $steps["runCode"] = await $steps["runCode"];
                       }
 
+                      $steps["runCode2"] =
+                        $steps.testResult?.data?.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    $state.imageLoad = [];
+                                    $state.files = [];
+                                    return (window.filess = []);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["runCode2"] != null &&
+                        typeof $steps["runCode2"] === "object" &&
+                        typeof $steps["runCode2"].then === "function"
+                      ) {
+                        $steps["runCode2"] = await $steps["runCode2"];
+                      }
+
                       $steps["testResult"] = true
                         ? (() => {
                             const actionArgs = {
@@ -2384,31 +2416,6 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         typeof $steps["testResult"].then === "function"
                       ) {
                         $steps["testResult"] = await $steps["testResult"];
-                      }
-
-                      $steps["runCode2"] =
-                        $steps.testResult?.data?.success == true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    $state.imageLoad = [];
-                                    $state.files = [];
-                                    return (window.filess = []);
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["runCode2"] != null &&
-                        typeof $steps["runCode2"] === "object" &&
-                        typeof $steps["runCode2"].then === "function"
-                      ) {
-                        $steps["runCode2"] = await $steps["runCode2"];
                       }
 
                       $steps["updateUploadLoad2"] = true

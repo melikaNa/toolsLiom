@@ -63,6 +63,11 @@
 .rootupload2 > * {
   grid-column: 4;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .rootupload2 > * {
+    grid-column: 4;
+  }
+}
 .sideEffect:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -760,11 +765,12 @@
   min-width: 0;
   border-radius: var(--token-3WxvfyIdJppy);
   padding: var(--token-6eH8UjLOmr7v);
-  border: var(--token-omrXvBNBcWTN) dashed var(--token-dhekOSlmbKIe);
+  border: 3px dashed var(--token-dhekOSlmbKIe);
 }
 .freeBoxupload2__ymd5SB5Oun {
   justify-content: flex-end;
   align-items: center;
+  border-width: 3px;
 }
 .freeBox__feh9C {
   display: flex;
@@ -810,6 +816,12 @@
 }
 .textupload2__zoFjHb5Oun {
   align-self: center;
+  display: block;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .textupload2__zoFjHb5Oun {
+    display: none;
+  }
 }
 .buttonLiom2:global(.__wab_instance) {
   max-width: 100%;
@@ -822,6 +834,12 @@
 }
 .buttonLiom2upload2:global(.__wab_instance) {
   width: 30%;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .buttonLiom2upload2:global(.__wab_instance) {
+    width: 100%;
+    min-width: 0;
+  }
 }
 .svg__mj3NC {
   position: relative;
@@ -870,7 +888,7 @@
   flex-shrink: 0;
   border-radius: var(--token-3WxvfyIdJppy);
   padding: var(--token-6eH8UjLOmr7v);
-  border: var(--token-omrXvBNBcWTN) dashed var(--token-dhekOSlmbKIe);
+  border: 2px dashed var(--token-dhekOSlmbKIe);
 }
 .svg__ddShU {
   object-fit: cover;

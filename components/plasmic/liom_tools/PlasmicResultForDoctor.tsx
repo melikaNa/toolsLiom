@@ -73,6 +73,7 @@ import PercentageBox from "../../PercentageBox"; // plasmic-import: twduJO0v7B8-
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import ImageOpload from "../../ImageOpload"; // plasmic-import: -SoKEb6qZYKB/component
 import Icons from "../../Icons"; // plasmic-import: 1fNx7Q7E4s-Q/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import HamdastUtilsOpenLink from "../../HamdastUtilsOpenLink"; // plasmic-import: RRKFlqCHeJfP/component
@@ -151,6 +152,7 @@ export type PlasmicResultForDoctor__OverridesType = {
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   collapse5?: Flex__<typeof AntdSingleCollapse>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
+  imageOpload?: Flex__<typeof ImageOpload>;
   icons?: Flex__<typeof Icons>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
@@ -618,6 +620,12 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "imageOpload.upload",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -3379,6 +3387,40 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               </ButtonLiom>
             </div>
           ) : null}
+          <div className={classNames(projectcss.all, sty.freeBox__lpXAs)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___3Vd4T
+              )}
+            >
+              {
+                "\u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634 \u0628\u06cc\u0645\u0627\u0631"
+              }
+            </div>
+            <ImageOpload
+              data-plasmic-name={"imageOpload"}
+              data-plasmic-override={overrides.imageOpload}
+              className={classNames("__wab_instance", sty.imageOpload)}
+              docter={true}
+              onUploadChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "imageOpload",
+                  "upload"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              upload={generateStateValueProp($state, ["imageOpload", "upload"])}
+            />
+          </div>
           <div className={classNames(projectcss.all, sty.freeBox___5Y2Au)}>
             <div
               className={classNames(
@@ -5976,6 +6018,7 @@ const PlasmicDescendants = {
     "buttonLiom2",
     "collapse5",
     "buttonLiom5",
+    "imageOpload",
     "icons",
     "buttonLiom4",
     "apiRequest",
@@ -6000,6 +6043,7 @@ const PlasmicDescendants = {
   buttonLiom2: ["buttonLiom2"],
   collapse5: ["collapse5"],
   buttonLiom5: ["buttonLiom5"],
+  imageOpload: ["imageOpload"],
   icons: ["icons"],
   buttonLiom4: ["buttonLiom4"],
   apiRequest: ["apiRequest"],
@@ -6042,6 +6086,7 @@ type NodeDefaultElementType = {
   buttonLiom2: typeof ButtonLiom;
   collapse5: typeof AntdSingleCollapse;
   buttonLiom5: typeof ButtonLiom;
+  imageOpload: typeof ImageOpload;
   icons: typeof Icons;
   buttonLiom4: typeof ButtonLiom;
   apiRequest: typeof ApiRequest;
@@ -6152,6 +6197,7 @@ export const PlasmicResultForDoctor = Object.assign(
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     collapse5: makeNodeComponent("collapse5"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
+    imageOpload: makeNodeComponent("imageOpload"),
     icons: makeNodeComponent("icons"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     apiRequest: makeNodeComponent("apiRequest"),

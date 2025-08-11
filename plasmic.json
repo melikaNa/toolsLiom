@@ -4412,6 +4412,11 @@
           "id": "Z2VM7o85ZA5W",
           "name": "Icon214Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon214.tsx"
+        },
+        {
+          "id": "hMpu4DScncOm",
+          "name": "Icon216Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon216.tsx"
         }
       ],
       "images": [

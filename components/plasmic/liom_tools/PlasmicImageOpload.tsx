@@ -71,19 +71,23 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJp
 import sty from "./PlasmicImageOpload.module.css"; // plasmic-import: -SoKEb6qZYKB/css
 
 import Icon208Icon from "./icons/PlasmicIcon__Icon208"; // plasmic-import: 9THjoD4FD5L7/icon
+import Icon216Icon from "./icons/PlasmicIcon__Icon216"; // plasmic-import: hMpu4DScncOm/icon
 import Icon211Icon from "./icons/PlasmicIcon__Icon211"; // plasmic-import: dnEZodYx_LuK/icon
 
 createPlasmicElementProxy;
 
 export type PlasmicImageOpload__VariantMembers = {
   upload2: "upload2";
+  docter: "docter";
 };
 export type PlasmicImageOpload__VariantsArgs = {
   upload2?: SingleBooleanChoiceArg<"upload2">;
+  docter?: SingleBooleanChoiceArg<"docter">;
 };
 type VariantPropType = keyof PlasmicImageOpload__VariantsArgs;
 export const PlasmicImageOpload__VariantProps = new Array<VariantPropType>(
-  "upload2"
+  "upload2",
+  "docter"
 );
 
 export type PlasmicImageOpload__ArgsType = {
@@ -117,6 +121,7 @@ export interface DefaultImageOploadProps {
   onUploadChange?: (val: string) => void;
   type?: string;
   upload2?: SingleBooleanChoiceArg<"upload2">;
+  docter?: SingleBooleanChoiceArg<"docter">;
   className?: string;
 }
 
@@ -191,6 +196,12 @@ function PlasmicImageOpload__RenderFunc(props: {
               throw e;
             }
           })() ?? $props.upload2
+      },
+      {
+        path: "docter",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.docter
       }
     ],
     [$props, $ctx, $refs]
@@ -228,7 +239,10 @@ function PlasmicImageOpload__RenderFunc(props: {
         plasmic_paziresh_24_design_system_css.plasmic_tokens,
         plasmic_hamdast_sdk_css.plasmic_tokens,
         sty.root,
-        { [sty.rootupload2]: hasVariant($state, "upload2", "upload2") }
+        {
+          [sty.rootdocter]: hasVariant($state, "docter", "docter"),
+          [sty.rootupload2]: hasVariant($state, "upload2", "upload2")
+        }
       )}
       data-plasmic-trigger-props={[triggerRootHoverProps]}
     >
@@ -237,14 +251,19 @@ function PlasmicImageOpload__RenderFunc(props: {
         data-plasmic-override={overrides.img}
         alt={""}
         className={classNames(sty.img, {
+          [sty.imgdocter]: hasVariant($state, "docter", "docter"),
           [sty.imgupload2]: hasVariant($state, "upload2", "upload2")
         })}
-        displayHeight={"100px"}
+        displayHeight={
+          hasVariant($state, "docter", "docter") ? "120px" : "100px"
+        }
         displayMaxHeight={"none"}
         displayMaxWidth={"100%"}
         displayMinHeight={"0"}
         displayMinWidth={"0"}
-        displayWidth={"100px"}
+        displayWidth={
+          hasVariant($state, "docter", "docter") ? "120px" : "100px"
+        }
         loading={"lazy"}
         onClick={args.onClick}
         src={
@@ -286,8 +305,14 @@ function PlasmicImageOpload__RenderFunc(props: {
         }
       />
 
-      <Icon208Icon
+      <PlasmicIcon__
+        PlasmicIconType={
+          hasVariant($state, "docter", "docter") && triggers.hover_root
+            ? Icon216Icon
+            : Icon208Icon
+        }
         className={classNames(projectcss.all, sty.svg___5Dvc, {
+          [sty.svgdocter___5Dvcd204E]: hasVariant($state, "docter", "docter"),
           [sty.svgupload2___5Dvcq61Ma]: hasVariant($state, "upload2", "upload2")
         })}
         onClick={args._delete}
