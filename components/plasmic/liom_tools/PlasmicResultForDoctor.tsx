@@ -654,7 +654,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
         path: "modal2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "image",
@@ -6241,9 +6241,122 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               })()}
             />
 
-            <Icon22Icon
-              className={classNames(projectcss.all, sty.svg__nMq9N)}
-              onClick={async event => {
+            <div className={classNames(projectcss.all, sty.freeBox___0GDu3)}>
+              <Icon22Icon
+                className={classNames(projectcss.all, sty.svg__nMq9N)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateModal2Open"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["modal2", "open"]
+                          },
+                          operation: 4
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateModal2Open"] != null &&
+                    typeof $steps["updateModal2Open"] === "object" &&
+                    typeof $steps["updateModal2Open"].then === "function"
+                  ) {
+                    $steps["updateModal2Open"] = await $steps[
+                      "updateModal2Open"
+                    ];
+                  }
+                }}
+                role={"img"}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__lczjj)}>
+              <Icon217Icon
+                className={classNames(projectcss.all, sty.svg__vAqaa)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateModal2Open"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["modal2", "open"]
+                          },
+                          operation: 4
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateModal2Open"] != null &&
+                    typeof $steps["updateModal2Open"] === "object" &&
+                    typeof $steps["updateModal2Open"].then === "function"
+                  ) {
+                    $steps["updateModal2Open"] = await $steps[
+                      "updateModal2Open"
+                    ];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return window.open($state.image);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                role={"img"}
+              />
+            </div>
+            <BackHandler
+              data-plasmic-name={"backHandler"}
+              data-plasmic-override={overrides.backHandler}
+              active={true}
+              className={classNames("__wab_instance", sty.backHandler)}
+              onBack={async () => {
                 const $steps = {};
 
                 $steps["updateModal2Open"] = true
@@ -6253,7 +6366,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                           objRoot: $state,
                           variablePath: ["modal2", "open"]
                         },
-                        operation: 4
+                        operation: 0,
+                        value: false
                       };
                       return (({
                         variable,
@@ -6266,9 +6380,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         }
                         const { objRoot, variablePath } = variable;
 
-                        const oldValue = $stateGet(objRoot, variablePath);
-                        $stateSet(objRoot, variablePath, !oldValue);
-                        return !oldValue;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
@@ -6280,121 +6393,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   $steps["updateModal2Open"] = await $steps["updateModal2Open"];
                 }
               }}
-              role={"img"}
-            />
-
-            <Icon217Icon
-              className={classNames(projectcss.all, sty.svg__vAqaa)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["updateModal2Open"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["modal2", "open"]
-                        },
-                        operation: 4
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        const oldValue = $stateGet(objRoot, variablePath);
-                        $stateSet(objRoot, variablePath, !oldValue);
-                        return !oldValue;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateModal2Open"] != null &&
-                  typeof $steps["updateModal2Open"] === "object" &&
-                  typeof $steps["updateModal2Open"].then === "function"
-                ) {
-                  $steps["updateModal2Open"] = await $steps["updateModal2Open"];
-                }
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return window.open($state.image);
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-              }}
-              role={"img"}
             />
           </AntdModal>
-          <BackHandler
-            data-plasmic-name={"backHandler"}
-            data-plasmic-override={overrides.backHandler}
-            active={(() => {
-              try {
-                return $state.modal2.open;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })()}
-            className={classNames("__wab_instance", sty.backHandler)}
-            onBack={async () => {
-              const $steps = {};
-
-              $steps["updateModal2Open"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["modal2", "open"]
-                      },
-                      operation: 0,
-                      value: false
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateModal2Open"] != null &&
-                typeof $steps["updateModal2Open"] === "object" &&
-                typeof $steps["updateModal2Open"].then === "function"
-              ) {
-                $steps["updateModal2Open"] = await $steps["updateModal2Open"];
-              }
-            }}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -6468,7 +6468,7 @@ const PlasmicDescendants = {
   code: ["code"],
   textArea: ["textArea"],
   buttonLiom: ["buttonLiom"],
-  modal2: ["modal2"],
+  modal2: ["modal2", "backHandler"],
   backHandler: ["backHandler"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
