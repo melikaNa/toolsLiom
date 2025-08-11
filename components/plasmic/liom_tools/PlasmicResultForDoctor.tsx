@@ -654,7 +654,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
         path: "modal2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "image",
@@ -6354,7 +6354,19 @@ function PlasmicResultForDoctor__RenderFunc(props: {
             <BackHandler
               data-plasmic-name={"backHandler"}
               data-plasmic-override={overrides.backHandler}
-              active={true}
+              active={(() => {
+                try {
+                  return $state.modal2.open;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()}
               className={classNames("__wab_instance", sty.backHandler)}
               onBack={async () => {
                 const $steps = {};
