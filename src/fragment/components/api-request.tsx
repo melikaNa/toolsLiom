@@ -12,6 +12,7 @@ type ApiRequestType = {
   body?: Record<string, any>;
   config?: Record<string, any>;
   children: ReactNode;
+  shouldFetch?: boolean;
   errorDisplay?: ReactNode;
   loadingDisplay?: ReactNode;
   previewErrorDisplay?: boolean;
@@ -35,6 +36,7 @@ export const ApiRequest = (props: ApiRequestType) => {
     previewLoadingDisplay,
     onError,
     onLoading,
+    shouldFetch = true,
     onSuccess,
   } = props;
   const fragmentConfig = useSelector("Fragment");
@@ -50,8 +52,10 @@ export const ApiRequest = (props: ApiRequestType) => {
       ...config,
     },
   };
+const shouldFetchRequest = shouldFetch !== false && !!url;
+const fetchKey = shouldFetchRequest ? JSON.stringify({ ...fetchProps, shouldFetch }) : null;
   const { error } = useSWR(
-    JSON.stringify(fetchProps),
+    fetchKey,
     () => reuqestFn(fetchProps),
     {
       onError(err) {
@@ -71,7 +75,6 @@ export const ApiRequest = (props: ApiRequestType) => {
       keepPreviousData: false,
     }
   );
-
   const reuqestFn = async ({ method, url, params, body, config }: any) => {
     onLoading?.(true);
     onError?.(null);
@@ -137,6 +140,12 @@ export const apiRequestMeta: CodeComponentMeta<ApiRequestType> = {
       description: `e.g. { headers: { 'Authorization': 'XXX' } }`,
       helpText:
         "Read about request configuration options at https://axios-http.com/docs/req_config",
+    },
+    shouldFetch: {
+      displayName: "Should Fetch?",
+      type: "boolean",
+      description: "If false, the request will not run.",
+      defaultValue: true,
     },
     previewLoadingDisplay: {
       displayName: "Preview Loading Display",
