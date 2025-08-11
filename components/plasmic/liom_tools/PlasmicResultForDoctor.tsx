@@ -625,6 +625,25 @@ function PlasmicResultForDoctor__RenderFunc(props: {
         path: "imageOpload[].upload",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "p",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return JSON.parse($state.apiRequest.data.userInfo.prescriptions);
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -3398,57 +3417,59 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                 "\u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634 \u0628\u06cc\u0645\u0627\u0631"
               }
             </div>
-            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
-              2, 3, 4
-            ]).map((__plasmic_item_0, __plasmic_idx_0) => {
-              const currentItem = __plasmic_item_0;
-              const currentIndex = __plasmic_idx_0;
-              return (() => {
-                const child$Props = {
-                  className: classNames("__wab_instance", sty.imageOpload),
-                  docter: true,
-                  key: currentIndex,
-                  onUploadChange: async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
+            <div className={classNames(projectcss.all, sty.freeBox__tf6P9)}>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
+                2, 3, 4
+              ]).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.imageOpload),
+                    docter: true,
+                    key: currentIndex,
+                    onUploadChange: async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "imageOpload",
+                        __plasmic_idx_0,
+                        "upload"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    },
+                    upload: generateStateValueProp($state, [
                       "imageOpload",
                       __plasmic_idx_0,
                       "upload"
-                    ]).apply(null, eventArgs);
+                    ])
+                  };
 
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  },
-                  upload: generateStateValueProp($state, [
-                    "imageOpload",
-                    __plasmic_idx_0,
-                    "upload"
-                  ])
-                };
-
-                initializePlasmicStates(
-                  $state,
-                  [
-                    {
-                      name: "imageOpload[].upload",
-                      initFunc: ({ $props, $state, $queries }) => false
-                    }
-                  ],
-                  [__plasmic_idx_0]
-                );
-                return (
-                  <ImageOpload
-                    data-plasmic-name={"imageOpload"}
-                    data-plasmic-override={overrides.imageOpload}
-                    {...child$Props}
-                  />
-                );
-              })();
-            })}
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "imageOpload[].upload",
+                        initFunc: ({ $props, $state, $queries }) => false
+                      }
+                    ],
+                    [__plasmic_idx_0]
+                  );
+                  return (
+                    <ImageOpload
+                      data-plasmic-name={"imageOpload"}
+                      data-plasmic-override={overrides.imageOpload}
+                      {...child$Props}
+                    />
+                  );
+                })();
+              })}
+            </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox___5Y2Au)}>
             <div

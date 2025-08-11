@@ -2604,7 +2604,15 @@ function PlasmicResult__RenderFunc(props: {
                 ? "\u0646\u0638\u0631 \u062a\u062e\u0635\u0635\u06cc \u067e\u0632\u0634\u06a9"
                 : "\u0646\u062a\u06cc\u062c\u0647 \u062a\u0641\u0635\u06cc\u0644\u06cc \u0628\u0647 \u06a9\u0645\u06a9 \u0647\u0648\u0634 \u0645\u0635\u0646\u0648\u0639\u06cc"}
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__umGrc)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__umGrc, {
+                [sty.freeBoxspecialized__umGrcfomOb]: hasVariant(
+                  $state,
+                  "specialized",
+                  "specialized"
+                )
+              })}
+            >
               <div
                 className={classNames(
                   projectcss.all,
@@ -4849,6 +4857,11 @@ function PlasmicResult__RenderFunc(props: {
                   $state,
                   "information",
                   "information"
+                ),
+                [sty.freeBoxspecialized__mzAy8FomOb]: hasVariant(
+                  $state,
+                  "specialized",
+                  "specialized"
                 )
               })}
             >
@@ -4950,7 +4963,15 @@ function PlasmicResult__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__ke2Tb)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__ke2Tb, {
+                    [sty.freeBoxspecialized__ke2TbFomOb]: hasVariant(
+                      $state,
+                      "specialized",
+                      "specialized"
+                    )
+                  })}
+                >
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -4988,7 +5009,14 @@ function PlasmicResult__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__rZgJu
+                            sty.freeBox__rZgJu,
+                            {
+                              [sty.freeBoxspecialized__rZgJuFomOb]: hasVariant(
+                                $state,
+                                "specialized",
+                                "specialized"
+                              )
+                            }
                           )}
                           style={(() => {
                             try {
@@ -5326,7 +5354,15 @@ function PlasmicResult__RenderFunc(props: {
                 )
               })}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__kgya4)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__kgya4, {
+                  [sty.freeBoxspecialized__kgya4FomOb]: hasVariant(
+                    $state,
+                    "specialized",
+                    "specialized"
+                  )
+                })}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
