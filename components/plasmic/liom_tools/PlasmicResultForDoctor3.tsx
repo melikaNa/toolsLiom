@@ -214,7 +214,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "action",
@@ -439,7 +439,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($state.info?.test_photo)
+                if ($state.info.p?.test_photo)
                   return JSON.parse($state.info.test_photo);
                 else return [];
               })();
@@ -1577,7 +1577,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return $state.info?.request_p == "آزمایش";
+              return $state.info?.p?.request_p == "آزمایش";
             } catch (e) {
               if (
                 e instanceof TypeError ||
