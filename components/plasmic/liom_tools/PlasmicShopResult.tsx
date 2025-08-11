@@ -1323,6 +1323,7 @@ function PlasmicShopResult__RenderFunc(props: {
                   })()
                 : undefined
             }
+            shouldFetch={true}
             url={
               hasVariant($state, "failed", "failed")
                 ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"

@@ -761,6 +761,7 @@ function PlasmicShop__RenderFunc(props: {
                 "data"
               ]).apply(null, eventArgs);
             }}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           />
         </div>

@@ -9253,6 +9253,7 @@ function PlasmicResult__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/selfTestLogs"}
           />
 
@@ -9895,6 +9896,7 @@ function PlasmicResult__RenderFunc(props: {
                     "data"
                   ]).apply(null, eventArgs);
                 }}
+                shouldFetch={true}
                 url={(() => {
                   try {
                     return `https://apigw.paziresh24.com/seapi/v1/search/ir/${

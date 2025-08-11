@@ -3,44 +3,44 @@
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/liom_tools/PlasmicGlobalContextsProvider";
-import { ThemeContext } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__Theme";
-import { UnnamedGlobalGroupOfVariantsContext } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants";
-import { PlasmicResultForDoctor3 } from "../../components/plasmic/liom_tools/PlasmicResultForDoctor3";
+import { ThemeContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__Theme";
+import { UnnamedGlobalGroupOfVariantsContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants";
+import { PlasmicMedicine } from "../../components/plasmic/liom_tools/PlasmicMedicine";
 import { useRouter } from "next/router";
 
-function ResultForDoctor3() {
-  // Use PlasmicResultForDoctor3 to render this component as it was
+function Medicine() {
+  // Use PlasmicMedicine to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicResultForDoctor3 are:
+  // Props you can pass into PlasmicMedicine are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicResultForDoctor3 is wrapped by your project's global
+  // By default, PlasmicMedicine is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
 
   return (
-    <UnnamedGlobalGroupOfVariantsContext.Provider value={undefined}>
-      <ThemeContext.Provider value={undefined}>
+    <UnnamedGlobalGroupOfVariantsContextProvider value={undefined}>
+      <ThemeContextProvider value={undefined}>
         <GlobalContextsProvider>
           <PageParamsProvider__
             route={useRouter()?.pathname}
             params={useRouter()?.query}
             query={useRouter()?.query}
           >
-            <PlasmicResultForDoctor3 />
+            <PlasmicMedicine />
           </PageParamsProvider__>
         </GlobalContextsProvider>
-      </ThemeContext.Provider>
-    </UnnamedGlobalGroupOfVariantsContext.Provider>
+      </ThemeContextProvider>
+    </UnnamedGlobalGroupOfVariantsContextProvider>
   );
 }
 
-export default ResultForDoctor3;
+export default Medicine;

@@ -1770,6 +1770,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/getUser"}
             >
               <ApiRequest
@@ -1972,6 +1973,7 @@ function PlasmicSelfMedicationStep2__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
+                shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/selfTreatment"}
               >
                 <div

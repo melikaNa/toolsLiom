@@ -727,6 +727,7 @@ function PlasmicPregnancy__RenderFunc(props: {
             params={{
               token: $ctx.query.token
             }}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/info"}
           >
             <div
@@ -4509,6 +4510,7 @@ function PlasmicPregnancy__RenderFunc(props: {
               params={{
                 weekNumber: $state.weeksPregnant
               }}
+              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/getAdvice"}
             />
 
@@ -4568,6 +4570,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 userId: $ctx.query.userId,
                 appKey: "com.diacotdj.liom"
               }}
+              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/task"}
             />
           </ApiRequest>

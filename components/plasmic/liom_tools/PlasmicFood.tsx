@@ -6143,6 +6143,7 @@ function PlasmicFood__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/food"}
           />
 
@@ -6228,6 +6229,7 @@ function PlasmicFood__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/food"}
           />
 
@@ -6382,6 +6384,7 @@ function PlasmicFood__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/food"}
           />
 

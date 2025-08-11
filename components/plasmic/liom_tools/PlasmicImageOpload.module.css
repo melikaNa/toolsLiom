@@ -49,10 +49,13 @@
   color: var(--token-mIaQ7cfg3AGq);
   opacity: 0.9;
   height: 30px;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
   flex-shrink: 0;
-  display: none;
 }
 .svgupload2___5Dvcq61Ma {
+  display: none;
+}
+.svgdocter___5Dvcd204E {
   display: none;
 }
 .root:hover .svg___5Dvc {

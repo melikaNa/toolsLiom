@@ -499,6 +499,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
               eventArgs
             );
           }}
+          shouldFetch={true}
           url={"https://n8n.staas.ir/webhook/chatBot/shop/items"}
         >
           <div className={classNames(projectcss.all, sty.freeBox__l6VHh)}>

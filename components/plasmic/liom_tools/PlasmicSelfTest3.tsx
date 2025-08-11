@@ -4824,6 +4824,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                   }
                 }).apply(null, eventArgs);
               }}
+              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/selfTest/shop"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__bKyZq)}>
@@ -5707,6 +5708,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/selfTestPayment"}
           >
             {(() => {
@@ -6029,6 +6031,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                   }
                 }).apply(null, eventArgs);
               }}
+              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/selfTest/shop"}
             >
               {(() => {
@@ -6955,6 +6958,7 @@ generateStars(${$state.rate});
                   throw e;
                 }
               })()}
+              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/selfTest_comments"}
             >
               <div className={classNames(projectcss.all, sty.freeBox__bUkto)}>

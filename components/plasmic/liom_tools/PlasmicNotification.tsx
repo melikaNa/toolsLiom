@@ -3814,6 +3814,7 @@ function PlasmicNotification__RenderFunc(props: {
                     }
                   })()
             }
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/notif"}
           />
         </div>

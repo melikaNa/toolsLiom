@@ -4701,6 +4701,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                   eventArgs
                 );
               }}
+              shouldFetch={true}
             >
               <div className={classNames(projectcss.all, sty.freeBox___4Vcb4)}>
                 <div

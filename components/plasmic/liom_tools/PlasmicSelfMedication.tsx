@@ -1175,6 +1175,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     throw e;
                   }
                 })()}
+                shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/selfTreatment/userInfo"}
               >
                 <ApiRequest
@@ -1572,6 +1573,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       throw e;
                     }
                   })()}
+                  shouldFetch={true}
                   url={"https://n8n.staas.ir/webhook/self/info-v2"}
                 >
                   <ApiRequest
@@ -1693,6 +1695,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         throw e;
                       }
                     })()}
+                    shouldFetch={true}
                     url={"https://n8n.staas.ir/webhook/selfTreatment"}
                   />
                 </ApiRequest>
@@ -3601,6 +3604,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 throw e;
               }
             })()}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/selfTreatment/setFcm"}
           />
         </div>

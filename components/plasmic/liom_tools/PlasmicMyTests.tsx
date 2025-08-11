@@ -445,6 +445,7 @@ function PlasmicMyTests__RenderFunc(props: {
                 eventArgs
               );
             }}
+            shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/resultsPage"}
           >
             {(() => {

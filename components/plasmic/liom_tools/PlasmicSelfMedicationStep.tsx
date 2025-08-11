@@ -2134,6 +2134,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   throw e;
                 }
               })()}
+              shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/getUser"}
             >
               <ApiRequest
@@ -2336,6 +2337,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
+                shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/selfTreatment"}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__yz5Xf)}>

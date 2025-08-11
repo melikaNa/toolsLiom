@@ -77,8 +77,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "oBJtsp5RgVpcN6KCrDTuQT",
@@ -309,8 +308,7 @@
           "componentImportPath": "@plasmicpkgs/radix-ui"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "6HBcNwr8dz9LuS1Qe36xa5",
@@ -468,8 +466,7 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "84wxoth5npGrp6RRXPL88z",
@@ -497,8 +494,7 @@
           "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "kS7YGZfVr6mU43XDQjXELc",
@@ -520,8 +516,7 @@
           "componentImportPath": "@plasmicpkgs/react-chartjs-2"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "aEHVN5v6mfM4eovDsL8Z7d",
@@ -536,8 +531,7 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "r3ASNrnyvLLLAtDvzUioQ",
@@ -563,8 +557,7 @@
           }
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "kpio2pzukKRJkKg6SSrKTe",
@@ -579,8 +572,7 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -634,8 +626,7 @@
           }
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "28Ba3BDvRe7EiWdfFNnLB6",
@@ -845,8 +836,7 @@
           "componentImportPath": "@plasmicpkgs/antd/skinny/registerTable"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "hjKYmYi6HMwK6TRyk7ew5R",
@@ -904,8 +894,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-cms"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "mqxdhm5p6WHAt7hW1mdcCX",
@@ -920,8 +909,7 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "8PtdGodUbexNYgkuyBUcWu",
@@ -943,8 +931,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-embed-css"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
@@ -966,8 +953,7 @@
           "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -1367,8 +1353,7 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "5dGW8Awro3qq8Hh5MveXLP",
@@ -1396,8 +1381,7 @@
           "componentImportPath": "@plasmicpkgs/lottie-react"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "9Vr5YWkf3w7jj6SsTcCEta",
@@ -1419,8 +1403,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "3zKPdhWckw1SJpPYhK46Bs",
@@ -2911,20 +2894,6 @@
           "path": "/panel"
         },
         {
-          "id": "ll21hiWdWpdq",
-          "name": "ResultForDoctor3",
-          "type": "managed",
-          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicResultForDoctor3.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/medicine.tsx"
-          },
-          "cssFilePath": "plasmic/liom_tools/PlasmicResultForDoctor3.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/medicine"
-        },
-        {
           "id": "4Uoers0uAwQ4",
           "name": "EntryPrescription",
           "type": "managed",
@@ -3070,6 +3039,20 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicImageOpload.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "ll21hiWdWpdq",
+          "name": "Medicine",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicMedicine.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/medicine.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicMedicine.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/medicine"
         }
       ],
       "icons": [
@@ -4417,6 +4400,11 @@
           "id": "hMpu4DScncOm",
           "name": "Icon216Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon216.tsx"
+        },
+        {
+          "id": "EvzsMEz-i9lr",
+          "name": "Icon217Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon217.tsx"
         }
       ],
       "images": [
@@ -4899,6 +4887,12 @@
           "name": "Splunk",
           "displayName": "Splunk",
           "componentImportPath": "@/fragment/splunk"
+        },
+        {
+          "id": "jcOa6bt_bLwO",
+          "name": "BackHandler",
+          "displayName": "BackHandler",
+          "componentImportPath": "@/components/BackHandler"
         }
       ],
       "customFunctions": []
@@ -4916,8 +4910,7 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "YUiM7yqBWAqsh8KSnrdj7",
@@ -4945,8 +4938,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "9UibdRruyX43DxnB8Q1QXF",
@@ -4961,8 +4953,7 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "9yPKYrtYPnCNEj6BTTfHnY",
@@ -5310,8 +5301,7 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "a3pmZtcpA5asHkNtN3SGoF",
@@ -5326,8 +5316,7 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     }
   ],
   "globalVariants": {
