@@ -6344,51 +6344,57 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               }}
               role={"img"}
             />
-
-            <BackHandler
-              data-plasmic-name={"backHandler"}
-              data-plasmic-override={overrides.backHandler}
-              active={true}
-              className={classNames("__wab_instance", sty.backHandler)}
-              onBack={async () => {
-                const $steps = {};
-
-                $steps["updateModal2Open"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["modal2", "open"]
-                        },
-                        operation: 0,
-                        value: false
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateModal2Open"] != null &&
-                  typeof $steps["updateModal2Open"] === "object" &&
-                  typeof $steps["updateModal2Open"].then === "function"
-                ) {
-                  $steps["updateModal2Open"] = await $steps["updateModal2Open"];
-                }
-              }}
-            />
           </AntdModal>
+          <BackHandler
+            data-plasmic-name={"backHandler"}
+            data-plasmic-override={overrides.backHandler}
+            active={(() => {
+              try {
+                return $state.modal2.open;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.backHandler)}
+            onBack={async () => {
+              const $steps = {};
+
+              $steps["updateModal2Open"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["modal2", "open"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateModal2Open"] != null &&
+                typeof $steps["updateModal2Open"] === "object" &&
+                typeof $steps["updateModal2Open"].then === "function"
+              ) {
+                $steps["updateModal2Open"] = await $steps["updateModal2Open"];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -6462,7 +6468,7 @@ const PlasmicDescendants = {
   code: ["code"],
   textArea: ["textArea"],
   buttonLiom: ["buttonLiom"],
-  modal2: ["modal2", "backHandler"],
+  modal2: ["modal2"],
   backHandler: ["backHandler"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
