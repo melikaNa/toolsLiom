@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -69,36 +71,52 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJp
 import sty from "./PlasmicImageOpload.module.css"; // plasmic-import: -SoKEb6qZYKB/css
 
 import Icon208Icon from "./icons/PlasmicIcon__Icon208"; // plasmic-import: 9THjoD4FD5L7/icon
+import Icon211Icon from "./icons/PlasmicIcon__Icon211"; // plasmic-import: dnEZodYx_LuK/icon
 
 createPlasmicElementProxy;
 
-export type PlasmicImageOpload__VariantMembers = {};
-export type PlasmicImageOpload__VariantsArgs = {};
+export type PlasmicImageOpload__VariantMembers = {
+  upload2: "upload2";
+};
+export type PlasmicImageOpload__VariantsArgs = {
+  upload2?: SingleBooleanChoiceArg<"upload2">;
+};
 type VariantPropType = keyof PlasmicImageOpload__VariantsArgs;
-export const PlasmicImageOpload__VariantProps = new Array<VariantPropType>();
+export const PlasmicImageOpload__VariantProps = new Array<VariantPropType>(
+  "upload2"
+);
 
 export type PlasmicImageOpload__ArgsType = {
   currentItem?: any;
   onClick?: (event: any) => void;
   _delete?: (event: any) => void;
+  upload?: boolean;
+  onUploadChange?: (val: string) => void;
+  type?: string;
 };
 type ArgPropType = keyof PlasmicImageOpload__ArgsType;
 export const PlasmicImageOpload__ArgProps = new Array<ArgPropType>(
   "currentItem",
   "onClick",
-  "_delete"
+  "_delete",
+  "upload",
+  "onUploadChange",
+  "type"
 );
 
 export type PlasmicImageOpload__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultImageOploadProps {
   currentItem?: any;
   onClick?: (event: any) => void;
   _delete?: (event: any) => void;
+  upload?: boolean;
+  onUploadChange?: (val: string) => void;
+  type?: string;
+  upload2?: SingleBooleanChoiceArg<"upload2">;
   className?: string;
 }
 
@@ -122,7 +140,9 @@ function PlasmicImageOpload__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          type: "application/pdf"
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -143,10 +163,53 @@ function PlasmicImageOpload__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "upload",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "upload",
+        onChangeProp: "onUploadChange"
+      },
+      {
+        path: "upload2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.upload;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.upload2
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
   const triggers = {
     hover_root: isRootHover
   };
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsyg4Uf6WCaaLe()
+  });
 
   return (
     <div
@@ -164,7 +227,8 @@ function PlasmicImageOpload__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         plasmic_paziresh_24_design_system_css.plasmic_tokens,
         plasmic_hamdast_sdk_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootupload2]: hasVariant($state, "upload2", "upload2") }
       )}
       data-plasmic-trigger-props={[triggerRootHoverProps]}
     >
@@ -172,7 +236,9 @@ function PlasmicImageOpload__RenderFunc(props: {
         data-plasmic-name={"img"}
         data-plasmic-override={overrides.img}
         alt={""}
-        className={classNames(sty.img)}
+        className={classNames(sty.img, {
+          [sty.imgupload2]: hasVariant($state, "upload2", "upload2")
+        })}
         displayHeight={"100px"}
         displayMaxHeight={"none"}
         displayMaxWidth={"100%"}
@@ -181,36 +247,86 @@ function PlasmicImageOpload__RenderFunc(props: {
         displayWidth={"100px"}
         loading={"lazy"}
         onClick={args.onClick}
-        src={(() => {
-          try {
-            return $props.currentItem;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
+        src={
+          hasVariant($state, "upload2", "upload2") && triggers.hover_root
+            ? (() => {
+                try {
+                  return (() => {
+                    if ($props.type == "application/pdf") {
+                      return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
+                    } else return $props.currentItem;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return (() => {
+                    if ($props.type == "application/pdf") {
+                      return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
+                    } else return $props.currentItem;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+        }
       />
 
       <Icon208Icon
-        data-plasmic-name={"svg"}
-        data-plasmic-override={overrides.svg}
-        className={classNames(projectcss.all, sty.svg)}
+        className={classNames(projectcss.all, sty.svg___5Dvc, {
+          [sty.svgupload2___5Dvcq61Ma]: hasVariant($state, "upload2", "upload2")
+        })}
         onClick={args._delete}
         role={"img"}
       />
+
+      {(
+        hasVariant($state, "upload2", "upload2") && triggers.hover_root
+          ? true
+          : triggers.hover_root
+          ? true
+          : hasVariant($state, "upload2", "upload2")
+          ? true
+          : false
+      ) ? (
+        <PlasmicIcon__
+          PlasmicIconType={
+            hasVariant($state, "upload2", "upload2") ? Icon211Icon : Icon208Icon
+          }
+          className={classNames(projectcss.all, sty.svg__zvZid, {
+            [sty.svgupload2__zvZidq61Ma]: hasVariant(
+              $state,
+              "upload2",
+              "upload2"
+            )
+          })}
+          onClick={async event => {
+            const $steps = {};
+          }}
+          role={"img"}
+        />
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "svg"],
-  img: ["img"],
-  svg: ["svg"]
+  root: ["root", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -218,7 +334,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -282,7 +397,6 @@ export const PlasmicImageOpload = Object.assign(
   {
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicImageOpload
     internalVariantProps: PlasmicImageOpload__VariantProps,
