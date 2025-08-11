@@ -104,6 +104,7 @@ import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T
 import Icon214Icon from "./icons/PlasmicIcon__Icon214"; // plasmic-import: Z2VM7o85ZA5W/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 import Icon210Icon from "./icons/PlasmicIcon__Icon210"; // plasmic-import: lXiR3SAmtr5y/icon
+import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -603,7 +604,9 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         "https://n8n.staas.ir/webhook/user/prescription",
                         (() => {
                           try {
-                            return { code: $state.paramsObject.code };
+                            return {
+                              code: $state.paramsObject.code
+                            };
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1637,42 +1640,42 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__mmSzp)}
                       key={currentIndex}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    if (currentItem.includes(".pdf")) {
-                                      return window.open(currentItem);
-                                    } else {
-                                      $state.currentImag = currentItem;
-                                      return ($state.modal2.open = true);
-                                    }
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-                      }}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           sty.freeBox___8JhlX
                         )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      if (currentItem.includes(".pdf")) {
+                                        return window.open(currentItem);
+                                      } else {
+                                        $state.currentImag = currentItem;
+                                        return ($state.modal2.open = true);
+                                      }
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
                       >
                         <PlasmicImg__
                           alt={""}
@@ -2300,44 +2303,59 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
-                                return window.filess.forEach((f, index) => {
-                                  const formData = new FormData();
-                                  formData.append("file", f);
-                                  formData.append("path", "test-result");
-                                  formData.append("index", index);
-                                  fetch("https://api.liom.app/upload", {
-                                    method: "POST",
-                                    body: formData
-                                  })
-                                    .then(async response => {
-                                      const data = await response.json();
-                                      console.log(
-                                        "Response status:",
-                                        response.status
-                                      );
-                                      console.log("Response data:", data);
-                                      if (!response.ok) {
-                                      }
-                                      return data;
-                                    })
-                                    .then(data => {
-                                      if (data.status === false) {
-                                        console.error(
-                                          "Server error:",
-                                          data.result
+                                return (async () => {
+                                  async function uploadFiles() {
+                                    for (let [
+                                      index,
+                                      f
+                                    ] of window.filess.entries()) {
+                                      try {
+                                        const formData = new FormData();
+                                        formData.append("file", f);
+                                        formData.append("path", "test-result");
+                                        formData.append("index", index);
+                                        const response = await fetch(
+                                          "https://api.liom.app/upload",
+                                          {
+                                            method: "POST",
+                                            body: formData
+                                          }
                                         );
-                                      } else {
-                                        $state.imageOpload[index].upload = true;
-                                        $state.images.push(data.result);
+                                        const data = await response.json();
+                                        console.log(
+                                          "Response status:",
+                                          response.status
+                                        );
+                                        console.log("Response data:", data);
+                                        if (!response.ok) {
+                                          console.error(
+                                            "Response not OK:",
+                                            data
+                                          );
+                                        }
+                                        if (data.status === false) {
+                                          console.error(
+                                            "Server error:",
+                                            data.result
+                                          );
+                                        } else {
+                                          $state.imageOpload[index].upload =
+                                            true;
+                                          $state.images.push(data.result);
+                                        }
+                                      } catch (error) {
+                                        console.error(
+                                          `Fetch error for file index ${index}:`,
+                                          error
+                                        );
                                       }
-                                    })
-                                    .catch(error => {
-                                      console.error(
-                                        `Fetch error for file index ${index}:`,
-                                        error
-                                      );
-                                    });
-                                });
+                                    }
+                                    console.log("All uploads completed!");
+                                  }
+                                  return uploadFiles().then(() => {
+                                    console.log("Do other things now");
+                                  });
+                                })();
                               }
                             };
                             return (({ customFunction }) => {
@@ -2353,31 +2371,6 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         $steps["runCode"] = await $steps["runCode"];
                       }
 
-                      $steps["runCode2"] =
-                        $steps.testResult?.data?.success == true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    $state.imageLoad = [];
-                                    $state.files = [];
-                                    return (window.filess = []);
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["runCode2"] != null &&
-                        typeof $steps["runCode2"] === "object" &&
-                        typeof $steps["runCode2"].then === "function"
-                      ) {
-                        $steps["runCode2"] = await $steps["runCode2"];
-                      }
-
                       $steps["testResult"] = true
                         ? (() => {
                             const actionArgs = {
@@ -2389,7 +2382,7 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                                   try {
                                     return {
                                       images: JSON.stringify($state.images),
-                                      code: 66320
+                                      code: $state.paramsObject.code
                                     };
                                   } catch (e) {
                                     if (
@@ -2416,6 +2409,31 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                         typeof $steps["testResult"].then === "function"
                       ) {
                         $steps["testResult"] = await $steps["testResult"];
+                      }
+
+                      $steps["runCode2"] =
+                        $steps.testResult?.data?.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    $state.imageLoad = [];
+                                    $state.files = [];
+                                    return (window.filess = []);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["runCode2"] != null &&
+                        typeof $steps["runCode2"] === "object" &&
+                        typeof $steps["runCode2"].then === "function"
+                      ) {
+                        $steps["runCode2"] = await $steps["runCode2"];
                       }
 
                       $steps["updateUploadLoad2"] = true
@@ -2499,12 +2517,30 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                   </ButtonLiom>
                 </div>
               ) : null}
+              {(() => {
+                try {
+                  return $state.upload.load;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__zq8Vc)}
+                />
+              ) : null}
             </div>
           ) : null}
           <AntdModal
             data-plasmic-name={"modal2"}
             data-plasmic-override={overrides.modal2}
             className={classNames("__wab_instance", sty.modal2)}
+            closeIcon={null}
             defaultStylesClassName={classNames(
               projectcss.root_reset,
               projectcss.plasmic_default_styles,
@@ -2565,6 +2601,48 @@ function PlasmicResultForDoctor3__RenderFunc(props: {
                   throw e;
                 }
               })()}
+            />
+
+            <Icon22Icon
+              className={classNames(projectcss.all, sty.svg___0TJZh)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateModal2Open"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["modal2", "open"]
+                        },
+                        operation: 4
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        const oldValue = $stateGet(objRoot, variablePath);
+                        $stateSet(objRoot, variablePath, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateModal2Open"] != null &&
+                  typeof $steps["updateModal2Open"] === "object" &&
+                  typeof $steps["updateModal2Open"].then === "function"
+                ) {
+                  $steps["updateModal2Open"] = await $steps["updateModal2Open"];
+                }
+              }}
+              role={"img"}
             />
           </AntdModal>
           {(() => {
