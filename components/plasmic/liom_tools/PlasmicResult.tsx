@@ -497,7 +497,7 @@ function PlasmicResult__RenderFunc(props: {
         path: "profile.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "name.value",

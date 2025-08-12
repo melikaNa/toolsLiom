@@ -3053,6 +3053,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/medicine"
+        },
+        {
+          "id": "WxT165Ksio_2",
+          "name": "EntryPrescription2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicEntryPrescription2.tsx",
+          "importSpec": {
+            "modulePath": "EntryPrescription2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicEntryPrescription2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -4405,6 +4418,11 @@
           "id": "EvzsMEz-i9lr",
           "name": "Icon217Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon217.tsx"
+        },
+        {
+          "id": "Oj9ckvAH0Qka",
+          "name": "Icon218Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon218.tsx"
         }
       ],
       "images": [
