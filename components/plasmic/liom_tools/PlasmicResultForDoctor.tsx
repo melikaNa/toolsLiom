@@ -2704,7 +2704,14 @@ function PlasmicResultForDoctor__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return $state.p.filter(i => i.test_photo).length > 0;
+              return (() => {
+                const photo = $state.p.find(i => i.test_photo)?.test_photo;
+                try {
+                  return JSON.parse(photo).length > 0;
+                } catch (error) {
+                  return false;
+                }
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
