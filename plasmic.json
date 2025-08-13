@@ -3066,6 +3066,20 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicEntryPrescription2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "a29y6B-hca5R",
+          "name": "Medicine2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicMedicine2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/upload-test.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicMedicine2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/upload-test"
         }
       ],
       "icons": [

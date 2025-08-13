@@ -1625,77 +1625,461 @@ function PlasmicMedicine__RenderFunc(props: {
               />
             </div>
           ) : null}
-          {(() => {
-            try {
-              return $state.info.p.some(
-                item => item.json.request_p === "آزمایش"
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
+          <div
+            className={classNames(projectcss.all, sty.freeBox__znzRv, {
+              [sty.freeBoxupload2__znzRvb5Oun]: hasVariant(
+                $state,
+                "upload2",
+                "upload2"
+              )
+            })}
+          >
             <div
-              className={classNames(projectcss.all, sty.freeBox__znzRv, {
-                [sty.freeBoxupload2__znzRvb5Oun]: hasVariant(
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__wLern,
+                {
+                  [sty.textupload2__wLernB5Oun]: hasVariant(
+                    $state,
+                    "upload2",
+                    "upload2"
+                  )
+                }
+              )}
+            >
+              {
+                "\u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634"
+              }
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__bl5Km)}>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.images;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__mmSzp)}
+                    key={currentIndex}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___8JhlX
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    if (currentItem.includes(".pdf")) {
+                                      return window.open(currentItem);
+                                    } else {
+                                      $state.currentImag = currentItem;
+                                      return ($state.modal2.open = true);
+                                    }
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                    >
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img___9CHoR)}
+                        displayHeight={"50px"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"50px"}
+                        loading={"lazy"}
+                        src={(() => {
+                          try {
+                            return (() => {
+                              if (currentItem.includes(".pdf")) {
+                                return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
+                              } else {
+                                return currentItem;
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+
+                      <LineClomp
+                        data-plasmic-name={"lineClomp"}
+                        data-plasmic-override={overrides.lineClomp}
+                        className={classNames("__wab_instance", sty.lineClomp)}
+                        numberOfLine={1}
+                        onLineChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "lineClomp",
+                            __plasmic_idx_0,
+                            "line"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___7EuFe
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </LineClomp>
+                    </div>
+                    <Icon212Icon
+                      className={classNames(projectcss.all, sty.svg__sYiwc)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return $state.images.splice(currentIndex, 1);
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/test-result",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        images: JSON.stringify($state.images),
+                                        code: $state.paramsObject.code
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
+                      role={"img"}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__ymd5S, {
+                [sty.freeBoxupload2__ymd5SB5Oun]: hasVariant(
                   $state,
                   "upload2",
                   "upload2"
                 )
               })}
+              onClick={async event => {
+                const $steps = {};
+              }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__wLern,
-                  {
-                    [sty.textupload2__wLernB5Oun]: hasVariant(
+              {(() => {
+                try {
+                  return $state.imageLoad.length == 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__feh9C, {
+                    [sty.freeBoxupload2__feh9CB5Oun]: hasVariant(
                       $state,
                       "upload2",
                       "upload2"
                     )
-                  }
-                )}
-              >
-                {
-                  "\u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634"
-                }
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__bl5Km)}>
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                  (() => {
-                    try {
-                      return $state.images;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.document
+                                  .getElementById("fileInput")
+                                  .click();
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
                     }
-                  })()
-                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
-                  return (
+                  }}
+                >
+                  <Icon207Icon
+                    className={classNames(projectcss.all, sty.svg__w0UR, {
+                      [sty.svgupload2__w0URB5Oun]: hasVariant(
+                        $state,
+                        "upload2",
+                        "upload2"
+                      )
+                    })}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zoFjH,
+                      {
+                        [sty.textupload2__zoFjHb5Oun]: hasVariant(
+                          $state,
+                          "upload2",
+                          "upload2"
+                        )
+                      }
+                    )}
+                  >
+                    {
+                      "\u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062e\u0648\u062f \u0631\u0627 \u0628\u0631\u0627\u06cc \u0628\u0631\u0631\u0633\u06cc \u067e\u0632\u0634\u06a9 \u0622\u067e\u0644\u0648\u062f \u06a9\u0646\u06cc\u062f"
+                    }
+                  </div>
+                  <ButtonLiom
+                    data-plasmic-name={"buttonLiom2"}
+                    data-plasmic-override={overrides.buttonLiom2}
+                    className={classNames("__wab_instance", sty.buttonLiom2, {
+                      [sty.buttonLiom2upload2]: hasVariant(
+                        $state,
+                        "upload2",
+                        "upload2"
+                      )
+                    })}
+                    color={generateStateValueProp($state, [
+                      "buttonLiom2",
+                      "color"
+                    ])}
+                    load={generateStateValueProp($state, [
+                      "buttonLiom2",
+                      "load"
+                    ])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom2",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom2",
+                          "load"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    showStartIcon={
+                      hasVariant($state, "upload2", "upload2")
+                        ? true
+                        : undefined
+                    }
+                    size={"compact"}
+                    startIcon={
+                      <PlasmicIcon__
+                        PlasmicIconType={
+                          hasVariant($state, "upload2", "upload2")
+                            ? Icon214Icon
+                            : CheckSvgIcon
+                        }
+                        className={classNames(projectcss.all, sty.svg__mj3NC, {
+                          [sty.svgupload2__mj3NCb5Oun]: hasVariant(
+                            $state,
+                            "upload2",
+                            "upload2"
+                          )
+                        })}
+                        role={"img"}
+                      />
+                    }
+                  >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__mmSzp)}
-                      key={currentIndex}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___2WzOa,
+                        {
+                          [sty.textupload2___2WzOaB5Oun]: hasVariant(
+                            $state,
+                            "upload2",
+                            "upload2"
+                          )
+                        }
+                      )}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___8JhlX
-                        )}
-                        onClick={async event => {
+                      {hasVariant($state, "upload2", "upload2")
+                        ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u062a\u0635\u0627\u0648\u06cc\u0631 \u0628\u06cc\u0634\u062a\u0631"
+                        : "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0635\u0627\u0648\u06cc\u0631"}
+                    </div>
+                  </ButtonLiom>
+                </div>
+              ) : null}
+              {(() => {
+                try {
+                  return $state.imageLoad != 0;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__zJ14C)}>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $state.imageLoad;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (() => {
+                      const child$Props = {
+                        _delete: async event => {
                           const $steps = {};
 
                           $steps["runCode"] = true
@@ -1703,9 +2087,57 @@ function PlasmicMedicine__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      if (currentItem.includes(".pdf")) {
+                                      if (
+                                        $state.files[currentIndex] &&
+                                        $state.imageLoad[currentIndex]
+                                      ) {
+                                        $state.imageLoad.splice(
+                                          currentIndex,
+                                          1
+                                        );
+                                      }
+                                      $state.files.splice(currentIndex, 1);
+                                      return window.filess.splice(
+                                        currentIndex,
+                                        1
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        },
+                        className: classNames(
+                          "__wab_instance",
+                          sty.imageOpload
+                        ),
+                        currentItem: currentItem,
+
+                        key: currentIndex,
+                        onClick: async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      if (
+                                        $state.files[currentIndex] ==
+                                        "application/pdf"
+                                      )
                                         return window.open(currentItem);
-                                      } else {
+                                      else {
                                         $state.currentImag = currentItem;
                                         return ($state.modal2.open = true);
                                       }
@@ -1724,198 +2156,63 @@ function PlasmicMedicine__RenderFunc(props: {
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
                           }
-                        }}
-                      >
-                        <PlasmicImg__
-                          alt={""}
-                          className={classNames(sty.img___9CHoR)}
-                          displayHeight={"50px"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"50px"}
-                          loading={"lazy"}
-                          src={(() => {
-                            try {
-                              return (() => {
-                                if (currentItem.includes(".pdf")) {
-                                  return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
-                                } else {
-                                  return currentItem;
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                        />
+                        },
+                        onUploadChange: async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "imageOpload",
+                            __plasmic_idx_0,
+                            "upload"
+                          ]).apply(null, eventArgs);
 
-                        <LineClomp
-                          data-plasmic-name={"lineClomp"}
-                          data-plasmic-override={overrides.lineClomp}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.lineClomp
-                          )}
-                          numberOfLine={1}
-                          onLineChange={async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "lineClomp",
-                              __plasmic_idx_0,
-                              "line"
-                            ]).apply(null, eventArgs);
-
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        },
+                        type: (() => {
+                          try {
+                            return $state.files[currentIndex];
+                          } catch (e) {
                             if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return;
+                              return undefined;
                             }
-                          }}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___7EuFe
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return currentItem;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </LineClomp>
-                      </div>
-                      <Icon212Icon
-                        className={classNames(projectcss.all, sty.svg__sYiwc)}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return $state.images.splice(
-                                      currentIndex,
-                                      1
-                                    );
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
+                            throw e;
                           }
+                        })(),
+                        upload: generateStateValueProp($state, [
+                          "imageOpload",
+                          __plasmic_idx_0,
+                          "upload"
+                        ])
+                      };
 
-                          $steps["invokeGlobalAction"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://n8n.staas.ir/webhook/test-result",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          images: JSON.stringify($state.images),
-                                          code: $state.paramsObject.code
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
-                          }
-                        }}
-                        role={"img"}
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-              <div
-                className={classNames(projectcss.all, sty.freeBox__ymd5S, {
-                  [sty.freeBoxupload2__ymd5SB5Oun]: hasVariant(
-                    $state,
-                    "upload2",
-                    "upload2"
-                  )
-                })}
-                onClick={async event => {
-                  const $steps = {};
-                }}
-              >
-                {(() => {
-                  try {
-                    return $state.imageLoad.length == 0;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__feh9C, {
-                      [sty.freeBoxupload2__feh9CB5Oun]: hasVariant(
+                      initializePlasmicStates(
                         $state,
-                        "upload2",
-                        "upload2"
-                      )
-                    })}
+                        [
+                          {
+                            name: "imageOpload[].upload",
+                            initFunc: ({ $props, $state, $queries }) => false
+                          }
+                        ],
+                        [__plasmic_idx_0]
+                      );
+                      return (
+                        <ImageOpload
+                          data-plasmic-name={"imageOpload"}
+                          data-plasmic-override={overrides.imageOpload}
+                          {...child$Props}
+                        />
+                      );
+                    })();
+                  })}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__j2Muh)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -1944,14 +2241,8 @@ function PlasmicMedicine__RenderFunc(props: {
                       }
                     }}
                   >
-                    <Icon207Icon
-                      className={classNames(projectcss.all, sty.svg__w0UR, {
-                        [sty.svgupload2__w0URB5Oun]: hasVariant(
-                          $state,
-                          "upload2",
-                          "upload2"
-                        )
-                      })}
+                    <Icon210Icon
+                      className={classNames(projectcss.all, sty.svg__ddShU)}
                       role={"img"}
                     />
 
@@ -1959,507 +2250,282 @@ function PlasmicMedicine__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__zoFjH,
-                        {
-                          [sty.textupload2__zoFjHb5Oun]: hasVariant(
-                            $state,
-                            "upload2",
-                            "upload2"
-                          )
-                        }
+                        sty.text__a5GxQ
                       )}
                     >
-                      {
-                        "\u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062e\u0648\u062f \u0631\u0627 \u0628\u0631\u0627\u06cc \u0628\u0631\u0631\u0633\u06cc \u067e\u0632\u0634\u06a9 \u0622\u067e\u0644\u0648\u062f \u06a9\u0646\u06cc\u062f"
-                      }
+                      {"\u0627\u0641\u0632\u0648\u062f\u0646"}
                     </div>
-                    <ButtonLiom
-                      data-plasmic-name={"buttonLiom2"}
-                      data-plasmic-override={overrides.buttonLiom2}
-                      className={classNames("__wab_instance", sty.buttonLiom2, {
-                        [sty.buttonLiom2upload2]: hasVariant(
-                          $state,
-                          "upload2",
-                          "upload2"
-                        )
-                      })}
-                      color={generateStateValueProp($state, [
-                        "buttonLiom2",
-                        "color"
-                      ])}
-                      load={generateStateValueProp($state, [
-                        "buttonLiom2",
-                        "load"
-                      ])}
-                      onColorChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "buttonLiom2",
-                            "color"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      onLoadChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "buttonLiom2",
-                            "load"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      showStartIcon={
-                        hasVariant($state, "upload2", "upload2")
-                          ? true
-                          : undefined
-                      }
-                      size={"compact"}
-                      startIcon={
-                        <PlasmicIcon__
-                          PlasmicIconType={
-                            hasVariant($state, "upload2", "upload2")
-                              ? Icon214Icon
-                              : CheckSvgIcon
-                          }
-                          className={classNames(
-                            projectcss.all,
-                            sty.svg__mj3NC,
-                            {
-                              [sty.svgupload2__mj3NCb5Oun]: hasVariant(
-                                $state,
-                                "upload2",
-                                "upload2"
-                              )
-                            }
-                          )}
-                          role={"img"}
-                        />
-                      }
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___2WzOa,
-                          {
-                            [sty.textupload2___2WzOaB5Oun]: hasVariant(
-                              $state,
-                              "upload2",
-                              "upload2"
-                            )
-                          }
-                        )}
-                      >
-                        {hasVariant($state, "upload2", "upload2")
-                          ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u062a\u0635\u0627\u0648\u06cc\u0631 \u0628\u06cc\u0634\u062a\u0631"
-                          : "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0635\u0627\u0648\u06cc\u0631"}
-                      </div>
-                    </ButtonLiom>
                   </div>
-                ) : null}
-                {(() => {
-                  try {
-                    return $state.imageLoad != 0;
-                  } catch (e) {
+                </div>
+              ) : null}
+            </div>
+            {(() => {
+              try {
+                return $state.imageLoad.length > 0;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__bK1Hz)}>
+                <ButtonLiom
+                  data-plasmic-name={"upload"}
+                  data-plasmic-override={overrides.upload}
+                  className={classNames("__wab_instance", sty.upload)}
+                  color={generateStateValueProp($state, ["upload", "color"])}
+                  load={generateStateValueProp($state, ["upload", "load"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateModalOpen2"] = !$state.resultTest
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "PUT",
+                              "https://n8n.staas.ir/webhook/selfTestUser",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    user_id: $state.info.p[0].json.userId,
+                                    session_id:
+                                      $state.info.p[0].json.session_id,
+                                    name: $state.info.p[0].json.name,
+                                    email: $state.info.p[0].json.email,
+                                    mobile: $state.info.p[0].json.mobile,
+                                    nationalCode:
+                                      $state.info.p[0].json.nationalCode,
+                                    gender: $state.info.p[0].json.Gender,
+                                    type: $state.info.p[0].json.test_type,
+                                    insurance: $state.info.p[0].json.insurance,
+                                    description: "",
+                                    user: "true",
+                                    request_p: "بر اساس نتیجه آزمایش"
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
                     if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
+                      $steps["updateModalOpen2"] != null &&
+                      typeof $steps["updateModalOpen2"] === "object" &&
+                      typeof $steps["updateModalOpen2"].then === "function"
                     ) {
-                      return true;
+                      $steps["updateModalOpen2"] = await $steps[
+                        "updateModalOpen2"
+                      ];
                     }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__zJ14C)}
-                  >
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $state.imageLoad;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (() => {
-                        const child$Props = {
-                          _delete: async event => {
-                            const $steps = {};
 
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        if (
-                                          $state.files[currentIndex] &&
-                                          $state.imageLoad[currentIndex]
-                                        ) {
-                                          $state.imageLoad.splice(
-                                            currentIndex,
-                                            1
-                                          );
-                                        }
-                                        $state.files.splice(currentIndex, 1);
-                                        return window.filess.splice(
-                                          currentIndex,
-                                          1
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-                          },
-                          className: classNames(
-                            "__wab_instance",
-                            sty.imageOpload
-                          ),
-                          currentItem: currentItem,
-
-                          key: currentIndex,
-                          onClick: async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        if (
-                                          $state.files[currentIndex] ==
-                                          "application/pdf"
-                                        )
-                                          return window.open(currentItem);
-                                        else {
-                                          $state.currentImag = currentItem;
-                                          return ($state.modal2.open = true);
-                                        }
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-                          },
-                          onUploadChange: async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "imageOpload",
-                              __plasmic_idx_0,
-                              "upload"
-                            ]).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
+                    $steps["updateUploadLoad"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["upload", "load"]
+                            },
+                            operation: 4,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
                               return;
                             }
-                          },
-                          type: (() => {
-                            try {
-                              return $state.files[currentIndex];
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          upload: generateStateValueProp($state, [
-                            "imageOpload",
-                            __plasmic_idx_0,
-                            "upload"
-                          ])
-                        };
+                            const { objRoot, variablePath } = variable;
 
-                        initializePlasmicStates(
-                          $state,
-                          [
-                            {
-                              name: "imageOpload[].upload",
-                              initFunc: ({ $props, $state, $queries }) => false
-                            }
-                          ],
-                          [__plasmic_idx_0]
-                        );
-                        return (
-                          <ImageOpload
-                            data-plasmic-name={"imageOpload"}
-                            data-plasmic-override={overrides.imageOpload}
-                            {...child$Props}
-                          />
-                        );
-                      })();
-                    })}
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__j2Muh)}
-                      onClick={async event => {
-                        const $steps = {};
+                            const oldValue = $stateGet(objRoot, variablePath);
+                            $stateSet(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateUploadLoad"] != null &&
+                      typeof $steps["updateUploadLoad"] === "object" &&
+                      typeof $steps["updateUploadLoad"].then === "function"
+                    ) {
+                      $steps["updateUploadLoad"] = await $steps[
+                        "updateUploadLoad"
+                      ];
+                    }
 
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return window.document
-                                      .getElementById("fileInput")
-                                      .click();
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-                      }}
-                    >
-                      <Icon210Icon
-                        className={classNames(projectcss.all, sty.svg__ddShU)}
-                        role={"img"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__a5GxQ
-                        )}
-                      >
-                        {"\u0627\u0641\u0632\u0648\u062f\u0646"}
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-              {(() => {
-                try {
-                  return $state.imageLoad.length > 0;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__bK1Hz)}>
-                  <ButtonLiom
-                    data-plasmic-name={"upload"}
-                    data-plasmic-override={overrides.upload}
-                    className={classNames("__wab_instance", sty.upload)}
-                    color={generateStateValueProp($state, ["upload", "color"])}
-                    load={generateStateValueProp($state, ["upload", "load"])}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateModalOpen2"] = !$state.resultTest
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "PUT",
-                                "https://n8n.staas.ir/webhook/selfTestUser",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      user_id: $state.info.p[0].json.userId,
-                                      session_id:
-                                        $state.info.p[0].json.session_id,
-                                      name: $state.info.p[0].json.name,
-                                      email: $state.info.p[0].json.email,
-                                      mobile: $state.info.p[0].json.mobile,
-                                      nationalCode:
-                                        $state.info.p[0].json.nationalCode,
-                                      gender: $state.info.p[0].json.Gender,
-                                      type: $state.info.p[0].json.test_type,
-                                      insurance:
-                                        $state.info.p[0].json.insurance,
-                                      description: "",
-                                      user: "true",
-                                      request_p: "بر اساس نتیجه آزمایش"
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (async () => {
+                                $state.resultTest = true;
+                                async function uploadFiles() {
+                                  for (let [
+                                    index,
+                                    f
+                                  ] of window.filess.entries()) {
+                                    try {
+                                      const formData = new FormData();
+                                      formData.append("file", f);
+                                      formData.append("path", "test-result");
+                                      formData.append("index", index);
+                                      const response = await fetch(
+                                        "https://api.liom.app/upload",
+                                        {
+                                          method: "POST",
+                                          body: formData
+                                        }
+                                      );
+                                      const data = await response.json();
+                                      console.log(
+                                        "Response status:",
+                                        response.status
+                                      );
+                                      console.log("Response data:", data);
+                                      if (!response.ok) {
+                                        console.error("Response not OK:", data);
+                                      }
+                                      if (data.status === false) {
+                                        console.error(
+                                          "Server error:",
+                                          data.result
+                                        );
+                                      } else {
+                                        $state.imageOpload[index].upload = true;
+                                        $state.images.push(data.result);
+                                      }
+                                    } catch (error) {
+                                      console.error(
+                                        `Fetch error for file index ${index}:`,
+                                        error
+                                      );
                                     }
-                                    throw e;
                                   }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateModalOpen2"] != null &&
-                        typeof $steps["updateModalOpen2"] === "object" &&
-                        typeof $steps["updateModalOpen2"].then === "function"
-                      ) {
-                        $steps["updateModalOpen2"] = await $steps[
-                          "updateModalOpen2"
-                        ];
-                      }
+                                  console.log("All uploads completed!");
+                                }
+                                return uploadFiles().then(() => {
+                                  console.log("Do other things now");
+                                });
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
 
-                      $steps["updateUploadLoad"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["upload", "load"]
-                              },
-                              operation: 4,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
+                    $steps["testResult"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/test-result",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    images: JSON.stringify($state.images),
+                                    code: $state.paramsObject.code
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["testResult"] != null &&
+                      typeof $steps["testResult"] === "object" &&
+                      typeof $steps["testResult"].then === "function"
+                    ) {
+                      $steps["testResult"] = await $steps["testResult"];
+                    }
 
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateUploadLoad"] != null &&
-                        typeof $steps["updateUploadLoad"] === "object" &&
-                        typeof $steps["updateUploadLoad"].then === "function"
-                      ) {
-                        $steps["updateUploadLoad"] = await $steps[
-                          "updateUploadLoad"
-                        ];
-                      }
+                    $steps["updateModalOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["modal", "open"]
+                            },
+                            operation: 0
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                      $steps["runCode"] = true
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateModalOpen"] != null &&
+                      typeof $steps["updateModalOpen"] === "object" &&
+                      typeof $steps["updateModalOpen"].then === "function"
+                    ) {
+                      $steps["updateModalOpen"] = await $steps[
+                        "updateModalOpen"
+                      ];
+                    }
+
+                    $steps["runCode2"] =
+                      $steps.testResult?.data?.success == true
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
-                                return (async () => {
-                                  $state.resultTest = true;
-                                  async function uploadFiles() {
-                                    for (let [
-                                      index,
-                                      f
-                                    ] of window.filess.entries()) {
-                                      try {
-                                        const formData = new FormData();
-                                        formData.append("file", f);
-                                        formData.append("path", "test-result");
-                                        formData.append("index", index);
-                                        const response = await fetch(
-                                          "https://api.liom.app/upload",
-                                          {
-                                            method: "POST",
-                                            body: formData
-                                          }
-                                        );
-                                        const data = await response.json();
-                                        console.log(
-                                          "Response status:",
-                                          response.status
-                                        );
-                                        console.log("Response data:", data);
-                                        if (!response.ok) {
-                                          console.error(
-                                            "Response not OK:",
-                                            data
-                                          );
-                                        }
-                                        if (data.status === false) {
-                                          console.error(
-                                            "Server error:",
-                                            data.result
-                                          );
-                                        } else {
-                                          $state.imageOpload[index].upload =
-                                            true;
-                                          $state.images.push(data.result);
-                                        }
-                                      } catch (error) {
-                                        console.error(
-                                          `Fetch error for file index ${index}:`,
-                                          error
-                                        );
-                                      }
-                                    }
-                                    console.log("All uploads completed!");
-                                  }
-                                  return uploadFiles().then(() => {
-                                    console.log("Do other things now");
-                                  });
+                                return (() => {
+                                  $state.imageLoad = [];
+                                  $state.files = [];
+                                  return (window.filess = []);
                                 })();
                               }
                             };
@@ -2468,214 +2534,111 @@ function PlasmicMedicine__RenderFunc(props: {
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
+                    if (
+                      $steps["runCode2"] != null &&
+                      typeof $steps["runCode2"] === "object" &&
+                      typeof $steps["runCode2"].then === "function"
+                    ) {
+                      $steps["runCode2"] = await $steps["runCode2"];
+                    }
 
-                      $steps["testResult"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/test-result",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      images: JSON.stringify($state.images),
-                                      code: $state.paramsObject.code
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["testResult"] != null &&
-                        typeof $steps["testResult"] === "object" &&
-                        typeof $steps["testResult"].then === "function"
-                      ) {
-                        $steps["testResult"] = await $steps["testResult"];
-                      }
+                    $steps["updateUploadLoad2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["upload", "load"]
+                            },
+                            operation: 4
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                      $steps["updateModalOpen"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["modal", "open"]
-                              },
-                              operation: 0
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
+                            const oldValue = $stateGet(objRoot, variablePath);
+                            $stateSet(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateUploadLoad2"] != null &&
+                      typeof $steps["updateUploadLoad2"] === "object" &&
+                      typeof $steps["updateUploadLoad2"].then === "function"
+                    ) {
+                      $steps["updateUploadLoad2"] = await $steps[
+                        "updateUploadLoad2"
+                      ];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["upload", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
 
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateModalOpen"] != null &&
-                        typeof $steps["updateModalOpen"] === "object" &&
-                        typeof $steps["updateModalOpen"].then === "function"
-                      ) {
-                        $steps["updateModalOpen"] = await $steps[
-                          "updateModalOpen"
-                        ];
-                      }
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["upload", "load"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
 
-                      $steps["runCode2"] =
-                        $steps.testResult?.data?.success == true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    $state.imageLoad = [];
-                                    $state.files = [];
-                                    return (window.filess = []);
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["runCode2"] != null &&
-                        typeof $steps["runCode2"] === "object" &&
-                        typeof $steps["runCode2"].then === "function"
-                      ) {
-                        $steps["runCode2"] = await $steps["runCode2"];
-                      }
-
-                      $steps["updateUploadLoad2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["upload", "load"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateUploadLoad2"] != null &&
-                        typeof $steps["updateUploadLoad2"] === "object" &&
-                        typeof $steps["updateUploadLoad2"].then === "function"
-                      ) {
-                        $steps["updateUploadLoad2"] = await $steps[
-                          "updateUploadLoad2"
-                        ];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["upload", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["upload", "load"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dq0ON
+                    )}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__dq0ON
-                      )}
-                    >
-                      {
-                        "\u0622\u067e\u0644\u0648\u062f \u062a\u0635\u0627\u0648\u06cc\u0631"
-                      }
-                    </div>
-                  </ButtonLiom>
-                </div>
-              ) : null}
-              {(() => {
-                try {
-                  return $state.upload.load;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
+                    {
+                      "\u0622\u067e\u0644\u0648\u062f \u062a\u0635\u0627\u0648\u06cc\u0631"
+                    }
+                  </div>
+                </ButtonLiom>
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.upload.load;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
                 }
-              })() ? (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__zq8Vc)}
-                />
-              ) : null}
-            </div>
-          ) : null}
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__zq8Vc)} />
+            ) : null}
+          </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__bpo8A, {
               [sty.freeBoxupload2__bpo8Ab5Oun]: hasVariant(
