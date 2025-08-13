@@ -217,7 +217,7 @@ function PlasmicMedicine2__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "action",
@@ -2307,7 +2307,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                                 (() => {
                                   try {
                                     return {
-                                      taskId: $state.paramsObject.taskId
+                                      taskId: $state.paramsObject.taskId,
+                                      Authorization: $state.paramsObject.token
                                     };
                                   } catch (e) {
                                     if (
