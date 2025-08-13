@@ -217,7 +217,7 @@ function PlasmicMedicine2__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "action",
@@ -628,6 +628,37 @@ function PlasmicMedicine2__RenderFunc(props: {
                 typeof $steps["runCode"].then === "function"
               ) {
                 $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["runCode2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const searchParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          searchParams.delete("token");
+                          searchParams.delete("userId");
+                          searchParams.delete("user_id");
+                          const newUrl = `${
+                            window.location.pathname
+                          }?${searchParams.toString()}`;
+                          return window.history.replaceState(null, "", newUrl);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode2"] != null &&
+                typeof $steps["runCode2"] === "object" &&
+                typeof $steps["runCode2"].then === "function"
+              ) {
+                $steps["runCode2"] = await $steps["runCode2"];
               }
 
               $steps["invokeGlobalAction"] = true
@@ -1519,8 +1550,10 @@ function PlasmicMedicine2__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return $state.info.p.some(
-                item => item.json.request_p === "آزمایش"
+              return (
+                $state.info?.p?.some(
+                  item => item.json.request_p === "آزمایش"
+                ) && Object.keys($state.info).length != 0
               );
             } catch (e) {
               if (
@@ -2258,6 +2291,51 @@ function PlasmicMedicine2__RenderFunc(props: {
                       ) {
                         $steps["updateModalOpen2"] = await $steps[
                           "updateModalOpen2"
+                        ];
+                      }
+
+                      $steps["updateModalOpen4"] = (
+                        $state.paramsObject?.taskId
+                          ? true
+                          : false && !$state.resultTest
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/rest/user/task/done",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      taskId: $state.paramsObject.taskId
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateModalOpen4"] != null &&
+                        typeof $steps["updateModalOpen4"] === "object" &&
+                        typeof $steps["updateModalOpen4"].then === "function"
+                      ) {
+                        $steps["updateModalOpen4"] = await $steps[
+                          "updateModalOpen4"
                         ];
                       }
 
