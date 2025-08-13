@@ -217,7 +217,7 @@ function PlasmicMedicine2__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "action",
@@ -442,9 +442,11 @@ function PlasmicMedicine2__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                let photos = [];
-                const found = $state.info.p.find(
-                  item => item?.json?.test_photo
+                var photos = [];
+                var found = $state.info.p.find(
+                  item =>
+                    item?.json?.test_photo != "" &&
+                    item?.json?.test_photo != "[]"
                 );
                 if (found) {
                   photos = JSON.parse(found.json.test_photo);
@@ -493,15 +495,11 @@ function PlasmicMedicine2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                const found = $state.info.p.find(
-                  item => item?.json?.request_p == "بر اساس نتیجه آزمایش"
-                );
-                if (found) {
-                  true;
-                }
-                return false;
-              })();
+              return $state.info.p.find(
+                item => item?.json?.request_p == "بر اساس نتیجه آزمایش"
+              )
+                ? true
+                : false;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1716,7 +1714,7 @@ function PlasmicMedicine2__RenderFunc(props: {
                             <React.Fragment>
                               {(() => {
                                 try {
-                                  return currentItem;
+                                  return currentItem.split("/").pop();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1771,7 +1769,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                                       try {
                                         return {
                                           images: JSON.stringify($state.images),
-                                          code: $state.paramsObject.code
+                                          session_id:
+                                            $state.paramsObject.session_id
                                         };
                                       } catch (e) {
                                         if (
@@ -2484,7 +2483,7 @@ function PlasmicMedicine2__RenderFunc(props: {
                                   try {
                                     return {
                                       images: JSON.stringify($state.images),
-                                      code: $state.paramsObject.code
+                                      session_id: $state.paramsObject.session_id
                                     };
                                   } catch (e) {
                                     if (
