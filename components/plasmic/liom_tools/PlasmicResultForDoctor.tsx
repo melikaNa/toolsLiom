@@ -84,9 +84,9 @@ import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: 
 import TextInput from "../../TextInput"; // plasmic-import: aEno43N2WkPr/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { BackHandler } from "@/components/BackHandler"; // plasmic-import: jcOa6bt_bLwO/codeComponent
 import Dialog3 from "../../Dialog3"; // plasmic-import: UHX61U1xmtjA/component
 import EntryPrescription2 from "../../EntryPrescription2"; // plasmic-import: WxT165Ksio_2/component
+import { BackHandler } from "@/components/BackHandler"; // plasmic-import: jcOa6bt_bLwO/codeComponent
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import {
@@ -174,15 +174,14 @@ export type PlasmicResultForDoctor__OverridesType = {
   h2?: Flex__<"h2">;
   paziresh24LineClamp?: Flex__<typeof Paziresh24LineClamp>;
   cardSubtitle?: Flex__<"span">;
-  section?: Flex__<"section">;
   dialog2?: Flex__<typeof Paziresh24Dialog>;
   code?: Flex__<typeof TextInput>;
   textArea?: Flex__<typeof AntdTextArea>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   modal2?: Flex__<typeof AntdModal>;
-  backHandler?: Flex__<typeof BackHandler>;
   dialog3?: Flex__<typeof Dialog3>;
   entryPrescription2?: Flex__<typeof EntryPrescription2>;
+  backHandler?: Flex__<typeof BackHandler>;
 };
 
 export interface DefaultResultForDoctorProps {}
@@ -1172,13 +1171,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                 </div>
               </Backgrond>
             </AntdModal>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__bKwnA,
-                "header"
-              )}
-            >
+            <section className={classNames(projectcss.all, sty.section__wlXhp)}>
               {(() => {
                 try {
                   return (
@@ -1277,7 +1270,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   }
                 </HeaderLiom>
               ) : null}
-            </div>
+            </section>
             <Timer
               data-plasmic-name={"timer"}
               data-plasmic-override={overrides.timer}
@@ -5727,9 +5720,11 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               }
             })() ? (
               <section
-                data-plasmic-name={"section"}
-                data-plasmic-override={overrides.section}
-                className={classNames(projectcss.all, sty.section, "footer")}
+                className={classNames(
+                  projectcss.all,
+                  sty.section__y7Pqc,
+                  "footer"
+                )}
               >
                 <div
                   className={classNames(projectcss.all, sty.freeBox__d8O27, {
@@ -6576,63 +6571,6 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   role={"img"}
                 />
               </div>
-              <BackHandler
-                data-plasmic-name={"backHandler"}
-                data-plasmic-override={overrides.backHandler}
-                active={(() => {
-                  try {
-                    return $state.modal2.open;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()}
-                className={classNames("__wab_instance", sty.backHandler)}
-                onBack={async () => {
-                  const $steps = {};
-
-                  $steps["updateModal2Open"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["modal2", "open"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateModal2Open"] != null &&
-                    typeof $steps["updateModal2Open"] === "object" &&
-                    typeof $steps["updateModal2Open"].then === "function"
-                  ) {
-                    $steps["updateModal2Open"] = await $steps[
-                      "updateModal2Open"
-                    ];
-                  }
-                }}
-              />
             </AntdModal>
             <Dialog3
               data-plasmic-name={"dialog3"}
@@ -6916,92 +6854,155 @@ function PlasmicResultForDoctor__RenderFunc(props: {
               </div>
             </Dialog3>
           </div>
-          <EntryPrescription2
-            data-plasmic-name={"entryPrescription2"}
-            data-plasmic-override={overrides.entryPrescription2}
-            back={async () => {
-              const $steps = {};
-
-              $steps["updatePrescription"] = true
-                ? (() => {
-                    const actionArgs = {
-                      vgroup: "prescription",
-                      operation: 6,
-                      value: "prescription"
-                    };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      $stateSet($state, vgroup, false);
-                      return false;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updatePrescription"] != null &&
-                typeof $steps["updatePrescription"] === "object" &&
-                typeof $steps["updatePrescription"].then === "function"
-              ) {
-                $steps["updatePrescription"] = await $steps[
-                  "updatePrescription"
-                ];
-              }
-            }}
-            className={classNames("__wab_instance", sty.entryPrescription2, {
-              [sty.entryPrescription2prescription]: hasVariant(
+          <Reveal
+            className={classNames("__wab_instance", sty.reveal__xHZr2, {
+              [sty.revealprescription__xHZr2FuT6K]: hasVariant(
                 $state,
                 "prescription",
                 "prescription"
               )
             })}
-            id={generateStateValueProp($state, ["entryPrescription2", "id"])}
-            onIdChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "entryPrescription2",
-                "id"
-              ]).apply(null, eventArgs);
+            damping={0.1}
+            triggerOnce={true}
+          >
+            <EntryPrescription2
+              data-plasmic-name={"entryPrescription2"}
+              data-plasmic-override={overrides.entryPrescription2}
+              active={(() => {
+                try {
+                  return $state.prescription == true;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              back={async () => {
+                const $steps = {};
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onTitleChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
+                $steps["updatePrescription"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        vgroup: "prescription",
+                        operation: 6,
+                        value: "prescription"
+                      };
+                      return (({ vgroup, value }) => {
+                        if (typeof value === "string") {
+                          value = [value];
+                        }
+
+                        $stateSet($state, vgroup, false);
+                        return false;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updatePrescription"] != null &&
+                  typeof $steps["updatePrescription"] === "object" &&
+                  typeof $steps["updatePrescription"].then === "function"
+                ) {
+                  $steps["updatePrescription"] = await $steps[
+                    "updatePrescription"
+                  ];
+                }
+              }}
+              className={classNames("__wab_instance", sty.entryPrescription2, {
+                [sty.entryPrescription2prescription]: hasVariant(
+                  $state,
+                  "prescription",
+                  "prescription"
+                )
+              })}
+              id={generateStateValueProp($state, ["entryPrescription2", "id"])}
+              onIdChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "entryPrescription2",
+                  "id"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onTitleChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "entryPrescription2",
+                  "title"
+                ]).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              sessionId={(() => {
+                try {
+                  return parseInt($ctx.query.session_id);
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              title={generateStateValueProp($state, [
                 "entryPrescription2",
                 "title"
-              ]).apply(null, eventArgs);
+              ])}
+            />
+          </Reveal>
+          <BackHandler
+            data-plasmic-name={"backHandler"}
+            data-plasmic-override={overrides.backHandler}
+            active={true}
+            className={classNames("__wab_instance", sty.backHandler)}
+            onBack={async () => {
+              const $steps = {};
 
+              $steps["updateModal2Open"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["modal2", "open"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
               if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
+                $steps["updateModal2Open"] != null &&
+                typeof $steps["updateModal2Open"] === "object" &&
+                typeof $steps["updateModal2Open"].then === "function"
               ) {
-                return;
+                $steps["updateModal2Open"] = await $steps["updateModal2Open"];
               }
             }}
-            sessionId={(() => {
-              try {
-                return parseInt($ctx.query.session_id);
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            title={generateStateValueProp($state, [
-              "entryPrescription2",
-              "title"
-            ])}
           />
         </div>
       </div>
@@ -7031,15 +7032,14 @@ const PlasmicDescendants = {
     "h2",
     "paziresh24LineClamp",
     "cardSubtitle",
-    "section",
     "dialog2",
     "code",
     "textArea",
     "buttonLiom",
     "modal2",
-    "backHandler",
     "dialog3",
-    "entryPrescription2"
+    "entryPrescription2",
+    "backHandler"
   ],
   modal: ["modal", "backgrond"],
   backgrond: ["backgrond"],
@@ -7073,15 +7073,14 @@ const PlasmicDescendants = {
   h2: ["h2"],
   paziresh24LineClamp: ["paziresh24LineClamp", "cardSubtitle"],
   cardSubtitle: ["cardSubtitle"],
-  section: ["section"],
   dialog2: ["dialog2", "code", "textArea", "buttonLiom"],
   code: ["code"],
   textArea: ["textArea"],
   buttonLiom: ["buttonLiom"],
-  modal2: ["modal2", "backHandler"],
-  backHandler: ["backHandler"],
+  modal2: ["modal2"],
   dialog3: ["dialog3"],
-  entryPrescription2: ["entryPrescription2"]
+  entryPrescription2: ["entryPrescription2"],
+  backHandler: ["backHandler"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -7107,15 +7106,14 @@ type NodeDefaultElementType = {
   h2: "h2";
   paziresh24LineClamp: typeof Paziresh24LineClamp;
   cardSubtitle: "span";
-  section: "section";
   dialog2: typeof Paziresh24Dialog;
   code: typeof TextInput;
   textArea: typeof AntdTextArea;
   buttonLiom: typeof ButtonLiom;
   modal2: typeof AntdModal;
-  backHandler: typeof BackHandler;
   dialog3: typeof Dialog3;
   entryPrescription2: typeof EntryPrescription2;
+  backHandler: typeof BackHandler;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -7222,15 +7220,14 @@ export const PlasmicResultForDoctor = Object.assign(
     h2: makeNodeComponent("h2"),
     paziresh24LineClamp: makeNodeComponent("paziresh24LineClamp"),
     cardSubtitle: makeNodeComponent("cardSubtitle"),
-    section: makeNodeComponent("section"),
     dialog2: makeNodeComponent("dialog2"),
     code: makeNodeComponent("code"),
     textArea: makeNodeComponent("textArea"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     modal2: makeNodeComponent("modal2"),
-    backHandler: makeNodeComponent("backHandler"),
     dialog3: makeNodeComponent("dialog3"),
     entryPrescription2: makeNodeComponent("entryPrescription2"),
+    backHandler: makeNodeComponent("backHandler"),
 
     // Metadata about props expected for PlasmicResultForDoctor
     internalVariantProps: PlasmicResultForDoctor__VariantProps,

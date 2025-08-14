@@ -73,9 +73,9 @@ import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5f
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import ImageOpload from "../../ImageOpload"; // plasmic-import: -SoKEb6qZYKB/component
-import { BackHandler } from "@/components/BackHandler"; // plasmic-import: jcOa6bt_bLwO/codeComponent
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
+import { BackHandler } from "@/components/BackHandler"; // plasmic-import: jcOa6bt_bLwO/codeComponent
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import {
@@ -140,8 +140,8 @@ export type PlasmicMedicine2__OverridesType = {
   imageOpload?: Flex__<typeof ImageOpload>;
   upload?: Flex__<typeof ButtonLiom>;
   modal2?: Flex__<typeof AntdModal>;
-  backHandler?: Flex__<typeof BackHandler>;
   antdInput?: Flex__<typeof Input>;
+  backHandler?: Flex__<typeof BackHandler>;
 };
 
 export interface DefaultMedicine2Props {}
@@ -2778,61 +2778,6 @@ function PlasmicMedicine2__RenderFunc(props: {
                 role={"img"}
               />
             </div>
-            <BackHandler
-              data-plasmic-name={"backHandler"}
-              data-plasmic-override={overrides.backHandler}
-              active={(() => {
-                try {
-                  return $state.modal2.open;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })()}
-              className={classNames("__wab_instance", sty.backHandler)}
-              onBack={async () => {
-                const $steps = {};
-
-                $steps["updateModal2Open"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["modal2", "open"]
-                        },
-                        operation: 0,
-                        value: false
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateModal2Open"] != null &&
-                  typeof $steps["updateModal2Open"] === "object" &&
-                  typeof $steps["updateModal2Open"].then === "function"
-                ) {
-                  $steps["updateModal2Open"] = await $steps["updateModal2Open"];
-                }
-              }}
-            />
           </AntdModal>
           {(() => {
             const child$Props = {
@@ -2915,6 +2860,44 @@ function PlasmicMedicine2__RenderFunc(props: {
               />
             );
           })()}
+          <BackHandler
+            data-plasmic-name={"backHandler"}
+            data-plasmic-override={overrides.backHandler}
+            active={true}
+            className={classNames("__wab_instance", sty.backHandler)}
+            onBack={async () => {
+              const $steps = {};
+
+              $steps["updateModal2Open"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["modal2", "open"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateModal2Open"] != null &&
+                typeof $steps["updateModal2Open"] === "object" &&
+                typeof $steps["updateModal2Open"].then === "function"
+              ) {
+                $steps["updateModal2Open"] = await $steps["updateModal2Open"];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -2936,8 +2919,8 @@ const PlasmicDescendants = {
     "imageOpload",
     "upload",
     "modal2",
-    "backHandler",
-    "antdInput"
+    "antdInput",
+    "backHandler"
   ],
   sideEffect: ["sideEffect"],
   modal: ["modal", "backgrond"],
@@ -2950,9 +2933,9 @@ const PlasmicDescendants = {
   buttonLiom2: ["buttonLiom2"],
   imageOpload: ["imageOpload"],
   upload: ["upload"],
-  modal2: ["modal2", "backHandler"],
-  backHandler: ["backHandler"],
-  antdInput: ["antdInput"]
+  modal2: ["modal2"],
+  antdInput: ["antdInput"],
+  backHandler: ["backHandler"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2971,8 +2954,8 @@ type NodeDefaultElementType = {
   imageOpload: typeof ImageOpload;
   upload: typeof ButtonLiom;
   modal2: typeof AntdModal;
-  backHandler: typeof BackHandler;
   antdInput: typeof Input;
+  backHandler: typeof BackHandler;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3072,8 +3055,8 @@ export const PlasmicMedicine2 = Object.assign(
     imageOpload: makeNodeComponent("imageOpload"),
     upload: makeNodeComponent("upload"),
     modal2: makeNodeComponent("modal2"),
-    backHandler: makeNodeComponent("backHandler"),
     antdInput: makeNodeComponent("antdInput"),
+    backHandler: makeNodeComponent("backHandler"),
 
     // Metadata about props expected for PlasmicMedicine2
     internalVariantProps: PlasmicMedicine2__VariantProps,

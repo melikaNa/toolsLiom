@@ -95,6 +95,7 @@ export type PlasmicEntryPrescription2__ArgsType = {
   title?: string;
   onTitleChange?: (val: string) => void;
   back?: () => void;
+  active?: boolean;
 };
 type ArgPropType = keyof PlasmicEntryPrescription2__ArgsType;
 export const PlasmicEntryPrescription2__ArgProps = new Array<ArgPropType>(
@@ -103,7 +104,8 @@ export const PlasmicEntryPrescription2__ArgProps = new Array<ArgPropType>(
   "sessionId",
   "title",
   "onTitleChange",
-  "back"
+  "back",
+  "active"
 );
 
 export type PlasmicEntryPrescription2__OverridesType = {
@@ -124,6 +126,7 @@ export interface DefaultEntryPrescription2Props {
   title?: string;
   onTitleChange?: (val: string) => void;
   back?: () => void;
+  active?: boolean;
   className?: string;
 }
 
@@ -147,7 +150,9 @@ function PlasmicEntryPrescription2__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          active: true
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -725,7 +730,7 @@ function PlasmicEntryPrescription2__RenderFunc(props: {
       <BackHandler
         data-plasmic-name={"backHandler"}
         data-plasmic-override={overrides.backHandler}
-        active={true}
+        active={args.active}
         className={classNames("__wab_instance", sty.backHandler)}
         onBack={async () => {
           const $steps = {};
