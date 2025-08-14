@@ -9,26 +9,24 @@ type BackHandlerProps = {
 export const BackHandler = ({ onBack, active = true }: BackHandlerProps) => {
   const hasPushedRef = useRef(false);
 
-  useEffect(() => {
-    if (typeof window === "undefined" || !active) return;
+useEffect(() => {
+  if (typeof window === "undefined" || !active) return;
 
-    const handlePopState = (e: PopStateEvent) => {
-      if (e.state?.isCustom) {
-        onBack?.() ?? console.log("onBack not provided");
-        window.history.pushState({ isCustom: true }, "");
-      }
-    };
+  window.history.pushState({ isCustom: true }, "");
 
-    if (!hasPushedRef.current) {
+  const handlePopState = (e: PopStateEvent) => {
+    if (e.state?.isCustom) {
+      onBack?.() ?? console.log("onBack not provided");
       window.history.pushState({ isCustom: true }, "");
-      hasPushedRef.current = true;
     }
+  };
 
-    window.addEventListener("popstate", handlePopState);
-    return () => {
-      window.removeEventListener("popstate", handlePopState);
-    };
-  }, [onBack, active]);
+  window.addEventListener("popstate", handlePopState);
+  return () => {
+    window.removeEventListener("popstate", handlePopState);
+  };
+}, [onBack, active]);
+
 
   return null;
 };
