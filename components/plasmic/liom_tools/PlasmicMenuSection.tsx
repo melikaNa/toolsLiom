@@ -33,7 +33,6 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -61,13 +60,15 @@ import {
 
 import { BaseSection } from "@plasmicpkgs/react-aria/skinny/registerSection";
 import MenuItem from "../../MenuItem"; // plasmic-import: qBbuWys2VSyE/component
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from ""; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from ""; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from ""; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_hamdast_sdk } from ""; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
-import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
-import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicMenuSection.module.css"; // plasmic-import: Yq3uesQyYshc/css
 
@@ -140,6 +141,15 @@ function PlasmicMenuSection__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+  const styleTokensClassNames_plasmic_rich_components =
+    useStyleTokens_plasmic_rich_components();
+  const styleTokensClassNames_paziresh_24_design_system =
+    useStyleTokens_paziresh_24_design_system();
+  const styleTokensClassNames_hamdast_sdk = useStyleTokens_hamdast_sdk();
+
   return (
     <BaseSection
       data-plasmic-name={"root"}
@@ -151,11 +161,11 @@ function PlasmicMenuSection__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
-        plasmic_paziresh_24_design_system_css.plasmic_tokens,
-        plasmic_hamdast_sdk_css.plasmic_tokens,
+        styleTokensClassNames,
+        styleTokensClassNames_antd_5_hostless,
+        styleTokensClassNames_plasmic_rich_components,
+        styleTokensClassNames_paziresh_24_design_system,
+        styleTokensClassNames_hamdast_sdk,
         sty.root
       )}
       header={
