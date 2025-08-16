@@ -2236,43 +2236,6 @@ function PlasmicMedicine2__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateUploadLoad"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["upload", "load"]
-                              },
-                              operation: 4,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateUploadLoad"] != null &&
-                        typeof $steps["updateUploadLoad"] === "object" &&
-                        typeof $steps["updateUploadLoad"].then === "function"
-                      ) {
-                        $steps["updateUploadLoad"] = await $steps[
-                          "updateUploadLoad"
-                        ];
-                      }
-
                       $steps["updateModalOpen2"] = !$state.resultTest
                         ? (() => {
                             const actionArgs = {
@@ -2398,6 +2361,43 @@ function PlasmicMedicine2__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["updateUploadLoad"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["upload", "load"]
+                              },
+                              operation: 4,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              const oldValue = $stateGet(objRoot, variablePath);
+                              $stateSet(objRoot, variablePath, !oldValue);
+                              return !oldValue;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateUploadLoad"] != null &&
+                        typeof $steps["updateUploadLoad"] === "object" &&
+                        typeof $steps["updateUploadLoad"].then === "function"
+                      ) {
+                        $steps["updateUploadLoad"] = await $steps[
+                          "updateUploadLoad"
+                        ];
+                      }
+
                       $steps["runCode"] = true
                         ? (() => {
                             const actionArgs = {
@@ -2509,6 +2509,41 @@ function PlasmicMedicine2__RenderFunc(props: {
                         typeof $steps["testResult"].then === "function"
                       ) {
                         $steps["testResult"] = await $steps["testResult"];
+                      }
+
+                      $steps["updateModalOpen"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["modal", "open"]
+                              },
+                              operation: 0
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateModalOpen"] != null &&
+                        typeof $steps["updateModalOpen"] === "object" &&
+                        typeof $steps["updateModalOpen"].then === "function"
+                      ) {
+                        $steps["updateModalOpen"] = await $steps[
+                          "updateModalOpen"
+                        ];
                       }
 
                       $steps["runCode2"] =
