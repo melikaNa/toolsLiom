@@ -441,6 +441,16 @@
       }
     },
     {
+      "name": "Muted/Muted-Soft-Hover",
+      "type": "color",
+      "value": "#E5E7EB",
+      "category": "color",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "zaS5JbjwE7Jv"
+      }
+    },
+    {
       "name": "Neutral/Neutral",
       "type": "color",
       "value": "#374151",
@@ -3088,6 +3098,16 @@
       "meta": {
         "projectId": "3zKPdhWckw1SJpPYhK46Bs",
         "id": "HFSv-V_E5BCA"
+      }
+    },
+    {
+      "name": "page BG 2",
+      "type": "color",
+      "value": "#F8F8F8",
+      "category": "color",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "SxXGNxcP6O97"
       }
     },
     {

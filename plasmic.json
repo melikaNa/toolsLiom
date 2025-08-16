@@ -3118,6 +3118,72 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/upload-test"
+        },
+        {
+          "id": "V3Y9-WtQvkIJ",
+          "name": "Panel2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicPanel2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/panel-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicPanel2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/panel-2"
+        },
+        {
+          "id": "3ZUDI6Br_xQP",
+          "name": "MenuIcon",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicMenuIcon.tsx",
+          "importSpec": {
+            "modulePath": "MenuIcon.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicMenuIcon.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "c1iZWmLE5b0C",
+          "name": "MenuItem2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicMenuItem2.tsx",
+          "importSpec": {
+            "modulePath": "MenuItem2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicMenuItem2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "ghQ599WBAldm",
+          "name": "TextInput3",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicTextInput3.tsx",
+          "importSpec": {
+            "modulePath": "TextInput3.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicTextInput3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "68VfgF3XliD1",
+          "name": "SideBar",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSideBar.tsx",
+          "importSpec": {
+            "modulePath": "SideBar.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSideBar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -4475,6 +4541,71 @@
           "id": "Oj9ckvAH0Qka",
           "name": "Icon218Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon218.tsx"
+        },
+        {
+          "id": "YGMr5fvzzroj",
+          "name": "Line2Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Line2.tsx"
+        },
+        {
+          "id": "B6aCyOD_vyOM",
+          "name": "LogoutIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Logout.tsx"
+        },
+        {
+          "id": "aWI1rG3bf6e-",
+          "name": "SearchNormalIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__SearchNormal.tsx"
+        },
+        {
+          "id": "BEaDFfeC-k7e",
+          "name": "AddIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Add.tsx"
+        },
+        {
+          "id": "54npbOr9loMt",
+          "name": "ArrowDownIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__ArrowDown.tsx"
+        },
+        {
+          "id": "rBaTbs-a9hSp",
+          "name": "StickynoteIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Stickynote.tsx"
+        },
+        {
+          "id": "KZ_EbAJxDslv",
+          "name": "Icon219Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon219.tsx"
+        },
+        {
+          "id": "OCGbgs9A5Zr6",
+          "name": "Icon220Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon220.tsx"
+        },
+        {
+          "id": "crcf66T9maRO",
+          "name": "Icon221Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon221.tsx"
+        },
+        {
+          "id": "9v8tGiUqFUMQ",
+          "name": "Icon222Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon222.tsx"
+        },
+        {
+          "id": "Q9yclGZdLRCq",
+          "name": "Icon223Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon223.tsx"
+        },
+        {
+          "id": "Uv43rs4iHlbt",
+          "name": "Icon224Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon224.tsx"
+        },
+        {
+          "id": "8ime7C15EJfq",
+          "name": "Icon225Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon225.tsx"
         }
       ],
       "images": [
@@ -4862,6 +4993,21 @@
           "id": "D2KUE2uHt6VM",
           "name": "Screenshot_2025-06-05-12-49-20-246_com.android.chrome.jpg",
           "filePath": "../public/plasmic/liom_tools/images/screenshot20250605124920246ComAndroidChromeJpg.jpg"
+        },
+        {
+          "id": "XlWgRwbIAupL",
+          "name": "logo",
+          "filePath": "../public/plasmic/liom_tools/images/logo.svg"
+        },
+        {
+          "id": "zytU4tp4j4as",
+          "name": "Ellipse 2",
+          "filePath": "../public/plasmic/liom_tools/images/ellipse2.svg"
+        },
+        {
+          "id": "bfKkq-uWLDVL",
+          "name": "Empty 1",
+          "filePath": "../public/plasmic/liom_tools/images/empty1.png"
         }
       ],
       "indirect": false,

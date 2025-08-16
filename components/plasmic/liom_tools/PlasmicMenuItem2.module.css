@@ -1,0 +1,56 @@
+.frame2 {
+  width: 208px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  background: #ffffff;
+  position: relative;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.3s;
+  border-radius: 12px;
+  padding: 12px;
+}
+.frame2select {
+  background: var(--token-SxXGNxcP6O97);
+}
+.vuesaxLinearStickynote {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: relative;
+  flex-shrink: 0;
+}
+.vuesaxLinearStickynote2 {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.menuIcon:global(.__wab_instance) {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.text {
+  display: block;
+  font-size: 14px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(117, 117, 117, 1);
+  position: relative;
+}
+.textselect {
+  color: #000000;
+  font-weight: 500;
+}

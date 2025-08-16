@@ -1,0 +1,12 @@
+.root {
+  object-fit: cover;
+  max-width: 100%;
+  color: #757575;
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: relative;
+}
+.rootselect {
+  color: #000000;
+}
