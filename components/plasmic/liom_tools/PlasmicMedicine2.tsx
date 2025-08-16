@@ -587,23 +587,6 @@ function PlasmicMedicine2__RenderFunc(props: {
               [sty.rootupload2]: hasVariant($state, "upload2", "upload2")
             }
           )}
-          style={(() => {
-            try {
-              return (() => {
-                return $state.paramsObject.inApp === "true"
-                  ? { paddingTop: "1rem" }
-                  : {};
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
         >
           <SideEffect
             data-plasmic-name={"sideEffect"}
@@ -1070,145 +1053,128 @@ function PlasmicMedicine2__RenderFunc(props: {
               </div>
             </Backgrond>
           </AntdModal>
-          {(() => {
-            try {
-              return $state.paramsObject.inApp != "true";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <section
-              data-plasmic-name={"section"}
-              data-plasmic-override={overrides.section}
-              className={classNames(projectcss.all, sty.section)}
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section)}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox___1UlHn,
+                "header"
+              )}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox___1UlHn,
-                  "header"
-                )}
-              >
-                {(() => {
-                  try {
-                    return (
-                      // new URLSearchParams(window.location.search).get("inApp")!="true"
-                      true
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
+              {(() => {
+                try {
+                  return (
+                    // new URLSearchParams(window.location.search).get("inApp")!="true"
+                    true
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                })() ? (
-                  <HeaderLiom
-                    data-plasmic-name={"headerLiom"}
-                    data-plasmic-override={overrides.headerLiom}
-                    className={classNames("__wab_instance", sty.headerLiom)}
-                    slot={
-                      <React.Fragment>
-                        {(() => {
+                  throw e;
+                }
+              })() ? (
+                <HeaderLiom
+                  data-plasmic-name={"headerLiom"}
+                  data-plasmic-override={overrides.headerLiom}
+                  className={classNames("__wab_instance", sty.headerLiom)}
+                  slot={
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            window.sessionStorage.getItem("home-page") != null
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <XIcon
+                          className={classNames(projectcss.all, sty.svg__zjZao)}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.open(
+                                        window.sessionStorage.getItem(
+                                          "home-page"
+                                        ),
+                                        "_self"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
+                          role={"img"}
+                        />
+                      ) : null}
+                      <Paziresh24Avatar
+                        data-plasmic-name={"paziresh24Avatar"}
+                        data-plasmic-override={overrides.paziresh24Avatar}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.paziresh24Avatar
+                        )}
+                        src={(() => {
                           try {
-                            return (
-                              window.sessionStorage.getItem("home-page") != null
-                            );
+                            return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return true;
+                              return undefined;
                             }
                             throw e;
                           }
-                        })() ? (
-                          <XIcon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__zjZao
-                            )}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["runCode"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return window.open(
-                                          window.sessionStorage.getItem(
-                                            "home-page"
-                                          ),
-                                          "_self"
-                                        );
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
-                            }}
-                            role={"img"}
-                          />
-                        ) : null}
-                        <Paziresh24Avatar
-                          data-plasmic-name={"paziresh24Avatar"}
-                          data-plasmic-override={overrides.paziresh24Avatar}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.paziresh24Avatar
-                          )}
-                          src={(() => {
-                            try {
-                              return "https://apps.liom.app/plasmic/liom_hamyar/images/image35.png";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                        />
-                      </React.Fragment>
-                    }
-                    slot2={null}
+                        })()}
+                      />
+                    </React.Fragment>
+                  }
+                  slot2={null}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___3Xtvz
+                    )}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___3Xtvz
-                      )}
-                    >
-                      {
-                        "\u0622\u067e\u0644\u0648\u062f \u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634"
-                      }
-                    </div>
-                  </HeaderLiom>
-                ) : null}
-              </div>
-            </section>
-          ) : null}
+                    {
+                      "\u0622\u067e\u0644\u0648\u062f \u0646\u062a\u06cc\u062c\u0647 \u0622\u0632\u0645\u0627\u06cc\u0634"
+                    }
+                  </div>
+                </HeaderLiom>
+              ) : null}
+            </div>
+          </section>
           {(() => {
             try {
               return Object.keys($state.info).length > 0;
@@ -2553,10 +2519,7 @@ function PlasmicMedicine2__RenderFunc(props: {
                                   return (() => {
                                     $state.imageLoad = [];
                                     $state.files = [];
-                                    window.filess = [];
-                                    return $state.imageOpload.forEach(i => {
-                                      i.upload = false;
-                                    });
+                                    return (window.filess = []);
                                   })();
                                 }
                               };

@@ -524,6 +524,22 @@
   color: #000000;
   font-weight: 700;
 }
+.button3:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__o7Xzv {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__zgT7D {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: #ededec;
+}
 .card10 {
   background: url("/plasmic/liom_tools/images/newProjectPng.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
@@ -552,6 +568,22 @@
   color: #000000;
   font-weight: 700;
 }
+.button4:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__cz77Q {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__kcuIi {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: #ededec;
+}
 .card11 {
   background: url("/plasmic/liom_tools/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
@@ -579,6 +611,22 @@
   font-size: 20px;
   color: #000000;
   font-weight: 700;
+}
+.button5:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__fwsXx {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__n0Gui {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: #ededec;
 }
 .speciality3 {
   width: 100%;
@@ -675,6 +723,22 @@
   color: #000000;
   font-weight: 700;
 }
+.button6:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__pPpk5 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg___8SehS {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: #ededec;
+}
 .card13 {
   background: url("/plasmic/liom_tools/images/newProject2Png.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
@@ -702,6 +766,22 @@
   font-size: 20px;
   color: #000000;
   font-weight: 700;
+}
+.button7:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__trj2T {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__elpAy {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: #ededec;
 }
 .card14 {
   background: url("/plasmic/liom_tools/images/newProject3Png.png") top 50% left 50% / cover repeat,
@@ -731,6 +811,22 @@
   color: var(--token-PvZN5zHgaOeZ);
   font-weight: 700;
 }
+.button8:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__ygohv {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__hjtD {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: #ededec;
+}
 .freeBox__tz8K {
   display: flex;
   flex-direction: row;
@@ -757,6 +853,22 @@
   text-align: right;
   font-size: 24px;
   font-weight: 700;
+}
+.button2:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg___0Xm4Z {
+  position: relative;
+  object-fit: cover;
+  width: 20px;
+  height: 20px;
+  color: var(--token-PvbqFVJaOepe);
+}
+.svg___7CXzy {
+  object-fit: cover;
+  max-width: 100%;
+  width: 150%;
+  height: 150%;
 }
 .text__tvRzp {
   position: relative;
@@ -2133,43 +2245,30 @@
   top: auto;
   text-align: right;
 }
+.button:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__rqOBb {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text_1_docter__kmdQaiDhcT {
+  font-weight: 700;
+  font-size: 16px;
+}
+.text_1_chatviow__kmdQalEmdG {
+  font-weight: 700;
+  font-size: 16px;
+}
+.svg___0T3Nu {
+  object-fit: cover;
+  max-width: 100%;
+  width: 150%;
+  height: 150%;
+}
 .timer:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-}
-.buttonLiom:global(.__wab_instance) {
-  max-width: 100%;
-}
-.svg__uYhW {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__ynvba {
-  display: none;
-}
-.svg__xxETc {
-  object-fit: cover;
-  max-width: 100%;
-  width: 150%;
-  height: 150%;
-}
-.buttonLiom2:global(.__wab_instance) {
-  max-width: 100%;
-}
-.svg__tHy3E {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text___9XnB {
-  display: none;
-}
-.svg__acCx0 {
-  object-fit: cover;
-  max-width: 100%;
-  width: 150%;
-  height: 150%;
 }
