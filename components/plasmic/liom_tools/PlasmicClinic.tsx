@@ -65,7 +65,6 @@ import { Input } from "@/fragment/components/input"; // plasmic-import: 31QElsfd
 import Star from "../../Star"; // plasmic-import: UghJ0YX6Mja0/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
-import Button from "../../Button"; // plasmic-import: gyGUSWpb8joh/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from ""; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -91,8 +90,6 @@ import Icon80Icon from "./icons/PlasmicIcon__Icon80"; // plasmic-import: UI5yLhQ
 import Icon85Icon from "./icons/PlasmicIcon__Icon85"; // plasmic-import: W4jO2t5XWjTk/icon
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
-import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: DJm3EFMA22X0/icon
-import ChevronDown2Icon from "./icons/PlasmicIcon__ChevronDown2"; // plasmic-import: BOcy3o8Lah4p/icon
 
 createPlasmicElementProxy;
 
@@ -153,7 +150,6 @@ export type PlasmicClinic__OverridesType = {
   timer?: Flex__<typeof Timer>;
   buttonLiom?: Flex__<typeof ButtonLiom>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
-  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultClinicProps {}
@@ -2455,12 +2451,6 @@ function PlasmicClinic__RenderFunc(props: {
               }
             }}
           />
-
-          <Button
-            data-plasmic-name={"button"}
-            data-plasmic-override={overrides.button}
-            className={classNames("__wab_instance", sty.button)}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -2511,8 +2501,7 @@ const PlasmicDescendants = {
     "monSat0830Am",
     "timer",
     "buttonLiom",
-    "buttonLiom2",
-    "button"
+    "buttonLiom2"
   ],
   bg: ["bg", "rectangle2", "\u0627", "\u06272"],
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
@@ -2582,8 +2571,7 @@ const PlasmicDescendants = {
   monSat0830Am: ["monSat0830Am"],
   timer: ["timer"],
   buttonLiom: ["buttonLiom"],
-  buttonLiom2: ["buttonLiom2"],
-  button: ["button"]
+  buttonLiom2: ["buttonLiom2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2632,7 +2620,6 @@ type NodeDefaultElementType = {
   timer: typeof Timer;
   buttonLiom: typeof ButtonLiom;
   buttonLiom2: typeof ButtonLiom;
-  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2762,7 +2749,6 @@ export const PlasmicClinic = Object.assign(
     timer: makeNodeComponent("timer"),
     buttonLiom: makeNodeComponent("buttonLiom"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
-    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicClinic
     internalVariantProps: PlasmicClinic__VariantProps,
