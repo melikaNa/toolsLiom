@@ -64,6 +64,8 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { Input } from "@/fragment/components/input"; // plasmic-import: 31QElsfd4yPt/codeComponent
 import Star from "../../Star"; // plasmic-import: UghJ0YX6Mja0/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
+import Button from "../../Button"; // plasmic-import: gyGUSWpb8joh/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from ""; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -87,6 +89,10 @@ import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: 8W-HC9J9w
 import Icon86Icon from "./icons/PlasmicIcon__Icon86"; // plasmic-import: VMo-lal1h2wR/icon
 import Icon80Icon from "./icons/PlasmicIcon__Icon80"; // plasmic-import: UI5yLhQsbEP-/icon
 import Icon85Icon from "./icons/PlasmicIcon__Icon85"; // plasmic-import: W4jO2t5XWjTk/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
+import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: DJm3EFMA22X0/icon
+import ChevronDown2Icon from "./icons/PlasmicIcon__ChevronDown2"; // plasmic-import: BOcy3o8Lah4p/icon
 
 createPlasmicElementProxy;
 
@@ -145,6 +151,9 @@ export type PlasmicClinic__OverridesType = {
   workingTime?: Flex__<"div">;
   monSat0830Am?: Flex__<"div">;
   timer?: Flex__<typeof Timer>;
+  buttonLiom?: Flex__<typeof ButtonLiom>;
+  buttonLiom2?: Flex__<typeof ButtonLiom>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultClinicProps {}
@@ -221,6 +230,30 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "buttonLiom.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "buttonLiom.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "buttonLiom2.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2346,6 +2379,88 @@ function PlasmicClinic__RenderFunc(props: {
             }}
             runWhileEditing={true}
           />
+
+          <ButtonLiom
+            data-plasmic-name={"buttonLiom"}
+            data-plasmic-override={overrides.buttonLiom}
+            className={classNames("__wab_instance", sty.buttonLiom)}
+            color={generateStateValueProp($state, ["buttonLiom", "color"])}
+            load={generateStateValueProp($state, ["buttonLiom", "load"])}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["buttonLiom", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["buttonLiom", "load"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
+
+          <ButtonLiom
+            data-plasmic-name={"buttonLiom2"}
+            data-plasmic-override={overrides.buttonLiom2}
+            className={classNames("__wab_instance", sty.buttonLiom2)}
+            color={generateStateValueProp($state, ["buttonLiom2", "color"])}
+            load={generateStateValueProp($state, ["buttonLiom2", "load"])}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["buttonLiom2", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLoadChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["buttonLiom2", "load"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
+
+          <Button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -2394,7 +2509,10 @@ const PlasmicDescendants = {
     "drBellamyNicholas",
     "workingTime",
     "monSat0830Am",
-    "timer"
+    "timer",
+    "buttonLiom",
+    "buttonLiom2",
+    "button"
   ],
   bg: ["bg", "rectangle2", "\u0627", "\u06272"],
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
@@ -2462,7 +2580,10 @@ const PlasmicDescendants = {
   drBellamyNicholas: ["drBellamyNicholas"],
   workingTime: ["workingTime", "monSat0830Am"],
   monSat0830Am: ["monSat0830Am"],
-  timer: ["timer"]
+  timer: ["timer"],
+  buttonLiom: ["buttonLiom"],
+  buttonLiom2: ["buttonLiom2"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2509,6 +2630,9 @@ type NodeDefaultElementType = {
   workingTime: "div";
   monSat0830Am: "div";
   timer: typeof Timer;
+  buttonLiom: typeof ButtonLiom;
+  buttonLiom2: typeof ButtonLiom;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2636,6 +2760,9 @@ export const PlasmicClinic = Object.assign(
     workingTime: makeNodeComponent("workingTime"),
     monSat0830Am: makeNodeComponent("monSat0830Am"),
     timer: makeNodeComponent("timer"),
+    buttonLiom: makeNodeComponent("buttonLiom"),
+    buttonLiom2: makeNodeComponent("buttonLiom2"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicClinic
     internalVariantProps: PlasmicClinic__VariantProps,
