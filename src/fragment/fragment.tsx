@@ -414,7 +414,48 @@ export const Fragment = ({
                 sendMessage(link[1], urlLink+`&${queryString}` ,inWebViow);
             }
           }
+      },
+      
+       hashPassword: async (
+      password: string,
+      saltRounds: number = 10
+    ): Promise<{ hash?: string; error?: string }> => {
+      try {
+        if (!password || typeof password !== "string") {
+          return { error: "Invalid password" };
+        }
+        if (!Number.isFinite(saltRounds) || saltRounds < 4 || saltRounds > 15) {
+          // محدوده معقول برای کلاینت
+          return { error: "Invalid salt rounds" };
+        }
+
+        const salt = await bcrypt.genSalt(saltRounds);
+        const hash = await bcrypt.hash(password, salt);
+        return { hash };
+      } catch (e: any) {
+        console.error("hashPassword error:", e);
+        return { error: e?.message ?? "Hashing failed" };
       }
+    },
+
+    /**
+     * مقایسه‌ی پسورد پلین با هش ذخیره‌شده
+     */
+    comparePassword: async (
+      password: string,
+      hash: string
+    ): Promise<{ match?: boolean; error?: string }> => {
+      try {
+        if (!password || !hash) {
+          return { error: "Password or hash is missing" };
+        }
+        const match = await bcrypt.compare(password, hash);
+        return { match };
+      } catch (e: any) {
+        console.error("comparePassword error:", e);
+        return { error: e?.message ?? "Compare failed" };
+      }
+    }
     }),
     []
   );
@@ -634,5 +675,32 @@ export const fragmentMeta: GlobalContextMeta<FragmentProps> = {
         },
       ],
     },
+        hashPassword: {
+      displayName: "Hash Password (bcryptjs)",
+      parameters: [
+        {
+          name: "password",
+          type: { type: "string", required: true, defaultValueHint: "My$ecret123" },
+        },
+        {
+          name: "saltRounds",
+          type: { type: "number", required: false, defaultValueHint: 10 },
+        },
+      ],
+    },
+
+    comparePassword: {
+      displayName: "Compare Password (bcryptjs)",
+      parameters: [
+        {
+          name: "password",
+          type: { type: "string", required: true, defaultValueHint: "My$ecret123" },
+        },
+        {
+          name: "hash",
+          type: { type: "string", required: true, defaultValueHint: "$2a$10$..." },
+        },
+      ],
+    }
   },
 };
