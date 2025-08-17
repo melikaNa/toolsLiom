@@ -60,6 +60,8 @@ import {
 
 import MenuItem2 from "../../MenuItem2"; // plasmic-import: c1iZWmLE5b0C/component
 import TextInput3 from "../../TextInput3"; // plasmic-import: ghQ599WBAldm/component
+import DoctorInfo from "../../DoctorInfo"; // plasmic-import: gxk8D7G3VD04/component
+import Questions from "../../Questions"; // plasmic-import: FWZ-50v74wL5/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from ""; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -74,9 +76,6 @@ import sty from "./PlasmicSideBar.module.css"; // plasmic-import: 68VfgF3XliD1/c
 
 import Line2Icon from "./icons/PlasmicIcon__Line2"; // plasmic-import: YGMr5fvzzroj/icon
 import LogoutIcon from "./icons/PlasmicIcon__Logout"; // plasmic-import: B6aCyOD_vyOM/icon
-import ArrowDownIcon from "./icons/PlasmicIcon__ArrowDown"; // plasmic-import: 54npbOr9loMt/icon
-import AddIcon from "./icons/PlasmicIcon__Add"; // plasmic-import: BEaDFfeC-k7e/icon
-import Line3Icon from "./icons/PlasmicIcon__Line3"; // plasmic-import: DKNPGeqS4vK8/icon
 
 createPlasmicElementProxy;
 
@@ -85,15 +84,26 @@ export type PlasmicSideBar__VariantsArgs = {};
 type VariantPropType = keyof PlasmicSideBar__VariantsArgs;
 export const PlasmicSideBar__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicSideBar__ArgsType = {};
+export type PlasmicSideBar__ArgsType = {
+  item?: string;
+  onItemChange?: (val: string) => void;
+  children?: React.ReactNode;
+  doctor?: any;
+};
 type ArgPropType = keyof PlasmicSideBar__ArgsType;
-export const PlasmicSideBar__ArgProps = new Array<ArgPropType>();
+export const PlasmicSideBar__ArgProps = new Array<ArgPropType>(
+  "item",
+  "onItemChange",
+  "children",
+  "doctor"
+);
 
 export type PlasmicSideBar__OverridesType = {
   root?: Flex__<"div">;
   frame11?: Flex__<"div">;
   frame14?: Flex__<"div">;
   logo?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
   frame12?: Flex__<"div">;
   menuItem2?: Flex__<typeof MenuItem2>;
   frame13?: Flex__<"div">;
@@ -103,22 +113,14 @@ export type PlasmicSideBar__OverridesType = {
   vuesaxLinearLogout2?: Flex__<"div">;
   frame19?: Flex__<"div">;
   textInput?: Flex__<typeof TextInput3>;
-  frame18?: Flex__<"div">;
-  frame17?: Flex__<"div">;
-  frame16?: Flex__<"div">;
-  frame15?: Flex__<"div">;
-  vuesaxBoldArrowDown?: Flex__<"div">;
-  vuesaxBoldArrowDown2?: Flex__<"div">;
-  empty1?: Flex__<"div">;
-  frame21?: Flex__<"div">;
-  vuesaxLinearAdd3?: Flex__<"div">;
-  vuesaxLinearAdd4?: Flex__<"div">;
-  figmaPaste?: Flex__<"div">;
-  frame22?: Flex__<"div">;
-  frame23?: Flex__<"div">;
+  doctorInfo?: Flex__<typeof DoctorInfo>;
 };
 
 export interface DefaultSideBarProps {
+  item?: string;
+  onItemChange?: (val: string) => void;
+  children?: React.ReactNode;
+  doctor?: any;
   className?: string;
 }
 
@@ -205,9 +207,11 @@ function PlasmicSideBar__RenderFunc(props: {
       },
       {
         path: "item",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+
+        valueProp: "item",
+        onChangeProp: "onItemChange"
       },
       {
         path: "textInput.value",
@@ -269,8 +273,10 @@ function PlasmicSideBar__RenderFunc(props: {
             className={classNames(projectcss.all, sty.logo)}
           >
             <PlasmicImg__
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
               alt={""}
-              className={classNames(sty.img__e0St9)}
+              className={classNames(sty.img)}
               displayHeight={"2rem"}
               displayMaxHeight={"none"}
               displayMaxWidth={"100%"}
@@ -493,209 +499,22 @@ function PlasmicSideBar__RenderFunc(props: {
             value={generateStateValueProp($state, ["textInput", "value"])}
           />
 
-          <div
-            data-plasmic-name={"frame18"}
-            data-plasmic-override={overrides.frame18}
-            className={classNames(projectcss.all, sty.frame18)}
-          >
-            <div
-              data-plasmic-name={"frame17"}
-              data-plasmic-override={overrides.frame17}
-              className={classNames(projectcss.all, sty.frame17)}
-            >
-              <div
-                data-plasmic-name={"frame16"}
-                data-plasmic-override={overrides.frame16}
-                className={classNames(projectcss.all, sty.frame16)}
-              >
-                <div
-                  data-plasmic-name={"frame15"}
-                  data-plasmic-override={overrides.frame15}
-                  className={classNames(projectcss.all, sty.frame15)}
-                >
-                  <div
-                    data-plasmic-name={"vuesaxBoldArrowDown"}
-                    data-plasmic-override={overrides.vuesaxBoldArrowDown}
-                    className={classNames(
-                      projectcss.all,
-                      sty.vuesaxBoldArrowDown
-                    )}
-                  >
-                    <div
-                      data-plasmic-name={"vuesaxBoldArrowDown2"}
-                      data-plasmic-override={overrides.vuesaxBoldArrowDown2}
-                      className={classNames(
-                        projectcss.all,
-                        sty.vuesaxBoldArrowDown2
-                      )}
-                    >
-                      <ArrowDownIcon
-                        className={classNames(projectcss.all, sty.svg__ed19)}
-                        role={"img"}
-                      />
-                    </div>
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__v4IE
-                    )}
-                  >
-                    {"Nokindow"}
-                  </div>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___7PwtA
-                  )}
-                >
-                  {"Nokindow@gmail.com"}
-                </div>
-              </div>
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img__y0ViZ)}
-                displayHeight={"48px"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"48px"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/liom_tools/images/ellipse2.svg",
-                  fullWidth: 48,
-                  fullHeight: 48,
-                  aspectRatio: undefined
-                }}
-              />
-            </div>
-          </div>
+          <DoctorInfo
+            data-plasmic-name={"doctorInfo"}
+            data-plasmic-override={overrides.doctorInfo}
+            className={classNames("__wab_instance", sty.doctorInfo)}
+          />
         </div>
         <div className={classNames(projectcss.all, sty.freeBox__zca09)}>
-          <div className={classNames(projectcss.all, sty.freeBox___9Sk9N)}>
-            <div
-              data-plasmic-name={"empty1"}
-              data-plasmic-override={overrides.empty1}
-              className={classNames(projectcss.all, sty.empty1)}
-            />
+          {renderPlasmicSlot({
+            defaultContents: (
+              <Questions
+                className={classNames("__wab_instance", sty.questions__mkH6G)}
+              />
+            ),
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xkHr4
-              )}
-            >
-              {"This section is empty"}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___0MsJw
-              )}
-            >
-              {"Click Create to display the information"}
-            </div>
-            <div
-              data-plasmic-name={"frame21"}
-              data-plasmic-override={overrides.frame21}
-              className={classNames(projectcss.all, sty.frame21)}
-            >
-              <div
-                data-plasmic-name={"vuesaxLinearAdd3"}
-                data-plasmic-override={overrides.vuesaxLinearAdd3}
-                className={classNames(projectcss.all, sty.vuesaxLinearAdd3)}
-              >
-                <div
-                  data-plasmic-name={"vuesaxLinearAdd4"}
-                  data-plasmic-override={overrides.vuesaxLinearAdd4}
-                  className={classNames(projectcss.all, sty.vuesaxLinearAdd4)}
-                >
-                  <AddIcon
-                    className={classNames(projectcss.all, sty.svg___3DNdP)}
-                    role={"img"}
-                  />
-                </div>
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oVu23
-                )}
-              >
-                {"Create"}
-              </div>
-            </div>
-          </div>
-          <div
-            data-plasmic-name={"figmaPaste"}
-            data-plasmic-override={overrides.figmaPaste}
-            className={classNames(projectcss.all, sty.figmaPaste)}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__iloFo
-              )}
-            >
-              {"\u062a\u0633\u062a \u0647\u0627"}
-            </div>
-            <Line3Icon
-              className={classNames(projectcss.all, sty.svg__qsTyr)}
-              role={"img"}
-            />
-
-            <div className={classNames(projectcss.all, sty.freeBox__sJeRt)}>
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
-                2, 3, 4
-              ]).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <div
-                    data-plasmic-name={"frame22"}
-                    data-plasmic-override={overrides.frame22}
-                    className={classNames(projectcss.all, sty.frame22)}
-                    key={currentIndex}
-                  >
-                    <div
-                      data-plasmic-name={"frame23"}
-                      data-plasmic-override={overrides.frame23}
-                      className={classNames(projectcss.all, sty.frame23)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___1Sao
-                        )}
-                      >
-                        {"Lorem ipsum"}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___2S7Lm
-                        )}
-                      >
-                        {
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ..."
-                        }
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+            value: args.children
+          })}
         </div>
       </div>
     </div>
@@ -708,6 +527,7 @@ const PlasmicDescendants = {
     "frame11",
     "frame14",
     "logo",
+    "img",
     "frame12",
     "menuItem2",
     "frame13",
@@ -717,24 +537,13 @@ const PlasmicDescendants = {
     "vuesaxLinearLogout2",
     "frame19",
     "textInput",
-    "frame18",
-    "frame17",
-    "frame16",
-    "frame15",
-    "vuesaxBoldArrowDown",
-    "vuesaxBoldArrowDown2",
-    "empty1",
-    "frame21",
-    "vuesaxLinearAdd3",
-    "vuesaxLinearAdd4",
-    "figmaPaste",
-    "frame22",
-    "frame23"
+    "doctorInfo"
   ],
   frame11: [
     "frame11",
     "frame14",
     "logo",
+    "img",
     "frame12",
     "menuItem2",
     "frame13",
@@ -743,8 +552,9 @@ const PlasmicDescendants = {
     "vuesaxLinearLogout",
     "vuesaxLinearLogout2"
   ],
-  frame14: ["frame14", "logo", "frame12", "menuItem2"],
-  logo: ["logo"],
+  frame14: ["frame14", "logo", "img", "frame12", "menuItem2"],
+  logo: ["logo", "img"],
+  img: ["img"],
   frame12: ["frame12", "menuItem2"],
   menuItem2: ["menuItem2"],
   frame13: [
@@ -758,48 +568,9 @@ const PlasmicDescendants = {
   frame7: ["frame7", "vuesaxLinearLogout", "vuesaxLinearLogout2"],
   vuesaxLinearLogout: ["vuesaxLinearLogout", "vuesaxLinearLogout2"],
   vuesaxLinearLogout2: ["vuesaxLinearLogout2"],
-  frame19: [
-    "frame19",
-    "textInput",
-    "frame18",
-    "frame17",
-    "frame16",
-    "frame15",
-    "vuesaxBoldArrowDown",
-    "vuesaxBoldArrowDown2"
-  ],
+  frame19: ["frame19", "textInput", "doctorInfo"],
   textInput: ["textInput"],
-  frame18: [
-    "frame18",
-    "frame17",
-    "frame16",
-    "frame15",
-    "vuesaxBoldArrowDown",
-    "vuesaxBoldArrowDown2"
-  ],
-  frame17: [
-    "frame17",
-    "frame16",
-    "frame15",
-    "vuesaxBoldArrowDown",
-    "vuesaxBoldArrowDown2"
-  ],
-  frame16: [
-    "frame16",
-    "frame15",
-    "vuesaxBoldArrowDown",
-    "vuesaxBoldArrowDown2"
-  ],
-  frame15: ["frame15", "vuesaxBoldArrowDown", "vuesaxBoldArrowDown2"],
-  vuesaxBoldArrowDown: ["vuesaxBoldArrowDown", "vuesaxBoldArrowDown2"],
-  vuesaxBoldArrowDown2: ["vuesaxBoldArrowDown2"],
-  empty1: ["empty1"],
-  frame21: ["frame21", "vuesaxLinearAdd3", "vuesaxLinearAdd4"],
-  vuesaxLinearAdd3: ["vuesaxLinearAdd3", "vuesaxLinearAdd4"],
-  vuesaxLinearAdd4: ["vuesaxLinearAdd4"],
-  figmaPaste: ["figmaPaste", "frame22", "frame23"],
-  frame22: ["frame22", "frame23"],
-  frame23: ["frame23"]
+  doctorInfo: ["doctorInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -809,6 +580,7 @@ type NodeDefaultElementType = {
   frame11: "div";
   frame14: "div";
   logo: "div";
+  img: typeof PlasmicImg__;
   frame12: "div";
   menuItem2: typeof MenuItem2;
   frame13: "div";
@@ -818,19 +590,7 @@ type NodeDefaultElementType = {
   vuesaxLinearLogout2: "div";
   frame19: "div";
   textInput: typeof TextInput3;
-  frame18: "div";
-  frame17: "div";
-  frame16: "div";
-  frame15: "div";
-  vuesaxBoldArrowDown: "div";
-  vuesaxBoldArrowDown2: "div";
-  empty1: "div";
-  frame21: "div";
-  vuesaxLinearAdd3: "div";
-  vuesaxLinearAdd4: "div";
-  figmaPaste: "div";
-  frame22: "div";
-  frame23: "div";
+  doctorInfo: typeof DoctorInfo;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -896,6 +656,7 @@ export const PlasmicSideBar = Object.assign(
     frame11: makeNodeComponent("frame11"),
     frame14: makeNodeComponent("frame14"),
     logo: makeNodeComponent("logo"),
+    img: makeNodeComponent("img"),
     frame12: makeNodeComponent("frame12"),
     menuItem2: makeNodeComponent("menuItem2"),
     frame13: makeNodeComponent("frame13"),
@@ -905,19 +666,7 @@ export const PlasmicSideBar = Object.assign(
     vuesaxLinearLogout2: makeNodeComponent("vuesaxLinearLogout2"),
     frame19: makeNodeComponent("frame19"),
     textInput: makeNodeComponent("textInput"),
-    frame18: makeNodeComponent("frame18"),
-    frame17: makeNodeComponent("frame17"),
-    frame16: makeNodeComponent("frame16"),
-    frame15: makeNodeComponent("frame15"),
-    vuesaxBoldArrowDown: makeNodeComponent("vuesaxBoldArrowDown"),
-    vuesaxBoldArrowDown2: makeNodeComponent("vuesaxBoldArrowDown2"),
-    empty1: makeNodeComponent("empty1"),
-    frame21: makeNodeComponent("frame21"),
-    vuesaxLinearAdd3: makeNodeComponent("vuesaxLinearAdd3"),
-    vuesaxLinearAdd4: makeNodeComponent("vuesaxLinearAdd4"),
-    figmaPaste: makeNodeComponent("figmaPaste"),
-    frame22: makeNodeComponent("frame22"),
-    frame23: makeNodeComponent("frame23"),
+    doctorInfo: makeNodeComponent("doctorInfo"),
 
     // Metadata about props expected for PlasmicSideBar
     internalVariantProps: PlasmicSideBar__VariantProps,
