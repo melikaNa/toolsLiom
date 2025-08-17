@@ -3,13 +3,12 @@
   flex-direction: row;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   justify-content: flex-start;
   align-items: flex-start;
   column-gap: var(--token-6eH8UjLOmr7v);
   background: var(--token-SxXGNxcP6O97);
   min-width: 0;
-  min-height: 0;
   padding: var(--token-6eH8UjLOmr7v);
 }
 .frame11 {
@@ -45,7 +44,7 @@
   align-items: center;
   justify-content: flex-start;
 }
-.img__e0St9 {
+.img {
   object-fit: cover;
   max-width: 100%;
   width: var(--token-rjo2t_xMK-6Z);
@@ -54,7 +53,7 @@
   position: relative;
   flex-shrink: 0;
 }
-.img__e0St9 > picture > img {
+.img > picture > img {
   object-fit: cover;
 }
 .text__shzF {
@@ -204,107 +203,10 @@
   width: auto;
   min-height: 0;
 }
-.frame18 {
-  width: auto;
-  height: auto;
-  display: flex;
+.doctorInfo:global(.__wab_instance) {
   position: relative;
-  flex-direction: row;
-  column-gap: 40px;
-  align-items: center;
-  justify-content: flex-start;
-  left: auto;
   top: auto;
-}
-.frame17 {
-  width: auto;
-  height: auto;
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  column-gap: 16px;
-  align-items: center;
-  justify-content: flex-start;
-}
-.frame16 {
-  width: auto;
-  height: auto;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  row-gap: 2px;
-  align-items: flex-end;
-  justify-content: flex-start;
-}
-.frame15 {
-  width: auto;
-  height: auto;
-  display: flex;
-  position: relative;
-  flex-direction: row;
-  column-gap: 4px;
-  align-items: center;
-  justify-content: flex-start;
-}
-.vuesaxBoldArrowDown {
-  width: 12px;
-  height: 12px;
-  display: block;
-  position: relative;
-  flex-shrink: 0;
-}
-.vuesaxBoldArrowDown2 {
-  width: 12px;
-  height: 12px;
-  display: block;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-.svg__ed19 {
-  object-fit: cover;
-  max-width: 100%;
-  color: #000;
-  width: 12px;
-  height: 12px;
-  display: block;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-.text__v4IE {
-  display: block;
-  font-size: 16px;
-  text-align: right;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
-  letter-spacing: 0em;
-  line-height: 20px;
-  color: rgba(0, 0, 0, 1);
-  position: relative;
-}
-.text___7PwtA {
-  display: block;
-  font-size: 12px;
-  text-align: right;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0em;
-  line-height: 20px;
-  color: rgba(193, 193, 193, 1);
-  position: relative;
-}
-.img__y0ViZ {
-  object-fit: cover;
-  max-width: 100%;
-  width: 48px;
-  height: 48px;
-  display: block;
-  position: relative;
-  flex-shrink: 0;
-}
-.img__y0ViZ > picture > img {
-  object-fit: cover;
+  left: auto;
 }
 .freeBox__zca09 {
   display: flex;
@@ -325,208 +227,9 @@
   border-radius: 24px;
   padding: var(--token-6eH8UjLOmr7v);
 }
-.freeBox___9Sk9N {
-  flex-direction: column;
+.questions__mkH6G:global(.__wab_instance) {
   position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  justify-content: flex-start;
-  align-items: center;
   top: auto;
   left: auto;
   z-index: 1;
-  row-gap: var(--token-6eH8UjLOmr7v);
-  min-width: 0;
-  display: none;
-  padding: 0px;
-}
-.empty1 {
-  background: url("/plasmic/liom_tools/images/empty1.png") center center / cover no-repeat;
-  width: 302px;
-  height: 240px;
-  display: block;
-  flex-shrink: 0;
-}
-.text__xkHr4 {
-  display: block;
-  font-size: 20px;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
-  letter-spacing: 0em;
-  line-height: 100%;
-  color: rgba(0, 0, 0, 1);
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-}
-.text___0MsJw {
-  display: block;
-  font-size: 16px;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0em;
-  line-height: 100%;
-  color: rgba(193, 193, 193, 1);
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-}
-.frame21 {
-  background: linear-gradient(
-      247.64deg,
-      rgba(160, 180, 237, 1) 0%,
-      rgba(49, 91, 216, 1) 100%
-    )
-    0% 0% / 100% 100% no-repeat;
-  width: auto;
-  height: auto;
-  display: flex;
-  overflow: hidden;
-  flex-direction: row;
-  column-gap: 4px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-  border-radius: 12px;
-  padding: 12px 20px;
-}
-.vuesaxLinearAdd3 {
-  width: 20px;
-  height: 20px;
-  display: block;
-  position: relative;
-  flex-shrink: 0;
-}
-.vuesaxLinearAdd4 {
-  width: 20px;
-  height: 20px;
-  display: block;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-.svg___3DNdP {
-  object-fit: cover;
-  max-width: 100%;
-  color: #fff;
-  width: 20px;
-  height: 20px;
-  display: block;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-.text__oVu23 {
-  display: block;
-  font-size: 14px;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0em;
-  line-height: 100%;
-  color: rgba(255, 255, 255, 1);
-  position: relative;
-}
-.figmaPaste {
-  display: flex;
-  position: relative;
-  width: auto;
-  height: auto;
-  flex-direction: column;
-  row-gap: var(--token-6eH8UjLOmr7v);
-}
-.text__iloFo {
-  display: block;
-  font-size: 24px;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
-  letter-spacing: 0em;
-  line-height: 100%;
-  color: rgba(0, 0, 0, 1);
-  position: relative;
-  left: auto;
-  top: auto;
-  width: auto;
-  text-align: right;
-}
-.svg__qsTyr {
-  object-fit: cover;
-  max-width: 100%;
-  color: #f4f4f4;
-  transform: scale(1.0000000000000038, 1.0000000000000038)
-    rotate(0.0000049783130603797145deg);
-  width: 100%;
-  height: 2px;
-  display: block;
-  transform-origin: top left;
-  position: relative;
-  left: auto;
-  top: auto;
-  min-width: 0;
-  flex-shrink: 0;
-}
-.freeBox__sJeRt {
-  display: grid;
-  position: relative;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  grid-row-gap: var(--token-6eH8UjLOmr7v);
-  grid-column-gap: var(--token-6eH8UjLOmr7v);
-  min-width: 0;
-  padding: 0px;
-}
-.frame22 {
-  background: rgba(247, 247, 247, 1);
-  width: auto;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  column-gap: 56px;
-  align-items: flex-end;
-  justify-content: space-between;
-  position: relative;
-  left: auto;
-  top: auto;
-  border-radius: 12px;
-  padding: 24px;
-}
-.frame23 {
-  width: auto;
-  height: auto;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  row-gap: 12px;
-  align-items: flex-start;
-  justify-content: center;
-}
-.text___1Sao {
-  display: block;
-  font-size: 24px;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
-  letter-spacing: 0em;
-  line-height: 100%;
-  color: rgba(0, 0, 0, 1);
-  position: relative;
-}
-.text___2S7Lm {
-  display: block;
-  font-size: 12px;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0em;
-  line-height: 20px;
-  color: rgba(117, 117, 117, 1);
-  position: relative;
-  width: 100%;
-  text-align: right;
-  min-width: 0;
 }

@@ -3283,6 +3283,32 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicSideBar.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "FWZ-50v74wL5",
+          "name": "Questions",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicQuestions.tsx",
+          "importSpec": {
+            "modulePath": "Questions.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicQuestions.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "gxk8D7G3VD04",
+          "name": "DoctorInfo",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicDoctorInfo.tsx",
+          "importSpec": {
+            "modulePath": "DoctorInfo.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicDoctorInfo.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
