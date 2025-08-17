@@ -62,6 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import SideBar from "../../SideBar"; // plasmic-import: 68VfgF3XliD1/component
+import Questions from "../../Questions"; // plasmic-import: FWZ-50v74wL5/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from ""; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -88,6 +90,8 @@ export const PlasmicPanel2__ArgProps = new Array<ArgPropType>();
 export type PlasmicPanel2__OverridesType = {
   root?: Flex__<"div">;
   sideBar?: Flex__<typeof SideBar>;
+  questions?: Flex__<typeof Questions>;
+  getUser?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultPanel2Props {}
@@ -133,6 +137,42 @@ function PlasmicPanel2__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "getUser.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getUser.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getUser.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "sideBar.item",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "questions"
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   const styleTokensClassNames = _useStyleTokens();
   const styleTokensClassNames_antd_5_hostless =
     useStyleTokens_antd_5_hostless();
@@ -175,6 +215,101 @@ function PlasmicPanel2__RenderFunc(props: {
             data-plasmic-name={"sideBar"}
             data-plasmic-override={overrides.sideBar}
             className={classNames("__wab_instance", sty.sideBar)}
+            doctor={(() => {
+              try {
+                return $state.getUser.data.Doctor;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            item={generateStateValueProp($state, ["sideBar", "item"])}
+            onItemChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["sideBar", "item"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          >
+            <Questions
+              data-plasmic-name={"questions"}
+              data-plasmic-override={overrides.questions}
+              className={classNames("__wab_instance", sty.questions)}
+              tests={(() => {
+                try {
+                  return $state.getUser.data.tests;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          </SideBar>
+          <ApiRequest
+            data-plasmic-name={"getUser"}
+            data-plasmic-override={overrides.getUser}
+            className={classNames("__wab_instance", sty.getUser)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__duSog
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wMxPi
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUser", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUser", "loading"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUser", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            shouldFetch={true}
+            url={"https://n8n.staas.ir/webhook/docterPanel/getDocter"}
           />
         </div>
       </div>
@@ -183,8 +318,10 @@ function PlasmicPanel2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideBar"],
-  sideBar: ["sideBar"]
+  root: ["root", "sideBar", "questions", "getUser"],
+  sideBar: ["sideBar", "questions"],
+  questions: ["questions"],
+  getUser: ["getUser"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -192,6 +329,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideBar: typeof SideBar;
+  questions: typeof Questions;
+  getUser: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -280,6 +419,8 @@ export const PlasmicPanel2 = Object.assign(
   {
     // Helper components rendering sub-elements
     sideBar: makeNodeComponent("sideBar"),
+    questions: makeNodeComponent("questions"),
+    getUser: makeNodeComponent("getUser"),
 
     // Metadata about props expected for PlasmicPanel2
     internalVariantProps: PlasmicPanel2__VariantProps,
