@@ -1,0 +1,110 @@
+.root {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0px;
+  justify-self: flex-start;
+  background: transparent;
+  opacity: 1;
+  transition-property: background;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+  transform: translateX(0px) translateY(0px) translateZ(0px);
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+  -webkit-transition-property: background;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 1s;
+}
+.rootclick {
+  opacity: 1;
+  background: #00000033;
+  transform: translateX(0px) translateY(0px) translateZ(0px);
+  height: 100%;
+  min-height: 0;
+}
+.freeBox__huGac {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: 0;
+  top: auto;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  transition-property: all;
+  transition-duration: 0.6s;
+  transform: translateX(0px) translateY(1000px) translateZ(0px);
+  transition-timing-function: ease-in-out;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.6s;
+  padding: 8px;
+}
+.freeBoxclick__huGacPyvA5 {
+  transform: translateX(0%) translateY(0px) translateZ(0px);
+  height: auto;
+  bottom: -2px;
+  left: -2px;
+  z-index: 5;
+  border-top-left-radius: var(--token-NA4_kBQtzoXQ);
+  border-top-right-radius: var(--token-NA4_kBQtzoXQ);
+  width: 100%;
+  min-width: 0;
+}
+.freeBox__sOwmh {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 10px;
+  max-width: 100%;
+  background: #0000001a;
+  z-index: 8;
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 0px;
+}
+.freeBoxclick__sOwmhPyvA5 {
+  display: none;
+}
+.freeBox__vFf5L {
+  flex-direction: column;
+  position: fixed;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  left: 0;
+  top: auto;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  transform: translateX(0px) translateY(1000px) translateZ(0px);
+  display: none;
+  padding: 8px;
+}
+.freeBoxclick__vFf5LPyvA5 {
+  transform: none;
+  height: 100%;
+  background: none;
+  right: 0;
+  bottom: 0;
+  left: -1px;
+  top: 0;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+}

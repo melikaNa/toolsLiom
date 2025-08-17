@@ -1,0 +1,122 @@
+.root {
+  display: grid;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  background: #f8f8f8;
+  overflow: auto;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  min-width: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.root > * {
+  grid-column: 4;
+}
+.rootglobal_theme_dark {
+  background: #1c0f0f;
+}
+.rootglobal_theme_dark > * {
+  grid-column: 4;
+}
+.headerV2:global(.__wab_instance) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.freeBox___7El1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  max-height: none;
+  transition-property: all;
+  transition-duration: 1s;
+  transform: translateX(0px) translateY(0px) translateZ(0px);
+  left: auto;
+  top: auto;
+  z-index: 1;
+  box-shadow: 0px 4px 16px 0px #05010133;
+  justify-self: center;
+  min-width: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+}
+.freeBox__l9Smx {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: none;
+  min-width: 0;
+  padding: 8px;
+  border-bottom: 1px solid #f1dede;
+}
+.text__iiFd7 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: #000000;
+  text-align: right;
+  margin-right: 0px;
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 0;
+  padding: 10px;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  color: #303e86;
+  width: auto;
+  height: 25px;
+}
+.text__wIxNg {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: #000000;
+  font-size: 16px;
+  text-align: right;
+  padding-right: 5px;
+  transition-property: all;
+  transition-duration: 1s;
+  min-width: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+  margin: 20px;
+}
+.lottie:global(.__wab_instance) {
+  max-width: 200%;
+  object-fit: cover;
+  color: #964242;
+  background: none;
+  height: 200px;
+  width: 200px;
+}

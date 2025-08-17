@@ -1,0 +1,37 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  background: #ffffff;
+  min-width: 0;
+  border-radius: 15px;
+  border: 2px solid #ffffff1a;
+}
+.rootselected {
+  background: #a6ffd4;
+  border-radius: 15px;
+  border: 3px solid #2dc57b;
+}
+.rootdisable {
+  opacity: 0.5;
+}
+.img {
+  object-fit: cover;
+  max-width: 100%;
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.img > picture > img {
+  object-fit: cover;
+}
+.imgselected {
+  display: block;
+}
