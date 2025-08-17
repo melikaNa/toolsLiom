@@ -3227,7 +3227,10 @@ function PlasmicSelfTest__RenderFunc(props: {
                 >
                   {(() => {
                     try {
-                      return currentItem.owner != true;
+                      return (
+                        currentItem.owner != true &&
+                        !currentItem.text?.includes("<b>")
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -3272,6 +3275,49 @@ function PlasmicSelfTest__RenderFunc(props: {
                           }
                         })()}
                       </React.Fragment>
+                    </div>
+                  ) : null}
+                  {(() => {
+                    try {
+                      return (
+                        currentItem.owner != true &&
+                        currentItem.text?.includes("<b>")
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__vJor
+                      )}
+                    >
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return currentItem.text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "Lorem ipsum dolor sit amet,";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
                     </div>
                   ) : null}
                   <div
