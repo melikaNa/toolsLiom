@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -33,7 +33,6 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -60,14 +59,16 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
 import sty from "./PlasmicPaziresh24Collapsible.module.css"; // plasmic-import: l6VIhr1cb9Jb/css
 
-import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
-import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: 0359howWu0cr/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: jS0YlkKPLO7U/icon
 
 createPlasmicElementProxy;
 
@@ -79,18 +80,18 @@ export const PlasmicPaziresh24Collapsible__VariantProps =
 
 export type PlasmicPaziresh24Collapsible__ArgsType = {
   defaultMaxHeight?: string;
-  children?: React.ReactNode;
-  slot?: React.ReactNode;
-  slot2?: React.ReactNode;
   color?: string;
+  content?: React.ReactNode;
+  expandTrigger?: React.ReactNode;
+  collapseTrigger?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicPaziresh24Collapsible__ArgsType;
 export const PlasmicPaziresh24Collapsible__ArgProps = new Array<ArgPropType>(
   "defaultMaxHeight",
-  "children",
-  "slot",
-  "slot2",
-  "color"
+  "color",
+  "content",
+  "expandTrigger",
+  "collapseTrigger"
 );
 
 export type PlasmicPaziresh24Collapsible__OverridesType = {
@@ -99,10 +100,10 @@ export type PlasmicPaziresh24Collapsible__OverridesType = {
 
 export interface DefaultPaziresh24CollapsibleProps {
   defaultMaxHeight?: string;
-  children?: React.ReactNode;
-  slot?: React.ReactNode;
-  slot2?: React.ReactNode;
   color?: string;
+  content?: React.ReactNode;
+  expandTrigger?: React.ReactNode;
+  collapseTrigger?: React.ReactNode;
   className?: string;
 }
 
@@ -143,6 +144,7 @@ function PlasmicPaziresh24Collapsible__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -165,6 +167,8 @@ function PlasmicPaziresh24Collapsible__RenderFunc(props: {
     $refs
   });
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -176,7 +180,7 @@ function PlasmicPaziresh24Collapsible__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
+        styleTokensClassNames,
         sty.root
       )}
     >
@@ -214,7 +218,7 @@ function PlasmicPaziresh24Collapsible__RenderFunc(props: {
               }
             </div>
           ),
-          value: args.slot2
+          value: args.content
         })}
         {(() => {
           try {
@@ -318,10 +322,22 @@ function PlasmicPaziresh24Collapsible__RenderFunc(props: {
                   sty.paziresh24Button__avi4B
                 )}
                 color={"text"}
+                endIcon={
+                  <ChevronLeftIcon
+                    className={classNames(projectcss.all, sty.svg__b22P2)}
+                    role={"img"}
+                  />
+                }
+                startIcon={
+                  <ChevronRightIcon
+                    className={classNames(projectcss.all, sty.svg__v6XbF)}
+                    role={"img"}
+                  />
+                }
               />
             ),
 
-            value: args.children
+            value: args.expandTrigger
           })}
         </div>
       ) : null}
@@ -392,10 +408,22 @@ function PlasmicPaziresh24Collapsible__RenderFunc(props: {
                   sty.paziresh24Button__vK8Nf
                 )}
                 color={"text"}
+                endIcon={
+                  <ChevronLeftIcon
+                    className={classNames(projectcss.all, sty.svg___5Io4H)}
+                    role={"img"}
+                  />
+                }
+                startIcon={
+                  <ChevronRightIcon
+                    className={classNames(projectcss.all, sty.svg__eRbKh)}
+                    role={"img"}
+                  />
+                }
               />
             ),
 
-            value: args.slot
+            value: args.collapseTrigger
           })}
         </div>
       ) : null}
@@ -425,15 +453,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicPaziresh24Collapsible__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicPaziresh24Collapsible__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicPaziresh24Collapsible__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicPaziresh24Collapsible__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

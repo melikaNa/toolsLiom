@@ -3,12 +3,13 @@
   flex-direction: row;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   justify-content: flex-start;
   align-items: flex-start;
   column-gap: var(--token-6eH8UjLOmr7v);
   background: var(--token-SxXGNxcP6O97);
   min-width: 0;
+  min-height: 0;
   padding: var(--token-6eH8UjLOmr7v);
 }
 .frame11 {
@@ -42,7 +43,7 @@
   flex-direction: row;
   column-gap: 12px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .img__e0St9 {
   object-fit: cover;
@@ -312,7 +313,7 @@
   width: 100%;
   height: 100%;
   max-width: 100%;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   top: auto;
   left: auto;
@@ -324,15 +325,27 @@
   border-radius: 24px;
   padding: var(--token-6eH8UjLOmr7v);
 }
+.freeBox___9Sk9N {
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  top: auto;
+  left: auto;
+  z-index: 1;
+  row-gap: var(--token-6eH8UjLOmr7v);
+  min-width: 0;
+  display: none;
+  padding: 0px;
+}
 .empty1 {
   background: url("/plasmic/liom_tools/images/empty1.png") center center / cover no-repeat;
   width: 302px;
   height: 240px;
   display: block;
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
   flex-shrink: 0;
 }
 .text__xkHr4 {
@@ -418,4 +431,102 @@
   line-height: 100%;
   color: rgba(255, 255, 255, 1);
   position: relative;
+}
+.figmaPaste {
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  row-gap: var(--token-6eH8UjLOmr7v);
+}
+.text__iloFo {
+  display: block;
+  font-size: 24px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+  position: relative;
+  left: auto;
+  top: auto;
+  width: auto;
+  text-align: right;
+}
+.svg__qsTyr {
+  object-fit: cover;
+  max-width: 100%;
+  color: #f4f4f4;
+  transform: scale(1.0000000000000038, 1.0000000000000038)
+    rotate(0.0000049783130603797145deg);
+  width: 100%;
+  height: 2px;
+  display: block;
+  transform-origin: top left;
+  position: relative;
+  left: auto;
+  top: auto;
+  min-width: 0;
+  flex-shrink: 0;
+}
+.freeBox__sJeRt {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  grid-row-gap: var(--token-6eH8UjLOmr7v);
+  grid-column-gap: var(--token-6eH8UjLOmr7v);
+  min-width: 0;
+  padding: 0px;
+}
+.frame22 {
+  background: rgba(247, 247, 247, 1);
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  column-gap: 56px;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+  left: auto;
+  top: auto;
+  border-radius: 12px;
+  padding: 24px;
+}
+.frame23 {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  row-gap: 12px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.text___1Sao {
+  display: block;
+  font-size: 24px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+  position: relative;
+}
+.text___2S7Lm {
+  display: block;
+  font-size: 12px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 20px;
+  color: rgba(117, 117, 117, 1);
+  position: relative;
+  width: 100%;
+  text-align: right;
+  min-width: 0;
 }

@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 
 /** @jsxRuntime classic */
@@ -33,7 +33,6 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
-  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -61,14 +60,18 @@ import {
 
 import * as pp from "@plasmicapp/react-web";
 
+import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectModule
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
 import sty from "./PlasmicPaziresh24Button.module.css"; // plasmic-import: YOhw5fIQJQgB/css
 
-import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: 0359howWu0cr/icon
 import Icon17Icon from "./icons/PlasmicIcon__Icon17"; // plasmic-import: K0KrVjcOVNaS/icon
-import ChevronLeftIcon from "../fragment_icons/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: r9Upp9NbiZkf/icon
+import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: rwy2JSXIoIh2/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: jS0YlkKPLO7U/icon
 
 createPlasmicElementProxy;
 
@@ -139,21 +142,21 @@ export const PlasmicPaziresh24Button__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicPaziresh24Button__ArgsType = {
-  children2?: React.ReactNode;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
   link?: string;
   submitsForm?: boolean;
   target?: boolean;
+  startIcon?: React.ReactNode;
+  children2?: React.ReactNode;
+  endIcon?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicPaziresh24Button__ArgsType;
 export const PlasmicPaziresh24Button__ArgProps = new Array<ArgPropType>(
-  "children2",
-  "startIcon",
-  "endIcon",
   "link",
   "submitsForm",
-  "target"
+  "target",
+  "startIcon",
+  "children2",
+  "endIcon"
 );
 
 export type PlasmicPaziresh24Button__OverridesType = {
@@ -165,9 +168,9 @@ export type PlasmicPaziresh24Button__OverridesType = {
 };
 
 export interface DefaultPaziresh24ButtonProps extends pp.BaseButtonProps {
-  children2?: React.ReactNode;
   submitsForm?: boolean;
   target?: boolean;
+  children2?: React.ReactNode;
   outline?: SingleBooleanChoiceArg<"outline">;
   shape?: SingleChoiceArg<"rounded" | "round" | "sharp">;
   size?: SingleChoiceArg<"compact" | "minimal">;
@@ -226,6 +229,7 @@ function PlasmicPaziresh24Button__RenderFunc(props: {
   };
 
   const __nextRouter = useNextRouter();
+
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
@@ -304,21 +308,21 @@ function PlasmicPaziresh24Button__RenderFunc(props: {
     focusVisibleWithin_root: isRootFocusVisibleWithin
   };
 
+  const styleTokensClassNames = _useStyleTokens();
+
   return (
-    <Stack__
-      as={"button"}
+    <button
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.button,
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
+        styleTokensClassNames,
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
@@ -582,27 +586,38 @@ function PlasmicPaziresh24Button__RenderFunc(props: {
             )
           })}
         >
-          <Icon17Icon
+          <PlasmicIcon__
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg, "loader", {
-              [sty.svgcolor_clear]: hasVariant($state, "color", "clear"),
-              [sty.svgcolor_red_outline_loading]:
-                hasVariant($state, "loading", "loading") &&
-                hasVariant($state, "color", "red") &&
-                hasVariant($state, "outline", "outline"),
-              [sty.svgloading]: hasVariant($state, "loading", "loading"),
-              [sty.svgloading_color_link]:
-                hasVariant($state, "loading", "loading") &&
-                hasVariant($state, "color", "link"),
-              [sty.svgoutline_loading]:
-                hasVariant($state, "loading", "loading") &&
-                hasVariant($state, "outline", "outline"),
-              [sty.svgoutline_loading_color_link]:
-                hasVariant($state, "loading", "loading") &&
-                hasVariant($state, "outline", "outline") &&
-                hasVariant($state, "color", "link")
-            })}
+            PlasmicIconType={
+              hasVariant($state, "loading", "loading") ? Icon2Icon : Icon17Icon
+            }
+            className={classNames(
+              projectcss.all,
+              sty.svg,
+              hasVariant($state, "loading", "loading") ? `` : "loader",
+              {
+                [sty.svgcolor_clear]: hasVariant($state, "color", "clear"),
+                [sty.svgcolor_red_outline_loading]:
+                  hasVariant($state, "loading", "loading") &&
+                  hasVariant($state, "color", "red") &&
+                  hasVariant($state, "outline", "outline"),
+                [sty.svgcolor_softSand_loading]:
+                  hasVariant($state, "color", "softSand") &&
+                  hasVariant($state, "loading", "loading"),
+                [sty.svgloading]: hasVariant($state, "loading", "loading"),
+                [sty.svgloading_color_link]:
+                  hasVariant($state, "loading", "loading") &&
+                  hasVariant($state, "color", "link"),
+                [sty.svgoutline_loading]:
+                  hasVariant($state, "loading", "loading") &&
+                  hasVariant($state, "outline", "outline"),
+                [sty.svgoutline_loading_color_link]:
+                  hasVariant($state, "loading", "loading") &&
+                  hasVariant($state, "outline", "outline") &&
+                  hasVariant($state, "color", "link")
+              }
+            )}
             role={"img"}
           />
 
@@ -855,7 +870,7 @@ function PlasmicPaziresh24Button__RenderFunc(props: {
           })}
         </div>
       ) : null}
-    </Stack__>
+    </button>
   ) as React.ReactElement | null;
 }
 
@@ -924,15 +939,15 @@ type NodeComponentProps<T extends NodeNameType> =
     args?: PlasmicPaziresh24Button__ArgsType;
     overrides?: NodeOverridesType<T>;
   } & Omit<PlasmicPaziresh24Button__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
-    /* Specify args directly as props*/ Omit<
-      PlasmicPaziresh24Button__ArgsType,
-      ReservedPropsType
-    > &
-    /* Specify overrides for each element directly as props*/ Omit<
+    // Specify args directly as props
+    Omit<PlasmicPaziresh24Button__ArgsType, ReservedPropsType> &
+    // Specify overrides for each element directly as props
+    Omit<
       NodeOverridesType<T>,
       ReservedPropsType | VariantPropType | ArgPropType
     > &
-    /* Specify props for the root element*/ Omit<
+    // Specify props for the root element
+    Omit<
       Partial<React.ComponentProps<NodeDefaultElementType[T]>>,
       ReservedPropsType | VariantPropType | ArgPropType | DescendantsType<T>
     >;

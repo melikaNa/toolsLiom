@@ -5,11 +5,11 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type SearchSvgIconProps = React.ComponentProps<"svg"> & {
+export type ChevronRightIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function SearchSvgIcon(props: SearchSvgIconProps) {
+export function ChevronRightIcon(props: ChevronRightIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
@@ -17,7 +17,6 @@ export function SearchSvgIcon(props: SearchSvgIconProps) {
       fill={"none"}
       viewBox={"0 0 24 24"}
       height={"1em"}
-      width={"1em"}
       className={classNames("plasmic-default__svg", className)}
       style={style}
       {...restProps}
@@ -25,17 +24,16 @@ export function SearchSvgIcon(props: SearchSvgIconProps) {
       {title && <title>{title}</title>}
 
       <path
-        stroke={"currentColor"}
-        strokeLinecap={"round"}
-        strokeLinejoin={"round"}
-        strokeWidth={"1.5"}
+        fillRule={"evenodd"}
+        clipRule={"evenodd"}
         d={
-          "M19.25 19.25L15.5 15.5M4.75 11a6.25 6.25 0 1112.5 0 6.25 6.25 0 01-12.5 0z"
+          "M9.47 5.47a.75.75 0 011.06 0l6 6a.75.75 0 010 1.06l-6 6a.75.75 0 11-1.06-1.06L14.94 12 9.47 6.53a.75.75 0 010-1.06z"
         }
+        fill={"currentColor"}
       ></path>
     </svg>
   );
 }
 
-export default SearchSvgIcon;
+export default ChevronRightIcon;
 /* prettier-ignore-end */

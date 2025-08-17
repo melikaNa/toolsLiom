@@ -79,14 +79,14 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import Stars from "../../Stars"; // plasmic-import: wwNNSLKePNyr/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
+import Paziresh24Modal from "../../Paziresh24Modal"; // plasmic-import: ZGdhyEBPJSmH/component
 import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from ""; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from ""; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from ""; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from "../paziresh_24_design_system/PlasmicStyleTokensProvider"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_hamdast_sdk } from ""; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -139,16 +139,16 @@ export type PlasmicResult2__OverridesType = {
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   apiRequest?: Flex__<typeof ApiRequest>;
   textArea?: Flex__<typeof AntdTextArea>;
-  dialog?: Flex__<typeof Paziresh24Dialog>;
+  dialog?: Flex__<typeof Paziresh24Modal>;
   apiRequest2?: Flex__<typeof ApiRequest>;
   link?: Flex__<"a"> & Partial<LinkProps>;
   h2?: Flex__<"h2">;
   paziresh24LineClamp?: Flex__<typeof Paziresh24LineClamp>;
   cardSubtitle?: Flex__<"span">;
   section?: Flex__<"section">;
-  dialog2?: Flex__<typeof Paziresh24Dialog>;
+  dialog2?: Flex__<typeof Paziresh24Modal>;
   textArea2?: Flex__<typeof AntdTextArea>;
-  dialog3?: Flex__<typeof Paziresh24Dialog>;
+  dialog3?: Flex__<typeof Paziresh24Modal>;
 };
 
 export interface DefaultResult2Props {}
@@ -3709,7 +3709,7 @@ function PlasmicResult2__RenderFunc(props: {
               />
             </div>
           ) : null}
-          <Paziresh24Dialog
+          <Paziresh24Modal
             data-plasmic-name={"dialog"}
             data-plasmic-override={overrides.dialog}
             body={
@@ -4747,7 +4747,7 @@ function PlasmicResult2__RenderFunc(props: {
               </div>
             </section>
           ) : null}
-          <Paziresh24Dialog
+          <Paziresh24Modal
             data-plasmic-name={"dialog2"}
             data-plasmic-override={overrides.dialog2}
             body={
@@ -5229,7 +5229,7 @@ function PlasmicResult2__RenderFunc(props: {
             trigger={null}
           />
 
-          <Paziresh24Dialog
+          <Paziresh24Modal
             data-plasmic-name={"dialog3"}
             data-plasmic-override={overrides.dialog3}
             body={
@@ -5348,16 +5348,16 @@ type NodeDefaultElementType = {
   buttonLiom4: typeof ButtonLiom;
   apiRequest: typeof ApiRequest;
   textArea: typeof AntdTextArea;
-  dialog: typeof Paziresh24Dialog;
+  dialog: typeof Paziresh24Modal;
   apiRequest2: typeof ApiRequest;
   link: "a";
   h2: "h2";
   paziresh24LineClamp: typeof Paziresh24LineClamp;
   cardSubtitle: "span";
   section: "section";
-  dialog2: typeof Paziresh24Dialog;
+  dialog2: typeof Paziresh24Modal;
   textArea2: typeof AntdTextArea;
-  dialog3: typeof Paziresh24Dialog;
+  dialog3: typeof Paziresh24Modal;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";

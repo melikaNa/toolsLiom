@@ -70,7 +70,7 @@ import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/com
 import TestOptionsLiom from "../../TestOptionsLiom"; // plasmic-import: DvUx8-VJCAy9/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
-import Paziresh24Dialog from "../../Paziresh24Dialog"; // plasmic-import: ZGdhyEBPJSmH/component
+import Paziresh24Modal from "../../Paziresh24Modal"; // plasmic-import: ZGdhyEBPJSmH/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -81,7 +81,7 @@ import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJ
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from ""; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from ""; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from ""; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from "../paziresh_24_design_system/PlasmicStyleTokensProvider"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_hamdast_sdk } from ""; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -125,9 +125,9 @@ export type PlasmicSelfTest3__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   peyPardakht24?: Flex__<"div">;
   favicon?: Flex__<typeof Embed>;
-  dialog?: Flex__<typeof Paziresh24Dialog>;
+  dialog?: Flex__<typeof Paziresh24Modal>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
-  dialog2?: Flex__<typeof Paziresh24Dialog>;
+  dialog2?: Flex__<typeof Paziresh24Modal>;
   shop?: Flex__<typeof ApiRequest>;
   input4?: Flex__<typeof AntdInput>;
   button12?: Flex__<typeof ButtonLiom>;
@@ -141,7 +141,7 @@ export type PlasmicSelfTest3__OverridesType = {
   rateinfo?: Flex__<typeof AntdModal>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
-  comments?: Flex__<typeof Paziresh24Dialog>;
+  comments?: Flex__<typeof Paziresh24Modal>;
   comment?: Flex__<typeof ApiRequest>;
   stars?: Flex__<typeof Stars>;
 };
@@ -4427,7 +4427,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
           }
         />
 
-        <Paziresh24Dialog
+        <Paziresh24Modal
           data-plasmic-name={"dialog"}
           data-plasmic-override={overrides.dialog}
           body={
@@ -4711,7 +4711,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
           trigger={null}
         />
 
-        <Paziresh24Dialog
+        <Paziresh24Modal
           data-plasmic-name={"dialog2"}
           data-plasmic-override={overrides.dialog2}
           body={
@@ -6904,7 +6904,7 @@ generateStars(${$state.rate});
             </div>
           </div>
         </AntdModal>
-        <Paziresh24Dialog
+        <Paziresh24Modal
           data-plasmic-name={"comments"}
           data-plasmic-override={overrides.comments}
           body={
@@ -7565,9 +7565,9 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   peyPardakht24: "div";
   favicon: typeof Embed;
-  dialog: typeof Paziresh24Dialog;
+  dialog: typeof Paziresh24Modal;
   buttonLiom3: typeof ButtonLiom;
-  dialog2: typeof Paziresh24Dialog;
+  dialog2: typeof Paziresh24Modal;
   shop: typeof ApiRequest;
   input4: typeof AntdInput;
   button12: typeof ButtonLiom;
@@ -7581,7 +7581,7 @@ type NodeDefaultElementType = {
   rateinfo: typeof AntdModal;
   buttonLiom4: typeof ButtonLiom;
   buttonLiom2: typeof ButtonLiom;
-  comments: typeof Paziresh24Dialog;
+  comments: typeof Paziresh24Modal;
   comment: typeof ApiRequest;
   stars: typeof Stars;
 };

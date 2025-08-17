@@ -15,13 +15,11 @@ import {
 } from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants"; // plasmic-import: gDFLJp69n7ET/globalVariant
 import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 import { useScreenVariants as useScreenVariantsnlcKhjNEh2L } from "../hamdast_sdk/PlasmicGlobalVariant__Screen"; // plasmic-import: NlcKhjN_EH2L/globalVariant
-import { useScreenVariants as useScreenVariantsbr2UhI7UlpvR } from "../fragment_icons/PlasmicGlobalVariant__Screen"; // plasmic-import: BR2UhI7ulpvR/globalVariant
 
 export const _useGlobalVariants = createUseGlobalVariants({
   screen: useScreenVariantsyg4Uf6WCaaLe,
   theme: useTheme,
   unnamedGlobalGroupOfVariants: useUnnamedGlobalGroupOfVariants,
   screen: useScreenVariantsqiBuxNlixBgQ,
-  screen: useScreenVariantsnlcKhjNEh2L,
-  screen: useScreenVariantsbr2UhI7UlpvR
+  screen: useScreenVariantsnlcKhjNEh2L
 });

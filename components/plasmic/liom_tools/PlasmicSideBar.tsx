@@ -64,7 +64,7 @@ import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJ
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from ""; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from ""; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from ""; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from "../paziresh_24_design_system/PlasmicStyleTokensProvider"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_hamdast_sdk } from ""; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -76,6 +76,7 @@ import Line2Icon from "./icons/PlasmicIcon__Line2"; // plasmic-import: YGMr5fvzz
 import LogoutIcon from "./icons/PlasmicIcon__Logout"; // plasmic-import: B6aCyOD_vyOM/icon
 import ArrowDownIcon from "./icons/PlasmicIcon__ArrowDown"; // plasmic-import: 54npbOr9loMt/icon
 import AddIcon from "./icons/PlasmicIcon__Add"; // plasmic-import: BEaDFfeC-k7e/icon
+import Line3Icon from "./icons/PlasmicIcon__Line3"; // plasmic-import: DKNPGeqS4vK8/icon
 
 createPlasmicElementProxy;
 
@@ -112,6 +113,9 @@ export type PlasmicSideBar__OverridesType = {
   frame21?: Flex__<"div">;
   vuesaxLinearAdd3?: Flex__<"div">;
   vuesaxLinearAdd4?: Flex__<"div">;
+  figmaPaste?: Flex__<"div">;
+  frame22?: Flex__<"div">;
+  frame23?: Flex__<"div">;
 };
 
 export interface DefaultSideBarProps {
@@ -572,59 +576,124 @@ function PlasmicSideBar__RenderFunc(props: {
           </div>
         </div>
         <div className={classNames(projectcss.all, sty.freeBox__zca09)}>
-          <div
-            data-plasmic-name={"empty1"}
-            data-plasmic-override={overrides.empty1}
-            className={classNames(projectcss.all, sty.empty1)}
-          />
-
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__xkHr4
-            )}
-          >
-            {"This section is empty"}
-          </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___0MsJw
-            )}
-          >
-            {"Click Create to display the information"}
-          </div>
-          <div
-            data-plasmic-name={"frame21"}
-            data-plasmic-override={overrides.frame21}
-            className={classNames(projectcss.all, sty.frame21)}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox___9Sk9N)}>
             <div
-              data-plasmic-name={"vuesaxLinearAdd3"}
-              data-plasmic-override={overrides.vuesaxLinearAdd3}
-              className={classNames(projectcss.all, sty.vuesaxLinearAdd3)}
+              data-plasmic-name={"empty1"}
+              data-plasmic-override={overrides.empty1}
+              className={classNames(projectcss.all, sty.empty1)}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__xkHr4
+              )}
             >
-              <div
-                data-plasmic-name={"vuesaxLinearAdd4"}
-                data-plasmic-override={overrides.vuesaxLinearAdd4}
-                className={classNames(projectcss.all, sty.vuesaxLinearAdd4)}
-              >
-                <AddIcon
-                  className={classNames(projectcss.all, sty.svg___3DNdP)}
-                  role={"img"}
-                />
-              </div>
+              {"This section is empty"}
             </div>
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__oVu23
+                sty.text___0MsJw
               )}
             >
-              {"Create"}
+              {"Click Create to display the information"}
+            </div>
+            <div
+              data-plasmic-name={"frame21"}
+              data-plasmic-override={overrides.frame21}
+              className={classNames(projectcss.all, sty.frame21)}
+            >
+              <div
+                data-plasmic-name={"vuesaxLinearAdd3"}
+                data-plasmic-override={overrides.vuesaxLinearAdd3}
+                className={classNames(projectcss.all, sty.vuesaxLinearAdd3)}
+              >
+                <div
+                  data-plasmic-name={"vuesaxLinearAdd4"}
+                  data-plasmic-override={overrides.vuesaxLinearAdd4}
+                  className={classNames(projectcss.all, sty.vuesaxLinearAdd4)}
+                >
+                  <AddIcon
+                    className={classNames(projectcss.all, sty.svg___3DNdP)}
+                    role={"img"}
+                  />
+                </div>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__oVu23
+                )}
+              >
+                {"Create"}
+              </div>
+            </div>
+          </div>
+          <div
+            data-plasmic-name={"figmaPaste"}
+            data-plasmic-override={overrides.figmaPaste}
+            className={classNames(projectcss.all, sty.figmaPaste)}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__iloFo
+              )}
+            >
+              {"\u062a\u0633\u062a \u0647\u0627"}
+            </div>
+            <Line3Icon
+              className={classNames(projectcss.all, sty.svg__qsTyr)}
+              role={"img"}
+            />
+
+            <div className={classNames(projectcss.all, sty.freeBox__sJeRt)}>
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
+                2, 3, 4
+              ]).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <div
+                    data-plasmic-name={"frame22"}
+                    data-plasmic-override={overrides.frame22}
+                    className={classNames(projectcss.all, sty.frame22)}
+                    key={currentIndex}
+                  >
+                    <div
+                      data-plasmic-name={"frame23"}
+                      data-plasmic-override={overrides.frame23}
+                      className={classNames(projectcss.all, sty.frame23)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___1Sao
+                        )}
+                      >
+                        {"Lorem ipsum"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___2S7Lm
+                        )}
+                      >
+                        {
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et ..."
+                        }
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -657,7 +726,10 @@ const PlasmicDescendants = {
     "empty1",
     "frame21",
     "vuesaxLinearAdd3",
-    "vuesaxLinearAdd4"
+    "vuesaxLinearAdd4",
+    "figmaPaste",
+    "frame22",
+    "frame23"
   ],
   frame11: [
     "frame11",
@@ -724,7 +796,10 @@ const PlasmicDescendants = {
   empty1: ["empty1"],
   frame21: ["frame21", "vuesaxLinearAdd3", "vuesaxLinearAdd4"],
   vuesaxLinearAdd3: ["vuesaxLinearAdd3", "vuesaxLinearAdd4"],
-  vuesaxLinearAdd4: ["vuesaxLinearAdd4"]
+  vuesaxLinearAdd4: ["vuesaxLinearAdd4"],
+  figmaPaste: ["figmaPaste", "frame22", "frame23"],
+  frame22: ["frame22", "frame23"],
+  frame23: ["frame23"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -753,6 +828,9 @@ type NodeDefaultElementType = {
   frame21: "div";
   vuesaxLinearAdd3: "div";
   vuesaxLinearAdd4: "div";
+  figmaPaste: "div";
+  frame22: "div";
+  frame23: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -837,6 +915,9 @@ export const PlasmicSideBar = Object.assign(
     frame21: makeNodeComponent("frame21"),
     vuesaxLinearAdd3: makeNodeComponent("vuesaxLinearAdd3"),
     vuesaxLinearAdd4: makeNodeComponent("vuesaxLinearAdd4"),
+    figmaPaste: makeNodeComponent("figmaPaste"),
+    frame22: makeNodeComponent("frame22"),
+    frame23: makeNodeComponent("frame23"),
 
     // Metadata about props expected for PlasmicSideBar
     internalVariantProps: PlasmicSideBar__VariantProps,

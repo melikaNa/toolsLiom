@@ -5,19 +5,18 @@
 import React from "react";
 import { classNames } from "@plasmicapp/react-web";
 
-export type SearchSvgIconProps = React.ComponentProps<"svg"> & {
+export type ArrowRightIconProps = React.ComponentProps<"svg"> & {
   title?: string;
 };
 
-export function SearchSvgIcon(props: SearchSvgIconProps) {
+export function ArrowRightIcon(props: ArrowRightIconProps) {
   const { className, style, title, ...restProps } = props;
   return (
     <svg
       xmlns={"http://www.w3.org/2000/svg"}
       fill={"none"}
-      viewBox={"0 0 24 24"}
+      viewBox={"0 0 16 16"}
       height={"1em"}
-      width={"1em"}
       className={classNames("plasmic-default__svg", className)}
       style={style}
       {...restProps}
@@ -28,14 +27,12 @@ export function SearchSvgIcon(props: SearchSvgIconProps) {
         stroke={"currentColor"}
         strokeLinecap={"round"}
         strokeLinejoin={"round"}
-        strokeWidth={"1.5"}
-        d={
-          "M19.25 19.25L15.5 15.5M4.75 11a6.25 6.25 0 1112.5 0 6.25 6.25 0 01-12.5 0z"
-        }
+        strokeMiterlimit={"10"}
+        d={"M9.62 3.953 13.667 8 9.62 12.047M2.333 8h11.22"}
       ></path>
     </svg>
   );
 }
 
-export default SearchSvgIcon;
+export default ArrowRightIcon;
 /* prettier-ignore-end */
