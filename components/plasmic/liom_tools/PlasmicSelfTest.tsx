@@ -9578,7 +9578,7 @@ export const PlasmicSelfTest = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "لیوم | دستیار سلامت",
+      title: "لیوم | تشخیص بیماری",
       description:
         "از دلایل عقب جلو شدن پریود خود،  در کمتر از چند دقیقه و بدون انتظار برای پزشک آگاه شوید",
       ogImageSrc:

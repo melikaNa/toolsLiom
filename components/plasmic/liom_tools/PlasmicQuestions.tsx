@@ -1036,28 +1036,8 @@ function PlasmicQuestions__RenderFunc(props: {
           }
         })()}
         className={classNames("__wab_instance", sty.questionsList)}
-        errorDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__mubTg
-            )}
-          >
-            {"Error fetching data"}
-          </div>
-        }
-        loadingDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__usXsz
-            )}
-          >
-            {"Loading..."}
-          </div>
-        }
+        errorDisplay={null}
+        loadingDisplay={null}
         method={"POST"}
         onError={async (...eventArgs: any) => {
           generateStateOnChangeProp($state, ["questionsList", "error"]).apply(
