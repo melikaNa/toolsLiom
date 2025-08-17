@@ -14,7 +14,7 @@ import {
   GlobalContextMeta,
 } from "@plasmicapp/host";
 import axios from "axios";
-
+import bcrypt from "bcryptjs";
 type FragmentProps = React.PropsWithChildren<{
   previewApiConfig: Record<string, any>;
   apiConfig: Record<string, any>;
