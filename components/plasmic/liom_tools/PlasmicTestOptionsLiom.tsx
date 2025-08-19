@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -65,15 +66,15 @@ import Selection from "../../Selection"; // plasmic-import: pIDdRrLwM58N/compone
 import SendIcon from "../../SendIcon"; // plasmic-import: HSNJ0v5oD6xT/component
 import Paziresh24Button from "../../Paziresh24Button"; // plasmic-import: YOhw5fIQJQgB/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
-import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
-import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from "../paziresh_24_design_system/PlasmicStyleTokensProvider"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_hamdast_sdk } from "../hamdast_sdk/PlasmicStyleTokensProvider"; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/styleTokensProvider
+
+import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
+import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
+import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
+import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicTestOptionsLiom.module.css"; // plasmic-import: DvUx8-VJCAy9/css
 
@@ -362,15 +363,9 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = _useGlobalVariants();
-  const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
-  const styleTokensClassNames_plasmic_rich_components =
-    useStyleTokens_plasmic_rich_components();
-  const styleTokensClassNames_paziresh_24_design_system =
-    useStyleTokens_paziresh_24_design_system();
-  const styleTokensClassNames_hamdast_sdk = useStyleTokens_hamdast_sdk();
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantsqiBuxNlixBgQ()
+  });
 
   return (
     <div
@@ -383,11 +378,11 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        styleTokensClassNames,
-        styleTokensClassNames_antd_5_hostless,
-        styleTokensClassNames_plasmic_rich_components,
-        styleTokensClassNames_paziresh_24_design_system,
-        styleTokensClassNames_hamdast_sdk,
+        projectcss.plasmic_tokens,
+        plasmic_antd_5_hostless_css.plasmic_tokens,
+        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        plasmic_paziresh_24_design_system_css.plasmic_tokens,
+        plasmic_hamdast_sdk_css.plasmic_tokens,
         sty.root
       )}
       style={(() => {

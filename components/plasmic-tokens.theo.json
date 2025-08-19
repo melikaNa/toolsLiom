@@ -2801,6 +2801,16 @@
       }
     },
     {
+      "name": "Unnamed Style Token",
+      "type": "spacing",
+      "value": "4px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "HFMP6WpkLWBj"
+      }
+    },
+    {
       "name": "Warning/Warning",
       "type": "color",
       "value": "#FACC15",

@@ -42,7 +42,7 @@
 }
 .text {
   display: block;
-  font-size: 14px;
+  font-size: var(--token-podr231_9RBN);
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
   letter-spacing: 0em;

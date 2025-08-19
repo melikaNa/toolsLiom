@@ -1,0 +1,39 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  -webkit-transition-duration: 0.2s;
+  border-radius: var(--token-KVcr9NiMwFLr);
+  padding: var(--token-omrXvBNBcWTN);
+  border-width: 2px;
+  border-style: solid;
+}
+.rootactive {
+  background: var(--token-PvbqFVJaOepe);
+}
+.freeBox {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.slotTargetChildren {
+  font-size: var(--token-1S9ocvls-LDz);
+  font-weight: 700;
+}
+.slotTargetChildrenactive {
+  font-size: var(--token-podr231_9RBN);
+  color: var(--token-ieogzVSSyrRx);
+}

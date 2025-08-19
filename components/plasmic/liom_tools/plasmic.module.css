@@ -199,6 +199,8 @@
   --plasmic-token-page-bg-2: var(--token-SxXGNxcP6O97);
   --token-zaS5JbjwE7Jv: #e5e7eb;
   --plasmic-token-muted-muted-soft-hover: var(--token-zaS5JbjwE7Jv);
+  --token-HFMP6WpkLWBj: 4px;
+  --plasmic-token-unnamed-style-token: var(--token-HFMP6WpkLWBj);
 }
 
 @media (max-width: 640px) {

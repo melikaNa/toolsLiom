@@ -1,0 +1,40 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__iNiXu {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  grid-row-gap: var(--token-KDnC5QlJdkgq);
+  grid-column-gap: var(--token-KDnC5QlJdkgq);
+  min-width: 0;
+  padding: var(--token-KVcr9NiMwFLr);
+}
+.freeBox__iY1LX {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.appAndEditItem:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
+}

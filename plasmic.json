@@ -3598,6 +3598,58 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicDoctorInfo.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "-r3USsOV_02m",
+          "name": "Login",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicLogin.tsx",
+          "importSpec": {
+            "modulePath": "Login.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicLogin.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "aRZPcpE8xQEB",
+          "name": "Pagination",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicPagination.tsx",
+          "importSpec": {
+            "modulePath": "Pagination.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicPagination.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "oBl4S7RYlLkQ",
+          "name": "EditAndAdd",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicEditAndAdd.tsx",
+          "importSpec": {
+            "modulePath": "EditAndAdd.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicEditAndAdd.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "GZp0kN_ckwXR",
+          "name": "AppAndEditItem",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicAppAndEditItem.tsx",
+          "importSpec": {
+            "modulePath": "AppAndEditItem.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicAppAndEditItem.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -5045,6 +5097,16 @@
           "id": "fi2GwOQpKT8J",
           "name": "Trash2Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Trash2.tsx"
+        },
+        {
+          "id": "H2YUt2tuOGlq",
+          "name": "Icon226Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon226.tsx"
+        },
+        {
+          "id": "k0MK7_-Kbt88",
+          "name": "Icon227Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon227.tsx"
         }
       ],
       "images": [
@@ -5452,8 +5514,8 @@
       "indirect": false,
       "globalContextsFilePath": "plasmic/liom_tools/PlasmicGlobalContextsProvider.tsx",
       "splitsProviderFilePath": "",
-      "styleTokensProviderFilePath": "plasmic/liom_tools/PlasmicStyleTokensProvider.tsx",
-      "projectModuleFilePath": "plasmic/liom_tools/plasmic.tsx",
+      "styleTokensProviderFilePath": "",
+      "projectModuleFilePath": "",
       "codeComponents": [
         {
           "id": "sb6XnC8-TiHt",

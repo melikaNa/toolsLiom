@@ -33,6 +33,7 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
+  ensureGlobalVariants,
   generateOnMutateForSpec,
   generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
@@ -63,25 +64,34 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import SideBar from "../../SideBar"; // plasmic-import: 68VfgF3XliD1/component
 import Questions from "../../Questions"; // plasmic-import: FWZ-50v74wL5/component
+import Login from "../../Login"; // plasmic-import: -r3USsOV_02m/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
-import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
-import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from "../paziresh_24_design_system/PlasmicStyleTokensProvider"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_hamdast_sdk } from "../hamdast_sdk/PlasmicStyleTokensProvider"; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/styleTokensProvider
+
+import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
+import {
+  UnnamedGlobalGroupOfVariantsValue,
+  useUnnamedGlobalGroupOfVariants
+} from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants"; // plasmic-import: gDFLJp69n7ET/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
+import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
+import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
+import plasmic_hamdast_sdk_css from "../hamdast_sdk/plasmic.module.css"; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicPanel2.module.css"; // plasmic-import: V3Y9-WtQvkIJ/css
 
 createPlasmicElementProxy;
 
-export type PlasmicPanel2__VariantMembers = {};
-export type PlasmicPanel2__VariantsArgs = {};
+export type PlasmicPanel2__VariantMembers = {
+  login: "login";
+};
+export type PlasmicPanel2__VariantsArgs = {
+  login?: SingleBooleanChoiceArg<"login">;
+};
 type VariantPropType = keyof PlasmicPanel2__VariantsArgs;
-export const PlasmicPanel2__VariantProps = new Array<VariantPropType>();
+export const PlasmicPanel2__VariantProps = new Array<VariantPropType>("login");
 
 export type PlasmicPanel2__ArgsType = {};
 type ArgPropType = keyof PlasmicPanel2__ArgsType;
@@ -91,6 +101,7 @@ export type PlasmicPanel2__OverridesType = {
   root?: Flex__<"div">;
   sideBar?: Flex__<typeof SideBar>;
   questions?: Flex__<typeof Questions>;
+  login?: Flex__<typeof Login>;
   getUser?: Flex__<typeof ApiRequest>;
 };
 
@@ -162,6 +173,12 @@ function PlasmicPanel2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "questions"
+      },
+      {
+        path: "login",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.login
       }
     ],
     [$props, $ctx, $refs]
@@ -173,14 +190,10 @@ function PlasmicPanel2__RenderFunc(props: {
     $refs
   });
 
-  const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
-  const styleTokensClassNames_plasmic_rich_components =
-    useStyleTokens_plasmic_rich_components();
-  const styleTokensClassNames_paziresh_24_design_system =
-    useStyleTokens_paziresh_24_design_system();
-  const styleTokensClassNames_hamdast_sdk = useStyleTokens_hamdast_sdk();
+  const globalVariants = ensureGlobalVariants({
+    theme: useTheme(),
+    unnamedGlobalGroupOfVariants: useUnnamedGlobalGroupOfVariants()
+  });
 
   return (
     <React.Fragment>
@@ -203,18 +216,34 @@ function PlasmicPanel2__RenderFunc(props: {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
-            styleTokensClassNames,
-            styleTokensClassNames_antd_5_hostless,
-            styleTokensClassNames_plasmic_rich_components,
-            styleTokensClassNames_paziresh_24_design_system,
-            styleTokensClassNames_hamdast_sdk,
-            sty.root
+            projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
+            plasmic_plasmic_rich_components_css.plasmic_tokens,
+            plasmic_paziresh_24_design_system_css.plasmic_tokens,
+            plasmic_hamdast_sdk_css.plasmic_tokens,
+            sty.root,
+            {
+              [sty.rootglobal_theme_dark]: hasVariant(
+                globalVariants,
+                "theme",
+                "dark"
+              ),
+              [sty.rootglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
+                hasVariant(
+                  globalVariants,
+                  "unnamedGlobalGroupOfVariants",
+                  "unnamedVariant"
+                ),
+              [sty.rootlogin]: hasVariant($state, "login", "login")
+            }
           )}
         >
           <SideBar
             data-plasmic-name={"sideBar"}
             data-plasmic-override={overrides.sideBar}
-            className={classNames("__wab_instance", sty.sideBar)}
+            className={classNames("__wab_instance", sty.sideBar, {
+              [sty.sideBarlogin]: hasVariant($state, "login", "login")
+            })}
             doctor={(() => {
               try {
                 return $state.getUser.data.Doctor;
@@ -247,7 +276,9 @@ function PlasmicPanel2__RenderFunc(props: {
             <Questions
               data-plasmic-name={"questions"}
               data-plasmic-override={overrides.questions}
-              className={classNames("__wab_instance", sty.questions)}
+              className={classNames("__wab_instance", sty.questions, {
+                [sty.questionslogin]: hasVariant($state, "login", "login")
+              })}
               tests={(() => {
                 try {
                   return $state.getUser.data.tests;
@@ -263,32 +294,22 @@ function PlasmicPanel2__RenderFunc(props: {
               })()}
             />
           </SideBar>
+          <Login
+            data-plasmic-name={"login"}
+            data-plasmic-override={overrides.login}
+            className={classNames("__wab_instance", sty.login, {
+              [sty.loginlogin]: hasVariant($state, "login", "login")
+            })}
+          />
+
           <ApiRequest
             data-plasmic-name={"getUser"}
             data-plasmic-override={overrides.getUser}
-            className={classNames("__wab_instance", sty.getUser)}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__duSog
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
-            loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__wMxPi
-                )}
-              >
-                {"Loading..."}
-              </div>
-            }
+            className={classNames("__wab_instance", sty.getUser, {
+              [sty.getUserlogin]: hasVariant($state, "login", "login")
+            })}
+            errorDisplay={null}
+            loadingDisplay={null}
             method={"GET"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["getUser", "error"]).apply(
@@ -318,9 +339,10 @@ function PlasmicPanel2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideBar", "questions", "getUser"],
+  root: ["root", "sideBar", "questions", "login", "getUser"],
   sideBar: ["sideBar", "questions"],
   questions: ["questions"],
+  login: ["login"],
   getUser: ["getUser"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -330,6 +352,7 @@ type NodeDefaultElementType = {
   root: "div";
   sideBar: typeof SideBar;
   questions: typeof Questions;
+  login: typeof Login;
   getUser: typeof ApiRequest;
 };
 
@@ -420,6 +443,7 @@ export const PlasmicPanel2 = Object.assign(
     // Helper components rendering sub-elements
     sideBar: makeNodeComponent("sideBar"),
     questions: makeNodeComponent("questions"),
+    login: makeNodeComponent("login"),
     getUser: makeNodeComponent("getUser"),
 
     // Metadata about props expected for PlasmicPanel2
