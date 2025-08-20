@@ -5514,8 +5514,8 @@
       "indirect": false,
       "globalContextsFilePath": "plasmic/liom_tools/PlasmicGlobalContextsProvider.tsx",
       "splitsProviderFilePath": "",
-      "styleTokensProviderFilePath": "",
-      "projectModuleFilePath": "",
+      "styleTokensProviderFilePath": "plasmic/liom_tools/PlasmicStyleTokensProvider.tsx",
+      "projectModuleFilePath": "plasmic/liom_tools/plasmic.tsx",
       "codeComponents": [
         {
           "id": "sb6XnC8-TiHt",
