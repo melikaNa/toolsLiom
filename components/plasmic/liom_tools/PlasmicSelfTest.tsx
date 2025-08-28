@@ -853,6 +853,24 @@ function PlasmicSelfTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "variable6",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "variable7",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "appKey",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -1797,12 +1815,14 @@ function PlasmicSelfTest__RenderFunc(props: {
                           "testID",
                           $steps.infoTest?.data?.info?.id
                         );
-                        return ($state.owner = {
+                        $state.owner = {
                           ownerId: $steps.infoTest?.data?.info?.ownerId,
                           ownerName: $steps.infoTest?.data?.info?.ownerName,
                           ownerExpert: $steps.infoTest?.data?.info?.ownerExpert,
                           ownerImage: $steps.infoTest?.data?.info?.ownerImage
-                        });
+                        };
+                        return ($state.appKey =
+                          $steps.infoTest?.data.info.paziresh24AppKey);
                       })();
                     }
                   };
@@ -8033,7 +8053,8 @@ function PlasmicSelfTest__RenderFunc(props: {
                                                   "application/json"
                                               },
                                               body: JSON.stringify({
-                                                receipt_id: receipt_id
+                                                receipt_id: receipt_id,
+                                                appKey: $state.appKey
                                               })
                                             }
                                           )

@@ -63,9 +63,9 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import SideBar from "../../SideBar"; // plasmic-import: 68VfgF3XliD1/component
-import Questions from "../../Questions"; // plasmic-import: FWZ-50v74wL5/component
 import Login from "../../Login"; // plasmic-import: -r3USsOV_02m/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
+import Questions from "../../Questions"; // plasmic-import: FWZ-50v74wL5/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
 import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
@@ -96,9 +96,9 @@ export const PlasmicPanel2__ArgProps = new Array<ArgPropType>();
 export type PlasmicPanel2__OverridesType = {
   root?: Flex__<"div">;
   sideBar?: Flex__<typeof SideBar>;
-  questions?: Flex__<typeof Questions>;
   login?: Flex__<typeof Login>;
   getUser?: Flex__<typeof ApiRequest>;
+  questions?: Flex__<typeof Questions>;
 };
 
 export interface DefaultPanel2Props {}
@@ -242,6 +242,7 @@ function PlasmicPanel2__RenderFunc(props: {
           <SideBar
             data-plasmic-name={"sideBar"}
             data-plasmic-override={overrides.sideBar}
+            children={null}
             className={classNames("__wab_instance", sty.sideBar, {
               [sty.sideBarlogin]: hasVariant($state, "login", "login")
             })}
@@ -273,28 +274,8 @@ function PlasmicPanel2__RenderFunc(props: {
                 return;
               }
             }}
-          >
-            <Questions
-              data-plasmic-name={"questions"}
-              data-plasmic-override={overrides.questions}
-              className={classNames("__wab_instance", sty.questions, {
-                [sty.questionslogin]: hasVariant($state, "login", "login")
-              })}
-              tests={(() => {
-                try {
-                  return $state.getUser.data.tests;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-            />
-          </SideBar>
+          />
+
           <Login
             data-plasmic-name={"login"}
             data-plasmic-override={overrides.login}
@@ -309,7 +290,28 @@ function PlasmicPanel2__RenderFunc(props: {
             className={classNames("__wab_instance", sty.getUser, {
               [sty.getUserlogin]: hasVariant($state, "login", "login")
             })}
-            errorDisplay={null}
+            errorDisplay={
+              <Questions
+                data-plasmic-name={"questions"}
+                data-plasmic-override={overrides.questions}
+                className={classNames("__wab_instance", sty.questions, {
+                  [sty.questionslogin]: hasVariant($state, "login", "login")
+                })}
+                tests={(() => {
+                  try {
+                    return $state.getUser.data.tests;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+              />
+            }
             loadingDisplay={null}
             method={"GET"}
             onError={async (...eventArgs: any) => {
@@ -340,11 +342,11 @@ function PlasmicPanel2__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sideBar", "questions", "login", "getUser"],
-  sideBar: ["sideBar", "questions"],
-  questions: ["questions"],
+  root: ["root", "sideBar", "login", "getUser", "questions"],
+  sideBar: ["sideBar"],
   login: ["login"],
-  getUser: ["getUser"]
+  getUser: ["getUser", "questions"],
+  questions: ["questions"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -352,9 +354,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   sideBar: typeof SideBar;
-  questions: typeof Questions;
   login: typeof Login;
   getUser: typeof ApiRequest;
+  questions: typeof Questions;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -443,9 +445,9 @@ export const PlasmicPanel2 = Object.assign(
   {
     // Helper components rendering sub-elements
     sideBar: makeNodeComponent("sideBar"),
-    questions: makeNodeComponent("questions"),
     login: makeNodeComponent("login"),
     getUser: makeNodeComponent("getUser"),
+    questions: makeNodeComponent("questions"),
 
     // Metadata about props expected for PlasmicPanel2
     internalVariantProps: PlasmicPanel2__VariantProps,
