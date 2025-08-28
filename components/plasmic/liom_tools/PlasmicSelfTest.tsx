@@ -8054,6 +8054,7 @@ function PlasmicSelfTest__RenderFunc(props: {
                                               },
                                               body: JSON.stringify({
                                                 receipt_id: receipt_id,
+                                                a: "skksk",
                                                 appKey: $state.appKey
                                               })
                                             }
