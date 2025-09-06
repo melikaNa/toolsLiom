@@ -3111,6 +3111,16 @@
       }
     },
     {
+      "name": "light purple2",
+      "type": "color",
+      "value": "#8254C6B3",
+      "category": "color",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "3yhCR9eH1wRr"
+      }
+    },
+    {
       "name": "page BG 2",
       "type": "color",
       "value": "#F8F8F8",
@@ -3248,6 +3258,16 @@
       "meta": {
         "projectId": "3zKPdhWckw1SJpPYhK46Bs",
         "id": "97NydEULR06G"
+      }
+    },
+    {
+      "name": "side-bar",
+      "type": "color",
+      "value": "#E9E1F0",
+      "category": "color",
+      "meta": {
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "id": "Twz3aYGlNp_2"
       }
     },
     {

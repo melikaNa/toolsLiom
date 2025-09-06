@@ -1401,7 +1401,15 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox___2IeQe
+                                sty.freeBox___2IeQe,
+                                {
+                                  [sty.freeBoxglobal_newView_newView___2IeQEni7NW]:
+                                    hasVariant(
+                                      globalVariants,
+                                      "newView",
+                                      "newView"
+                                    )
+                                }
                               )}
                             />
 

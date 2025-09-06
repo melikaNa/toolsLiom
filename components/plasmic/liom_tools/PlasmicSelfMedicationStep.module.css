@@ -524,7 +524,7 @@
   height: 15px;
   max-width: 100%;
   align-self: center;
-  background: #8254c6b3;
+  background: var(--token-3yhCR9eH1wRr);
   flex-shrink: 0;
   border-radius: 50%;
   padding: 0px;
