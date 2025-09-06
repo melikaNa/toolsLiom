@@ -142,6 +142,8 @@ function PlasmicNewPage__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const currentUser = useCurrentUser?.() || {};
 
   let [$queries, setDollarQueries] = React.useState<

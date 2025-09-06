@@ -251,6 +251,8 @@ function PlasmicButtonLiom__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -350,7 +352,6 @@ function PlasmicButtonLiom__RenderFunc(props: {
     focusVisibleWithin_root: isRootFocusVisibleWithin
   };
 
-  const globalVariants = _useGlobalVariants();
   const styleTokensClassNames = _useStyleTokens();
   const styleTokensClassNames_antd_5_hostless =
     useStyleTokens_antd_5_hostless();
@@ -398,6 +399,11 @@ function PlasmicButtonLiom__RenderFunc(props: {
           [sty.rootcolor_softYellow]: hasVariant($state, "color", "softYellow"),
           [sty.rootcolor_white]: hasVariant($state, "color", "white"),
           [sty.rootcolor_yellow]: hasVariant($state, "color", "yellow"),
+          [sty.rootglobal_newView_newView]: hasVariant(
+            globalVariants,
+            "newView",
+            "newView"
+          ),
           [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
           [sty.rootloading]: hasVariant($state, "loading", "loading"),
           [sty.rootloading_color_clear]:

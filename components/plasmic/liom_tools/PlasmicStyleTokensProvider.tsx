@@ -16,7 +16,13 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJp
 
 const data = {
   base: projectcss.plasmic_tokens,
-  varianted: []
+  varianted: [
+    {
+      className: projectcss.global_newView_newView,
+      groupName: "newView",
+      variant: "newView"
+    }
+  ]
 };
 
 export const _useStyleTokens = createUseStyleTokens(data, _useGlobalVariants);

@@ -807,7 +807,8 @@
   line-height: 1.5;
   letter-spacing: normal;
   white-space: pre;
-  width: auto;
+  width: 100%;
+  min-width: 0;
   padding: 2px 8px;
 }
 .svg__fBln {

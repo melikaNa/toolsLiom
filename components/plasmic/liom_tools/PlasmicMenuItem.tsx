@@ -148,6 +148,8 @@ function PlasmicMenuItem__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const currentUser = useCurrentUser?.() || {};
 
   const styleTokensClassNames = _useStyleTokens();

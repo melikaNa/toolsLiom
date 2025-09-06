@@ -4,7 +4,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background: #8254c6;
+  background: var(--token-PvbqFVJaOepe);
   cursor: pointer;
   transition-property: background;
   transition-duration: 0.1s;

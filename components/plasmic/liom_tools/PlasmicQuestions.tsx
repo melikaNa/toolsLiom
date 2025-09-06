@@ -250,6 +250,8 @@ function PlasmicQuestions__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -1624,7 +1626,14 @@ function PlasmicQuestions__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__yI7CX
+                sty.text__yI7CX,
+                {
+                  [sty.textquestions__yI7CXSfYlg]: hasVariant(
+                    $state,
+                    "questions",
+                    "questions"
+                  )
+                }
               )}
             >
               {"Enter some text"}

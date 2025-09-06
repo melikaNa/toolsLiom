@@ -5648,6 +5648,12 @@
         "name": "UnnamedGlobalGroupOfVariants",
         "projectId": "3zKPdhWckw1SJpPYhK46Bs",
         "contextFilePath": "plasmic/liom_tools/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants.tsx"
+      },
+      {
+        "id": "5seUyIBPkL4p",
+        "name": "NewView",
+        "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+        "contextFilePath": "plasmic/liom_tools/PlasmicGlobalVariant__NewView.tsx"
       }
     ]
   },
