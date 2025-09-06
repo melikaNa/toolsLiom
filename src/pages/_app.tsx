@@ -6,7 +6,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
-import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
+import { NewViewContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__NewView";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [newView, setNewView] = useState<"newView" | undefined>(undefined);
