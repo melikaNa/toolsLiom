@@ -2345,17 +2345,31 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     })()
                       ? (() => {
                           const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                var info = JSON.parse(
-                                  $state.getData?.data?.[0]?.categoryInfo
-                                );
-                                return console.log(info.unlockMode);
-                              })();
-                            }
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["isDone"]
+                            },
+                            operation: 0,
+                            value: (() => {
+                              var info = JSON.parse(
+                                $state.getData?.data?.[0]?.categoryInfo
+                              );
+                              return info.unlockMode === "openAll";
+                            })()
                           };
-                          return (({ customFunction }) => {
-                            return customFunction();
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
