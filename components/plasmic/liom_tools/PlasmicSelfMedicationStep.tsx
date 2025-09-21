@@ -80,10 +80,6 @@ import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/c
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_paziresh_24_design_system } from "../paziresh_24_design_system/PlasmicStyleTokensProvider"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/styleTokensProvider
-import { _useStyleTokens as useStyleTokens_hamdast_sdk } from "../hamdast_sdk/PlasmicStyleTokensProvider"; // plasmic-import: 9yPKYrtYPnCNEj6BTTfHnY/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -367,13 +363,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
   const plasmicInvalidate = usePlasmicInvalidate();
 
   const styleTokensClassNames = _useStyleTokens();
-  const styleTokensClassNames_antd_5_hostless =
-    useStyleTokens_antd_5_hostless();
-  const styleTokensClassNames_plasmic_rich_components =
-    useStyleTokens_plasmic_rich_components();
-  const styleTokensClassNames_paziresh_24_design_system =
-    useStyleTokens_paziresh_24_design_system();
-  const styleTokensClassNames_hamdast_sdk = useStyleTokens_hamdast_sdk();
 
   return (
     <React.Fragment>
@@ -397,10 +386,6 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             styleTokensClassNames,
-            styleTokensClassNames_antd_5_hostless,
-            styleTokensClassNames_plasmic_rich_components,
-            styleTokensClassNames_paziresh_24_design_system,
-            styleTokensClassNames_hamdast_sdk,
             sty.root,
             { [sty.rootdark]: hasVariant($state, "dark", "dark") }
           )}
@@ -2348,6 +2333,35 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     ) {
                       $steps["updateListDetails2"] = await $steps[
                         "updateListDetails2"
+                      ];
+                    }
+
+                    $steps["updateListDetails4"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return console.log(
+                                  "unlockMode:" +
+                                    JSON.parse(
+                                      $state.getData?.data?.[0]?.categoryInfo
+                                    ).unlockMode
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateListDetails4"] != null &&
+                      typeof $steps["updateListDetails4"] === "object" &&
+                      typeof $steps["updateListDetails4"].then === "function"
+                    ) {
+                      $steps["updateListDetails4"] = await $steps[
+                        "updateListDetails4"
                       ];
                     }
                   }).apply(null, eventArgs);

@@ -214,7 +214,7 @@
   }
 }
 
-.plasmic_tokens:where(.global_newView_newView) {
+.plasmic_tokens.global_newView_newView.global_newView_newView {
   --token-QR8ATjORhQqO: #4595ff;
   --plasmic-token-purple: var(--token-QR8ATjORhQqO);
   --token-HFSv-V_E5BCA: #1264d11a;

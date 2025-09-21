@@ -12,7 +12,7 @@
     "@ant-design/icons": "^5.5.1",
     "@ant-design/pro-components": "^2.8.10",
     "@growthbook/growthbook-react": "^1.0.0",
-    "@plasmicapp/cli": "^0.1.342",
+    "@plasmicapp/cli": "^0.1.343",
     "@plasmicapp/host": "^1.0.196",
     "@plasmicapp/react-web": "^0.2.337",
     "@plasmicpkgs/antd": "^2.0.127",
