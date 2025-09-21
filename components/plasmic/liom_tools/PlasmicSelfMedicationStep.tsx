@@ -2336,16 +2336,25 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["updateListDetails4"] = true
+                    $steps["updateListDetails4"] = (() => {
+                      if (typeof $state.getData?.data?.[0] !== "undefined") {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    })()
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
+                                console.log(
+                                  "data:" + $state.getData?.data?.[0]
+                                );
                                 return console.log(
                                   "unlockMode:" +
                                     JSON.parse(
                                       $state.getData?.data?.[0]?.categoryInfo
-                                    ).unlockMode
+                                    )
                                 );
                               })();
                             }
