@@ -223,6 +223,8 @@
   --plasmic-token-primary: var(--token-PvbqFVJaOepe);
   --token-97NydEULR06G: #d1e5ff;
   --plasmic-token-serface: var(--token-97NydEULR06G);
+  --token-SxXGNxcP6O97: #eef2fa;
+  --plasmic-token-page-bg-2: var(--token-SxXGNxcP6O97);
   --token-3yhCR9eH1wRr: #1264d1b3;
   --plasmic-token-light-purple-2: var(--token-3yhCR9eH1wRr);
 }
@@ -240,8 +242,8 @@
 .plasmic_default_styles,
 .plasmic_default_styles:where(.global_theme_dark),
 .plasmic_default_styles:where(
-    .global_unnamedGlobalGroupOfVariants_unnamedVariant
-  ),
+  .global_unnamedGlobalGroupOfVariants_unnamedVariant
+),
 .plasmic_default_styles:where(.global_newView_newView) {
   --mixin-5O0HpgEV__5D_font-family: "Roboto", sans-serif;
   --mixin-5O0HpgEV__5D_font-size: 14px;

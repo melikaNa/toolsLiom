@@ -124,6 +124,21 @@
   align-self: flex-start;
   flex-shrink: 0;
 }
+.svg__iKp2I {
+  object-fit: cover;
+  max-width: 100%;
+  height: 40px;
+  width: 40px;
+  align-self: center;
+  color: #071e3a;
+  flex-shrink: 0;
+}
+.svgopening__iKp2IrPBw2 {
+  height: 30px;
+  width: 30px;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
 .text__vv4PZ {
   position: relative;
   width: 100%;

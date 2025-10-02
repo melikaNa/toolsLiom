@@ -1004,9 +1004,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         searchParams.delete("token");
                         searchParams.delete("userId");
                         searchParams.delete("user_id");
-                        const newUrl = `${
-                          window.location.pathname
-                        }?${searchParams.toString()}`;
+                        const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                         return window.history.replaceState(null, "", newUrl);
                       })();
                     }
@@ -1137,7 +1135,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
             }
 
             $steps["updateUserInfo"] =
-              $steps.userLiom?.data?.success ?? false
+              ($steps.userLiom?.data?.success ?? false)
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -1215,10 +1213,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   if (/Windows NT 6.1/.test(userAgent))
                                     return "Windows 7";
                                   if (/Mac OS X (\d+[\._]\d+)/.test(userAgent))
-                                    return `macOS ${RegExp.$1.replace(
-                                      "_",
-                                      "."
-                                    )}`;
+                                    return `macOS ${RegExp.$1.replace("_", ".")}`;
                                   if (/Android (\d+(\.\d+)?)/.test(userAgent))
                                     return `Android ${RegExp.$1}`;
                                   if (
@@ -1280,7 +1275,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
             }
 
             $steps["updateUserInfo2"] =
-              $steps.userGust?.data?.success ?? false
+              ($steps.userGust?.data?.success ?? false)
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -1314,7 +1309,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
             }
 
             $steps["setCookieGuest"] =
-              $steps.userGust?.data?.success ?? false
+              ($steps.userGust?.data?.success ?? false)
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -1671,9 +1666,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
               typeof $steps["updateTextAreaValue"] === "object" &&
               typeof $steps["updateTextAreaValue"].then === "function"
             ) {
-              $steps["updateTextAreaValue"] = await $steps[
-                "updateTextAreaValue"
-              ];
+              $steps["updateTextAreaValue"] =
+                await $steps["updateTextAreaValue"];
             }
 
             $steps["updateTestChat2"] =
@@ -1981,9 +1975,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["updateSessions"] = (
@@ -2230,9 +2223,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTestChat7"] === "object" &&
                           typeof $steps["updateTestChat7"].then === "function"
                         ) {
-                          $steps["updateTestChat7"] = await $steps[
-                            "updateTestChat7"
-                          ];
+                          $steps["updateTestChat7"] =
+                            await $steps["updateTestChat7"];
                         }
 
                         $steps["updateTestChat3"] = true
@@ -2266,9 +2258,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTestChat3"] === "object" &&
                           typeof $steps["updateTestChat3"].then === "function"
                         ) {
-                          $steps["updateTestChat3"] = await $steps[
-                            "updateTestChat3"
-                          ];
+                          $steps["updateTestChat3"] =
+                            await $steps["updateTestChat3"];
                         }
 
                         $steps["chatSession"] = true
@@ -2387,9 +2378,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTestChat"] === "object" &&
                           typeof $steps["updateTestChat"].then === "function"
                         ) {
-                          $steps["updateTestChat"] = await $steps[
-                            "updateTestChat"
-                          ];
+                          $steps["updateTestChat"] =
+                            await $steps["updateTestChat"];
                         }
 
                         $steps["updateTestChat2"] = true
@@ -2414,9 +2404,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTestChat2"] === "object" &&
                           typeof $steps["updateTestChat2"].then === "function"
                         ) {
-                          $steps["updateTestChat2"] = await $steps[
-                            "updateTestChat2"
-                          ];
+                          $steps["updateTestChat2"] =
+                            await $steps["updateTestChat2"];
                         }
 
                         $steps["updateTestChat5"] = true
@@ -2433,9 +2422,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTestChat5"] === "object" &&
                           typeof $steps["updateTestChat5"].then === "function"
                         ) {
-                          $steps["updateTestChat5"] = await $steps[
-                            "updateTestChat5"
-                          ];
+                          $steps["updateTestChat5"] =
+                            await $steps["updateTestChat5"];
                         }
 
                         $steps["updateTestChat4"] = true
@@ -2469,9 +2457,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTestChat4"] === "object" &&
                           typeof $steps["updateTestChat4"].then === "function"
                         ) {
-                          $steps["updateTestChat4"] = await $steps[
-                            "updateTestChat4"
-                          ];
+                          $steps["updateTestChat4"] =
+                            await $steps["updateTestChat4"];
                         }
 
                         $steps["updateTestChat6"] = true
@@ -2497,9 +2484,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTestChat6"] === "object" &&
                           typeof $steps["updateTestChat6"].then === "function"
                         ) {
-                          $steps["updateTestChat6"] = await $steps[
-                            "updateTestChat6"
-                          ];
+                          $steps["updateTestChat6"] =
+                            await $steps["updateTestChat6"];
                         }
                       },
                       onColorChange: async (...eventArgs: any) => {
@@ -2833,9 +2819,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["invokeGlobalAction2"] = $state.isLoading
@@ -2851,9 +2836,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction2"] === "object" &&
                   typeof $steps["invokeGlobalAction2"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
+                  $steps["invokeGlobalAction2"] =
+                    await $steps["invokeGlobalAction2"];
                 }
 
                 $steps["runCode2"] = $state.isLoading
@@ -3070,9 +3054,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                       credit={async event => {
@@ -3088,8 +3071,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                         "#directDialog-chatBot"
                                       );
                                     } else
-                                      return ($state.directDialogChatbot.open =
-                                        true);
+                                      return ($state.directDialogChatbot.open = true);
                                   })();
                                 }
                               };
@@ -3267,9 +3249,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTextAreaValue"].then ===
                             "function"
                         ) {
-                          $steps["updateTextAreaValue"] = await $steps[
-                            "updateTextAreaValue"
-                          ];
+                          $steps["updateTextAreaValue"] =
+                            await $steps["updateTextAreaValue"];
                         }
 
                         $steps["runCode"] = true
@@ -3373,9 +3354,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   typeof $steps["updateEdit"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateEdit"] = await $steps[
-                                    "updateEdit"
-                                  ];
+                                  $steps["updateEdit"] =
+                                    await $steps["updateEdit"];
                                 }
 
                                 $steps["runCode"] = true
@@ -3471,9 +3451,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
                               }}
                             >
@@ -3551,9 +3530,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   typeof $steps["updateEdit"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateEdit"] = await $steps[
-                                    "updateEdit"
-                                  ];
+                                  $steps["updateEdit"] =
+                                    await $steps["updateEdit"];
                                 }
 
                                 $steps["runCode"] = true
@@ -3649,9 +3627,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   typeof $steps["updateTestChat2"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateTestChat2"] = await $steps[
-                                    "updateTestChat2"
-                                  ];
+                                  $steps["updateTestChat2"] =
+                                    await $steps["updateTestChat2"];
                                 }
                               }}
                             >
@@ -3734,8 +3711,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   return currentItem.id
                                     ? ""
                                     : currentItem.animation
-                                    ? currentItem.animation
-                                    : "";
+                                      ? currentItem.animation
+                                      : "";
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -3752,8 +3729,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   return currentItem.id
                                     ? ""
                                     : currentItem.from == "system"
-                                    ? `typedtext` + currentIndex
-                                    : "";
+                                      ? `typedtext` + currentIndex
+                                      : "";
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -3907,6 +3884,28 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         return (
                           new window.URLSearchParams(
                             window.location.search
+                          ).get("origin") == "aghosh"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <Icon196Icon
+                        className={classNames(projectcss.all, sty.svg__d2TRw)}
+                        role={"img"}
+                      />
+                    ) : null}
+                    {(() => {
+                      try {
+                        return (
+                          new window.URLSearchParams(
+                            window.location.search
                           ).get("origin") != "diaco"
                         );
                       } catch (e) {
@@ -3958,6 +3957,35 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       >
                         {
                           "\u0633\u0644\u0627\u0645! \u0645\u0646 \u062f\u06cc\u0627\u06a9\u0648 \u0686\u062a \u0647\u0633\u062a\u0645."
+                        }
+                      </div>
+                    ) : null}
+                    {(() => {
+                      try {
+                        return (
+                          new window.URLSearchParams(
+                            window.location.search
+                          ).get("origin") == "aghosh"
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__mWnSr
+                        )}
+                      >
+                        {
+                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u0622\u063a\u0648\u0634 \u0686\u062a \u0647\u0633\u062a\u0645."
                         }
                       </div>
                     ) : null}
@@ -4064,9 +4092,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               typeof $steps["updateTextAreaValue"].then ===
                                 "function"
                             ) {
-                              $steps["updateTextAreaValue"] = await $steps[
-                                "updateTextAreaValue"
-                              ];
+                              $steps["updateTextAreaValue"] =
+                                await $steps["updateTextAreaValue"];
                             }
 
                             $steps["invokeGlobalAction"] = true
@@ -4085,9 +4112,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
 
                             $steps["runCode"] = !$state.sendIcon.diable
@@ -4382,9 +4408,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTextAreaValue"].then ===
                             "function"
                         ) {
-                          $steps["updateTextAreaValue"] = await $steps[
-                            "updateTextAreaValue"
-                          ];
+                          $steps["updateTextAreaValue"] =
+                            await $steps["updateTextAreaValue"];
                         }
 
                         $steps["runCode7"] = true
@@ -4607,9 +4632,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
 
                         $steps["runCode8"] =
@@ -4623,8 +4647,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           "#directDialog-chatBot"
                                         );
                                       } else
-                                        return ($state.directDialogChatbot.open =
-                                          true);
+                                        return ($state.directDialogChatbot.open = true);
                                     })();
                                   }
                                 };
@@ -4711,9 +4734,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction3"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction3"] = await $steps[
-                            "invokeGlobalAction3"
-                          ];
+                          $steps["invokeGlobalAction3"] =
+                            await $steps["invokeGlobalAction3"];
                         }
 
                         $steps["invokeGlobalAction4"] = true
@@ -4762,9 +4784,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction4"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction4"] = await $steps[
-                            "invokeGlobalAction4"
-                          ];
+                          $steps["invokeGlobalAction4"] =
+                            await $steps["invokeGlobalAction4"];
                         }
 
                         $steps["invokeGlobalAction5"] =
@@ -4814,9 +4835,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction5"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction5"] = await $steps[
-                            "invokeGlobalAction5"
-                          ];
+                          $steps["invokeGlobalAction5"] =
+                            await $steps["invokeGlobalAction5"];
                         }
 
                         $steps["invokeGlobalAction"] = (
@@ -4874,9 +4894,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                       onDiableChange={async (...eventArgs: any) => {
@@ -5070,9 +5089,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           typeof $steps["updateTestChat"] === "object" &&
                           typeof $steps["updateTestChat"].then === "function"
                         ) {
-                          $steps["updateTestChat"] = await $steps[
-                            "updateTestChat"
-                          ];
+                          $steps["updateTestChat"] =
+                            await $steps["updateTestChat"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -5178,9 +5196,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         typeof $steps["goToHttpsAppsLiomAppHamyar"].then ===
                           "function"
                       ) {
-                        $steps["goToHttpsAppsLiomAppHamyar"] = await $steps[
-                          "goToHttpsAppsLiomAppHamyar"
-                        ];
+                        $steps["goToHttpsAppsLiomAppHamyar"] =
+                          await $steps["goToHttpsAppsLiomAppHamyar"];
                       }
                     }}
                   >
@@ -5231,9 +5248,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         typeof $steps["goToHttpsAppsLiomAppSelfCare"].then ===
                           "function"
                       ) {
-                        $steps["goToHttpsAppsLiomAppSelfCare"] = await $steps[
-                          "goToHttpsAppsLiomAppSelfCare"
-                        ];
+                        $steps["goToHttpsAppsLiomAppSelfCare"] =
+                          await $steps["goToHttpsAppsLiomAppSelfCare"];
                       }
                     }}
                   >
@@ -5594,9 +5610,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             typeof $steps["updateStatus"] === "object" &&
                             typeof $steps["updateStatus"].then === "function"
                           ) {
-                            $steps["updateStatus"] = await $steps[
-                              "updateStatus"
-                            ];
+                            $steps["updateStatus"] =
+                              await $steps["updateStatus"];
                           }
 
                           $steps["updateDialogOpen"] = true
@@ -5631,9 +5646,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             typeof $steps["updateDialogOpen"].then ===
                               "function"
                           ) {
-                            $steps["updateDialogOpen"] = await $steps[
-                              "updateDialogOpen"
-                            ];
+                            $steps["updateDialogOpen"] =
+                              await $steps["updateDialogOpen"];
                           }
 
                           $steps["runCode"] = true
@@ -5646,9 +5660,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                       );
                                       searchParams.delete("status");
                                       searchParams.set("buy", "true");
-                                      const newUrl = `${
-                                        window.location.pathname
-                                      }?${searchParams.toString()}`;
+                                      const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                                       return window.history.replaceState(
                                         null,
                                         "",
@@ -5845,9 +5857,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             typeof $steps["updateDialogOpen"].then ===
                               "function"
                           ) {
-                            $steps["updateDialogOpen"] = await $steps[
-                              "updateDialogOpen"
-                            ];
+                            $steps["updateDialogOpen"] =
+                              await $steps["updateDialogOpen"];
                           }
 
                           $steps["updateDirectDialogChatbotOpen"] = true
@@ -6068,9 +6079,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["updateSessions"] = (
@@ -6160,9 +6170,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction2"] === "object" &&
                 typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
               }
             }}
           >
@@ -6263,9 +6272,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
               }}
             >
@@ -6327,11 +6335,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
-                          return `<b> <span style="font-size: 18px; font-with:bold;"> ${
-                            $state.infoChat.credit != undefined
-                              ? $state.infoChat.credit
-                              : ""
-                          } </span></b>`;
+                          return `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit != undefined ? $state.infoChat.credit : ""} </span></b>`;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -6469,9 +6473,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["runCode"] = $steps.invokeGlobalAction?.data
@@ -7033,9 +7036,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["updateSessions"] = (
@@ -7271,9 +7273,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 typeof $steps["updateTestChat7"].then ===
                                   "function"
                               ) {
-                                $steps["updateTestChat7"] = await $steps[
-                                  "updateTestChat7"
-                                ];
+                                $steps["updateTestChat7"] =
+                                  await $steps["updateTestChat7"];
                               }
 
                               $steps["updateTestChat3"] = true
@@ -7309,9 +7310,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 typeof $steps["updateTestChat3"].then ===
                                   "function"
                               ) {
-                                $steps["updateTestChat3"] = await $steps[
-                                  "updateTestChat3"
-                                ];
+                                $steps["updateTestChat3"] =
+                                  await $steps["updateTestChat3"];
                               }
 
                               $steps["chatSession"] = true
@@ -7368,9 +7368,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 typeof $steps["chatSession"] === "object" &&
                                 typeof $steps["chatSession"].then === "function"
                               ) {
-                                $steps["chatSession"] = await $steps[
-                                  "chatSession"
-                                ];
+                                $steps["chatSession"] =
+                                  await $steps["chatSession"];
                               }
 
                               $steps["updateTestChat"] = (
@@ -7435,9 +7434,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 typeof $steps["updateTestChat"].then ===
                                   "function"
                               ) {
-                                $steps["updateTestChat"] = await $steps[
-                                  "updateTestChat"
-                                ];
+                                $steps["updateTestChat"] =
+                                  await $steps["updateTestChat"];
                               }
 
                               $steps["updateTestChat2"] = true
@@ -7464,9 +7462,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 typeof $steps["updateTestChat2"].then ===
                                   "function"
                               ) {
-                                $steps["updateTestChat2"] = await $steps[
-                                  "updateTestChat2"
-                                ];
+                                $steps["updateTestChat2"] =
+                                  await $steps["updateTestChat2"];
                               }
 
                               $steps["updateTestChat5"] = true
@@ -7483,9 +7480,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 typeof $steps["updateTestChat5"].then ===
                                   "function"
                               ) {
-                                $steps["updateTestChat5"] = await $steps[
-                                  "updateTestChat5"
-                                ];
+                                $steps["updateTestChat5"] =
+                                  await $steps["updateTestChat5"];
                               }
 
                               $steps["updateTestChat4"] = true
@@ -7521,9 +7517,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 typeof $steps["updateTestChat4"].then ===
                                   "function"
                               ) {
-                                $steps["updateTestChat4"] = await $steps[
-                                  "updateTestChat4"
-                                ];
+                                $steps["updateTestChat4"] =
+                                  await $steps["updateTestChat4"];
                               }
 
                               $steps["updateTestChat6"] = true
@@ -7552,9 +7547,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 typeof $steps["updateTestChat6"].then ===
                                   "function"
                               ) {
-                                $steps["updateTestChat6"] = await $steps[
-                                  "updateTestChat6"
-                                ];
+                                $steps["updateTestChat6"] =
+                                  await $steps["updateTestChat6"];
                               }
                             },
                             onColorChange: async (...eventArgs: any) => {
@@ -8103,9 +8097,8 @@ window.typewriter = function(elementId) {
                     typeof $steps["goToHttpsAppsLiomAppHamyar"].then ===
                       "function"
                   ) {
-                    $steps["goToHttpsAppsLiomAppHamyar"] = await $steps[
-                      "goToHttpsAppsLiomAppHamyar"
-                    ];
+                    $steps["goToHttpsAppsLiomAppHamyar"] =
+                      await $steps["goToHttpsAppsLiomAppHamyar"];
                   }
                 }}
               >
@@ -8182,9 +8175,8 @@ window.typewriter = function(elementId) {
                     typeof $steps["goToHttpsAppsLiomAppSelfCare"].then ===
                       "function"
                   ) {
-                    $steps["goToHttpsAppsLiomAppSelfCare"] = await $steps[
-                      "goToHttpsAppsLiomAppSelfCare"
-                    ];
+                    $steps["goToHttpsAppsLiomAppSelfCare"] =
+                      await $steps["goToHttpsAppsLiomAppSelfCare"];
                   }
                 }}
               >
@@ -8490,7 +8482,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSelfTest2__VariantsArgs;
     args?: PlasmicSelfTest2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSelfTest2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSelfTest2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSelfTest2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

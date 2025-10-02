@@ -320,8 +320,8 @@ function PlasmicSidebarWindow__RenderFunc(props: {
                   hasVariant(globalVariants, "screen", "mobileOnly")
                     ? Icon160Icon
                     : hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? Icon161Icon
-                    : Icon152Icon
+                      ? Icon161Icon
+                      : Icon152Icon
                 }
                 className={classNames(projectcss.all, sty.svg__dEi9A, {
                   [sty.svgopening__dEi9ArPBw2]: hasVariant(
@@ -353,6 +353,34 @@ function PlasmicSidebarWindow__RenderFunc(props: {
               <Icon196Icon
                 className={classNames(projectcss.all, sty.svg___7Gcrd, {
                   [sty.svgopening___7GcrdrPBw2]: hasVariant(
+                    $state,
+                    "opening",
+                    "opening"
+                  )
+                })}
+                role={"img"}
+              />
+            ) : null}
+            {(() => {
+              try {
+                return (
+                  new window.URLSearchParams(window.location.search).get(
+                    "origin"
+                  ) == "aghosh"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Icon196Icon
+                className={classNames(projectcss.all, sty.svg__iKp2I, {
+                  [sty.svgopening__iKp2IrPBw2]: hasVariant(
                     $state,
                     "opening",
                     "opening"
@@ -406,8 +434,8 @@ function PlasmicSidebarWindow__RenderFunc(props: {
                 hasVariant(globalVariants, "screen", "mobileOnly")
                   ? "\u062a\u0627\u0631\u06cc\u062e\u0686\u0647 \u067e\u06cc\u0627\u0645 \u0647\u0627"
                   : hasVariant($state, "opening", "opening")
-                  ? "\u0639\u0644\u0651\u0627\u0645\u0647"
-                  : "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645"}
+                    ? "\u0639\u0644\u0651\u0627\u0645\u0647"
+                    : "\u062f\u0633\u062a\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645"}
               </div>
             ) : null}
             {(
@@ -847,7 +875,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSidebarWindow__VariantsArgs;
     args?: PlasmicSidebarWindow__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSidebarWindow__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSidebarWindow__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSidebarWindow__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -207,15 +207,15 @@ export default function GlobalContextsProvider(
                 "themeStyles" in antdConfigProviderProps
                   ? antdConfigProviderProps.themeStyles!
                   : true
-                  ? {
-                      fontFamily: "Roboto",
-                      fontSize: "14px",
-                      fontWeight: "normal",
-                      lineHeight: "1.5",
-                      color: "#535353",
-                      letterSpacing: "normal"
-                    }
-                  : undefined
+                    ? {
+                        fontFamily: "Roboto",
+                        fontSize: "14px",
+                        fontWeight: "normal",
+                        lineHeight: "1.5",
+                        color: "#535353",
+                        letterSpacing: "normal"
+                      }
+                    : undefined
               }
               wireframe={
                 antdConfigProviderProps &&

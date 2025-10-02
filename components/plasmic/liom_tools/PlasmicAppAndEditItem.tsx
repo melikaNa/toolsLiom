@@ -434,7 +434,10 @@ function PlasmicAppAndEditItem__RenderFunc(props: {
                     throw e;
                   }
                 })()
-              : undefined
+              : [
+                  { label: "Option 1", value: "option1" },
+                  { label: "Option 2", value: "option2" }
+                ]
           }
           placeholder={
             hasVariant($state, "type", "select")
@@ -490,7 +493,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAppAndEditItem__VariantsArgs;
     args?: PlasmicAppAndEditItem__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAppAndEditItem__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAppAndEditItem__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAppAndEditItem__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
