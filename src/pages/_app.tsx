@@ -13,13 +13,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("newView");
-      if (saved === "true") {
-        setNewView("newView");
-      } else {
-        setNewView(undefined);
-      }
-    }
+          const exists = document.cookie.includes("newView=");
+          if (exists) {
+            localStorage.setItem("newView","true");
+            setNewView("newView");
+          } else {
+            setNewView(undefined);
+          }
+        }
+
   }, []);
 
   return (
