@@ -163,8 +163,16 @@
 .freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant__nQ2FeYcZU > * {
   grid-column: 4;
 }
+.freeBoxglobal_newView_newView__nQ2Feni7NW > * {
+  grid-column: 4;
+}
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant__nQ2FeYcZU > * {
+    grid-column: 4;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBoxglobal_newView_newView__nQ2Feni7NW > * {
     grid-column: 4;
   }
 }
@@ -1705,7 +1713,11 @@
   top: 0;
   z-index: 3;
   right: 0;
-  background: linear-gradient(0deg, #f8f8f800 0%, #f8f8f8 15%);
+  background: linear-gradient(
+    0deg,
+    var(--token-SxXGNxcP6O97) 0%,
+    var(--token-SxXGNxcP6O97) 15%
+  );
   display: none;
   padding: 0px 8px;
 }

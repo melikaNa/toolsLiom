@@ -875,6 +875,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
           styleTokensClassNames,
           sty.root,
           {
+            [sty.rootglobal_newView_newView]: hasVariant(
+              globalVariants,
+              "newView",
+              "newView"
+            ),
             [sty.rootglobal_theme_dark]: hasVariant(
               globalVariants,
               "theme",
@@ -2614,6 +2619,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
         </SidebarWindow>
         <div
           className={classNames(projectcss.all, sty.freeBox__nQ2Fe, {
+            [sty.freeBoxglobal_newView_newView__nQ2Feni7NW]: hasVariant(
+              globalVariants,
+              "newView",
+              "newView"
+            ),
             [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant__nQ2FeYcZU]:
               hasVariant(
                 globalVariants,
