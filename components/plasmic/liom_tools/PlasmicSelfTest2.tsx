@@ -3840,7 +3840,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         return (
                           new window.URLSearchParams(
                             window.location.search
-                          ).get("origin") != "diaco"
+                          ).get("origin") != "diaco" &&
+                          new window.URLSearchParams(
+                            window.location.search
+                          ).get("origin") != "aghosh"
                         );
                       } catch (e) {
                         if (
@@ -3906,7 +3909,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         return (
                           new window.URLSearchParams(
                             window.location.search
-                          ).get("origin") != "diaco"
+                          ).get("origin") != "diaco" &&
+                          new window.URLSearchParams(
+                            window.location.search
+                          ).get("origin") != "aghosh"
                         );
                       } catch (e) {
                         if (

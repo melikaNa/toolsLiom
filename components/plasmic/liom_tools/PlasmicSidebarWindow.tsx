@@ -302,7 +302,10 @@ function PlasmicSidebarWindow__RenderFunc(props: {
                 return (
                   new window.URLSearchParams(window.location.search).get(
                     "origin"
-                  ) != "diaco"
+                  ) != "diaco" &&
+                  new window.URLSearchParams(window.location.search).get(
+                    "origin"
+                  ) != "aghosh"
                 );
               } catch (e) {
                 if (

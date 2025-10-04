@@ -599,9 +599,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           searchParams.delete("stepId");
                           searchParams.delete("secId");
                           searchParams.delete("selectStep");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -686,9 +684,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 typeof $steps["getTokenFromCookie"] === "object" &&
                 typeof $steps["getTokenFromCookie"].then === "function"
               ) {
-                $steps["getTokenFromCookie"] = await $steps[
-                  "getTokenFromCookie"
-                ];
+                $steps["getTokenFromCookie"] =
+                  await $steps["getTokenFromCookie"];
               }
 
               $steps["userGuest"] =
@@ -744,10 +741,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                     if (
                                       /Mac OS X (\d+[\._]\d+)/.test(userAgent)
                                     )
-                                      return `macOS ${RegExp.$1.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `macOS ${RegExp.$1.replace("_", ".")}`;
                                     if (/Android (\d+(\.\d+)?)/.test(userAgent))
                                       return `Android ${RegExp.$1}`;
                                     if (
@@ -755,10 +749,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                                         userAgent
                                       )
                                     )
-                                      return `iOS ${RegExp.$2.replace(
-                                        "_",
-                                        "."
-                                      )}`;
+                                      return `iOS ${RegExp.$2.replace("_", ".")}`;
                                     return "Unknown Version";
                                   })(),
                                   sex: $state.gender || "",
@@ -816,7 +807,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               }
 
               $steps["setToken"] =
-                $steps.userGuest?.data?.success ?? false
+                ($steps.userGuest?.data?.success ?? false)
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -854,7 +845,15 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__zomNf)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__zomNf, {
+              [sty.freeBoxglobal_newView_newView__zomNfni7NW]: hasVariant(
+                globalVariants,
+                "newView",
+                "newView"
+              )
+            })}
+          >
             <StepsLayout
               data-plasmic-name={"stepsLayout"}
               data-plasmic-override={overrides.stepsLayout}
@@ -1011,9 +1010,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               typeof $steps["updateLoading2"].then ===
                                 "function"
                             ) {
-                              $steps["updateLoading2"] = await $steps[
-                                "updateLoading2"
-                              ];
+                              $steps["updateLoading2"] =
+                                await $steps["updateLoading2"];
                             }
 
                             $steps["goToPage"] =
@@ -1106,9 +1104,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                               typeof $steps["updateLoading22"].then ===
                                 "function"
                             ) {
-                              $steps["updateLoading22"] = await $steps[
-                                "updateLoading22"
-                              ];
+                              $steps["updateLoading22"] =
+                                await $steps["updateLoading22"];
                             }
                           }}
                         >
@@ -1780,9 +1777,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         typeof $steps["updateLoading2"] === "object" &&
                         typeof $steps["updateLoading2"].then === "function"
                       ) {
-                        $steps["updateLoading2"] = await $steps[
-                          "updateLoading2"
-                        ];
+                        $steps["updateLoading2"] =
+                          await $steps["updateLoading2"];
                       }
 
                       $steps["runCode"] =
@@ -1888,9 +1884,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         typeof $steps["updateLoading22"] === "object" &&
                         typeof $steps["updateLoading22"].then === "function"
                       ) {
-                        $steps["updateLoading22"] = await $steps[
-                          "updateLoading22"
-                        ];
+                        $steps["updateLoading22"] =
+                          await $steps["updateLoading22"];
                       }
                     }}
                   >
@@ -2248,9 +2243,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       typeof $steps["updateListDetails3"] === "object" &&
                       typeof $steps["updateListDetails3"].then === "function"
                     ) {
-                      $steps["updateListDetails3"] = await $steps[
-                        "updateListDetails3"
-                      ];
+                      $steps["updateListDetails3"] =
+                        await $steps["updateListDetails3"];
                     }
 
                     $steps["updateListDetails"] = (() => {
@@ -2293,9 +2287,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       typeof $steps["updateListDetails"] === "object" &&
                       typeof $steps["updateListDetails"].then === "function"
                     ) {
-                      $steps["updateListDetails"] = await $steps[
-                        "updateListDetails"
-                      ];
+                      $steps["updateListDetails"] =
+                        await $steps["updateListDetails"];
                     }
 
                     $steps["updateListDetails2"] =
@@ -2331,9 +2324,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       typeof $steps["updateListDetails2"] === "object" &&
                       typeof $steps["updateListDetails2"].then === "function"
                     ) {
-                      $steps["updateListDetails2"] = await $steps[
-                        "updateListDetails2"
-                      ];
+                      $steps["updateListDetails2"] =
+                        await $steps["updateListDetails2"];
                     }
 
                     $steps["updateListDetails4"] = (() => {
@@ -2378,9 +2370,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       typeof $steps["updateListDetails4"] === "object" &&
                       typeof $steps["updateListDetails4"].then === "function"
                     ) {
-                      $steps["updateListDetails4"] = await $steps[
-                        "updateListDetails4"
-                      ];
+                      $steps["updateListDetails4"] =
+                        await $steps["updateListDetails4"];
                     }
                   }).apply(null, eventArgs);
                 }}
@@ -2442,7 +2433,13 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     <ButtonLiom
                       data-plasmic-name={"buttonLiom"}
                       data-plasmic-override={overrides.buttonLiom}
-                      className={classNames("__wab_instance", sty.buttonLiom)}
+                      className={classNames("__wab_instance", sty.buttonLiom, {
+                        [sty.buttonLiomglobal_newView_newView]: hasVariant(
+                          globalVariants,
+                          "newView",
+                          "newView"
+                        )
+                      })}
                       color={generateStateValueProp($state, [
                         "buttonLiom",
                         "color"
@@ -2475,9 +2472,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
 
                         $steps["runCode"] = false
@@ -2536,9 +2532,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           typeof $steps["updateLoading"] === "object" &&
                           typeof $steps["updateLoading"].then === "function"
                         ) {
-                          $steps["updateLoading"] = await $steps[
-                            "updateLoading"
-                          ];
+                          $steps["updateLoading"] =
+                            await $steps["updateLoading"];
                         }
 
                         $steps["updateIsDone"] = true
@@ -2626,9 +2621,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["updateLoading2"] = true
@@ -2665,9 +2659,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                           typeof $steps["updateLoading2"] === "object" &&
                           typeof $steps["updateLoading2"].then === "function"
                         ) {
-                          $steps["updateLoading2"] = await $steps[
-                            "updateLoading2"
-                          ];
+                          $steps["updateLoading2"] =
+                            await $steps["updateLoading2"];
                         }
 
                         $steps["refreshData"] = true
@@ -2899,9 +2892,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         typeof $steps["updateDirectDialogOpen"].then ===
                           "function"
                       ) {
-                        $steps["updateDirectDialogOpen"] = await $steps[
-                          "updateDirectDialogOpen"
-                        ];
+                        $steps["updateDirectDialogOpen"] =
+                          await $steps["updateDirectDialogOpen"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -2963,9 +2955,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3578,11 +3569,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               try {
                 return (() => {
                   var token = $state.token;
-                  return `https://tools.liom.app/shopResult?buyId=${
-                    $state.directDialog.selectShop.id
-                  }&?offCode=&token=${token}&redirectUrl=${encodeURIComponent(
-                    window.location.href
-                  )}`;
+                  return `https://tools.liom.app/shopResult?buyId=${$state.directDialog.selectShop.id}&?offCode=&token=${token}&redirectUrl=${encodeURIComponent(window.location.href)}`;
                 })();
               } catch (e) {
                 if (
@@ -3701,7 +3688,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSelfMedicationStep__VariantsArgs;
     args?: PlasmicSelfMedicationStep__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSelfMedicationStep__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSelfMedicationStep__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSelfMedicationStep__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
