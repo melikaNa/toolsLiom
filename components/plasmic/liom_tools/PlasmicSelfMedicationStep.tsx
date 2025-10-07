@@ -2164,6 +2164,9 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         case "sunken_eyes_sub":
                           type = "sunkenEyesIsActive";
                           break;
+                        case "vaginal_infection":
+                          type = "vaginalInfectionIsActive";
+                          break;
                       }
                       return {
                         stepId: $state.paramsObject.stepId,
