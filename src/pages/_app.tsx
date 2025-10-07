@@ -20,6 +20,29 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           } else {
             setNewView(undefined);
           }
+          if (document.cookie.includes("loading=true")) {
+            const hideLoading = () => {
+              document.cookie = "loading=false; path=/; domain=.liom.app; secure; SameSite=Lax";
+            };
+        
+            if (document.readyState !== "complete") {
+              window.addEventListener("load", hideLoading, { once: true });
+            } else {
+              hideLoading();
+            }
+          }
+        }
+    
+    if (document.cookie.includes("loading=true")) {
+          const hideLoading = () => {
+            document.cookie = "loading=false; path=/; domain=.liom.app; secure; SameSite=Lax";
+          };
+      
+          if (document.readyState !== "complete") {
+            window.addEventListener("load", hideLoading, { once: true });
+          } else {
+            hideLoading();
+          }
         }
 
   }, []);
