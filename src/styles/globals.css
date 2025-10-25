@@ -45,6 +45,27 @@
   }
 }
 
+
+
+@font-face {
+  font-family: 'yekan_bakh';
+  src: url('/fonts/yekanbakh_normal.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'yekan_bakh';
+  src: url('/fonts/yekanbakh_bold.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'yekan_bakh';
+  src: url('/fonts/yekanbakh_medium.ttf');
+  font-weight: 500;
+}
+
+
 [data-radix-popper-content-wrapper] {
   z-index: 999 !important;
 }
