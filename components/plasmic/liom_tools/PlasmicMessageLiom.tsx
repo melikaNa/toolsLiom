@@ -456,22 +456,22 @@ function PlasmicMessageLiom__RenderFunc(props: {
         hasVariant($state, "loadingMessage", "loadingMessage")
           ? true
           : hasVariant($state, "liomAnswer", "liomAnswer")
-          ? (() => {
-              try {
-                return $props.error2;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
+            ? (() => {
+                try {
+                  return $props.error2;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()
-          : hasVariant($state, "pazireshAnswer", "pazireshAnswer")
-          ? true
-          : false
+              })()
+            : hasVariant($state, "pazireshAnswer", "pazireshAnswer")
+              ? true
+              : false
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__ega5V, {
@@ -943,10 +943,10 @@ function PlasmicMessageLiom__RenderFunc(props: {
           hasVariant($state, "endMessege", "endMessege")
             ? "text-box"
             : hasVariant($state, "liomAnswer", "liomAnswer")
-            ? ``
-            : hasVariant($state, "pazireshAnswer", "pazireshAnswer")
-            ? ``
-            : "text-box",
+              ? ``
+              : hasVariant($state, "pazireshAnswer", "pazireshAnswer")
+                ? ``
+                : "text-box",
           {
             [sty.freeBoxbot___7TlWyxxwGw]: hasVariant($state, "bot", "bot"),
             [sty.freeBoxendMessege___7TlWyTjzqg]: hasVariant(
@@ -1283,9 +1283,8 @@ function PlasmicMessageLiom__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["invokeGlobalAction2"] = true
@@ -1301,9 +1300,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
                                 userId: $props.userId,
                                 pageName: "chatBot",
                                 action: "click_AD",
-                                extraData: {
-                                  action: $props.ad.action
-                                }
+                                extraData: { action: $props.ad.action }
                               };
                             } catch (e) {
                               if (
@@ -1335,9 +1332,8 @@ function PlasmicMessageLiom__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction2"] === "object" &&
                   typeof $steps["invokeGlobalAction2"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
+                  $steps["invokeGlobalAction2"] =
+                    await $steps["invokeGlobalAction2"];
                 }
               }}
             >
@@ -1476,10 +1472,10 @@ function PlasmicMessageLiom__RenderFunc(props: {
           hasVariant($state, "endMessege", "endMessege")
             ? true
             : hasVariant($state, "liomAnswer", "liomAnswer")
-            ? true
-            : hasVariant($state, "pazireshAnswer", "pazireshAnswer")
-            ? true
-            : false
+              ? true
+              : hasVariant($state, "pazireshAnswer", "pazireshAnswer")
+                ? true
+                : false
         ) ? (
           <Icon109Icon
             className={classNames(projectcss.all, sty.svg__lOael, {
@@ -1948,7 +1944,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMessageLiom__VariantsArgs;
     args?: PlasmicMessageLiom__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMessageLiom__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMessageLiom__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMessageLiom__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

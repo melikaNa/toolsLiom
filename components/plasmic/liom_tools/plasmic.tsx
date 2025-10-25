@@ -7,17 +7,17 @@
 
 import { createUseGlobalVariants } from "@plasmicapp/react-web";
 
-import { useScreenVariants as useScreenVariantsyg4Uf6WCaaLe } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: YG4uf6WCaaLe/globalVariant
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: Qg_AcB6aGxxK/globalVariant
 import {
   UnnamedGlobalGroupOfVariantsValue,
   useUnnamedGlobalGroupOfVariants
 } from "./PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants"; // plasmic-import: gDFLJp69n7ET/globalVariant
 import { NewViewValue, useNewView } from "./PlasmicGlobalVariant__NewView"; // plasmic-import: 5seUyIBPkL4p/globalVariant
+import { useScreenVariants as useScreenVariantsqiBuxNlixBgQ } from "../paziresh_24_design_system/PlasmicGlobalVariant__Screen"; // plasmic-import: QiBUXNlixBgQ/globalVariant
 
 export const _useGlobalVariants = createUseGlobalVariants({
-  screen: useScreenVariantsyg4Uf6WCaaLe,
   theme: useTheme,
   unnamedGlobalGroupOfVariants: useUnnamedGlobalGroupOfVariants,
-  newView: useNewView
+  newView: useNewView,
+  screen: useScreenVariantsqiBuxNlixBgQ
 });

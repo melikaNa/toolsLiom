@@ -210,23 +210,16 @@
 @media (max-width: 640px) {
   .plasmic_tokens {
     --token-SH2GlK2U7a6u: #00af65;
-    --plasmic-token-green: var(--token-SH2GlK2U7a6u);
   }
 }
 
 .plasmic_tokens.global_newView_newView.global_newView_newView {
   --token-QR8ATjORhQqO: #4595ff;
-  --plasmic-token-purple: var(--token-QR8ATjORhQqO);
   --token-HFSv-V_E5BCA: #1264d11a;
-  --plasmic-token-light-purple: var(--token-HFSv-V_E5BCA);
   --token-PvbqFVJaOepe: #1264d1;
-  --plasmic-token-primary: var(--token-PvbqFVJaOepe);
   --token-97NydEULR06G: #d1e5ff;
-  --plasmic-token-serface: var(--token-97NydEULR06G);
   --token-SxXGNxcP6O97: #eef2fa;
-  --plasmic-token-page-bg-2: var(--token-SxXGNxcP6O97);
   --token-3yhCR9eH1wRr: #1264d1b3;
-  --plasmic-token-light-purple-2: var(--token-3yhCR9eH1wRr);
 }
 
 .plasmic_tokens {
