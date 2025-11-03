@@ -3708,76 +3708,126 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__pPnwC,
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? `text-box  ${(() => {})()}`
-                            : undefined
+                          sty.freeBox__oSnaz
                         )}
-                        id={
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? (() => {
-                                try {
-                                  return currentItem.id
-                                    ? ""
-                                    : currentItem.animation
-                                      ? currentItem.animation
-                                      : "";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            : (() => {
-                                try {
-                                  return currentItem.id
-                                    ? ""
-                                    : currentItem.from == "system"
-                                      ? `typedtext` + currentIndex
-                                      : "";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                        }
-                        style={
-                          hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? {
-                                display: "inline-block",
-                                width: "auto",
-                                "overflow-wrap": "break-word"
-                              }
-                            : undefined
-                        }
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.text;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "Lorem ipsum dolor sit amet,";
-                              }
-                              throw e;
+                        {(() => {
+                          try {
+                            return (
+                              $ctx.query.origin_user_id ==
+                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
                             }
-                          })()}
-                        </React.Fragment>
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___7Nki9
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.attachments
+                                    ? "true"
+                                    : "false";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        ) : null}
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__pPnwC,
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? `text-box  ${(() => {})()}`
+                              : undefined
+                          )}
+                          id={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? (() => {
+                                  try {
+                                    return currentItem.id
+                                      ? ""
+                                      : currentItem.animation
+                                        ? currentItem.animation
+                                        : "";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : (() => {
+                                  try {
+                                    return currentItem.id
+                                      ? ""
+                                      : currentItem.from == "system"
+                                        ? `typedtext` + currentIndex
+                                        : "";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                          }
+                          style={
+                            hasVariant(globalVariants, "screen", "mobileOnly")
+                              ? {
+                                  display: "inline-block",
+                                  width: "auto",
+                                  "overflow-wrap": "break-word"
+                                }
+                              : undefined
+                          }
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.text;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Lorem ipsum dolor sit amet,";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
                       </div>
                     </MessageLiom>
                   );

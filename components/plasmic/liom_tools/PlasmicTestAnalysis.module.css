@@ -143,6 +143,8 @@
 .text__nVs4L {
   font-weight: 600;
   color: var(--token-0jflij2Drauk);
+  width: 100%;
+  min-width: 0;
 }
 .freeBox___7Dgo0 {
   display: flex;
