@@ -3711,49 +3711,66 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           sty.freeBox__oSnaz
                         )}
                       >
-                        {(() => {
-                          try {
-                            return (
-                              $ctx.query.origin_user_id ==
-                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__rHqMq
+                          )}
+                        >
                           <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___7Nki9
+                              sty.freeBox__xQh27
                             )}
                           >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return currentItem.attachments
+                            {(() => {
+                              try {
+                                return (
+                                  (currentItem.attachments
                                     ? "true"
-                                    : "false";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
+                                    : "false") == "true" &&
+                                  $ctx.query.origin_user_id ==
+                                    "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
                                 }
-                              })()}
-                            </React.Fragment>
+                                throw e;
+                              }
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___7Nki9
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return JSON.parse(
+                                        currentItem.attachments
+                                      )?.[0]?.type;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            ) : null}
                           </div>
-                        ) : null}
+                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
