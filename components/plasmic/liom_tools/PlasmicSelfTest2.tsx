@@ -4586,12 +4586,22 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                               healthDoc:
                                                 $steps.newSession.data.healthDoc
                                             }
-                                          : {
-                                              session_id: $state.sessionId,
-                                              bot_session_id:
-                                                $state.botSessionId,
-                                              message: $state.text
-                                            };
+                                          : $ctx.query.origin_user_id ==
+                                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                            ? {
+                                                session_id: $state.sessionId,
+                                                bot_session_id:
+                                                  $state.botSessionId,
+                                                message: $state.text,
+                                                attachments:
+                                                  '[{\"type\" : \"image\" , \"value\" : \"https://teh-1.s3.poshtiban.com/lioms3/2025-11/test-result/2025-11-03-3ff19c80-fd21-4e83-a8c8-4066502dbc5c.jpg\"} , {\"type\" : \"image\" , \"value\" : \"https://teh-1.s3.poshtiban.com/lioms3/2025-11/test-result/2025-11-03-3ff19c80-fd21-4e83-a8c8-4066502dbc5c.jpg\"}]'
+                                              }
+                                            : {
+                                                session_id: $state.sessionId,
+                                                bot_session_id:
+                                                  $state.botSessionId,
+                                                message: $state.text
+                                              };
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
