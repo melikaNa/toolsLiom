@@ -3650,6 +3650,47 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicAppAndEditItem.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "0A6gTKO8uX9v",
+          "name": "SelfTest4",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest4.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-test-test/[page].tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest4.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-test-test/[page]"
+        },
+        {
+          "id": "YDl4w76xpMa9",
+          "name": "ResultComponnent",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicResultComponnent.tsx",
+          "importSpec": {
+            "modulePath": "ResultComponnent.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicResultComponnent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "JUyr6-744oyj",
+          "name": "TestAnalysis",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicTestAnalysis.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/test-analysis.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicTestAnalysis.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/test-analysis"
         }
       ],
       "icons": [
