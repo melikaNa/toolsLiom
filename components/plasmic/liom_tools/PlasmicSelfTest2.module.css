@@ -353,13 +353,6 @@
   max-width: 100%;
   min-width: 0;
 }
-.img__eBv3 {
-  object-fit: cover;
-  max-width: 100%;
-}
-.img__eBv3 > picture > img {
-  object-fit: cover;
-}
 .text__pPnwC {
   text-align: right;
   width: auto;
@@ -2772,13 +2765,13 @@
   min-width: 0;
   padding: 0px;
 }
-.img__qjz6R {
+.img {
   object-fit: cover;
   max-width: 100%;
   width: 60%;
   opacity: 0.8;
 }
-.img__qjz6R > picture > img {
+.img > picture > img {
   object-fit: cover;
 }
 .text__bwFW {
