@@ -1844,12 +1844,19 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                     undefined,
                                     (() => {
                                       try {
-                                        return {
-                                          question: $state.getInfo.firstMessage,
-                                          attachments: JSON.stringify(
-                                            $state.images
-                                          )
-                                        };
+                                        return (() => {
+                                          const result = $state.images.map(
+                                            item => ({
+                                              value: item,
+                                              type: "image"
+                                            })
+                                          );
+                                          return {
+                                            question:
+                                              $state.getInfo.firstMessage,
+                                            attachments: JSON.stringify(result)
+                                          };
+                                        })();
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
