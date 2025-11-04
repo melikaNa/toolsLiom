@@ -211,8 +211,8 @@ function PlasmicLoadingConclusion__RenderFunc(props: {
           hasVariant($state, "selected", "selected")
             ? Icon106Icon
             : hasVariant($state, "fouse", "fouse")
-            ? Icon11Icon
-            : Icon105Icon
+              ? Icon11Icon
+              : Icon105Icon
         }
         className={classNames(projectcss.all, sty.svg, {
           [sty.svgcolor_green]: hasVariant($state, "color", "green"),
@@ -293,7 +293,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicLoadingConclusion__VariantsArgs;
     args?: PlasmicLoadingConclusion__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicLoadingConclusion__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicLoadingConclusion__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicLoadingConclusion__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

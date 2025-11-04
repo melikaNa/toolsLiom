@@ -226,12 +226,14 @@ function PlasmicPanel__RenderFunc(props: {
                   details.filter(item => item.score > 80).length > 0
                     ? details.filter(item => item.score > 80)
                     : details.filter(item => item.score > 70).length > 0
-                    ? details.filter(item => item.score > 70)
-                    : details.filter(item => item.score > 60).length > 0
-                    ? details.filter(item => item.score > 60)
-                    : details.filter(item => item.score > 50).length > 0
-                    ? details.filter(item => item.score > 50)
-                    : details.filter(item => parseInt(item.score) === maxScore);
+                      ? details.filter(item => item.score > 70)
+                      : details.filter(item => item.score > 60).length > 0
+                        ? details.filter(item => item.score > 60)
+                        : details.filter(item => item.score > 50).length > 0
+                          ? details.filter(item => item.score > 50)
+                          : details.filter(
+                              item => parseInt(item.score) === maxScore
+                            );
                 return filteredItems;
               })();
             } catch (e) {
@@ -456,9 +458,8 @@ function PlasmicPanel__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["updateInfo"] = $steps.invokeGlobalAction?.data
@@ -1092,9 +1093,8 @@ function PlasmicPanel__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -1137,9 +1137,8 @@ function PlasmicPanel__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -1185,9 +1184,8 @@ function PlasmicPanel__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -1583,7 +1581,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicPanel__VariantsArgs;
     args?: PlasmicPanel__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicPanel__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicPanel__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicPanel__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

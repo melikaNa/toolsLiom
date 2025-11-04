@@ -363,12 +363,14 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   details.filter(item => item.score > 80).length > 0
                     ? details.filter(item => item.score > 80)
                     : details.filter(item => item.score > 70).length > 0
-                    ? details.filter(item => item.score > 70)
-                    : details.filter(item => item.score > 60).length > 0
-                    ? details.filter(item => item.score > 60)
-                    : details.filter(item => item.score > 50).length > 0
-                    ? details.filter(item => item.score > 50)
-                    : details.filter(item => parseInt(item.score) === maxScore);
+                      ? details.filter(item => item.score > 70)
+                      : details.filter(item => item.score > 60).length > 0
+                        ? details.filter(item => item.score > 60)
+                        : details.filter(item => item.score > 50).length > 0
+                          ? details.filter(item => item.score > 50)
+                          : details.filter(
+                              item => parseInt(item.score) === maxScore
+                            );
                 return filteredItems;
               })();
             } catch (e) {
@@ -843,9 +845,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
             }}
           >
@@ -1624,9 +1625,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                     >
@@ -1712,10 +1712,11 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                               border: currentItem.more
                                 ? "solid 2px #ffffff"
                                 : currentItem.option_metric ==
-                                    "endometriosis" ||
-                                  currentItem.option_metric == "uterineFibroids"
-                                ? "solid 1px #FAAD14"
-                                : ""
+                                      "endometriosis" ||
+                                    currentItem.option_metric ==
+                                      "uterineFibroids"
+                                  ? "solid 1px #FAAD14"
+                                  : ""
                             };
                           } catch (e) {
                             if (
@@ -1790,14 +1791,14 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                         score >= 80
                                           ? "red"
                                           : score >= 70
-                                          ? "oreng"
-                                          : score >= 60
-                                          ? "yellow"
-                                          : score >= 50
-                                          ? "blue"
-                                          : score >= 40
-                                          ? ""
-                                          : "";
+                                            ? "oreng"
+                                            : score >= 60
+                                              ? "yellow"
+                                              : score >= 50
+                                                ? "blue"
+                                                : score >= 40
+                                                  ? ""
+                                                  : "";
                                       return color;
                                     })();
                                   } catch (e) {
@@ -1822,9 +1823,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                   <React.Fragment>
                                     {(() => {
                                       try {
-                                        return `${currentItem.badge ?? ""}  (${
-                                          currentItem.score
-                                        }%)`;
+                                        return `${currentItem.badge ?? ""}  (${currentItem.score}%)`;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -1922,9 +1921,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                           typeof $steps["updateResultlist"] === "object" &&
                           typeof $steps["updateResultlist"].then === "function"
                         ) {
-                          $steps["updateResultlist"] = await $steps[
-                            "updateResultlist"
-                          ];
+                          $steps["updateResultlist"] =
+                            await $steps["updateResultlist"];
                         }
                       }}
                     >
@@ -1994,18 +1992,27 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                       .length > 0
                                       ? details.filter(item => item.score > 80)
                                       : details.filter(item => item.score > 70)
-                                          .length > 0
-                                      ? details.filter(item => item.score > 70)
-                                      : details.filter(item => item.score > 60)
-                                          .length > 0
-                                      ? details.filter(item => item.score > 60)
-                                      : details.filter(item => item.score > 50)
-                                          .length > 0
-                                      ? details.filter(item => item.score > 50)
-                                      : details.filter(
-                                          item =>
-                                            parseInt(item.score) === maxScore
-                                        );
+                                            .length > 0
+                                        ? details.filter(
+                                            item => item.score > 70
+                                          )
+                                        : details.filter(
+                                              item => item.score > 60
+                                            ).length > 0
+                                          ? details.filter(
+                                              item => item.score > 60
+                                            )
+                                          : details.filter(
+                                                item => item.score > 50
+                                              ).length > 0
+                                            ? details.filter(
+                                                item => item.score > 50
+                                              )
+                                            : details.filter(
+                                                item =>
+                                                  parseInt(item.score) ===
+                                                  maxScore
+                                              );
                                   return filteredItems;
                                 })()
                               };
@@ -2030,9 +2037,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                           typeof $steps["updateResultlist"] === "object" &&
                           typeof $steps["updateResultlist"].then === "function"
                         ) {
-                          $steps["updateResultlist"] = await $steps[
-                            "updateResultlist"
-                          ];
+                          $steps["updateResultlist"] =
+                            await $steps["updateResultlist"];
                         }
                       }}
                     >
@@ -2309,9 +2315,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["updateLiomInfo"] = $steps.invokeGlobalAction?.data
@@ -2345,9 +2350,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         typeof $steps["updateLiomInfo"] === "object" &&
                         typeof $steps["updateLiomInfo"].then === "function"
                       ) {
-                        $steps["updateLiomInfo"] = await $steps[
-                          "updateLiomInfo"
-                        ];
+                        $steps["updateLiomInfo"] =
+                          await $steps["updateLiomInfo"];
                       }
 
                       $steps["updateLoadbtn2"] = true
@@ -2381,9 +2385,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         typeof $steps["updateLoadbtn2"] === "object" &&
                         typeof $steps["updateLoadbtn2"].then === "function"
                       ) {
-                        $steps["updateLoadbtn2"] = await $steps[
-                          "updateLoadbtn2"
-                        ];
+                        $steps["updateLoadbtn2"] =
+                          await $steps["updateLoadbtn2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3062,9 +3065,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return `${currentIndex + 1}.  ${
-                                        currentItem.question_text
-                                      }`;
+                                      return `${currentIndex + 1}.  ${currentItem.question_text}`;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -3093,14 +3094,14 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                         score >= 20
                                           ? "red"
                                           : score >= 10
-                                          ? "oreng"
-                                          : score > 0
-                                          ? "yellow"
-                                          : score == 0
-                                          ? "blue"
-                                          : score >= 40
-                                          ? ""
-                                          : "";
+                                            ? "oreng"
+                                            : score > 0
+                                              ? "yellow"
+                                              : score == 0
+                                                ? "blue"
+                                                : score >= 40
+                                                  ? ""
+                                                  : "";
                                       return color;
                                     })();
                                   } catch (e) {
@@ -3517,9 +3518,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                           typeof $steps["updateQuestionList"].then ===
                             "function"
                         ) {
-                          $steps["updateQuestionList"] = await $steps[
-                            "updateQuestionList"
-                          ];
+                          $steps["updateQuestionList"] =
+                            await $steps["updateQuestionList"];
                         }
                       }}
                     >
@@ -3593,9 +3593,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                           typeof $steps["updateQuestionList"].then ===
                             "function"
                         ) {
-                          $steps["updateQuestionList"] = await $steps[
-                            "updateQuestionList"
-                          ];
+                          $steps["updateQuestionList"] =
+                            await $steps["updateQuestionList"];
                         }
                       }}
                     >
@@ -4015,9 +4014,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                   typeof $steps["updateAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateAction"] = await $steps[
-                                    "updateAction"
-                                  ];
+                                  $steps["updateAction"] =
+                                    await $steps["updateAction"];
                                 }
 
                                 $steps["updateDialogOpen"] = true
@@ -4054,9 +4052,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                   typeof $steps["updateDialogOpen"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateDialogOpen"] = await $steps[
-                                    "updateDialogOpen"
-                                  ];
+                                  $steps["updateDialogOpen"] =
+                                    await $steps["updateDialogOpen"];
                                 }
 
                                 $steps["invokeGlobalAction"] = true
@@ -4111,9 +4108,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
                               }}
                               size={"compact"}
@@ -4156,20 +4152,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                             )}
                             destination={(() => {
                               try {
-                                return `https://tools.liom.app/self-test?user_id=${
-                                  $ctx.query.user_id
-                                }&type=${currentItem.option_metric.slice(
-                                  0,
-                                  -1
-                                )}&nextQuesion_id=${
-                                  $state.apiRequest.data.extras.find(
-                                    a =>
-                                      a.type ===
-                                      currentItem.option_metric.slice(0, -1)
-                                  ).next_question_id
-                                }&session_id=${$ctx.query.session_id}&app=${
-                                  $ctx.query.app
-                                }`;
+                                return `https://tools.liom.app/self-test?user_id=${$ctx.query.user_id}&type=${currentItem.option_metric.slice(0, -1)}&nextQuesion_id=${$state.apiRequest.data.extras.find(a => a.type === currentItem.option_metric.slice(0, -1)).next_question_id}&session_id=${$ctx.query.session_id}&app=${$ctx.query.app}`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -4278,9 +4261,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                         typeof $steps["updateLoading"].then ===
                                           "function"
                                       ) {
-                                        $steps["updateLoading"] = await $steps[
-                                          "updateLoading"
-                                        ];
+                                        $steps["updateLoading"] =
+                                          await $steps["updateLoading"];
                                       }
 
                                       $steps["goToPage"] = true
@@ -4288,25 +4270,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                             const actionArgs = {
                                               destination: (() => {
                                                 try {
-                                                  return `/self-test?user_id=${
-                                                    $ctx.query.user_id
-                                                  }&type=${currentItem.option_metric.option_metric.slice(
-                                                    0,
-                                                    -1
-                                                  )}&nextQuesion_id=${
-                                                    $state.apiRequest.data.extras.find(
-                                                      a =>
-                                                        a.type ==
-                                                        currentItem.option_metric.option_metric.slice(
-                                                          0,
-                                                          -1
-                                                        )
-                                                    ).next_question_id
-                                                  }&session_id=${
-                                                    $ctx.query.session_id
-                                                  }&app=${
-                                                    $ctx.query.app
-                                                  }&inApp=${$ctx.query.inApp}`;
+                                                  return `/self-test?user_id=${$ctx.query.user_id}&type=${currentItem.option_metric.option_metric.slice(0, -1)}&nextQuesion_id=${$state.apiRequest.data.extras.find(a => a.type == currentItem.option_metric.option_metric.slice(0, -1)).next_question_id}&session_id=${$ctx.query.session_id}&app=${$ctx.query.app}&inApp=${$ctx.query.inApp}`;
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -4345,9 +4309,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                         typeof $steps["goToPage"].then ===
                                           "function"
                                       ) {
-                                        $steps["goToPage"] = await $steps[
-                                          "goToPage"
-                                        ];
+                                        $steps["goToPage"] =
+                                          await $steps["goToPage"];
                                       }
 
                                       $steps["updateLoading2"] = true
@@ -4388,9 +4351,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                         typeof $steps["updateLoading2"].then ===
                                           "function"
                                       ) {
-                                        $steps["updateLoading2"] = await $steps[
-                                          "updateLoading2"
-                                        ];
+                                        $steps["updateLoading2"] =
+                                          await $steps["updateLoading2"];
                                       }
                                     },
                                     onColorChange: async (
@@ -4677,9 +4639,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                 typeof $steps["updateAction"].then ===
                                   "function"
                               ) {
-                                $steps["updateAction"] = await $steps[
-                                  "updateAction"
-                                ];
+                                $steps["updateAction"] =
+                                  await $steps["updateAction"];
                               }
 
                               $steps["updateDialogOpen"] = true
@@ -4716,9 +4677,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                 typeof $steps["updateDialogOpen"].then ===
                                   "function"
                               ) {
-                                $steps["updateDialogOpen"] = await $steps[
-                                  "updateDialogOpen"
-                                ];
+                                $steps["updateDialogOpen"] =
+                                  await $steps["updateDialogOpen"];
                               }
                             }}
                           >
@@ -4748,14 +4708,14 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                         score >= 80
                                           ? "red"
                                           : score >= 70
-                                          ? "oreng"
-                                          : score >= 60
-                                          ? "yellow"
-                                          : score >= 50
-                                          ? "blue"
-                                          : score >= 40
-                                          ? ""
-                                          : "";
+                                            ? "oreng"
+                                            : score >= 60
+                                              ? "yellow"
+                                              : score >= 50
+                                                ? "blue"
+                                                : score >= 40
+                                                  ? ""
+                                                  : "";
                                       return color;
                                     })();
                                   } catch (e) {
@@ -5034,9 +4994,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                     typeof $steps["updateQuestionList"] === "object" &&
                     typeof $steps["updateQuestionList"].then === "function"
                   ) {
-                    $steps["updateQuestionList"] = await $steps[
-                      "updateQuestionList"
-                    ];
+                    $steps["updateQuestionList"] =
+                      await $steps["updateQuestionList"];
                   }
                 }).apply(null, eventArgs);
               }}
@@ -5141,9 +5100,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   shouldFetch={true}
                   url={(() => {
                     try {
-                      return `https://apigw.paziresh24.com/seapi/v1/search/ir/${
-                        !!$state.action ? $state.action : "general-practitioner"
-                      }?turn_type=consult`;
+                      return `https://apigw.paziresh24.com/seapi/v1/search/ir/${!!$state.action ? $state.action : "general-practitioner"}?turn_type=consult`;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -5784,8 +5741,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                           $state.p[0].request_p;
                                         return ($state.prescription = true);
                                       } else
-                                        return ($state.dialog3.opendialog =
-                                          true);
+                                        return ($state.dialog3.opendialog = true);
                                     })();
                                   }
                                 };
@@ -5900,9 +5856,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["runCode2"] = true
@@ -6082,9 +6037,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         typeof $steps["updateButtonLiomLoad"].then ===
                           "function"
                       ) {
-                        $steps["updateButtonLiomLoad"] = await $steps[
-                          "updateButtonLiomLoad"
-                        ];
+                        $steps["updateButtonLiomLoad"] =
+                          await $steps["updateButtonLiomLoad"];
                       }
 
                       $steps["updateErrors"] = true
@@ -6195,9 +6149,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["invokeGlobalAction2"] =
@@ -6220,9 +6173,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["updateDialog2Open"] =
@@ -6257,9 +6209,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         typeof $steps["updateDialog2Open"] === "object" &&
                         typeof $steps["updateDialog2Open"].then === "function"
                       ) {
-                        $steps["updateDialog2Open"] = await $steps[
-                          "updateDialog2Open"
-                        ];
+                        $steps["updateDialog2Open"] =
+                          await $steps["updateDialog2Open"];
                       }
 
                       $steps["updateButtonLiomLoad2"] = true
@@ -6294,9 +6245,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                         typeof $steps["updateButtonLiomLoad2"].then ===
                           "function"
                       ) {
-                        $steps["updateButtonLiomLoad2"] = await $steps[
-                          "updateButtonLiomLoad2"
-                        ];
+                        $steps["updateButtonLiomLoad2"] =
+                          await $steps["updateButtonLiomLoad2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -6473,9 +6423,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                       typeof $steps["updateModal2Open"] === "object" &&
                       typeof $steps["updateModal2Open"].then === "function"
                     ) {
-                      $steps["updateModal2Open"] = await $steps[
-                        "updateModal2Open"
-                      ];
+                      $steps["updateModal2Open"] =
+                        await $steps["updateModal2Open"];
                     }
                   }}
                   role={"img"}
@@ -6518,9 +6467,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                       typeof $steps["updateModal2Open"] === "object" &&
                       typeof $steps["updateModal2Open"].then === "function"
                     ) {
-                      $steps["updateModal2Open"] = await $steps[
-                        "updateModal2Open"
-                      ];
+                      $steps["updateModal2Open"] =
+                        await $steps["updateModal2Open"];
                     }
 
                     $steps["runCode"] = true
@@ -6785,9 +6733,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["runCode"] = true
@@ -6881,9 +6828,8 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                   typeof $steps["updatePrescription"] === "object" &&
                   typeof $steps["updatePrescription"].then === "function"
                 ) {
-                  $steps["updatePrescription"] = await $steps[
-                    "updatePrescription"
-                  ];
+                  $steps["updatePrescription"] =
+                    await $steps["updatePrescription"];
                 }
               }}
               className={classNames("__wab_instance", sty.entryPrescription2, {
@@ -7102,7 +7048,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicResultForDoctor__VariantsArgs;
     args?: PlasmicResultForDoctor__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicResultForDoctor__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicResultForDoctor__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicResultForDoctor__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

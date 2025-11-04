@@ -803,9 +803,8 @@ function PlasmicPay__RenderFunc(props: {
                     typeof $steps["updateLoadingBtn"] === "object" &&
                     typeof $steps["updateLoadingBtn"].then === "function"
                   ) {
-                    $steps["updateLoadingBtn"] = await $steps[
-                      "updateLoadingBtn"
-                    ];
+                    $steps["updateLoadingBtn"] =
+                      await $steps["updateLoadingBtn"];
                   }
 
                   $steps["goToPage"] = true
@@ -878,9 +877,8 @@ function PlasmicPay__RenderFunc(props: {
                     typeof $steps["updateLoadingBtn2"] === "object" &&
                     typeof $steps["updateLoadingBtn2"].then === "function"
                   ) {
-                    $steps["updateLoadingBtn2"] = await $steps[
-                      "updateLoadingBtn2"
-                    ];
+                    $steps["updateLoadingBtn2"] =
+                      await $steps["updateLoadingBtn2"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -994,7 +992,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicPay__VariantsArgs;
     args?: PlasmicPay__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicPay__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicPay__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicPay__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

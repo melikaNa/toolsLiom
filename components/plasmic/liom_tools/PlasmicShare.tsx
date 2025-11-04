@@ -2936,7 +2936,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShare__VariantsArgs;
     args?: PlasmicShare__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShare__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShare__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicShare__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

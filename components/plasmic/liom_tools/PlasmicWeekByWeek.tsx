@@ -799,9 +799,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                               typeof $steps["updateSelectedWeek"].then ===
                                 "function"
                             ) {
-                              $steps["updateSelectedWeek"] = await $steps[
-                                "updateSelectedWeek"
-                              ];
+                              $steps["updateSelectedWeek"] =
+                                await $steps["updateSelectedWeek"];
                             }
                           }}
                           selected={
@@ -903,9 +902,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         typeof $steps["updateSelectedWeek"] === "object" &&
                         typeof $steps["updateSelectedWeek"].then === "function"
                       ) {
-                        $steps["updateSelectedWeek"] = await $steps[
-                          "updateSelectedWeek"
-                        ];
+                        $steps["updateSelectedWeek"] =
+                          await $steps["updateSelectedWeek"];
                       }
                     }}
                   >
@@ -1354,9 +1352,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                 typeof $steps["updateModalOpen"].then ===
                                   "function"
                               ) {
-                                $steps["updateModalOpen"] = await $steps[
-                                  "updateModalOpen"
-                                ];
+                                $steps["updateModalOpen"] =
+                                  await $steps["updateModalOpen"];
                               }
                             }}
                           >
@@ -1414,9 +1411,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       typeof $steps["updateModalOpen"] === "object" &&
                       typeof $steps["updateModalOpen"].then === "function"
                     ) {
-                      $steps["updateModalOpen"] = await $steps[
-                        "updateModalOpen"
-                      ];
+                      $steps["updateModalOpen"] =
+                        await $steps["updateModalOpen"];
                     }
                   }}
                 >
@@ -2798,7 +2794,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicWeekByWeek__VariantsArgs;
     args?: PlasmicWeekByWeek__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicWeekByWeek__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicWeekByWeek__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicWeekByWeek__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

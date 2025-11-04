@@ -392,11 +392,15 @@
   object-fit: cover;
   max-width: 100%;
   width: 80px;
-  transform: scaleX(1.1) scaleY(1.1) scaleZ(1);
+  transform: scale3d(1.1, 1.1, 1);
+  transform-style: preserve-3d;
   flex-shrink: 0;
 }
 .img__ujgKv > picture > img {
   object-fit: cover;
+}
+.img__ujgKv * {
+  transform-style: preserve-3d;
 }
 .freeBox___7Xfra {
   display: flex;
@@ -560,13 +564,26 @@
   max-width: 100%;
   width: 80px;
   height: 100%;
-  transform: translateX(20px) translateY(0px) translateZ(0px) scaleX(1.5)
-    scaleY(1.5) scaleZ(1);
+  transform: translate3d(20px, 0px, 0px) scale3d(1.5, 1.5, 1);
+  transform-style: preserve-3d;
   flex-shrink: 0;
   min-height: 0;
 }
 .img__ukmx > picture > img {
   object-fit: contain;
+}
+.img__ukmx * {
+  transform-style: preserve-3d;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__ukmx {
+    transform-style: preserve-3d;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__ukmx * {
+    transform-style: preserve-3d;
+  }
 }
 .freeBox__g1RZr {
   display: flex;
@@ -623,11 +640,15 @@
   object-fit: cover;
   max-width: 100%;
   width: 80px;
-  transform: scaleX(1.1) scaleY(1.1) scaleZ(1);
+  transform: scale3d(1.1, 1.1, 1);
+  transform-style: preserve-3d;
   flex-shrink: 0;
 }
 .img__egr5D > picture > img {
   object-fit: cover;
+}
+.img__egr5D * {
+  transform-style: preserve-3d;
 }
 .freeBox__iWuxs {
   display: flex;

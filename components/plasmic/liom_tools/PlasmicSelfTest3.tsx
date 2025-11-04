@@ -1541,9 +1541,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
                           }}
                         >
@@ -1712,9 +1711,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                               typeof $steps["updateTestChat2"].then ===
                                 "function"
                             ) {
-                              $steps["updateTestChat2"] = await $steps[
-                                "updateTestChat2"
-                              ];
+                              $steps["updateTestChat2"] =
+                                await $steps["updateTestChat2"];
                             }
                           }}
                         >
@@ -2093,9 +2091,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["updateDialog2Open"] === "object" &&
                       typeof $steps["updateDialog2Open"].then === "function"
                     ) {
-                      $steps["updateDialog2Open"] = await $steps[
-                        "updateDialog2Open"
-                      ];
+                      $steps["updateDialog2Open"] =
+                        await $steps["updateDialog2Open"];
                     }
 
                     $steps["runCode"] =
@@ -2400,9 +2397,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction6"] === "object" &&
                       typeof $steps["invokeGlobalAction6"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction6"] = await $steps[
-                        "invokeGlobalAction6"
-                      ];
+                      $steps["invokeGlobalAction6"] =
+                        await $steps["invokeGlobalAction6"];
                     }
 
                     $steps["invokeGlobalAction3"] =
@@ -2482,9 +2478,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction3"] === "object" &&
                       typeof $steps["invokeGlobalAction3"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
+                      $steps["invokeGlobalAction3"] =
+                        await $steps["invokeGlobalAction3"];
                     }
 
                     $steps["next"] = true
@@ -2576,9 +2571,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["updateNextQuesionId"] === "object" &&
                       typeof $steps["updateNextQuesionId"].then === "function"
                     ) {
-                      $steps["updateNextQuesionId"] = await $steps[
-                        "updateNextQuesionId"
-                      ];
+                      $steps["updateNextQuesionId"] =
+                        await $steps["updateNextQuesionId"];
                     }
 
                     $steps["runCode6"] =
@@ -2652,9 +2646,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["invokeGlobalAction2"] =
@@ -2694,9 +2687,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["runCode2"] =
@@ -2919,9 +2911,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["updateNumberTest"] === "object" &&
                       typeof $steps["updateNumberTest"].then === "function"
                     ) {
-                      $steps["updateNumberTest"] = await $steps[
-                        "updateNumberTest"
-                      ];
+                      $steps["updateNumberTest"] =
+                        await $steps["updateNumberTest"];
                     }
 
                     $steps["invokeGlobalAction5"] =
@@ -2971,9 +2962,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction5"] === "object" &&
                       typeof $steps["invokeGlobalAction5"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction5"] = await $steps[
-                        "invokeGlobalAction5"
-                      ];
+                      $steps["invokeGlobalAction5"] =
+                        await $steps["invokeGlobalAction5"];
                     }
 
                     $steps["updateFerst"] = true
@@ -3041,9 +3031,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["updateRetestTest"] === "object" &&
                       typeof $steps["updateRetestTest"].then === "function"
                     ) {
-                      $steps["updateRetestTest"] = await $steps[
-                        "updateRetestTest"
-                      ];
+                      $steps["updateRetestTest"] =
+                        await $steps["updateRetestTest"];
                     }
 
                     $steps["updateShowgreen"] = true
@@ -3077,9 +3066,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["updateShowgreen"] === "object" &&
                       typeof $steps["updateShowgreen"].then === "function"
                     ) {
-                      $steps["updateShowgreen"] = await $steps[
-                        "updateShowgreen"
-                      ];
+                      $steps["updateShowgreen"] =
+                        await $steps["updateShowgreen"];
                     }
 
                     $steps["invokeGlobalAction4"] = true
@@ -3095,9 +3083,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction4"] === "object" &&
                       typeof $steps["invokeGlobalAction4"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction4"] = await $steps[
-                        "invokeGlobalAction4"
-                      ];
+                      $steps["invokeGlobalAction4"] =
+                        await $steps["invokeGlobalAction4"];
                     }
 
                     $steps["runCode5"] = true
@@ -3110,9 +3097,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                                 if (messageBox) {
                                   var inputBox =
                                     document.getElementById("selectBox");
-                                  messageBox.style.paddingBottom = `${
-                                    inputBox.offsetHeight + 20
-                                  }px`;
+                                  messageBox.style.paddingBottom = `${inputBox.offsetHeight + 20}px`;
                                   return (messageBox.scrollTop =
                                     messageBox.scrollHeight);
                                 }
@@ -3180,9 +3165,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                       typeof $steps["updateDialogOpen"] === "object" &&
                       typeof $steps["updateDialogOpen"].then === "function"
                     ) {
-                      $steps["updateDialogOpen"] = await $steps[
-                        "updateDialogOpen"
-                      ];
+                      $steps["updateDialogOpen"] =
+                        await $steps["updateDialogOpen"];
                     }
                   }}
                   onSelectedIDsChange={async (...eventArgs: any) => {
@@ -3502,9 +3486,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         typeof $steps["updateLoadinkBotten"] === "object" &&
                         typeof $steps["updateLoadinkBotten"].then === "function"
                       ) {
-                        $steps["updateLoadinkBotten"] = await $steps[
-                          "updateLoadinkBotten"
-                        ];
+                        $steps["updateLoadinkBotten"] =
+                          await $steps["updateLoadinkBotten"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -3557,9 +3540,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["runCode"] =
@@ -3644,9 +3626,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         typeof $steps["updateLoadinkBotten2"].then ===
                           "function"
                       ) {
-                        $steps["updateLoadinkBotten2"] = await $steps[
-                          "updateLoadinkBotten2"
-                        ];
+                        $steps["updateLoadinkBotten2"] =
+                          await $steps["updateLoadinkBotten2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3960,9 +3941,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         typeof $steps["updateLoadinkBotten"] === "object" &&
                         typeof $steps["updateLoadinkBotten"].then === "function"
                       ) {
-                        $steps["updateLoadinkBotten"] = await $steps[
-                          "updateLoadinkBotten"
-                        ];
+                        $steps["updateLoadinkBotten"] =
+                          await $steps["updateLoadinkBotten"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -4006,9 +3986,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["invokeGlobalAction2"] = true
@@ -4042,9 +4021,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["runCode"] =
@@ -4136,9 +4114,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         typeof $steps["updateLoadinkBotten2"].then ===
                           "function"
                       ) {
-                        $steps["updateLoadinkBotten2"] = await $steps[
-                          "updateLoadinkBotten2"
-                        ];
+                        $steps["updateLoadinkBotten2"] =
+                          await $steps["updateLoadinkBotten2"];
                       }
                     }}
                     startIcon={
@@ -4264,9 +4241,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         typeof $steps["updateLoadinkBotten"] === "object" &&
                         typeof $steps["updateLoadinkBotten"].then === "function"
                       ) {
-                        $steps["updateLoadinkBotten"] = await $steps[
-                          "updateLoadinkBotten"
-                        ];
+                        $steps["updateLoadinkBotten"] =
+                          await $steps["updateLoadinkBotten"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -4315,9 +4291,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["goToPage"] = true
@@ -4767,9 +4742,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["updateLoading"] = true
@@ -5217,9 +5191,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                             typeof $steps["updateLoadinkBotten"].then ===
                               "function"
                           ) {
-                            $steps["updateLoadinkBotten"] = await $steps[
-                              "updateLoadinkBotten"
-                            ];
+                            $steps["updateLoadinkBotten"] =
+                              await $steps["updateLoadinkBotten"];
                           }
 
                           $steps["invokeGlobalAction"] = true
@@ -5276,9 +5249,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
 
                           $steps["runCode"] =
@@ -5364,9 +5336,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                             typeof $steps["updateLoadinkBotten2"].then ===
                               "function"
                           ) {
-                            $steps["updateLoadinkBotten2"] = await $steps[
-                              "updateLoadinkBotten2"
-                            ];
+                            $steps["updateLoadinkBotten2"] =
+                              await $steps["updateLoadinkBotten2"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
@@ -5847,9 +5818,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
                                   );
                                   searchParams.delete("status");
                                   searchParams.set("buy", "true");
-                                  const newUrl = `${
-                                    window.location.pathname
-                                  }?${searchParams.toString()}`;
+                                  const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                                   return window.history.replaceState(
                                     null,
                                     "",
@@ -5970,9 +5939,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["updateLoading"] = true
@@ -6148,9 +6116,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                           typeof $steps["updateLoadinkBotten"].then ===
                             "function"
                         ) {
-                          $steps["updateLoadinkBotten"] = await $steps[
-                            "updateLoadinkBotten"
-                          ];
+                          $steps["updateLoadinkBotten"] =
+                            await $steps["updateLoadinkBotten"];
                         }
 
                         $steps["invokeGlobalAction"] =
@@ -6207,9 +6174,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["runCode"] =
@@ -6349,9 +6315,8 @@ function PlasmicSelfTest3__RenderFunc(props: {
                           typeof $steps["updateLoadinkBotten2"].then ===
                             "function"
                         ) {
-                          $steps["updateLoadinkBotten2"] = await $steps[
-                            "updateLoadinkBotten2"
-                          ];
+                          $steps["updateLoadinkBotten2"] =
+                            await $steps["updateLoadinkBotten2"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -6677,9 +6642,8 @@ generateStars(${$state.rate});
                     typeof $steps["updateRateinfoOpen"] === "object" &&
                     typeof $steps["updateRateinfoOpen"].then === "function"
                   ) {
-                    $steps["updateRateinfoOpen"] = await $steps[
-                      "updateRateinfoOpen"
-                    ];
+                    $steps["updateRateinfoOpen"] =
+                      await $steps["updateRateinfoOpen"];
                   }
 
                   $steps["updateCommentsOpen"] = true
@@ -6713,9 +6677,8 @@ generateStars(${$state.rate});
                     typeof $steps["updateCommentsOpen"] === "object" &&
                     typeof $steps["updateCommentsOpen"].then === "function"
                   ) {
-                    $steps["updateCommentsOpen"] = await $steps[
-                      "updateCommentsOpen"
-                    ];
+                    $steps["updateCommentsOpen"] =
+                      await $steps["updateCommentsOpen"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -6801,9 +6764,8 @@ generateStars(${$state.rate});
                     typeof $steps["updateRateinfoOpen"] === "object" &&
                     typeof $steps["updateRateinfoOpen"].then === "function"
                   ) {
-                    $steps["updateRateinfoOpen"] = await $steps[
-                      "updateRateinfoOpen"
-                    ];
+                    $steps["updateRateinfoOpen"] =
+                      await $steps["updateRateinfoOpen"];
                   }
 
                   $steps["updateTestChat"] = true
@@ -7576,7 +7538,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSelfTest3__VariantsArgs;
     args?: PlasmicSelfTest3__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSelfTest3__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSelfTest3__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSelfTest3__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

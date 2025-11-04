@@ -169,12 +169,22 @@
   right: 2px;
   box-shadow: 1px 1px 5px 0px #00000038;
   left: auto;
-  transform: translateX(-16px) translateY(0px) translateZ(0px);
+  transform: translate3d(-16px, 0px, 0px);
+  transform-style: preserve-3d;
   border-style: none;
+}
+.thumbisChecked * {
+  transform-style: preserve-3d;
 }
 .root:hover .thumb {
   background: #f9f9f9;
   border-color: #c8c7c1;
+}
+.rootisChecked:hover .thumbisChecked {
+  transform-style: preserve-3d;
+}
+.rootisChecked:hover .thumbisChecked * {
+  transform-style: preserve-3d;
 }
 .text {
   position: absolute;

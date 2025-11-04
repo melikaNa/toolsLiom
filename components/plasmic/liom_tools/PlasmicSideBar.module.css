@@ -86,7 +86,11 @@
   position: absolute;
   left: 0px;
   top: 0px;
+  transform-style: preserve-3d;
   min-width: 0;
+}
+.svg__uWup * {
+  transform-style: preserve-3d;
 }
 .frame12 {
   width: auto;

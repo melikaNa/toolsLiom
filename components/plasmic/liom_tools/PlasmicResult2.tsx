@@ -368,12 +368,14 @@ function PlasmicResult2__RenderFunc(props: {
                   details.filter(item => item.score > 80).length > 0
                     ? details.filter(item => item.score > 80)
                     : details.filter(item => item.score > 70).length > 0
-                    ? details.filter(item => item.score > 70)
-                    : details.filter(item => item.score > 60).length > 0
-                    ? details.filter(item => item.score > 60)
-                    : details.filter(item => item.score > 50).length > 0
-                    ? details.filter(item => item.score > 50)
-                    : details.filter(item => parseInt(item.score) === maxScore);
+                      ? details.filter(item => item.score > 70)
+                      : details.filter(item => item.score > 60).length > 0
+                        ? details.filter(item => item.score > 60)
+                        : details.filter(item => item.score > 50).length > 0
+                          ? details.filter(item => item.score > 50)
+                          : details.filter(
+                              item => parseInt(item.score) === maxScore
+                            );
                 return filteredItems;
               })();
             } catch (e) {
@@ -1157,9 +1159,9 @@ function PlasmicResult2__RenderFunc(props: {
                             border: currentItem.more
                               ? "solid 2px #ffffff"
                               : currentItem.option_metric == "endometriosis" ||
-                                currentItem.option_metric == "uterineFibroids"
-                              ? "solid 1px #FAAD14"
-                              : ""
+                                  currentItem.option_metric == "uterineFibroids"
+                                ? "solid 1px #FAAD14"
+                                : ""
                           };
                         } catch (e) {
                           if (
@@ -1247,14 +1249,14 @@ function PlasmicResult2__RenderFunc(props: {
                                         score >= 80
                                           ? "red"
                                           : score >= 70
-                                          ? "oreng"
-                                          : score >= 60
-                                          ? "yellow"
-                                          : score >= 50
-                                          ? "blue"
-                                          : score >= 40
-                                          ? ""
-                                          : "";
+                                            ? "oreng"
+                                            : score >= 60
+                                              ? "yellow"
+                                              : score >= 50
+                                                ? "blue"
+                                                : score >= 40
+                                                  ? ""
+                                                  : "";
                                       return color;
                                     })();
                                   } catch (e) {
@@ -1513,9 +1515,8 @@ function PlasmicResult2__RenderFunc(props: {
                                     typeof $steps["invokeGlobalAction"].then ===
                                       "function"
                                   ) {
-                                    $steps["invokeGlobalAction"] = await $steps[
-                                      "invokeGlobalAction"
-                                    ];
+                                    $steps["invokeGlobalAction"] =
+                                      await $steps["invokeGlobalAction"];
                                   }
                                 }).apply(null, eventArgs);
                               },
@@ -1678,9 +1679,8 @@ function PlasmicResult2__RenderFunc(props: {
                         typeof $steps["updateResultlist"] === "object" &&
                         typeof $steps["updateResultlist"].then === "function"
                       ) {
-                        $steps["updateResultlist"] = await $steps[
-                          "updateResultlist"
-                        ];
+                        $steps["updateResultlist"] =
+                          await $steps["updateResultlist"];
                       }
                     }}
                   >
@@ -1746,18 +1746,24 @@ function PlasmicResult2__RenderFunc(props: {
                                     .length > 0
                                     ? details.filter(item => item.score > 80)
                                     : details.filter(item => item.score > 70)
-                                        .length > 0
-                                    ? details.filter(item => item.score > 70)
-                                    : details.filter(item => item.score > 60)
-                                        .length > 0
-                                    ? details.filter(item => item.score > 60)
-                                    : details.filter(item => item.score > 50)
-                                        .length > 0
-                                    ? details.filter(item => item.score > 50)
-                                    : details.filter(
-                                        item =>
-                                          parseInt(item.score) === maxScore
-                                      );
+                                          .length > 0
+                                      ? details.filter(item => item.score > 70)
+                                      : details.filter(item => item.score > 60)
+                                            .length > 0
+                                        ? details.filter(
+                                            item => item.score > 60
+                                          )
+                                        : details.filter(
+                                              item => item.score > 50
+                                            ).length > 0
+                                          ? details.filter(
+                                              item => item.score > 50
+                                            )
+                                          : details.filter(
+                                              item =>
+                                                parseInt(item.score) ===
+                                                maxScore
+                                            );
                                 return filteredItems;
                               })()
                             };
@@ -1782,9 +1788,8 @@ function PlasmicResult2__RenderFunc(props: {
                         typeof $steps["updateResultlist"] === "object" &&
                         typeof $steps["updateResultlist"].then === "function"
                       ) {
-                        $steps["updateResultlist"] = await $steps[
-                          "updateResultlist"
-                        ];
+                        $steps["updateResultlist"] =
+                          await $steps["updateResultlist"];
                       }
                     }}
                   >
@@ -2233,9 +2238,8 @@ function PlasmicResult2__RenderFunc(props: {
                                   typeof $steps["updateAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateAction"] = await $steps[
-                                    "updateAction"
-                                  ];
+                                  $steps["updateAction"] =
+                                    await $steps["updateAction"];
                                 }
 
                                 $steps["updateDialogOpen"] = true
@@ -2272,9 +2276,8 @@ function PlasmicResult2__RenderFunc(props: {
                                   typeof $steps["updateDialogOpen"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateDialogOpen"] = await $steps[
-                                    "updateDialogOpen"
-                                  ];
+                                  $steps["updateDialogOpen"] =
+                                    await $steps["updateDialogOpen"];
                                 }
 
                                 $steps["invokeGlobalAction"] = true
@@ -2329,9 +2332,8 @@ function PlasmicResult2__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
                               }}
                               size={"compact"}
@@ -2374,20 +2376,7 @@ function PlasmicResult2__RenderFunc(props: {
                             )}
                             destination={(() => {
                               try {
-                                return `https://tools.liom.app/self-test?user_id=${
-                                  $ctx.query.user_id
-                                }&type=${currentItem.option_metric.slice(
-                                  0,
-                                  -1
-                                )}&nextQuesion_id=${
-                                  $state.apiRequest.data.extras.find(
-                                    a =>
-                                      a.type ===
-                                      currentItem.option_metric.slice(0, -1)
-                                  ).next_question_id
-                                }&session_id=${$ctx.query.session_id}&app=${
-                                  $ctx.query.app
-                                }`;
+                                return `https://tools.liom.app/self-test?user_id=${$ctx.query.user_id}&type=${currentItem.option_metric.slice(0, -1)}&nextQuesion_id=${$state.apiRequest.data.extras.find(a => a.type === currentItem.option_metric.slice(0, -1)).next_question_id}&session_id=${$ctx.query.session_id}&app=${$ctx.query.app}`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -2496,9 +2485,8 @@ function PlasmicResult2__RenderFunc(props: {
                                         typeof $steps["updateLoading"].then ===
                                           "function"
                                       ) {
-                                        $steps["updateLoading"] = await $steps[
-                                          "updateLoading"
-                                        ];
+                                        $steps["updateLoading"] =
+                                          await $steps["updateLoading"];
                                       }
 
                                       $steps["goToPage"] = true
@@ -2506,25 +2494,7 @@ function PlasmicResult2__RenderFunc(props: {
                                             const actionArgs = {
                                               destination: (() => {
                                                 try {
-                                                  return `/self-test?user_id=${
-                                                    $ctx.query.user_id
-                                                  }&type=${currentItem.option_metric.option_metric.slice(
-                                                    0,
-                                                    -1
-                                                  )}&nextQuesion_id=${
-                                                    $state.apiRequest.data.extras.find(
-                                                      a =>
-                                                        a.type ==
-                                                        currentItem.option_metric.option_metric.slice(
-                                                          0,
-                                                          -1
-                                                        )
-                                                    ).next_question_id
-                                                  }&session_id=${
-                                                    $ctx.query.session_id
-                                                  }&app=${
-                                                    $ctx.query.app
-                                                  }&inApp=${$ctx.query.inApp}`;
+                                                  return `/self-test?user_id=${$ctx.query.user_id}&type=${currentItem.option_metric.option_metric.slice(0, -1)}&nextQuesion_id=${$state.apiRequest.data.extras.find(a => a.type == currentItem.option_metric.option_metric.slice(0, -1)).next_question_id}&session_id=${$ctx.query.session_id}&app=${$ctx.query.app}&inApp=${$ctx.query.inApp}`;
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -2563,9 +2533,8 @@ function PlasmicResult2__RenderFunc(props: {
                                         typeof $steps["goToPage"].then ===
                                           "function"
                                       ) {
-                                        $steps["goToPage"] = await $steps[
-                                          "goToPage"
-                                        ];
+                                        $steps["goToPage"] =
+                                          await $steps["goToPage"];
                                       }
 
                                       $steps["updateLoading2"] = true
@@ -2606,9 +2575,8 @@ function PlasmicResult2__RenderFunc(props: {
                                         typeof $steps["updateLoading2"].then ===
                                           "function"
                                       ) {
-                                        $steps["updateLoading2"] = await $steps[
-                                          "updateLoading2"
-                                        ];
+                                        $steps["updateLoading2"] =
+                                          await $steps["updateLoading2"];
                                       }
                                     },
                                     onColorChange: async (
@@ -2913,9 +2881,8 @@ function PlasmicResult2__RenderFunc(props: {
                                 typeof $steps["updateAction"].then ===
                                   "function"
                               ) {
-                                $steps["updateAction"] = await $steps[
-                                  "updateAction"
-                                ];
+                                $steps["updateAction"] =
+                                  await $steps["updateAction"];
                               }
 
                               $steps["updateDialogOpen"] = true
@@ -2952,9 +2919,8 @@ function PlasmicResult2__RenderFunc(props: {
                                 typeof $steps["updateDialogOpen"].then ===
                                   "function"
                               ) {
-                                $steps["updateDialogOpen"] = await $steps[
-                                  "updateDialogOpen"
-                                ];
+                                $steps["updateDialogOpen"] =
+                                  await $steps["updateDialogOpen"];
                               }
                             }}
                           >
@@ -2984,14 +2950,14 @@ function PlasmicResult2__RenderFunc(props: {
                                         score >= 80
                                           ? "red"
                                           : score >= 70
-                                          ? "oreng"
-                                          : score >= 60
-                                          ? "yellow"
-                                          : score >= 50
-                                          ? "blue"
-                                          : score >= 40
-                                          ? ""
-                                          : "";
+                                            ? "oreng"
+                                            : score >= 60
+                                              ? "yellow"
+                                              : score >= 50
+                                                ? "blue"
+                                                : score >= 40
+                                                  ? ""
+                                                  : "";
                                       return color;
                                     })();
                                   } catch (e) {
@@ -3333,9 +3299,8 @@ function PlasmicResult2__RenderFunc(props: {
                           typeof $steps["updateDialog2Open"] === "object" &&
                           typeof $steps["updateDialog2Open"].then === "function"
                         ) {
-                          $steps["updateDialog2Open"] = await $steps[
-                            "updateDialog2Open"
-                          ];
+                          $steps["updateDialog2Open"] =
+                            await $steps["updateDialog2Open"];
                         }
                       }}
                     >
@@ -3519,9 +3484,8 @@ function PlasmicResult2__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
@@ -3543,9 +3507,8 @@ function PlasmicResult2__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction2"] === "object" &&
                     typeof $steps["invokeGlobalAction2"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
+                    $steps["invokeGlobalAction2"] =
+                      await $steps["invokeGlobalAction2"];
                   }
 
                   $steps["updateLoading2"] = true
@@ -3652,9 +3615,8 @@ function PlasmicResult2__RenderFunc(props: {
                     typeof $steps["updateDialog2Open"] === "object" &&
                     typeof $steps["updateDialog2Open"].then === "function"
                   ) {
-                    $steps["updateDialog2Open"] = await $steps[
-                      "updateDialog2Open"
-                    ];
+                    $steps["updateDialog2Open"] =
+                      await $steps["updateDialog2Open"];
                   }
                 }}
                 outline={true}
@@ -3733,9 +3695,7 @@ function PlasmicResult2__RenderFunc(props: {
                 shouldFetch={true}
                 url={(() => {
                   try {
-                    return `https://apigw.paziresh24.com/seapi/v1/search/ir/${
-                      !!$state.action ? $state.action : "general-practitioner"
-                    }?turn_type=consult`;
+                    return `https://apigw.paziresh24.com/seapi/v1/search/ir/${!!$state.action ? $state.action : "general-practitioner"}?turn_type=consult`;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -4455,9 +4415,8 @@ function PlasmicResult2__RenderFunc(props: {
                           typeof $steps["updateDialogOpen"] === "object" &&
                           typeof $steps["updateDialogOpen"].then === "function"
                         ) {
-                          $steps["updateDialogOpen"] = await $steps[
-                            "updateDialogOpen"
-                          ];
+                          $steps["updateDialogOpen"] =
+                            await $steps["updateDialogOpen"];
                         }
 
                         $steps["invokeGlobalAction"] = true
@@ -4509,9 +4468,8 @@ function PlasmicResult2__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                       showStartIcon={true}
@@ -4608,9 +4566,8 @@ function PlasmicResult2__RenderFunc(props: {
                           typeof $steps["updateDialog2Open"] === "object" &&
                           typeof $steps["updateDialog2Open"].then === "function"
                         ) {
-                          $steps["updateDialog2Open"] = await $steps[
-                            "updateDialog2Open"
-                          ];
+                          $steps["updateDialog2Open"] =
+                            await $steps["updateDialog2Open"];
                         }
                       }}
                       showStartIcon={true}
@@ -4685,9 +4642,8 @@ function PlasmicResult2__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["runCode2"] = true
@@ -4940,9 +4896,8 @@ function PlasmicResult2__RenderFunc(props: {
                           typeof $steps["updateDisable"] === "object" &&
                           typeof $steps["updateDisable"].then === "function"
                         ) {
-                          $steps["updateDisable"] = await $steps[
-                            "updateDisable"
-                          ];
+                          $steps["updateDisable"] =
+                            await $steps["updateDisable"];
                         }
                       }}
                     />
@@ -5072,9 +5027,8 @@ function PlasmicResult2__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
@@ -5096,9 +5050,8 @@ function PlasmicResult2__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["updateLoading2"] = true
@@ -5166,9 +5119,8 @@ function PlasmicResult2__RenderFunc(props: {
                       typeof $steps["updateDialog2Open"] === "object" &&
                       typeof $steps["updateDialog2Open"].then === "function"
                     ) {
-                      $steps["updateDialog2Open"] = await $steps[
-                        "updateDialog2Open"
-                      ];
+                      $steps["updateDialog2Open"] =
+                        await $steps["updateDialog2Open"];
                     }
                   }}
                   startIcon={
@@ -5354,7 +5306,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicResult2__VariantsArgs;
     args?: PlasmicResult2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicResult2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicResult2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicResult2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

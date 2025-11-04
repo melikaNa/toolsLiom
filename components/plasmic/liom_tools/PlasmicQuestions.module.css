@@ -159,10 +159,20 @@
   border-right-width: 0px;
   border-bottom-width: 3px;
   border-left-width: 0px;
+  transform-style: preserve-3d;
   min-width: 0;
   flex-shrink: 0;
   border-style: solid;
   border-color: #f4f4f4;
+}
+.svg___8Gyoz * {
+  transform-style: preserve-3d;
+}
+.svgquestions___8GyozSfYlg {
+  transform-style: preserve-3d;
+}
+.svgquestions___8GyozSfYlg * {
+  transform-style: preserve-3d;
 }
 .freeBox__uzK {
   display: grid;
@@ -366,10 +376,14 @@
   border-right-width: 0px;
   border-bottom-width: 3px;
   border-left-width: 0px;
+  transform-style: preserve-3d;
   min-width: 0;
   flex-shrink: 0;
   border-style: solid;
   border-color: #f4f4f4;
+}
+.svg__cBcSg * {
+  transform-style: preserve-3d;
 }
 .freeBox__wYx39 {
   display: flex;

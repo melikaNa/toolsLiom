@@ -31,8 +31,12 @@
 }
 .svgfouse {
   opacity: 1;
-  transform: scaleX(1.1) scaleY(1.1) scaleZ(1);
+  transform: scale3d(1.1, 1.1, 1);
   color: #ffffff;
+  transform-style: preserve-3d;
+}
+.svgfouse * {
+  transform-style: preserve-3d;
 }
 .svgcolor_green {
   color: var(--token-SH2GlK2U7a6u);
@@ -43,6 +47,12 @@
 }
 .svgcolor_trasparent {
   display: none;
+}
+.svgfouse_color_green {
+  transform-style: preserve-3d;
+}
+.svgfouse_color_green * {
+  transform-style: preserve-3d;
 }
 .svgcolor_green_selected {
   opacity: 1;

@@ -405,12 +405,14 @@ function PlasmicResult__RenderFunc(props: {
                   details.filter(item => item.score > 80).length > 0
                     ? details.filter(item => item.score > 80)
                     : details.filter(item => item.score > 70).length > 0
-                    ? details.filter(item => item.score > 70)
-                    : details.filter(item => item.score > 60).length > 0
-                    ? details.filter(item => item.score > 60)
-                    : details.filter(item => item.score > 50).length > 0
-                    ? details.filter(item => item.score > 50)
-                    : details.filter(item => parseInt(item.score) === maxScore);
+                      ? details.filter(item => item.score > 70)
+                      : details.filter(item => item.score > 60).length > 0
+                        ? details.filter(item => item.score > 60)
+                        : details.filter(item => item.score > 50).length > 0
+                          ? details.filter(item => item.score > 50)
+                          : details.filter(
+                              item => parseInt(item.score) === maxScore
+                            );
                 return filteredItems;
               })();
             } catch (e) {
@@ -1565,9 +1567,9 @@ function PlasmicResult__RenderFunc(props: {
                             border: currentItem.more
                               ? "solid 2px #ffffff"
                               : currentItem.option_metric == "endometriosis" ||
-                                currentItem.option_metric == "uterineFibroids"
-                              ? "solid 1px #FAAD14"
-                              : ""
+                                  currentItem.option_metric == "uterineFibroids"
+                                ? "solid 1px #FAAD14"
+                                : ""
                           };
                         } catch (e) {
                           if (
@@ -1740,14 +1742,14 @@ function PlasmicResult__RenderFunc(props: {
                                                 score >= 80
                                                   ? "red"
                                                   : score >= 70
-                                                  ? "oreng"
-                                                  : score >= 60
-                                                  ? "yellow"
-                                                  : score >= 50
-                                                  ? "blue"
-                                                  : score >= 40
-                                                  ? ""
-                                                  : "";
+                                                    ? "oreng"
+                                                    : score >= 60
+                                                      ? "yellow"
+                                                      : score >= 50
+                                                        ? "blue"
+                                                        : score >= 40
+                                                          ? ""
+                                                          : "";
                                               return color;
                                             })();
                                           } catch (e) {
@@ -2238,9 +2240,8 @@ function PlasmicResult__RenderFunc(props: {
                                     typeof $steps["invokeGlobalAction"].then ===
                                       "function"
                                   ) {
-                                    $steps["invokeGlobalAction"] = await $steps[
-                                      "invokeGlobalAction"
-                                    ];
+                                    $steps["invokeGlobalAction"] =
+                                      await $steps["invokeGlobalAction"];
                                   }
                                 }).apply(null, eventArgs);
                               },
@@ -2425,9 +2426,8 @@ function PlasmicResult__RenderFunc(props: {
                         typeof $steps["updateResultlist"] === "object" &&
                         typeof $steps["updateResultlist"].then === "function"
                       ) {
-                        $steps["updateResultlist"] = await $steps[
-                          "updateResultlist"
-                        ];
+                        $steps["updateResultlist"] =
+                          await $steps["updateResultlist"];
                       }
                     }}
                   >
@@ -2493,18 +2493,24 @@ function PlasmicResult__RenderFunc(props: {
                                     .length > 0
                                     ? details.filter(item => item.score > 80)
                                     : details.filter(item => item.score > 70)
-                                        .length > 0
-                                    ? details.filter(item => item.score > 70)
-                                    : details.filter(item => item.score > 60)
-                                        .length > 0
-                                    ? details.filter(item => item.score > 60)
-                                    : details.filter(item => item.score > 50)
-                                        .length > 0
-                                    ? details.filter(item => item.score > 50)
-                                    : details.filter(
-                                        item =>
-                                          parseInt(item.score) === maxScore
-                                      );
+                                          .length > 0
+                                      ? details.filter(item => item.score > 70)
+                                      : details.filter(item => item.score > 60)
+                                            .length > 0
+                                        ? details.filter(
+                                            item => item.score > 60
+                                          )
+                                        : details.filter(
+                                              item => item.score > 50
+                                            ).length > 0
+                                          ? details.filter(
+                                              item => item.score > 50
+                                            )
+                                          : details.filter(
+                                              item =>
+                                                parseInt(item.score) ===
+                                                maxScore
+                                            );
                                 return filteredItems;
                               })()
                             };
@@ -2529,9 +2535,8 @@ function PlasmicResult__RenderFunc(props: {
                         typeof $steps["updateResultlist"] === "object" &&
                         typeof $steps["updateResultlist"].then === "function"
                       ) {
-                        $steps["updateResultlist"] = await $steps[
-                          "updateResultlist"
-                        ];
+                        $steps["updateResultlist"] =
+                          await $steps["updateResultlist"];
                       }
                     }}
                   >
@@ -3102,9 +3107,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["updateAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateAction"] = await $steps[
-                                    "updateAction"
-                                  ];
+                                  $steps["updateAction"] =
+                                    await $steps["updateAction"];
                                 }
 
                                 $steps["updateDialogOpen"] = true
@@ -3141,9 +3145,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["updateDialogOpen"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateDialogOpen"] = await $steps[
-                                    "updateDialogOpen"
-                                  ];
+                                  $steps["updateDialogOpen"] =
+                                    await $steps["updateDialogOpen"];
                                 }
 
                                 $steps["invokeGlobalAction"] = true
@@ -3198,9 +3201,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
 
                                 $steps["updateRequestP"] = true
@@ -3242,9 +3244,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["updateRequestP"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateRequestP"] = await $steps[
-                                    "updateRequestP"
-                                  ];
+                                  $steps["updateRequestP"] =
+                                    await $steps["updateRequestP"];
                                 }
                               }}
                               outline={
@@ -3478,9 +3479,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["updateRequestP"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateRequestP"] = await $steps[
-                                    "updateRequestP"
-                                  ];
+                                  $steps["updateRequestP"] =
+                                    await $steps["updateRequestP"];
                                 }
 
                                 $steps["updateProfileOpen"] =
@@ -3524,9 +3524,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["updateProfileOpen"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateProfileOpen"] = await $steps[
-                                    "updateProfileOpen"
-                                  ];
+                                  $steps["updateProfileOpen"] =
+                                    await $steps["updateProfileOpen"];
                                 }
 
                                 $steps["invokeGlobalAction"] =
@@ -3555,9 +3554,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
 
                                 $steps["runCode"] = $state.prescriptions.find(
@@ -3569,14 +3567,7 @@ function PlasmicResult__RenderFunc(props: {
                                       const actionArgs = {
                                         customFunction: async () => {
                                           return window.open(
-                                            `https://tools.liom.app/medicine/?code=${
-                                              $state.prescriptions.find(
-                                                i =>
-                                                  i.request_p ==
-                                                    $state.requestP &&
-                                                  i.done == 1
-                                              ).doctor_tracking_code
-                                            }`,
+                                            `https://tools.liom.app/medicine/?code=${$state.prescriptions.find(i => i.request_p == $state.requestP && i.done == 1).doctor_tracking_code}`,
                                             "_self"
                                           );
                                         }
@@ -3646,20 +3637,7 @@ function PlasmicResult__RenderFunc(props: {
                           )}
                           destination={(() => {
                             try {
-                              return `https://tools.liom.app/self-test?user_id=${
-                                $ctx.query.user_id
-                              }&type=${currentItem.option_metric.slice(
-                                0,
-                                -1
-                              )}&nextQuesion_id=${
-                                $state.apiRequest.data.extras.find(
-                                  a =>
-                                    a.type ===
-                                    currentItem.option_metric.slice(0, -1)
-                                ).next_question_id
-                              }&session_id=${$ctx.query.session_id}&app=${
-                                $ctx.query.app
-                              }`;
+                              return `https://tools.liom.app/self-test?user_id=${$ctx.query.user_id}&type=${currentItem.option_metric.slice(0, -1)}&nextQuesion_id=${$state.apiRequest.data.extras.find(a => a.type === currentItem.option_metric.slice(0, -1)).next_question_id}&session_id=${$ctx.query.session_id}&app=${$ctx.query.app}`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -3774,9 +3752,8 @@ function PlasmicResult__RenderFunc(props: {
                                       typeof $steps["updateLoading"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateLoading"] = await $steps[
-                                        "updateLoading"
-                                      ];
+                                      $steps["updateLoading"] =
+                                        await $steps["updateLoading"];
                                     }
 
                                     $steps["goToPage"] = true
@@ -3784,25 +3761,7 @@ function PlasmicResult__RenderFunc(props: {
                                           const actionArgs = {
                                             destination: (() => {
                                               try {
-                                                return `/self-test?user_id=${
-                                                  $ctx.query.user_id
-                                                }&type=${currentItem.option_metric.option_metric.slice(
-                                                  0,
-                                                  -1
-                                                )}&nextQuesion_id=${
-                                                  $state.apiRequest.data.extras.find(
-                                                    a =>
-                                                      a.type ==
-                                                      currentItem.option_metric.option_metric.slice(
-                                                        0,
-                                                        -1
-                                                      )
-                                                  ).next_question_id
-                                                }&session_id=${
-                                                  $ctx.query.session_id
-                                                }&app=${$ctx.query.app}&inApp=${
-                                                  $ctx.query.inApp
-                                                }`;
+                                                return `/self-test?user_id=${$ctx.query.user_id}&type=${currentItem.option_metric.option_metric.slice(0, -1)}&nextQuesion_id=${$state.apiRequest.data.extras.find(a => a.type == currentItem.option_metric.option_metric.slice(0, -1)).next_question_id}&session_id=${$ctx.query.session_id}&app=${$ctx.query.app}&inApp=${$ctx.query.inApp}`;
                                               } catch (e) {
                                                 if (
                                                   e instanceof TypeError ||
@@ -3839,9 +3798,8 @@ function PlasmicResult__RenderFunc(props: {
                                       typeof $steps["goToPage"].then ===
                                         "function"
                                     ) {
-                                      $steps["goToPage"] = await $steps[
-                                        "goToPage"
-                                      ];
+                                      $steps["goToPage"] =
+                                        await $steps["goToPage"];
                                     }
 
                                     $steps["updateLoading2"] = true
@@ -3882,9 +3840,8 @@ function PlasmicResult__RenderFunc(props: {
                                       typeof $steps["updateLoading2"].then ===
                                         "function"
                                     ) {
-                                      $steps["updateLoading2"] = await $steps[
-                                        "updateLoading2"
-                                      ];
+                                      $steps["updateLoading2"] =
+                                        await $steps["updateLoading2"];
                                     }
                                   },
                                   onColorChange: async (...eventArgs: any) => {
@@ -4315,9 +4272,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["updateAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateAction"] = await $steps[
-                                    "updateAction"
-                                  ];
+                                  $steps["updateAction"] =
+                                    await $steps["updateAction"];
                                 }
 
                                 $steps["updateDialogOpen"] = true
@@ -4354,9 +4310,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["updateDialogOpen"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateDialogOpen"] = await $steps[
-                                    "updateDialogOpen"
-                                  ];
+                                  $steps["updateDialogOpen"] =
+                                    await $steps["updateDialogOpen"];
                                 }
 
                                 $steps["invokeGlobalAction"] = true
@@ -4411,9 +4366,8 @@ function PlasmicResult__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction"] = await $steps[
-                                    "invokeGlobalAction"
-                                  ];
+                                  $steps["invokeGlobalAction"] =
+                                    await $steps["invokeGlobalAction"];
                                 }
                               }}
                               size={"compact"}
@@ -4471,20 +4425,7 @@ function PlasmicResult__RenderFunc(props: {
                             )}
                             destination={(() => {
                               try {
-                                return `https://tools.liom.app/self-test?user_id=${
-                                  $ctx.query.user_id
-                                }&type=${currentItem.option_metric.slice(
-                                  0,
-                                  -1
-                                )}&nextQuesion_id=${
-                                  $state.apiRequest.data.extras.find(
-                                    a =>
-                                      a.type ===
-                                      currentItem.option_metric.slice(0, -1)
-                                  ).next_question_id
-                                }&session_id=${$ctx.query.session_id}&app=${
-                                  $ctx.query.app
-                                }`;
+                                return `https://tools.liom.app/self-test?user_id=${$ctx.query.user_id}&type=${currentItem.option_metric.slice(0, -1)}&nextQuesion_id=${$state.apiRequest.data.extras.find(a => a.type === currentItem.option_metric.slice(0, -1)).next_question_id}&session_id=${$ctx.query.session_id}&app=${$ctx.query.app}`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -4601,9 +4542,8 @@ function PlasmicResult__RenderFunc(props: {
                                         typeof $steps["updateLoading"].then ===
                                           "function"
                                       ) {
-                                        $steps["updateLoading"] = await $steps[
-                                          "updateLoading"
-                                        ];
+                                        $steps["updateLoading"] =
+                                          await $steps["updateLoading"];
                                       }
 
                                       $steps["goToPage"] = true
@@ -4611,25 +4551,7 @@ function PlasmicResult__RenderFunc(props: {
                                             const actionArgs = {
                                               destination: (() => {
                                                 try {
-                                                  return `/self-test?user_id=${
-                                                    $ctx.query.user_id
-                                                  }&type=${currentItem.option_metric.option_metric.slice(
-                                                    0,
-                                                    -1
-                                                  )}&nextQuesion_id=${
-                                                    $state.apiRequest.data.extras.find(
-                                                      a =>
-                                                        a.type ==
-                                                        currentItem.option_metric.option_metric.slice(
-                                                          0,
-                                                          -1
-                                                        )
-                                                    ).next_question_id
-                                                  }&session_id=${
-                                                    $ctx.query.session_id
-                                                  }&app=${
-                                                    $ctx.query.app
-                                                  }&inApp=${$ctx.query.inApp}`;
+                                                  return `/self-test?user_id=${$ctx.query.user_id}&type=${currentItem.option_metric.option_metric.slice(0, -1)}&nextQuesion_id=${$state.apiRequest.data.extras.find(a => a.type == currentItem.option_metric.option_metric.slice(0, -1)).next_question_id}&session_id=${$ctx.query.session_id}&app=${$ctx.query.app}&inApp=${$ctx.query.inApp}`;
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -4668,9 +4590,8 @@ function PlasmicResult__RenderFunc(props: {
                                         typeof $steps["goToPage"].then ===
                                           "function"
                                       ) {
-                                        $steps["goToPage"] = await $steps[
-                                          "goToPage"
-                                        ];
+                                        $steps["goToPage"] =
+                                          await $steps["goToPage"];
                                       }
 
                                       $steps["updateLoading2"] = true
@@ -4711,9 +4632,8 @@ function PlasmicResult__RenderFunc(props: {
                                         typeof $steps["updateLoading2"].then ===
                                           "function"
                                       ) {
-                                        $steps["updateLoading2"] = await $steps[
-                                          "updateLoading2"
-                                        ];
+                                        $steps["updateLoading2"] =
+                                          await $steps["updateLoading2"];
                                       }
                                     },
                                     onColorChange: async (
@@ -5069,9 +4989,8 @@ function PlasmicResult__RenderFunc(props: {
                                 typeof $steps["updateAction"].then ===
                                   "function"
                               ) {
-                                $steps["updateAction"] = await $steps[
-                                  "updateAction"
-                                ];
+                                $steps["updateAction"] =
+                                  await $steps["updateAction"];
                               }
 
                               $steps["updateDialogOpen"] = true
@@ -5108,9 +5027,8 @@ function PlasmicResult__RenderFunc(props: {
                                 typeof $steps["updateDialogOpen"].then ===
                                   "function"
                               ) {
-                                $steps["updateDialogOpen"] = await $steps[
-                                  "updateDialogOpen"
-                                ];
+                                $steps["updateDialogOpen"] =
+                                  await $steps["updateDialogOpen"];
                               }
                             }}
                           >
@@ -5148,14 +5066,14 @@ function PlasmicResult__RenderFunc(props: {
                                         score >= 80
                                           ? "red"
                                           : score >= 70
-                                          ? "oreng"
-                                          : score >= 60
-                                          ? "yellow"
-                                          : score >= 50
-                                          ? "blue"
-                                          : score >= 40
-                                          ? ""
-                                          : "";
+                                            ? "oreng"
+                                            : score >= 60
+                                              ? "yellow"
+                                              : score >= 50
+                                                ? "blue"
+                                                : score >= 40
+                                                  ? ""
+                                                  : "";
                                       return color;
                                     })();
                                   } catch (e) {
@@ -5286,38 +5204,38 @@ function PlasmicResult__RenderFunc(props: {
             hasVariant($state, "specialized", "specialized")
               ? true
               : hasVariant($state, "information", "information")
-              ? true
-              : hasVariant(globalVariants, "screen", "mobileOnly")
-              ? (() => {
-                  try {
-                    return $state.apiRequest?.data?.prescription;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-              : (() => {
-                  try {
-                    return (
-                      $state.apiRequest.data.prescription &&
-                      $state.apiRequest.data &&
-                      $state.apiRequest.data.our_message
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
+                ? true
+                : hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? (() => {
+                      try {
+                        return $state.apiRequest?.data?.prescription;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+                  : (() => {
+                      try {
+                        return (
+                          $state.apiRequest.data.prescription &&
+                          $state.apiRequest.data &&
+                          $state.apiRequest.data.our_message
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__bKpwS, {
@@ -5446,9 +5364,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["updateProfileOpen"] === "object" &&
                       typeof $steps["updateProfileOpen"].then === "function"
                     ) {
-                      $steps["updateProfileOpen"] = await $steps[
-                        "updateProfileOpen"
-                      ];
+                      $steps["updateProfileOpen"] =
+                        await $steps["updateProfileOpen"];
                     }
 
                     $steps["invokeGlobalAction"] = $state.prescriptions.find(
@@ -5473,9 +5390,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["runCode"] = $state.prescriptions.find(
@@ -5485,13 +5401,7 @@ function PlasmicResult__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return window.open(
-                                `https://tools.liom.app/medicine/?code=${
-                                  $state.prescriptions.find(
-                                    i =>
-                                      i.request_p == $state.requestP &&
-                                      i.done == 1
-                                  ).doctor_tracking_code
-                                }`,
+                                `https://tools.liom.app/medicine/?code=${$state.prescriptions.find(i => i.request_p == $state.requestP && i.done == 1).doctor_tracking_code}`,
                                 "_self"
                               );
                             }
@@ -9168,9 +9078,8 @@ function PlasmicResult__RenderFunc(props: {
                   typeof $steps["invokeGlobalAction"] === "object" &&
                   typeof $steps["invokeGlobalAction"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
                 }
 
                 $steps["updateSpecialized2"] = $steps.invokeGlobalAction?.data
@@ -9204,9 +9113,8 @@ function PlasmicResult__RenderFunc(props: {
                   typeof $steps["updateSpecialized2"] === "object" &&
                   typeof $steps["updateSpecialized2"].then === "function"
                 ) {
-                  $steps["updateSpecialized2"] = await $steps[
-                    "updateSpecialized2"
-                  ];
+                  $steps["updateSpecialized2"] =
+                    await $steps["updateSpecialized2"];
                 }
               }).apply(null, eventArgs);
             }}
@@ -9445,9 +9353,8 @@ function PlasmicResult__RenderFunc(props: {
                           typeof $steps["updateDialog2Open"] === "object" &&
                           typeof $steps["updateDialog2Open"].then === "function"
                         ) {
-                          $steps["updateDialog2Open"] = await $steps[
-                            "updateDialog2Open"
-                          ];
+                          $steps["updateDialog2Open"] =
+                            await $steps["updateDialog2Open"];
                         }
                       }}
                     >
@@ -9468,8 +9375,8 @@ function PlasmicResult__RenderFunc(props: {
                               return currentItem == 5
                                 ? "star.yes"
                                 : currentItem == 1
-                                ? "star.no"
-                                : "";
+                                  ? "star.no"
+                                  : "";
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -9663,9 +9570,8 @@ function PlasmicResult__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
@@ -9687,9 +9593,8 @@ function PlasmicResult__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction2"] === "object" &&
                     typeof $steps["invokeGlobalAction2"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
+                    $steps["invokeGlobalAction2"] =
+                      await $steps["invokeGlobalAction2"];
                   }
 
                   $steps["updateLoading2"] = true
@@ -9797,9 +9702,8 @@ function PlasmicResult__RenderFunc(props: {
                     typeof $steps["updateDialog2Open"] === "object" &&
                     typeof $steps["updateDialog2Open"].then === "function"
                   ) {
-                    $steps["updateDialog2Open"] = await $steps[
-                      "updateDialog2Open"
-                    ];
+                    $steps["updateDialog2Open"] =
+                      await $steps["updateDialog2Open"];
                   }
                 }}
                 outline={true}
@@ -9878,9 +9782,7 @@ function PlasmicResult__RenderFunc(props: {
                 shouldFetch={true}
                 url={(() => {
                   try {
-                    return `https://apigw.paziresh24.com/seapi/v1/search/ir/${
-                      !!$state.action ? $state.action : "general-practitioner"
-                    }?turn_type=consult`;
+                    return `https://apigw.paziresh24.com/seapi/v1/search/ir/${!!$state.action ? $state.action : "general-practitioner"}?turn_type=consult`;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -10637,9 +10539,8 @@ function PlasmicResult__RenderFunc(props: {
                               typeof $steps["updateAction"] === "object" &&
                               typeof $steps["updateAction"].then === "function"
                             ) {
-                              $steps["updateAction"] = await $steps[
-                                "updateAction"
-                              ];
+                              $steps["updateAction"] =
+                                await $steps["updateAction"];
                             }
 
                             $steps["updateDialogOpen"] = true
@@ -10674,9 +10575,8 @@ function PlasmicResult__RenderFunc(props: {
                               typeof $steps["updateDialogOpen"].then ===
                                 "function"
                             ) {
-                              $steps["updateDialogOpen"] = await $steps[
-                                "updateDialogOpen"
-                              ];
+                              $steps["updateDialogOpen"] =
+                                await $steps["updateDialogOpen"];
                             }
 
                             $steps["invokeGlobalAction"] = true
@@ -10729,9 +10629,8 @@ function PlasmicResult__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
                           }}
                           showStartIcon={true}
@@ -10854,9 +10753,8 @@ function PlasmicResult__RenderFunc(props: {
                               typeof $steps["updateDialog2Open"].then ===
                                 "function"
                             ) {
-                              $steps["updateDialog2Open"] = await $steps[
-                                "updateDialog2Open"
-                              ];
+                              $steps["updateDialog2Open"] =
+                                await $steps["updateDialog2Open"];
                             }
                           }}
                           showStartIcon={true}
@@ -11088,9 +10986,8 @@ function PlasmicResult__RenderFunc(props: {
                               typeof $steps["updateProfileOpen"].then ===
                                 "function"
                             ) {
-                              $steps["updateProfileOpen"] = await $steps[
-                                "updateProfileOpen"
-                              ];
+                              $steps["updateProfileOpen"] =
+                                await $steps["updateProfileOpen"];
                             }
 
                             $steps["invokeGlobalAction"] =
@@ -11118,9 +11015,8 @@ function PlasmicResult__RenderFunc(props: {
                               typeof $steps["invokeGlobalAction"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
 
                             $steps["runCode"] = $state.prescriptions.find(
@@ -11130,13 +11026,7 @@ function PlasmicResult__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return window.open(
-                                        `https://tools.liom.app/medicine/?code=${
-                                          $state.prescriptions.find(
-                                            i =>
-                                              i.request_p == "نسخه دارو" &&
-                                              i.done == 1
-                                          ).doctor_tracking_code
-                                        }`,
+                                        `https://tools.liom.app/medicine/?code=${$state.prescriptions.find(i => i.request_p == "نسخه دارو" && i.done == 1).doctor_tracking_code}`,
                                         "_self"
                                       );
                                     }
@@ -11230,9 +11120,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["runCode2"] = true
@@ -11373,8 +11262,8 @@ function PlasmicResult__RenderFunc(props: {
                                 return currentItem == 5
                                   ? "star.yes"
                                   : currentItem == 1
-                                  ? "star.no"
-                                  : "";
+                                    ? "star.no"
+                                    : "";
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -11542,9 +11431,8 @@ function PlasmicResult__RenderFunc(props: {
                           typeof $steps["updateDisable"] === "object" &&
                           typeof $steps["updateDisable"].then === "function"
                         ) {
-                          $steps["updateDisable"] = await $steps[
-                            "updateDisable"
-                          ];
+                          $steps["updateDisable"] =
+                            await $steps["updateDisable"];
                         }
                       }}
                     />
@@ -11678,9 +11566,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
@@ -11702,9 +11589,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["updateLoading2"] = true
@@ -11774,9 +11660,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["updateDialog2Open"] === "object" &&
                       typeof $steps["updateDialog2Open"].then === "function"
                     ) {
-                      $steps["updateDialog2Open"] = await $steps[
-                        "updateDialog2Open"
-                      ];
+                      $steps["updateDialog2Open"] =
+                        await $steps["updateDialog2Open"];
                     }
 
                     $steps["invokeGlobalAction3"] =
@@ -11801,9 +11686,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction3"] === "object" &&
                       typeof $steps["invokeGlobalAction3"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
+                      $steps["invokeGlobalAction3"] =
+                        await $steps["invokeGlobalAction3"];
                     }
 
                     $steps["invokeGlobalAction4"] =
@@ -11841,9 +11725,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction4"] === "object" &&
                       typeof $steps["invokeGlobalAction4"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction4"] = await $steps[
-                        "invokeGlobalAction4"
-                      ];
+                      $steps["invokeGlobalAction4"] =
+                        await $steps["invokeGlobalAction4"];
                     }
                   }}
                   startIcon={
@@ -12580,9 +12463,8 @@ function PlasmicResult__RenderFunc(props: {
                                 typeof $steps["updateGender"].then ===
                                   "function"
                               ) {
-                                $steps["updateGender"] = await $steps[
-                                  "updateGender"
-                                ];
+                                $steps["updateGender"] =
+                                  await $steps["updateGender"];
                               }
                             }}
                             selected={(() => {
@@ -12793,9 +12675,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["updateModalOpen2"] === "object" &&
                       typeof $steps["updateModalOpen2"].then === "function"
                     ) {
-                      $steps["updateModalOpen2"] = await $steps[
-                        "updateModalOpen2"
-                      ];
+                      $steps["updateModalOpen2"] =
+                        await $steps["updateModalOpen2"];
                     }
 
                     $steps["updateErrors"] = true
@@ -12958,9 +12839,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["invokeGlobalAction2"] =
@@ -12984,9 +12864,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["updateProfileOpen"] =
@@ -13021,9 +12900,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["updateProfileOpen"] === "object" &&
                       typeof $steps["updateProfileOpen"].then === "function"
                     ) {
-                      $steps["updateProfileOpen"] = await $steps[
-                        "updateProfileOpen"
-                      ];
+                      $steps["updateProfileOpen"] =
+                        await $steps["updateProfileOpen"];
                     }
 
                     $steps["updateButtonLiom5Load"] = true
@@ -13057,9 +12935,8 @@ function PlasmicResult__RenderFunc(props: {
                       typeof $steps["updateButtonLiom5Load"] === "object" &&
                       typeof $steps["updateButtonLiom5Load"].then === "function"
                     ) {
-                      $steps["updateButtonLiom5Load"] = await $steps[
-                        "updateButtonLiom5Load"
-                      ];
+                      $steps["updateButtonLiom5Load"] =
+                        await $steps["updateButtonLiom5Load"];
                     }
 
                     $steps["runCode2"] =
@@ -13237,9 +13114,7 @@ function PlasmicResult__RenderFunc(props: {
                               currentUrl.search
                             );
                             params.set("type", $state.apiRequest.data.type);
-                            const newUrl = `${
-                              currentUrl.origin
-                            }/self-test?${params.toString()}`;
+                            const newUrl = `${currentUrl.origin}/self-test?${params.toString()}`;
                             return window.open(newUrl);
                           })();
                         }
@@ -13469,7 +13344,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicResult__VariantsArgs;
     args?: PlasmicResult__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicResult__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicResult__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicResult__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

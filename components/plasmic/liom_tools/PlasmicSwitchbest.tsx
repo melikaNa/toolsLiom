@@ -362,7 +362,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSwitchbest__VariantsArgs;
     args?: PlasmicSwitchbest__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSwitchbest__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSwitchbest__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSwitchbest__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

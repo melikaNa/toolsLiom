@@ -190,9 +190,13 @@
   color: var(--token-jgohepLVeKvh);
   font-size: var(--token-7E1YyiP6sAP9);
   font-weight: 700;
-  transform: translateX(0px) translateY(0px) translateZ(0px);
+  transform: skew(0deg, 0deg);
   padding-bottom: var(--token-3WxvfyIdJppy);
   padding-top: var(--token-3WxvfyIdJppy);
+  transform-style: preserve-3d;
+}
+.text__chgcz * {
+  transform-style: preserve-3d;
 }
 .freeBox__plc52 {
   display: flex;

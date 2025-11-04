@@ -1731,8 +1731,8 @@ function PlasmicClinic__RenderFunc(props: {
             hasVariant($state, "_1", "chatviow")
               ? true
               : hasVariant($state, "_1", "docters")
-              ? true
-              : false
+                ? true
+                : false
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__iriVs, {
@@ -2173,8 +2173,8 @@ function PlasmicClinic__RenderFunc(props: {
             hasVariant($state, "_1", "chatviow")
               ? true
               : hasVariant($state, "_1", "docter")
-              ? true
-              : false
+                ? true
+                : false
           ) ? (
             <div
               data-plasmic-name={"doctorsDetails"}
@@ -2197,8 +2197,8 @@ function PlasmicClinic__RenderFunc(props: {
                   hasVariant($state, "_1", "chatviow")
                     ? Icon2Icon
                     : hasVariant($state, "_1", "docter")
-                    ? Icon2Icon
-                    : "div"
+                      ? Icon2Icon
+                      : "div"
                 }
                 className={classNames(projectcss.all, sty.svg__qM6YX, {
                   [sty.svg_1_chatviow__qM6YXlEmdG]: hasVariant(
@@ -2555,8 +2555,8 @@ function PlasmicClinic__RenderFunc(props: {
                         {hasVariant($state, "_1", "chatviow")
                           ? "\u0633\u0627\u0628\u0642\u0647"
                           : hasVariant($state, "_1", "docter")
-                          ? "\u0633\u0627\u0628\u0642\u0647"
-                          : "Patients"}
+                            ? "\u0633\u0627\u0628\u0642\u0647"
+                            : "Patients"}
                       </div>
                     </div>
                   </div>
@@ -2732,8 +2732,8 @@ function PlasmicClinic__RenderFunc(props: {
                     {hasVariant($state, "_1", "chatviow")
                       ? "\u0622\u0634\u0646\u0627\u06cc\u06cc \u0628\u0627 \u067e\u0632\u0634\u06a9"
                       : hasVariant($state, "_1", "docter")
-                      ? "\u0622\u0634\u0646\u0627\u06cc\u06cc \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                      : "About Doctor"}
+                        ? "\u0622\u0634\u0646\u0627\u06cc\u06cc \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                        : "About Doctor"}
                   </div>
                   <div
                     data-plasmic-name={"drBellamyNicholas"}
@@ -2759,8 +2759,8 @@ function PlasmicClinic__RenderFunc(props: {
                     {hasVariant($state, "_1", "chatviow")
                       ? "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f."
                       : hasVariant($state, "_1", "docter")
-                      ? "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f."
-                      : "Dr. Bellamy Nicholas is a top specialist at London Bridge Hospital at London. He has achieved several awards and recognition for is contribution and service in his own field. He is available for private consultation. "}
+                        ? "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f."
+                        : "Dr. Bellamy Nicholas is a top specialist at London Bridge Hospital at London. He has achieved several awards and recognition for is contribution and service in his own field. He is available for private consultation. "}
                   </div>
                 </div>
                 <div
@@ -2801,8 +2801,8 @@ function PlasmicClinic__RenderFunc(props: {
                     {hasVariant($state, "_1", "chatviow")
                       ? "\u0633\u0627\u0639\u0627\u062a \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
                       : hasVariant($state, "_1", "docter")
-                      ? "\u0633\u0627\u0639\u0627\u062a \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
-                      : "Working time"}
+                        ? "\u0633\u0627\u0639\u0627\u062a \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
+                        : "Working time"}
                   </div>
                   <div
                     data-plasmic-name={"monSat0830Am"}
@@ -2828,8 +2828,8 @@ function PlasmicClinic__RenderFunc(props: {
                     {hasVariant($state, "_1", "chatviow")
                       ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0632\u0648\u062c (\u0633\u0627\u0639\u062a 9 \u0627\u0644\u06cc 15)"
                       : hasVariant($state, "_1", "docter")
-                      ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0632\u0648\u062c (\u0633\u0627\u0639\u062a 9 \u0627\u0644\u06cc 15)"
-                      : "Mon - Sat (08:30 AM - 09:00 PM)"}
+                        ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0632\u0648\u062c (\u0633\u0627\u0639\u062a 9 \u0627\u0644\u06cc 15)"
+                        : "Mon - Sat (08:30 AM - 09:00 PM)"}
                   </div>
                 </div>
               </div>
@@ -2895,8 +2895,8 @@ function PlasmicClinic__RenderFunc(props: {
                   {hasVariant($state, "_1", "chatviow")
                     ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
                     : hasVariant($state, "_1", "docter")
-                    ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                    : "Button"}
+                      ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                      : "Button"}
                 </div>
               </ButtonLiom>
             </div>
@@ -3158,7 +3158,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicClinic__VariantsArgs;
     args?: PlasmicClinic__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicClinic__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicClinic__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicClinic__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

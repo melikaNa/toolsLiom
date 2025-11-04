@@ -295,7 +295,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicOptionItemLiom__VariantsArgs;
     args?: PlasmicOptionItemLiom__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicOptionItemLiom__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicOptionItemLiom__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicOptionItemLiom__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

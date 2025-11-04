@@ -14,5 +14,9 @@
   color: #7444bc;
 }
 .root:hover {
-  transform: scaleX(1.2) scaleY(1.2) scaleZ(1);
+  transform: scale3d(1.2, 1.2, 1);
+  transform-style: preserve-3d;
+}
+.root:hover * {
+  transform-style: preserve-3d;
 }

@@ -559,9 +559,8 @@ function PlasmicQuestions__RenderFunc(props: {
                       typeof $steps["updateQuestions"] === "object" &&
                       typeof $steps["updateQuestions"].then === "function"
                     ) {
-                      $steps["updateQuestions"] = await $steps[
-                        "updateQuestions"
-                      ];
+                      $steps["updateQuestions"] =
+                        await $steps["updateQuestions"];
                     }
 
                     $steps["updateCurrentTest"] = true
@@ -595,9 +594,8 @@ function PlasmicQuestions__RenderFunc(props: {
                       typeof $steps["updateCurrentTest"] === "object" &&
                       typeof $steps["updateCurrentTest"].then === "function"
                     ) {
-                      $steps["updateCurrentTest"] = await $steps[
-                        "updateCurrentTest"
-                      ];
+                      $steps["updateCurrentTest"] =
+                        await $steps["updateCurrentTest"];
                     }
                   }}
                 >
@@ -719,9 +717,8 @@ function PlasmicQuestions__RenderFunc(props: {
                       typeof $steps["updateQuestions"] === "object" &&
                       typeof $steps["updateQuestions"].then === "function"
                     ) {
-                      $steps["updateQuestions"] = await $steps[
-                        "updateQuestions"
-                      ];
+                      $steps["updateQuestions"] =
+                        await $steps["updateQuestions"];
                     }
                   }}
                   role={"img"}
@@ -1014,9 +1011,8 @@ function PlasmicQuestions__RenderFunc(props: {
                         typeof $steps["updatePagination"] === "object" &&
                         typeof $steps["updatePagination"].then === "function"
                       ) {
-                        $steps["updatePagination"] = await $steps[
-                          "updatePagination"
-                        ];
+                        $steps["updatePagination"] =
+                          await $steps["updatePagination"];
                       }
                     }).apply(null, eventArgs);
                   }}
@@ -1927,7 +1923,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicQuestions__VariantsArgs;
     args?: PlasmicQuestions__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicQuestions__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicQuestions__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicQuestions__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

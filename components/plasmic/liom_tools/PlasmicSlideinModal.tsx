@@ -296,7 +296,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSlideinModal__VariantsArgs;
     args?: PlasmicSlideinModal__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSlideinModal__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSlideinModal__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSlideinModal__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

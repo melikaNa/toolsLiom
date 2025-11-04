@@ -252,12 +252,14 @@ function PlasmicMedicine2__RenderFunc(props: {
                   details.filter(item => item.score > 80).length > 0
                     ? details.filter(item => item.score > 80)
                     : details.filter(item => item.score > 70).length > 0
-                    ? details.filter(item => item.score > 70)
-                    : details.filter(item => item.score > 60).length > 0
-                    ? details.filter(item => item.score > 60)
-                    : details.filter(item => item.score > 50).length > 0
-                    ? details.filter(item => item.score > 50)
-                    : details.filter(item => parseInt(item.score) === maxScore);
+                      ? details.filter(item => item.score > 70)
+                      : details.filter(item => item.score > 60).length > 0
+                        ? details.filter(item => item.score > 60)
+                        : details.filter(item => item.score > 50).length > 0
+                          ? details.filter(item => item.score > 50)
+                          : details.filter(
+                              item => parseInt(item.score) === maxScore
+                            );
                 return filteredItems;
               })();
             } catch (e) {
@@ -639,9 +641,7 @@ function PlasmicMedicine2__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -693,9 +693,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["updateInfo"] = $steps.invokeGlobalAction?.data
@@ -1383,9 +1382,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
                     }}
                   >
@@ -1809,9 +1807,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                             typeof $steps["invokeGlobalAction"].then ===
                               "function"
                           ) {
-                            $steps["invokeGlobalAction"] = await $steps[
-                              "invokeGlobalAction"
-                            ];
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
                           }
                         }}
                         role={"img"}
@@ -2283,9 +2280,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                         typeof $steps["updateUploadLoad"] === "object" &&
                         typeof $steps["updateUploadLoad"].then === "function"
                       ) {
-                        $steps["updateUploadLoad"] = await $steps[
-                          "updateUploadLoad"
-                        ];
+                        $steps["updateUploadLoad"] =
+                          await $steps["updateUploadLoad"];
                       }
 
                       $steps["updateModalOpen2"] = !$state.resultTest
@@ -2338,9 +2334,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                         typeof $steps["updateModalOpen2"] === "object" &&
                         typeof $steps["updateModalOpen2"].then === "function"
                       ) {
-                        $steps["updateModalOpen2"] = await $steps[
-                          "updateModalOpen2"
-                        ];
+                        $steps["updateModalOpen2"] =
+                          await $steps["updateModalOpen2"];
                       }
 
                       $steps["updateModalOpen4"] = (
@@ -2384,9 +2379,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                         typeof $steps["updateModalOpen4"] === "object" &&
                         typeof $steps["updateModalOpen4"].then === "function"
                       ) {
-                        $steps["updateModalOpen4"] = await $steps[
-                          "updateModalOpen4"
-                        ];
+                        $steps["updateModalOpen4"] =
+                          await $steps["updateModalOpen4"];
                       }
 
                       $steps["updateModalOpen3"] = $steps.updateModalOpen2?.data
@@ -2408,9 +2402,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                         typeof $steps["updateModalOpen3"] === "object" &&
                         typeof $steps["updateModalOpen3"].then === "function"
                       ) {
-                        $steps["updateModalOpen3"] = await $steps[
-                          "updateModalOpen3"
-                        ];
+                        $steps["updateModalOpen3"] =
+                          await $steps["updateModalOpen3"];
                       }
 
                       $steps["runCode"] = true
@@ -2585,9 +2578,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                         typeof $steps["updateUploadLoad2"] === "object" &&
                         typeof $steps["updateUploadLoad2"].then === "function"
                       ) {
-                        $steps["updateUploadLoad2"] = await $steps[
-                          "updateUploadLoad2"
-                        ];
+                        $steps["updateUploadLoad2"] =
+                          await $steps["updateUploadLoad2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2747,9 +2739,8 @@ function PlasmicMedicine2__RenderFunc(props: {
                     typeof $steps["updateModal2Open"] === "object" &&
                     typeof $steps["updateModal2Open"].then === "function"
                   ) {
-                    $steps["updateModal2Open"] = await $steps[
-                      "updateModal2Open"
-                    ];
+                    $steps["updateModal2Open"] =
+                      await $steps["updateModal2Open"];
                   }
                 }}
                 role={"img"}
@@ -2946,7 +2937,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMedicine2__VariantsArgs;
     args?: PlasmicMedicine2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMedicine2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMedicine2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMedicine2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
