@@ -1817,84 +1817,131 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </ButtonLiom>
-                      <ButtonLiom
-                        data-plasmic-name={"buttonLiom"}
-                        data-plasmic-override={overrides.buttonLiom}
-                        className={classNames("__wab_instance", sty.buttonLiom)}
-                        color={generateStateValueProp($state, [
-                          "buttonLiom",
-                          "color"
-                        ])}
-                        load={generateStateValueProp($state, [
-                          "buttonLiom",
-                          "load"
-                        ])}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["invokeGlobalAction"] = true
-                            ? (() => {
-                                const actionArgs = { args: ["#chatBot"] };
-                                return $globalActions[
-                                  "Fragment.deepLink"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
+                      {(() => {
+                        try {
+                          return $state.upload.load;
+                        } catch (e) {
                           if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            $steps["invokeGlobalAction"] =
-                              await $steps["invokeGlobalAction"];
+                            return false;
                           }
-                        }}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "buttonLiom",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        onLoadChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "buttonLiom",
-                              "load"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                      >
-                        <div
+                          throw e;
+                        }
+                      })() ? (
+                        <ButtonLiom
+                          data-plasmic-name={"buttonLiom"}
+                          data-plasmic-override={overrides.buttonLiom}
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__v8CFw
+                            "__wab_instance",
+                            sty.buttonLiom
                           )}
+                          color={generateStateValueProp($state, [
+                            "buttonLiom",
+                            "color"
+                          ])}
+                          load={generateStateValueProp($state, [
+                            "buttonLiom",
+                            "load"
+                          ])}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "#chatBot",
+                                      undefined,
+                                      undefined,
+                                      undefined,
+                                      undefined,
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            question:
+                                              $state.getInfo.firstMessage,
+                                            attachments: JSON.stringify(
+                                              $state.images
+                                            )
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.deepLink"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
+                            }
+                          }}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "buttonLiom",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          onLoadChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "buttonLiom",
+                                "load"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
                         >
-                          {
-                            "\u062a\u062d\u0644\u06cc\u0644 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062a\u0648\u0633\u0637  \u0686\u062a \u0628\u0627\u062a "
-                          }
-                        </div>
-                      </ButtonLiom>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__v8CFw
+                            )}
+                          >
+                            {
+                              "\u062a\u062d\u0644\u06cc\u0644 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062a\u0648\u0633\u0637  \u0686\u062a \u0628\u0627\u062a "
+                            }
+                          </div>
+                        </ButtonLiom>
+                      ) : null}
                     </div>
                   </div>
                 </section>
