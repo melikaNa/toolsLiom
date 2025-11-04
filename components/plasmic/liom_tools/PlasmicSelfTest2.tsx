@@ -1772,8 +1772,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          console.log("fromUpolad");
-                          $state.text = "سلام خوبی\u061F";
+                          console.log("fromUpoladd");
+                          $state.textArea.value = "سلام خوبی\u061F";
                           return setTimeout(() => {
                             console.log("after delaiy");
                             if (!$state.sendIcon.diable) {
