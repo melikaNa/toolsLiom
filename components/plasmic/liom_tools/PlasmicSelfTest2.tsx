@@ -4554,9 +4554,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     undefined,
                                     (() => {
                                       try {
-                                        return $state.testChat.length === 2 &&
-                                          $ctx.query.origin_user_id ==
-                                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                        return $state.testChat.length === 2
                                           ? {
                                               session_id: $state.sessionId,
                                               bot_session_id:
@@ -4569,33 +4567,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                                 $state.paramsObject
                                                   .attachments || ""
                                             }
-                                          : $state.testChat.length === 2
-                                            ? {
-                                                session_id: $state.sessionId,
-                                                bot_session_id:
-                                                  $state.botSessionId,
-                                                message: $state.text,
-                                                healthDoc:
-                                                  $steps.newSession.data
-                                                    .healthDoc
-                                              }
-                                            : $ctx.query.origin_user_id ==
-                                                "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                                              ? {
-                                                  session_id: $state.sessionId,
-                                                  bot_session_id:
-                                                    $state.botSessionId,
-                                                  message: $state.text,
-                                                  attachments:
-                                                    $state.paramsObject
-                                                      .attachments || ""
-                                                }
-                                              : {
-                                                  session_id: $state.sessionId,
-                                                  bot_session_id:
-                                                    $state.botSessionId,
-                                                  message: $state.text
-                                                };
+                                          : {
+                                              session_id: $state.sessionId,
+                                              bot_session_id:
+                                                $state.botSessionId,
+                                              message: $state.text
+                                            };
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||

@@ -120,6 +120,7 @@ export type PlasmicTestAnalysis__OverridesType = {
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   imageOpload?: Flex__<typeof ImageOpload>;
   upload?: Flex__<typeof ButtonLiom>;
+  buttonLiom?: Flex__<typeof ButtonLiom>;
   modal2?: Flex__<typeof AntdModal>;
   antdInput?: Flex__<typeof Input>;
 };
@@ -352,6 +353,18 @@ function PlasmicTestAnalysis__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "buttonLiom.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "green"
+      },
+      {
+        path: "buttonLiom.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -442,7 +455,9 @@ function PlasmicTestAnalysis__RenderFunc(props: {
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
+            className={classNames("__wab_instance", sty.sideEffect, {
+              [sty.sideEffectupload2]: hasVariant($state, "upload2", "upload2")
+            })}
             onMount={async () => {
               const $steps = {};
 
@@ -1594,6 +1609,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           "upload",
                           "color"
                         ])}
+                        disabled={false}
                         load={generateStateValueProp($state, [
                           "upload",
                           "load"
@@ -1799,6 +1815,84 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           <React.Fragment>
                             {$state.getInfo.btnText}
                           </React.Fragment>
+                        </div>
+                      </ButtonLiom>
+                      <ButtonLiom
+                        data-plasmic-name={"buttonLiom"}
+                        data-plasmic-override={overrides.buttonLiom}
+                        className={classNames("__wab_instance", sty.buttonLiom)}
+                        color={generateStateValueProp($state, [
+                          "buttonLiom",
+                          "color"
+                        ])}
+                        load={generateStateValueProp($state, [
+                          "buttonLiom",
+                          "load"
+                        ])}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = { args: ["#chatBot"] };
+                                return $globalActions[
+                                  "Fragment.deepLink"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
+                          }
+                        }}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "buttonLiom",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "buttonLiom",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__v8CFw
+                          )}
+                        >
+                          {
+                            "\u062a\u062d\u0644\u06cc\u0644 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062a\u0648\u0633\u0637  \u0686\u062a \u0628\u0627\u062a "
+                          }
                         </div>
                       </ButtonLiom>
                     </div>
@@ -2008,6 +2102,7 @@ const PlasmicDescendants = {
     "buttonLiom2",
     "imageOpload",
     "upload",
+    "buttonLiom",
     "modal2",
     "antdInput"
   ],
@@ -2019,6 +2114,7 @@ const PlasmicDescendants = {
   buttonLiom2: ["buttonLiom2"],
   imageOpload: ["imageOpload"],
   upload: ["upload"],
+  buttonLiom: ["buttonLiom"],
   modal2: ["modal2"],
   antdInput: ["antdInput"]
 } as const;
@@ -2035,6 +2131,7 @@ type NodeDefaultElementType = {
   buttonLiom2: typeof ButtonLiom;
   imageOpload: typeof ImageOpload;
   upload: typeof ButtonLiom;
+  buttonLiom: typeof ButtonLiom;
   modal2: typeof AntdModal;
   antdInput: typeof Input;
 };
@@ -2134,6 +2231,7 @@ export const PlasmicTestAnalysis = Object.assign(
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     imageOpload: makeNodeComponent("imageOpload"),
     upload: makeNodeComponent("upload"),
+    buttonLiom: makeNodeComponent("buttonLiom"),
     modal2: makeNodeComponent("modal2"),
     antdInput: makeNodeComponent("antdInput"),
 
