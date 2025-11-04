@@ -1765,38 +1765,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
             ) {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
             }
-
-            $steps["runCode2"] =
-              $state.paramsObject.fromUpload == "true"
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          console.log("fromUpoladd");
-                          $state.textArea.value = "سلام خوبی\u061F";
-                          return setTimeout(() => {
-                            console.log("after delaiy");
-                            if (!$state.sendIcon.diable) {
-                              window.document
-                                .getElementById("sendicon")
-                                .click();
-                            }
-                          }, 300);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-            if (
-              $steps["runCode2"] != null &&
-              typeof $steps["runCode2"] === "object" &&
-              typeof $steps["runCode2"].then === "function"
-            ) {
-              $steps["runCode2"] = await $steps["runCode2"];
-            }
           }}
         />
 
@@ -4586,31 +4554,48 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     undefined,
                                     (() => {
                                       try {
-                                        return $state.testChat.length === 2
+                                        return $state.testChat.length === 2 &&
+                                          $ctx.query.origin_user_id ==
+                                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
                                           ? {
                                               session_id: $state.sessionId,
                                               bot_session_id:
                                                 $state.botSessionId,
                                               message: $state.text,
                                               healthDoc:
-                                                $steps.newSession.data.healthDoc
+                                                $steps.newSession.data
+                                                  .healthDoc,
+                                              attachments:
+                                                $state.paramsObject
+                                                  .attachments || ""
                                             }
-                                          : $ctx.query.origin_user_id ==
-                                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                          : $state.testChat.length === 2
                                             ? {
                                                 session_id: $state.sessionId,
                                                 bot_session_id:
                                                   $state.botSessionId,
                                                 message: $state.text,
-                                                attachments:
-                                                  '[{\"type\" : \"image\" , \"value\" : \"https://teh-1.s3.poshtiban.com/lioms3/2025-11/test-result/2025-11-03-3ff19c80-fd21-4e83-a8c8-4066502dbc5c.jpg\"} , {\"type\" : \"image\" , \"value\" : \"https://teh-1.s3.poshtiban.com/lioms3/2025-11/test-result/2025-11-03-3ff19c80-fd21-4e83-a8c8-4066502dbc5c.jpg\"}]'
+                                                healthDoc:
+                                                  $steps.newSession.data
+                                                    .healthDoc
                                               }
-                                            : {
-                                                session_id: $state.sessionId,
-                                                bot_session_id:
-                                                  $state.botSessionId,
-                                                message: $state.text
-                                              };
+                                            : $ctx.query.origin_user_id ==
+                                                "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                              ? {
+                                                  session_id: $state.sessionId,
+                                                  bot_session_id:
+                                                    $state.botSessionId,
+                                                  message: $state.text,
+                                                  attachments:
+                                                    $state.paramsObject
+                                                      .attachments || ""
+                                                }
+                                              : {
+                                                  session_id: $state.sessionId,
+                                                  bot_session_id:
+                                                    $state.botSessionId,
+                                                  message: $state.text
+                                                };
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
