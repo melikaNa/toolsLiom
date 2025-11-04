@@ -1819,7 +1819,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                       </ButtonLiom>
                       {(() => {
                         try {
-                          return $state.upload.load;
+                          return $state.images > 0;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
