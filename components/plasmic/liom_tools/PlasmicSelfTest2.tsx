@@ -1008,6 +1008,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         searchParams.delete("token");
                         searchParams.delete("userId");
                         searchParams.delete("user_id");
+                        searchParams.delete("fromUpload");
                         const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                         return window.history.replaceState(null, "", newUrl);
                       })();
@@ -1763,6 +1764,40 @@ function PlasmicSelfTest2__RenderFunc(props: {
               typeof $steps["invokeGlobalAction"].then === "function"
             ) {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
+
+            $steps["runCode2"] =
+              $state.paramsObject.fromUpload == "true" &&
+              ($state.userInfo.id ||
+                $state.paramsObject.user_id ||
+                $state.paramsObject.userId) ==
+                "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          $state.text = "سلام خوبی\u061F";
+                          return setTimeout(() => {
+                            if (!$state.sendIcon.diable) {
+                              window.document
+                                .getElementById("sendicon")
+                                .click();
+                            }
+                          }, 300);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+            if (
+              $steps["runCode2"] != null &&
+              typeof $steps["runCode2"] === "object" &&
+              typeof $steps["runCode2"].then === "function"
+            ) {
+              $steps["runCode2"] = await $steps["runCode2"];
             }
           }}
         />
