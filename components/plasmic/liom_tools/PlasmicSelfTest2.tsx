@@ -1767,17 +1767,15 @@ function PlasmicSelfTest2__RenderFunc(props: {
             }
 
             $steps["runCode2"] =
-              $state.paramsObject.fromUpload == "true" &&
-              ($state.userInfo.id ||
-                $state.paramsObject.user_id ||
-                $state.paramsObject.userId) ==
-                "4ddd1fab-100c-49f0-b843-e70bff8add34"
+              $state.paramsObject.fromUpload == "true"
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
+                          console.log("fromUpolad");
                           $state.text = "سلام خوبی\u061F";
                           return setTimeout(() => {
+                            console.log("after delaiy");
                             if (!$state.sendIcon.diable) {
                               window.document
                                 .getElementById("sendicon")
