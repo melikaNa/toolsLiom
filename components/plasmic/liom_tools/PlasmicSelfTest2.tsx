@@ -3794,38 +3794,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                       }
                                     })()}
                                   />
-
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__a5USu
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return (() => {
-                                            const data = JSON.parse(
-                                              currentItem.attachments
-                                            );
-                                            return (
-                                              "size:" + (data.length || "")
-                                            );
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
                                 </div>
                               );
                             })}
