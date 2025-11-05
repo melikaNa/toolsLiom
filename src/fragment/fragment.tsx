@@ -357,7 +357,10 @@ export const Fragment = ({
               
             case "#chatBot": {
                 const queryString = buildQueryString(params);
-                const link = `https://tools.liom.app/chat-bot/?token=${token}&userId=${userId}&${queryString}&inApp=${inApp}`;
+                let link = `https://tools.liom.app/chat-bot/?userId=${userId}&${queryString}&inApp=${inApp}`;
+                if (token) {
+                  link = `https://tools.liom.app/chat-bot/?token=${token}&userId=${userId}&${queryString}&inApp=${inApp}`;
+                }
                 sendMessage("پزشک هوشمند", link,inWebViow);
                 break;
             }
