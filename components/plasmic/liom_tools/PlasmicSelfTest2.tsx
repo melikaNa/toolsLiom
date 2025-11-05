@@ -3842,6 +3842,34 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   }
                                 })()
                           }
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        console.log(currentItem.attachment);
+                                        return console.log(
+                                          JSON.parse(currentItem.attachments)
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
                           style={
                             hasVariant(globalVariants, "screen", "mobileOnly")
                               ? {
