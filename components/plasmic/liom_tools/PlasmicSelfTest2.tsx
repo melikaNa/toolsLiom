@@ -3736,6 +3736,55 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             throw e;
                           }
                         })() ? (
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img___9PyL)}
+                            displayHeight={"auto"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={"100%"}
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            loading={"lazy"}
+                            src={(() => {
+                              try {
+                                return JSON.parse(currentItem.attachments)?.[0]
+                                  ?.value;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          />
+                        ) : null}
+                        {(() => {
+                          try {
+                            return (() => {
+                              const data = JSON.parse(currentItem.attachments);
+                              var id =
+                                $state.userInfo.id ||
+                                $state.paramsObject.user_id ||
+                                $state.paramsObject.userId;
+                              return (
+                                id == "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                                (data ? "true" : "false") == "true"
+                              );
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })() ? (
                           <div
                             className={classNames(
                               projectcss.all,
@@ -3794,6 +3843,36 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                       }
                                     })()}
                                   />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__a5USu
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return (
+                                            // const data = JSON.parse(currentItem.attachments);
+
+                                            // ("size:" + (data.length))
+                                            "size"
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
                                 </div>
                               );
                             })}

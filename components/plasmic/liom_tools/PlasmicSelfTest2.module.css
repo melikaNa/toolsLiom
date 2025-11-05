@@ -325,6 +325,13 @@
   align-items: flex-start;
   min-width: 0;
 }
+.img___9PyL {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img___9PyL > picture > img {
+  object-fit: cover;
+}
 .freeBox__rHqMq {
   display: grid;
   position: relative;
@@ -352,6 +359,13 @@
 }
 .img__imO40 > picture > img {
   object-fit: cover;
+}
+.text__a5USu {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 .text__pPnwC {
   text-align: right;
