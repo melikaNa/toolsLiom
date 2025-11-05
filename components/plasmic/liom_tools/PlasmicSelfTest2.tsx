@@ -1032,7 +1032,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
+                        console.log("tokennnn:" + $state.paramsObject.token);
                         if (
+                          $state.paramsObject.token !== null &&
                           $state.paramsObject.token !== undefined &&
                           $state.paramsObject.token?.trim() !== ""
                         ) {

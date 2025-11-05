@@ -1891,7 +1891,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                     undefined,
                                     undefined,
                                     undefined,
-                                    undefined,
+                                    true,
                                     (() => {
                                       try {
                                         return (() => {
