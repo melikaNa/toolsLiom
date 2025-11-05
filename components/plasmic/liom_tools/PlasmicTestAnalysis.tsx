@@ -365,6 +365,12 @@ function PlasmicTestAnalysis__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -611,6 +617,37 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 typeof $steps["runCode2"].then === "function"
               ) {
                 $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["setToken"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          console.log(token);
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setToken"] != null &&
+                typeof $steps["setToken"] === "object" &&
+                typeof $steps["setToken"].then === "function"
+              ) {
+                $steps["setToken"] = await $steps["setToken"];
               }
 
               $steps["updateLoading"] = true
@@ -1837,7 +1874,20 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 const actionArgs = {
                                   args: [
                                     "#chatBot",
-                                    undefined,
+                                    (() => {
+                                      try {
+                                        return $state.token;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
                                     undefined,
                                     undefined,
                                     undefined,
