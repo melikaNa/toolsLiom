@@ -624,6 +624,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
+                          cosole.log("get cookie start");
                           var getCookie = name => {
                             const cookies = document.cookie.split("; ");
                             for (let cookie of cookies) {
@@ -632,8 +633,8 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             }
                             return "";
                           };
-                          console.log(token);
-                          return ($state.token = getCookie("token"));
+                          $state.token = getCookie("token");
+                          return console.log($state.token);
                         })();
                       }
                     };
