@@ -3854,12 +3854,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return (
-                                            // const data = JSON.parse(currentItem.attachments);
-
-                                            // ("size:" + (data.length))
-                                            "size"
-                                          );
+                                          return (() => {
+                                            const data = JSON.parse(
+                                              currentItem.attachments
+                                            );
+                                            return "size:" + (data.length ?? 0);
+                                          })();
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
