@@ -1008,7 +1008,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         searchParams.delete("token");
                         searchParams.delete("userId");
                         searchParams.delete("user_id");
-                        searchParams.delete("fromUpload");
+                        searchParams.delete("attachments");
                         const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                         return window.history.replaceState(null, "", newUrl);
                       })();
@@ -3883,14 +3883,24 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                             ? "true"
                                             : "false") == "true"
                                         );
+                                        var id =
+                                          $state.userInfo.id ||
+                                          $state.paramsObject.user_id ||
+                                          $state.paramsObject.userId;
                                         console.log(
-                                          $ctx.query.origin_user_id ==
+                                          id ==
                                             "4ddd1fab-100c-49f0-b843-e70bff8add34"
                                         );
-                                        return console.log(
+                                        console.log(
                                           JSON.parse(currentItem.attachments)
-                                            .lenght > 0
+                                            .length > 0
                                         );
+                                        console.log("----");
+                                        const data = JSON.parse(
+                                          currentItem.attachments
+                                        );
+                                        console.log(Array.isArray(data));
+                                        return console.log(data.length > 0);
                                       })();
                                     }
                                   };
