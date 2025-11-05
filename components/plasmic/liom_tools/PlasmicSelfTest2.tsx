@@ -3799,13 +3799,20 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__yU16G
+                                      sty.text__a5USu
                                     )}
                                   >
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return currentItem.type;
+                                          return (() => {
+                                            const data = JSON.parse(
+                                              currentItem.attachments
+                                            );
+                                            return (
+                                              "size:" + (data.length || "")
+                                            );
+                                          })();
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -3875,7 +3882,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
-                            $steps["runCode"] = true
+                            $steps["runCode"] = false
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
