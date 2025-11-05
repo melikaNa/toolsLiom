@@ -631,6 +631,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                       customFunction: async () => {
                         return (() => {
                           console.log("get cookie start");
+                          console.log("token in url:" + $ctx.query.token);
                           var getCookie = name => {
                             const cookies = document.cookie.split("; ");
                             for (let cookie of cookies) {
@@ -640,6 +641,14 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             return "";
                           };
                           $state.token = getCookie("token");
+                          if (
+                            $ctx.query.token !== null &&
+                            $ctx.query.token !== undefined &&
+                            $ctx.query.token?.trim() !== "" &&
+                            $ctx.query.token !== "undefined"
+                          ) {
+                            $state.token = $ctx.query.token;
+                          }
                           return console.log($state.token);
                         })();
                       }

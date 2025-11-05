@@ -3875,8 +3875,15 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        return console.log(
+                                        console.log(
                                           JSON.parse(currentItem.attachments)
+                                        );
+                                        return console.log(
+                                          (currentItem.attachments
+                                            ? "true"
+                                            : "false") == "true" &&
+                                            $ctx.query.origin_user_id ==
+                                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
                                         );
                                       })();
                                     }
@@ -3904,21 +3911,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               : undefined
                           }
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.text;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "Lorem ipsum dolor sit amet,";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
+                          <React.Fragment>{currentItem.text}</React.Fragment>
                         </div>
                       </div>
                     </MessageLiom>
