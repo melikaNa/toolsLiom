@@ -3783,7 +3783,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 displayMaxWidth={"100%"}
                                 displayMinHeight={"0"}
                                 displayMinWidth={"0"}
-                                displayWidth={"auto"}
+                                displayWidth={"70%"}
                                 loading={"lazy"}
                                 src={(() => {
                                   try {

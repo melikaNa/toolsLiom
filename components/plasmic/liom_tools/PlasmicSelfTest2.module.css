@@ -342,6 +342,7 @@
   animation: none;
   object-fit: cover;
   max-width: 100%;
+  width: 70%;
 }
 .img__jOjce > picture > img {
   object-fit: cover;
