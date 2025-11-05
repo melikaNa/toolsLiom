@@ -624,7 +624,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          cosole.log("get cookie start");
+                          console.log("get cookie start");
                           var getCookie = name => {
                             const cookies = document.cookie.split("; ");
                             for (let cookie of cookies) {
