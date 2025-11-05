@@ -3878,12 +3878,18 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                         console.log(
                                           JSON.parse(currentItem.attachments)
                                         );
-                                        return console.log(
+                                        console.log(
                                           (currentItem.attachments
                                             ? "true"
-                                            : "false") == "true" &&
-                                            $ctx.query.origin_user_id ==
-                                              "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                            : "false") == "true"
+                                        );
+                                        console.log(
+                                          $ctx.query.origin_user_id ==
+                                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                        );
+                                        return console.log(
+                                          JSON.parse(currentItem.attachments)
+                                            .lenght > 0
                                         );
                                       })();
                                     }
