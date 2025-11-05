@@ -153,7 +153,6 @@ export type PlasmicSelfTest2__OverridesType = {
   buttonLiom5?: Flex__<typeof ButtonLiom>;
   footer?: Flex__<"div">;
   modal?: Flex__<typeof AntdModal>;
-  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultSelfTest2Props {}
@@ -3714,6 +3713,193 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           sty.freeBox__oSnaz
                         )}
                       >
+                        {(() => {
+                          try {
+                            return (() => {
+                              let result = false;
+                              try {
+                                const data = JSON.parse(
+                                  currentItem.attachments
+                                );
+                                const id =
+                                  $state.userInfo.id ||
+                                  $state.paramsObject.user_id ||
+                                  $state.paramsObject.userId;
+                                result =
+                                  id ===
+                                    "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                                  Array.isArray(data) &&
+                                  data.length > 0;
+                              } catch (e) {}
+                              return result;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__y8E3T
+                            )}
+                          >
+                            {(() => {
+                              try {
+                                return (() => {
+                                  let size = 0;
+                                  let result = false;
+                                  try {
+                                    const data = JSON.parse(
+                                      currentItem.attachments
+                                    );
+                                    if (Array.isArray(data)) {
+                                      size = data.length;
+                                      result = size === 1;
+                                    }
+                                  } catch (e) {}
+                                  return result;
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__jOjce)}
+                                displayHeight={"auto"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"auto"}
+                                loading={"lazy"}
+                                src={(() => {
+                                  try {
+                                    return JSON.parse(
+                                      currentItem.attachments
+                                    )?.[0]?.value;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+                            ) : null}
+                            {(() => {
+                              try {
+                                return (() => {
+                                  let size = 0;
+                                  let result = false;
+                                  try {
+                                    const data = JSON.parse(
+                                      currentItem.attachments
+                                    );
+                                    if (Array.isArray(data)) {
+                                      size = data.length;
+                                      result = size > 1;
+                                    }
+                                  } catch (e) {}
+                                  return result;
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___01Smy
+                                )}
+                              >
+                                {(_par =>
+                                  !_par
+                                    ? []
+                                    : Array.isArray(_par)
+                                      ? _par
+                                      : [_par])(
+                                  (() => {
+                                    try {
+                                      return JSON.parse(
+                                        currentItem.attachments
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                                  const currentItem = __plasmic_item_1;
+                                  const currentIndex = __plasmic_idx_1;
+                                  return (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__sWxf8
+                                      )}
+                                      key={currentIndex}
+                                    >
+                                      <PlasmicImg__
+                                        alt={""}
+                                        className={classNames(sty.img__hQnzq)}
+                                        displayHeight={"auto"}
+                                        displayMaxHeight={"none"}
+                                        displayMaxWidth={"100%"}
+                                        displayMinHeight={"0"}
+                                        displayMinWidth={"0"}
+                                        displayWidth={"auto"}
+                                        loading={"lazy"}
+                                        src={(() => {
+                                          try {
+                                            return currentItem.value;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      />
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            ) : null}
+                          </div>
+                        ) : null}
                         <div
                           className={classNames(
                             projectcss.all,
@@ -8334,10 +8520,8 @@ window.typewriter = function(elementId) {
           title={
             <div className={classNames(projectcss.all, sty.freeBox__pSqbs)}>
               <PlasmicImg__
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
                 alt={""}
-                className={classNames(sty.img)}
+                className={classNames(sty.img__qjz6R)}
                 displayHeight={"auto"}
                 displayMaxHeight={"none"}
                 displayMaxWidth={"100%"}
@@ -8415,8 +8599,7 @@ const PlasmicDescendants = {
     "lineClomp4",
     "buttonLiom5",
     "footer",
-    "modal",
-    "img"
+    "modal"
   ],
   headerLiom: ["headerLiom"],
   sideEffect: ["sideEffect"],
@@ -8450,8 +8633,7 @@ const PlasmicDescendants = {
   lineClomp4: ["lineClomp4"],
   buttonLiom5: ["buttonLiom5"],
   footer: ["footer"],
-  modal: ["modal", "img"],
-  img: ["img"]
+  modal: ["modal"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -8484,7 +8666,6 @@ type NodeDefaultElementType = {
   buttonLiom5: typeof ButtonLiom;
   footer: "div";
   modal: typeof AntdModal;
-  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -8600,7 +8781,6 @@ export const PlasmicSelfTest2 = Object.assign(
     buttonLiom5: makeNodeComponent("buttonLiom5"),
     footer: makeNodeComponent("footer"),
     modal: makeNodeComponent("modal"),
-    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicSelfTest2
     internalVariantProps: PlasmicSelfTest2__VariantProps,
