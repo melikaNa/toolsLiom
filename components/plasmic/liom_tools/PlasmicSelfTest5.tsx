@@ -3716,15 +3716,22 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         {(() => {
                           try {
                             return (() => {
-                              const data = JSON.parse(currentItem.attachments);
-                              var id =
-                                $state.userInfo.id ||
-                                $state.paramsObject.user_id ||
-                                $state.paramsObject.userId;
-                              return (
-                                id == "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
-                                (data ? "true" : "false") == "true"
-                              );
+                              let result = false;
+                              try {
+                                const data = JSON.parse(
+                                  currentItem.attachments
+                                );
+                                const id =
+                                  $state.userInfo.id ||
+                                  $state.paramsObject.user_id ||
+                                  $state.paramsObject.userId;
+                                result =
+                                  id ===
+                                    "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                                  Array.isArray(data) &&
+                                  data.length > 0;
+                              } catch (e) {}
+                              return result;
                             })();
                           } catch (e) {
                             if (
@@ -3765,15 +3772,22 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         {(() => {
                           try {
                             return (() => {
-                              const data = JSON.parse(currentItem.attachments);
-                              var id =
-                                $state.userInfo.id ||
-                                $state.paramsObject.user_id ||
-                                $state.paramsObject.userId;
-                              return (
-                                id == "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
-                                (data ? "true" : "false") == "true"
-                              );
+                              let result = false;
+                              try {
+                                const data = JSON.parse(
+                                  currentItem.attachments
+                                );
+                                const id =
+                                  $state.userInfo.id ||
+                                  $state.paramsObject.user_id ||
+                                  $state.paramsObject.userId;
+                                result =
+                                  id ===
+                                    "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                                  Array.isArray(data) &&
+                                  data.length > 0;
+                              } catch (e) {}
+                              return result;
                             })();
                           } catch (e) {
                             if (
