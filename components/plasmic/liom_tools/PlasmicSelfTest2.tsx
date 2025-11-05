@@ -3843,36 +3843,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                       }
                                     })()}
                                   />
-
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__a5USu
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return (() => {
-                                            const data = JSON.parse(
-                                              currentItem.attachments
-                                            );
-                                            return "size:" + (data.length ?? 0);
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
                                 </div>
                               );
                             })}
@@ -3929,7 +3899,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
-                            $steps["runCode"] = false
+                            $steps["runCode"] = true
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
@@ -3937,14 +3907,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                         const data = JSON.parse(
                                           currentItem.attachments
                                         );
-                                        var id =
-                                          $state.userInfo.id ||
-                                          $state.paramsObject.user_id ||
-                                          $state.paramsObject.userId;
                                         return console.log(
-                                          id ==
-                                            "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
-                                            (data ? "true" : "false") == "true"
+                                          "size:" + (data.length ?? 0)
                                         );
                                       })();
                                     }
