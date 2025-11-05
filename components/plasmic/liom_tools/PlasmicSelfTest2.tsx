@@ -3715,18 +3715,23 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       >
                         {(() => {
                           try {
-                            return (
-                              (currentItem.attachments ? "true" : "false") ==
-                                "true" &&
-                              $ctx.query.origin_user_id ==
-                                "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                            );
+                            return (() => {
+                              const data = JSON.parse(currentItem.attachments);
+                              var id =
+                                $state.userInfo.id ||
+                                $state.paramsObject.user_id ||
+                                $state.paramsObject.userId;
+                              return (
+                                id == "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                                (data ? "true" : "false") == "true"
+                              );
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return true;
+                              return false;
                             }
                             throw e;
                           }
@@ -3878,21 +3883,15 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                         const data = JSON.parse(
                                           currentItem.attachments
                                         );
-                                        console.log("start log");
-                                        console.log(data);
-                                        console.log(Array.isArray(data));
-                                        console.log(
-                                          (data ? "true" : "false") == "true"
-                                        );
                                         var id =
                                           $state.userInfo.id ||
                                           $state.paramsObject.user_id ||
                                           $state.paramsObject.userId;
-                                        console.log(
+                                        return console.log(
                                           id ==
-                                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                            "4ddd1fab-100c-49f0-b843-e70bff8add34" &&
+                                            (data ? "true" : "false") == "true"
                                         );
-                                        return console.log(data.length > 0);
                                       })();
                                     }
                                   };
