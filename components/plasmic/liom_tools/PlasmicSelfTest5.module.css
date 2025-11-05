@@ -325,6 +325,17 @@
   align-items: flex-start;
   min-width: 0;
 }
+.freeBox___9XeRj {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+}
 .img__yikDp {
   object-fit: cover;
   max-width: 100%;
