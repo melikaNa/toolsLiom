@@ -3789,6 +3789,31 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                       }
                                     })()}
                                   />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__yU16G
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentItem.type;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
                                 </div>
                               );
                             })}
@@ -3850,7 +3875,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        console.log(currentItem.attachment);
                                         return console.log(
                                           JSON.parse(currentItem.attachments)
                                         );
