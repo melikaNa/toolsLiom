@@ -3875,13 +3875,14 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        console.log(
-                                          JSON.parse(currentItem.attachments)
+                                        const data = JSON.parse(
+                                          currentItem.attachments
                                         );
+                                        console.log("start log");
+                                        console.log(data);
+                                        console.log(Array.isArray(data));
                                         console.log(
-                                          (currentItem.attachments
-                                            ? "true"
-                                            : "false") == "true"
+                                          (data ? "true" : "false") == "true"
                                         );
                                         var id =
                                           $state.userInfo.id ||
@@ -3891,15 +3892,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                           id ==
                                             "4ddd1fab-100c-49f0-b843-e70bff8add34"
                                         );
-                                        console.log(
-                                          JSON.parse(currentItem.attachments)
-                                            .length > 0
-                                        );
-                                        console.log("----");
-                                        const data = JSON.parse(
-                                          currentItem.attachments
-                                        );
-                                        console.log(Array.isArray(data));
                                         return console.log(data.length > 0);
                                       })();
                                     }
