@@ -144,7 +144,7 @@ export type PlasmicSelfTest2__OverridesType = {
   dialog?: Flex__<typeof Paziresh24Modal>;
   button3?: Flex__<typeof ButtonLiom>;
   buttonLiom8?: Flex__<typeof ButtonLiom>;
-  modal2?: Flex__<typeof AntdModal>;
+  openPhoto?: Flex__<typeof AntdModal>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   drawer?: Flex__<typeof AntdDrawer>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
@@ -810,16 +810,16 @@ function PlasmicSelfTest2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "modal2.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
         path: "currentImag",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "openPhoto.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -3821,7 +3821,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                               $state.currentImag = JSON.parse(
                                                 currentItem.attachments
                                               )?.[0]?.value;
-                                              return ($state.modal2.open = true);
+                                              return ($state.openPhoto.open = true);
                                             })();
                                           }
                                         };
@@ -3941,7 +3941,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                                     return (() => {
                                                       $state.currentImag =
                                                         currentItem.value;
-                                                      return ($state.modal2.open = true);
+                                                      return ($state.openPhoto.open = true);
                                                     })();
                                                   }
                                                 };
@@ -6295,10 +6295,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
           />
 
           <AntdModal
-            data-plasmic-name={"modal2"}
-            data-plasmic-override={overrides.modal2}
-            className={classNames("__wab_instance", sty.modal2)}
-            closeIcon={null}
+            data-plasmic-name={"openPhoto"}
+            data-plasmic-override={overrides.openPhoto}
+            className={classNames("__wab_instance", sty.openPhoto)}
             defaultStylesClassName={classNames(
               projectcss.root_reset,
               projectcss.plasmic_default_styles,
@@ -6306,18 +6305,16 @@ function PlasmicSelfTest2__RenderFunc(props: {
               styleTokensClassNames
             )}
             hideFooter={true}
-            maskClosable={true}
-            modalScopeClassName={sty["modal2__modal"]}
+            modalScopeClassName={sty["openPhoto__modal"]}
             onOpenChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["modal2", "open"]).apply(
+              generateStateOnChangeProp($state, ["openPhoto", "open"]).apply(
                 null,
                 eventArgs
               );
             }}
-            open={generateStateValueProp($state, ["modal2", "open"])}
+            open={generateStateValueProp($state, ["openPhoto", "open"])}
             title={null}
             trigger={null}
-            width={"100vh"}
           >
             <PlasmicImg__
               alt={""}
@@ -6333,24 +6330,88 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   : "100%"
               }
               loading={"lazy"}
-              src={(() => {
-                try {
-                  return $state.currentImag;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
+              src={$state.currentImag}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox___0Jq4P)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox___0Jq4P)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateTestChat"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["testChat"]
+                        },
+                        operation: 0
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTestChat"] != null &&
+                  typeof $steps["updateTestChat"] === "object" &&
+                  typeof $steps["updateTestChat"].then === "function"
+                ) {
+                  $steps["updateTestChat"] = await $steps["updateTestChat"];
+                }
+              }}
+            >
               <Icon22Icon
                 className={classNames(projectcss.all, sty.svg__tQxm7)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateOpenPhotoOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["openPhoto", "open"]
+                          },
+                          operation: 4
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          const oldValue = $stateGet(objRoot, variablePath);
+                          $stateSet(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateOpenPhotoOpen"] != null &&
+                    typeof $steps["updateOpenPhotoOpen"] === "object" &&
+                    typeof $steps["updateOpenPhotoOpen"].then === "function"
+                  ) {
+                    $steps["updateOpenPhotoOpen"] =
+                      await $steps["updateOpenPhotoOpen"];
+                  }
+                }}
                 role={"img"}
               />
             </div>
@@ -8774,7 +8835,7 @@ const PlasmicDescendants = {
     "dialog",
     "button3",
     "buttonLiom8",
-    "modal2",
+    "openPhoto",
     "buttonLiom4",
     "drawer",
     "buttonLiom3",
@@ -8802,7 +8863,7 @@ const PlasmicDescendants = {
   dialog: ["dialog", "button3", "buttonLiom8"],
   button3: ["button3"],
   buttonLiom8: ["buttonLiom8"],
-  modal2: ["modal2"],
+  openPhoto: ["openPhoto"],
   buttonLiom4: ["buttonLiom4"],
   drawer: [
     "drawer",
@@ -8842,7 +8903,7 @@ type NodeDefaultElementType = {
   dialog: typeof Paziresh24Modal;
   button3: typeof ButtonLiom;
   buttonLiom8: typeof ButtonLiom;
-  modal2: typeof AntdModal;
+  openPhoto: typeof AntdModal;
   buttonLiom4: typeof ButtonLiom;
   drawer: typeof AntdDrawer;
   buttonLiom3: typeof ButtonLiom;
@@ -8958,7 +9019,7 @@ export const PlasmicSelfTest2 = Object.assign(
     dialog: makeNodeComponent("dialog"),
     button3: makeNodeComponent("button3"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
-    modal2: makeNodeComponent("modal2"),
+    openPhoto: makeNodeComponent("openPhoto"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     drawer: makeNodeComponent("drawer"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
