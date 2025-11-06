@@ -819,7 +819,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         path: "openPhoto.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -6315,6 +6315,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
             open={generateStateValueProp($state, ["openPhoto", "open"])}
             title={null}
             trigger={null}
+            width={"100vh"}
           >
             <PlasmicImg__
               alt={""}
