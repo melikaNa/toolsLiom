@@ -6317,36 +6317,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
             trigger={null}
             width={"100vh"}
           >
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__ncEhU)}
-              displayHeight={"100%"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "350px"
-                  : "100%"
-              }
-              loading={"lazy"}
-              src={$state.currentImag}
-            />
-
             <div
               className={classNames(projectcss.all, sty.freeBox___0Jq4P)}
               onClick={async event => {
                 const $steps = {};
 
-                $steps["updateTestChat"] = true
+                $steps["updateOpenPhotoOpen"] = true
                   ? (() => {
                       const actionArgs = {
                         variable: {
                           objRoot: $state,
-                          variablePath: ["testChat"]
+                          variablePath: ["openPhoto", "open"]
                         },
-                        operation: 0
+                        operation: 4
                       };
                       return (({
                         variable,
@@ -6359,17 +6342,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         }
                         const { objRoot, variablePath } = variable;
 
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
+                        const oldValue = $stateGet(objRoot, variablePath);
+                        $stateSet(objRoot, variablePath, !oldValue);
+                        return !oldValue;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateTestChat"] != null &&
-                  typeof $steps["updateTestChat"] === "object" &&
-                  typeof $steps["updateTestChat"].then === "function"
+                  $steps["updateOpenPhotoOpen"] != null &&
+                  typeof $steps["updateOpenPhotoOpen"] === "object" &&
+                  typeof $steps["updateOpenPhotoOpen"].then === "function"
                 ) {
-                  $steps["updateTestChat"] = await $steps["updateTestChat"];
+                  $steps["updateOpenPhotoOpen"] =
+                    await $steps["updateOpenPhotoOpen"];
                 }
               }}
             >
@@ -6416,6 +6401,22 @@ function PlasmicSelfTest2__RenderFunc(props: {
                 role={"img"}
               />
             </div>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__ncEhU)}
+              displayHeight={"100%"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "350px"
+                  : "100%"
+              }
+              loading={"lazy"}
+              src={$state.currentImag}
+            />
           </AntdModal>
         </div>
         <div
