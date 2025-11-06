@@ -502,6 +502,67 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 $steps["updateLoading2"] = await $steps["updateLoading2"];
               }
 
+              $steps["setToken"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                          const searchParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          searchParams.delete("token");
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
+                          window.history.replaceState(null, "", newUrl);
+                          if (
+                            $state.paramsObject.token !== null &&
+                            $state.paramsObject.token !== undefined &&
+                            $state.paramsObject.token?.trim() !== ""
+                          ) {
+                            if (!$state.paramsObject.token.startsWith("ey"))
+                              $state.paramsObject.token =
+                                $state.paramsObject.token.slice(6, -3);
+                            var setCookie = (name, value, days) => {
+                              const expires = new Date(
+                                Date.now() + days * 86400000
+                              ).toUTCString();
+                              document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                            };
+                            setCookie(
+                              "token",
+                              JSON.stringify([$state.paramsObject.token]),
+                              100
+                            );
+                          }
+                          var getCookie = name => {
+                            const cookies = document.cookie.split("; ");
+                            for (let cookie of cookies) {
+                              const [key, value] = cookie.split("=");
+                              if (key === name) return JSON.parse(value)[0];
+                            }
+                            return "";
+                          };
+                          return ($state.token = getCookie("token"));
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["setToken"] != null &&
+                typeof $steps["setToken"] === "object" &&
+                typeof $steps["setToken"].then === "function"
+              ) {
+                $steps["setToken"] = await $steps["setToken"];
+              }
+
               $steps["getInfo"] = true
                 ? (() => {
                     const actionArgs = {
@@ -623,47 +684,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 typeof $steps["runCode2"].then === "function"
               ) {
                 $steps["runCode2"] = await $steps["runCode2"];
-              }
-
-              $steps["setToken"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          console.log("get cookie start");
-                          console.log("token in url:" + $ctx.query.token);
-                          var getCookie = name => {
-                            const cookies = document.cookie.split("; ");
-                            for (let cookie of cookies) {
-                              const [key, value] = cookie.split("=");
-                              if (key === name) return JSON.parse(value)[0];
-                            }
-                            return "";
-                          };
-                          $state.token = getCookie("token");
-                          if (
-                            $ctx.query.token !== null &&
-                            $ctx.query.token !== undefined &&
-                            $ctx.query.token?.trim() !== "" &&
-                            $ctx.query.token !== "undefined"
-                          ) {
-                            $state.token = $ctx.query.token;
-                          }
-                          return console.log($state.token);
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["setToken"] != null &&
-                typeof $steps["setToken"] === "object" &&
-                typeof $steps["setToken"].then === "function"
-              ) {
-                $steps["setToken"] = await $steps["setToken"];
               }
 
               $steps["updateLoading"] = true

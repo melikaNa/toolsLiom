@@ -3691,20 +3691,6 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/test-analysis"
-        },
-        {
-          "id": "DhbaoMFbD4tg",
-          "name": "SelfTest5",
-          "type": "managed",
-          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest5.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/chat-bot-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest5.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/chat-bot-2"
         }
       ],
       "icons": [
