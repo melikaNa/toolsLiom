@@ -987,8 +987,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         urlParams.forEach((value, key) => {
                           $state.paramsObject[key] = value;
                         });
-                        $state.attachments = $state.paramsObject.attachments;
-                        return console.log($state.attachments);
+                        return ($state.attachments =
+                          $state.paramsObject.attachments);
                       })();
                     }
                   };
@@ -4900,6 +4900,41 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           $steps["runCode4"] = await $steps["runCode4"];
                         }
 
+                        $steps["updateAttachments"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["attachments"]
+                                },
+                                operation: 0,
+                                value: ""
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateAttachments"] != null &&
+                          typeof $steps["updateAttachments"] === "object" &&
+                          typeof $steps["updateAttachments"].then === "function"
+                        ) {
+                          $steps["updateAttachments"] =
+                            await $steps["updateAttachments"];
+                        }
+
                         $steps["invokeGlobalAction3"] = $steps.newSession?.data
                           ? (() => {
                               const actionArgs = {
@@ -5108,42 +5143,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         ) {
                           $steps["invokeGlobalAction"] =
                             await $steps["invokeGlobalAction"];
-                        }
-
-                        $steps["updateAttachments"] =
-                          $state.testChat.length === 2
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["attachments"]
-                                  },
-                                  operation: 0,
-                                  value: ""
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateAttachments"] != null &&
-                          typeof $steps["updateAttachments"] === "object" &&
-                          typeof $steps["updateAttachments"].then === "function"
-                        ) {
-                          $steps["updateAttachments"] =
-                            await $steps["updateAttachments"];
                         }
                       }}
                       onDiableChange={async (...eventArgs: any) => {
