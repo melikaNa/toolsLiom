@@ -800,6 +800,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "test"
+      },
+      {
+        path: "attachments",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -978,9 +984,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       return (() => {
                         const queryString = window.location.search;
                         const urlParams = new URLSearchParams(queryString);
-                        return urlParams.forEach((value, key) => {
+                        urlParams.forEach((value, key) => {
                           $state.paramsObject[key] = value;
                         });
+                        $state.attachments = $state.paramsObject.attachments;
+                        return console.log($state.attachments);
                       })();
                     }
                   };
@@ -4549,6 +4557,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     return (() => {
                                       $state.testChat.push({
                                         text: $state.textArea.value,
+                                        attachments: $state.attachments || "",
                                         from: "user"
                                       });
                                       return $state.testChat.push({
@@ -4657,8 +4666,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                                 $steps.newSession.data
                                                   .healthDoc,
                                               attachments:
-                                                $state.paramsObject
-                                                  .attachments || ""
+                                                $state.attachments || ""
                                             }
                                           : {
                                               session_id: $state.sessionId,
@@ -5100,6 +5108,42 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         ) {
                           $steps["invokeGlobalAction"] =
                             await $steps["invokeGlobalAction"];
+                        }
+
+                        $steps["updateAttachments"] =
+                          $state.testChat.length === 2
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["attachments"]
+                                  },
+                                  operation: 0,
+                                  value: ""
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateAttachments"] != null &&
+                          typeof $steps["updateAttachments"] === "object" &&
+                          typeof $steps["updateAttachments"].then === "function"
+                        ) {
+                          $steps["updateAttachments"] =
+                            await $steps["updateAttachments"];
                         }
                       }}
                       onDiableChange={async (...eventArgs: any) => {
