@@ -819,7 +819,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
         path: "openPhoto.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -6414,7 +6414,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   : "100%"
               }
               loading={"lazy"}
-              src={$state.currentImag}
+              src={
+                $state.currentImag
+                //"https://teh-1.s3.poshtiban.com/lioms3/2025-11/test-result/2025-11-06-539b6708-d97b-46fd-8e2a-725009aa1d91.jpg"
+              }
             />
           </AntdModal>
         </div>

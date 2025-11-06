@@ -1660,7 +1660,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return true;
+                    return false;
                   }
                   throw e;
                 }
@@ -1674,226 +1674,9 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox___4KqG)}
                     >
-                      <ButtonLiom
-                        data-plasmic-name={"upload"}
-                        data-plasmic-override={overrides.upload}
-                        className={classNames("__wab_instance", sty.upload)}
-                        color={generateStateValueProp($state, [
-                          "upload",
-                          "color"
-                        ])}
-                        disabled={false}
-                        load={generateStateValueProp($state, [
-                          "upload",
-                          "load"
-                        ])}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateUploadLoad"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["upload", "load"]
-                                  },
-                                  operation: 4,
-                                  value: true
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  const oldValue = $stateGet(
-                                    objRoot,
-                                    variablePath
-                                  );
-                                  $stateSet(objRoot, variablePath, !oldValue);
-                                  return !oldValue;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateUploadLoad"] != null &&
-                            typeof $steps["updateUploadLoad"] === "object" &&
-                            typeof $steps["updateUploadLoad"].then ===
-                              "function"
-                          ) {
-                            $steps["updateUploadLoad"] =
-                              await $steps["updateUploadLoad"];
-                          }
-
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (async () => {
-                                      $state.resultTest = true;
-                                      async function uploadFiles() {
-                                        for (let [
-                                          index,
-                                          f
-                                        ] of window.filess.entries()) {
-                                          try {
-                                            const formData = new FormData();
-                                            formData.append("file", f);
-                                            formData.append(
-                                              "path",
-                                              "test-result"
-                                            );
-                                            formData.append("index", index);
-                                            const response = await fetch(
-                                              "https://api.liom.app/upload",
-                                              {
-                                                method: "POST",
-                                                body: formData
-                                              }
-                                            );
-                                            const data = await response.json();
-                                            console.log(
-                                              "Response status:",
-                                              response.status
-                                            );
-                                            console.log("Response data:", data);
-                                            if (!response.ok) {
-                                              console.error(
-                                                "Response not OK:",
-                                                data
-                                              );
-                                            }
-                                            if (data.status === false) {
-                                              console.error(
-                                                "Server error:",
-                                                data.result
-                                              );
-                                            } else {
-                                              $state.imageOpload[index].upload =
-                                                true;
-                                              $state.images.push(data.result);
-                                            }
-                                          } catch (error) {
-                                            console.error(
-                                              `Fetch error for file index ${index}:`,
-                                              error
-                                            );
-                                          }
-                                        }
-                                        console.log("All uploads completed!");
-                                      }
-                                      return uploadFiles().then(() => {
-                                        console.log("Do other things now");
-                                        $state.isDone = true;
-                                      });
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-
-                          $steps["updateUploadLoad2"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["upload", "load"]
-                                  },
-                                  operation: 4
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  const oldValue = $stateGet(
-                                    objRoot,
-                                    variablePath
-                                  );
-                                  $stateSet(objRoot, variablePath, !oldValue);
-                                  return !oldValue;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateUploadLoad2"] != null &&
-                            typeof $steps["updateUploadLoad2"] === "object" &&
-                            typeof $steps["updateUploadLoad2"].then ===
-                              "function"
-                          ) {
-                            $steps["updateUploadLoad2"] =
-                              await $steps["updateUploadLoad2"];
-                          }
-                        }}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "upload",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                        onLoadChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "upload",
-                              "load"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__qNzYx
-                          )}
-                        >
-                          <React.Fragment>
-                            {$state.getInfo.btnText}
-                          </React.Fragment>
-                        </div>
-                      </ButtonLiom>
                       {(() => {
                         try {
-                          return $state.isDone;
+                          return !$state.isDone;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -1905,24 +1688,144 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                         }
                       })() ? (
                         <ButtonLiom
-                          data-plasmic-name={"buttonLiom"}
-                          data-plasmic-override={overrides.buttonLiom}
-                          className={classNames(
-                            "__wab_instance",
-                            sty.buttonLiom
-                          )}
+                          data-plasmic-name={"upload"}
+                          data-plasmic-override={overrides.upload}
+                          className={classNames("__wab_instance", sty.upload)}
                           color={generateStateValueProp($state, [
-                            "buttonLiom",
+                            "upload",
                             "color"
                           ])}
+                          disabled={false}
                           load={generateStateValueProp($state, [
-                            "buttonLiom",
+                            "upload",
                             "load"
                           ])}
                           onClick={async event => {
                             const $steps = {};
 
-                            $steps["invokeGlobalAction"] = true
+                            $steps["updateUploadLoad"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["upload", "load"]
+                                    },
+                                    operation: 4,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateUploadLoad"] != null &&
+                              typeof $steps["updateUploadLoad"] === "object" &&
+                              typeof $steps["updateUploadLoad"].then ===
+                                "function"
+                            ) {
+                              $steps["updateUploadLoad"] =
+                                await $steps["updateUploadLoad"];
+                            }
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (async () => {
+                                        $state.resultTest = true;
+                                        async function uploadFiles() {
+                                          for (let [
+                                            index,
+                                            f
+                                          ] of window.filess.entries()) {
+                                            try {
+                                              const formData = new FormData();
+                                              formData.append("file", f);
+                                              formData.append(
+                                                "path",
+                                                "test-result"
+                                              );
+                                              formData.append("index", index);
+                                              const response = await fetch(
+                                                "https://api.liom.app/upload",
+                                                {
+                                                  method: "POST",
+                                                  body: formData
+                                                }
+                                              );
+                                              const data =
+                                                await response.json();
+                                              console.log(
+                                                "Response status:",
+                                                response.status
+                                              );
+                                              console.log(
+                                                "Response data:",
+                                                data
+                                              );
+                                              if (!response.ok) {
+                                                console.error(
+                                                  "Response not OK:",
+                                                  data
+                                                );
+                                              }
+                                              if (data.status === false) {
+                                                console.error(
+                                                  "Server error:",
+                                                  data.result
+                                                );
+                                              } else {
+                                                $state.imageOpload[
+                                                  index
+                                                ].upload = true;
+                                                $state.images.push(data.result);
+                                              }
+                                            } catch (error) {
+                                              console.error(
+                                                `Fetch error for file index ${index}:`,
+                                                error
+                                              );
+                                            }
+                                          }
+                                          console.log("All uploads completed!");
+                                        }
+                                        return uploadFiles().then(() => {
+                                          console.log("Do other things now");
+                                          $state.isDone = true;
+                                        });
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["chatBot"] = true
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -1944,7 +1847,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                       undefined,
                                       undefined,
                                       undefined,
-                                      false,
+                                      undefined,
                                       (() => {
                                         try {
                                           return (() => {
@@ -1980,20 +1883,56 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 })()
                               : undefined;
                             if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
+                              $steps["chatBot"] != null &&
+                              typeof $steps["chatBot"] === "object" &&
+                              typeof $steps["chatBot"].then === "function"
+                            ) {
+                              $steps["chatBot"] = await $steps["chatBot"];
+                            }
+
+                            $steps["updateUploadLoad2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["upload", "load"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateUploadLoad2"] != null &&
+                              typeof $steps["updateUploadLoad2"] === "object" &&
+                              typeof $steps["updateUploadLoad2"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction"] =
-                                await $steps["invokeGlobalAction"];
+                              $steps["updateUploadLoad2"] =
+                                await $steps["updateUploadLoad2"];
                             }
                           }}
                           onColorChange={async (...eventArgs: any) => {
                             ((...eventArgs) => {
                               generateStateOnChangeProp($state, [
-                                "buttonLiom",
+                                "upload",
                                 "color"
                               ])(eventArgs[0]);
                             }).apply(null, eventArgs);
@@ -2009,7 +1948,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           onLoadChange={async (...eventArgs: any) => {
                             ((...eventArgs) => {
                               generateStateOnChangeProp($state, [
-                                "buttonLiom",
+                                "upload",
                                 "load"
                               ])(eventArgs[0]);
                             }).apply(null, eventArgs);
@@ -2027,15 +1966,141 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__v8CFw
+                              sty.text__qNzYx
                             )}
                           >
-                            {
-                              "\u062a\u062d\u0644\u06cc\u0644 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062a\u0648\u0633\u0637  \u0686\u062a \u0628\u0627\u062a "
-                            }
+                            <React.Fragment>
+                              {$state.getInfo.btnText}
+                            </React.Fragment>
                           </div>
                         </ButtonLiom>
                       ) : null}
+                      <ButtonLiom
+                        data-plasmic-name={"buttonLiom"}
+                        data-plasmic-override={overrides.buttonLiom}
+                        className={classNames("__wab_instance", sty.buttonLiom)}
+                        color={generateStateValueProp($state, [
+                          "buttonLiom",
+                          "color"
+                        ])}
+                        load={generateStateValueProp($state, [
+                          "buttonLiom",
+                          "load"
+                        ])}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "#chatBot",
+                                    (() => {
+                                      try {
+                                        return $state.token;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    undefined,
+                                    undefined,
+                                    undefined,
+                                    false,
+                                    (() => {
+                                      try {
+                                        return (() => {
+                                          const result = $state.images.map(
+                                            item => ({
+                                              value: item,
+                                              type: "image"
+                                            })
+                                          );
+                                          return {
+                                            question:
+                                              $state.getInfo.firstMessage,
+                                            attachments: JSON.stringify(result)
+                                          };
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.deepLink"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] =
+                              await $steps["invokeGlobalAction"];
+                          }
+                        }}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "buttonLiom",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        onLoadChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "buttonLiom",
+                              "load"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__v8CFw
+                          )}
+                        >
+                          {
+                            "\u062a\u062d\u0644\u06cc\u0644 \u0622\u0632\u0645\u0627\u06cc\u0634 \u062a\u0648\u0633\u0637  \u0686\u062a \u0628\u0627\u062a "
+                          }
+                        </div>
+                      </ButtonLiom>
                     </div>
                   </div>
                 </section>
