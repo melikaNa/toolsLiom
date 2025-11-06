@@ -6315,7 +6315,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
             open={generateStateValueProp($state, ["openPhoto", "open"])}
             title={null}
             trigger={null}
-            width={"100vh"}
           >
             <div
               className={classNames(projectcss.all, sty.freeBox___0Jq4P)}
