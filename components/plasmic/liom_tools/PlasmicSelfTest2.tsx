@@ -75,8 +75,8 @@ import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import DirectDialogChatbot from "../../DirectDialogChatbot"; // plasmic-import: ySuxtC2bY6yN/component
 import Paziresh24Modal from "../../Paziresh24Modal"; // plasmic-import: ZGdhyEBPJSmH/component
-import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
@@ -103,6 +103,7 @@ import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: E5qGX
 import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: VTuVNgeUH3X6/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: frqiW1UAlfdr/icon
+import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
 import Icon162Icon from "./icons/PlasmicIcon__Icon162"; // plasmic-import: ySm-fx5nxIne/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: nUOPjtqNxpTk/icon
 import Icon167Icon from "./icons/PlasmicIcon__Icon167"; // plasmic-import: 5eVMEaBbaM21/icon
@@ -143,6 +144,7 @@ export type PlasmicSelfTest2__OverridesType = {
   dialog?: Flex__<typeof Paziresh24Modal>;
   button3?: Flex__<typeof ButtonLiom>;
   buttonLiom8?: Flex__<typeof ButtonLiom>;
+  modal2?: Flex__<typeof AntdModal>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   drawer?: Flex__<typeof AntdDrawer>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
@@ -803,6 +805,18 @@ function PlasmicSelfTest2__RenderFunc(props: {
       },
       {
         path: "attachments",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "modal2.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "currentImag",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
@@ -3756,6 +3770,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               projectcss.all,
                               sty.freeBox__y8E3T
                             )}
+                            onClick={async event => {
+                              const $steps = {};
+                            }}
                           >
                             {(() => {
                               try {
@@ -3793,6 +3810,34 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 displayMinWidth={"0"}
                                 displayWidth={"70%"}
                                 loading={"lazy"}
+                                onClick={async event => {
+                                  const $steps = {};
+
+                                  $steps["runCode"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return (() => {
+                                              $state.currentImag = JSON.parse(
+                                                currentItem.attachments
+                                              )?.[0]?.value;
+                                              return ($state.modal2.open = true);
+                                            })();
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["runCode"] != null &&
+                                    typeof $steps["runCode"] === "object" &&
+                                    typeof $steps["runCode"].then === "function"
+                                  ) {
+                                    $steps["runCode"] = await $steps["runCode"];
+                                  }
+                                }}
                                 src={(() => {
                                   try {
                                     return JSON.parse(
@@ -3886,6 +3931,38 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                         displayMinWidth={"0"}
                                         displayWidth={"auto"}
                                         loading={"lazy"}
+                                        onClick={async event => {
+                                          const $steps = {};
+
+                                          $steps["runCode"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  customFunction: async () => {
+                                                    return (() => {
+                                                      $state.currentImag =
+                                                        currentItem.value;
+                                                      return ($state.modal2.open = true);
+                                                    })();
+                                                  }
+                                                };
+                                                return (({
+                                                  customFunction
+                                                }) => {
+                                                  return customFunction();
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["runCode"] != null &&
+                                            typeof $steps["runCode"] ===
+                                              "object" &&
+                                            typeof $steps["runCode"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["runCode"] =
+                                              await $steps["runCode"];
+                                          }
+                                        }}
                                         src={(() => {
                                           try {
                                             return currentItem.value;
@@ -6216,6 +6293,68 @@ function PlasmicSelfTest2__RenderFunc(props: {
             title={null}
             trigger={null}
           />
+
+          <AntdModal
+            data-plasmic-name={"modal2"}
+            data-plasmic-override={overrides.modal2}
+            className={classNames("__wab_instance", sty.modal2)}
+            closeIcon={null}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              styleTokensClassNames
+            )}
+            hideFooter={true}
+            maskClosable={true}
+            modalScopeClassName={sty["modal2__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["modal2", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["modal2", "open"])}
+            title={null}
+            trigger={null}
+            width={"100vh"}
+          >
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__ncEhU)}
+              displayHeight={"100%"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "350px"
+                  : "100%"
+              }
+              loading={"lazy"}
+              src={(() => {
+                try {
+                  return $state.currentImag;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
+
+            <div className={classNames(projectcss.all, sty.freeBox___0Jq4P)}>
+              <Icon22Icon
+                className={classNames(projectcss.all, sty.svg__tQxm7)}
+                role={"img"}
+              />
+            </div>
+          </AntdModal>
         </div>
         <div
           className={classNames(projectcss.all, sty.freeBox__vcZiy)}
@@ -8635,6 +8774,7 @@ const PlasmicDescendants = {
     "dialog",
     "button3",
     "buttonLiom8",
+    "modal2",
     "buttonLiom4",
     "drawer",
     "buttonLiom3",
@@ -8662,6 +8802,7 @@ const PlasmicDescendants = {
   dialog: ["dialog", "button3", "buttonLiom8"],
   button3: ["button3"],
   buttonLiom8: ["buttonLiom8"],
+  modal2: ["modal2"],
   buttonLiom4: ["buttonLiom4"],
   drawer: [
     "drawer",
@@ -8701,6 +8842,7 @@ type NodeDefaultElementType = {
   dialog: typeof Paziresh24Modal;
   button3: typeof ButtonLiom;
   buttonLiom8: typeof ButtonLiom;
+  modal2: typeof AntdModal;
   buttonLiom4: typeof ButtonLiom;
   drawer: typeof AntdDrawer;
   buttonLiom3: typeof ButtonLiom;
@@ -8816,6 +8958,7 @@ export const PlasmicSelfTest2 = Object.assign(
     dialog: makeNodeComponent("dialog"),
     button3: makeNodeComponent("button3"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
+    modal2: makeNodeComponent("modal2"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     drawer: makeNodeComponent("drawer"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
