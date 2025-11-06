@@ -1008,7 +1008,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         searchParams.delete("token");
                         searchParams.delete("userId");
                         searchParams.delete("user_id");
-                        searchParams.delete("attachments");
                         const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                         return window.history.replaceState(null, "", newUrl);
                       })();
@@ -4665,7 +4664,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                               session_id: $state.sessionId,
                                               bot_session_id:
                                                 $state.botSessionId,
-                                              message: $state.text
+                                              message: $state.text,
+                                              attachments:
+                                                $state.paramsObject
+                                                  .attachments || ""
                                             };
                                       } catch (e) {
                                         if (
