@@ -4675,8 +4675,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                                 $state.botSessionId,
                                               message: $state.text,
                                               attachments:
-                                                $state.paramsObject
-                                                  .attachments || ""
+                                                $state.attachments || ""
                                             };
                                       } catch (e) {
                                         if (
