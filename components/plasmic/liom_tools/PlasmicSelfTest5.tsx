@@ -1828,7 +1828,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
-                        console.log("attachment" + $state.attachments);
                         var fileInput =
                           window.document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
@@ -1885,7 +1884,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   type: "image"
                                 }));
                                 $state.attachments = JSON.stringify(result);
-                                console.log("attachment" + $state.attachments);
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -1931,7 +1929,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   type: "image"
                                 }));
                                 $state.attachments = JSON.stringify(result);
-                                console.log("attachment" + $state.attachments);
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -5163,6 +5160,40 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             $steps["chat"] = await $steps["chat"];
                           }
 
+                          $steps["updateImages"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["images"]
+                                  },
+                                  operation: 1
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, undefined);
+                                  return undefined;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateImages"] != null &&
+                            typeof $steps["updateImages"] === "object" &&
+                            typeof $steps["updateImages"].then === "function"
+                          ) {
+                            $steps["updateImages"] =
+                              await $steps["updateImages"];
+                          }
+
                           $steps["runCode5"] = $steps.chat?.data?.success
                             ? (() => {
                                 const actionArgs = {
@@ -5379,40 +5410,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           ) {
                             $steps["updateAttachments"] =
                               await $steps["updateAttachments"];
-                          }
-
-                          $steps["updateImages"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["images"]
-                                  },
-                                  operation: 1
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, undefined);
-                                  return undefined;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateImages"] != null &&
-                            typeof $steps["updateImages"] === "object" &&
-                            typeof $steps["updateImages"].then === "function"
-                          ) {
-                            $steps["updateImages"] =
-                              await $steps["updateImages"];
                           }
 
                           $steps["invokeGlobalAction3"] = $steps.newSession
