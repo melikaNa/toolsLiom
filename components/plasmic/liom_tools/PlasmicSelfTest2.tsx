@@ -76,6 +76,8 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import DirectDialogChatbot from "../../DirectDialogChatbot"; // plasmic-import: ySuxtC2bY6yN/component
 import Paziresh24Modal from "../../Paziresh24Modal"; // plasmic-import: ZGdhyEBPJSmH/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
+import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import { AntdDrawer } from "@plasmicpkgs/antd5/skinny/registerDrawer";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
@@ -146,6 +148,7 @@ export type PlasmicSelfTest2__OverridesType = {
   button3?: Flex__<typeof ButtonLiom>;
   buttonLiom8?: Flex__<typeof ButtonLiom>;
   openPhoto?: Flex__<typeof AntdModal>;
+  antdInput?: Flex__<typeof Input>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   drawer?: Flex__<typeof AntdDrawer>;
   buttonLiom3?: Flex__<typeof ButtonLiom>;
@@ -824,6 +827,26 @@ function PlasmicSelfTest2__RenderFunc(props: {
       },
       {
         path: "images",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "antdInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "files",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "imageLoad",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
@@ -6589,6 +6612,87 @@ function PlasmicSelfTest2__RenderFunc(props: {
               }
             />
           </AntdModal>
+          {(() => {
+            const child$Props = {
+              allowClear: false,
+              bordered: false,
+              className: classNames("__wab_instance", sty.antdInput),
+              id: "fileInput",
+              onChange: async (...eventArgs: any) => {
+                generateStateOnChangePropForCodeComponents(
+                  $state,
+                  "value",
+                  ["antdInput", "value"],
+                  Input_Helpers
+                ).apply(null, eventArgs);
+
+                (async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              function isAccepted(type) {
+                                return [
+                                  "image/jpeg",
+                                  "image/png",
+                                  "application/pdf"
+                                ].includes(type);
+                              }
+                              function addFiles(newFiles) {
+                                for (var f of newFiles) {
+                                  if (!isAccepted(f.type)) continue;
+                                  $state.files.push(f.type);
+                                  window.filess.push(f);
+                                  $state.imageLoad.push(URL.createObjectURL(f));
+                                  console.log($state.files);
+                                  console.log($state.imageLoad);
+                                }
+                              }
+                              return addFiles(event.currentTarget.files);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }).apply(null, eventArgs);
+              },
+              type: "file",
+              value: generateStateValueProp($state, ["antdInput", "value"])
+            };
+            initializeCodeComponentStates(
+              $state,
+              [
+                {
+                  name: "value",
+                  plasmicStateName: "antdInput.value"
+                }
+              ],
+              [],
+              Input_Helpers ?? {},
+              child$Props
+            );
+
+            return (
+              <Input
+                data-plasmic-name={"antdInput"}
+                data-plasmic-override={overrides.antdInput}
+                {...child$Props}
+              />
+            );
+          })()}
         </div>
         <div
           className={classNames(projectcss.all, sty.freeBox__vcZiy)}
@@ -9009,6 +9113,7 @@ const PlasmicDescendants = {
     "button3",
     "buttonLiom8",
     "openPhoto",
+    "antdInput",
     "buttonLiom4",
     "drawer",
     "buttonLiom3",
@@ -9037,6 +9142,7 @@ const PlasmicDescendants = {
   button3: ["button3"],
   buttonLiom8: ["buttonLiom8"],
   openPhoto: ["openPhoto"],
+  antdInput: ["antdInput"],
   buttonLiom4: ["buttonLiom4"],
   drawer: [
     "drawer",
@@ -9077,6 +9183,7 @@ type NodeDefaultElementType = {
   button3: typeof ButtonLiom;
   buttonLiom8: typeof ButtonLiom;
   openPhoto: typeof AntdModal;
+  antdInput: typeof Input;
   buttonLiom4: typeof ButtonLiom;
   drawer: typeof AntdDrawer;
   buttonLiom3: typeof ButtonLiom;
@@ -9193,6 +9300,7 @@ export const PlasmicSelfTest2 = Object.assign(
     button3: makeNodeComponent("button3"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
     openPhoto: makeNodeComponent("openPhoto"),
+    antdInput: makeNodeComponent("antdInput"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     drawer: makeNodeComponent("drawer"),
     buttonLiom3: makeNodeComponent("buttonLiom3"),
