@@ -92,6 +92,7 @@ import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSD
 import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: yU3FWAJzfOsT/icon
 import Icon196Icon from "./icons/PlasmicIcon__Icon196"; // plasmic-import: 0jQ6YDX1Yu0U/icon
+import Icon92Icon from "./icons/PlasmicIcon__Icon92"; // plasmic-import: GLz9qxhI31v4/icon
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: WIXMGnqTFn8X/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: o0umFUjPufGW/icon
@@ -820,6 +821,12 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "images",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -1788,6 +1795,107 @@ function PlasmicSelfTest2__RenderFunc(props: {
               typeof $steps["invokeGlobalAction"].then === "function"
             ) {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
+
+            $steps["runCode2"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (async () => {
+                        var fileInput =
+                          window.document.getElementById("fileInput");
+                        fileInput.accept = "image/*,application/pdf";
+                        fileInput.multiple = true;
+                        window.filess = [];
+                        fileInput.addEventListener("change", async event => {
+                          window.filess = Array.from(event.target.files);
+                          console.log("Selected files:", window.filess);
+                          await uploadFiles();
+                        });
+                        async function uploadFiles() {
+                          for (let [index, f] of window.filess.entries()) {
+                            try {
+                              const formData = new FormData();
+                              formData.append("file", f);
+                              formData.append("path", "test-result");
+                              formData.append("index", index);
+                              const response = await fetch(
+                                "https://api.liom.app/upload",
+                                {
+                                  method: "POST",
+                                  body: formData
+                                }
+                              );
+                              const data = await response.json();
+                              console.log("Response status:", response.status);
+                              console.log("Response data:", data);
+                              if (!response.ok) {
+                                console.error("Response not OK:", data);
+                              }
+                              if (data.status === false) {
+                                console.error("Server error:", data.result);
+                              } else {
+                                $state.images.push(data.result);
+                              }
+                            } catch (error) {
+                              console.error(
+                                `Fetch error for file index ${index}:`,
+                                error
+                              );
+                            }
+                          }
+                          console.log("All uploads completed!");
+                          console.log($state.images);
+                        }
+                        return async function uploadFiles() {
+                          for (let [index, f] of window.filess.entries()) {
+                            try {
+                              const formData = new FormData();
+                              formData.append("file", f);
+                              formData.append("path", "test-result");
+                              formData.append("index", index);
+                              const response = await fetch(
+                                "https://api.liom.app/upload",
+                                {
+                                  method: "POST",
+                                  body: formData
+                                }
+                              );
+                              const data = await response.json();
+                              console.log("Response status:", response.status);
+                              console.log("Response data:", data);
+                              if (!response.ok) {
+                                console.error("Response not OK:", data);
+                              }
+                              if (data.status === false) {
+                                console.error("Server error:", data.result);
+                              } else {
+                                $state.images.push(data.result);
+                              }
+                            } catch (error) {
+                              console.error(
+                                `Fetch error for file index ${index}:`,
+                                error
+                              );
+                            }
+                          }
+                          console.log("All uploads completed!");
+                          console.log($state.images);
+                        };
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode2"] != null &&
+              typeof $steps["runCode2"] === "object" &&
+              typeof $steps["runCode2"].then === "function"
+            ) {
+              $steps["runCode2"] = await $steps["runCode2"];
             }
           }}
         />
@@ -5345,6 +5453,67 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         />
                       );
                     })()}
+                    {(() => {
+                      try {
+                        return (() => {
+                          var id =
+                            $state.userInfo.id ||
+                            $state.paramsObject.user_id ||
+                            $state.paramsObject.userId;
+                          return id == "4ddd1fab-100c-49f0-b843-e70bff8add34";
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__xogKq
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      return window.document
+                                        .getElementById("fileInput")
+                                        .click();
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                      >
+                        <Icon92Icon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___0Goys
+                          )}
+                          role={"img"}
+                        />
+                      </div>
+                    ) : null}
                   </div>
                 </div>
                 {(
