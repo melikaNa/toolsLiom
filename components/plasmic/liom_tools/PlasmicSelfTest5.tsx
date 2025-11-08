@@ -95,6 +95,7 @@ import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtC
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: yU3FWAJzfOsT/icon
 import Icon196Icon from "./icons/PlasmicIcon__Icon196"; // plasmic-import: 0jQ6YDX1Yu0U/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: d7z2iEn8tiSD/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
 import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: qu0_vn04sR3f/icon
 import Icon92Icon from "./icons/PlasmicIcon__Icon92"; // plasmic-import: GLz9qxhI31v4/icon
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
@@ -4660,6 +4661,13 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
+                            <ChevronLeftIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__oVweN
+                              )}
+                              role={"img"}
+                            />
                           </div>
                         );
                       })}
@@ -4756,6 +4764,14 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 }
                               }}
                             >
+                              <Icon212Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__d5IQb
+                                )}
+                                role={"img"}
+                              />
+
                               <PlasmicImg__
                                 alt={""}
                                 className={classNames(sty.img__lK7EM)}
@@ -4788,13 +4804,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 })()}
                               />
                             </div>
-                            <Icon212Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__d5IQb
-                              )}
-                              role={"img"}
-                            />
                           </div>
                         );
                       })}
