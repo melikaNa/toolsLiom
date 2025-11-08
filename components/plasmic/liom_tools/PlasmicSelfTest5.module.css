@@ -696,8 +696,14 @@
   height: auto;
   max-width: 100%;
   column-gap: 8px;
+  margin-top: 16px;
   min-width: 0;
   padding: 0px 8px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox__cypDe {
+    margin-top: 0px;
+  }
 }
 .freeBox___4H9L6 {
   display: flex;

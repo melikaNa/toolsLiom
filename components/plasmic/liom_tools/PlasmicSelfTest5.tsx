@@ -1828,6 +1828,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
+                        console.log("attachment" + $state.attachments);
                         var fileInput =
                           window.document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
@@ -1879,6 +1880,12 @@ function PlasmicSelfTest5__RenderFunc(props: {
                               );
                               if (data.status) {
                                 $state.images.push(data.result);
+                                const result = $state.images.map(item => ({
+                                  value: item,
+                                  type: "image"
+                                }));
+                                $state.attachments = JSON.stringify(result);
+                                console.log("attachment" + $state.attachments);
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -1896,10 +1903,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             }
                           }
                           console.log("\uD83C\uDF89 All uploads completed!");
-                          console.log(
-                            "\uD83E\uDDFE Final images array:",
-                            $state.images
-                          );
                         }
                         return async function uploadFiles(files) {
                           for (let [index, f] of files.entries()) {
@@ -1923,6 +1926,12 @@ function PlasmicSelfTest5__RenderFunc(props: {
                               );
                               if (data.status) {
                                 $state.images.push(data.result);
+                                const result = $state.images.map(item => ({
+                                  value: item,
+                                  type: "image"
+                                }));
+                                $state.attachments = JSON.stringify(result);
+                                console.log("attachment" + $state.attachments);
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -1940,10 +1949,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             }
                           }
                           console.log("\uD83C\uDF89 All uploads completed!");
-                          console.log(
-                            "\uD83E\uDDFE Final images array:",
-                            $state.images
-                          );
                         };
                       })();
                     }
