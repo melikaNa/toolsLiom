@@ -1845,29 +1845,24 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               "\uD83D\uDCE6 Selected files (raw):",
                               selected
                             );
-                            window.filess = [...window.filess, ...selected];
-
-                            window.filess = window.filess.filter(
-                              (file, index, self) =>
-                                index ===
-                                self.findIndex(
-                                  f =>
-                                    f.name === file.name && f.size === file.size
-                                )
-                            );
+                            window.filess = selected;
                             console.log(
-                              "\uD83E\uDDFE window.filess after deduplication:",
+                              "\uD83E\uDDFE window.filess ready to upload:",
                               window.filess
                             );
                             console.log(
                               "\uD83D\uDCE4 Starting uploadFiles()..."
                             );
                             await uploadFiles();
+                            window.filess = [];
+                            console.log(
+                              "\uD83E\uDDF9 Files cleared after upload"
+                            );
                           });
                           window.fileInputListenerAdded = true;
                         } else {
                           console.warn(
-                            "\u26A0️ Event listener was already added \u2014 skipping rebind!"
+                            "\u26A0️ Event listener already added \u2014 skipping rebind!"
                           );
                         }
                         async function uploadFiles() {
@@ -1897,9 +1892,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 `📬 Response for file #${index + 1}:`,
                                 data
                               );
-                              if (!response.ok) {
-                                console.error("\u274C Response not OK:", data);
-                              }
                               if (data.status === false) {
                                 console.error(
                                   "\uD83D\uDCA5 Server error:",
@@ -1913,15 +1905,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               }
                             } catch (error) {
                               console.error(
-                                `🔥 Fetch error for file #${index + 1}:`,
+                                `🔥 Upload failed for file #${index + 1}:`,
                                 error
                               );
                             }
                           }
-                          console.log(
-                            "\uD83E\uDDEE Loop finished, uploaded files count:",
-                            window.filess.length
-                          );
                           console.log("\uD83C\uDF89 All uploads completed!");
                           console.log(
                             "\uD83E\uDDFE Final images array:",
@@ -1955,9 +1943,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 `📬 Response for file #${index + 1}:`,
                                 data
                               );
-                              if (!response.ok) {
-                                console.error("\u274C Response not OK:", data);
-                              }
                               if (data.status === false) {
                                 console.error(
                                   "\uD83D\uDCA5 Server error:",
@@ -1971,15 +1956,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               }
                             } catch (error) {
                               console.error(
-                                `🔥 Fetch error for file #${index + 1}:`,
+                                `🔥 Upload failed for file #${index + 1}:`,
                                 error
                               );
                             }
                           }
-                          console.log(
-                            "\uD83E\uDDEE Loop finished, uploaded files count:",
-                            window.filess.length
-                          );
                           console.log("\uD83C\uDF89 All uploads completed!");
                           console.log(
                             "\uD83E\uDDFE Final images array:",
