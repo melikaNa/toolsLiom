@@ -4764,14 +4764,20 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 }
                               }}
                             >
-                              <Icon212Icon
+                              <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.svg__d5IQb
+                                  sty.freeBox__kZ8Lr
                                 )}
-                                role={"img"}
-                              />
-
+                              >
+                                <Icon212Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__d5IQb
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
                               <PlasmicImg__
                                 alt={""}
                                 className={classNames(sty.img__lK7EM)}
