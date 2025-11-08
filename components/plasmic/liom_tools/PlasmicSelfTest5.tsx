@@ -853,6 +853,12 @@ function PlasmicSelfTest5__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "showPhoto",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1884,6 +1890,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   type: "image"
                                 }));
                                 $state.attachments = JSON.stringify(result);
+                                $state.showPhoto = true;
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -1929,6 +1936,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   type: "image"
                                 }));
                                 $state.attachments = JSON.stringify(result);
+                                $state.showPhoto = true;
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -4687,7 +4695,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox__jdlWa)}>
                 {(() => {
                   try {
-                    return $state.images.length > 0;
+                    return $state.images.length > 0 || $state.showPhoto;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -4851,6 +4859,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   customFunction: async () => {
                                     return (() => {
                                       $state.sendIcon.load = true;
+                                      $state.showPhoto = false;
                                       return ($state.sendIcon.diable = true);
                                     })();
                                   }
