@@ -4677,13 +4677,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox__jdlWa)}>
                 {(() => {
                   try {
-                    return (() => {
-                      var id =
-                        $state.userInfo.id ||
-                        $state.paramsObject.user_id ||
-                        $state.paramsObject.userId;
-                      return id == "4ddd1fab-100c-49f0-b843-e70bff8add34";
-                    })();
+                    return $state.images.length > 0;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
