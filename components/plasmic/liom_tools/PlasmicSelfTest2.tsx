@@ -1840,9 +1840,23 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           );
                           fileInput.addEventListener("change", async event => {
                             console.log("\uD83D\uDCF8 Event 'change' fired!");
-                            window.filess = Array.from(event.target.files);
+                            const selected = Array.from(event.target.files);
                             console.log(
-                              "\uD83D\uDCE6 Selected files:",
+                              "\uD83D\uDCE6 Selected files (raw):",
+                              selected
+                            );
+                            window.filess = [...window.filess, ...selected];
+
+                            window.filess = window.filess.filter(
+                              (file, index, self) =>
+                                index ===
+                                self.findIndex(
+                                  f =>
+                                    f.name === file.name && f.size === file.size
+                                )
+                            );
+                            console.log(
+                              "\uD83E\uDDFE window.filess after deduplication:",
                               window.filess
                             );
                             console.log(
@@ -1904,6 +1918,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               );
                             }
                           }
+                          console.log(
+                            "\uD83E\uDDEE Loop finished, uploaded files count:",
+                            window.filess.length
+                          );
                           console.log("\uD83C\uDF89 All uploads completed!");
                           console.log(
                             "\uD83E\uDDFE Final images array:",
@@ -1958,6 +1976,10 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               );
                             }
                           }
+                          console.log(
+                            "\uD83E\uDDEE Loop finished, uploaded files count:",
+                            window.filess.length
+                          );
                           console.log("\uD83C\uDF89 All uploads completed!");
                           console.log(
                             "\uD83E\uDDFE Final images array:",
@@ -4650,118 +4672,138 @@ function PlasmicSelfTest2__RenderFunc(props: {
               triggerOnce={true}
             >
               <div className={classNames(projectcss.all, sty.freeBox__shcFq)}>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___3C569)}
-                >
+                {(() => {
+                  try {
+                    return (() => {
+                      var id =
+                        $state.userInfo.id ||
+                        $state.paramsObject.user_id ||
+                        $state.paramsObject.userId;
+                      return id == "4ddd1fab-100c-49f0-b843-e70bff8add34";
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__vNzTc)}
+                    className={classNames(projectcss.all, sty.freeBox___3C569)}
                   >
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $state.images;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__vNzTc)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.images;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___7Jnmw
-                          )}
-                          key={currentIndex}
-                        >
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox___0Ef6Z
+                              sty.freeBox___7Jnmw
                             )}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["runCode"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          if (currentItem.includes(".pdf")) {
-                                            return window.open(currentItem);
-                                          } else {
-                                            $state.currentImag = currentItem;
-                                            return ($state.openPhoto.open = true);
-                                          }
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
-                            }}
+                            key={currentIndex}
                           >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__cpLwS)}
-                              displayHeight={"50px"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"50px"}
-                              loading={"lazy"}
-                              src={(() => {
-                                try {
-                                  return (() => {
-                                    if (currentItem.includes(".pdf")) {
-                                      return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
-                                    } else {
-                                      return currentItem;
-                                    }
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___0Ef6Z
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            if (currentItem.includes(".pdf")) {
+                                              return window.open(currentItem);
+                                            } else {
+                                              $state.currentImag = currentItem;
+                                              return ($state.openPhoto.open = true);
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
                                 }
-                              })()}
+                              }}
+                            >
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__cpLwS)}
+                                displayHeight={"50px"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"50px"}
+                                loading={"lazy"}
+                                src={(() => {
+                                  try {
+                                    return (() => {
+                                      if (currentItem.includes(".pdf")) {
+                                        return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
+                                      } else {
+                                        return currentItem;
+                                      }
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+                            </div>
+                            <Icon212Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__tqk51
+                              )}
+                              role={"img"}
                             />
                           </div>
-                          <Icon212Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__tqk51
-                            )}
-                            role={"img"}
-                          />
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
+                ) : null}
                 <div
                   className={classNames(projectcss.all, sty.freeBox__tz0Y3, ``)}
                   id={"selectBox"}
