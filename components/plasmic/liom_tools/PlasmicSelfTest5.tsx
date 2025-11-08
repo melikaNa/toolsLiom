@@ -94,6 +94,7 @@ import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSD
 import Icon119Icon from "./icons/PlasmicIcon__Icon119"; // plasmic-import: JdBtCI53tCN5/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: yU3FWAJzfOsT/icon
 import Icon196Icon from "./icons/PlasmicIcon__Icon196"; // plasmic-import: 0jQ6YDX1Yu0U/icon
+import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: d7z2iEn8tiSD/icon
 import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: qu0_vn04sR3f/icon
 import Icon92Icon from "./icons/PlasmicIcon__Icon92"; // plasmic-import: GLz9qxhI31v4/icon
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
@@ -1826,9 +1827,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
-                        console.log(
-                          "\uD83D\uDE80 Script started: fileInput setup running..."
-                        );
                         var fileInput =
                           window.document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
@@ -1836,9 +1834,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         window.isUploading = false;
                         fileInput.replaceWith(fileInput.cloneNode(true));
                         fileInput = window.document.getElementById("fileInput");
-                        console.log(
-                          "\u267B️ Old listeners cleared & new input ready."
-                        );
                         fileInput.addEventListener("change", async event => {
                           if (window.isUploading) {
                             console.warn(
@@ -1849,7 +1844,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           console.log("\uD83D\uDCF8 Event 'change' fired!");
                           const selected = Array.from(event.target.files);
                           if (selected.length === 0) return;
-                          console.log("\uD83D\uDCE6 Selected files:", selected);
+                          console.log("\uD83D\uDCE6 Selected files");
                           window.isUploading = true;
                           try {
                             await uploadFiles(selected);
@@ -1862,15 +1857,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           }
                         });
                         async function uploadFiles(files) {
-                          console.log(
-                            "\uD83D\uDFE6 uploadFiles() triggered, total files:",
-                            files.length
-                          );
                           for (let [index, f] of files.entries()) {
-                            console.log(
-                              `⬆️ Uploading file #${index + 1}:`,
-                              f.name
-                            );
+                            console.log(`⬆️ Uploading file `);
                             try {
                               const formData = new FormData();
                               formData.append("file", f);
@@ -1913,15 +1901,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           );
                         }
                         return async function uploadFiles(files) {
-                          console.log(
-                            "\uD83D\uDFE6 uploadFiles() triggered, total files:",
-                            files.length
-                          );
                           for (let [index, f] of files.entries()) {
-                            console.log(
-                              `⬆️ Uploading file #${index + 1}:`,
-                              f.name
-                            );
+                            console.log(`⬆️ Uploading file `);
                             try {
                               const formData = new FormData();
                               formData.append("file", f);
@@ -4299,166 +4280,166 @@ function PlasmicSelfTest5__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox___8KiVn)}
                   >
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") != "diaco" &&
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") != "aghosh"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__jEou)}
+                    >
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") != "diaco" &&
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") != "aghosh"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })() ? (
-                      <Icon147Icon
-                        className={classNames(projectcss.all, sty.svg___4UkAw)}
-                        role={"img"}
-                      />
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") == "diaco"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
+                      })() ? (
+                        <Icon147Icon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___4UkAw
+                          )}
+                          role={"img"}
+                        />
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") == "diaco"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })() ? (
-                      <Icon196Icon
-                        className={classNames(projectcss.all, sty.svg__kBtk8)}
-                        role={"img"}
-                      />
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") == "aghosh"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
+                      })() ? (
+                        <Icon196Icon
+                          className={classNames(projectcss.all, sty.svg__kBtk8)}
+                          role={"img"}
+                        />
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") == "aghosh"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })() ? (
-                      <Icon196Icon
-                        className={classNames(projectcss.all, sty.svg__xNXaY)}
-                        role={"img"}
-                      />
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") != "diaco" &&
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") != "aghosh"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
+                      })() ? (
+                        <Icon196Icon
+                          className={classNames(projectcss.all, sty.svg__xNXaY)}
+                          role={"img"}
+                        />
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") != "diaco" &&
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") != "aghosh"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__qJiSg
-                        )}
-                        data-i18n={"chat.t"}
-                      >
-                        {
-                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u0639\u0644\u0651\u0627\u0645\u0647\u060c \u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f \u0644\u06cc\u0648\u0645 \u0647\u0633\u062a\u0645."
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__bwLbt
+                          )}
+                        >
+                          {"\u0639\u0644\u0627\u0651\u0645\u0647"}
+                        </div>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") == "diaco"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
                         }
-                      </div>
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") == "diaco"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__xzKr3
+                          )}
+                        >
+                          {"\u062f\u06cc\u0627\u06a9\u0648 \u0686\u062a"}
+                        </div>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") == "aghosh"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__xzKr3
-                        )}
-                      >
-                        {
-                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u062f\u06cc\u0627\u06a9\u0648 \u0686\u062a \u0647\u0633\u062a\u0645."
-                        }
-                      </div>
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") == "aghosh"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___2XgNr
-                        )}
-                      >
-                        {
-                          "\u0633\u0644\u0627\u0645! \u0645\u0646 \u0622\u063a\u0648\u0634 \u0686\u062a \u0647\u0633\u062a\u0645."
-                        }
-                      </div>
-                    ) : null}
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___2XgNr
+                          )}
+                        >
+                          {" \u0622\u063a\u0648\u0634 \u0686\u062a"}
+                        </div>
+                      ) : null}
+                    </div>
                   </div>
                   <div
                     className={classNames(
@@ -4473,17 +4454,46 @@ function PlasmicSelfTest5__RenderFunc(props: {
                     }
                   </div>
                 </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dxZG
-                  )}
-                  data-i18n={"chat.ppp"}
-                >
-                  {
-                    "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
-                  }
+                <div className={classNames(projectcss.all, sty.freeBox__cypDe)}>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    [2, 3, 4]
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___4H9L6
+                        )}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__n270Q
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__teUpA
+                            )}
+                          >
+                            {"xxx"}
+                          </div>
+                          <Icon10Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__bbqj1
+                            )}
+                            role={"img"}
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
                 {(() => {
                   try {
@@ -4493,149 +4503,167 @@ function PlasmicSelfTest5__RenderFunc(props: {
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return true;
+                      return false;
                     }
                     throw e;
                   }
                 })() ? (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__oHyb)}
+                    className={classNames(projectcss.all, sty.freeBox__zhpgU)}
                   >
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $state.infoChat.questions;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__dxZG
+                      )}
+                      data-i18n={"chat.ppp"}
+                    >
+                      {
+                        "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
+                      }
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__oHyb)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.infoChat.questions;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__zFrk
-                          )}
-                          key={currentIndex}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateTextAreaValue"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["textArea", "value"]
-                                    },
-                                    operation: 0,
-                                    value: currentItem.text
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateTextAreaValue"] != null &&
-                              typeof $steps["updateTextAreaValue"] ===
-                                "object" &&
-                              typeof $steps["updateTextAreaValue"].then ===
-                                "function"
-                            ) {
-                              $steps["updateTextAreaValue"] =
-                                await $steps["updateTextAreaValue"];
-                            }
-
-                            $steps["invokeGlobalAction"] = true
-                              ? (() => {
-                                  const actionArgs = { args: [300] };
-                                  return $globalActions["Fragment.wait"]?.apply(
-                                    null,
-                                    [...actionArgs.args]
-                                  );
-                                })()
-                              : undefined;
-                            if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
-                            ) {
-                              $steps["invokeGlobalAction"] =
-                                await $steps["invokeGlobalAction"];
-                            }
-
-                            $steps["runCode"] = !$state.sendIcon.diable
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return window.document
-                                        .getElementById("sendicon")
-                                        .click();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-                          }}
-                        >
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
                           <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__s3S3O
+                              sty.freeBox__zFrk
                             )}
+                            key={currentIndex}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["updateTextAreaValue"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["textArea", "value"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.text
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTextAreaValue"] != null &&
+                                typeof $steps["updateTextAreaValue"] ===
+                                  "object" &&
+                                typeof $steps["updateTextAreaValue"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTextAreaValue"] =
+                                  await $steps["updateTextAreaValue"];
+                              }
+
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = { args: [300] };
+                                    return $globalActions[
+                                      "Fragment.wait"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
+                              }
+
+                              $steps["runCode"] = !$state.sendIcon.diable
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return window.document
+                                          .getElementById("sendicon")
+                                          .click();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
                           >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return currentItem.text;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__s3S3O
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (
+                                      currentIndex + 1 + ": " + currentItem.text
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
+                                })()}
+                              </React.Fragment>
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
                 ) : null}
               </div>
