@@ -5381,6 +5381,40 @@ function PlasmicSelfTest5__RenderFunc(props: {
                               await $steps["updateAttachments"];
                           }
 
+                          $steps["updateImages"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["images"]
+                                  },
+                                  operation: 1
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, undefined);
+                                  return undefined;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateImages"] != null &&
+                            typeof $steps["updateImages"] === "object" &&
+                            typeof $steps["updateImages"].then === "function"
+                          ) {
+                            $steps["updateImages"] =
+                              await $steps["updateImages"];
+                          }
+
                           $steps["invokeGlobalAction3"] = $steps.newSession
                             ?.data
                             ? (() => {

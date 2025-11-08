@@ -678,6 +678,7 @@
   text-align: center;
   font-size: 16px;
   min-width: 0;
+  display: none;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__ltxDr {
@@ -696,7 +697,8 @@
   height: auto;
   max-width: 100%;
   column-gap: 8px;
-  margin-top: 16px;
+  margin-top: 0px;
+  margin-bottom: 16px;
   min-width: 0;
   padding: 0px 8px;
 }
@@ -769,13 +771,7 @@
   border-top-left-radius: 16px;
   font-weight: 700;
   min-width: 0;
-  display: none;
   padding: 4px 8px 4px 12px;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .text__dxZG {
-    display: block;
-  }
 }
 .freeBox__oHyb {
   display: flex;
