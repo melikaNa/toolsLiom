@@ -2989,14 +2989,19 @@ function PlasmicSelfTest5__RenderFunc(props: {
             <div
               data-plasmic-name={"chatBoxRef"}
               data-plasmic-override={overrides.chatBoxRef}
-              className={classNames(projectcss.all, sty.chatBoxRef, {
-                [sty.chatBoxRefglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
-                  hasVariant(
-                    globalVariants,
-                    "unnamedGlobalGroupOfVariants",
-                    "unnamedVariant"
-                  )
-              })}
+              className={classNames(
+                projectcss.all,
+                sty.chatBoxRef,
+                "container-scroll",
+                {
+                  [sty.chatBoxRefglobal_unnamedGlobalGroupOfVariants_unnamedVariant]:
+                    hasVariant(
+                      globalVariants,
+                      "unnamedGlobalGroupOfVariants",
+                      "unnamedVariant"
+                    )
+                }
+              )}
               id={
                 hasVariant(globalVariants, "screen", "mobileOnly")
                   ? "chatBox"
