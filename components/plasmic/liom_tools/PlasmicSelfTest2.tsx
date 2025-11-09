@@ -5365,6 +5365,53 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
+                          $steps["updateAttachments2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["attachments"]
+                                  },
+                                  operation: 0,
+                                  value: (() => {
+                                    const result =
+                                      Array.isArray($state.images) &&
+                                      $state.images.length > 0
+                                        ? $state.images.map(item => ({
+                                            value: item,
+                                            type: "image"
+                                          }))
+                                        : [];
+                                    return ($state.attachments =
+                                      JSON.stringify(result));
+                                  })()
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateAttachments2"] != null &&
+                            typeof $steps["updateAttachments2"] === "object" &&
+                            typeof $steps["updateAttachments2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateAttachments2"] =
+                              await $steps["updateAttachments2"];
+                          }
+
                           $steps["runCode3"] = true
                             ? (() => {
                                 const actionArgs = {
@@ -5575,6 +5622,41 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               await $steps["updateTextAreaValue"];
                           }
 
+                          $steps["updateShowPhoto"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["showPhoto"]
+                                  },
+                                  operation: 0,
+                                  value: false
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateShowPhoto"] != null &&
+                            typeof $steps["updateShowPhoto"] === "object" &&
+                            typeof $steps["updateShowPhoto"].then === "function"
+                          ) {
+                            $steps["updateShowPhoto"] =
+                              await $steps["updateShowPhoto"];
+                          }
+
                           $steps["runCode7"] = true
                             ? (() => {
                                 const actionArgs = {
@@ -5678,6 +5760,40 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             typeof $steps["chat"].then === "function"
                           ) {
                             $steps["chat"] = await $steps["chat"];
+                          }
+
+                          $steps["updateImages"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["images"]
+                                  },
+                                  operation: 1
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, undefined);
+                                  return undefined;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateImages"] != null &&
+                            typeof $steps["updateImages"] === "object" &&
+                            typeof $steps["updateImages"].then === "function"
+                          ) {
+                            $steps["updateImages"] =
+                              await $steps["updateImages"];
                           }
 
                           $steps["runCode5"] = $steps.chat?.data?.success
@@ -6297,6 +6413,33 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             projectcss.all,
                             sty.freeBox___3W1HM
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return window.document
+                                          .getElementById("fileInput")
+                                          .click();
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
                         >
                           {(() => {
                             try {
