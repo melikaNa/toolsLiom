@@ -269,11 +269,7 @@
   height: 20px;
   transform: translate3d(-1px, 0px, 0px);
   cursor: pointer;
-  transform-style: preserve-3d;
   flex-shrink: 0;
-}
-.svg__dQkA9 * {
-  transform-style: preserve-3d;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .svg__dQkA9 {
@@ -285,13 +281,7 @@
     bottom: auto;
     right: auto;
     height: 20px;
-    transform-style: preserve-3d;
     flex-shrink: 0;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .svg__dQkA9 * {
-    transform-style: preserve-3d;
   }
 }
 .freeBox__xKnJe {
@@ -318,21 +308,11 @@
   width: 20px;
   height: 20px;
   transform: translate3d(-1px, 0px, 0px);
-  transform-style: preserve-3d;
   flex-shrink: 0;
-}
-.svg___25Hg * {
-  transform-style: preserve-3d;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .svg___25Hg {
     z-index: 20;
-    transform-style: preserve-3d;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .svg___25Hg * {
-    transform-style: preserve-3d;
   }
 }
 .text__nNeS {
@@ -607,10 +587,6 @@
   bottom: auto;
   right: auto;
   transform: none;
-  transform-style: preserve-3d;
-}
-.svg__dSzzg * {
-  transform-style: preserve-3d;
 }
 .peyPardakht24 {
   display: flex;
@@ -1298,10 +1274,6 @@
   bottom: auto;
   right: auto;
   transform: none;
-  transform-style: preserve-3d;
-}
-.svg__lxtzQ * {
-  transform-style: preserve-3d;
 }
 .freeBox__yiwdE {
   display: flex;
@@ -1869,10 +1841,6 @@
   bottom: auto;
   right: auto;
   transform: none;
-  transform-style: preserve-3d;
-}
-.svg___6ZQg1 * {
-  transform-style: preserve-3d;
 }
 .freeBox__m7Bp5 {
   width: auto;

@@ -191,10 +191,6 @@
   transform: skew(0deg, 0deg);
   padding-bottom: var(--token-3WxvfyIdJppy);
   padding-top: var(--token-3WxvfyIdJppy);
-  transform-style: preserve-3d;
-}
-.text__flORw * {
-  transform-style: preserve-3d;
 }
 .headerLiom:global(.__wab_instance) {
   max-width: 100%;
@@ -426,24 +422,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__oBuD > picture > img {
   object-fit: cover;
-}
-.img__oBuD * {
-  transform-style: preserve-3d;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .img__oBuD {
-    transform-style: preserve-3d;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .img__oBuD * {
-    transform-style: preserve-3d;
-  }
 }
 .img___6I8Ch {
   object-fit: cover;

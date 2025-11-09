@@ -953,14 +953,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__khQ6B > picture > img {
   object-fit: cover;
-}
-.img__khQ6B * {
-  transform-style: preserve-3d;
 }
 .img__l9Hpk {
   object-fit: cover;
@@ -1034,14 +1030,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__hWuO > picture > img {
   object-fit: cover;
-}
-.img__hWuO * {
-  transform-style: preserve-3d;
 }
 .img__cIlAt {
   object-fit: cover;
@@ -1115,14 +1107,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__n1Ppm > picture > img {
   object-fit: cover;
-}
-.img__n1Ppm * {
-  transform-style: preserve-3d;
 }
 .img__xgGJn {
   object-fit: cover;

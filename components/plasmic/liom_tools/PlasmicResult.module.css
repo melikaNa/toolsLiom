@@ -206,10 +206,6 @@
   transform: skew(0deg, 0deg);
   padding-bottom: var(--token-3WxvfyIdJppy);
   padding-top: var(--token-3WxvfyIdJppy);
-  transform-style: preserve-3d;
-}
-.text__zuZtW * {
-  transform-style: preserve-3d;
 }
 .section__r0Aj {
   display: grid;
@@ -531,24 +527,10 @@
   max-width: 100%;
   width: 15px;
   transform: scale3d(-1, 1, 1);
-  transform-style: preserve-3d;
   margin: -20px 0px 0px;
 }
 .img__pqmT2 > picture > img {
   object-fit: cover;
-}
-.img__pqmT2 * {
-  transform-style: preserve-3d;
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .img__pqmT2 {
-    transform-style: preserve-3d;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .img__pqmT2 * {
-    transform-style: preserve-3d;
-  }
 }
 .img__hd3Nm {
   object-fit: cover;

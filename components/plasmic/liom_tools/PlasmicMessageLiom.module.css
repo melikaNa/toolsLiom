@@ -305,55 +305,17 @@
   z-index: 1;
   transition-property: all;
   transition-duration: 1s;
-  transform-style: preserve-3d;
   flex-shrink: 0;
   display: none;
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
 }
-.loadingCompopnentGray * {
-  transform-style: preserve-3d;
-}
 .loadingCompopnentGrayloadingMessage:global(.__wab_instance) {
-  transform-style: preserve-3d;
   display: flex;
-}
-.loadingCompopnentGrayloadingMessage * {
-  transform-style: preserve-3d;
-}
-.loadingCompopnentGrayendMessege:global(.__wab_instance) {
-  transform-style: preserve-3d;
-}
-.loadingCompopnentGrayendMessege * {
-  transform-style: preserve-3d;
 }
 .loadingCompopnentGraybot:global(.__wab_instance) {
   left: 0px;
   top: 0px;
-  transform-style: preserve-3d;
-}
-.loadingCompopnentGraybot * {
-  transform-style: preserve-3d;
-}
-.loadingCompopnentGrayliomAnswer_endMessege:global(.__wab_instance) {
-  transform-style: preserve-3d;
-}
-.loadingCompopnentGrayliomAnswer_endMessege * {
-  transform-style: preserve-3d;
-}
-.loadingCompopnentGrayloadingMessage_endMessege:global(.__wab_instance) {
-  transform-style: preserve-3d;
-}
-.loadingCompopnentGrayloadingMessage_endMessege * {
-  transform-style: preserve-3d;
-}
-.loadingCompopnentGrayliomAnswer_loadingMessage_endMessege:global(
-  .__wab_instance
-) {
-  transform-style: preserve-3d;
-}
-.loadingCompopnentGrayliomAnswer_loadingMessage_endMessege * {
-  transform-style: preserve-3d;
 }
 .freeBox___8EPkS {
   width: 100%;
@@ -503,38 +465,14 @@
   color: var(--token-CLN8EitO07Ao);
   width: var(--token-RPGjJxLh3tUl);
   height: var(--token-RPGjJxLh3tUl);
-  transform-style: preserve-3d;
   flex-shrink: 0;
   display: block;
 }
-.svgendMessege__lOaeltjzqg * {
-  transform-style: preserve-3d;
-}
-.svgendMessege_pazireshAnswer__lOaeltjzqgYPoRs {
-  transform-style: preserve-3d;
-}
-.svgendMessege_pazireshAnswer__lOaeltjzqgYPoRs * {
-  transform-style: preserve-3d;
-}
-.svgloadingMessage_endMessege__lOaelNjKFmTjzqg {
-  transform-style: preserve-3d;
-}
-.svgloadingMessage_endMessege__lOaelNjKFmTjzqg * {
-  transform-style: preserve-3d;
-}
 .svgendMessege_hint__lOaeltjzqgETAel {
   color: var(--token-LCC99oGt2mlX);
-  transform-style: preserve-3d;
-}
-.svgendMessege_hint__lOaeltjzqgETAel * {
-  transform-style: preserve-3d;
 }
 .svgendMessege_bot__lOaeltjzqgXxwGw {
   color: var(--token-ieogzVSSyrRx);
-  transform-style: preserve-3d;
-}
-.svgendMessege_bot__lOaeltjzqgXxwGw * {
-  transform-style: preserve-3d;
 }
 .freeBox__q3Toq {
   position: relative;

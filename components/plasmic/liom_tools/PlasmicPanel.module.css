@@ -193,10 +193,6 @@
   transform: skew(0deg, 0deg);
   padding-bottom: var(--token-3WxvfyIdJppy);
   padding-top: var(--token-3WxvfyIdJppy);
-  transform-style: preserve-3d;
-}
-.text__chgcz * {
-  transform-style: preserve-3d;
 }
 .freeBox__plc52 {
   display: flex;

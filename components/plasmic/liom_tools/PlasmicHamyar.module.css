@@ -910,14 +910,10 @@
   align-self: center;
   right: 0;
   bottom: 0;
-  transform-style: preserve-3d;
   -webkit-backdrop-filter: none;
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
   border-radius: 30px;
-}
-.shopModalWeb * {
-  transform-style: preserve-3d;
 }
 .freeBox__uPWzg {
   display: flex;

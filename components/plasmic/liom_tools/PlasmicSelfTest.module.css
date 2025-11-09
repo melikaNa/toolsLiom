@@ -277,11 +277,7 @@
   height: 20px;
   transform: translate3d(-1px, 0px, 0px);
   cursor: pointer;
-  transform-style: preserve-3d;
   flex-shrink: 0;
-}
-.svg__fCcuL * {
-  transform-style: preserve-3d;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .svg__fCcuL {
@@ -293,13 +289,7 @@
     bottom: auto;
     right: auto;
     height: 20px;
-    transform-style: preserve-3d;
     flex-shrink: 0;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .svg__fCcuL * {
-    transform-style: preserve-3d;
   }
 }
 .svg__avLq {
@@ -310,11 +300,7 @@
   height: 20px;
   transform: translate3d(-1px, 0px, 0px);
   cursor: pointer;
-  transform-style: preserve-3d;
   flex-shrink: 0;
-}
-.svg__avLq * {
-  transform-style: preserve-3d;
 }
 .freeBox__t3OzC {
   display: flex;
@@ -340,21 +326,11 @@
   width: 20px;
   height: 20px;
   transform: translate3d(-1px, 0px, 0px);
-  transform-style: preserve-3d;
   flex-shrink: 0;
-}
-.svg__o5Pbm * {
-  transform-style: preserve-3d;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .svg__o5Pbm {
     z-index: 20;
-    transform-style: preserve-3d;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .svg__o5Pbm * {
-    transform-style: preserve-3d;
   }
 }
 .svg__wc7Vv {
@@ -365,11 +341,7 @@
   height: 20px;
   transform: translate3d(-1px, 0px, 0px);
   cursor: pointer;
-  transform-style: preserve-3d;
   flex-shrink: 0;
-}
-.svg__wc7Vv * {
-  transform-style: preserve-3d;
 }
 .text__m641N {
   position: relative;
@@ -643,10 +615,6 @@
   bottom: auto;
   right: auto;
   transform: none;
-  transform-style: preserve-3d;
-}
-.svg__a8EU * {
-  transform-style: preserve-3d;
 }
 .peyPardakht24 {
   display: flex;
@@ -1342,10 +1310,6 @@
   bottom: auto;
   right: auto;
   transform: none;
-  transform-style: preserve-3d;
-}
-.svg__wEuC1 * {
-  transform-style: preserve-3d;
 }
 .freeBox__h1IyH {
   display: flex;
@@ -1941,10 +1905,6 @@
   bottom: auto;
   right: auto;
   transform: none;
-  transform-style: preserve-3d;
-}
-.svg__l4Ax9 * {
-  transform-style: preserve-3d;
 }
 .freeBox__pVrt2 {
   display: flex;

@@ -15,8 +15,4 @@
 }
 .root:hover {
   transform: scale3d(1.2, 1.2, 1);
-  transform-style: preserve-3d;
-}
-.root:hover * {
-  transform-style: preserve-3d;
 }

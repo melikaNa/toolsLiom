@@ -203,10 +203,6 @@
   transform: skew(0deg, 0deg);
   padding-bottom: var(--token-3WxvfyIdJppy);
   padding-top: var(--token-3WxvfyIdJppy);
-  transform-style: preserve-3d;
-}
-.text__hcaSg * {
-  transform-style: preserve-3d;
 }
 .section {
   display: grid;

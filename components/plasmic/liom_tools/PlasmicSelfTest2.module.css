@@ -407,11 +407,7 @@
   height: 20px;
   transform: translate3d(-1px, 0px, 0px);
   cursor: pointer;
-  transform-style: preserve-3d;
   flex-shrink: 0;
-}
-.svg__ggssY * {
-  transform-style: preserve-3d;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .svg__ggssY {
@@ -423,13 +419,7 @@
     bottom: auto;
     right: auto;
     height: 20px;
-    transform-style: preserve-3d;
     flex-shrink: 0;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .svg__ggssY * {
-    transform-style: preserve-3d;
   }
 }
 .freeBox__lnlxy {
@@ -456,21 +446,11 @@
   width: 20px;
   height: 20px;
   transform: translate3d(-1px, 0px, 0px);
-  transform-style: preserve-3d;
   flex-shrink: 0;
-}
-.svg__oj7Or * {
-  transform-style: preserve-3d;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .svg__oj7Or {
     z-index: 20;
-    transform-style: preserve-3d;
-  }
-}
-@media (min-width: 0px) and (max-width: 768px) {
-  .svg__oj7Or * {
-    transform-style: preserve-3d;
   }
 }
 .text__f1Zjo {
@@ -1896,10 +1876,6 @@
   bottom: auto;
   right: auto;
   transform: none;
-  transform-style: preserve-3d;
-}
-.svg__lYwgq * {
-  transform-style: preserve-3d;
 }
 .openPhoto:global(.__wab_instance) {
   max-width: 100%;
