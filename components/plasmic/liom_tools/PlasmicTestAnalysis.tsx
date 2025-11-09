@@ -1782,27 +1782,10 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                                 "test-result"
                                               );
                                               formData.append("index", index);
-                                              var url =
-                                                "https://api.liom.app/upload";
-                                              if (
-                                                $ctx.query.type != "filterino"
-                                              ) {
-                                                url =
-                                                  "https://api.friendschat.ir/avatar/setPic";
-                                                formData.append(
-                                                  "id",
-                                                  $ctx.query.id
-                                                );
-                                              }
                                               const response = await fetch(
-                                                url,
+                                                "https://api.liom.app/upload",
                                                 {
                                                   method: "POST",
-                                                  headers: {
-                                                    "Content-Type":
-                                                      "application/json",
-                                                    appid: "19"
-                                                  },
                                                   body: formData
                                                 }
                                               );
@@ -1927,6 +1910,28 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               typeof $steps["chatBot"].then === "function"
                             ) {
                               $steps["chatBot"] = await $steps["chatBot"];
+                            }
+
+                            $steps["invokeGlobalAction"] =
+                              $ctx.query.type == "filterino" && $state.isDone
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [undefined, ``]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
                             }
 
                             $steps["updateUploadLoad2"] = true
