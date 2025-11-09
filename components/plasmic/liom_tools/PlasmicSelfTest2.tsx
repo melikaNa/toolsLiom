@@ -4653,6 +4653,88 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               sty.freeBox__oqmse
                             )}
                             key={currentIndex}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["updateTextAreaValue"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["textArea", "value"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem.text
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateTextAreaValue"] != null &&
+                                typeof $steps["updateTextAreaValue"] ===
+                                  "object" &&
+                                typeof $steps["updateTextAreaValue"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateTextAreaValue"] =
+                                  await $steps["updateTextAreaValue"];
+                              }
+
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = { args: [313] };
+                                    return $globalActions[
+                                      "Fragment.wait"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
+                              }
+
+                              $steps["runCode"] = !$state.sendIcon.diable
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return window.document
+                                          .getElementById("sendicon")
+                                          .click();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
                           >
                             <div
                               className={classNames(
