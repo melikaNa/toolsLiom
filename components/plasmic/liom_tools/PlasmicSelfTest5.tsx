@@ -872,6 +872,12 @@ function PlasmicSelfTest5__RenderFunc(props: {
             name: "\u062a\u0634\u062e\u06cc\u0635 \u0646\u0648\u0639 \u067e\u0648\u0633\u062a"
           }
         ]
+      },
+      {
+        path: "uploaded",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1878,6 +1884,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         });
                         async function uploadFiles(files) {
                           for (let [index, f] of files.entries()) {
+                            $state.uploaded = false;
                             console.log(`⬆️ Uploading file `);
                             try {
                               const formData = new FormData();
@@ -1904,6 +1911,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 }));
                                 $state.attachments = JSON.stringify(result);
                                 $state.showPhoto = true;
+                                $state.uploaded = true;
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -1924,6 +1932,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         }
                         return async function uploadFiles(files) {
                           for (let [index, f] of files.entries()) {
+                            $state.uploaded = false;
                             console.log(`⬆️ Uploading file `);
                             try {
                               const formData = new FormData();
@@ -1950,6 +1959,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 }));
                                 $state.attachments = JSON.stringify(result);
                                 $state.showPhoto = true;
+                                $state.uploaded = true;
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -4721,7 +4731,11 @@ function PlasmicSelfTest5__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox__jdlWa)}>
                 {(() => {
                   try {
-                    return $state.images.length > 0 || $state.showPhoto;
+                    return (
+                      $state.images.length > 0 &&
+                      $state.showPhoto &&
+                      $state.uploaded
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -4852,6 +4866,104 @@ function PlasmicSelfTest5__RenderFunc(props: {
                     </div>
                   </div>
                 ) : null}
+                {(() => {
+                  try {
+                    return !$state.uploaded;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__vTecs)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__dlMe)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return (() => {
+                              var list = $state.images;
+                              return list;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__qn6Yb
+                            )}
+                            key={currentIndex}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__zv3Hz
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            if (currentItem.includes(".pdf")) {
+                                              return window.open(currentItem);
+                                            } else {
+                                              $state.currentImag = currentItem;
+                                              return ($state.openPhoto.open = true);
+                                            }
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__syM6E,
+                                  "shimmer"
+                                )}
+                              />
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : null}
                 <div
                   className={classNames(projectcss.all, sty.freeBox__xhkMh, ``)}
                   id={"selectBox"}
@@ -4884,8 +4996,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 const actionArgs = {
                                   customFunction: async () => {
                                     return (() => {
-                                      $state.sendIcon.load = true;
                                       $state.showPhoto = false;
+                                      $state.sendIcon.load = true;
                                       return ($state.sendIcon.diable = true);
                                     })();
                                   }
