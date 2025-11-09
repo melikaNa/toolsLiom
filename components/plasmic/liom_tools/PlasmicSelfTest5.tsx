@@ -878,6 +878,12 @@ function PlasmicSelfTest5__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "readyToSend",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1858,6 +1864,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
                         window.isUploading = false;
+                        $state.readyToSend = false;
                         fileInput.replaceWith(fileInput.cloneNode(true));
                         fileInput = window.document.getElementById("fileInput");
                         fileInput.addEventListener("change", async event => {
@@ -1882,6 +1889,10 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             );
                           }
                         });
+                        $state.readyToSend = true;
+                        console.log(
+                          "\uD83D\uDE80 File input is ready for upload!"
+                        );
                         async function uploadFiles(files) {
                           for (let [index, f] of files.entries()) {
                             $state.uploading = true;
@@ -5969,13 +5980,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                       })()}
                       {(() => {
                         try {
-                          return (() => {
-                            var id =
-                              $state.userInfo.id ||
-                              $state.paramsObject.user_id ||
-                              $state.paramsObject.userId;
-                            return id == "4ddd1fab-100c-49f0-b843-e70bff8add34";
-                          })();
+                          return $state.readyToSend;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
