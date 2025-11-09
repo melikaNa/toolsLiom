@@ -4289,230 +4289,203 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   })()
             }
           >
-            <div className={classNames(projectcss.all, sty.freeBox___5OXRj)}>
-              <div className={classNames(projectcss.all, sty.freeBox___2WA0L)}>
-                <div className={classNames(projectcss.all, sty.freeBox__ym0Tj)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__lxmuW)}
-                  >
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") != "diaco" &&
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") != "aghosh"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <Icon147Icon
-                        className={classNames(projectcss.all, sty.svg__ii9ZN)}
-                        role={"img"}
-                      />
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") == "diaco"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <Icon196Icon
-                        className={classNames(projectcss.all, sty.svg__ociEd)}
-                        role={"img"}
-                      />
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") == "aghosh"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <Icon196Icon
-                        className={classNames(projectcss.all, sty.svg___92Cus)}
-                        role={"img"}
-                      />
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") != "diaco" &&
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") != "aghosh"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__uK40U
-                        )}
-                      >
-                        {"\u0639\u0644\u0627\u0651\u0645\u0647"}
-                      </div>
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") == "diaco"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__lqwJ5
-                        )}
-                      >
-                        {"\u062f\u06cc\u0627\u06a9\u0648 \u0686\u062a"}
-                      </div>
-                    ) : null}
-                    {(() => {
-                      try {
-                        return (
-                          new window.URLSearchParams(
-                            window.location.search
-                          ).get("origin") == "aghosh"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__wFiZ2
-                        )}
-                      >
-                        {" \u0622\u063a\u0648\u0634 \u0686\u062a"}
-                      </div>
-                    ) : null}
-                  </div>
-                </div>
+            {(() => {
+              try {
+                return $state.testChat?.length == 0 && !$state.loading;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox___5OXRj)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__aoVHw
-                  )}
-                  data-i18n={"chat.pp"}
+                  className={classNames(projectcss.all, sty.freeBox___2WA0L)}
                 >
-                  {
-                    "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
-                  }
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox___56Lrx)}>
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                  []
-                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
-                  return (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ym0Tj)}
+                  >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__l6Zq0)}
-                      key={currentIndex}
+                      className={classNames(projectcss.all, sty.freeBox__lxmuW)}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__w7V0C
-                        )}
-                      >
-                        <Icon10Icon
-                          className={classNames(projectcss.all, sty.svg__uPlj)}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") != "diaco" &&
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") != "aghosh"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <Icon147Icon
+                          className={classNames(projectcss.all, sty.svg__ii9ZN)}
                           role={"img"}
                         />
-
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") == "diaco"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <Icon196Icon
+                          className={classNames(projectcss.all, sty.svg__ociEd)}
+                          role={"img"}
+                        />
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") == "aghosh"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <Icon196Icon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___92Cus
+                          )}
+                          role={"img"}
+                        />
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") != "diaco" &&
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") != "aghosh"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text___8TiOi
+                            sty.text__uK40U
                           )}
                         >
-                          <React.Fragment>{currentItem.name}</React.Fragment>
+                          {"\u0639\u0644\u0627\u0651\u0645\u0647"}
                         </div>
-                      </div>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") == "diaco"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__lqwJ5
+                          )}
+                        >
+                          {"\u062f\u06cc\u0627\u06a9\u0648 \u0686\u062a"}
+                        </div>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return (
+                            new window.URLSearchParams(
+                              window.location.search
+                            ).get("origin") == "aghosh"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__wFiZ2
+                          )}
+                        >
+                          {" \u0622\u063a\u0648\u0634 \u0686\u062a"}
+                        </div>
+                      ) : null}
                     </div>
-                  );
-                })}
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__y5VzW)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__g91FE
-                  )}
-                  data-i18n={"chat.ppp"}
-                >
-                  {
-                    "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
-                  }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__aoVHw
+                    )}
+                    data-i18n={"chat.pp"}
+                  >
+                    {
+                      "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
+                    }
+                  </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__tQAwy)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___56Lrx)}
+                >
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     []
                   ).map((__plasmic_item_0, __plasmic_idx_0) => {
@@ -4522,45 +4495,136 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__oqmse
+                          sty.freeBox__l6Zq0
                         )}
                         key={currentIndex}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ngZur
+                            sty.freeBox__w7V0C
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  currentIndex + 1 + ": " + currentItem.text
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
+                          <Icon10Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__uPlj
+                            )}
+                            role={"img"}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___8TiOi
+                            )}
+                          >
+                            <React.Fragment>{currentItem.name}</React.Fragment>
+                          </div>
                         </div>
-                        <ChevronLeftIcon
-                          className={classNames(projectcss.all, sty.svg__lmyGz)}
-                          role={"img"}
-                        />
                       </div>
                     );
                   })}
                 </div>
+                {(() => {
+                  try {
+                    return $state.infoChat?.questions?.length > 1;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__y5VzW)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__g91FE
+                      )}
+                      data-i18n={"chat.ppp"}
+                    >
+                      {
+                        "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
+                      }
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__tQAwy)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.infoChat.questions;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__oqmse
+                            )}
+                            key={currentIndex}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ngZur
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (
+                                      currentIndex + 1 + ": " + currentItem.text
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                            <ChevronLeftIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__lmyGz
+                              )}
+                              role={"img"}
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : null}
               </div>
-            </div>
+            ) : null}
             {(() => {
               try {
                 return (
