@@ -528,7 +528,9 @@ function PlasmicSelfTest5__RenderFunc(props: {
               })()
             : (() => {
                 try {
-                  return $state.textArea.value == "";
+                  return (
+                    $state.textArea.value == "" && $state.images.length == 0
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -4845,51 +4847,81 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 }
                               }}
                             >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__kZ8Lr
-                                )}
-                              >
-                                <Icon212Icon
+                              {(() => {
+                                try {
+                                  return currentItem != "loading";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__d5IQb
+                                    sty.freeBox__kZ8Lr
                                   )}
-                                  role={"img"}
-                                />
-                              </div>
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__lK7EM)}
-                                displayHeight={"50px"}
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={"50px"}
-                                loading={"lazy"}
-                                src={(() => {
-                                  try {
-                                    return (() => {
-                                      if (currentItem.includes(".pdf")) {
-                                        return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
-                                      } else {
-                                        return currentItem;
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                                >
+                                  <Icon212Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__d5IQb
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return currentItem != "loading";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
                                   }
-                                })()}
-                              />
+                                  throw e;
+                                }
+                              })() ? (
+                                <PlasmicImg__
+                                  alt={""}
+                                  className={classNames(sty.img__lK7EM)}
+                                  displayHeight={"50px"}
+                                  displayMaxHeight={"none"}
+                                  displayMaxWidth={"100%"}
+                                  displayMinHeight={"0"}
+                                  displayMinWidth={"0"}
+                                  displayWidth={"50px"}
+                                  loading={"lazy"}
+                                  src={(() => {
+                                    try {
+                                      return (() => {
+                                        if (currentItem.includes(".pdf")) {
+                                          return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
+                                        } else {
+                                          return currentItem;
+                                        }
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                />
+                              ) : null}
                             </div>
                           </div>
                         );
