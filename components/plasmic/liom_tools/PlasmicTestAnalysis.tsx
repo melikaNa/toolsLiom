@@ -1816,6 +1816,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                         return uploadFiles().then(() => {
                                           console.log("Do other things now");
                                           $state.isDone = true;
+                                          console.log("data:", $state.link);
                                         });
                                       })();
                                     }
@@ -1899,17 +1900,14 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["chatBot"] = await $steps["chatBot"];
                             }
 
-                            $steps["invokeGlobalAction"] =
-                              $ctx.query.type == "filterino" && $state.isDone
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [undefined, ``]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.apiRequest"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
+                            $steps["invokeGlobalAction"] = false
+                              ? (() => {
+                                  const actionArgs = { args: [undefined, ``] };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
                             if (
                               $steps["invokeGlobalAction"] != null &&
                               typeof $steps["invokeGlobalAction"] ===
