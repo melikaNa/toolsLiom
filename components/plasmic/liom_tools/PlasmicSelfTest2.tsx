@@ -5071,30 +5071,142 @@ function PlasmicSelfTest2__RenderFunc(props: {
               triggerOnce={true}
             >
               <div className={classNames(projectcss.all, sty.freeBox__shcFq)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___3C569)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__vNzTc)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.images;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___7Jnmw
+                          )}
+                          key={currentIndex}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___0Ef6Z
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          if (currentItem.includes(".pdf")) {
+                                            return window.open(currentItem);
+                                          } else {
+                                            $state.currentImag = currentItem;
+                                            return ($state.openPhoto.open = true);
+                                          }
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
+                          >
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__cpLwS)}
+                              displayHeight={"50px"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"50px"}
+                              loading={"lazy"}
+                              src={(() => {
+                                try {
+                                  return (() => {
+                                    if (currentItem.includes(".pdf")) {
+                                      return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
+                                    } else {
+                                      return currentItem;
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+                          </div>
+                          <Icon212Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__tqk51
+                            )}
+                            role={"img"}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
                 {(() => {
                   try {
-                    return (() => {
-                      var id =
-                        $state.userInfo.id ||
-                        $state.paramsObject.user_id ||
-                        $state.paramsObject.userId;
-                      return id == "4ddd1fab-100c-49f0-b843-e70bff8add34";
-                    })();
+                    return (
+                      ($state.images.length > 0 && $state.showPhoto) ||
+                      $state.uploading
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return false;
+                      return true;
                     }
                     throw e;
                   }
                 })() ? (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox___3C569)}
+                    className={classNames(projectcss.all, sty.freeBox___0FYc2)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__vNzTc)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___6Ko9Y
+                      )}
                     >
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -5118,65 +5230,19 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox___7Jnmw
+                              sty.freeBox__on3Mf
                             )}
                             key={currentIndex}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox___0Ef6Z
-                              )}
-                              onClick={async event => {
-                                const $steps = {};
-
-                                $steps["runCode"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            if (currentItem.includes(".pdf")) {
-                                              return window.open(currentItem);
-                                            } else {
-                                              $state.currentImag = currentItem;
-                                              return ($state.openPhoto.open = true);
-                                            }
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["runCode"] != null &&
-                                  typeof $steps["runCode"] === "object" &&
-                                  typeof $steps["runCode"].then === "function"
-                                ) {
-                                  $steps["runCode"] = await $steps["runCode"];
-                                }
-                              }}
-                            >
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__cpLwS)}
-                                displayHeight={"50px"}
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={"50px"}
-                                loading={"lazy"}
-                                src={(() => {
+                                sty.freeBox__ewyK,
+                                (() => {
                                   try {
-                                    return (() => {
-                                      if (currentItem.includes(".pdf")) {
-                                        return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
-                                      } else {
-                                        return currentItem;
-                                      }
-                                    })();
+                                    return currentItem == "loading"
+                                      ? "shimmer"
+                                      : "";
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -5187,16 +5253,85 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     }
                                     throw e;
                                   }
-                                })()}
-                              />
-                            </div>
-                            <Icon212Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__tqk51
+                                })()
                               )}
-                              role={"img"}
-                            />
+                            >
+                              {(() => {
+                                try {
+                                  return currentItem != "loading";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__r4ReI
+                                  )}
+                                >
+                                  <Icon212Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg___1SkkE
+                                    )}
+                                    role={"img"}
+                                  />
+                                </div>
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return currentItem != "loading";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <PlasmicImg__
+                                  alt={""}
+                                  className={classNames(sty.img__tdfS7)}
+                                  displayHeight={"70px"}
+                                  displayMaxHeight={"none"}
+                                  displayMaxWidth={"100%"}
+                                  displayMinHeight={"0"}
+                                  displayMinWidth={"0"}
+                                  displayWidth={"70px"}
+                                  loading={"lazy"}
+                                  src={(() => {
+                                    try {
+                                      return (() => {
+                                        if (currentItem.includes(".pdf")) {
+                                          return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
+                                        } else {
+                                          return currentItem;
+                                        }
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                />
+                              ) : null}
+                            </div>
                           </div>
                         );
                       })}
@@ -6163,21 +6298,48 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             sty.freeBox___3W1HM
                           )}
                         >
-                          <Icon93Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg___9FEi
-                            )}
-                            role={"img"}
-                          />
-
-                          <Icon149Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__fOc3X
-                            )}
-                            role={"img"}
-                          />
+                          {(() => {
+                            try {
+                              return $state.readyToSend;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <Icon93Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___9FEi
+                              )}
+                              role={"img"}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return !$state.readyToSend;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <Icon149Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__fOc3X
+                              )}
+                              role={"img"}
+                            />
+                          ) : null}
                         </div>
                       ) : null}
                     </div>

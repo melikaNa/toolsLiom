@@ -1153,7 +1153,6 @@
   }
 }
 .freeBox___3C569 {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: stretch;
@@ -1162,6 +1161,7 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
+  display: none;
   padding: 16px 8px 8px;
 }
 .freeBox__vNzTc {
@@ -1226,6 +1226,108 @@
   height: 20px;
   color: var(--token-y50Rafqey4Ec);
   flex-shrink: 0;
+}
+.freeBox___0FYc2 {
+  animation: none;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+  border-bottom: 1px solid var(--token-3cTIho4ddH8d);
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___0FYc2 {
+    animation: none;
+  }
+}
+.freeBox___6Ko9Y {
+  animation: none;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: auto;
+  min-width: 0;
+  padding: 0px 8px;
+}
+.freeBox__on3Mf {
+  animation: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  column-gap: var(--token-KVcr9NiMwFLr);
+  padding: 8px;
+}
+.freeBox__ewyK {
+  animation: none;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  min-height: 70px;
+  min-width: 70px;
+  left: auto;
+  top: auto;
+  border-radius: 8px;
+  padding: 0px;
+}
+.freeBox__r4ReI {
+  animation: none;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: auto;
+  background: var(--token-PvbqFVJaOepe);
+  right: 60px;
+  flex-shrink: 0;
+  border-radius: 100px;
+  padding: 5px;
+}
+.svg___1SkkE {
+  animation: none;
+  object-fit: cover;
+  max-width: 100%;
+  width: auto;
+  height: 1em;
+  color: var(--token-ieogzVSSyrRx);
+  flex-shrink: 0;
+}
+.img__tdfS7 {
+  animation: none;
+  object-fit: cover;
+  max-width: 100%;
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border-width: 1px;
+}
+.img__tdfS7 > picture > img {
+  object-fit: cover;
 }
 .freeBox__tz0Y3 {
   display: flex;
