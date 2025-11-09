@@ -4866,6 +4866,34 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                     projectcss.all,
                                     sty.freeBox__kZ8Lr
                                   )}
+                                  onClick={async event => {
+                                    const $steps = {};
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return $state.images.splice(
+                                                currentIndex,
+                                                1
+                                              );
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
+                                    }
+                                  }}
                                 >
                                   <Icon212Icon
                                     className={classNames(
@@ -4893,12 +4921,12 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 <PlasmicImg__
                                   alt={""}
                                   className={classNames(sty.img__lK7EM)}
-                                  displayHeight={"50px"}
+                                  displayHeight={"70px"}
                                   displayMaxHeight={"none"}
                                   displayMaxWidth={"100%"}
                                   displayMinHeight={"0"}
                                   displayMinWidth={"0"}
-                                  displayWidth={"50px"}
+                                  displayWidth={"70px"}
                                   loading={"lazy"}
                                   src={(() => {
                                     try {

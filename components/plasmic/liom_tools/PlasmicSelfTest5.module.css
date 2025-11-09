@@ -784,7 +784,7 @@
   overflow: auto;
   row-gap: 8px;
   min-width: 0;
-  padding: 8px 2px;
+  padding: 8px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__oHyb {
@@ -886,6 +886,7 @@
   max-width: 100%;
   min-width: 0;
   padding: 8px;
+  border-bottom: 1px solid var(--token-3cTIho4ddH8d);
 }
 .freeBox__azZgt {
   animation: none;
@@ -923,8 +924,8 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  min-height: 50px;
-  min-width: 50px;
+  min-height: 70px;
+  min-width: 70px;
   left: auto;
   top: auto;
   border-radius: 8px;
@@ -942,7 +943,7 @@
   top: 0px;
   left: auto;
   background: var(--token-PvbqFVJaOepe);
-  right: 40px;
+  right: 60px;
   flex-shrink: 0;
   border-radius: 100px;
   padding: 5px;
@@ -960,8 +961,8 @@
   animation: none;
   object-fit: cover;
   max-width: 100%;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   flex-shrink: 0;
   border-radius: 8px;
   border-width: 1px;
