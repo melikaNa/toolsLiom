@@ -91,6 +91,7 @@ import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T
 import Icon214Icon from "./icons/PlasmicIcon__Icon214"; // plasmic-import: Z2VM7o85ZA5W/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 import Icon210Icon from "./icons/PlasmicIcon__Icon210"; // plasmic-import: lXiR3SAmtr5y/icon
+import Icon40Icon from "./icons/PlasmicIcon__Icon40"; // plasmic-import: mH02tWVCNS9w/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
 
 createPlasmicElementProxy;
@@ -377,6 +378,25 @@ function PlasmicTestAnalysis__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "link",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1762,10 +1782,27 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                                 "test-result"
                                               );
                                               formData.append("index", index);
+                                              var url =
+                                                "https://api.liom.app/upload";
+                                              if (
+                                                $ctx.query.type != "filterino"
+                                              ) {
+                                                url =
+                                                  "https://api.friendschat.ir/avatar/setPic";
+                                                formData.append(
+                                                  "id",
+                                                  $ctx.query.id
+                                                );
+                                              }
                                               const response = await fetch(
-                                                "https://api.liom.app/upload",
+                                                url,
                                                 {
                                                   method: "POST",
+                                                  headers: {
+                                                    "Content-Type":
+                                                      "application/json",
+                                                    appid: "19"
+                                                  },
                                                   body: formData
                                                 }
                                               );
@@ -1779,6 +1816,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                                 "Response data:",
                                                 data
                                               );
+                                              $state.link = data;
                                               if (!response.ok) {
                                                 console.error(
                                                   "Response not OK:",
@@ -1825,63 +1863,64 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["runCode"] = await $steps["runCode"];
                             }
 
-                            $steps["chatBot"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "#chatBot",
-                                      (() => {
-                                        try {
-                                          return $state.token;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
+                            $steps["chatBot"] =
+                              $ctx.query.type != "filterino" && $state.isDone
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "#chatBot",
+                                        (() => {
+                                          try {
+                                            return $state.token;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
                                           }
-                                          throw e;
-                                        }
-                                      })(),
-                                      undefined,
-                                      undefined,
-                                      undefined,
-                                      undefined,
-                                      (() => {
-                                        try {
-                                          return (() => {
-                                            const result = $state.images.map(
-                                              item => ({
-                                                value: item,
-                                                type: "image"
-                                              })
-                                            );
-                                            return {
-                                              question:
-                                                $state.getInfo.firstMessage,
-                                              attachments:
-                                                JSON.stringify(result)
-                                            };
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
+                                        })(),
+                                        undefined,
+                                        undefined,
+                                        undefined,
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return (() => {
+                                              const result = $state.images.map(
+                                                item => ({
+                                                  value: item,
+                                                  type: "image"
+                                                })
+                                              );
+                                              return {
+                                                question:
+                                                  $state.getInfo.firstMessage,
+                                                attachments:
+                                                  JSON.stringify(result)
+                                              };
+                                            })();
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
                                           }
-                                          throw e;
-                                        }
-                                      })()
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.deepLink"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.deepLink"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["chatBot"] != null &&
                               typeof $steps["chatBot"] === "object" &&
@@ -2104,6 +2143,97 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     </div>
                   </div>
                 </section>
+              ) : null}
+              {(() => {
+                try {
+                  return $ctx.query.type == "filterino" && $state.isDone;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__f75Ua)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__nMiyX)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___8Sma7
+                      )}
+                    >
+                      {"\u0644\u06cc\u0646\u06a9 \u0647\u0627 : "}
+                    </div>
+                    <Icon40Icon
+                      className={classNames(projectcss.all, sty.svg__mUSl)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return document
+                                      .getElementById("copyBtn")
+                                      .addEventListener("click", () => {
+                                        const text = $state.link;
+                                        navigator.clipboard
+                                          .writeText(text)
+                                          .then(() => console.log("کپی شد"))
+                                          .catch(err =>
+                                            console.error("خطا:", err)
+                                          );
+                                      });
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___2TKgx
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.link;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </div>
               ) : null}
             </div>
           ) : null}

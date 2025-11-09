@@ -612,6 +612,61 @@
   width: 150%;
   height: 150%;
 }
+.freeBox__f75Ua {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 30px;
+  background: none;
+  row-gap: 16px;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px dashed var(--token-PvbqFVJaOepe);
+}
+.freeBox__nMiyX {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text___8Sma7 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 0;
+}
+.svg__mUSl {
+  object-fit: cover;
+  max-width: 100%;
+  width: 30px;
+  height: 30px;
+  color: var(--token-PvbqFVJaOepe);
+  flex-shrink: 0;
+}
+.text___2TKgx {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-size: 16px;
+  min-width: 0;
+}
 .modal2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
