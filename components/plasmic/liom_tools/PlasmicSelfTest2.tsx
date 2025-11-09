@@ -1861,14 +1861,13 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
-                        var fileInput =
-                          window.document.getElementById("fileInput");
+                        var fileInput = document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
                         window.isUploading = false;
                         $state.readyToSend = false;
                         fileInput.replaceWith(fileInput.cloneNode(true));
-                        fileInput = window.document.getElementById("fileInput");
+                        fileInput = document.getElementById("fileInput");
                         fileInput.addEventListener("change", async event => {
                           if (window.isUploading) {
                             console.warn(
@@ -1879,7 +1878,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           console.log("\uD83D\uDCF8 Event 'change' fired!");
                           const selected = Array.from(event.target.files);
                           if (selected.length === 0) return;
-                          console.log("\uD83D\uDCE6 Selected files");
+                          console.log("\uD83D\uDCE6 Selected files:", selected);
                           window.isUploading = true;
                           try {
                             await uploadFiles(selected);
@@ -1897,9 +1896,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         );
                         async function uploadFiles(files) {
                           if (!Array.isArray($state.images)) $state.images = [];
+                          $state.uploading = true;
                           for (let [index, f] of files.entries()) {
-                            $state.uploading = true;
-                            console.log(`⬆️ Uploading file `);
+                            console.log(`⬆️ Uploading file #${index + 1}`);
                             $state.images.push("loading");
                             console.log(
                               `🕓 Added placeholder for file #${index + 1}`
@@ -1922,21 +1921,16 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 data
                               );
                               if (data.status) {
-                                const loadingIndex = Array.isArray(
-                                  $state.images
-                                )
-                                  ? $state.images.indexOf("loading")
-                                  : -1;
-                                if (loadingIndex !== -1) {
+                                const loadingIndex =
+                                  $state.images.indexOf("loading");
+                                if (loadingIndex !== -1)
                                   $state.images[loadingIndex] = data.result;
-                                }
                                 const result = $state.images.map(item => ({
                                   value: item,
                                   type: "image"
                                 }));
                                 $state.attachments = JSON.stringify(result);
                                 $state.showPhoto = true;
-                                $state.uploading = false;
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -1953,13 +1947,14 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               );
                             }
                           }
+                          $state.uploading = false;
                           console.log("\uD83C\uDF89 All uploads completed!");
                         }
                         return async function uploadFiles(files) {
                           if (!Array.isArray($state.images)) $state.images = [];
+                          $state.uploading = true;
                           for (let [index, f] of files.entries()) {
-                            $state.uploading = true;
-                            console.log(`⬆️ Uploading file `);
+                            console.log(`⬆️ Uploading file #${index + 1}`);
                             $state.images.push("loading");
                             console.log(
                               `🕓 Added placeholder for file #${index + 1}`
@@ -1982,21 +1977,16 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 data
                               );
                               if (data.status) {
-                                const loadingIndex = Array.isArray(
-                                  $state.images
-                                )
-                                  ? $state.images.indexOf("loading")
-                                  : -1;
-                                if (loadingIndex !== -1) {
+                                const loadingIndex =
+                                  $state.images.indexOf("loading");
+                                if (loadingIndex !== -1)
                                   $state.images[loadingIndex] = data.result;
-                                }
                                 const result = $state.images.map(item => ({
                                   value: item,
                                   type: "image"
                                 }));
                                 $state.attachments = JSON.stringify(result);
                                 $state.showPhoto = true;
-                                $state.uploading = false;
                                 console.log(
                                   `✅ File #${index + 1} uploaded successfully.`
                                 );
@@ -2013,6 +2003,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                               );
                             }
                           }
+                          $state.uploading = false;
                           console.log("\uD83C\uDF89 All uploads completed!");
                         };
                       })();
