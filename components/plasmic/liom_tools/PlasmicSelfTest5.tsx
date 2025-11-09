@@ -1896,6 +1896,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         );
                         async function uploadFiles(files) {
                           for (let [index, f] of files.entries()) {
+                            if (!Array.isArray($state.images))
+                              $state.images = [];
                             $state.uploading = true;
                             console.log(`⬆️ Uploading file `);
                             $state.images.push("loading");
@@ -1952,6 +1954,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         }
                         return async function uploadFiles(files) {
                           for (let [index, f] of files.entries()) {
+                            if (!Array.isArray($state.images))
+                              $state.images = [];
                             $state.uploading = true;
                             console.log(`⬆️ Uploading file `);
                             $state.images.push("loading");
