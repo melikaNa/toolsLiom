@@ -1896,9 +1896,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           "\uD83D\uDE80 File input is ready for upload!"
                         );
                         async function uploadFiles(files) {
+                          if (!Array.isArray($state.images)) $state.images = [];
                           for (let [index, f] of files.entries()) {
-                            if (!Array.isArray($state.images))
-                              $state.images = [];
                             $state.uploading = true;
                             console.log(`⬆️ Uploading file `);
                             $state.images.push("loading");
@@ -1923,8 +1922,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 data
                               );
                               if (data.status) {
-                                const loadingIndex =
-                                  $state.images.indexOf("loading");
+                                const loadingIndex = Array.isArray(
+                                  $state.images
+                                )
+                                  ? $state.images.indexOf("loading")
+                                  : -1;
                                 if (loadingIndex !== -1) {
                                   $state.images[loadingIndex] = data.result;
                                 }
@@ -1954,9 +1956,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           console.log("\uD83C\uDF89 All uploads completed!");
                         }
                         return async function uploadFiles(files) {
+                          if (!Array.isArray($state.images)) $state.images = [];
                           for (let [index, f] of files.entries()) {
-                            if (!Array.isArray($state.images))
-                              $state.images = [];
                             $state.uploading = true;
                             console.log(`⬆️ Uploading file `);
                             $state.images.push("loading");
@@ -1981,8 +1982,11 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 data
                               );
                               if (data.status) {
-                                const loadingIndex =
-                                  $state.images.indexOf("loading");
+                                const loadingIndex = Array.isArray(
+                                  $state.images
+                                )
+                                  ? $state.images.indexOf("loading")
+                                  : -1;
                                 if (loadingIndex !== -1) {
                                   $state.images[loadingIndex] = data.result;
                                 }
@@ -5071,118 +5075,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
               triggerOnce={true}
             >
               <div className={classNames(projectcss.all, sty.freeBox__shcFq)}>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___3C569)}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__vNzTc)}
-                  >
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $state.images;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___7Jnmw
-                          )}
-                          key={currentIndex}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___0Ef6Z
-                            )}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["runCode"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          if (currentItem.includes(".pdf")) {
-                                            return window.open(currentItem);
-                                          } else {
-                                            $state.currentImag = currentItem;
-                                            return ($state.openPhoto.open = true);
-                                          }
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
-                            }}
-                          >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__cpLwS)}
-                              displayHeight={"50px"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"50px"}
-                              loading={"lazy"}
-                              src={(() => {
-                                try {
-                                  return (() => {
-                                    if (currentItem.includes(".pdf")) {
-                                      return "https://cdn-icons-png.flaticon.com/512/4208/4208479.png";
-                                    } else {
-                                      return currentItem;
-                                    }
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            />
-                          </div>
-                          <Icon212Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__tqk51
-                            )}
-                            role={"img"}
-                          />
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
                 {(() => {
                   try {
                     return (
@@ -5194,7 +5086,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return true;
+                      return false;
                     }
                     throw e;
                   }
@@ -5275,6 +5167,34 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                     projectcss.all,
                                     sty.freeBox__r4ReI
                                   )}
+                                  onClick={async event => {
+                                    const $steps = {};
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return $state.images.splice(
+                                                currentIndex,
+                                                1
+                                              );
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
+                                    }
+                                  }}
                                 >
                                   <Icon212Icon
                                     className={classNames(
@@ -5309,6 +5229,43 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   displayMinWidth={"0"}
                                   displayWidth={"70px"}
                                   loading={"lazy"}
+                                  onClick={async event => {
+                                    const $steps = {};
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return (() => {
+                                                if (
+                                                  currentItem.includes(".pdf")
+                                                ) {
+                                                  return window.open(
+                                                    currentItem
+                                                  );
+                                                } else {
+                                                  $state.currentImag =
+                                                    currentItem;
+                                                  return ($state.openPhoto.open = true);
+                                                }
+                                              })();
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
+                                    }
+                                  }}
                                   src={(() => {
                                     try {
                                       return (() => {
