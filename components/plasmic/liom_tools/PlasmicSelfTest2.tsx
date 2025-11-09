@@ -855,6 +855,37 @@ function PlasmicSelfTest2__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "showPhoto",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "uploading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "readyToSend",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "toolsList",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            name: "\u062a\u062d\u0644\u06cc\u0644 \u0622\u0632\u0645\u0627\u06cc\u0634"
+          },
+          {
+            name: "\u062a\u0634\u062e\u06cc\u0635 \u0646\u0648\u0639 \u067e\u0648\u0633\u062a"
+          }
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -1830,54 +1861,49 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
-                        console.log(
-                          "\uD83D\uDE80 Script started: fileInput setup running..."
-                        );
                         var fileInput =
                           window.document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
-                        window.filess = [];
-                        if (!window.fileInputListenerAdded) {
-                          console.log(
-                            "\u2705 Adding event listener to fileInput..."
-                          );
-                          fileInput.addEventListener("change", async event => {
-                            console.log("\uD83D\uDCF8 Event 'change' fired!");
-                            const selected = Array.from(event.target.files);
-                            console.log(
-                              "\uD83D\uDCE6 Selected files (raw):",
-                              selected
+                        window.isUploading = false;
+                        $state.readyToSend = false;
+                        fileInput.replaceWith(fileInput.cloneNode(true));
+                        fileInput = window.document.getElementById("fileInput");
+                        fileInput.addEventListener("change", async event => {
+                          if (window.isUploading) {
+                            console.warn(
+                              "\u23F3 Upload already in progress \u2014 skipping duplicate trigger!"
                             );
-                            window.filess = selected;
+                            return;
+                          }
+                          console.log("\uD83D\uDCF8 Event 'change' fired!");
+                          const selected = Array.from(event.target.files);
+                          if (selected.length === 0) return;
+                          console.log("\uD83D\uDCE6 Selected files");
+                          window.isUploading = true;
+                          try {
+                            await uploadFiles(selected);
+                          } finally {
+                            window.isUploading = false;
+                            fileInput.value = "";
                             console.log(
-                              "\uD83E\uDDFE window.filess ready to upload:",
-                              window.filess
+                              "\uD83E\uDDF9 Upload finished & input reset."
                             );
+                          }
+                        });
+                        $state.readyToSend = true;
+                        console.log(
+                          "\uD83D\uDE80 File input is ready for upload!"
+                        );
+                        async function uploadFiles(files) {
+                          for (let [index, f] of files.entries()) {
+                            if (!Array.isArray($state.images))
+                              $state.images = [];
+                            $state.uploading = true;
+                            console.log(`⬆️ Uploading file `);
+                            $state.images.push("loading");
                             console.log(
-                              "\uD83D\uDCE4 Starting uploadFiles()..."
-                            );
-                            await uploadFiles();
-                            window.filess = [];
-                            console.log(
-                              "\uD83E\uDDF9 Files cleared after upload"
-                            );
-                          });
-                          window.fileInputListenerAdded = true;
-                        } else {
-                          console.warn(
-                            "\u26A0️ Event listener already added \u2014 skipping rebind!"
-                          );
-                        }
-                        async function uploadFiles() {
-                          console.log(
-                            "\uD83D\uDFE6 uploadFiles() triggered, total files:",
-                            window.filess.length
-                          );
-                          for (let [index, f] of window.filess.entries()) {
-                            console.log(
-                              `⬆️ Uploading file #${index + 1}:`,
-                              f.name
+                              `🕓 Added placeholder for file #${index + 1}`
                             );
                             try {
                               const formData = new FormData();
@@ -1896,15 +1922,26 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 `📬 Response for file #${index + 1}:`,
                                 data
                               );
-                              if (data.status === false) {
+                              if (data.status) {
+                                const loadingIndex =
+                                  $state.images.indexOf("loading");
+                                if (loadingIndex !== -1) {
+                                  $state.images[loadingIndex] = data.result;
+                                }
+                                const result = $state.images.map(item => ({
+                                  value: item,
+                                  type: "image"
+                                }));
+                                $state.attachments = JSON.stringify(result);
+                                $state.showPhoto = true;
+                                $state.uploading = false;
+                                console.log(
+                                  `✅ File #${index + 1} uploaded successfully.`
+                                );
+                              } else {
                                 console.error(
                                   "\uD83D\uDCA5 Server error:",
                                   data.result
-                                );
-                              } else {
-                                $state.images.push(data.result);
-                                console.log(
-                                  `✅ File #${index + 1} uploaded successfully.`
                                 );
                               }
                             } catch (error) {
@@ -1915,20 +1952,16 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             }
                           }
                           console.log("\uD83C\uDF89 All uploads completed!");
-                          console.log(
-                            "\uD83E\uDDFE Final images array:",
-                            $state.images
-                          );
                         }
-                        return async function uploadFiles() {
-                          console.log(
-                            "\uD83D\uDFE6 uploadFiles() triggered, total files:",
-                            window.filess.length
-                          );
-                          for (let [index, f] of window.filess.entries()) {
+                        return async function uploadFiles(files) {
+                          for (let [index, f] of files.entries()) {
+                            if (!Array.isArray($state.images))
+                              $state.images = [];
+                            $state.uploading = true;
+                            console.log(`⬆️ Uploading file `);
+                            $state.images.push("loading");
                             console.log(
-                              `⬆️ Uploading file #${index + 1}:`,
-                              f.name
+                              `🕓 Added placeholder for file #${index + 1}`
                             );
                             try {
                               const formData = new FormData();
@@ -1947,15 +1980,26 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                 `📬 Response for file #${index + 1}:`,
                                 data
                               );
-                              if (data.status === false) {
+                              if (data.status) {
+                                const loadingIndex =
+                                  $state.images.indexOf("loading");
+                                if (loadingIndex !== -1) {
+                                  $state.images[loadingIndex] = data.result;
+                                }
+                                const result = $state.images.map(item => ({
+                                  value: item,
+                                  type: "image"
+                                }));
+                                $state.attachments = JSON.stringify(result);
+                                $state.showPhoto = true;
+                                $state.uploading = false;
+                                console.log(
+                                  `✅ File #${index + 1} uploaded successfully.`
+                                );
+                              } else {
                                 console.error(
                                   "\uD83D\uDCA5 Server error:",
                                   data.result
-                                );
-                              } else {
-                                $state.images.push(data.result);
-                                console.log(
-                                  `✅ File #${index + 1} uploaded successfully.`
                                 );
                               }
                             } catch (error) {
@@ -1966,10 +2010,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             }
                           }
                           console.log("\uD83C\uDF89 All uploads completed!");
-                          console.log(
-                            "\uD83E\uDDFE Final images array:",
-                            $state.images
-                          );
                         };
                       })();
                     }
@@ -4483,50 +4523,85 @@ function PlasmicSelfTest2__RenderFunc(props: {
                     }
                   </div>
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___56Lrx)}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    []
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__l6Zq0
-                        )}
-                        key={currentIndex}
-                      >
+                {(() => {
+                  try {
+                    return (() => {
+                      var id =
+                        $state.userInfo.id ||
+                        $state.paramsObject.user_id ||
+                        $state.paramsObject.userId;
+                      return id == "4ddd1fab-100c-49f0-b843-e70bff8add34";
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___56Lrx)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.toolsList;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__w7V0C
+                            sty.freeBox__l6Zq0
                           )}
+                          key={currentIndex}
                         >
-                          <Icon10Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__uPlj
-                            )}
-                            role={"img"}
-                          />
-
                           <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___8TiOi
+                              sty.freeBox__w7V0C
                             )}
                           >
-                            <React.Fragment>{currentItem.name}</React.Fragment>
+                            <Icon10Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__uPlj
+                              )}
+                              role={"img"}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___8TiOi
+                              )}
+                            >
+                              <React.Fragment>
+                                {currentItem.name}
+                              </React.Fragment>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                      );
+                    })}
+                  </div>
+                ) : null}
                 {(() => {
                   try {
                     return $state.infoChat?.questions?.length > 1;
@@ -4998,12 +5073,13 @@ function PlasmicSelfTest2__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox__shcFq)}>
                 {(() => {
                   try {
-                    return (
-                      // var id = $state.userInfo.id || $state.paramsObject.user_id || $state.paramsObject.userId ;
-
-                      // (id == "4ddd1fab-100c-49f0-b843-e70bff8add34")
-                      false
-                    );
+                    return (() => {
+                      var id =
+                        $state.userInfo.id ||
+                        $state.paramsObject.user_id ||
+                        $state.paramsObject.userId;
+                      return id == "4ddd1fab-100c-49f0-b843-e70bff8add34";
+                    })();
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

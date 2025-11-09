@@ -717,6 +717,7 @@
 }
 .freeBox___56Lrx {
   animation: none;
+  display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
@@ -728,7 +729,6 @@
   margin-top: 0px;
   margin-bottom: 16px;
   min-width: 0;
-  display: none;
   padding: 0px 8px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
