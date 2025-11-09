@@ -859,6 +859,19 @@ function PlasmicSelfTest5__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "toolsList",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            name: "\u062a\u062d\u0644\u06cc\u0644 \u0622\u0632\u0645\u0627\u06cc\u0634"
+          },
+          {
+            name: "\u062a\u0634\u062e\u06cc\u0635 \u0646\u0648\u0639 \u067e\u0648\u0633\u062a"
+          }
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -4467,7 +4480,19 @@ function PlasmicSelfTest5__RenderFunc(props: {
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__cypDe)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    [2, 3, 4]
+                    (() => {
+                      try {
+                        return $state.toolsList;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
                   ).map((__plasmic_item_0, __plasmic_idx_0) => {
                     const currentItem = __plasmic_item_0;
                     const currentIndex = __plasmic_idx_0;
@@ -4485,15 +4510,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             sty.freeBox__n270Q
                           )}
                         >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__teUpA
-                            )}
-                          >
-                            {"xxx"}
-                          </div>
                           <Icon10Icon
                             className={classNames(
                               projectcss.all,
@@ -4501,6 +4517,16 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             )}
                             role={"img"}
                           />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__teUpA
+                            )}
+                          >
+                            <React.Fragment>{currentItem.name}</React.Fragment>
+                          </div>
                         </div>
                       </div>
                     );
