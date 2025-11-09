@@ -528,9 +528,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
               })()
             : (() => {
                 try {
-                  return (
-                    $state.textArea.value == "" && $state.images.length == 0
-                  );
+                  return $state.textArea.value == "";
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -4816,36 +4814,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   }
                                 })()
                               )}
-                              onClick={async event => {
-                                const $steps = {};
-
-                                $steps["runCode"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            if (currentItem.includes(".pdf")) {
-                                              return window.open(currentItem);
-                                            } else {
-                                              $state.currentImag = currentItem;
-                                              return ($state.openPhoto.open = true);
-                                            }
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["runCode"] != null &&
-                                  typeof $steps["runCode"] === "object" &&
-                                  typeof $steps["runCode"].then === "function"
-                                ) {
-                                  $steps["runCode"] = await $steps["runCode"];
-                                }
-                              }}
                             >
                               {(() => {
                                 try {
@@ -4928,6 +4896,43 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   displayMinWidth={"0"}
                                   displayWidth={"70px"}
                                   loading={"lazy"}
+                                  onClick={async event => {
+                                    const $steps = {};
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return (() => {
+                                                if (
+                                                  currentItem.includes(".pdf")
+                                                ) {
+                                                  return window.open(
+                                                    currentItem
+                                                  );
+                                                } else {
+                                                  $state.currentImag =
+                                                    currentItem;
+                                                  return ($state.openPhoto.open = true);
+                                                }
+                                              })();
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
+                                    }
+                                  }}
                                   src={(() => {
                                     try {
                                       return (() => {
@@ -4983,6 +4988,48 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         ])}
                         onClick={async event => {
                           const $steps = {};
+
+                          $steps["updateAttachments2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["attachments"]
+                                  },
+                                  operation: 0,
+                                  value: (() => {
+                                    const result = $state.images.map(item => ({
+                                      value: item,
+                                      type: "image"
+                                    }));
+                                    return JSON.stringify(result);
+                                  })()
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateAttachments2"] != null &&
+                            typeof $steps["updateAttachments2"] === "object" &&
+                            typeof $steps["updateAttachments2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateAttachments2"] =
+                              await $steps["updateAttachments2"];
+                          }
 
                           $steps["runCode3"] = true
                             ? (() => {
