@@ -1900,38 +1900,19 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["chatBot"] = await $steps["chatBot"];
                             }
 
-                            $steps["invokeGlobalAction"] =
-                              $ctx.query.type == "filterino"
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [
-                                        "POST",
-                                        "https://n8n.staas.ir/webhook/upload/photo",
-                                        undefined,
-                                        (() => {
-                                          try {
-                                            return {
-                                              id: $ctx.query.id,
-                                              link: $state.link.result
-                                            };
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.apiRequest"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
+                            $steps["invokeGlobalAction"] = false
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://n8n.staas.ir/webhook/upload/photo"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
                             if (
                               $steps["invokeGlobalAction"] != null &&
                               typeof $steps["invokeGlobalAction"] ===

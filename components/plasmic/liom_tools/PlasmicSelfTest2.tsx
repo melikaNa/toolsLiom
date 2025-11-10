@@ -3169,7 +3169,9 @@ function PlasmicSelfTest2__RenderFunc(props: {
                           "padding-bottom":
                             $state.paramsObject.hamyar == "true"
                               ? "120px"
-                              : "100px"
+                              : "100px",
+                          "padding-top":
+                            $state.paramsObject.inApp == "false" ? "30px" : ""
                         };
                       } catch (e) {
                         if (
