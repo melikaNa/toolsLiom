@@ -67,7 +67,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicSendIcon.module.css"; // plasmic-import: HSNJ0v5oD6xT/css
 
-import Icon100Icon from "./icons/PlasmicIcon__Icon100"; // plasmic-import: 2D6zlhfqx1AB/icon
+import Icon104Icon from "./icons/PlasmicIcon__Icon104"; // plasmic-import: kIvBdNtH0rBG/icon
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: jsdnX88Z30Rv/icon
 
 createPlasmicElementProxy;
@@ -104,7 +104,6 @@ export const PlasmicSendIcon__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicSendIcon__OverridesType = {
   root?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultSendIconProps {
@@ -275,45 +274,56 @@ function PlasmicSendIcon__RenderFunc(props: {
               }
             })()
           : hasVariant($state, "disable", "disable")
-          ? (() => {
-              try {
-                return {
-                  "pointer-events": "none",
-                  "user-select": "none",
-                  cursor: "default"
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
+            ? (() => {
+                try {
+                  return {
+                    "pointer-events": "none",
+                    "user-select": "none",
+                    cursor: "default"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()
-          : undefined
+              })()
+            : undefined
       }
     >
-      <Icon100Icon
-        className={classNames(projectcss.all, sty.svg__etqbk, {
-          [sty.svgdisable__etqbkLq58W]: hasVariant(
+      <div className={classNames(projectcss.all, sty.freeBox__ldVS)}>
+        <Icon104Icon
+          className={classNames(projectcss.all, sty.svg__etqbk, {
+            [sty.svgdisable__etqbkLq58W]: hasVariant(
+              $state,
+              "disable",
+              "disable"
+            ),
+            [sty.svgloading__etqbkJaXvO]: hasVariant(
+              $state,
+              "loading",
+              "loading"
+            )
+          })}
+          role={"img"}
+        />
+      </div>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__iac5N, {
+          [sty.freeBoxdisable__iac5NLq58W]: hasVariant(
             $state,
             "disable",
             "disable"
           ),
-          [sty.svgloading__etqbkJaXvO]: hasVariant($state, "loading", "loading")
-        })}
-        role={"img"}
-      />
-
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxdisable]: hasVariant($state, "disable", "disable"),
-          [sty.freeBoxloading]: hasVariant($state, "loading", "loading"),
-          [sty.freeBoxloading_disable]:
+          [sty.freeBoxloading__iac5NJaXvO]: hasVariant(
+            $state,
+            "loading",
+            "loading"
+          ),
+          [sty.freeBoxloading_disable__iac5NJaXvOLq58W]:
             hasVariant($state, "disable", "disable") &&
             hasVariant($state, "loading", "loading")
         })}
@@ -334,15 +344,13 @@ function PlasmicSendIcon__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox"],
-  freeBox: ["freeBox"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -356,7 +364,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSendIcon__VariantsArgs;
     args?: PlasmicSendIcon__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSendIcon__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSendIcon__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSendIcon__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
@@ -405,7 +415,6 @@ export const PlasmicSendIcon = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicSendIcon
     internalVariantProps: PlasmicSendIcon__VariantProps,

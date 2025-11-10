@@ -975,7 +975,10 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 )}
               >
-                <React.Fragment>{$state.getInfo.title}</React.Fragment>
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{ __html: $state.getInfo.title }}
+                />
               </div>
               <div
                 className={classNames(
@@ -991,7 +994,10 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 )}
               >
-                <React.Fragment>{$state.getInfo.text}</React.Fragment>
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{ __html: $state.getInfo.text }}
+                />
               </div>
               <div
                 className={classNames(projectcss.all, sty.freeBox__ogAzh, {
