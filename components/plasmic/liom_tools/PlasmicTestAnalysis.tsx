@@ -1900,14 +1900,38 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["chatBot"] = await $steps["chatBot"];
                             }
 
-                            $steps["invokeGlobalAction"] = false
-                              ? (() => {
-                                  const actionArgs = { args: [undefined, ``] };
-                                  return $globalActions[
-                                    "Fragment.apiRequest"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
+                            $steps["invokeGlobalAction"] =
+                              $ctx.query.type == "filterino"
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://n8n.staas.ir/webhook/upload/photo",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              id: $ctx.query.type,
+                                              link: $state.link.result
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["invokeGlobalAction"] != null &&
                               typeof $steps["invokeGlobalAction"] ===
@@ -2134,97 +2158,81 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   </div>
                 </section>
               ) : null}
-              {(() => {
-                try {
-                  return $ctx.query.type == "filterino" && $state.isDone;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__f75Ua)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__nMiyX)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___8Sma7
-                      )}
-                    >
-                      {"\u0644\u06cc\u0646\u06a9 \u0647\u0627 : "}
-                    </div>
-                    <Icon40Icon
-                      className={classNames(projectcss.all, sty.svg__mUSl)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return document
-                                      .getElementById("copyBtn")
-                                      .addEventListener("click", () => {
-                                        const text = $state.link.result;
-                                        navigator.clipboard
-                                          .writeText(text)
-                                          .then(() => console.log("کپی شد"))
-                                          .catch(err =>
-                                            console.error("خطا:", err)
-                                          );
-                                      });
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-                      }}
-                      role={"img"}
-                    />
-                  </div>
+              <div className={classNames(projectcss.all, sty.freeBox__f75Ua)}>
+                <div className={classNames(projectcss.all, sty.freeBox__nMiyX)}>
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text___2TKgx
+                      sty.text___8Sma7
                     )}
                   >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.link.result;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
+                    {"\u0644\u06cc\u0646\u06a9 \u0647\u0627 : "}
                   </div>
+                  <Icon40Icon
+                    className={classNames(projectcss.all, sty.svg__mUSl)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return document
+                                    .getElementById("copyBtn")
+                                    .addEventListener("click", () => {
+                                      const text = $state.link.result;
+                                      navigator.clipboard
+                                        .writeText(text)
+                                        .then(() => console.log("کپی شد"))
+                                        .catch(err =>
+                                          console.error("خطا:", err)
+                                        );
+                                    });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                    role={"img"}
+                  />
                 </div>
-              ) : null}
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___2TKgx
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.link.result;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </div>
             </div>
           ) : null}
           <AntdModal
