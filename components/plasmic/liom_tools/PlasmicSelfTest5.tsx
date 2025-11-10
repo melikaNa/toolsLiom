@@ -878,14 +878,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
         path: "toolsList",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            name: "\u062a\u062d\u0644\u06cc\u0644 \u0622\u0632\u0645\u0627\u06cc\u0634"
-          },
-          {
-            name: "\u062a\u0634\u062e\u06cc\u0635 \u0646\u0648\u0639 \u067e\u0648\u0633\u062a"
-          }
-        ]
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -4616,6 +4609,34 @@ function PlasmicSelfTest5__RenderFunc(props: {
                               projectcss.all,
                               sty.freeBox__eno02
                             )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          return window.open(
+                                            `https://tools.liom.app/test-analysis/?type=${currentItem.type}`,
+                                            "_self"
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
                           >
                             <Icon10Icon
                               className={classNames(
@@ -4623,6 +4644,32 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 sty.svg__p5M59
                               )}
                               role={"img"}
+                            />
+
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__oyQZ)}
+                              displayHeight={"20px"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"20px"}
+                              loading={"lazy"}
+                              src={(() => {
+                                try {
+                                  return currentItem.image ?? "";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
                             />
 
                             <div
@@ -4633,7 +4680,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                               )}
                             >
                               <React.Fragment>
-                                {currentItem.name}
+                                {currentItem.title}
                               </React.Fragment>
                             </div>
                           </div>
