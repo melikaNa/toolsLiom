@@ -1277,8 +1277,8 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  align-items: stretch;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   width: auto;
   height: auto;
   max-width: 100%;
@@ -1303,6 +1303,7 @@
   left: auto;
   background: var(--token-PvbqFVJaOepe);
   right: 60px;
+  z-index: 2;
   flex-shrink: 0;
   border-radius: 100px;
   padding: 5px;
@@ -1328,6 +1329,13 @@
 }
 .img__oNKfq > picture > img {
   object-fit: cover;
+}
+.svg__sIs37 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
 .freeBox__wizAw {
   display: flex;

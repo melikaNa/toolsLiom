@@ -98,6 +98,7 @@ import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: d7z2iEn
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
 import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: qu0_vn04sR3f/icon
+import Icon112Icon from "./icons/PlasmicIcon__Icon112"; // plasmic-import: KkG2nnQC8TPR/icon
 import Icon92Icon from "./icons/PlasmicIcon__Icon92"; // plasmic-import: GLz9qxhI31v4/icon
 import Icon93Icon from "./icons/PlasmicIcon__Icon93"; // plasmic-import: zelbblG0Cx3b/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: WIXMGnqTFn8X/icon
@@ -1855,11 +1856,59 @@ function PlasmicSelfTest5__RenderFunc(props: {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
             }
 
+            $steps["getTools"] = true
+              ? (() => {
+                  const actionArgs = {
+                    args: ["GET", "https://n8n.staas.ir/webhook/getTools"]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["getTools"] != null &&
+              typeof $steps["getTools"] === "object" &&
+              typeof $steps["getTools"].then === "function"
+            ) {
+              $steps["getTools"] = await $steps["getTools"];
+            }
+
+            $steps["updateToolsList"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["toolsList"]
+                    },
+                    operation: 0,
+                    value: $steps.getTools.data
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateToolsList"] != null &&
+              typeof $steps["updateToolsList"] === "object" &&
+              typeof $steps["updateToolsList"].then === "function"
+            ) {
+              $steps["updateToolsList"] = await $steps["updateToolsList"];
+            }
+
             $steps["runCode2"] = true
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
+                        console.log($state.toolsList);
                         var fileInput = document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
@@ -5363,63 +5412,48 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   })()
                                 )}
                               >
-                                {(() => {
-                                  try {
-                                    return currentItem != "loading";
-                                  } catch (e) {
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__nxVK
+                                  )}
+                                  onClick={async event => {
+                                    const $steps = {};
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return $state.images.splice(
+                                                currentIndex,
+                                                1
+                                              );
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
                                     if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
                                     ) {
-                                      return false;
+                                      $steps["runCode"] =
+                                        await $steps["runCode"];
                                     }
-                                    throw e;
-                                  }
-                                })() ? (
-                                  <div
+                                  }}
+                                >
+                                  <Icon212Icon
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__nxVK
+                                      sty.svg__ycyEo
                                     )}
-                                    onClick={async event => {
-                                      const $steps = {};
-
-                                      $steps["runCode"] = true
-                                        ? (() => {
-                                            const actionArgs = {
-                                              customFunction: async () => {
-                                                return $state.images.splice(
-                                                  currentIndex,
-                                                  1
-                                                );
-                                              }
-                                            };
-                                            return (({ customFunction }) => {
-                                              return customFunction();
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                      if (
-                                        $steps["runCode"] != null &&
-                                        typeof $steps["runCode"] === "object" &&
-                                        typeof $steps["runCode"].then ===
-                                          "function"
-                                      ) {
-                                        $steps["runCode"] =
-                                          await $steps["runCode"];
-                                      }
-                                    }}
-                                  >
-                                    <Icon212Icon
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.svg__ycyEo
-                                      )}
-                                      role={"img"}
-                                    />
-                                  </div>
-                                ) : null}
+                                    role={"img"}
+                                  />
+                                </div>
                                 {(() => {
                                   try {
                                     return currentItem != "loading";
@@ -5501,6 +5535,28 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                         throw e;
                                       }
                                     })()}
+                                  />
+                                ) : null}
+                                {(() => {
+                                  try {
+                                    return currentItem == "loading";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return false;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <Icon112Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__sIs37
+                                    )}
+                                    role={"img"}
                                   />
                                 ) : null}
                               </div>
