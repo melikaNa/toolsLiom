@@ -1911,7 +1911,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                         (() => {
                                           try {
                                             return {
-                                              id: $ctx.query.type,
+                                              id: $ctx.query.id,
                                               link: $state.link.result
                                             };
                                           } catch (e) {
