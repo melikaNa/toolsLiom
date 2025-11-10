@@ -2173,7 +2173,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                     return document
                                       .getElementById("copyBtn")
                                       .addEventListener("click", () => {
-                                        const text = $state.link;
+                                        const text = $state.link.result;
                                         navigator.clipboard
                                           .writeText(text)
                                           .then(() => console.log("کپی شد"))
@@ -2210,7 +2210,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $state.link;
+                          return $state.link.result;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
