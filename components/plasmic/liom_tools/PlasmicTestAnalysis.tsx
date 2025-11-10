@@ -1835,7 +1835,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             }
 
                             $steps["chatBot"] =
-                              $ctx.query.type != "filterino" && $state.isDone
+                              $ctx.query.type != "filterino"
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
