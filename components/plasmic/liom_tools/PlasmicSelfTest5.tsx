@@ -1068,7 +1068,10 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             ? JSON.parse($state.attachments)
                             : $state.attachments
                           )?.map(item => item.value) ?? [];
-                        return console.log($state.images);
+                        console.log($state.images);
+                        if ($state.images.length > 0) {
+                          return ($state.showPhoto = true);
+                        }
                       })();
                     }
                   };
@@ -3611,9 +3614,12 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 },
                                 operation: 0,
                                 value: (() => {
-                                  return $state.attachments.map(
-                                    item => item.value
-                                  );
+                                  var img =
+                                    (typeof $state.attachments === "string"
+                                      ? JSON.parse($state.attachments)
+                                      : $state.attachments
+                                    )?.map(item => item.value) ?? [];
+                                  return img;
                                 })()
                               };
                               return (({
@@ -3644,10 +3650,12 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return ($state.testChat =
-                                    $state.testChat.filter(
+                                  return (() => {
+                                    $state.testChat = $state.testChat.filter(
                                       (_, index) => index !== currentIndex
-                                    ));
+                                    );
+                                    return ($state.showPhoto = true);
+                                  })();
                                 }
                               };
                               return (({ customFunction }) => {
@@ -5745,8 +5753,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                               type: "image"
                                             }))
                                           : [];
-                                      return ($state.attachments =
-                                        JSON.stringify(result));
+                                      return JSON.stringify(result);
                                     })()
                                   };
                                   return (({
