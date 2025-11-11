@@ -1064,9 +1064,10 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         $state.attachments = $state.paramsObject.attachments;
                         console.log($state.attachments);
                         $state.images =
-                          $state.paramsObject.attachments?.map(
-                            item => item.value
-                          ) ?? [];
+                          (typeof $state.attachments === "string"
+                            ? JSON.parse($state.attachments)
+                            : $state.attachments
+                          )?.map(item => item.value) ?? [];
                         return console.log($state.images);
                       })();
                     }
@@ -1119,7 +1120,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        console.log("tokennnn:" + $state.paramsObject.token);
                         if (
                           $state.paramsObject.token !== null &&
                           $state.paramsObject.token !== undefined &&
