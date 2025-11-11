@@ -603,6 +603,25 @@
   width: auto;
   height: 1em;
 }
+.freeBox__p7Gtx {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: 8px;
+  min-width: 0;
+}
+.text__pjNmU {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .svg__blvq6 {
   object-fit: cover;
   max-width: 100%;

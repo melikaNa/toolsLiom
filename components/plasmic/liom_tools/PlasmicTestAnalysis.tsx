@@ -2005,13 +2005,60 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__qNzYx
+                              sty.freeBox__p7Gtx
                             )}
                           >
-                            <React.Fragment>
-                              {$state.getInfo.btnText}
-                            </React.Fragment>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__qNzYx
+                              )}
+                            >
+                              <React.Fragment>
+                                {$state.getInfo.btnText ?? ""}
+                              </React.Fragment>
+                            </div>
+                            {(() => {
+                              try {
+                                return (
+                                  ($state.getInfo.price ?? "0") + "" != "0"
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__pjNmU
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return `اعتبار: ${$state.getInfo.price ?? ""}`;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u200d\u200d";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            ) : null}
                           </div>
                         </ButtonLiom>
                       ) : null}

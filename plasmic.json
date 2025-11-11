@@ -5162,6 +5162,11 @@
           "id": "k0MK7_-Kbt88",
           "name": "Icon227Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon227.tsx"
+        },
+        {
+          "id": "5yw7sU4rQYyF",
+          "name": "Icon228Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon228.tsx"
         }
       ],
       "images": [

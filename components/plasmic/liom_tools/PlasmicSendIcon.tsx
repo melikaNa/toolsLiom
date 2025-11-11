@@ -67,7 +67,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicSendIcon.module.css"; // plasmic-import: HSNJ0v5oD6xT/css
 
-import Icon104Icon from "./icons/PlasmicIcon__Icon104"; // plasmic-import: kIvBdNtH0rBG/icon
+import Icon100Icon from "./icons/PlasmicIcon__Icon100"; // plasmic-import: 2D6zlhfqx1AB/icon
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: jsdnX88Z30Rv/icon
 
 createPlasmicElementProxy;
@@ -104,6 +104,7 @@ export const PlasmicSendIcon__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicSendIcon__OverridesType = {
   root?: Flex__<"div">;
+  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultSendIconProps {
@@ -294,36 +295,25 @@ function PlasmicSendIcon__RenderFunc(props: {
             : undefined
       }
     >
-      <div className={classNames(projectcss.all, sty.freeBox__ldVS)}>
-        <Icon104Icon
-          className={classNames(projectcss.all, sty.svg__etqbk, {
-            [sty.svgdisable__etqbkLq58W]: hasVariant(
-              $state,
-              "disable",
-              "disable"
-            ),
-            [sty.svgloading__etqbkJaXvO]: hasVariant(
-              $state,
-              "loading",
-              "loading"
-            )
-          })}
-          role={"img"}
-        />
-      </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__iac5N, {
-          [sty.freeBoxdisable__iac5NLq58W]: hasVariant(
+      <Icon100Icon
+        className={classNames(projectcss.all, sty.svg__etqbk, {
+          [sty.svgdisable__etqbkLq58W]: hasVariant(
             $state,
             "disable",
             "disable"
           ),
-          [sty.freeBoxloading__iac5NJaXvO]: hasVariant(
-            $state,
-            "loading",
-            "loading"
-          ),
-          [sty.freeBoxloading_disable__iac5NJaXvOLq58W]:
+          [sty.svgloading__etqbkJaXvO]: hasVariant($state, "loading", "loading")
+        })}
+        role={"img"}
+      />
+
+      <div
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        className={classNames(projectcss.all, sty.freeBox, {
+          [sty.freeBoxdisable]: hasVariant($state, "disable", "disable"),
+          [sty.freeBoxloading]: hasVariant($state, "loading", "loading"),
+          [sty.freeBoxloading_disable]:
             hasVariant($state, "disable", "disable") &&
             hasVariant($state, "loading", "loading")
         })}
@@ -344,13 +334,15 @@ function PlasmicSendIcon__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "freeBox"],
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -415,6 +407,7 @@ export const PlasmicSendIcon = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicSendIcon
     internalVariantProps: PlasmicSendIcon__VariantProps,

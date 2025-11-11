@@ -112,8 +112,9 @@ import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappyS
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: frqiW1UAlfdr/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
-import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: nUOPjtqNxpTk/icon
+import Icon228Icon from "./icons/PlasmicIcon__Icon228"; // plasmic-import: 5yw7sU4rQYyF/icon
 import Icon162Icon from "./icons/PlasmicIcon__Icon162"; // plasmic-import: ySm-fx5nxIne/icon
+import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: nUOPjtqNxpTk/icon
 import Icon167Icon from "./icons/PlasmicIcon__Icon167"; // plasmic-import: 5eVMEaBbaM21/icon
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: hr_bpY54geRI/icon
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4LeWEqGr/icon
@@ -3562,6 +3563,41 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             await $steps["updateTextAreaValue"];
                         }
 
+                        $steps["updateAttachments"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["attachments"]
+                                },
+                                operation: 0,
+                                value: currentItem.attachments || ""
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateAttachments"] != null &&
+                          typeof $steps["updateAttachments"] === "object" &&
+                          typeof $steps["updateAttachments"].then === "function"
+                        ) {
+                          $steps["updateAttachments"] =
+                            await $steps["updateAttachments"];
+                        }
+
                         $steps["runCode"] = true
                           ? (() => {
                               const actionArgs = {
@@ -4680,7 +4716,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                               )}
                             >
                               <React.Fragment>
-                                {currentItem.title}
+                                {currentItem.headerTitle}
                               </React.Fragment>
                             </div>
                           </div>
@@ -7933,7 +7969,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
               >
                 {"Enter some text"}
               </div>
-              <Icon50Icon
+              <Icon228Icon
                 className={classNames(projectcss.all, sty.svg___0C8Re)}
                 role={"img"}
               />
