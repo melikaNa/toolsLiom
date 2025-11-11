@@ -5300,13 +5300,16 @@ function PlasmicSelfTest5__RenderFunc(props: {
                   hasVariant(globalVariants, "screen", "mobileOnly")
                     ? (() => {
                         try {
-                          return $state.testChat?.length != 0;
+                          return (
+                            //$state.testChat?.length != 0
+                            false
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return true;
+                            return false;
                           }
                           throw e;
                         }
@@ -7973,6 +7976,17 @@ function PlasmicSelfTest5__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.svg___0C8Re)}
                 role={"img"}
               />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___37DFn
+                )}
+                data-i18n={"chat.history2"}
+              >
+                {"\u067e\u06cc\u0627\u0645 \u062c\u062f\u06cc\u062f"}
+              </div>
             </div>
             <div
               className={classNames(projectcss.all, sty.freeBox__xtcx, {

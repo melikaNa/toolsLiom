@@ -1823,6 +1823,13 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           console.log("Do other things now");
                                           $state.isDone = true;
                                           console.log("data:", $state.link);
+                                          const result = $state.images.map(
+                                            item => ({
+                                              value: item,
+                                              type: "image"
+                                            })
+                                          );
+                                          console.log(result);
                                         });
                                       })();
                                     }
@@ -1904,30 +1911,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               typeof $steps["chatBot"].then === "function"
                             ) {
                               $steps["chatBot"] = await $steps["chatBot"];
-                            }
-
-                            $steps["invokeGlobalAction"] = false
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "POST",
-                                      "https://n8n.staas.ir/webhook/upload/photo"
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.apiRequest"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
-                            ) {
-                              $steps["invokeGlobalAction"] =
-                                await $steps["invokeGlobalAction"];
                             }
 
                             $steps["updateUploadLoad2"] = true
@@ -2044,7 +2027,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return `اعتبار: ${$state.getInfo.price ?? ""}`;
+                                      return `(اعتبار: ${$state.getInfo.price ?? ""})`;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||

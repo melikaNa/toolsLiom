@@ -2509,6 +2509,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
+  column-gap: 8px;
   border-radius: 50px;
   padding: 8px;
   border-width: 1px;
@@ -2532,6 +2533,15 @@
   width: 18px;
   height: 18px;
   flex-shrink: 0;
+}
+.text___37DFn {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  font-weight: 500;
+  min-width: 0;
 }
 .freeBox__xtcx {
   display: flex;
