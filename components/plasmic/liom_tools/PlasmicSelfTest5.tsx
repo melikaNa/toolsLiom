@@ -1061,8 +1061,10 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         urlParams.forEach((value, key) => {
                           $state.paramsObject[key] = value;
                         });
-                        return ($state.attachments =
-                          $state.paramsObject.attachments);
+                        $state.attachments = $state.paramsObject.attachments;
+                        return ($state.images = $state.attachments.map(
+                          item => item.value
+                        ));
                       })();
                     }
                   };
@@ -3598,6 +3600,44 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             await $steps["updateAttachments"];
                         }
 
+                        $steps["updateImages"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["images"]
+                                },
+                                operation: 0,
+                                value: (() => {
+                                  return $state.attachments.map(
+                                    item => item.value
+                                  );
+                                })()
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateImages"] != null &&
+                          typeof $steps["updateImages"] === "object" &&
+                          typeof $steps["updateImages"].then === "function"
+                        ) {
+                          $steps["updateImages"] = await $steps["updateImages"];
+                        }
+
                         $steps["runCode"] = true
                           ? (() => {
                               const actionArgs = {
@@ -5739,6 +5779,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
+                                        cosole.log($state.images);
+                                        cosole.log($state.attachments);
                                         $state.sendIcon.load = true;
                                         return ($state.sendIcon.diable = true);
                                       })();
