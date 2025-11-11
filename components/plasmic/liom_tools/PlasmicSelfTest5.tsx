@@ -5778,8 +5778,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        cosole.log($state.images);
-                                        cosole.log($state.attachments);
+                                        console.log($state.images);
+                                        console.log($state.attachments);
                                         $state.sendIcon.load = true;
                                         return ($state.sendIcon.diable = true);
                                       })();
