@@ -6083,6 +6083,9 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                                   healthDoc:
                                                     $steps.newSession.data
                                                       .healthDoc,
+                                                  prompt:
+                                                    $state.paramsObject
+                                                      .prompt || "",
                                                   attachments:
                                                     $state.attachments || ""
                                                 }
@@ -8030,9 +8033,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text___37DFn
+                  sty.text__rl9Yz
                 )}
-                data-i18n={"chat.history2"}
               >
                 {"\u067e\u06cc\u0627\u0645 \u062c\u062f\u06cc\u062f"}
               </div>

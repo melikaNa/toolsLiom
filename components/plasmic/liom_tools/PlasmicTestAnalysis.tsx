@@ -1884,7 +1884,8 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                                 question:
                                                   $state.getInfo.firstMessage,
                                                 attachments:
-                                                  JSON.stringify(result)
+                                                  JSON.stringify(result),
+                                                prompt: $state.getInfo.prompt
                                               };
                                             })();
                                           } catch (e) {
