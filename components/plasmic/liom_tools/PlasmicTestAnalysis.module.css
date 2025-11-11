@@ -28,6 +28,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .root {
     background: #f8f8f8;
+    padding-top: 80px;
   }
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -96,6 +97,11 @@
 .section__pPu3 > * {
   grid-column: 4;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .section__pPu3 > * {
+    grid-column: 4;
+  }
+}
 .freeBox__bfLml {
   display: flex;
   flex-direction: column;
@@ -137,8 +143,13 @@
 }
 .paziresh24Avatar:global(.__wab_instance) {
   max-width: 100%;
-  width: 50px;
+  width: 60px;
   height: 50px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .paziresh24Avatar:global(.__wab_instance) {
+    width: 78px;
+  }
 }
 .text__nVs4L {
   font-weight: 600;
@@ -241,7 +252,7 @@
   align-items: center;
   min-width: 0;
   min-height: 0;
-  padding: 8px;
+  padding: 0px;
 }
 .text__e7GwT {
   position: relative;
@@ -255,7 +266,7 @@
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__e7GwT {
-    font-size: var(--token-1S9ocvls-LDz);
+    font-size: 18px;
   }
 }
 .text__aJIy {
@@ -268,6 +279,11 @@
   font-weight: 400;
   margin-top: 8px;
   min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__aJIy {
+    font-size: 16px;
+  }
 }
 .freeBox__ogAzh {
   display: flex;

@@ -112,8 +112,8 @@ import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappyS
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: frqiW1UAlfdr/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
-import Icon162Icon from "./icons/PlasmicIcon__Icon162"; // plasmic-import: ySm-fx5nxIne/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: nUOPjtqNxpTk/icon
+import Icon162Icon from "./icons/PlasmicIcon__Icon162"; // plasmic-import: ySm-fx5nxIne/icon
 import Icon167Icon from "./icons/PlasmicIcon__Icon167"; // plasmic-import: 5eVMEaBbaM21/icon
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: hr_bpY54geRI/icon
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4LeWEqGr/icon
@@ -7883,209 +7883,277 @@ function PlasmicSelfTest5__RenderFunc(props: {
             }
           })()}
         >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__xtcx, {
-              [sty.freeBoxglobal_theme_dark__xtcxE9E9C]: hasVariant(
-                globalVariants,
-                "theme",
-                "dark"
-              ),
-              [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant__xtcxYcZU]:
-                hasVariant(
-                  globalVariants,
-                  "unnamedGlobalGroupOfVariants",
-                  "unnamedVariant"
-                ),
-              [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant_global_theme_dark__xtcxYcZUE9E9C]:
-                hasVariant(globalVariants, "theme", "dark") &&
-                hasVariant(
-                  globalVariants,
-                  "unnamedGlobalGroupOfVariants",
-                  "unnamedVariant"
-                )
-            })}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["updateDrawerOpen"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["drawer", "open"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateDrawerOpen"] != null &&
-                typeof $steps["updateDrawerOpen"] === "object" &&
-                typeof $steps["updateDrawerOpen"].then === "function"
-              ) {
-                $steps["updateDrawerOpen"] = await $steps["updateDrawerOpen"];
-              }
-
-              $steps["invokeGlobalAction"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/chatBotServiceSession?bot_name=period_chat",
-                        undefined,
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              headers: {
-                                Authorization: "Bearer " + window.token
-                              }
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] =
-                  await $steps["invokeGlobalAction"];
-              }
-
-              $steps["updateSessions"] = (
-                $steps.invokeGlobalAction?.data?.list ? true : false
-              )
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["sessions"]
-                      },
-                      operation: 0,
-                      value: $steps.invokeGlobalAction.data.list
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateSessions"] != null &&
-                typeof $steps["updateSessions"] === "object" &&
-                typeof $steps["updateSessions"].then === "function"
-              ) {
-                $steps["updateSessions"] = await $steps["updateSessions"];
-              }
-
-              $steps["invokeGlobalAction2"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://api.liom.app/service/log",
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              userId: $ctx.query.origin_user_id,
-                              pageName: "chatBot",
-                              action: "show_sessions",
-                              extraData: {}
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        (() => {
-                          try {
-                            return {
-                              headers: {
-                                "Content-Type": "application/json",
-                                Authorization:
-                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                              }
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-              if (
-                $steps["invokeGlobalAction2"] != null &&
-                typeof $steps["invokeGlobalAction2"] === "object" &&
-                typeof $steps["invokeGlobalAction2"].then === "function"
-              ) {
-                $steps["invokeGlobalAction2"] =
-                  await $steps["invokeGlobalAction2"];
-              }
-            }}
-          >
-            <Icon162Icon
-              className={classNames(projectcss.all, sty.svg__wj7I3)}
+          <div className={classNames(projectcss.all, sty.freeBox__t2Nzr)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__eAztP)}
               onClick={async event => {
                 const $steps = {};
-              }}
-              role={"img"}
-            />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__nsd0Q
-              )}
-              data-i18n={"chat.history2"}
+                $steps["updateTestChat"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["testChat"]
+                        },
+                        operation: 0,
+                        value: []
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTestChat"] != null &&
+                  typeof $steps["updateTestChat"] === "object" &&
+                  typeof $steps["updateTestChat"].then === "function"
+                ) {
+                  $steps["updateTestChat"] = await $steps["updateTestChat"];
+                }
+              }}
             >
-              {"\u062a\u0627\u0631\u06cc\u062e\u0686\u0647"}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__vq8L9
+                )}
+              >
+                {"Enter some text"}
+              </div>
+              <Icon50Icon
+                className={classNames(projectcss.all, sty.svg___0C8Re)}
+                role={"img"}
+              />
+            </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__xtcx, {
+                [sty.freeBoxglobal_theme_dark__xtcxE9E9C]: hasVariant(
+                  globalVariants,
+                  "theme",
+                  "dark"
+                ),
+                [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant__xtcxYcZU]:
+                  hasVariant(
+                    globalVariants,
+                    "unnamedGlobalGroupOfVariants",
+                    "unnamedVariant"
+                  ),
+                [sty.freeBoxglobal_unnamedGlobalGroupOfVariants_unnamedVariant_global_theme_dark__xtcxYcZUE9E9C]:
+                  hasVariant(globalVariants, "theme", "dark") &&
+                  hasVariant(
+                    globalVariants,
+                    "unnamedGlobalGroupOfVariants",
+                    "unnamedVariant"
+                  )
+              })}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateDrawerOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["drawer", "open"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDrawerOpen"] != null &&
+                  typeof $steps["updateDrawerOpen"] === "object" &&
+                  typeof $steps["updateDrawerOpen"].then === "function"
+                ) {
+                  $steps["updateDrawerOpen"] = await $steps["updateDrawerOpen"];
+                }
+
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/chatBotServiceSession?bot_name=period_chat",
+                          undefined,
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: {
+                                  Authorization: "Bearer " + window.token
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] =
+                    await $steps["invokeGlobalAction"];
+                }
+
+                $steps["updateSessions"] = (
+                  $steps.invokeGlobalAction?.data?.list ? true : false
+                )
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["sessions"]
+                        },
+                        operation: 0,
+                        value: $steps.invokeGlobalAction.data.list
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSessions"] != null &&
+                  typeof $steps["updateSessions"] === "object" &&
+                  typeof $steps["updateSessions"].then === "function"
+                ) {
+                  $steps["updateSessions"] = await $steps["updateSessions"];
+                }
+
+                $steps["invokeGlobalAction2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/service/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: $ctx.query.origin_user_id,
+                                pageName: "chatBot",
+                                action: "show_sessions",
+                                extraData: {}
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          (() => {
+                            try {
+                              return {
+                                headers: {
+                                  "Content-Type": "application/json",
+                                  Authorization:
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction2"] != null &&
+                  typeof $steps["invokeGlobalAction2"] === "object" &&
+                  typeof $steps["invokeGlobalAction2"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction2"] =
+                    await $steps["invokeGlobalAction2"];
+                }
+              }}
+            >
+              <Icon162Icon
+                className={classNames(projectcss.all, sty.svg__wj7I3)}
+                onClick={async event => {
+                  const $steps = {};
+                }}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__nsd0Q
+                )}
+                data-i18n={"chat.history2"}
+              >
+                {"\u062a\u0627\u0631\u06cc\u062e\u0686\u0647"}
+              </div>
             </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__nbuYo)}>

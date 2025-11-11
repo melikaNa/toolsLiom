@@ -2488,6 +2488,47 @@
     display: flex;
   }
 }
+.freeBox__t2Nzr {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  column-gap: 8px;
+  padding: 0px;
+}
+.freeBox__eAztP {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  border-radius: 50px;
+  padding: 8px;
+  border-width: 1px;
+}
+.text__vq8L9 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__vq8L9 {
+    display: none;
+  }
+}
+.svg___0C8Re {
+  object-fit: cover;
+  max-width: 100%;
+  height: 1em;
+}
 .freeBox__xtcx {
   display: flex;
   flex-direction: row;
