@@ -1100,6 +1100,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         searchParams.delete("userId");
                         searchParams.delete("user_id");
                         searchParams.delete("attachments");
+                        searchParams.delete("prompt");
                         const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                         return window.history.replaceState(null, "", newUrl);
                       })();

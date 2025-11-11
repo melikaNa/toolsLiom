@@ -1847,8 +1847,50 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["runCode"] = await $steps["runCode"];
                             }
 
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://n8n.staas.ir/webhook/medicalRecord",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            token: $state.token,
+                                            link: $state.images?.[0]
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
+                            }
+
                             $steps["chatBot"] =
-                              $ctx.query.type != "filterino"
+                              $ctx.query.type != "filterino" && false
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
@@ -1912,6 +1954,41 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               typeof $steps["chatBot"].then === "function"
                             ) {
                               $steps["chatBot"] = await $steps["chatBot"];
+                            }
+
+                            $steps["runCode2"] =
+                              $ctx.query.type != "filterino"
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          const result = $state.images.map(
+                                            item => ({
+                                              value: item,
+                                              type: "image"
+                                            })
+                                          );
+                                          var question =
+                                            $state.getInfo.firstMessage;
+                                          var attachments =
+                                            JSON.stringify(result);
+                                          var prompt = $state.getInfo.prompt;
+                                          var link = `https://tools.liom.app/chat-bot-2/?question=${question}&attachments=${attachments}&inApp=undefined&prompt=${prompt}`;
+                                          return window.open(link, "_self");
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runCode2"] != null &&
+                              typeof $steps["runCode2"] === "object" &&
+                              typeof $steps["runCode2"].then === "function"
+                            ) {
+                              $steps["runCode2"] = await $steps["runCode2"];
                             }
 
                             $steps["updateUploadLoad2"] = true
