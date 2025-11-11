@@ -1062,7 +1062,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           $state.paramsObject[key] = value;
                         });
                         $state.attachments = $state.paramsObject.attachments;
-                        console.log($state.paramsObject.attachments);
+                        console.log($state.paramsObject);
                         $state.images =
                           $state.paramsObject.attachments?.map(
                             item => item.value
