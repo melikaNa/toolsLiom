@@ -1062,9 +1062,9 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           $state.paramsObject[key] = value;
                         });
                         $state.attachments = $state.paramsObject.attachments;
-                        return ($state.images = $state.attachments.map(
-                          item => item.value
-                        ));
+                        console.log($state.attachments);
+                        return ($state.images =
+                          $state.attachments?.map(item => item.value) ?? []);
                       })();
                     }
                   };
@@ -1904,7 +1904,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
-                        console.log($state.toolsList);
                         var fileInput = document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
