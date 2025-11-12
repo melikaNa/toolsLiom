@@ -1384,7 +1384,6 @@
   box-shadow: none;
   column-gap: 5px;
   min-width: 0;
-  padding: 4px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .bottomInput {
@@ -1411,6 +1410,7 @@
   align-self: center;
   width: auto;
   height: auto;
+  margin: 8px;
 }
 .textArea:global(.__wab_instance) {
   max-width: 100%;

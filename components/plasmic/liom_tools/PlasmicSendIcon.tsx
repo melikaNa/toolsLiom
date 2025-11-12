@@ -67,7 +67,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicSendIcon.module.css"; // plasmic-import: HSNJ0v5oD6xT/css
 
-import Icon100Icon from "./icons/PlasmicIcon__Icon100"; // plasmic-import: 2D6zlhfqx1AB/icon
+import Icon104Icon from "./icons/PlasmicIcon__Icon104"; // plasmic-import: kIvBdNtH0rBG/icon
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: jsdnX88Z30Rv/icon
 
 createPlasmicElementProxy;
@@ -295,7 +295,7 @@ function PlasmicSendIcon__RenderFunc(props: {
             : undefined
       }
     >
-      <Icon100Icon
+      <Icon104Icon
         className={classNames(projectcss.all, sty.svg__etqbk, {
           [sty.svgdisable__etqbkLq58W]: hasVariant(
             $state,
