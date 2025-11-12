@@ -1496,7 +1496,24 @@ function PlasmicSelfTest5__RenderFunc(props: {
                       return (() => {
                         window.token = $steps.user.data.token;
                         $state.token = $steps.user.data.token;
-                        return ($state.userId = $steps.user.data.user_id);
+                        $state.userId = $steps.user.data.user_id;
+                        if (
+                          window.token !== null &&
+                          window.token !== undefined &&
+                          window.token?.trim() !== ""
+                        ) {
+                          var setCookie = (name, value, days) => {
+                            const expires = new Date(
+                              Date.now() + days * 86400000
+                            ).toUTCString();
+                            document.cookie = `${name}=${value}; expires=${expires}; path=/; domain=.liom.app; secure; SameSite=Lax`;
+                          };
+                          return setCookie(
+                            "tokenChatBot",
+                            JSON.stringify([window.token]),
+                            100
+                          );
+                        }
                       })();
                     }
                   };
