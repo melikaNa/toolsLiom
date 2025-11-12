@@ -745,7 +745,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           try {
                             return {
                               headers: {
-                                Authorization: "Bearer " + $state.token
+                                Authorization: "Bearer " + window.token
                               }
                             };
                           } catch (e) {
