@@ -703,7 +703,8 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
                           const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
-                          return window.history.replaceState(null, "", newUrl);
+                          window.history.replaceState(null, "", newUrl);
+                          return console.log($state.token);
                         })();
                       }
                     };
