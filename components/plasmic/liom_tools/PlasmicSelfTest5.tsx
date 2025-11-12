@@ -112,8 +112,8 @@ import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappyS
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: frqiW1UAlfdr/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: CIGrIuwcL9LP/icon
-import Icon228Icon from "./icons/PlasmicIcon__Icon228"; // plasmic-import: 5yw7sU4rQYyF/icon
 import Icon162Icon from "./icons/PlasmicIcon__Icon162"; // plasmic-import: ySm-fx5nxIne/icon
+import Icon228Icon from "./icons/PlasmicIcon__Icon228"; // plasmic-import: 5yw7sU4rQYyF/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: nUOPjtqNxpTk/icon
 import Icon167Icon from "./icons/PlasmicIcon__Icon167"; // plasmic-import: 5eVMEaBbaM21/icon
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: hr_bpY54geRI/icon
@@ -829,7 +829,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
         path: "openPhoto.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "images",
@@ -1947,9 +1947,13 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         async function uploadFiles(files) {
                           if (!Array.isArray($state.images)) $state.images = [];
                           $state.uploading = true;
+                          const startIndex = $state.images.length;
+                          files.forEach(() => $state.images.push("loading"));
+                          console.log(
+                            `🕓 Added ${files.length} placeholder(s) for uploading files.`
+                          );
                           for (let [index, f] of files.entries()) {
                             console.log(`⬆️ Uploading file #${index + 1}`);
-                            $state.images.push("loading");
                             console.log(
                               `🕓 Added placeholder for file #${index + 1}`
                             );
@@ -1971,10 +1975,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 data
                               );
                               if (data.status) {
-                                const loadingIndex =
-                                  $state.images.indexOf("loading");
-                                if (loadingIndex !== -1)
-                                  $state.images[loadingIndex] = data.result;
+                                const targetIndex = startIndex + index;
+                                $state.images[targetIndex] = data.result;
                                 const result = $state.images.map(item => ({
                                   value: item,
                                   type: "image"
@@ -2003,9 +2005,13 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         return async function uploadFiles(files) {
                           if (!Array.isArray($state.images)) $state.images = [];
                           $state.uploading = true;
+                          const startIndex = $state.images.length;
+                          files.forEach(() => $state.images.push("loading"));
+                          console.log(
+                            `🕓 Added ${files.length} placeholder(s) for uploading files.`
+                          );
                           for (let [index, f] of files.entries()) {
                             console.log(`⬆️ Uploading file #${index + 1}`);
-                            $state.images.push("loading");
                             console.log(
                               `🕓 Added placeholder for file #${index + 1}`
                             );
@@ -2027,10 +2033,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                 data
                               );
                               if (data.status) {
-                                const loadingIndex =
-                                  $state.images.indexOf("loading");
-                                if (loadingIndex !== -1)
-                                  $state.images[loadingIndex] = data.result;
+                                const targetIndex = startIndex + index;
+                                $state.images[targetIndex] = data.result;
                                 const result = $state.images.map(item => ({
                                   value: item,
                                   type: "image"
@@ -5612,6 +5616,48 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                       $steps["runCode"] =
                                         await $steps["runCode"];
                                     }
+
+                                    $steps["updateCurrentImag"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["currentImag"]
+                                            },
+                                            operation: 0,
+                                            value: ""
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateCurrentImag"] != null &&
+                                      typeof $steps["updateCurrentImag"] ===
+                                        "object" &&
+                                      typeof $steps["updateCurrentImag"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateCurrentImag"] =
+                                        await $steps["updateCurrentImag"];
+                                    }
                                   }}
                                 >
                                   <Icon212Icon
@@ -8008,70 +8054,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
         >
           <div className={classNames(projectcss.all, sty.freeBox__t2Nzr)}>
             <div
-              className={classNames(projectcss.all, sty.freeBox__eAztP)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["updateTestChat"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["testChat"]
-                        },
-                        operation: 0,
-                        value: []
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateTestChat"] != null &&
-                  typeof $steps["updateTestChat"] === "object" &&
-                  typeof $steps["updateTestChat"].then === "function"
-                ) {
-                  $steps["updateTestChat"] = await $steps["updateTestChat"];
-                }
-              }}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vq8L9
-                )}
-              >
-                {"Enter some text"}
-              </div>
-              <Icon228Icon
-                className={classNames(projectcss.all, sty.svg___0C8Re)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rl9Yz
-                )}
-              >
-                {"\u067e\u06cc\u0627\u0645 \u062c\u062f\u06cc\u062f"}
-              </div>
-            </div>
-            <div
               className={classNames(projectcss.all, sty.freeBox__xtcx, {
                 [sty.freeBoxglobal_theme_dark__xtcxE9E9C]: hasVariant(
                   globalVariants,
@@ -8288,6 +8270,70 @@ function PlasmicSelfTest5__RenderFunc(props: {
                 {"\u062a\u0627\u0631\u06cc\u062e\u0686\u0647"}
               </div>
             </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__eAztP)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateTestChat"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["testChat"]
+                        },
+                        operation: 0,
+                        value: []
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTestChat"] != null &&
+                  typeof $steps["updateTestChat"] === "object" &&
+                  typeof $steps["updateTestChat"].then === "function"
+                ) {
+                  $steps["updateTestChat"] = await $steps["updateTestChat"];
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__vq8L9
+                )}
+              >
+                {"Enter some text"}
+              </div>
+              <Icon228Icon
+                className={classNames(projectcss.all, sty.svg___0C8Re)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__rl9Yz
+                )}
+              >
+                {"\u067e\u06cc\u0627\u0645 \u062c\u062f\u06cc\u062f"}
+              </div>
+            </div>
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__nbuYo)}>
             <div
@@ -8373,51 +8419,33 @@ function PlasmicSelfTest5__RenderFunc(props: {
               }}
             >
               <div className={classNames(projectcss.all, sty.freeBox___67VH5)}>
-                {(
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? (() => {
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__tnQmn
+                  )}
+                  data-i18n={"chat.t.p"}
+                >
+                  <div
+                    className={projectcss.__wab_expr_html_text}
+                    dangerouslySetInnerHTML={{
+                      __html: (() => {
                         try {
-                          return !$state.lo;
+                          return `اعتبار شما : `;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return true;
+                            return "";
                           }
                           throw e;
                         }
                       })()
-                    : true
-                ) ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__tnQmn
-                    )}
-                    data-i18n={"chat.t.p"}
-                  >
-                    <div
-                      className={projectcss.__wab_expr_html_text}
-                      dangerouslySetInnerHTML={{
-                        __html: (() => {
-                          try {
-                            return `اعتبار شما : `;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()
-                      }}
-                    />
-                  </div>
-                ) : null}
+                    }}
+                  />
+                </div>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -8456,7 +8484,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return true;
+                            return false;
                           }
                           throw e;
                         }

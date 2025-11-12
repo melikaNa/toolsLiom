@@ -352,6 +352,9 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .svgopening__b8LQirPBw2 {
     color: var(--token-NXlEQg0VOw-c);
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
   }
 }
 .textopening___3HiXprPBw2 {
