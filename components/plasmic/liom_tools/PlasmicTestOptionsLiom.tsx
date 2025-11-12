@@ -493,9 +493,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                       typeof $steps["updateSelectedIDs"] === "object" &&
                       typeof $steps["updateSelectedIDs"].then === "function"
                     ) {
-                      $steps["updateSelectedIDs"] = await $steps[
-                        "updateSelectedIDs"
-                      ];
+                      $steps["updateSelectedIDs"] =
+                        await $steps["updateSelectedIDs"];
                     }
 
                     $steps["runOnClick24"] = true
@@ -548,9 +547,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                       typeof $steps["updateSelectedIDs"] === "object" &&
                       typeof $steps["updateSelectedIDs"].then === "function"
                     ) {
-                      $steps["updateSelectedIDs"] = await $steps[
-                        "updateSelectedIDs"
-                      ];
+                      $steps["updateSelectedIDs"] =
+                        await $steps["updateSelectedIDs"];
                     }
 
                     $steps["runOnClick24"] = true
@@ -642,9 +640,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                         typeof $steps["updateSelectedIDs"] === "object" &&
                         typeof $steps["updateSelectedIDs"].then === "function"
                       ) {
-                        $steps["updateSelectedIDs"] = await $steps[
-                          "updateSelectedIDs"
-                        ];
+                        $steps["updateSelectedIDs"] =
+                          await $steps["updateSelectedIDs"];
                       }
                     }}
                   >
@@ -719,9 +716,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                         typeof $steps["updateButtonColor"] === "object" &&
                         typeof $steps["updateButtonColor"].then === "function"
                       ) {
-                        $steps["updateButtonColor"] = await $steps[
-                          "updateButtonColor"
-                        ];
+                        $steps["updateButtonColor"] =
+                          await $steps["updateButtonColor"];
                       }
                     }).apply(null, eventArgs);
                   },
@@ -826,9 +822,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                         typeof $steps["updateAntdInputValue"].then ===
                           "function"
                       ) {
-                        $steps["updateAntdInputValue"] = await $steps[
-                          "updateAntdInputValue"
-                        ];
+                        $steps["updateAntdInputValue"] =
+                          await $steps["updateAntdInputValue"];
                       }
 
                       $steps["updateSelectedIDs"] = true
@@ -862,9 +857,8 @@ function PlasmicTestOptionsLiom__RenderFunc(props: {
                         typeof $steps["updateSelectedIDs"] === "object" &&
                         typeof $steps["updateSelectedIDs"].then === "function"
                       ) {
-                        $steps["updateSelectedIDs"] = await $steps[
-                          "updateSelectedIDs"
-                        ];
+                        $steps["updateSelectedIDs"] =
+                          await $steps["updateSelectedIDs"];
                       }
 
                       $steps["runOnClick24"] = true
@@ -1689,7 +1683,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTestOptionsLiom__VariantsArgs;
     args?: PlasmicTestOptionsLiom__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTestOptionsLiom__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTestOptionsLiom__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTestOptionsLiom__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

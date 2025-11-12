@@ -1,10 +1,10 @@
 .root {
-  display: inline-flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
+  width: 35px;
+  height: 35px;
   max-width: 100%;
   position: relative;
   cursor: pointer;

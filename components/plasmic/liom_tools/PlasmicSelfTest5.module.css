@@ -1412,6 +1412,11 @@
   height: auto;
   margin: 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .sendIcon:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
 .textArea:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

@@ -1389,6 +1389,7 @@
 .sendIcon:global(.__wab_instance) {
   position: relative;
   align-self: center;
+  flex-shrink: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .sendIcon:global(.__wab_instance) {
