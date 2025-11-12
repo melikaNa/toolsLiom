@@ -411,6 +411,12 @@ function PlasmicTestAnalysis__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "tokenChatBot",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -580,7 +586,9 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             }
                             return "";
                           };
-                          return ($state.token = getCookie("token"));
+                          $state.token = getCookie("token");
+                          return ($state.tokenChatBot =
+                            getCookie("tokenChatBot"));
                         })();
                       }
                     };
@@ -745,7 +753,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           try {
                             return {
                               headers: {
-                                Authorization: "Bearer " + window.token
+                                Authorization: "Bearer " + $state.tokenChatBot
                               }
                             };
                           } catch (e) {
