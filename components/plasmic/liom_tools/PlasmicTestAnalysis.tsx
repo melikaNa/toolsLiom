@@ -1165,7 +1165,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                         return {
                                           headers: {
                                             Authorization:
-                                              "Bearer " + $state.token
+                                              "Bearer " + $state.tokenChatBot
                                           }
                                         };
                                       } catch (e) {
@@ -1216,6 +1216,27 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             $steps["runCode2"] = await $steps["runCode2"];
                           }
 
+                          $steps["runCode"] = $steps.invokeGlobalAction?.data
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return ($state.infoChat.credit =
+                                      $steps.invokeGlobalAction.data.credit);
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+
                           $steps["updateLoad2"] = true
                             ? (() => {
                                 const actionArgs = {
@@ -1251,27 +1272,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             typeof $steps["updateLoad2"].then === "function"
                           ) {
                             $steps["updateLoad2"] = await $steps["updateLoad2"];
-                          }
-
-                          $steps["runCode"] = $steps.invokeGlobalAction?.data
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return ($state.infoChat.credit =
-                                      $steps.invokeGlobalAction.data.credit);
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
                           }
                         }}
                         onColorChange={async (...eventArgs: any) => {
