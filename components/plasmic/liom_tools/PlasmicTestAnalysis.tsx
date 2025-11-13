@@ -1057,14 +1057,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          console.log($state.userInfoChatBot);
-                          console.log($state.userInfoChatBot.data.result);
-                          console.log(
-                            $state.userInfoChatBot.data.result.origin_user_id
-                          );
-                          return console.log(
-                            $state.userInfoChatBot.data.result.user_id
-                          );
+                          return console.log($steps.chatBotUser);
                         })();
                       }
                     };
