@@ -144,11 +144,11 @@
 .paziresh24Avatar:global(.__wab_instance) {
   max-width: 100%;
   width: 60px;
-  height: 50px;
+  height: 40px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .paziresh24Avatar:global(.__wab_instance) {
-    width: 78px;
+    width: 130px;
   }
 }
 .text__nVs4L {

@@ -782,7 +782,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
               }
 
               $steps["updateInfoChat"] = (
-                $steps.infoChatBot?.data ? true : false
+                $steps.getInfoChat?.data ? true : false
               )
                 ? (() => {
                     const actionArgs = {
@@ -791,7 +791,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                         variablePath: ["infoChat"]
                       },
                       operation: 0,
-                      value: $steps.infoChatBot.data
+                      value: $steps.getInfoChat.data
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
@@ -1066,7 +1066,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   try {
                                     return (
                                       $state.load ||
-                                      $state.infoChat.credit == undefined
+                                      $state.infoChat.infoChat == undefined
                                     );
                                   } catch (e) {
                                     if (
@@ -1194,6 +1194,26 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           ) {
                             $steps["invokeGlobalAction"] =
                               await $steps["invokeGlobalAction"];
+                          }
+
+                          $steps["runCode2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return console.log($state.infoChat);
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode2"] != null &&
+                            typeof $steps["runCode2"] === "object" &&
+                            typeof $steps["runCode2"].then === "function"
+                          ) {
+                            $steps["runCode2"] = await $steps["runCode2"];
                           }
 
                           $steps["updateLoad2"] = true
