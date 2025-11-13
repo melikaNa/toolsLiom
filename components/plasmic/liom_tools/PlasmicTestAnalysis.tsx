@@ -456,6 +456,18 @@ function PlasmicTestAnalysis__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "userInfoChatBot",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -738,7 +750,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
-              $steps["runCode2"] = true
+              $steps["clearParams"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -761,11 +773,11 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["runCode2"] != null &&
-                typeof $steps["runCode2"] === "object" &&
-                typeof $steps["runCode2"].then === "function"
+                $steps["clearParams"] != null &&
+                typeof $steps["clearParams"] === "object" &&
+                typeof $steps["clearParams"].then === "function"
               ) {
-                $steps["runCode2"] = await $steps["runCode2"];
+                $steps["clearParams"] = await $steps["clearParams"];
               }
 
               $steps["getInfoChat"] = true
@@ -851,6 +863,166 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 $steps["updateInfoChat"] = await $steps["updateInfoChat"];
               }
 
+              $steps["user"] =
+                $state.token != ""
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/users/profile",
+                          undefined,
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: {
+                                  Authorization: $state.token,
+                                  area: "chatBot"
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["user"] != null &&
+                typeof $steps["user"] === "object" &&
+                typeof $steps["user"].then === "function"
+              ) {
+                $steps["user"] = await $steps["user"];
+              }
+
+              $steps["updateUserInfo"] =
+                ($steps.user?.data?.success ?? false)
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["userInfo"]
+                        },
+                        operation: 0,
+                        value: $steps.user?.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateUserInfo"] != null &&
+                typeof $steps["updateUserInfo"] === "object" &&
+                typeof $steps["updateUserInfo"].then === "function"
+              ) {
+                $steps["updateUserInfo"] = await $steps["updateUserInfo"];
+              }
+
+              $steps["chatBotUser"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://n8n.staas.ir/webhook/chatBotServiceUser",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              origin_user_id:
+                                $state.userInfo.id ||
+                                $state.paramsObject.user_id ||
+                                $state.paramsObject.userId,
+                              bot_name: "analysis " + $state.paramsObject.type,
+                              mobile: $state.userInfo.mobile || "",
+                              email: $state.userInfo.email || "",
+                              name: $state.userInfo.name || "",
+                              app: $state.paramsObject.app || "",
+                              origin: $state.paramsObject.origin || "",
+                              token: $state.userInfo.token
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["chatBotUser"] != null &&
+                typeof $steps["chatBotUser"] === "object" &&
+                typeof $steps["chatBotUser"].then === "function"
+              ) {
+                $steps["chatBotUser"] = await $steps["chatBotUser"];
+              }
+
+              $steps["updateUserChatBot"] =
+                ($steps.chatBotUser?.data?.success ?? false)
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["userInfoChatBot"]
+                        },
+                        operation: 0,
+                        value: $steps.chatBotUser?.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["updateUserChatBot"] != null &&
+                typeof $steps["updateUserChatBot"] === "object" &&
+                typeof $steps["updateUserChatBot"].then === "function"
+              ) {
+                $steps["updateUserChatBot"] = await $steps["updateUserChatBot"];
+              }
+
               $steps["updateLoading"] = true
                 ? (() => {
                     const actionArgs = {
@@ -878,6 +1050,35 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 typeof $steps["updateLoading"].then === "function"
               ) {
                 $steps["updateLoading"] = await $steps["updateLoading"];
+              }
+
+              $steps["updateLoading3"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          console.log($state.userInfoChatBot);
+                          console.log($state.userInfoChatBot.data.result);
+                          console.log(
+                            $state.userInfoChatBot.data.result.origin_user_id
+                          );
+                          return console.log(
+                            $state.userInfoChatBot.data.result.user_id
+                          );
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoading3"] != null &&
+                typeof $steps["updateLoading3"] === "object" &&
+                typeof $steps["updateLoading3"].then === "function"
+              ) {
+                $steps["updateLoading3"] = await $steps["updateLoading3"];
               }
             }}
           />
