@@ -1928,8 +1928,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
-                        console.log($state.userId);
-                        console.log($ctx.query.origin_user_id);
                         var fileInput = document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
@@ -5885,8 +5883,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                   const actionArgs = {
                                     customFunction: async () => {
                                       return (() => {
-                                        console.log($state.images);
-                                        console.log($state.attachments);
+                                        console.log($state.userId);
+                                        console.log($ctx.query.origin_user_id);
                                         $state.sendIcon.load = true;
                                         return ($state.sendIcon.diable = true);
                                       })();
