@@ -155,7 +155,8 @@
 .text__nVs4L {
   font-weight: 600;
   color: var(--token-0jflij2Drauk);
-  width: auto;
+  width: 100%;
+  min-width: 0;
 }
 .freeBox__jfyOq {
   animation: none;

@@ -1175,7 +1175,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                       )}
                     >
                       <React.Fragment>
-                        {$state.getInfo.headerTitle ?? "sdsdsd"}
+                        {$state.getInfo.headerTitle ?? ""}
                       </React.Fragment>
                     </div>
                     <div
@@ -1241,25 +1241,54 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 sty.text___6ZHxw
                               )}
                             >
-                              <div
-                                className={projectcss.__wab_expr_html_text}
-                                dangerouslySetInnerHTML={{
-                                  __html: (() => {
-                                    try {
-                                      return `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit != undefined ? $state.infoChat.credit : ""} </span></b>`;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "";
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobileOnly"
+                              ) ? (
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit != undefined ? $state.infoChat.credit : ""} </span></b>`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()
-                                }}
-                              />
+                                    })()
+                                  }}
+                                />
+                              ) : (
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return (
+                                          // `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit!=undefined?$state.infoChat.credit:""} </span></b>`
+                                          "123"
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  }}
+                                />
+                              )}
                             </div>
                           ) : null}
                           {(
