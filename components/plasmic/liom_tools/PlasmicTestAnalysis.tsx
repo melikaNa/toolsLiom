@@ -72,6 +72,7 @@ import ImageOpload from "../../ImageOpload"; // plasmic-import: -SoKEb6qZYKB/com
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
+import DirectDialogChatbot from "../../DirectDialogChatbot"; // plasmic-import: ySuxtC2bY6yN/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
 
@@ -127,6 +128,7 @@ export type PlasmicTestAnalysis__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   modal2?: Flex__<typeof AntdModal>;
   antdInput?: Flex__<typeof Input>;
+  directDialogChatbot?: Flex__<typeof DirectDialogChatbot>;
 };
 
 export interface DefaultTestAnalysisProps {}
@@ -417,6 +419,43 @@ function PlasmicTestAnalysis__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "enoughCredit",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "directDialogChatbot.selectShop",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "directDialogChatbot.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "redirectUrl",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return `https://tools.liom.app/test-analysis/?token=${$state.token}`;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1196,26 +1235,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               await $steps["invokeGlobalAction"];
                           }
 
-                          $steps["runCode2"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return console.log($state.infoChat);
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode2"] != null &&
-                            typeof $steps["runCode2"] === "object" &&
-                            typeof $steps["runCode2"].then === "function"
-                          ) {
-                            $steps["runCode2"] = await $steps["runCode2"];
-                          }
-
                           $steps["runCode"] = $steps.invokeGlobalAction?.data
                             ? (() => {
                                 const actionArgs = {
@@ -1331,7 +1350,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
           ) : null}
           {(() => {
             try {
-              return $state.loading || $state.upload.load;
+              return $state.upload.load;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -2293,6 +2312,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           parseInt($state.infoChat.credit) >=
                                           parseInt($state.getInfo.price)
                                         ) {
+                                          $state.enoughCredit = true;
                                           return uploadFiles().then(() => {
                                             console.log("Do other things now");
                                             $state.isDone = true;
@@ -2306,6 +2326,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                             console.log(result);
                                           });
                                         } else {
+                                          $state.enoughCredit = false;
                                           return console.log(
                                             "موجودی کافی نیست"
                                           );
@@ -2438,7 +2459,9 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             }
 
                             $steps["runCode2"] =
-                              $ctx.query.type != "filterino" && $state.isDone
+                              $ctx.query.type != "filterino" &&
+                              $state.isDone &&
+                              $state.enoughCredit
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
@@ -2470,6 +2493,59 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               typeof $steps["runCode2"].then === "function"
                             ) {
                               $steps["runCode2"] = await $steps["runCode2"];
+                            }
+
+                            $steps["invokeGlobalAction2"] = !$state.enoughCredit
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627 \u06a9\u0627\u0641\u06cc \u0646\u06cc\u0633\u062a \u0644\u0637\u0641\u0627 \u0627\u0639\u062a\u0628\u0627\u0631 \u062e\u0648\u062f \u0631\u0627 \u0627\u0641\u0632\u0627\u06cc\u0634 \u062f\u0647\u06cc\u062f."
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction2"] != null &&
+                              typeof $steps["invokeGlobalAction2"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction2"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction2"] =
+                                await $steps["invokeGlobalAction2"];
+                            }
+
+                            $steps["runCode3"] = !$state.enoughCredit
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        if (
+                                          window.FlutterChannel?.postMessage
+                                        ) {
+                                          return window.FlutterChannel.postMessage(
+                                            "#directDialog-chatBot"
+                                          );
+                                        } else
+                                          return ($state.directDialogChatbot.open = true);
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode3"] != null &&
+                              typeof $steps["runCode3"] === "object" &&
+                              typeof $steps["runCode3"].then === "function"
+                            ) {
+                              $steps["runCode3"] = await $steps["runCode3"];
                             }
 
                             $steps["updateUploadLoad2"] = true
@@ -2995,6 +3071,43 @@ function PlasmicTestAnalysis__RenderFunc(props: {
               />
             );
           })()}
+          <DirectDialogChatbot
+            data-plasmic-name={"directDialogChatbot"}
+            data-plasmic-override={overrides.directDialogChatbot}
+            className={classNames("__wab_instance", sty.directDialogChatbot)}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "directDialogChatbot",
+                "open"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onSelectShopChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "directDialogChatbot",
+                "selectShop"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, [
+              "directDialogChatbot",
+              "open"
+            ])}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3015,7 +3128,8 @@ const PlasmicDescendants = {
     "upload",
     "buttonLiom",
     "modal2",
-    "antdInput"
+    "antdInput",
+    "directDialogChatbot"
   ],
   sideEffect: ["sideEffect"],
   headerLiom: ["headerLiom", "paziresh24Avatar", "buttonLiom4"],
@@ -3028,7 +3142,8 @@ const PlasmicDescendants = {
   upload: ["upload"],
   buttonLiom: ["buttonLiom"],
   modal2: ["modal2"],
-  antdInput: ["antdInput"]
+  antdInput: ["antdInput"],
+  directDialogChatbot: ["directDialogChatbot"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3047,6 +3162,7 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   modal2: typeof AntdModal;
   antdInput: typeof Input;
+  directDialogChatbot: typeof DirectDialogChatbot;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3148,6 +3264,7 @@ export const PlasmicTestAnalysis = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     modal2: makeNodeComponent("modal2"),
     antdInput: makeNodeComponent("antdInput"),
+    directDialogChatbot: makeNodeComponent("directDialogChatbot"),
 
     // Metadata about props expected for PlasmicTestAnalysis
     internalVariantProps: PlasmicTestAnalysis__VariantProps,
