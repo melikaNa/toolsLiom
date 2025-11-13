@@ -1045,32 +1045,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
               ) {
                 $steps["updateLoading"] = await $steps["updateLoading"];
               }
-
-              $steps["updateLoading3"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          console.log($state.userInfoChatBot);
-                          console.log($state.userInfoChatBot?.user_id);
-                          return console.log(
-                            $state.userInfoChatBot?.origin_user_id
-                          );
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoading3"] != null &&
-                typeof $steps["updateLoading3"] === "object" &&
-                typeof $steps["updateLoading3"].then === "function"
-              ) {
-                $steps["updateLoading3"] = await $steps["updateLoading3"];
-              }
             }}
           />
 
@@ -3299,6 +3273,45 @@ function PlasmicTestAnalysis__RenderFunc(props: {
               "directDialogChatbot",
               "open"
             ])}
+            originUserId={(() => {
+              try {
+                return $state.userInfoChatBot?.origin_user_id;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            redirectUrl={(() => {
+              try {
+                return $state.redirectUrl;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            userId={(() => {
+              try {
+                return $state.userInfoChatBot?.user_id;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
           />
         </div>
       </div>
