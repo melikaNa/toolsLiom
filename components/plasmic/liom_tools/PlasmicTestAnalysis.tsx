@@ -988,33 +988,27 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 $steps["chatBotUser"] = await $steps["chatBotUser"];
               }
 
-              $steps["updateUserChatBot"] =
-                ($steps.chatBotUser?.data?.success ?? false)
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["userInfoChatBot"]
-                        },
-                        operation: 0,
-                        value: $steps.chatBotUser?.data
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
+              $steps["updateUserChatBot"] = $steps.chatBotUser?.data?.token
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["userInfoChatBot"]
+                      },
+                      operation: 0,
+                      value: $steps.chatBotUser?.data
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
 
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
               if (
                 $steps["updateUserChatBot"] != null &&
                 typeof $steps["updateUserChatBot"] === "object" &&
@@ -1057,8 +1051,11 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          console.log($steps.chatBotUser?.data);
-                          return console.log($state.userInfoChatBot);
+                          console.log($state.userInfoChatBot);
+                          console.log($state.userInfoChatBot?.user_id);
+                          return console.log(
+                            $state.userInfoChatBot?.origin_user_id
+                          );
                         })();
                       }
                     };
