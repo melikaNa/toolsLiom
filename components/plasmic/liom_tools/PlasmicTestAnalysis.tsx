@@ -1587,7 +1587,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                       )}
                     >
                       <React.Fragment>
-                        {$state.getInfo.headerTitle ?? "ddd"}
+                        {$state.getInfo.headerTitle ?? ""}
                       </React.Fragment>
                     </div>
                   </HeaderLiom>
