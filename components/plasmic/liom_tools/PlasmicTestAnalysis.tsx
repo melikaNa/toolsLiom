@@ -1175,7 +1175,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                       )}
                     >
                       <React.Fragment>
-                        {$state.getInfo.headerTitle}
+                        {$state.getInfo.headerTitle ?? "sdsdsd"}
                       </React.Fragment>
                     </div>
                     <div
@@ -1221,33 +1221,47 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               }}
                             />
                           </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___6ZHxw
-                            )}
-                          >
+                          {(() => {
+                            try {
+                              return !$state.load;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
                             <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: (() => {
-                                  try {
-                                    return `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit != undefined ? $state.infoChat.credit : ""} </span></b>`;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "";
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___6ZHxw
+                              )}
+                            >
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit != undefined ? $state.infoChat.credit : ""} </span></b>`;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()
-                              }}
-                            />
-                          </div>
+                                  })()
+                                }}
+                              />
+                            </div>
+                          ) : null}
                           {(
                             hasVariant(globalVariants, "screen", "mobileOnly")
                               ? (() => {

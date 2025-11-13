@@ -145,6 +145,7 @@
   max-width: 100%;
   width: 60px;
   height: 40px;
+  display: none;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .paziresh24Avatar:global(.__wab_instance) {
@@ -154,8 +155,7 @@
 .text__nVs4L {
   font-weight: 600;
   color: var(--token-0jflij2Drauk);
-  width: 100%;
-  min-width: 0;
+  width: auto;
 }
 .freeBox__jfyOq {
   animation: none;
@@ -175,8 +175,6 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__jfyOq {
     animation: none;
-    width: 100%;
-    min-width: 0;
   }
 }
 .freeBox__ujnKi {
@@ -239,7 +237,6 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .text__ozn3E {
     animation: none;
-    white-space: pre;
   }
 }
 .text___6ZHxw {
@@ -256,8 +253,9 @@
   animation: none;
   object-fit: cover;
   max-width: 100%;
-  width: auto;
+  width: 25px;
   height: 25px;
+  flex-shrink: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .svg__zlFef {

@@ -8463,32 +8463,50 @@ function PlasmicSelfTest5__RenderFunc(props: {
                     }}
                   />
                 </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ci5Qv
-                  )}
-                >
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
+                {(
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? (() => {
                         try {
-                          return `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit != undefined ? $state.infoChat.credit : ""} </span></b>`;
+                          return !$state.lo;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "";
+                            return true;
                           }
                           throw e;
                         }
                       })()
-                    }}
-                  />
-                </div>
+                    : true
+                ) ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ci5Qv
+                    )}
+                  >
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: (() => {
+                          try {
+                            return `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit != undefined ? $state.infoChat.credit : ""} </span></b>`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()
+                      }}
+                    />
+                  </div>
+                ) : null}
                 {(
                   hasVariant(globalVariants, "screen", "mobileOnly")
                     ? (() => {
