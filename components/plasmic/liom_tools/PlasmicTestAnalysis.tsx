@@ -2605,7 +2605,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                         try {
                                           return {
                                             token: $state.token,
-                                            link: $state.images?.[0]
+                                            link: $state.images
                                           };
                                         } catch (e) {
                                           if (
