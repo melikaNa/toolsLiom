@@ -87,12 +87,14 @@ export type PlasmicHeaderLiom__ArgsType = {
   slot2?: React.ReactNode;
   slot?: React.ReactNode;
   children?: React.ReactNode;
+  slot3?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicHeaderLiom__ArgsType;
 export const PlasmicHeaderLiom__ArgProps = new Array<ArgPropType>(
   "slot2",
   "slot",
-  "children"
+  "children",
+  "slot3"
 );
 
 export type PlasmicHeaderLiom__OverridesType = {
@@ -103,6 +105,7 @@ export interface DefaultHeaderLiomProps {
   slot2?: React.ReactNode;
   slot?: React.ReactNode;
   children?: React.ReactNode;
+  slot3?: React.ReactNode;
   dark?: SingleBooleanChoiceArg<"dark">;
   className?: string;
 }
@@ -186,35 +189,43 @@ function PlasmicHeaderLiom__RenderFunc(props: {
         { [sty.topdark]: hasVariant($state, "dark", "dark") }
       )}
     >
-      {renderPlasmicSlot({
-        defaultContents: (
-          <Icon22Icon
-            className={classNames(projectcss.all, sty.svg__yaa3H)}
-            role={"img"}
-          />
-        ),
+      <div className={classNames(projectcss.all, sty.freeBox__xzbh)}>
+        {renderPlasmicSlot({
+          defaultContents: (
+            <Icon22Icon
+              className={classNames(projectcss.all, sty.svg__yaa3H)}
+              role={"img"}
+            />
+          ),
 
-        value: args.slot2
-      })}
-      {renderPlasmicSlot({
-        defaultContents: (
-          <Paziresh24Avatar
-            className={classNames(
-              "__wab_instance",
-              sty.paziresh24Avatar__kw9HH
-            )}
-          />
-        ),
+          value: args.slot2
+        })}
+        {renderPlasmicSlot({
+          defaultContents: (
+            <Paziresh24Avatar
+              className={classNames(
+                "__wab_instance",
+                sty.paziresh24Avatar__kw9HH
+              )}
+            />
+          ),
 
-        value: args.slot
-      })}
-      {renderPlasmicSlot({
-        defaultContents: "Dr. Bellamy Nich\u2026",
-        value: args.children,
-        className: classNames(sty.slotTargetChildren, {
-          [sty.slotTargetChildrendark]: hasVariant($state, "dark", "dark")
-        })
-      })}
+          value: args.slot
+        })}
+        {renderPlasmicSlot({
+          defaultContents: "Dr. Bellamy Nich\u2026",
+          value: args.children,
+          className: classNames(sty.slotTargetChildren, {
+            [sty.slotTargetChildrendark]: hasVariant($state, "dark", "dark")
+          })
+        })}
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox__doLh1)}>
+        {renderPlasmicSlot({
+          defaultContents: null,
+          value: args.slot3
+        })}
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
@@ -240,7 +251,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHeaderLiom__VariantsArgs;
     args?: PlasmicHeaderLiom__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHeaderLiom__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHeaderLiom__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHeaderLiom__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

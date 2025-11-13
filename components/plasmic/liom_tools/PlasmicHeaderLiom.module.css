@@ -4,7 +4,7 @@
   display: flex;
   overflow: hidden;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   border-bottom-width: 0.1rem;
   border-bottom-style: solid;
@@ -22,6 +22,21 @@
 .topdark {
   background: var(--token-aAR23Q6LT5jS);
   border-bottom-color: var(--token-aAR23Q6LT5jS);
+}
+.freeBox__xzbh {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  height: 80px;
+  max-width: 100%;
+  border-bottom-style: solid;
+  border-bottom-width: 0.1rem;
+  background: #ffffff;
+  column-gap: 10px;
+  padding: 8px;
 }
 .svg__yaa3H {
   object-fit: cover;
@@ -49,4 +64,14 @@
 }
 .slotTargetChildrendark {
   color: var(--token-ieogzVSSyrRx);
+}
+.freeBox__doLh1 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
 }

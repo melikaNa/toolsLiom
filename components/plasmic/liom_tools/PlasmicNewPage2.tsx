@@ -440,9 +440,8 @@ function PlasmicNewPage2__RenderFunc(props: {
                         typeof $steps["updateTextAreaValue2"].then ===
                           "function"
                       ) {
-                        $steps["updateTextAreaValue2"] = await $steps[
-                          "updateTextAreaValue2"
-                        ];
+                        $steps["updateTextAreaValue2"] =
+                          await $steps["updateTextAreaValue2"];
                       }
 
                       $steps["updateTextAreaValue"] = true
@@ -476,9 +475,8 @@ function PlasmicNewPage2__RenderFunc(props: {
                         typeof $steps["updateTextAreaValue"] === "object" &&
                         typeof $steps["updateTextAreaValue"].then === "function"
                       ) {
-                        $steps["updateTextAreaValue"] = await $steps[
-                          "updateTextAreaValue"
-                        ];
+                        $steps["updateTextAreaValue"] =
+                          await $steps["updateTextAreaValue"];
                       }
 
                       $steps["updateTextAreaValue3"] = true
@@ -502,9 +500,8 @@ function PlasmicNewPage2__RenderFunc(props: {
                         typeof $steps["updateTextAreaValue3"].then ===
                           "function"
                       ) {
-                        $steps["updateTextAreaValue3"] = await $steps[
-                          "updateTextAreaValue3"
-                        ];
+                        $steps["updateTextAreaValue3"] =
+                          await $steps["updateTextAreaValue3"];
                       }
                     }}
                     role={"img"}
@@ -670,7 +667,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicNewPage2__VariantsArgs;
     args?: PlasmicNewPage2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicNewPage2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicNewPage2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicNewPage2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
