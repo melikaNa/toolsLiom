@@ -135,10 +135,11 @@
     flex-shrink: 0;
   }
 }
-.text__nVs4L {
+.text__ydler {
   font-weight: 600;
   color: var(--token-0jflij2Drauk);
   width: auto;
+  display: none;
 }
 .svg__hfiCv {
   object-fit: cover;
@@ -156,6 +157,11 @@
   .paziresh24Avatar:global(.__wab_instance) {
     width: 130px;
   }
+}
+.text__nVs4L {
+  font-weight: 600;
+  color: var(--token-0jflij2Drauk);
+  width: auto;
 }
 .freeBox__jfyOq {
   animation: none;
@@ -241,13 +247,12 @@
 }
 .text___6ZHxw {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   color: #535353;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
-  min-width: 0;
 }
 .svg__zlFef {
   animation: none;

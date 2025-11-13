@@ -1088,7 +1088,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   <HeaderLiom
                     data-plasmic-name={"headerLiom"}
                     data-plasmic-override={overrides.headerLiom}
-                    children={null}
                     className={classNames("__wab_instance", sty.headerLiom)}
                     slot={
                       <React.Fragment>
@@ -1171,7 +1170,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__nVs4L
+                          sty.text__ydler
                         )}
                       >
                         <React.Fragment>
@@ -1205,6 +1204,22 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 sty.text__ozn3E
                               )}
                               data-i18n={"chat.t.p"}
+                              style={(() => {
+                                try {
+                                  return {
+                                    "white-space": "nowrap"
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
                             >
                               <div
                                 className={projectcss.__wab_expr_html_text}
@@ -1563,7 +1578,19 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                         </ButtonLiom>
                       </div>
                     }
-                  />
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__nVs4L
+                      )}
+                    >
+                      <React.Fragment>
+                        {$state.getInfo.headerTitle ?? "ddd"}
+                      </React.Fragment>
+                    </div>
+                  </HeaderLiom>
                 ) : null}
               </div>
             </section>
