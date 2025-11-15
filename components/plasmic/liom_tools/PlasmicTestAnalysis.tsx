@@ -2835,7 +2835,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["runCode3"] = await $steps["runCode3"];
                             }
 
-                            $steps["updateUploadLoad2"] = false
+                            $steps["updateUploadLoad2"] = !$state.enoughCredit
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
