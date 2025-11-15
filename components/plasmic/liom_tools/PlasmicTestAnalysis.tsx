@@ -2636,6 +2636,46 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 await $steps["invokeGlobalAction"];
                             }
 
+                            $steps["credit"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://n8n.staas.ir/webhook/chatBotServiceTools",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            toolsId: parseInt(
+                                              $state.getInfo.id ?? 0
+                                            )
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["credit"] != null &&
+                              typeof $steps["credit"] === "object" &&
+                              typeof $steps["credit"].then === "function"
+                            ) {
+                              $steps["credit"] = await $steps["credit"];
+                            }
+
                             $steps["chatBot"] =
                               $ctx.query.type != "filterino" &&
                               false &&
