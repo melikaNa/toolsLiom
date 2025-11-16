@@ -2633,7 +2633,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   const actionArgs = {
                                     args: [
                                       "POST",
-                                      "https://n8n.staas.ir/webhook-test/medicalRecord",
+                                      "https://n8n.staas.ir/webhook/medicalRecord",
                                       undefined,
                                       (() => {
                                         try {
@@ -2675,7 +2675,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   const actionArgs = {
                                     args: [
                                       "POST",
-                                      "https://n8n.staas.ir/webhook/chatBotServiceTools",
+                                      "https://n8n.staas.ir/webhook-test/chatBotServiceTools",
                                       undefined,
                                       (() => {
                                         try {
@@ -2683,6 +2683,25 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                             toolsId: parseInt(
                                               $state.getInfo.id ?? 0
                                             )
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              Authorization:
+                                                "Bearer " + $state.tokenChatBot
+                                            }
                                           };
                                         } catch (e) {
                                           if (
