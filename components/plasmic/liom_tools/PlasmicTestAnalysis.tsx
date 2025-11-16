@@ -1190,6 +1190,38 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             projectcss.all,
                             sty.freeBox__ujnKi
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        if (
+                                          window.FlutterChannel?.postMessage
+                                        ) {
+                                          return window.FlutterChannel.postMessage(
+                                            "#directDialog-chatBot"
+                                          );
+                                        } else
+                                          return ($state.directDialogChatbot.open = true);
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
                         >
                           <div
                             className={classNames(
@@ -1243,13 +1275,16 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             </div>
                             {(() => {
                               try {
-                                return !$state.load;
+                                return (
+                                  !$state.load &&
+                                  $state.infoChat.credit != undefined
+                                );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return true;
+                                  return false;
                                 }
                                 throw e;
                               }
@@ -1334,7 +1369,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                     try {
                                       return (
                                         $state.load ||
-                                        $state.infoChat.infoChat == undefined
+                                        $state.infoChat.credit == undefined
                                       );
                                     } catch (e) {
                                       if (
@@ -2562,7 +2597,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           $state.enoughCredit = true;
                                           return uploadFiles().then(() => {
                                             console.log("Do other things now");
-                                            $state.isDone = true;
                                             console.log("data:", $state.link);
                                             const result = $state.images.map(
                                               item => ({
@@ -2599,7 +2633,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   const actionArgs = {
                                     args: [
                                       "POST",
-                                      "https://n8n.staas.ir/webhook/medicalRecord",
+                                      "https://n8n.staas.ir/webhook-test/medicalRecord",
                                       undefined,
                                       (() => {
                                         try {
@@ -2946,22 +2980,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   sty.text__pjNmU
                                 )}
                               >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return `(اعتبار: ${$state.getInfo.price ?? ""})`;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\u200d\u200d";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
+                                <React.Fragment>{`(${$state.getInfo.price ?? ""} اعتبار)`}</React.Fragment>
                               </div>
                             ) : null}
                           </div>
