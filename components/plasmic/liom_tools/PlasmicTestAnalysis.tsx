@@ -2597,14 +2597,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           $state.enoughCredit = true;
                                           return uploadFiles().then(() => {
                                             console.log("Do other things now");
-                                            console.log("data:", $state.link);
-                                            const result = $state.images.map(
-                                              item => ({
-                                                value: item,
-                                                type: "image"
-                                              })
-                                            );
-                                            console.log(result);
+                                            $state.isDone = true;
                                           });
                                         } else {
                                           $state.enoughCredit = false;
@@ -2732,7 +2725,8 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             $steps["chatBot"] =
                               $ctx.query.type != "filterino" &&
                               false &&
-                              $state.isDone
+                              $state.isDone &&
+                              $steps.credit?.data?.success
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
@@ -2928,21 +2922,18 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 await $steps["updateUploadLoad2"];
                             }
 
-                            $steps["runCode4"] = true
+                            $steps["runCode4"] = !$steps.credit?.data?.success
                               ? (() => {
                                   const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        console.log("credit");
-                                        return console.log(
-                                          $steps.credit?.data?.success
-                                        );
-                                      })();
-                                    }
+                                    args: [
+                                      "error",
+                                      "\u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f \u0644\u0637\u0641\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f",
+                                      "bottom-center"
+                                    ]
                                   };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
                                 })()
                               : undefined;
                             if (
