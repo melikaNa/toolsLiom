@@ -2675,7 +2675,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   const actionArgs = {
                                     args: [
                                       "POST",
-                                      "https://n8n.staas.ir/webhook-test/chatBotServiceTools",
+                                      "https://n8n.staas.ir/webhook/chatBotServiceTools",
                                       undefined,
                                       (() => {
                                         try {
@@ -2801,7 +2801,8 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             $steps["runCode2"] =
                               $ctx.query.type != "filterino" &&
                               $state.isDone &&
-                              $state.enoughCredit
+                              $state.enoughCredit &&
+                              $steps.credit?.data?.success
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
@@ -2925,6 +2926,31 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             ) {
                               $steps["updateUploadLoad2"] =
                                 await $steps["updateUploadLoad2"];
+                            }
+
+                            $steps["runCode4"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        console.log("credit");
+                                        return console.log(
+                                          $steps.credit?.data?.success
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode4"] != null &&
+                              typeof $steps["runCode4"] === "object" &&
+                              typeof $steps["runCode4"].then === "function"
+                            ) {
+                              $steps["runCode4"] = await $steps["runCode4"];
                             }
                           }}
                           onColorChange={async (...eventArgs: any) => {
