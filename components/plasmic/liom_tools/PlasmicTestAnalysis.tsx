@@ -1326,10 +1326,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                     dangerouslySetInnerHTML={{
                                       __html: (() => {
                                         try {
-                                          return (
-                                            // `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit!=undefined?$state.infoChat.credit:""} </span></b>`
-                                            "123"
-                                          );
+                                          return `<b> <span style="font-size: 18px; font-with:bold;"> ${$state.infoChat.credit != undefined ? $state.infoChat.credit : ""} </span></b>`;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
