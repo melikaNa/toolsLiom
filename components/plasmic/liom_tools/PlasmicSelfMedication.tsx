@@ -464,9 +464,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           return (() => {
                             const queryString = window.location.search;
                             const urlParams = new URLSearchParams(queryString);
-                            return urlParams.forEach((value, key) => {
+                            urlParams.forEach((value, key) => {
                               $state.paramsObject[key] = value;
                             });
+                            return console.log("rominaaaaa");
                           })();
                         }
                       };
