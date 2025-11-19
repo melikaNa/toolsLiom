@@ -2177,7 +2177,8 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                         type:
                           $ctx.query.type == "danger"
                             ? "pregnancy_danger_sub"
-                            : $ctx.query.type
+                            : $ctx.query.type,
+                        origin: $ctx.query.origin
                       };
                     })();
                   } catch (e) {

@@ -1694,7 +1694,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     return (() => {
                       if (
                         $ctx.query.type == "danger" ||
-                        $ctx.query.type == "pregnancy_danger_sub"
+                        $ctx.query.type == "pregnancy_danger_sub" ||
+                        $ctx.query.origin == "liom"
                       ) {
                         return false;
                       } else {
@@ -1745,7 +1746,8 @@ function PlasmicSelfMedication__RenderFunc(props: {
                         return (() => {
                           if (
                             $ctx.query.type == "danger" ||
-                            $ctx.query.type == "pregnancy_danger_sub"
+                            $ctx.query.type == "pregnancy_danger_sub" ||
+                            $ctx.query.origin == "liom"
                           ) {
                             return false;
                           } else {
@@ -2883,7 +2885,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               "&title=" +
                                               title +
                                               "&theme=" +
-                                              $state.paramsObject.theme
+                                              $state.paramsObject.theme +
+                                              "&origin=" +
+                                              $state.paramsObject.origin
                                             );
                                           })();
                                         } catch (e) {
@@ -3064,7 +3068,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                             "&version=" +
                                             $ctx.query.version +
                                             "&theme=" +
-                                            $ctx.query.theme;
+                                            $ctx.query.theme +
+                                            "&origin=" +
+                                            $ctx.query.origin;
                                           var title =
                                             currentItem.title +
                                             " | " +
