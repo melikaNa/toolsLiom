@@ -2941,35 +2941,42 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["runCode3"] = await $steps["runCode3"];
                             }
 
-                            $steps["updateUploadLoad2"] = !$state.enoughCredit
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["upload", "load"]
-                                    },
-                                    operation: 4
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
+                            $steps["updateUploadLoad2"] =
+                              !$state.enoughCredit ||
+                              $ctx.query.type == "filterino"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["upload", "load"]
+                                      },
+                                      operation: 4
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
 
-                                    const oldValue = $stateGet(
-                                      objRoot,
-                                      variablePath
-                                    );
-                                    $stateSet(objRoot, variablePath, !oldValue);
-                                    return !oldValue;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["updateUploadLoad2"] != null &&
                               typeof $steps["updateUploadLoad2"] === "object" &&
