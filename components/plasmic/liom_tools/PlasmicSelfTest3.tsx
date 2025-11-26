@@ -709,7 +709,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
         path: "comments.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "comment.data",
