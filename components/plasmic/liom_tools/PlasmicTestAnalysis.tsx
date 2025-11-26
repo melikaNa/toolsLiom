@@ -780,50 +780,52 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 $steps["clearParams"] = await $steps["clearParams"];
               }
 
-              $steps["getInfoChat"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "https://n8n.staas.ir/webhook/infoChatBot",
-                        (() => {
-                          try {
-                            return { topic: "" };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })(),
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              headers: {
-                                Authorization: "Bearer " + $state.tokenChatBot
+              $steps["getInfoChat"] =
+                $ctx.query.type != "filterino"
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://n8n.staas.ir/webhook/infoChatBot",
+                          (() => {
+                            try {
+                              return { topic: "" };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
                               }
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+                          })(),
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                headers: {
+                                  Authorization: "Bearer " + $state.tokenChatBot
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
               if (
                 $steps["getInfoChat"] != null &&
                 typeof $steps["getInfoChat"] === "object" &&
@@ -832,29 +834,34 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 $steps["getInfoChat"] = await $steps["getInfoChat"];
               }
 
-              $steps["updateInfoChat"] = (
-                $steps.getInfoChat?.data ? true : false
-              )
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["infoChat"]
-                      },
-                      operation: 0,
-                      value: $steps.getInfoChat.data
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
+              $steps["updateInfoChat"] =
+                ($steps.getInfoChat?.data ? true : false) &&
+                $ctx.query.type != "filterino"
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["infoChat"]
+                        },
+                        operation: 0,
+                        value: $steps.getInfoChat.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["updateInfoChat"] != null &&
                 typeof $steps["updateInfoChat"] === "object" &&
@@ -864,7 +871,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
               }
 
               $steps["user"] =
-                $state.token != ""
+                $state.token != "" && $ctx.query.type != "filterino"
                   ? (() => {
                       const actionArgs = {
                         args: [
@@ -907,7 +914,8 @@ function PlasmicTestAnalysis__RenderFunc(props: {
               }
 
               $steps["updateUserInfo"] =
-                ($steps.user?.data?.success ?? false)
+                ($steps.user?.data?.success ?? false) &&
+                $ctx.query.type != "filterino"
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -941,45 +949,48 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 $steps["updateUserInfo"] = await $steps["updateUserInfo"];
               }
 
-              $steps["chatBotUser"] = true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "POST",
-                        "https://n8n.staas.ir/webhook/chatBotServiceUser",
-                        undefined,
-                        (() => {
-                          try {
-                            return {
-                              origin_user_id:
-                                $state.userInfo.id ||
-                                $state.paramsObject.user_id ||
-                                $state.paramsObject.userId,
-                              bot_name: "analysis " + $state.paramsObject.type,
-                              mobile: $state.userInfo.mobile || "",
-                              email: $state.userInfo.email || "",
-                              name: $state.userInfo.name || "",
-                              app: $state.paramsObject.app || "",
-                              origin: $state.paramsObject.origin || "",
-                              token: $state.userInfo.token
-                            };
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
+              $steps["chatBotUser"] =
+                $ctx.query.type != "filterino"
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/chatBotServiceUser",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                origin_user_id:
+                                  $state.userInfo.id ||
+                                  $state.paramsObject.user_id ||
+                                  $state.paramsObject.userId,
+                                bot_name:
+                                  "analysis " + $state.paramsObject.type,
+                                mobile: $state.userInfo.mobile || "",
+                                email: $state.userInfo.email || "",
+                                name: $state.userInfo.name || "",
+                                app: $state.paramsObject.app || "",
+                                origin: $state.paramsObject.origin || "",
+                                token: $state.userInfo.token
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      ]
-                    };
-                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
               if (
                 $steps["chatBotUser"] != null &&
                 typeof $steps["chatBotUser"] === "object" &&
@@ -988,27 +999,34 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 $steps["chatBotUser"] = await $steps["chatBotUser"];
               }
 
-              $steps["updateUserChatBot"] = $steps.chatBotUser?.data?.token
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["userInfoChatBot"]
-                      },
-                      operation: 0,
-                      value: $steps.chatBotUser?.data
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
+              $steps["updateUserChatBot"] =
+                $steps.chatBotUser?.data?.token &&
+                $ctx.query.type != "filterino"
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["userInfoChatBot"]
+                        },
+                        operation: 0,
+                        value: $steps.chatBotUser?.data
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
 
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
               if (
                 $steps["updateUserChatBot"] != null &&
                 typeof $steps["updateUserChatBot"] === "object" &&
