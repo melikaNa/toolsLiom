@@ -2987,20 +2987,22 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 await $steps["updateUploadLoad2"];
                             }
 
-                            $steps["runCode4"] = !$steps.credit?.data?.success
-                              ? (() => {
-                                  const actionArgs = {
-                                    args: [
-                                      "error",
-                                      "\u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f \u0644\u0637\u0641\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f",
-                                      "bottom-center"
-                                    ]
-                                  };
-                                  return $globalActions[
-                                    "Fragment.showToast"
-                                  ]?.apply(null, [...actionArgs.args]);
-                                })()
-                              : undefined;
+                            $steps["runCode4"] =
+                              !$steps.credit?.data?.success &&
+                              $ctx.query.type != "filterino"
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "error",
+                                        "\u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f \u0644\u0637\u0641\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f",
+                                        "bottom-center"
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.showToast"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
                             if (
                               $steps["runCode4"] != null &&
                               typeof $steps["runCode4"] === "object" &&
