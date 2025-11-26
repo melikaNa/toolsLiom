@@ -1000,7 +1000,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
               }
 
               $steps["updateUserChatBot"] =
-                $steps.chatBotUser?.data?.token &&
+                ($steps.chatBotUser?.data?.token ?? false) &&
                 $ctx.query.type != "filterino"
                   ? (() => {
                       const actionArgs = {
@@ -1197,23 +1197,19 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                       </div>
                     }
                     slot3={
-                      (
-                        hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? true
-                          : (() => {
-                              try {
-                                return $ctx.query.type != "filterino";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
-                                }
-                                throw e;
-                              }
-                            })()
-                      ) ? (
+                      (() => {
+                        try {
+                          return $ctx.query.type != "filterino";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
+                      })() ? (
                         <div
                           className={classNames(
                             projectcss.all,
