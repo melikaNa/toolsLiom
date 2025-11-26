@@ -181,6 +181,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__jfyOq {
     animation: none;
+    display: flex;
   }
 }
 .freeBox__ujnKi {
