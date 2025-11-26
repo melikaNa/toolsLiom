@@ -2941,6 +2941,49 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["runCode3"] = await $steps["runCode3"];
                             }
 
+                            $steps["invokeGlobalAction3"] =
+                              $ctx.query.type == "filterino"
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://n8n.staas.ir/webhook/upload/photo",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              id: $ctx.query.id,
+                                              link: $state.link.result
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["invokeGlobalAction3"] != null &&
+                              typeof $steps["invokeGlobalAction3"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction3"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction3"] =
+                                await $steps["invokeGlobalAction3"];
+                            }
+
                             $steps["updateUploadLoad2"] =
                               !$state.enoughCredit ||
                               $ctx.query.type == "filterino"
