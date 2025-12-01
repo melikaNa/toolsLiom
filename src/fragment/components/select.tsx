@@ -60,6 +60,7 @@ export const selectMeta: CodeComponentMeta<SelectType> = {
   displayName: "Fragment/Select",
   importPath: "@/fragment/components/select",
   figmaMappings: [{ figmaComponentName: "Select" }],
+  section: "Fragment",
   props: {
     placeholder: "string",
     onChange: {
@@ -88,16 +89,6 @@ export const selectMeta: CodeComponentMeta<SelectType> = {
     },
     options: {
       type: "array",
-      defaultValue: [
-          {
-            label: "Option 1",
-            value: "option1",
-          },
-          {
-            label: "Option 2",
-            value: "option2",
-          },
-        ],
       itemType: {
         type: "object",
         nameFunc: (item: any) => item?.label ?? item?.value,
@@ -117,10 +108,19 @@ export const selectMeta: CodeComponentMeta<SelectType> = {
             advanced: true,
           },
         },
-
       },
-        description:
-    'آرایه‌ای از مقادیر، مانند ["Option1","Option2"] یا آرایه‌ای از آبجکت‌ها مثل [{value:"usa",label:"United States"}]',
+      defaultValue: [
+        {
+          label: "Option 1",
+          value: "option1",
+        },
+        {
+          label: "Option 2",
+          value: "option2",
+        },
+      ],
+      exprHint:
+          'An array of items, like `["Option1", "Option2"]`, or an array of objects with `value`, `label`, or `disabled`, like `[{value: "usa", label: "United States"}, {value: "bra", label: "Brazil"}]`',
     },
     disabled: "boolean",
     name: {
