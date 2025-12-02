@@ -2597,8 +2597,12 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                                 "test-result"
                                               );
                                               formData.append("index", index);
+                                              var link =
+                                                $ctx.query.link == "liom"
+                                                  ? "https://api.liom.app/upload"
+                                                  : "https://n8n.staas.ir/webhook-test/upload";
                                               const response = await fetch(
-                                                "https://api.liom.app/upload",
+                                                link,
                                                 {
                                                   method: "POST",
                                                   body: formData
