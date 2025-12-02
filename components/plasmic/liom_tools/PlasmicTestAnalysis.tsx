@@ -2881,8 +2881,11 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           var attachments =
                                             JSON.stringify(result);
                                           var prompt = $state.getInfo.prompt;
-                                          var link = `https://tools.liom.app/chat-bot-2/?question=${question}&attachments=${attachments}&inApp=undefined&prompt=${prompt}`;
-                                          return window.open(link, "_self");
+                                          console.log(images);
+                                          console.log(result);
+                                          console.log(question);
+                                          console.log(attachments);
+                                          return console.log(prompt);
                                         })();
                                       }
                                     };
