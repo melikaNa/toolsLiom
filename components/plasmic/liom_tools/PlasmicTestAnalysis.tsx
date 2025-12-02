@@ -2578,7 +2578,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 await $steps["updateUploadLoad"];
                             }
 
-                            $steps["runCode"] = true
+                            $steps["upload"] = true
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
@@ -2597,12 +2597,8 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                                 "test-result"
                                               );
                                               formData.append("index", index);
-                                              var link =
-                                                $ctx.query.link == "liom"
-                                                  ? "https://api.liom.app/upload"
-                                                  : "https://n8n.staas.ir/webhook-test/upload";
                                               const response = await fetch(
-                                                link,
+                                                "https://n8n.staas.ir/webhook/upload",
                                                 {
                                                   method: "POST",
                                                   body: formData
@@ -2669,14 +2665,14 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 })()
                               : undefined;
                             if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
+                              $steps["upload"] != null &&
+                              typeof $steps["upload"] === "object" &&
+                              typeof $steps["upload"].then === "function"
                             ) {
-                              $steps["runCode"] = await $steps["runCode"];
+                              $steps["upload"] = await $steps["upload"];
                             }
 
-                            $steps["invokeGlobalAction"] =
+                            $steps["medicalRecord"] =
                               $ctx.query.type != "filterino"
                                 ? (() => {
                                     const actionArgs = {
@@ -2709,14 +2705,12 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   })()
                                 : undefined;
                             if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
+                              $steps["medicalRecord"] != null &&
+                              typeof $steps["medicalRecord"] === "object" &&
+                              typeof $steps["medicalRecord"].then === "function"
                             ) {
-                              $steps["invokeGlobalAction"] =
-                                await $steps["invokeGlobalAction"];
+                              $steps["medicalRecord"] =
+                                await $steps["medicalRecord"];
                             }
 
                             $steps["credit"] =
@@ -2867,7 +2861,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["chatBot"] = await $steps["chatBot"];
                             }
 
-                            $steps["runCode2"] =
+                            $steps["chatBot2"] =
                               $ctx.query.type != "filterino" &&
                               $state.isDone &&
                               $state.enoughCredit &&
@@ -2898,14 +2892,14 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   })()
                                 : undefined;
                             if (
-                              $steps["runCode2"] != null &&
-                              typeof $steps["runCode2"] === "object" &&
-                              typeof $steps["runCode2"].then === "function"
+                              $steps["chatBot2"] != null &&
+                              typeof $steps["chatBot2"] === "object" &&
+                              typeof $steps["chatBot2"].then === "function"
                             ) {
-                              $steps["runCode2"] = await $steps["runCode2"];
+                              $steps["chatBot2"] = await $steps["chatBot2"];
                             }
 
-                            $steps["invokeGlobalAction2"] =
+                            $steps["notCredit"] =
                               !$state.enoughCredit &&
                               $ctx.query.type != "filterino"
                                 ? (() => {
@@ -2921,17 +2915,14 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   })()
                                 : undefined;
                             if (
-                              $steps["invokeGlobalAction2"] != null &&
-                              typeof $steps["invokeGlobalAction2"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction2"].then ===
-                                "function"
+                              $steps["notCredit"] != null &&
+                              typeof $steps["notCredit"] === "object" &&
+                              typeof $steps["notCredit"].then === "function"
                             ) {
-                              $steps["invokeGlobalAction2"] =
-                                await $steps["invokeGlobalAction2"];
+                              $steps["notCredit"] = await $steps["notCredit"];
                             }
 
-                            $steps["runCode3"] =
+                            $steps["shop"] =
                               !$state.enoughCredit &&
                               $ctx.query.type != "filterino"
                                 ? (() => {
@@ -2955,14 +2946,14 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   })()
                                 : undefined;
                             if (
-                              $steps["runCode3"] != null &&
-                              typeof $steps["runCode3"] === "object" &&
-                              typeof $steps["runCode3"].then === "function"
+                              $steps["shop"] != null &&
+                              typeof $steps["shop"] === "object" &&
+                              typeof $steps["shop"].then === "function"
                             ) {
-                              $steps["runCode3"] = await $steps["runCode3"];
+                              $steps["shop"] = await $steps["shop"];
                             }
 
-                            $steps["invokeGlobalAction3"] =
+                            $steps["uploadFilterino"] =
                               $ctx.query.type == "filterino"
                                 ? (() => {
                                     const actionArgs = {
@@ -2995,14 +2986,39 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   })()
                                 : undefined;
                             if (
-                              $steps["invokeGlobalAction3"] != null &&
-                              typeof $steps["invokeGlobalAction3"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction3"].then ===
+                              $steps["uploadFilterino"] != null &&
+                              typeof $steps["uploadFilterino"] === "object" &&
+                              typeof $steps["uploadFilterino"].then ===
                                 "function"
                             ) {
-                              $steps["invokeGlobalAction3"] =
-                                await $steps["invokeGlobalAction3"];
+                              $steps["uploadFilterino"] =
+                                await $steps["uploadFilterino"];
+                            }
+
+                            $steps["errorFilterino"] =
+                              !$steps.credit?.data?.success &&
+                              $ctx.query.type != "filterino"
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "error",
+                                        "\u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f \u0644\u0637\u0641\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f",
+                                        "bottom-center"
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.showToast"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["errorFilterino"] != null &&
+                              typeof $steps["errorFilterino"] === "object" &&
+                              typeof $steps["errorFilterino"].then ===
+                                "function"
+                            ) {
+                              $steps["errorFilterino"] =
+                                await $steps["errorFilterino"];
                             }
 
                             $steps["updateUploadLoad2"] =
@@ -3049,30 +3065,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             ) {
                               $steps["updateUploadLoad2"] =
                                 await $steps["updateUploadLoad2"];
-                            }
-
-                            $steps["runCode4"] =
-                              !$steps.credit?.data?.success &&
-                              $ctx.query.type != "filterino"
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [
-                                        "error",
-                                        "\u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f \u0644\u0637\u0641\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f",
-                                        "bottom-center"
-                                      ]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.showToast"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["runCode4"] != null &&
-                              typeof $steps["runCode4"] === "object" &&
-                              typeof $steps["runCode4"].then === "function"
-                            ) {
-                              $steps["runCode4"] = await $steps["runCode4"];
                             }
                           }}
                           onColorChange={async (...eventArgs: any) => {
