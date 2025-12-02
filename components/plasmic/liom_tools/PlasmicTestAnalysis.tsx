@@ -2881,7 +2881,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           var attachments =
                                             JSON.stringify(result);
                                           var prompt = $state.getInfo.prompt;
-                                          console.log(images);
+                                          console.log($state.images);
                                           console.log(result);
                                           console.log(question);
                                           console.log(attachments);
