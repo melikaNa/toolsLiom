@@ -2776,6 +2776,23 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["credit"] = await $steps["credit"];
                             }
 
+                            $steps["wait"] = true
+                              ? (() => {
+                                  const actionArgs = { args: [2014] };
+                                  return $globalActions["Fragment.wait"]?.apply(
+                                    null,
+                                    [...actionArgs.args]
+                                  );
+                                })()
+                              : undefined;
+                            if (
+                              $steps["wait"] != null &&
+                              typeof $steps["wait"] === "object" &&
+                              typeof $steps["wait"].then === "function"
+                            ) {
+                              $steps["wait"] = await $steps["wait"];
+                            }
+
                             $steps["chatBot"] =
                               $ctx.query.type != "filterino" &&
                               false &&
