@@ -2591,7 +2591,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           ] of window.filess.entries()) {
                                             try {
                                               const formData = new FormData();
-                                              formData.append("file", f);
+                                              formData.append("files", f);
                                               formData.append(
                                                 "path",
                                                 "test-result"
