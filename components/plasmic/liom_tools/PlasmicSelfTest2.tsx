@@ -1067,8 +1067,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         urlParams.forEach((value, key) => {
                           $state.paramsObject[key] = value;
                         });
-                        $state.attachments = $state.paramsObject.attachments;
-                        return console.log("attach:" + $state.attachments);
+                        return ($state.attachments =
+                          $state.paramsObject.attachments);
                       })();
                     }
                   };
@@ -1494,7 +1494,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                       return (() => {
                         window.token = $steps.user.data.token;
                         $state.token = $steps.user.data.token;
-                        return ($state.userId = $steps.user.data.user_id);
+                        $state.userId = $steps.user.data.user_id;
+                        return console.log("test-1");
                       })();
                     }
                   };

@@ -1062,12 +1062,17 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           $state.paramsObject[key] = value;
                         });
                         $state.attachments = $state.paramsObject.attachments;
-                        console.log($state.attachments);
-                        $state.images =
-                          (typeof $state.attachments === "string"
-                            ? JSON.parse($state.attachments)
-                            : $state.attachments
-                          )?.map(item => item.value) ?? [];
+                        console.log("att:" + $state.attachments);
+                        let att = $state.attachments;
+                        if (typeof att === "string") {
+                          try {
+                            att = JSON.parse(decodeURIComponent(att));
+                          } catch (e) {
+                            console.error("Attachment parse error:", e);
+                            att = [];
+                          }
+                        }
+                        $state.images = att?.map(item => item.value) ?? [];
                         console.log($state.images);
                         if ($state.images.length > 0) {
                           return ($state.showPhoto = true);
