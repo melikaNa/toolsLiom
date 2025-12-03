@@ -6170,7 +6170,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                           messageBox.scrollTop =
                                             messageBox.scrollHeight;
                                         return console.log(
-                                          "att:" + $state.attachments ?? ""
+                                          "att:" +
+                                            ($state.attachments ?? "")?.length
                                         );
                                       })();
                                     }
@@ -6487,7 +6488,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
 
                             $steps["invokeGlobalAction6"] =
                               ($state.attachments || "") != "" &&
-                              $state.attachments.length > 0
+                              $state.attachments?.length > 0
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
