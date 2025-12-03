@@ -6167,8 +6167,11 @@ function PlasmicSelfTest5__RenderFunc(props: {
                                             "chatBox"
                                           );
                                         if (messageBox)
-                                          return (messageBox.scrollTop =
-                                            messageBox.scrollHeight);
+                                          messageBox.scrollTop =
+                                            messageBox.scrollHeight;
+                                        return console.log(
+                                          "att:" + $state.attachments ?? ""
+                                        );
                                       })();
                                     }
                                   };
