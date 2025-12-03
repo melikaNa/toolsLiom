@@ -6482,6 +6482,72 @@ function PlasmicSelfTest5__RenderFunc(props: {
                               $steps["runCode4"] = await $steps["runCode4"];
                             }
 
+                            $steps["invokeGlobalAction6"] =
+                              ($state.attachments || "") != ""
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://api.liom.app/service/log",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              userId: $ctx.query.origin_user_id,
+                                              pageName: "chatBot",
+                                              action: "send_attachment",
+                                              extraData: {}
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                              }
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["invokeGlobalAction6"] != null &&
+                              typeof $steps["invokeGlobalAction6"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction6"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction6"] =
+                                await $steps["invokeGlobalAction6"];
+                            }
+
                             $steps["updateAttachments"] = true
                               ? (() => {
                                   const actionArgs = {
@@ -6731,72 +6797,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             ) {
                               $steps["invokeGlobalAction"] =
                                 await $steps["invokeGlobalAction"];
-                            }
-
-                            $steps["invokeGlobalAction6"] =
-                              ($state.attachments || "") != ""
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [
-                                        "POST",
-                                        "https://api.liom.app/service/log",
-                                        undefined,
-                                        (() => {
-                                          try {
-                                            return {
-                                              userId: $ctx.query.origin_user_id,
-                                              pageName: "chatBot",
-                                              action: "send_attachment",
-                                              extraData: {}
-                                            };
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })(),
-                                        (() => {
-                                          try {
-                                            return {
-                                              headers: {
-                                                "Content-Type":
-                                                  "application/json",
-                                                Authorization:
-                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                                              }
-                                            };
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.apiRequest"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["invokeGlobalAction6"] != null &&
-                              typeof $steps["invokeGlobalAction6"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction6"].then ===
-                                "function"
-                            ) {
-                              $steps["invokeGlobalAction6"] =
-                                await $steps["invokeGlobalAction6"];
                             }
                           }}
                           onDiableChange={async (...eventArgs: any) => {
