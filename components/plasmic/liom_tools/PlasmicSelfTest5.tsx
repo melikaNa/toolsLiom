@@ -1062,7 +1062,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           $state.paramsObject[key] = value;
                         });
                         $state.attachments = $state.paramsObject.attachments;
-                        console.log("att (raw):", $state.attachments);
                         let att = $state.attachments;
                         if (typeof att === "string") {
                           try {
@@ -1076,7 +1075,6 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           }
                         }
                         $state.images = att?.map(item => item.value) ?? [];
-                        console.log("images:", $state.images);
                         if ($state.images.length > 0) {
                           return ($state.showPhoto = true);
                         }

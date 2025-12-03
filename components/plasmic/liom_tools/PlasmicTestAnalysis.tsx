@@ -762,8 +762,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
                           const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
-                          window.history.replaceState(null, "", newUrl);
-                          return console.log($state.token);
+                          return window.history.replaceState(null, "", newUrl);
                         })();
                       }
                     };
@@ -2610,10 +2609,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                                 "Response status:",
                                                 response.status
                                               );
-                                              console.log(
-                                                "Response data:",
-                                                data
-                                              );
                                               $state.link = data;
                                               if (!response.ok) {
                                                 console.error(
@@ -2876,36 +2871,17 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                               type: "image"
                                             })
                                           );
-                                          console.log(
-                                            "STEP 1 - result object:",
-                                            result
-                                          );
                                           var question = encodeURIComponent(
                                             $state.getInfo.firstMessage
-                                          );
-                                          console.log(
-                                            "STEP 2 - encoded question:",
-                                            question
                                           );
                                           var attachments = encodeURIComponent(
                                             JSON.stringify(result)
                                           );
-                                          console.log(
-                                            "STEP 3 - JSON stringified & encoded attachments:",
-                                            attachments
-                                          );
                                           var prompt = encodeURIComponent(
                                             $state.getInfo.prompt
                                           );
-                                          console.log(
-                                            "STEP 4 - encoded prompt:",
-                                            prompt
-                                          );
                                           var link = `https://tools.liom.app/chat-bot-2/?question=${question}&attachments=${attachments}&inApp=undefined&prompt=${prompt}`;
-                                          return console.log(
-                                            "STEP 5 - final link:",
-                                            link
-                                          );
+                                          return window.open(link, "_self");
                                         })();
                                       }
                                     };
