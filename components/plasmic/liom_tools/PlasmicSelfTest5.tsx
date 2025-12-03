@@ -1965,7 +1965,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         });
                         $state.readyToSend = true;
                         console.log(
-                          "\uD83D\uDE80 File input is ready for upload!"
+                          "\uD83D\uDE80 File input is ready for uploaddddd!"
                         );
                         async function uploadFiles(files) {
                           if (!Array.isArray($state.images)) $state.images = [];
