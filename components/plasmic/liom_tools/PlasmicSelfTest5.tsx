@@ -6486,7 +6486,8 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             }
 
                             $steps["invokeGlobalAction6"] =
-                              ($state.attachments || "") != ""
+                              ($state.attachments || "") != "" &&
+                              $state.attachments.length > 0
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
