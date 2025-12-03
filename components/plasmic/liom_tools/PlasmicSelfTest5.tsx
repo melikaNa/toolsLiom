@@ -1982,11 +1982,11 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             );
                             try {
                               const formData = new FormData();
-                              formData.append("file", f);
+                              formData.append("files", f);
                               formData.append("path", "test-result");
                               formData.append("index", index);
                               const response = await fetch(
-                                "https://api.liom.app/upload",
+                                "https://n8n.staas.ir/webhook/upload",
                                 {
                                   method: "POST",
                                   body: formData
@@ -2040,11 +2040,11 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             );
                             try {
                               const formData = new FormData();
-                              formData.append("file", f);
+                              formData.append("files", f);
                               formData.append("path", "test-result");
                               formData.append("index", index);
                               const response = await fetch(
-                                "https://api.liom.app/upload",
+                                "https://n8n.staas.ir/webhook/upload",
                                 {
                                   method: "POST",
                                   body: formData
