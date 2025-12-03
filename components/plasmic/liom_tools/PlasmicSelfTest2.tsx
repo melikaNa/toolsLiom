@@ -1067,8 +1067,8 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         urlParams.forEach((value, key) => {
                           $state.paramsObject[key] = value;
                         });
-                        return ($state.attachments =
-                          $state.paramsObject.attachments);
+                        $state.attachments = $state.paramsObject.attachments;
+                        return console.log("attach:" + $state.attachments);
                       })();
                     }
                   };
@@ -1097,6 +1097,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                         searchParams.delete("userId");
                         searchParams.delete("user_id");
                         searchParams.delete("attachments");
+                        searchParams.delete("prompt");
                         const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                         return window.history.replaceState(null, "", newUrl);
                       })();
