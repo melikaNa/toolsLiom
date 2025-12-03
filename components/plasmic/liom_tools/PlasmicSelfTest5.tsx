@@ -4688,18 +4688,38 @@ function PlasmicSelfTest5__RenderFunc(props: {
                       ) : null}
                     </div>
                   </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__uWgH
-                    )}
-                    data-i18n={"chat.pp"}
-                  >
-                    {
-                      "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
-                    }
-                  </div>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobileOnly")
+                      ? true
+                      : (() => {
+                          try {
+                            return (
+                              ($state.infoChat?.questions?.length ?? 0) < 1
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__uWgH
+                      )}
+                      data-i18n={"chat.pp"}
+                    >
+                      {
+                        "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
+                      }
+                    </div>
+                  ) : null}
                 </div>
                 {(() => {
                   try {
@@ -4708,7 +4728,9 @@ function PlasmicSelfTest5__RenderFunc(props: {
                         $state.userInfo.id ||
                         $state.paramsObject.user_id ||
                         $state.paramsObject.userId;
-                      return id == "4ddd1fab-100c-49f0-b843-e70bff8add34";
+                      return (
+                        id == "4ddd1fab-100c-49f0-b843-e70bff8add34" && false
+                      );
                     })();
                   } catch (e) {
                     if (
@@ -6709,6 +6731,72 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             ) {
                               $steps["invokeGlobalAction"] =
                                 await $steps["invokeGlobalAction"];
+                            }
+
+                            $steps["invokeGlobalAction6"] =
+                              ($state.attachments || "") != ""
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://api.liom.app/service/log",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              userId: $ctx.query.origin_user_id,
+                                              pageName: "chatBot",
+                                              action: "send_attachment",
+                                              extraData: {}
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                              }
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["invokeGlobalAction6"] != null &&
+                              typeof $steps["invokeGlobalAction6"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction6"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction6"] =
+                                await $steps["invokeGlobalAction6"];
                             }
                           }}
                           onDiableChange={async (...eventArgs: any) => {

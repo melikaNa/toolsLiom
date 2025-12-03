@@ -707,7 +707,6 @@
   letter-spacing: normal;
   white-space: pre-wrap;
   min-width: 0;
-  display: none;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__uWgH {
