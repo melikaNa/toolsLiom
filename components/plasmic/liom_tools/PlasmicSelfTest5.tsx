@@ -887,7 +887,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
         path: "info.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
