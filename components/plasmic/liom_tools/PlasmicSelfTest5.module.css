@@ -1976,6 +1976,11 @@
   max-width: 100%;
   object-fit: cover;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .info:global(.__wab_instance) {
+    padding: 12px;
+  }
+}
 .text__fx6Si {
   text-align: right;
 }

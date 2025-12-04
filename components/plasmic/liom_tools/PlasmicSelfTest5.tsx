@@ -4696,66 +4696,60 @@ function PlasmicSelfTest5__RenderFunc(props: {
                       ) : null}
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__zvujs)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateInfoOpen"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["info", "open"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                  {(() => {
+                    try {
+                      return ($state.infoChat?.questions?.length ?? 0) < 1;
+                    } catch (e) {
                       if (
-                        $steps["updateInfoOpen"] != null &&
-                        typeof $steps["updateInfoOpen"] === "object" &&
-                        typeof $steps["updateInfoOpen"].then === "function"
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        $steps["updateInfoOpen"] =
-                          await $steps["updateInfoOpen"];
+                        return false;
                       }
-                    }}
-                  >
-                    {(
-                      hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? true
-                        : (() => {
-                            try {
-                              return (
-                                ($state.infoChat?.questions?.length ?? 0) < 1
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })()
-                    ) ? (
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__zvujs)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateInfoOpen"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["info", "open"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateInfoOpen"] != null &&
+                          typeof $steps["updateInfoOpen"] === "object" &&
+                          typeof $steps["updateInfoOpen"].then === "function"
+                        ) {
+                          $steps["updateInfoOpen"] =
+                            await $steps["updateInfoOpen"];
+                        }
+                      }}
+                    >
                       <div
                         className={classNames(
                           projectcss.all,
@@ -4768,12 +4762,12 @@ function PlasmicSelfTest5__RenderFunc(props: {
                           "\u0686\u062c\u0648\u0631\u06cc \u0645\u06cc \u062a\u0648\u0646\u0645 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u0645\u061f"
                         }
                       </div>
-                    ) : null}
-                    <Icon29Icon
-                      className={classNames(projectcss.all, sty.svg__xxnmX)}
-                      role={"img"}
-                    />
-                  </div>
+                      <Icon29Icon
+                        className={classNames(projectcss.all, sty.svg__xxnmX)}
+                        role={"img"}
+                      />
+                    </div>
+                  ) : null}
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox___5RTj)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
