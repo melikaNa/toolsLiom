@@ -3705,6 +3705,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/chat-bot-2"
+        },
+        {
+          "id": "ENDvztj-MUZ9",
+          "name": "Mojib",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicMojib.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/mojib.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicMojib.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/mojib"
         }
       ],
       "icons": [

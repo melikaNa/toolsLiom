@@ -4230,6 +4230,16 @@
           "assetId": "3zKPdhWckw1SJpPYhK46Bs",
           "type": "projectCss",
           "checksum": "4b7b8d0c8e7095153c98282e8d541938"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "ENDvztj-MUZ9",
+          "checksum": "25c39da8021150a3496c60af5febba4b"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "ENDvztj-MUZ9",
+          "checksum": "25c39da8021150a3496c60af5febba4b"
         }
       ],
       "codegenVersion": "0.0.2"
