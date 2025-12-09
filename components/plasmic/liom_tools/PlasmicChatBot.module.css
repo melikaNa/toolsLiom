@@ -696,10 +696,11 @@
   position: relative;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
   column-gap: 6px;
+  min-width: 0;
 }
 .text__uWgH {
   animation: none;
