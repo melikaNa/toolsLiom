@@ -1862,6 +1862,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
+                        console.log("chat-bot");
                         var fileInput = document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;

@@ -1941,6 +1941,7 @@ function PlasmicSelfTest5__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
+                        console.log("chat-bot-4");
                         var fileInput = document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
