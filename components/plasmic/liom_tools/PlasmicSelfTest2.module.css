@@ -1402,27 +1402,6 @@
   object-fit: cover;
   align-self: center;
 }
-.freeBox__xogKq {
-  flex-direction: column;
-  position: relative;
-  max-width: 100%;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  width: 35px;
-  height: 35px;
-  flex-shrink: 0;
-  display: none;
-  border-radius: 100px;
-}
-.svg___0Goys {
-  object-fit: cover;
-  max-width: 100%;
-  width: 20px;
-  height: 20px;
-  color: var(--token-PvbqFVJaOepe);
-  flex-shrink: 0;
-}
 .freeBox___3W1HM {
   animation: none;
   display: flex;

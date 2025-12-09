@@ -100,7 +100,6 @@ import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-impor
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
 import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: qu0_vn04sR3f/icon
 import Icon112Icon from "./icons/PlasmicIcon__Icon112"; // plasmic-import: KkG2nnQC8TPR/icon
-import Icon92Icon from "./icons/PlasmicIcon__Icon92"; // plasmic-import: GLz9qxhI31v4/icon
 import Icon93Icon from "./icons/PlasmicIcon__Icon93"; // plasmic-import: zelbblG0Cx3b/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: WIXMGnqTFn8X/icon
 import Icon213Icon from "./icons/PlasmicIcon__Icon213"; // plasmic-import: o0umFUjPufGW/icon
@@ -6949,56 +6948,17 @@ function PlasmicSelfTest5__RenderFunc(props: {
                             />
                           );
                         })()}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__tFlEc
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        return window.document
-                                          .getElementById("fileInput")
-                                          .click();
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-                          }}
-                        >
-                          <Icon92Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__izBrT
-                            )}
-                            role={"img"}
-                          />
-                        </div>
                         {(() => {
                           try {
-                            return (
-                              // var id = $state.userInfo.id || $state.paramsObject.user_id || $state.paramsObject.userId ;
-
-                              // (id == "4ddd1fab-100c-49f0-b843-e70bff8add34")
-
-                              false
-                            );
+                            return (() => {
+                              var id =
+                                $state.userInfo.id ||
+                                $state.paramsObject.user_id ||
+                                $state.paramsObject.userId;
+                              return (
+                                id == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                              );
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

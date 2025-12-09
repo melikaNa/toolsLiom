@@ -98,7 +98,6 @@ import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: d7z2iEn
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
 import Icon158Icon from "./icons/PlasmicIcon__Icon158"; // plasmic-import: D1UPf1eCmdC-/icon
 import Icon212Icon from "./icons/PlasmicIcon__Icon212"; // plasmic-import: qu0_vn04sR3f/icon
-import Icon92Icon from "./icons/PlasmicIcon__Icon92"; // plasmic-import: GLz9qxhI31v4/icon
 import Icon93Icon from "./icons/PlasmicIcon__Icon93"; // plasmic-import: zelbblG0Cx3b/icon
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: jsdnX88Z30Rv/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: WIXMGnqTFn8X/icon
@@ -6532,47 +6531,6 @@ function PlasmicSelfTest2__RenderFunc(props: {
                             />
                           );
                         })()}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__xogKq
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        return window.document
-                                          .getElementById("fileInput")
-                                          .click();
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-                          }}
-                        >
-                          <Icon92Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg___0Goys
-                            )}
-                            role={"img"}
-                          />
-                        </div>
                         {(() => {
                           try {
                             return (() => {
@@ -6635,7 +6593,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return true;
+                                  return false;
                                 }
                                 throw e;
                               }
@@ -6656,7 +6614,7 @@ function PlasmicSelfTest2__RenderFunc(props: {
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return true;
+                                  return false;
                                 }
                                 throw e;
                               }
