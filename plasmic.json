@@ -3118,20 +3118,6 @@
           "componentType": "component"
         },
         {
-          "id": "zBpg4f-Yi3mN",
-          "name": "SelfTest2",
-          "type": "managed",
-          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/chat-bot-5.tsx"
-          },
-          "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/chat-bot"
-        },
-        {
           "id": "HSNJ0v5oD6xT",
           "name": "SendIcon",
           "type": "managed",
@@ -3693,20 +3679,6 @@
           "path": "/test-analysis"
         },
         {
-          "id": "O1A3eJGiuze5",
-          "name": "SelfTest5",
-          "type": "managed",
-          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest5.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/chat-bot.tsx"
-          },
-          "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest5.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/chat-bot-2"
-        },
-        {
           "id": "ENDvztj-MUZ9",
           "name": "Mojib",
           "type": "managed",
@@ -3719,6 +3691,34 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/mojib"
+        },
+        {
+          "id": "zBpg4f-Yi3mN",
+          "name": "ChatBot5",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicChatBot5.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/chat-bot-5.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicChatBot5.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/chat-bot-5"
+        },
+        {
+          "id": "O1A3eJGiuze5",
+          "name": "ChatBot",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicChatBot.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/chat-bot.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicChatBot.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/chat-bot"
         }
       ],
       "icons": [

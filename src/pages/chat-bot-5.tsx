@@ -7,23 +7,23 @@ import GlobalContextsProvider from "../../components/plasmic/liom_tools/PlasmicG
 import { ThemeContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__Theme";
 import { UnnamedGlobalGroupOfVariantsContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants";
 import { NewViewContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__NewView";
-import { PlasmicSelfTest5 } from "../../components/plasmic/liom_tools/PlasmicSelfTest5";
+import { PlasmicChatBot5 } from "../../components/plasmic/liom_tools/PlasmicChatBot5";
 import { useRouter } from "next/router";
 
-function SelfTest5() {
-  // Use PlasmicSelfTest5 to render this component as it was
+function ChatBot5() {
+  // Use PlasmicChatBot5 to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicSelfTest5 are:
+  // Props you can pass into PlasmicChatBot5 are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicSelfTest5 is wrapped by your project's global
+  // By default, PlasmicChatBot5 is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -38,7 +38,7 @@ function SelfTest5() {
               params={useRouter()?.query}
               query={useRouter()?.query}
             >
-              <PlasmicSelfTest5 />
+              <PlasmicChatBot5 />
             </PageParamsProvider__>
           </GlobalContextsProvider>
         </ThemeContextProvider>
@@ -47,4 +47,4 @@ function SelfTest5() {
   );
 }
 
-export default SelfTest5;
+export default ChatBot5;
