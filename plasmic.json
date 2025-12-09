@@ -3124,7 +3124,7 @@
           "projectId": "3zKPdhWckw1SJpPYhK46Bs",
           "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest2.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/chat-bot.tsx"
+            "modulePath": "../src/pages/chat-bot-5.tsx"
           },
           "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest2.module.css",
           "scheme": "blackbox",
@@ -3699,7 +3699,7 @@
           "projectId": "3zKPdhWckw1SJpPYhK46Bs",
           "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfTest5.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/chat-bot-4.tsx"
+            "modulePath": "../src/pages/chat-bot.tsx"
           },
           "cssFilePath": "plasmic/liom_tools/PlasmicSelfTest5.module.css",
           "scheme": "blackbox",
