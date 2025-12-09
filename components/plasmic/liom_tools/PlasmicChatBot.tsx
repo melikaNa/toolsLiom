@@ -1549,7 +1549,26 @@ function PlasmicChatBot__RenderFunc(props: {
                     const actionArgs = {
                       args: [
                         undefined,
-                        "https://n8n.staas.ir/webhook/chatBotServiceSession?bot_name=period_chat",
+                        (() => {
+                          try {
+                            return (() => {
+                              var status =
+                                ($state.userInfo?.healthStatus ?? "") ==
+                                "pregnancy"
+                                  ? "pregnancy_chat"
+                                  : "period_chat";
+                              return `https://n8n.staas.ir/webhook/chatBotServiceSession?bot_name=${status}`;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
                         undefined,
                         undefined,
                         (() => {
@@ -4698,7 +4717,7 @@ function PlasmicChatBot__RenderFunc(props: {
                   </div>
                   {(() => {
                     try {
-                      return ($state.infoChat?.questions?.length ?? 0) < 1;
+                      return ($state.infoChat.questions?.[0]?.text ?? "") == "";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
