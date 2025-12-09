@@ -1862,7 +1862,7 @@ function PlasmicChatBot5__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
-                        console.log("chat-bot");
+                        console.log("chat-botttttt-5");
                         var fileInput = document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
