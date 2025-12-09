@@ -7027,9 +7027,14 @@ function PlasmicChatBot__RenderFunc(props: {
                                           const actionArgs = {
                                             customFunction: async () => {
                                               return (() => {
-                                                return window.document
-                                                  .getElementById("fileInput")
-                                                  .click();
+                                                if (window?.FlutterChannel) {
+                                                  return window.FlutterChannel.postMessage(
+                                                    "#selectImageModal"
+                                                  );
+                                                } else
+                                                  return window.document
+                                                    .getElementById("fileInput")
+                                                    .click();
                                               })();
                                             }
                                           };
