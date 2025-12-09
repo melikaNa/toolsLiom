@@ -877,14 +877,7 @@ function PlasmicChatBot5__RenderFunc(props: {
         path: "toolsList",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            name: "\u062a\u062d\u0644\u06cc\u0644 \u0622\u0632\u0645\u0627\u06cc\u0634"
-          },
-          {
-            name: "\u062a\u0634\u062e\u06cc\u0635 \u0646\u0648\u0639 \u067e\u0648\u0633\u062a"
-          }
-        ]
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
