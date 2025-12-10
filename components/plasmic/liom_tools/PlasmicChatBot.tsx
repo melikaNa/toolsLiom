@@ -4868,115 +4868,139 @@ function PlasmicChatBot__RenderFunc(props: {
                     </div>
                   ) : null}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox___5RTj)}>
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.toolsList;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                {(() => {
+                  try {
+                    return (() => {
+                      var id =
+                        $state.userInfo.id ||
+                        $state.paramsObject.user_id ||
+                        $state.paramsObject.userId;
+                      return id == "4ddd1fab-100c-49f0-b843-e70bff8add34";
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___5RTj)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.toolsList;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__twwcs
-                        )}
-                        key={currentIndex}
-                      >
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__eno02
+                            sty.freeBox__twwcs
                           )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        return window.open(
-                                          `https://tools.liom.app/test-analysis/?type=${currentItem.type}`,
-                                          "_self"
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-                          }}
+                          key={currentIndex}
                         >
-                          <Icon10Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__p5M59
-                            )}
-                            role={"img"}
-                          />
-
-                          <PlasmicImg__
-                            alt={""}
-                            className={classNames(sty.img__oyQZ)}
-                            displayHeight={"20px"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"20px"}
-                            loading={"lazy"}
-                            src={(() => {
-                              try {
-                                return currentItem.image ?? "";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                          />
-
                           <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__gG05M
+                              sty.freeBox__eno02
                             )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          return window.open(
+                                            `https://tools.liom.app/test-analysis/?type=${currentItem.type}`,
+                                            "_self"
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
                           >
-                            <React.Fragment>
-                              {currentItem.headerTitle}
-                            </React.Fragment>
+                            <Icon10Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__p5M59
+                              )}
+                              role={"img"}
+                            />
+
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__oyQZ)}
+                              displayHeight={"20px"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"20px"}
+                              loading={"lazy"}
+                              src={(() => {
+                                try {
+                                  return currentItem.image ?? "";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__gG05M
+                              )}
+                            >
+                              <React.Fragment>
+                                {currentItem.headerTitle}
+                              </React.Fragment>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                      );
+                    })}
+                  </div>
+                ) : null}
                 {(() => {
                   try {
                     return $state.infoChat?.questions?.length > 1;
