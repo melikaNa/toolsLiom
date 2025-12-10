@@ -67,12 +67,12 @@ import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import SidebarWindow from "../../SidebarWindow"; // plasmic-import: zOZqxY8nkGbN/component
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import LineClomp from "../../LineClomp"; // plasmic-import: VHAYS5YHy7AC/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import MessageLiom from "../../MessageLiom"; // plasmic-import: xCdoITDvZVKn/component
 import SendIcon from "../../SendIcon"; // plasmic-import: HSNJ0v5oD6xT/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import DirectDialogChatbot from "../../DirectDialogChatbot"; // plasmic-import: ySuxtC2bY6yN/component
 import Paziresh24Modal from "../../Paziresh24Modal"; // plasmic-import: ZGdhyEBPJSmH/component
@@ -3038,6 +3038,13 @@ function PlasmicChatBot__RenderFunc(props: {
             }
           })()}
         >
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__vu8Jc)}
+            code={
+              "<script>\n  setInterval(() => {\n    if (window.flutterCommand === 'open_info') {\n      $state.info.open = true;    // state \u062a\u0648 \u0647\u0645\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0647\u0633\u062a\n      window.flutterCommand = null;\n      console.log('\u2705 Flutter command executed: info opened');\n    }\n  }, 200);\n</script>\n"
+            }
+          />
+
           <div
             className={classNames(projectcss.all, sty.freeBox__qDss6)}
             style={
