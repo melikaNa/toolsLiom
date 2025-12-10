@@ -1960,6 +1960,7 @@ function PlasmicChatBot__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
+                        console.log("romina1");
                         var fileInput = document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
@@ -4575,18 +4576,11 @@ function PlasmicChatBot__RenderFunc(props: {
                                   if (!Array.isArray($state.images))
                                     $state.images = [];
                                   $state.uploading = true;
-                                  console.log(
-                                    `⬆️ Uploading file #${index + 1}`
-                                  );
+                                  console.log(`⬆️ Uploading file`);
                                   $state.images.push("loading");
-                                  console.log(
-                                    `🕓 Added placeholder for file #${index + 1}`
-                                  );
+                                  console.log(`🕓 Added placeholder for file`);
                                   try {
-                                    console.log(
-                                      `📬 Response for file #${index + 1}:`,
-                                      data
-                                    );
+                                    console.log(`📬 Response for file:`, data);
                                     if (data.status) {
                                       const loadingIndex =
                                         $state.images.indexOf("loading");
@@ -4603,7 +4597,7 @@ function PlasmicChatBot__RenderFunc(props: {
                                         JSON.stringify(result);
                                       $state.showPhoto = true;
                                       console.log(
-                                        `✅ File #${index + 1} uploaded successfully.`
+                                        `✅ File uploaded successfully.`
                                       );
                                     } else {
                                       console.error(
@@ -4613,7 +4607,7 @@ function PlasmicChatBot__RenderFunc(props: {
                                     }
                                   } catch (error) {
                                     console.error(
-                                      `🔥 Upload failed for file #${index + 1}:`,
+                                      `🔥 Upload failed for file:`,
                                       error
                                     );
                                   }
