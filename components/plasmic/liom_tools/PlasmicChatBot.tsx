@@ -1960,7 +1960,6 @@ function PlasmicChatBot__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
-                        console.log("chat-bottttttt");
                         var fileInput = document.getElementById("fileInput");
                         fileInput.accept = "image/*,application/pdf";
                         fileInput.multiple = true;
@@ -1992,28 +1991,24 @@ function PlasmicChatBot__RenderFunc(props: {
                         });
                         $state.readyToSend = true;
                         console.log(
-                          "\uD83D\uDE80 File input is ready for uploaddddd!"
+                          "\uD83D\uDE80 File input is ready for upload!"
                         );
                         async function uploadFiles(files) {
                           if (!Array.isArray($state.images)) $state.images = [];
                           $state.uploading = true;
-                          const startIndex = $state.images.length;
-                          files.forEach(() => $state.images.push("loading"));
-                          console.log(
-                            `🕓 Added ${files.length} placeholder(s) for uploading files.`
-                          );
                           for (let [index, f] of files.entries()) {
                             console.log(`⬆️ Uploading file #${index + 1}`);
+                            $state.images.push("loading");
                             console.log(
                               `🕓 Added placeholder for file #${index + 1}`
                             );
                             try {
                               const formData = new FormData();
-                              formData.append("files", f);
+                              formData.append("file", f);
                               formData.append("path", "test-result");
                               formData.append("index", index);
                               const response = await fetch(
-                                "https://n8n.staas.ir/webhook/upload",
+                                "https://api.liom.app/upload",
                                 {
                                   method: "POST",
                                   body: formData
@@ -2025,8 +2020,10 @@ function PlasmicChatBot__RenderFunc(props: {
                                 data
                               );
                               if (data.status) {
-                                const targetIndex = startIndex + index;
-                                $state.images[targetIndex] = data.result;
+                                const loadingIndex =
+                                  $state.images.indexOf("loading");
+                                if (loadingIndex !== -1)
+                                  $state.images[loadingIndex] = data.result;
                                 const result = $state.images.map(item => ({
                                   value: item,
                                   type: "image"
@@ -2055,23 +2052,19 @@ function PlasmicChatBot__RenderFunc(props: {
                         return async function uploadFiles(files) {
                           if (!Array.isArray($state.images)) $state.images = [];
                           $state.uploading = true;
-                          const startIndex = $state.images.length;
-                          files.forEach(() => $state.images.push("loading"));
-                          console.log(
-                            `🕓 Added ${files.length} placeholder(s) for uploading files.`
-                          );
                           for (let [index, f] of files.entries()) {
                             console.log(`⬆️ Uploading file #${index + 1}`);
+                            $state.images.push("loading");
                             console.log(
                               `🕓 Added placeholder for file #${index + 1}`
                             );
                             try {
                               const formData = new FormData();
-                              formData.append("files", f);
+                              formData.append("file", f);
                               formData.append("path", "test-result");
                               formData.append("index", index);
                               const response = await fetch(
-                                "https://n8n.staas.ir/webhook/upload",
+                                "https://api.liom.app/upload",
                                 {
                                   method: "POST",
                                   body: formData
@@ -2083,8 +2076,10 @@ function PlasmicChatBot__RenderFunc(props: {
                                 data
                               );
                               if (data.status) {
-                                const targetIndex = startIndex + index;
-                                $state.images[targetIndex] = data.result;
+                                const loadingIndex =
+                                  $state.images.indexOf("loading");
+                                if (loadingIndex !== -1)
+                                  $state.images[loadingIndex] = data.result;
                                 const result = $state.images.map(item => ({
                                   value: item,
                                   type: "image"
@@ -4580,11 +4575,24 @@ function PlasmicChatBot__RenderFunc(props: {
                                   if (!Array.isArray($state.images))
                                     $state.images = [];
                                   $state.uploading = true;
-                                  const startIndex = $state.images.length;
+                                  console.log(
+                                    `⬆️ Uploading file #${index + 1}`
+                                  );
+                                  $state.images.push("loading");
+                                  console.log(
+                                    `🕓 Added placeholder for file #${index + 1}`
+                                  );
                                   try {
+                                    console.log(
+                                      `📬 Response for file #${index + 1}:`,
+                                      data
+                                    );
                                     if (data.status) {
-                                      const targetIndex = startIndex;
-                                      $state.images[targetIndex] = data.result;
+                                      const loadingIndex =
+                                        $state.images.indexOf("loading");
+                                      if (loadingIndex !== -1)
+                                        $state.images[loadingIndex] =
+                                          data.result;
                                       const result = $state.images.map(
                                         item => ({
                                           value: item,
@@ -4595,7 +4603,7 @@ function PlasmicChatBot__RenderFunc(props: {
                                         JSON.stringify(result);
                                       $state.showPhoto = true;
                                       console.log(
-                                        `✅ File uploaded successfully.`
+                                        `✅ File #${index + 1} uploaded successfully.`
                                       );
                                     } else {
                                       console.error(
@@ -4605,7 +4613,7 @@ function PlasmicChatBot__RenderFunc(props: {
                                     }
                                   } catch (error) {
                                     console.error(
-                                      `🔥 Upload failed for file:`,
+                                      `🔥 Upload failed for file #${index + 1}:`,
                                       error
                                     );
                                   }
