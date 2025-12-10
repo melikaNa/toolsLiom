@@ -4562,6 +4562,77 @@ function PlasmicChatBot__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox__atuBm)}>
                 <div className={classNames(projectcss.all, sty.freeBox__xeQjv)}>
                   <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__lFZ1
+                    )}
+                    id={"clickFlutter"}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  var data = window.data;
+                                  if (!Array.isArray($state.images))
+                                    $state.images = [];
+                                  $state.uploading = true;
+                                  const startIndex = $state.images.length;
+                                  try {
+                                    if (data.status) {
+                                      const targetIndex = startIndex;
+                                      $state.images[targetIndex] = data.result;
+                                      const result = $state.images.map(
+                                        item => ({
+                                          value: item,
+                                          type: "image"
+                                        })
+                                      );
+                                      $state.attachments =
+                                        JSON.stringify(result);
+                                      $state.showPhoto = true;
+                                      console.log(
+                                        `✅ File uploaded successfully.`
+                                      );
+                                    } else {
+                                      console.error(
+                                        "\uD83D\uDCA5 Server error:",
+                                        data.result
+                                      );
+                                    }
+                                  } catch (error) {
+                                    console.error(
+                                      `🔥 Upload failed for file:`,
+                                      error
+                                    );
+                                  }
+                                  $state.uploading = false;
+                                  return console.log(
+                                    "\uD83C\uDF89 All uploads completed!"
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    {""}
+                  </div>
+                  <div
                     className={classNames(projectcss.all, sty.freeBox___2LqUc)}
                   >
                     <div
