@@ -7131,11 +7131,11 @@ function PlasmicChatBot__RenderFunc(props: {
                                           const actionArgs = {
                                             customFunction: async () => {
                                               return (() => {
-                                                if (window?.FlutterChannel) {
+                                                if (window?.FlutterChannel)
                                                   return window.FlutterChannel.postMessage(
                                                     "#selectImageModal"
                                                   );
-                                                } else
+                                                else
                                                   return window.document
                                                     .getElementById("fileInput")
                                                     .click();
