@@ -575,14 +575,6 @@
     margin: 0px;
   }
 }
-.text__lFZ1 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  font-size: 14px;
-  min-width: 0;
-}
 .freeBox___2LqUc {
   animation: none;
   display: flex;
@@ -2492,6 +2484,14 @@
   animation: none;
   max-width: 100%;
   object-fit: cover;
+}
+.text__lFZ1 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 14px;
+  min-width: 0;
 }
 .freeBox__bcfzk {
   flex-direction: row;
