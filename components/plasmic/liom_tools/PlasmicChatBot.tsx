@@ -4591,6 +4591,10 @@ function PlasmicChatBot__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return (() => {
+                                    if (window?.FlutterChannel)
+                                      window.FlutterChannel.postMessage(
+                                        "#selectImageModal"
+                                      );
                                     var data = window.data;
                                     if (!Array.isArray($state.images))
                                       $state.images = [];
@@ -4659,7 +4663,7 @@ function PlasmicChatBot__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return "undefined";
+                            return "uuundefined";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
