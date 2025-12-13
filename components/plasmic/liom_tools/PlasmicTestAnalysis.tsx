@@ -3385,6 +3385,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $state.files = [];
                               $state.imageLoad = [];
                               $state.files.push(file.type);
+                              window.filess.push(file);
                               $state.imageLoad.push(URL.createObjectURL(file));
                               console.log($state.files);
                               console.log($state.imageLoad);
