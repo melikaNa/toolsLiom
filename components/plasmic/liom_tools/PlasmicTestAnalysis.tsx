@@ -2885,7 +2885,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           var prompt = encodeURIComponent(
                                             $state.getInfo.prompt
                                           );
-                                          var link = `https://tools.liom.app/chat-bot-2/?question=${question}&attachments=${attachments}&inApp=undefined&prompt=${prompt}`;
+                                          var link = `https://tools.liom.app/chat-bot/?question=${question}&attachments=${attachments}&inApp=undefined&prompt=${prompt}`;
                                           return window.open(link, "_self");
                                         })();
                                       }
@@ -3401,7 +3401,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"qqqq"}
+                {"zz"}
               </div>
             </div>
           ) : null}
