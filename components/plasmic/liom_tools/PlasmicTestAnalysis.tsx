@@ -3384,13 +3384,34 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           customFunction: async () => {
                             return (() => {
                               if (!window.flutterFile) return;
+                              console.log(
+                                "JS: Received flutterFile",
+                                window.flutterFile
+                              );
+                              console.log(
+                                "JS: base64 length",
+                                window.flutterFile.base64.length
+                              );
+                              console.log(
+                                "JS: base64 start",
+                                window.flutterFile.base64.slice(0, 50)
+                              );
+                              console.log(
+                                "JS: base64 end",
+                                window.flutterFile.base64.slice(-50)
+                              );
                               const { name, type, base64 } = window.flutterFile;
                               const binary = atob(base64);
                               const bytes = new Uint8Array(binary.length);
                               for (let i = 0; i < binary.length; i++) {
                                 bytes[i] = binary.charCodeAt(i);
                               }
+                              console.log(
+                                "JS: Uint8Array length",
+                                bytes.length
+                              );
                               const file = new File([bytes], name, { type });
+                              console.log("JS: Created File", file);
                               $state.files = [];
                               $state.imageLoad = [];
                               $state.files.push(file.type);
@@ -3414,7 +3435,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa\u06f3\u06f3"}
+                {"aa\u06f4\u06f4"}
               </div>
             </div>
           ) : null}
