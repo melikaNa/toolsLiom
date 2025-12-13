@@ -3414,7 +3414,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa\u06f2\u06f2"}
+                {"aa\u06f3\u06f3"}
               </div>
             </div>
           ) : null}
