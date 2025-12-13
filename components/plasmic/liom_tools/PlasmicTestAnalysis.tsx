@@ -2894,7 +2894,11 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           );
                                           console.log(
                                             "decoded-attachments:" +
-                                              decodedResult
+                                              JSON.stringify(
+                                                decodedResult,
+                                                null,
+                                                2
+                                              )
                                           );
                                           return console.log("link:" + link);
                                         })();
@@ -3412,7 +3416,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa11"}
+                {"aa"}
               </div>
             </div>
           ) : null}
