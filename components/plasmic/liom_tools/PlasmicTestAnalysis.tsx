@@ -2882,11 +2882,21 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                           var attachments = encodeURIComponent(
                                             JSON.stringify(result)
                                           );
+                                          var decodedResult = JSON.parse(
+                                            decodeURIComponent(attachments)
+                                          );
                                           var prompt = encodeURIComponent(
                                             $state.getInfo.prompt
                                           );
                                           var link = `https://tools.liom.app/chat-bot/?question=${question}&attachments=${attachments}&inApp=undefined&prompt=${prompt}`;
-                                          return window.open(link, "_self");
+                                          console.log(
+                                            "attachments:" + attachments
+                                          );
+                                          console.log(
+                                            "decoded-attachments:" +
+                                              decodedResult
+                                          );
+                                          return console.log("link:" + link);
                                         })();
                                       }
                                     };
