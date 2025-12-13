@@ -1960,152 +1960,103 @@ function PlasmicChatBot__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (async () => {
-                        console.log("romina1");
-                        var fileInput = document.getElementById("fileInput");
-                        fileInput.accept = "image/*,application/pdf";
-                        fileInput.multiple = true;
-                        window.isUploading = false;
-                        $state.readyToSend = false;
-                        fileInput.replaceWith(fileInput.cloneNode(true));
-                        fileInput = document.getElementById("fileInput");
-                        fileInput.addEventListener("change", async event => {
-                          if (window.isUploading) {
-                            console.warn(
-                              "\u23F3 Upload already in progress \u2014 skipping duplicate trigger!"
-                            );
-                            return;
-                          }
-                          console.log("\uD83D\uDCF8 Event 'change' fired!");
-                          const selected = Array.from(event.target.files);
-                          if (selected.length === 0) return;
-                          console.log("\uD83D\uDCE6 Selected files:", selected);
-                          window.isUploading = true;
-                          try {
-                            await uploadFiles(selected);
-                          } finally {
-                            window.isUploading = false;
-                            fileInput.value = "";
+                        if (window?.FlutterChannel) {
+                          return ($state.readyToSend = true);
+                        } else {
+                          var fileInput = document.getElementById("fileInput");
+                          fileInput.accept = "image/*,application/pdf";
+                          fileInput.multiple = true;
+                          window.isUploading = false;
+                          $state.readyToSend = false;
+                          fileInput.replaceWith(fileInput.cloneNode(true));
+                          fileInput = document.getElementById("fileInput");
+                          fileInput.addEventListener("change", async event => {
+                            if (window.isUploading) {
+                              console.warn(
+                                "\u23F3 Upload already in progress \u2014 skipping duplicate trigger!"
+                              );
+                              return;
+                            }
+                            console.log("\uD83D\uDCF8 Event 'change' fired!");
+                            const selected = Array.from(event.target.files);
+                            if (selected.length === 0) return;
                             console.log(
-                              "\uD83E\uDDF9 Upload finished & input reset."
+                              "\uD83D\uDCE6 Selected files:",
+                              selected
                             );
-                          }
-                        });
-                        $state.readyToSend = true;
-                        console.log(
-                          "\uD83D\uDE80 File input is ready for upload!"
-                        );
-                        async function uploadFiles(files) {
-                          if (!Array.isArray($state.images)) $state.images = [];
-                          $state.uploading = true;
-                          for (let [index, f] of files.entries()) {
-                            console.log(`⬆️ Uploading file #${index + 1}`);
-                            $state.images.push("loading");
-                            console.log(
-                              `🕓 Added placeholder for file #${index + 1}`
-                            );
+                            window.isUploading = true;
                             try {
-                              const formData = new FormData();
-                              formData.append("file", f);
-                              formData.append("path", "test-result");
-                              formData.append("index", index);
-                              const response = await fetch(
-                                "https://api.liom.app/upload",
-                                {
-                                  method: "POST",
-                                  body: formData
-                                }
-                              );
-                              const data = await response.json();
+                              await uploadFiles(selected);
+                            } finally {
+                              window.isUploading = false;
+                              fileInput.value = "";
                               console.log(
-                                `📬 Response for file #${index + 1}:`,
-                                data
-                              );
-                              if (data.status) {
-                                const loadingIndex =
-                                  $state.images.indexOf("loading");
-                                if (loadingIndex !== -1)
-                                  $state.images[loadingIndex] = data.result;
-                                const result = $state.images.map(item => ({
-                                  value: item,
-                                  type: "image"
-                                }));
-                                $state.attachments = JSON.stringify(result);
-                                $state.showPhoto = true;
-                                console.log(
-                                  `✅ File #${index + 1} uploaded successfully.`
-                                );
-                              } else {
-                                console.error(
-                                  "\uD83D\uDCA5 Server error:",
-                                  data.result
-                                );
-                              }
-                            } catch (error) {
-                              console.error(
-                                `🔥 Upload failed for file #${index + 1}:`,
-                                error
+                                "\uD83E\uDDF9 Upload finished & input reset."
                               );
                             }
-                          }
-                          $state.uploading = false;
-                          console.log("\uD83C\uDF89 All uploads completed!");
+                          });
+                          $state.readyToSend = true;
+                          console.log(
+                            "\uD83D\uDE80 File input is ready for upload!"
+                          );
+                          return async function uploadFiles(files) {
+                            if (!Array.isArray($state.images))
+                              $state.images = [];
+                            $state.uploading = true;
+                            for (let [index, f] of files.entries()) {
+                              console.log(`⬆️ Uploading file #${index + 1}`);
+                              $state.images.push("loading");
+                              console.log(
+                                `🕓 Added placeholder for file #${index + 1}`
+                              );
+                              try {
+                                const formData = new FormData();
+                                formData.append("file", f);
+                                formData.append("path", "test-result");
+                                formData.append("index", index);
+                                const response = await fetch(
+                                  "https://api.liom.app/upload",
+                                  {
+                                    method: "POST",
+                                    body: formData
+                                  }
+                                );
+                                const data = await response.json();
+                                console.log(
+                                  `📬 Response for file #${index + 1}:`,
+                                  data
+                                );
+                                if (data.status) {
+                                  const loadingIndex =
+                                    $state.images.indexOf("loading");
+                                  if (loadingIndex !== -1)
+                                    $state.images[loadingIndex] = data.result;
+                                  const result = $state.images.map(item => ({
+                                    value: item,
+                                    type: "image"
+                                  }));
+                                  $state.attachments = JSON.stringify(result);
+                                  $state.showPhoto = true;
+                                  console.log(
+                                    `✅ File #${index + 1} uploaded successfully.`
+                                  );
+                                } else {
+                                  console.error(
+                                    "\uD83D\uDCA5 Server error:",
+                                    data.result
+                                  );
+                                }
+                              } catch (error) {
+                                console.error(
+                                  `🔥 Upload failed for file #${index + 1}:`,
+                                  error
+                                );
+                              }
+                            }
+                            $state.uploading = false;
+                            console.log("\uD83C\uDF89 All uploads completed!");
+                          };
                         }
-                        return async function uploadFiles(files) {
-                          if (!Array.isArray($state.images)) $state.images = [];
-                          $state.uploading = true;
-                          for (let [index, f] of files.entries()) {
-                            console.log(`⬆️ Uploading file #${index + 1}`);
-                            $state.images.push("loading");
-                            console.log(
-                              `🕓 Added placeholder for file #${index + 1}`
-                            );
-                            try {
-                              const formData = new FormData();
-                              formData.append("file", f);
-                              formData.append("path", "test-result");
-                              formData.append("index", index);
-                              const response = await fetch(
-                                "https://api.liom.app/upload",
-                                {
-                                  method: "POST",
-                                  body: formData
-                                }
-                              );
-                              const data = await response.json();
-                              console.log(
-                                `📬 Response for file #${index + 1}:`,
-                                data
-                              );
-                              if (data.status) {
-                                const loadingIndex =
-                                  $state.images.indexOf("loading");
-                                if (loadingIndex !== -1)
-                                  $state.images[loadingIndex] = data.result;
-                                const result = $state.images.map(item => ({
-                                  value: item,
-                                  type: "image"
-                                }));
-                                $state.attachments = JSON.stringify(result);
-                                $state.showPhoto = true;
-                                console.log(
-                                  `✅ File #${index + 1} uploaded successfully.`
-                                );
-                              } else {
-                                console.error(
-                                  "\uD83D\uDCA5 Server error:",
-                                  data.result
-                                );
-                              }
-                            } catch (error) {
-                              console.error(
-                                `🔥 Upload failed for file #${index + 1}:`,
-                                error
-                              );
-                            }
-                          }
-                          $state.uploading = false;
-                          console.log("\uD83C\uDF89 All uploads completed!");
-                        };
                       })();
                     }
                   };
@@ -7040,46 +6991,44 @@ function PlasmicChatBot__RenderFunc(props: {
                                   projectcss.all,
                                   sty.freeBox__alO7O
                                 )}
+                                onClick={async event => {
+                                  const $steps = {};
+
+                                  $steps["runCode"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return (() => {
+                                              if (window?.FlutterChannel)
+                                                return window.FlutterChannel.postMessage(
+                                                  "#selectImageModal-chatbot"
+                                                );
+                                              else
+                                                return window.document
+                                                  .getElementById("fileInput")
+                                                  .click();
+                                            })();
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["runCode"] != null &&
+                                    typeof $steps["runCode"] === "object" &&
+                                    typeof $steps["runCode"].then === "function"
+                                  ) {
+                                    $steps["runCode"] = await $steps["runCode"];
+                                  }
+                                }}
                               >
                                 <Icon93Icon
                                   className={classNames(
                                     projectcss.all,
                                     sty.svg__kewif
                                   )}
-                                  onClick={async event => {
-                                    const $steps = {};
-
-                                    $steps["runCode"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            customFunction: async () => {
-                                              return (() => {
-                                                if (window?.FlutterChannel)
-                                                  return window.FlutterChannel.postMessage(
-                                                    "#selectImageModal"
-                                                  );
-                                                else
-                                                  return window.document
-                                                    .getElementById("fileInput")
-                                                    .click();
-                                              })();
-                                            }
-                                          };
-                                          return (({ customFunction }) => {
-                                            return customFunction();
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["runCode"] != null &&
-                                      typeof $steps["runCode"] === "object" &&
-                                      typeof $steps["runCode"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["runCode"] =
-                                        await $steps["runCode"];
-                                    }
-                                  }}
                                   role={"img"}
                                 />
                               </div>

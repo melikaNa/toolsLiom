@@ -2098,7 +2098,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   return (() => {
                                     if (window?.FlutterChannel)
                                       return window.FlutterChannel.postMessage(
-                                        "#selectImageModal"
+                                        "#selectImageModal-chatbotTools"
                                       );
                                     else
                                       return window.document
