@@ -3377,19 +3377,12 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 bytes[i] = binary.charCodeAt(i);
                               }
                               const file = new File([bytes], name, { type });
-                              if (!window.$state)
-                                window.$state = {
-                                  files: [],
-                                  imageLoad: []
-                                };
-                              if (!window.filess) window.filess = [];
-                              window.$state.files.push(file.type);
-                              window.filess.push(file);
-                              window.$state.imageLoad.push(
-                                URL.createObjectURL(file)
-                              );
-                              console.log(window.$state.files);
-                              console.log(window.$state.imageLoad);
+                              $state.files = [];
+                              $state.imageLoad = [];
+                              $state.files.push(file.type);
+                              $state.imageLoad.push(URL.createObjectURL(file));
+                              console.log($state.files);
+                              console.log($state.imageLoad);
                               return (window.flutterFile = null);
                             })();
                           }
@@ -3408,7 +3401,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"\u0637\u0637\u0637\u0637\u0637\u0637"}
+                {"qqqq"}
               </div>
             </div>
           ) : null}
