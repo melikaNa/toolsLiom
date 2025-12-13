@@ -3360,7 +3360,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   projectcss.__wab_text,
                   sty.text__oMlCn
                 )}
-                id={"clickFlutter"}
+                id={"selectImageFlutter"}
                 onClick={async event => {
                   const $steps = {};
 
@@ -3369,8 +3369,28 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              var data = window.data;
-                              return data;
+                              if (!window.flutterFile) return;
+                              const { name, type, base64 } = window.flutterFile;
+                              const binary = atob(base64);
+                              const bytes = new Uint8Array(binary.length);
+                              for (let i = 0; i < binary.length; i++) {
+                                bytes[i] = binary.charCodeAt(i);
+                              }
+                              const file = new File([bytes], name, { type });
+                              if (!window.$state)
+                                window.$state = {
+                                  files: [],
+                                  imageLoad: []
+                                };
+                              if (!window.filess) window.filess = [];
+                              window.$state.files.push(file.type);
+                              window.filess.push(file);
+                              window.$state.imageLoad.push(
+                                URL.createObjectURL(file)
+                              );
+                              console.log(window.$state.files);
+                              console.log(window.$state.imageLoad);
+                              return (window.flutterFile = null);
                             })();
                           }
                         };
@@ -3388,7 +3408,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {""}
+                {"\u0637\u0637\u0637\u0637\u0637\u0637"}
               </div>
             </div>
           ) : null}
