@@ -3396,8 +3396,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $state.files.push(file.type);
                               window.filess.push(file);
                               $state.imageLoad.push(URL.createObjectURL(file));
-                              console.log($state.files);
-                              console.log($state.imageLoad);
                               return (window.flutterFile = null);
                             })();
                           }
@@ -3416,7 +3414,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa"}
+                {"aa\u06f2\u06f2"}
               </div>
             </div>
           ) : null}
