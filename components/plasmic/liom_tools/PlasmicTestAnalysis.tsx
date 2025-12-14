@@ -2797,40 +2797,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["credit"] = await $steps["credit"];
                             }
 
-                            $steps["runCode2"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        console.log(
-                                          "rominaaaa " + $ctx.query.type
-                                        );
-                                        console.log(
-                                          "rominaaaa " + $state.isDone
-                                        );
-                                        console.log(
-                                          "rominaaaa " + $state.enoughCredit
-                                        );
-                                        return console.log(
-                                          "rominaaaa " +
-                                            $steps.credit?.data?.success
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode2"] != null &&
-                              typeof $steps["runCode2"] === "object" &&
-                              typeof $steps["runCode2"].then === "function"
-                            ) {
-                              $steps["runCode2"] = await $steps["runCode2"];
-                            }
-
                             $steps["chatBot"] =
                               $ctx.query.type != "filterino" &&
                               false &&
@@ -3431,28 +3397,21 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           customFunction: async () => {
                             return (() => {
                               var data = window.data;
-                              console.log("rominaaaa: 2-1");
                               $state.resultTest = true;
                               async function uploadFiles() {
                                 try {
                                   $state.link = data;
-                                  console.log("rominaaaa: 2-4");
                                   if (data.status === false) {
-                                    console.log("rominaaaa: 2-5");
                                     console.error("Server error:", data.result);
                                   } else {
-                                    console.log("rominaaaa: 2-6");
-                                    $state.imageLoad.push("image/jpeg");
-                                    console.log("rominaaaa: 2-7");
+                                    $state.files.push("image/jpeg");
+                                    $state.imageOpload.push(data.result);
                                     $state.imageOpload[
                                       $state.imageOpload.length - 1
                                     ].upload = true;
-                                    console.log("rominaaaa: 2-8");
                                     $state.images.push(data.result);
-                                    console.log("rominaaaa: 2-9");
                                   }
                                 } catch (error) {
-                                  console.log("rominaaaa: 2-10");
                                   console.error(
                                     `Fetch error for file index:`,
                                     error
@@ -3465,16 +3424,12 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 parseInt($state.getInfo.price)
                               ) {
                                 $state.enoughCredit = true;
-                                console.log("rominaaaa: 2-2");
                                 return uploadFiles().then(() => {
                                   console.log("Do other things now");
                                   $state.isDone = true;
-                                  console.log("rominaaaa: 2-11");
                                   $state.uploadflutter = true;
-                                  console.log("rominaaaa: 2-12");
                                 });
                               } else {
-                                console.log("rominaaaa: 2-3");
                                 $state.enoughCredit = false;
                                 return console.log("موجودی کافی نیست");
                               }
@@ -3495,7 +3450,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa\u06f5\u06f5"}
+                {"aa66"}
               </div>
             </div>
           ) : null}
