@@ -468,6 +468,12 @@ function PlasmicTestAnalysis__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "uploadflutter",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1061,6 +1067,34 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                 typeof $steps["updateLoading"].then === "function"
               ) {
                 $steps["updateLoading"] = await $steps["updateLoading"];
+              }
+
+              $steps["updateLoading3"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["uploadflutter"]
+                      },
+                      operation: 0
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLoading3"] != null &&
+                typeof $steps["updateLoading3"] === "object" &&
+                typeof $steps["updateLoading3"].then === "function"
+              ) {
+                $steps["updateLoading3"] = await $steps["updateLoading3"];
               }
             }}
           />
@@ -2515,7 +2549,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     >
                       {(() => {
                         try {
-                          return !$state.isDone;
+                          return !$state.isDone && $state.uploadflutter;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -3374,7 +3408,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   projectcss.__wab_text,
                   sty.text__oMlCn
                 )}
-                id={"selectImageFlutter"}
+                id={"clickFlutter"}
                 onClick={async event => {
                   const $steps = {};
 
@@ -3383,41 +3417,47 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              if (!window.flutterFile) return;
-                              console.log(
-                                "JS: Received flutterFile",
-                                window.flutterFile
-                              );
-                              console.log(
-                                "JS: base64 length",
-                                window.flutterFile.base64.length
-                              );
-                              console.log(
-                                "JS: base64 start",
-                                window.flutterFile.base64.slice(0, 50)
-                              );
-                              console.log(
-                                "JS: base64 end",
-                                window.flutterFile.base64.slice(-50)
-                              );
-                              const { name, type, base64 } = window.flutterFile;
-                              const binary = atob(base64);
-                              const bytes = new Uint8Array(binary.length);
-                              for (let i = 0; i < binary.length; i++) {
-                                bytes[i] = binary.charCodeAt(i);
+                              var data = window.data;
+                              $state.resultTest = true;
+                              async function uploadFiles() {
+                                for (let [
+                                  index,
+                                  f
+                                ] of window.filess.entries()) {
+                                  try {
+                                    $state.link = data;
+                                    if (data.status === false) {
+                                      console.error(
+                                        "Server error:",
+                                        data.result
+                                      );
+                                    } else {
+                                      $state.imageOpload[index].upload = true;
+                                      $state.images.push(data.result);
+                                    }
+                                  } catch (error) {
+                                    console.error(
+                                      `Fetch error for file index ${index}:`,
+                                      error
+                                    );
+                                  }
+                                }
+                                console.log("All uploads completed!");
                               }
-                              console.log(
-                                "JS: Uint8Array length",
-                                bytes.length
-                              );
-                              const file = new File([bytes], name, { type });
-                              console.log("JS: Created File", file);
-                              $state.files = [];
-                              $state.imageLoad = [];
-                              $state.files.push(file.type);
-                              window.filess.push(file);
-                              $state.imageLoad.push(URL.createObjectURL(file));
-                              return (window.flutterFile = null);
+                              if (
+                                parseInt($state.infoChat.credit) >=
+                                parseInt($state.getInfo.price)
+                              ) {
+                                $state.enoughCredit = true;
+                                return uploadFiles().then(() => {
+                                  console.log("Do other things now");
+                                  $state.isDone = true;
+                                  $state.uploadflutter = true;
+                                });
+                              } else {
+                                $state.enoughCredit = false;
+                                return console.log("موجودی کافی نیست");
+                              }
                             })();
                           }
                         };
@@ -3435,7 +3475,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa\u06f4\u06f4"}
+                {"aa"}
               </div>
             </div>
           ) : null}
