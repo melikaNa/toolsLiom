@@ -4803,10 +4803,13 @@ function PlasmicChatBot__RenderFunc(props: {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
-                                          return window.open(
-                                            `https://tools.liom.app/test-analysis/?type=${currentItem.type}`,
-                                            "_self"
-                                          );
+                                          var link = `https://tools.liom.app/test-analysis/?type=${currentItem.type}`;
+                                          if (window?.FlutterChannel)
+                                            return window.FlutterChannel.postMessage(
+                                              `#inAppWebView**@@**${currentItem.headerTitle}**@@**${link}`
+                                            );
+                                          else
+                                            return window.open(link, "_self");
                                         })();
                                       }
                                     };

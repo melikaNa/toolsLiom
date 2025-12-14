@@ -887,7 +887,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-size: 14px;
+  font-size: 0px;
   min-width: 0;
 }
 .modal2:global(.__wab_instance) {
