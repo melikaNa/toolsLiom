@@ -1076,7 +1076,11 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                         objRoot: $state,
                         variablePath: ["uploadflutter"]
                       },
-                      operation: 0
+                      operation: 0,
+                      value: (() => {
+                        if (window?.FlutterChannel) return false;
+                        else return true;
+                      })()
                     };
                     return (({ variable, value, startIndex, deleteCount }) => {
                       if (!variable) {
