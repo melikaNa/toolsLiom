@@ -1068,38 +1068,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
               ) {
                 $steps["updateLoading"] = await $steps["updateLoading"];
               }
-
-              $steps["updateLoading3"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["uploadflutter"]
-                      },
-                      operation: 0,
-                      value: (() => {
-                        if (window?.FlutterChannel) return false;
-                        else return true;
-                      })()
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLoading3"] != null &&
-                typeof $steps["updateLoading3"] === "object" &&
-                typeof $steps["updateLoading3"].then === "function"
-              ) {
-                $steps["updateLoading3"] = await $steps["updateLoading3"];
-              }
             }}
           />
 
@@ -2553,7 +2521,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                     >
                       {(() => {
                         try {
-                          return !$state.isDone && $state.uploadflutter;
+                          return !$state.isDone || window?.FlutterChannel;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -3479,7 +3447,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa11"}
+                {"aa22"}
               </div>
             </div>
           ) : null}
