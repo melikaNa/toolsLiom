@@ -2620,7 +2620,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 await $steps["updateUploadLoad"];
                             }
 
-                            $steps["upload"] = true
+                            $steps["upload"] = !window?.FlutterChannel
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
@@ -3479,7 +3479,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa"}
+                {"aa11"}
               </div>
             </div>
           ) : null}
