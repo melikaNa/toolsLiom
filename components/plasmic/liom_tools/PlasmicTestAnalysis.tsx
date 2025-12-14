@@ -2678,6 +2678,26 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["upload"] = await $steps["upload"];
                             }
 
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return console.log("rominaaaa: 1");
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
                             $steps["medicalRecord"] =
                               $ctx.query.type != "filterino"
                                 ? (() => {
@@ -2717,6 +2737,45 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             ) {
                               $steps["medicalRecord"] =
                                 await $steps["medicalRecord"];
+                            }
+
+                            $steps["updateLoading2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return console.log("rominaaaa: 2");
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateLoading2"] != null &&
+                              typeof $steps["updateLoading2"] === "object" &&
+                              typeof $steps["updateLoading2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateLoading2"] =
+                                await $steps["updateLoading2"];
+                            }
+
+                            $steps["wait"] = true
+                              ? (() => {
+                                  const actionArgs = { args: [2014] };
+                                  return $globalActions["Fragment.wait"]?.apply(
+                                    null,
+                                    [...actionArgs.args]
+                                  );
+                                })()
+                              : undefined;
+                            if (
+                              $steps["wait"] != null &&
+                              typeof $steps["wait"] === "object" &&
+                              typeof $steps["wait"].then === "function"
+                            ) {
+                              $steps["wait"] = await $steps["wait"];
                             }
 
                             $steps["credit"] =
@@ -2780,21 +2839,26 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["credit"] = await $steps["credit"];
                             }
 
-                            $steps["wait"] = true
+                            $steps["updateLoading3"] = true
                               ? (() => {
-                                  const actionArgs = { args: [2014] };
-                                  return $globalActions["Fragment.wait"]?.apply(
-                                    null,
-                                    [...actionArgs.args]
-                                  );
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return console.log("rominaaaa: 3");
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
                                 })()
                               : undefined;
                             if (
-                              $steps["wait"] != null &&
-                              typeof $steps["wait"] === "object" &&
-                              typeof $steps["wait"].then === "function"
+                              $steps["updateLoading3"] != null &&
+                              typeof $steps["updateLoading3"] === "object" &&
+                              typeof $steps["updateLoading3"].then ===
+                                "function"
                             ) {
-                              $steps["wait"] = await $steps["wait"];
+                              $steps["updateLoading3"] =
+                                await $steps["updateLoading3"];
                             }
 
                             $steps["chatBot"] =
@@ -3397,7 +3461,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   if (data.status === false) {
                                     console.error("Server error:", data.result);
                                   } else {
-                                    $state.imageLoad.push(data.result);
+                                    $state.imageLoad.push("image/jpeg");
                                     $state.imageOpload[index].upload = true;
                                     $state.images.push(data.result);
                                   }
