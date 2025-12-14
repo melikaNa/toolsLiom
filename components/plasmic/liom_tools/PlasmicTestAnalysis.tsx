@@ -3404,12 +3404,15 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                   if (data.status === false) {
                                     console.error("Server error:", data.result);
                                   } else {
+                                    console.log("romina 1");
                                     $state.files.push("image/jpeg");
-                                    $state.imageOpload.push(data.result);
-                                    $state.imageOpload[
-                                      $state.imageOpload.length - 1
-                                    ].upload = true;
+                                    console.log("romina 2");
+                                    $state.imageLoad.push(data.result);
+                                    console.log("romina 3");
+                                    $state.imageOpload[index].upload = true;
+                                    console.log("romina 4");
                                     $state.images.push(data.result);
+                                    console.log("romina 5");
                                   }
                                 } catch (error) {
                                   console.error(
@@ -3450,7 +3453,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa66"}
+                {"aa77"}
               </div>
             </div>
           ) : null}
