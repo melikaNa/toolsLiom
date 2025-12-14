@@ -2678,26 +2678,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["upload"] = await $steps["upload"];
                             }
 
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return console.log("rominaaaa: 1");
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-
                             $steps["medicalRecord"] =
                               $ctx.query.type != "filterino"
                                 ? (() => {
@@ -2737,28 +2717,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             ) {
                               $steps["medicalRecord"] =
                                 await $steps["medicalRecord"];
-                            }
-
-                            $steps["updateLoading2"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return console.log("rominaaaa: 2");
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateLoading2"] != null &&
-                              typeof $steps["updateLoading2"] === "object" &&
-                              typeof $steps["updateLoading2"].then ===
-                                "function"
-                            ) {
-                              $steps["updateLoading2"] =
-                                await $steps["updateLoading2"];
                             }
 
                             $steps["wait"] = true
@@ -2839,11 +2797,25 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["credit"] = await $steps["credit"];
                             }
 
-                            $steps["updateLoading3"] = true
+                            $steps["runCode2"] = true
                               ? (() => {
                                   const actionArgs = {
                                     customFunction: async () => {
-                                      return console.log("rominaaaa: 3");
+                                      return (() => {
+                                        console.log(
+                                          "rominaaaa " + $ctx.query.type
+                                        );
+                                        console.log(
+                                          "rominaaaa " + $state.isDone
+                                        );
+                                        console.log(
+                                          "rominaaaa " + $state.enoughCredit
+                                        );
+                                        return console.log(
+                                          "rominaaaa " +
+                                            $steps.credit?.data?.success
+                                        );
+                                      })();
                                     }
                                   };
                                   return (({ customFunction }) => {
@@ -2852,13 +2824,11 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 })()
                               : undefined;
                             if (
-                              $steps["updateLoading3"] != null &&
-                              typeof $steps["updateLoading3"] === "object" &&
-                              typeof $steps["updateLoading3"].then ===
-                                "function"
+                              $steps["runCode2"] != null &&
+                              typeof $steps["runCode2"] === "object" &&
+                              typeof $steps["runCode2"].then === "function"
                             ) {
-                              $steps["updateLoading3"] =
-                                await $steps["updateLoading3"];
+                              $steps["runCode2"] = await $steps["runCode2"];
                             }
 
                             $steps["chatBot"] =
@@ -2940,24 +2910,30 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
+                                          console.log("rominaaaa: 1-1");
                                           const result = $state.images.map(
                                             item => ({
                                               value: item,
                                               type: "image"
                                             })
                                           );
+                                          console.log("rominaaaa: 1-2");
                                           var question = encodeURIComponent(
                                             $state.getInfo.firstMessage
                                           );
+                                          console.log("rominaaaa: 1-3");
                                           var attachments = encodeURIComponent(
                                             JSON.stringify(result)
                                           );
+                                          console.log("rominaaaa: 1-4");
                                           var decodedResult = JSON.parse(
                                             decodeURIComponent(attachments)
                                           );
+                                          console.log("rominaaaa: 1-5");
                                           var prompt = encodeURIComponent(
                                             $state.getInfo.prompt
                                           );
+                                          console.log("rominaaaa: 1-6");
                                           var link = `https://tools.liom.app/chat-bot/?question=${question}&attachments=${attachments}&inApp=undefined&prompt=${prompt}`;
                                           console.log(
                                             "attachments:" + attachments
@@ -2970,7 +2946,8 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                                 2
                                               )
                                           );
-                                          return console.log("link:" + link);
+                                          console.log("link:" + link);
+                                          return window.open(link, "_self");
                                         })();
                                       }
                                     };
@@ -2985,6 +2962,26 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               typeof $steps["chatBot2"].then === "function"
                             ) {
                               $steps["chatBot2"] = await $steps["chatBot2"];
+                            }
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return console.log("rominaaaa: 1");
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
                             }
 
                             $steps["notCredit"] =
@@ -3008,6 +3005,28 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               typeof $steps["notCredit"].then === "function"
                             ) {
                               $steps["notCredit"] = await $steps["notCredit"];
+                            }
+
+                            $steps["updateLoading2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return console.log("rominaaaa: 2");
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateLoading2"] != null &&
+                              typeof $steps["updateLoading2"] === "object" &&
+                              typeof $steps["updateLoading2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateLoading2"] =
+                                await $steps["updateLoading2"];
                             }
 
                             $steps["shop"] =
@@ -3039,6 +3058,28 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               typeof $steps["shop"].then === "function"
                             ) {
                               $steps["shop"] = await $steps["shop"];
+                            }
+
+                            $steps["updateLoading3"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return console.log("rominaaaa: 3");
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateLoading3"] != null &&
+                              typeof $steps["updateLoading3"] === "object" &&
+                              typeof $steps["updateLoading3"].then ===
+                                "function"
+                            ) {
+                              $steps["updateLoading3"] =
+                                await $steps["updateLoading3"];
                             }
 
                             $steps["uploadFilterino"] =
@@ -3504,7 +3545,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa33"}
+                {"aa44"}
               </div>
             </div>
           ) : null}
