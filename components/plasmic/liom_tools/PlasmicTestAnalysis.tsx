@@ -3453,9 +3453,59 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
                   }
+
+                  $steps["notCredit"] = !$state.enoughCredit
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "error",
+                            "\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627 \u06a9\u0627\u0641\u06cc \u0646\u06cc\u0633\u062a \u0644\u0637\u0641\u0627 \u0627\u0639\u062a\u0628\u0627\u0631 \u062e\u0648\u062f \u0631\u0627 \u0627\u0641\u0632\u0627\u06cc\u0634 \u062f\u0647\u06cc\u062f.",
+                            "bottom-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["notCredit"] != null &&
+                    typeof $steps["notCredit"] === "object" &&
+                    typeof $steps["notCredit"].then === "function"
+                  ) {
+                    $steps["notCredit"] = await $steps["notCredit"];
+                  }
+
+                  $steps["runCode2"] = !$state.enoughCredit
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              if (window.FlutterChannel?.postMessage) {
+                                return window.FlutterChannel.postMessage(
+                                  "#directDialog-chatBot"
+                                );
+                              } else
+                                return ($state.directDialogChatbot.open = true);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode2"] != null &&
+                    typeof $steps["runCode2"] === "object" &&
+                    typeof $steps["runCode2"].then === "function"
+                  ) {
+                    $steps["runCode2"] = await $steps["runCode2"];
+                  }
                 }}
               >
-                {""}
+                {"xxxx"}
               </div>
             </div>
           ) : null}
