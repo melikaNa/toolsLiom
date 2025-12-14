@@ -2964,26 +2964,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               $steps["chatBot2"] = await $steps["chatBot2"];
                             }
 
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return console.log("rominaaaa: 1");
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-
                             $steps["notCredit"] =
                               !$state.enoughCredit &&
                               $ctx.query.type != "filterino"
@@ -3005,28 +2985,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               typeof $steps["notCredit"].then === "function"
                             ) {
                               $steps["notCredit"] = await $steps["notCredit"];
-                            }
-
-                            $steps["updateLoading2"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return console.log("rominaaaa: 2");
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateLoading2"] != null &&
-                              typeof $steps["updateLoading2"] === "object" &&
-                              typeof $steps["updateLoading2"].then ===
-                                "function"
-                            ) {
-                              $steps["updateLoading2"] =
-                                await $steps["updateLoading2"];
                             }
 
                             $steps["shop"] =
@@ -3058,28 +3016,6 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               typeof $steps["shop"].then === "function"
                             ) {
                               $steps["shop"] = await $steps["shop"];
-                            }
-
-                            $steps["updateLoading3"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return console.log("rominaaaa: 3");
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateLoading3"] != null &&
-                              typeof $steps["updateLoading3"] === "object" &&
-                              typeof $steps["updateLoading3"].then ===
-                                "function"
-                            ) {
-                              $steps["updateLoading3"] =
-                                await $steps["updateLoading3"];
                             }
 
                             $steps["uploadFilterino"] =
@@ -3495,20 +3431,30 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                           customFunction: async () => {
                             return (() => {
                               var data = window.data;
+                              console.log("rominaaaa: 2-1");
                               $state.resultTest = true;
                               async function uploadFiles() {
                                 try {
                                   $state.link = data;
+                                  console.log("rominaaaa: 2-4");
                                   if (data.status === false) {
+                                    console.log("rominaaaa: 2-5");
                                     console.error("Server error:", data.result);
                                   } else {
+                                    console.log("rominaaaa: 2-6");
                                     $state.imageLoad.push("image/jpeg");
-                                    $state.imageOpload[index].upload = true;
+                                    console.log("rominaaaa: 2-7");
+                                    $state.imageOpload[
+                                      $state.imageOpload.length - 1
+                                    ].upload = true;
+                                    console.log("rominaaaa: 2-8");
                                     $state.images.push(data.result);
+                                    console.log("rominaaaa: 2-9");
                                   }
                                 } catch (error) {
+                                  console.log("rominaaaa: 2-10");
                                   console.error(
-                                    `Fetch error for file index ${index}:`,
+                                    `Fetch error for file index:`,
                                     error
                                   );
                                 }
@@ -3519,12 +3465,16 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                 parseInt($state.getInfo.price)
                               ) {
                                 $state.enoughCredit = true;
+                                console.log("rominaaaa: 2-2");
                                 return uploadFiles().then(() => {
                                   console.log("Do other things now");
                                   $state.isDone = true;
+                                  console.log("rominaaaa: 2-11");
                                   $state.uploadflutter = true;
+                                  console.log("rominaaaa: 2-12");
                                 });
                               } else {
+                                console.log("rominaaaa: 2-3");
                                 $state.enoughCredit = false;
                                 return console.log("موجودی کافی نیست");
                               }
@@ -3545,7 +3495,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa44"}
+                {"aa\u06f5\u06f5"}
               </div>
             </div>
           ) : null}
