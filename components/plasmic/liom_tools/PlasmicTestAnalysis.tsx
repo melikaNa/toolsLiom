@@ -3392,27 +3392,20 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                               var data = window.data;
                               $state.resultTest = true;
                               async function uploadFiles() {
-                                for (let [
-                                  index,
-                                  f
-                                ] of window.filess.entries()) {
-                                  try {
-                                    $state.link = data;
-                                    if (data.status === false) {
-                                      console.error(
-                                        "Server error:",
-                                        data.result
-                                      );
-                                    } else {
-                                      $state.imageOpload[index].upload = true;
-                                      $state.images.push(data.result);
-                                    }
-                                  } catch (error) {
-                                    console.error(
-                                      `Fetch error for file index ${index}:`,
-                                      error
-                                    );
+                                try {
+                                  $state.link = data;
+                                  if (data.status === false) {
+                                    console.error("Server error:", data.result);
+                                  } else {
+                                    $state.imageLoad.push(data.result);
+                                    $state.imageOpload[index].upload = true;
+                                    $state.images.push(data.result);
                                   }
+                                } catch (error) {
+                                  console.error(
+                                    `Fetch error for file index ${index}:`,
+                                    error
+                                  );
                                 }
                                 console.log("All uploads completed!");
                               }
@@ -3447,7 +3440,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa22"}
+                {"aa33"}
               </div>
             </div>
           ) : null}
