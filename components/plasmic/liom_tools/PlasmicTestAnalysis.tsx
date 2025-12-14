@@ -3409,7 +3409,9 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                     console.log("romina 2");
                                     $state.imageLoad.push(data.result);
                                     console.log("romina 3");
-                                    $state.imageOpload[index].upload = true;
+                                    $state.imageOpload[
+                                      $state.imageOpload.length - 1
+                                    ].upload = true;
                                     console.log("romina 4");
                                     $state.images.push(data.result);
                                     console.log("romina 5");
@@ -3453,7 +3455,7 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                   }
                 }}
               >
-                {"aa77"}
+                {"aa88"}
               </div>
             </div>
           ) : null}
