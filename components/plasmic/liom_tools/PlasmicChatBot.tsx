@@ -4798,32 +4798,96 @@ function PlasmicChatBot__RenderFunc(props: {
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["runCode"] = true
+                              $steps["invokeGlobalAction"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          var link = `https://tools.liom.app/test-analysis/?type=${currentItem.type}`;
-                                          if (window?.FlutterChannel)
-                                            return window.FlutterChannel.postMessage(
-                                              `#inAppWebView**@@**${currentItem.headerTitle}**@@**${link}`
-                                            );
-                                          else
-                                            return window.open(link, "_self");
-                                        })();
-                                      }
+                                      args: [
+                                        (() => {
+                                          try {
+                                            return currentItem.action;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return $state.token;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return $state.userId;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return $state.paramsObject.inApp;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        (() => {
+                                          try {
+                                            return $state.paramsObject.theme;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
                                     };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
+                                    return $globalActions[
+                                      "Fragment.deepLink"
+                                    ]?.apply(null, [...actionArgs.args]);
                                   })()
                                 : undefined;
                               if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
                               ) {
-                                $steps["runCode"] = await $steps["runCode"];
+                                $steps["invokeGlobalAction"] =
+                                  await $steps["invokeGlobalAction"];
                               }
                             }}
                           >
