@@ -399,20 +399,19 @@ export const Fragment = ({
 
             default:
             if (action.startsWith("#inAppWebView")) {
-              const link = action.split("**@@**");
-              let url = new URL(link[2]);
+                const link = action.split("**@@**");
+                let url = new URL(link[2]);
                 let param = new URLSearchParams(url.search);
                 const queryString = buildQueryString(params);
-                let urlLink="";
+                let urlLink = "";
                 if (param.has("inApp")) {
-                    param.set("inApp",inApp );
-                    url.search = param.toString();
-                    urlLink = url.toString();
-                }
-                if (param.has("token")&& token) {
-                    param.set("token",token );
-                    url.search = param.toString();
-                    urlLink = url.toString();
+                  param.set("inApp", inApp);
+                  url.search = param.toString();
+                  urlLink = url.toString();
+                } else {
+                  param.append("inApp", inApp);
+                  url.search = param.toString();
+                  urlLink = url.toString();
                 }
                 sendMessage(link[1], urlLink+`&${queryString}` ,inWebViow);
             }
