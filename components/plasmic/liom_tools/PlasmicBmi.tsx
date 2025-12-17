@@ -69,6 +69,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
+import DownloadBox from "../../DownloadBox"; // plasmic-import: qs69VeP7W8dx/component
 import Dialog3 from "../../Dialog3"; // plasmic-import: UHX61U1xmtjA/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: g07aZqGDQhtB/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
@@ -93,7 +94,6 @@ import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSD
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: sKUeDF21ImIk/icon
 import ChevronRightIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronRight"; // plasmic-import: ehuYANk-vbAX/icon
 import ChevronLeftIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: TyihT0qbU5hB/icon
-import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4LeWEqGr/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: d7z2iEn8tiSD/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
 
@@ -127,7 +127,7 @@ export type PlasmicBmi__OverridesType = {
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   buttonLiom7?: Flex__<typeof ButtonLiom>;
   buttonLiom8?: Flex__<typeof ButtonLiom>;
-  buttonLiom9?: Flex__<typeof ButtonLiom>;
+  downloadBox?: Flex__<typeof DownloadBox>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
@@ -1237,19 +1237,6 @@ function PlasmicBmi__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "buttonLiom9.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "resalt", "resalt") ? "line" : []
-      },
-      {
-        path: "buttonLiom9.load",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
         path: "buttonLiom10.color",
         type: "private",
         variableType: "text",
@@ -1730,7 +1717,7 @@ function PlasmicBmi__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u0648\u0632\u0646  \u0642\u0628\u0644 \u0627\u0632 \u0628\u0631\u062f\u0627\u0631\u06cc"
+                          "\u0648\u0632\u0646  \u0642\u0628\u0644 \u0627\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
                         }
                       </div>
                       <div
@@ -2098,6 +2085,13 @@ function PlasmicBmi__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return (() => {
+                                    function round(num, decimals) {
+                                      return (
+                                        Math.round(
+                                          num * Math.pow(10, decimals)
+                                        ) / Math.pow(10, decimals)
+                                      );
+                                    }
                                     var higth =
                                       parseInt($state.higth.value) / 100;
                                     var lastWeight = parseInt(
@@ -2108,7 +2102,10 @@ function PlasmicBmi__RenderFunc(props: {
                                     );
                                     var week = $state.week2;
                                     var gol = parseInt($state.radioGroup.value);
-                                    var lastbmi = lastWeight / (higth * higth);
+                                    var lastbmi = round(
+                                      lastWeight / (higth * higth),
+                                      1
+                                    );
                                     var bmiRanges =
                                       $state.bmiCategories.findIndex(
                                         range =>
@@ -4220,9 +4217,11 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     }
                   />
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__dgpYc, {
-                    [sty.freeBoxresalt__dgpYcCpkCp]: hasVariant(
+                <DownloadBox
+                  data-plasmic-name={"downloadBox"}
+                  data-plasmic-override={overrides.downloadBox}
+                  className={classNames("__wab_instance", sty.downloadBox, {
+                    [sty.downloadBoxresalt]: hasVariant(
                       $state,
                       "resalt",
                       "resalt"
@@ -4233,9 +4232,9 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__mxhF6,
+                      sty.text__tsevP,
                       {
-                        [sty.textresalt__mxhF6CpkCp]: hasVariant(
+                        [sty.textresalt__tsevPCpkCp]: hasVariant(
                           $state,
                           "resalt",
                           "resalt"
@@ -4243,200 +4242,41 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       }
                     )}
                   >
-                    {hasVariant($state, "resalt", "resalt")
-                      ? "\u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u0631\u0627\u06cc\u06af\u0627\u0646 \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0628\u0647\u062a\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062f\u0631 \u0644\u06cc\u0648\u0645 \u062f\u0631 \u062f\u0633\u062a\u0631\u0633\u0647."
-                      : "\u0627\u06cc\u0646 BMI \u0628\u0631 \u0627\u0633\u0627\u0633 \u0648\u0632\u0646 \u0648\u0631\u0648\u062f\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0645\u06cc \u0634\u0648\u062f \u0648 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0627\u0633\u062a."}
+                    {hasVariant($state, "resalt", "resalt") ? (
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return `لیوم رو نصب کن تا استرس بارداری ازت دور بشه و به ابزارهای بیشتری دسترسی پیدا کنی`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631\r";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    ) : (
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631\r";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    )}
                   </div>
-                  <ButtonLiom
-                    data-plasmic-name={"buttonLiom9"}
-                    data-plasmic-override={overrides.buttonLiom9}
-                    className={classNames("__wab_instance", sty.buttonLiom9, {
-                      [sty.buttonLiom9resalt]: hasVariant(
-                        $state,
-                        "resalt",
-                        "resalt"
-                      )
-                    })}
-                    color={generateStateValueProp($state, [
-                      "buttonLiom9",
-                      "color"
-                    ])}
-                    endIcon={
-                      <PlasmicIcon__
-                        PlasmicIconType={
-                          hasVariant($state, "resalt", "resalt")
-                            ? Icon152Icon
-                            : Icon11Icon
-                        }
-                        className={classNames(projectcss.all, sty.svg__ant5K, {
-                          [sty.svgresalt__ant5KCpkCp]: hasVariant(
-                            $state,
-                            "resalt",
-                            "resalt"
-                          )
-                        })}
-                        role={"img"}
-                      />
-                    }
-                    load={generateStateValueProp($state, [
-                      "buttonLiom9",
-                      "load"
-                    ])}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["goToPage"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return "https://liom.app/link/";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
-                      ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://api.liom.app/service/log",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      appKey:
-                                        "eyiaophkahaMAQwpqwjhr218aeewfuiaey-xxluyhawd2012-qigwi-oooh",
-                                      userId: "",
-                                      pageName: "Pregnancy_BMI",
-                                      action: "download_liom",
-                                      extraData: {}
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                {
-                                  headers: {
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                                  }
-                                }
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] =
-                          await $steps["invokeGlobalAction"];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "buttonLiom9",
-                          "color"
-                        ])(eventArgs[0]);
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    onLoadChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "buttonLiom9",
-                          "load"
-                        ])(eventArgs[0]);
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    showEndIcon={
-                      hasVariant($state, "resalt", "resalt") ? true : undefined
-                    }
-                    size={
-                      hasVariant($state, "resalt", "resalt")
-                        ? "compact"
-                        : undefined
-                    }
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___6Hn5E,
-                        {
-                          [sty.textresalt___6Hn5ECpkCp]: hasVariant(
-                            $state,
-                            "resalt",
-                            "resalt"
-                          )
-                        }
-                      )}
-                    >
-                      {hasVariant($state, "resalt", "resalt")
-                        ? "\u0648\u0631\u0648\u062f \u0628\u0647 \u0644\u06cc\u0648\u0645"
-                        : "\u0645\u062d\u0627\u0633\u0628\u0647 \u0645\u062c\u062f\u062f"}
-                    </div>
-                  </ButtonLiom>
-                </div>
+                </DownloadBox>
               </div>
             </div>
             <section
@@ -5482,7 +5322,7 @@ const PlasmicDescendants = {
     "buttonLiom3",
     "buttonLiom7",
     "buttonLiom8",
-    "buttonLiom9",
+    "downloadBox",
     "buttonLiom2",
     "buttonLiom4",
     "buttonLiom5",
@@ -5509,7 +5349,7 @@ const PlasmicDescendants = {
   buttonLiom3: ["buttonLiom3"],
   buttonLiom7: ["buttonLiom7"],
   buttonLiom8: ["buttonLiom8"],
-  buttonLiom9: ["buttonLiom9"],
+  downloadBox: ["downloadBox"],
   buttonLiom2: ["buttonLiom2"],
   buttonLiom4: ["buttonLiom4"],
   buttonLiom5: ["buttonLiom5"],
@@ -5549,7 +5389,7 @@ type NodeDefaultElementType = {
   buttonLiom3: typeof ButtonLiom;
   buttonLiom7: typeof ButtonLiom;
   buttonLiom8: typeof ButtonLiom;
-  buttonLiom9: typeof ButtonLiom;
+  downloadBox: typeof DownloadBox;
   buttonLiom2: typeof ButtonLiom;
   buttonLiom4: typeof ButtonLiom;
   buttonLiom5: typeof ButtonLiom;
@@ -5664,7 +5504,7 @@ export const PlasmicBmi = Object.assign(
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     buttonLiom7: makeNodeComponent("buttonLiom7"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
-    buttonLiom9: makeNodeComponent("buttonLiom9"),
+    downloadBox: makeNodeComponent("downloadBox"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),

@@ -3719,6 +3719,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/chat-bot"
+        },
+        {
+          "id": "qs69VeP7W8dx",
+          "name": "DownloadBox",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicDownloadBox.tsx",
+          "importSpec": {
+            "modulePath": "DownloadBox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicDownloadBox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -5181,6 +5194,31 @@
           "id": "5yw7sU4rQYyF",
           "name": "Icon228Icon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon228.tsx"
+        },
+        {
+          "id": "sfB9S50y4EEm",
+          "name": "Icon229Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon229.tsx"
+        },
+        {
+          "id": "JwNEG6E94on5",
+          "name": "Icon230Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon230.tsx"
+        },
+        {
+          "id": "Ajc9N-osIhbB",
+          "name": "Icon231Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon231.tsx"
+        },
+        {
+          "id": "6WGzli86PSTq",
+          "name": "Icon232Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon232.tsx"
+        },
+        {
+          "id": "kfDbmkEPBNdb",
+          "name": "Google2SvgIcon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Google2Svg.tsx"
         }
       ],
       "images": [
