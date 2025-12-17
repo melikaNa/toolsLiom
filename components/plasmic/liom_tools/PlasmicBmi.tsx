@@ -93,6 +93,7 @@ import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSD
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: sKUeDF21ImIk/icon
 import ChevronRightIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronRight"; // plasmic-import: ehuYANk-vbAX/icon
 import ChevronLeftIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronLeft"; // plasmic-import: TyihT0qbU5hB/icon
+import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: aN1J4LeWEqGr/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: d7z2iEn8tiSD/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: 7vleC7ixE4k4/icon
 
@@ -126,9 +127,11 @@ export type PlasmicBmi__OverridesType = {
   buttonLiom3?: Flex__<typeof ButtonLiom>;
   buttonLiom7?: Flex__<typeof ButtonLiom>;
   buttonLiom8?: Flex__<typeof ButtonLiom>;
+  buttonLiom9?: Flex__<typeof ButtonLiom>;
   buttonLiom2?: Flex__<typeof ButtonLiom>;
   buttonLiom4?: Flex__<typeof ButtonLiom>;
   buttonLiom5?: Flex__<typeof ButtonLiom>;
+  buttonLiom10?: Flex__<typeof ButtonLiom>;
   dialog3?: Flex__<typeof Dialog3>;
   apiRequest?: Flex__<typeof ApiRequest>;
   dialogTitle?: Flex__<typeof DialogTitle>;
@@ -1232,6 +1235,31 @@ function PlasmicBmi__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom9.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "resalt", "resalt") ? "line" : []
+      },
+      {
+        path: "buttonLiom9.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "buttonLiom10.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "buttonLiom10.load",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1398,9 +1426,7 @@ function PlasmicBmi__RenderFunc(props: {
                           searchParams.delete("token");
                           searchParams.delete("userId");
                           searchParams.delete("user_id");
-                          const newUrl = `${
-                            window.location.pathname
-                          }?${searchParams.toString()}`;
+                          const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
                           return window.history.replaceState(null, "", newUrl);
                         })();
                       }
@@ -1416,6 +1442,55 @@ function PlasmicBmi__RenderFunc(props: {
                 typeof $steps["clearParams"].then === "function"
               ) {
                 $steps["clearParams"] = await $steps["clearParams"];
+              }
+
+              $steps["invokeGlobalAction"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              appKey:
+                                "eyiaophkahaMAQwpqwjhr218aeewfuiaey-xxluyhawd2012-qigwi-oooh",
+                              userId: "",
+                              pageName: "Pregnancy_BMI",
+                              action: "page_load",
+                              extraData: {}
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        {
+                          headers: {
+                            Authorization:
+                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                          }
+                        }
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
             }}
           />
@@ -1766,8 +1841,9 @@ function PlasmicBmi__RenderFunc(props: {
                                           parseInt($state.week.value) > 40
                                             ? 40
                                             : parseInt($state.week.value) < 1
-                                            ? 1
-                                            : parseInt($state.week.value) || 0);
+                                              ? 1
+                                              : parseInt($state.week.value) ||
+                                                0);
                                       }
                                     };
                                     return (({ customFunction }) => {
@@ -2060,8 +2136,8 @@ function PlasmicBmi__RenderFunc(props: {
                                       add >= min && add <= max
                                         ? 1
                                         : add < min
-                                        ? 0
-                                        : 2;
+                                          ? 0
+                                          : 2;
                                     return ($state.bmi = {
                                       gol: gol,
                                       bmiRanges: bmiRanges,
@@ -2147,9 +2223,59 @@ function PlasmicBmi__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
+                      }
+
+                      $steps["invokeGlobalAction2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      appKey:
+                                        "eyiaophkahaMAQwpqwjhr218aeewfuiaey-xxluyhawd2012-qigwi-oooh",
+                                      userId: "",
+                                      pageName: "Pregnancy_BMI",
+                                      action: "get_BMI",
+                                      extraData: {}
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                {
+                                  headers: {
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                  }
+                                }
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2362,8 +2488,8 @@ function PlasmicBmi__RenderFunc(props: {
                                       add >= min && add <= max
                                         ? 1
                                         : add < min
-                                        ? 0
-                                        : 2;
+                                          ? 0
+                                          : 2;
                                     return ($state.bmi = {
                                       week: $state.bmi.week,
                                       lastbmi: Math.fround(lastbmi),
@@ -2417,9 +2543,8 @@ function PlasmicBmi__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -2733,11 +2858,7 @@ background: linear-gradient(to right,
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: ${
-        $state.bmiCategories.find(
-          item => $state.bmi.bmi >= item.min && $state.bmi.bmi <= item.max
-        ).color
-      };
+      background: ${$state.bmiCategories.find(item => $state.bmi.bmi >= item.min && $state.bmi.bmi <= item.max).color};
       cursor: pointer;
       border: 2px solid white;
       box-shadow: 0 0 4px rgba(0,0,0,0.3);
@@ -2755,9 +2876,7 @@ background: linear-gradient(to right,
 
   <div class="sidebar" style="direction: ltr !important;">
     <div class="slider-container">
-      <input type="range" id="weekSlider" name="weekSlider" min="1" max="40" value="${
-        $state.bmi.bmi
-      }" disabled> 
+      <input type="range" id="weekSlider" name="weekSlider" min="1" max="40" value="${$state.bmi.bmi}" disabled> 
     </div>
   </div>
 
@@ -2863,8 +2982,8 @@ background: linear-gradient(to right,
                                       add >= min && add <= max
                                         ? 1
                                         : add < min
-                                        ? 0
-                                        : 2;
+                                          ? 0
+                                          : 2;
                                     return ($state.bmi = {
                                       week: week,
                                       lastbmi: lastbmi,
@@ -2919,9 +3038,8 @@ background: linear-gradient(to right,
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
@@ -3065,8 +3183,8 @@ background: linear-gradient(to right,
                                     add >= min && add <= max
                                       ? 1
                                       : add < min
-                                      ? 0
-                                      : 2;
+                                        ? 0
+                                        : 2;
                                   return ($state.bmi = {
                                     week: $state.bmi.week,
                                     lastbmi: Math.fround(lastbmi),
@@ -3121,9 +3239,8 @@ background: linear-gradient(to right,
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3273,8 +3390,8 @@ background: linear-gradient(to right,
                                     add >= min && add <= max
                                       ? 1
                                       : add < min
-                                      ? 0
-                                      : 2;
+                                        ? 0
+                                        : 2;
                                   return ($state.bmi = {
                                     week: $state.bmi.week,
                                     lastbmi: Math.fround(lastbmi),
@@ -3329,9 +3446,8 @@ background: linear-gradient(to right,
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3625,28 +3741,12 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم `;
                         __html: (() => {
                           try {
                             return `BMI شما پیش از بارداری 
-<span style="color: ${
-                              $state.bmiCategories.find(
-                                item =>
-                                  $state.bmi.lastbmi >= item.min &&
-                                  $state.bmi.lastbmi <= item.max
-                              ).color
-                            }; font-weight: bold;">
+<span style="color: ${$state.bmiCategories.find(item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max).color}; font-weight: bold;">
   ${$state.bmi.lastbmi.toFixed(2)}
 </span> 
 بوده که در محدوده 
-<span style="color: ${
-                              $state.bmiCategories.find(
-                                item =>
-                                  $state.bmi.lastbmi >= item.min &&
-                                  $state.bmi.lastbmi <= item.max
-                              ).color
-                            }; font-weight: bold;">
-  ${
-    $state.bmiCategories.find(
-      item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max
-    ).status
-  }
+<span style="color: ${$state.bmiCategories.find(item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max).color}; font-weight: bold;">
+  ${$state.bmiCategories.find(item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max).status}
 </span> 
 قرار دارد.`;
                           } catch (e) {
@@ -3685,28 +3785,12 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم `;
                           __html: (() => {
                             try {
                               return `BMI شما پیش از بارداری 
-<span style="color: ${
-                                $state.bmiCategories.find(
-                                  item =>
-                                    $state.bmi.lastbmi >= item.min &&
-                                    $state.bmi.lastbmi <= item.max
-                                ).color
-                              }; font-weight: bold;">
+<span style="color: ${$state.bmiCategories.find(item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max).color}; font-weight: bold;">
   ${$state.bmi.lastbmi.toFixed(2)}
 </span> 
 بوده که در محدوده 
-<span style="color: ${
-                                $state.bmiCategories.find(
-                                  item =>
-                                    $state.bmi.lastbmi >= item.min &&
-                                    $state.bmi.lastbmi <= item.max
-                                ).color
-                              }; font-weight: bold;">
-  ${
-    $state.bmiCategories.find(
-      item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max
-    ).status
-  }
+<span style="color: ${$state.bmiCategories.find(item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max).color}; font-weight: bold;">
+  ${$state.bmiCategories.find(item => $state.bmi.lastbmi >= item.min && $state.bmi.lastbmi <= item.max).status}
 </span> 
 قرار دارد.`;
                             } catch (e) {
@@ -3762,13 +3846,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم `;
                               return `شما تا هفته ${$state.week2}  بارداری
 <span style="font-weight: bold;">
 ${$state.bmi.add}  کیلوگرم 
-  ${
-    $state.bmi.add < 0
-      ? "کاهش وزن"
-      : $state.bmi.add >= 0
-      ? "افزایش وزن"
-      : "هیچ تغییری"
-  }
+  ${$state.bmi.add < 0 ? "کاهش وزن" : $state.bmi.add >= 0 ? "افزایش وزن" : "هیچ تغییری"}
 </span>
 داشته اید. که در محدوده
 <span style="color: ${$state.gain[$state.bmi.type].color}; font-weight: bold;">
@@ -3874,9 +3952,7 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
 </div>
 
 <script>
-  const data = ${JSON.stringify(
-    $state.weight[$state.bmi.gol - 1][$state.bmi.bmiRanges].weeks
-  )};
+  const data = ${JSON.stringify($state.weight[$state.bmi.gol - 1][$state.bmi.bmiRanges].weeks)};
   const userPoint = { week: 20, gain: 5 };
 
   const canvas = document.getElementById('chart');
@@ -4144,6 +4220,223 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                     }
                   />
                 </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__dgpYc, {
+                    [sty.freeBoxresalt__dgpYcCpkCp]: hasVariant(
+                      $state,
+                      "resalt",
+                      "resalt"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__mxhF6,
+                      {
+                        [sty.textresalt__mxhF6CpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "resalt", "resalt")
+                      ? "\u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u0631\u0627\u06cc\u06af\u0627\u0646 \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u0628\u0647\u062a\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062f\u0631 \u0644\u06cc\u0648\u0645 \u062f\u0631 \u062f\u0633\u062a\u0631\u0633\u0647."
+                      : "\u0627\u06cc\u0646 BMI \u0628\u0631 \u0627\u0633\u0627\u0633 \u0648\u0632\u0646 \u0648\u0631\u0648\u062f\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0645\u06cc \u0634\u0648\u062f \u0648 \u0645\u0646\u0627\u0633\u0628 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0627\u0633\u062a."}
+                  </div>
+                  <ButtonLiom
+                    data-plasmic-name={"buttonLiom9"}
+                    data-plasmic-override={overrides.buttonLiom9}
+                    className={classNames("__wab_instance", sty.buttonLiom9, {
+                      [sty.buttonLiom9resalt]: hasVariant(
+                        $state,
+                        "resalt",
+                        "resalt"
+                      )
+                    })}
+                    color={generateStateValueProp($state, [
+                      "buttonLiom9",
+                      "color"
+                    ])}
+                    endIcon={
+                      <PlasmicIcon__
+                        PlasmicIconType={
+                          hasVariant($state, "resalt", "resalt")
+                            ? Icon152Icon
+                            : Icon11Icon
+                        }
+                        className={classNames(projectcss.all, sty.svg__ant5K, {
+                          [sty.svgresalt__ant5KCpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        })}
+                        role={"img"}
+                      />
+                    }
+                    load={generateStateValueProp($state, [
+                      "buttonLiom9",
+                      "load"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return "https://liom.app/link/";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      appKey:
+                                        "eyiaophkahaMAQwpqwjhr218aeewfuiaey-xxluyhawd2012-qigwi-oooh",
+                                      userId: "",
+                                      pageName: "Pregnancy_BMI",
+                                      action: "download_liom",
+                                      extraData: {}
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                {
+                                  headers: {
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                                  }
+                                }
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom9",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onLoadChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "buttonLiom9",
+                          "load"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    showEndIcon={
+                      hasVariant($state, "resalt", "resalt") ? true : undefined
+                    }
+                    size={
+                      hasVariant($state, "resalt", "resalt")
+                        ? "compact"
+                        : undefined
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___6Hn5E,
+                        {
+                          [sty.textresalt___6Hn5ECpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "resalt", "resalt")
+                        ? "\u0648\u0631\u0648\u062f \u0628\u0647 \u0644\u06cc\u0648\u0645"
+                        : "\u0645\u062d\u0627\u0633\u0628\u0647 \u0645\u062c\u062f\u062f"}
+                    </div>
+                  </ButtonLiom>
+                </div>
               </div>
             </div>
             <section
@@ -4236,8 +4529,8 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                                   add >= min && add <= max
                                     ? 1
                                     : add < min
-                                    ? 0
-                                    : 2;
+                                      ? 0
+                                      : 2;
                                 return ($state.bmi = {
                                   week: week,
                                   lastbmi: lastbmi,
@@ -4292,9 +4585,8 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -4433,8 +4725,8 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                                   add >= min && add <= max
                                     ? 1
                                     : add < min
-                                    ? 0
-                                    : 2;
+                                      ? 0
+                                      : 2;
                                 return ($state.bmi = {
                                   week: $state.bmi.week,
                                   lastbmi: lastbmi,
@@ -4489,9 +4781,8 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -4618,6 +4909,104 @@ ${parseInt($state.bmi.weight) + $state.bmi.max} کیلوگرم  ...
                       projectcss.all,
                       projectcss.__wab_text,
                       sty.text__sNlgq
+                    )}
+                  >
+                    {
+                      "\u0645\u062d\u0627\u0633\u0628\u0647 \u0645\u062c\u062f\u062f"
+                    }
+                  </div>
+                </ButtonLiom>
+                <ButtonLiom
+                  data-plasmic-name={"buttonLiom10"}
+                  data-plasmic-override={overrides.buttonLiom10}
+                  className={classNames("__wab_instance", sty.buttonLiom10, {
+                    [sty.buttonLiom10resalt]: hasVariant(
+                      $state,
+                      "resalt",
+                      "resalt"
+                    )
+                  })}
+                  color={generateStateValueProp($state, [
+                    "buttonLiom10",
+                    "color"
+                  ])}
+                  load={generateStateValueProp($state, [
+                    "buttonLiom10",
+                    "load"
+                  ])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateResalt"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "resalt",
+                            operation: 6,
+                            value: "resalt"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, false);
+                            return false;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateResalt"] != null &&
+                      typeof $steps["updateResalt"] === "object" &&
+                      typeof $steps["updateResalt"].then === "function"
+                    ) {
+                      $steps["updateResalt"] = await $steps["updateResalt"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom10",
+                        "color"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onLoadChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, [
+                        "buttonLiom10",
+                        "load"
+                      ])(eventArgs[0]);
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__o1VyI,
+                      {
+                        [sty.textresalt__o1VyICpkCp]: hasVariant(
+                          $state,
+                          "resalt",
+                          "resalt"
+                        )
+                      }
                     )}
                   >
                     {
@@ -5093,9 +5482,11 @@ const PlasmicDescendants = {
     "buttonLiom3",
     "buttonLiom7",
     "buttonLiom8",
+    "buttonLiom9",
     "buttonLiom2",
     "buttonLiom4",
     "buttonLiom5",
+    "buttonLiom10",
     "dialog3",
     "apiRequest",
     "dialogTitle",
@@ -5118,9 +5509,11 @@ const PlasmicDescendants = {
   buttonLiom3: ["buttonLiom3"],
   buttonLiom7: ["buttonLiom7"],
   buttonLiom8: ["buttonLiom8"],
+  buttonLiom9: ["buttonLiom9"],
   buttonLiom2: ["buttonLiom2"],
   buttonLiom4: ["buttonLiom4"],
   buttonLiom5: ["buttonLiom5"],
+  buttonLiom10: ["buttonLiom10"],
   dialog3: [
     "dialog3",
     "apiRequest",
@@ -5156,9 +5549,11 @@ type NodeDefaultElementType = {
   buttonLiom3: typeof ButtonLiom;
   buttonLiom7: typeof ButtonLiom;
   buttonLiom8: typeof ButtonLiom;
+  buttonLiom9: typeof ButtonLiom;
   buttonLiom2: typeof ButtonLiom;
   buttonLiom4: typeof ButtonLiom;
   buttonLiom5: typeof ButtonLiom;
+  buttonLiom10: typeof ButtonLiom;
   dialog3: typeof Dialog3;
   apiRequest: typeof ApiRequest;
   dialogTitle: typeof DialogTitle;
@@ -5180,7 +5575,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicBmi__VariantsArgs;
     args?: PlasmicBmi__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicBmi__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicBmi__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicBmi__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
@@ -5267,9 +5664,11 @@ export const PlasmicBmi = Object.assign(
     buttonLiom3: makeNodeComponent("buttonLiom3"),
     buttonLiom7: makeNodeComponent("buttonLiom7"),
     buttonLiom8: makeNodeComponent("buttonLiom8"),
+    buttonLiom9: makeNodeComponent("buttonLiom9"),
     buttonLiom2: makeNodeComponent("buttonLiom2"),
     buttonLiom4: makeNodeComponent("buttonLiom4"),
     buttonLiom5: makeNodeComponent("buttonLiom5"),
+    buttonLiom10: makeNodeComponent("buttonLiom10"),
     dialog3: makeNodeComponent("dialog3"),
     apiRequest: makeNodeComponent("apiRequest"),
     dialogTitle: makeNodeComponent("dialogTitle"),
