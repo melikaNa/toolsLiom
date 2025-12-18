@@ -1605,7 +1605,15 @@ function PlasmicBmi__RenderFunc(props: {
                 }
               })()}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__onWzc)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__onWzc, {
+                  [sty.freeBoxresalt__onWzcCpkCp]: hasVariant(
+                    $state,
+                    "resalt",
+                    "resalt"
+                  )
+                })}
+              >
                 <div className={classNames(projectcss.all, sty.freeBox__kcXag)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__yrvB)}
@@ -2618,7 +2626,70 @@ function PlasmicBmi__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__j1DUo)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__g4RiL)}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__iQb4A,
+                        {
+                          [sty.textresalt__iQb4ACpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
+                      )}
+                      style={(() => {
+                        try {
+                          return {
+                            color: $state.bmiCategories.find(
+                              item =>
+                                $state.bmi.bmi >= item.min &&
+                                $state.bmi.bmi <= item.max
+                            ).color
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.bmiCategories.find(
+                              item =>
+                                $state.bmi.bmi >= item.min &&
+                                $state.bmi.bmi <= item.max
+                            ).status;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0648\u0636\u0639\u06cc\u062a \u0646\u0631\u0645\u0627\u0644";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__g4RiL,
+                        {
+                          [sty.freeBoxresalt__g4RiLCpkCp]: hasVariant(
+                            $state,
+                            "resalt",
+                            "resalt"
+                          )
+                        }
+                      )}
                     >
                       <div
                         className={classNames(
@@ -2689,64 +2760,18 @@ function PlasmicBmi__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__pD9O
+                          sty.text__pD9O,
+                          {
+                            [sty.textresalt__pD9OCpkCp]: hasVariant(
+                              $state,
+                              "resalt",
+                              "resalt"
+                            )
+                          }
                         )}
                       >
                         {"\u0647\u0633\u062a."}
                       </div>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__iQb4A,
-                        {
-                          [sty.textresalt__iQb4ACpkCp]: hasVariant(
-                            $state,
-                            "resalt",
-                            "resalt"
-                          )
-                        }
-                      )}
-                      style={(() => {
-                        try {
-                          return {
-                            color: $state.bmiCategories.find(
-                              item =>
-                                $state.bmi.bmi >= item.min &&
-                                $state.bmi.bmi <= item.max
-                            ).color
-                          };
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.bmiCategories.find(
-                              item =>
-                                $state.bmi.bmi >= item.min &&
-                                $state.bmi.bmi <= item.max
-                            ).status;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0648\u0636\u0639\u06cc\u062a \u0646\u0631\u0645\u0627\u0644";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
                     </div>
                     <div
                       className={classNames(
