@@ -139,6 +139,8 @@ function PlasmicDownloadBox__RenderFunc(props: {
 
   const globalVariants = _useGlobalVariants();
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -236,7 +238,72 @@ function PlasmicDownloadBox__RenderFunc(props: {
             ? "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631\r"
             : "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631\r"}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__lnR0)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__lnR0)}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["invokeGlobalAction"] = true
+            ? (() => {
+                const actionArgs = {
+                  args: [
+                    "POST",
+                    "https://api.liom.app/service/log",
+                    undefined,
+                    (() => {
+                      try {
+                        return {
+                          appKey:
+                            "eyiaophkahaMAQwpqwjhr218aeewfuiaey-xxluyhawd2012-qigwi-oooh",
+                          userId: "",
+                          pageName: "Pregnancy_BMI",
+                          action: "download_liom",
+                          extraData: {}
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })(),
+                    (() => {
+                      try {
+                        return {
+                          headers: {
+                            Authorization:
+                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                          }
+                        };
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  ]
+                };
+                return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["invokeGlobalAction"] != null &&
+            typeof $steps["invokeGlobalAction"] === "object" &&
+            typeof $steps["invokeGlobalAction"].then === "function"
+          ) {
+            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+          }
+        }}
+      >
         <PlasmicLink__
           className={classNames(projectcss.all, projectcss.a, sty.link___7Bxh5)}
           component={Link}

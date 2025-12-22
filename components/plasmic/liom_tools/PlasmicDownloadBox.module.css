@@ -2,21 +2,32 @@
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: flex-start;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
-  background: var(--token-ieogzVSSyrRx);
+  background: linear-gradient(
+      120deg,
+      #fef5ff 0%,
+      #fff1ee 27%,
+      #f1fff1 67%,
+      #e9faff 100%
+    )
+    0% 0% / 100% 100% repeat;
   position: relative;
+  align-content: flex-start;
+  outline-width: thin;
+  outline-color: var(--token-ytBWtTwx11rx);
+  outline-style: solid;
   min-width: 0;
+  min-height: 0;
   border-radius: 8px;
   padding: var(--token-6eH8UjLOmr7v);
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .root {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
-    background: var(--token-ieogzVSSyrRx);
     height: auto;
     border-width: 0px;
   }
@@ -47,10 +58,10 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__q6Al {
     display: flex;
-    flex-direction: row;
-    column-gap: var(--token-KVcr9NiMwFLr);
+    flex-direction: column;
     padding-bottom: var(--token-6eH8UjLOmr7v);
-    row-gap: 0px;
+    row-gap: var(--token-KVcr9NiMwFLr);
+    column-gap: 0px;
   }
 }
 .svg {
