@@ -649,12 +649,13 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             $state.paramsObject.tokenChatBot !== undefined &&
                             $state.paramsObject.tokenChatBot?.trim() !== ""
                           ) {
-                            return ($state.tokenChatBot =
-                              $state.paramsObject.tokenChatBot);
+                            $state.tokenChatBot =
+                              $state.paramsObject.tokenChatBot;
                           } else {
-                            return ($state.tokenChatBot =
-                              getCookie("tokenChatBot"));
+                            $state.tokenChatBot = getCookie("tokenChatBot");
                           }
+                          console.log($state.token);
+                          return console.log($state.tokenChatBot);
                         })();
                       }
                     };
