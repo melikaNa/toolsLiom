@@ -414,7 +414,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicLinearCalendar2__VariantsArgs;
     args?: PlasmicLinearCalendar2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicLinearCalendar2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicLinearCalendar2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicLinearCalendar2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -316,10 +316,10 @@ function PlasmicImageOpload__RenderFunc(props: {
         hasVariant($state, "upload2", "upload2") && triggers.hover_root
           ? true
           : triggers.hover_root
-          ? true
-          : hasVariant($state, "upload2", "upload2")
-          ? true
-          : false
+            ? true
+            : hasVariant($state, "upload2", "upload2")
+              ? true
+              : false
       ) ? (
         <PlasmicIcon__
           PlasmicIconType={
@@ -365,7 +365,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicImageOpload__VariantsArgs;
     args?: PlasmicImageOpload__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicImageOpload__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicImageOpload__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicImageOpload__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

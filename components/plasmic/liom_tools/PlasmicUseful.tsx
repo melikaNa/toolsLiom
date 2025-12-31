@@ -274,7 +274,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicUseful__VariantsArgs;
     args?: PlasmicUseful__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicUseful__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicUseful__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicUseful__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -631,9 +631,8 @@ function PlasmicPlayList__RenderFunc(props: {
                         typeof $steps["updatePlayIndex"] === "object" &&
                         typeof $steps["updatePlayIndex"].then === "function"
                       ) {
-                        $steps["updatePlayIndex"] = await $steps[
-                          "updatePlayIndex"
-                        ];
+                        $steps["updatePlayIndex"] =
+                          await $steps["updatePlayIndex"];
                       }
 
                       $steps["runCode"] = true
@@ -860,7 +859,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicPlayList__VariantsArgs;
     args?: PlasmicPlayList__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicPlayList__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicPlayList__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicPlayList__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

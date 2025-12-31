@@ -295,9 +295,8 @@ function PlasmicUnLike__RenderFunc(props: {
             typeof $steps["updateDialog3Opendialog"] === "object" &&
             typeof $steps["updateDialog3Opendialog"].then === "function"
           ) {
-            $steps["updateDialog3Opendialog"] = await $steps[
-              "updateDialog3Opendialog"
-            ];
+            $steps["updateDialog3Opendialog"] =
+              await $steps["updateDialog3Opendialog"];
           }
         }}
         role={"img"}
@@ -430,9 +429,8 @@ function PlasmicUnLike__RenderFunc(props: {
                       typeof $steps["updateAntdInputTextAreaValue"].then ===
                         "function"
                     ) {
-                      $steps["updateAntdInputTextAreaValue"] = await $steps[
-                        "updateAntdInputTextAreaValue"
-                      ];
+                      $steps["updateAntdInputTextAreaValue"] =
+                        await $steps["updateAntdInputTextAreaValue"];
                     }
                   }}
                   selected={(() => {
@@ -572,9 +570,8 @@ function PlasmicUnLike__RenderFunc(props: {
                 typeof $steps["updateDialog3Opendialog"] === "object" &&
                 typeof $steps["updateDialog3Opendialog"].then === "function"
               ) {
-                $steps["updateDialog3Opendialog"] = await $steps[
-                  "updateDialog3Opendialog"
-                ];
+                $steps["updateDialog3Opendialog"] =
+                  await $steps["updateDialog3Opendialog"];
               }
 
               $steps["invokeGlobalAction"] = true
@@ -632,9 +629,8 @@ function PlasmicUnLike__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["runOnClick"] = true
@@ -672,9 +668,8 @@ function PlasmicUnLike__RenderFunc(props: {
                 typeof $steps["updateDialog3Opendialog2"] === "object" &&
                 typeof $steps["updateDialog3Opendialog2"].then === "function"
               ) {
-                $steps["updateDialog3Opendialog2"] = await $steps[
-                  "updateDialog3Opendialog2"
-                ];
+                $steps["updateDialog3Opendialog2"] =
+                  await $steps["updateDialog3Opendialog2"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
@@ -763,7 +758,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicUnLike__VariantsArgs;
     args?: PlasmicUnLike__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicUnLike__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicUnLike__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicUnLike__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

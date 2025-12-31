@@ -974,9 +974,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         typeof $steps["updateLoading3"] === "object" &&
                         typeof $steps["updateLoading3"].then === "function"
                       ) {
-                        $steps["updateLoading3"] = await $steps[
-                          "updateLoading3"
-                        ];
+                        $steps["updateLoading3"] =
+                          await $steps["updateLoading3"];
                       }
 
                       $steps["updateLoading"] = true
@@ -1064,9 +1063,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
 
                       $steps["updateDialogOpendialog2"] =
@@ -1110,9 +1108,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         typeof $steps["updateDialogOpendialog2"].then ===
                           "function"
                       ) {
-                        $steps["updateDialogOpendialog2"] = await $steps[
-                          "updateDialogOpendialog2"
-                        ];
+                        $steps["updateDialogOpendialog2"] =
+                          await $steps["updateDialogOpendialog2"];
                       }
 
                       $steps["invokeGlobalAction2"] =
@@ -1136,9 +1133,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction2"] === "object" &&
                         typeof $steps["invokeGlobalAction2"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["invokeGlobalAction2"] =
+                          await $steps["invokeGlobalAction2"];
                       }
 
                       $steps["updateLoading2"] = true
@@ -1172,9 +1168,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         typeof $steps["updateLoading2"] === "object" &&
                         typeof $steps["updateLoading2"].then === "function"
                       ) {
-                        $steps["updateLoading2"] = await $steps[
-                          "updateLoading2"
-                        ];
+                        $steps["updateLoading2"] =
+                          await $steps["updateLoading2"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -1289,9 +1284,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                           typeof $steps["updateDialog2Opendialog"].then ===
                             "function"
                         ) {
-                          $steps["updateDialog2Opendialog"] = await $steps[
-                            "updateDialog2Opendialog"
-                          ];
+                          $steps["updateDialog2Opendialog"] =
+                            await $steps["updateDialog2Opendialog"];
                         }
                       }}
                     >
@@ -1402,9 +1396,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                           typeof $steps["updateSelectShop"] === "object" &&
                           typeof $steps["updateSelectShop"].then === "function"
                         ) {
-                          $steps["updateSelectShop"] = await $steps[
-                            "updateSelectShop"
-                          ];
+                          $steps["updateSelectShop"] =
+                            await $steps["updateSelectShop"];
                         }
                       },
                       onClickitemChange: async (...eventArgs: any) => {
@@ -1753,9 +1746,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["updateDialogOpendialog2"] =
@@ -1796,9 +1788,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                     typeof $steps["updateDialogOpendialog2"] === "object" &&
                     typeof $steps["updateDialogOpendialog2"].then === "function"
                   ) {
-                    $steps["updateDialogOpendialog2"] = await $steps[
-                      "updateDialogOpendialog2"
-                    ];
+                    $steps["updateDialogOpendialog2"] =
+                      await $steps["updateDialogOpendialog2"];
                   }
 
                   $steps["invokeGlobalAction2"] =
@@ -1823,9 +1814,8 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction2"] === "object" &&
                     typeof $steps["invokeGlobalAction2"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
+                    $steps["invokeGlobalAction2"] =
+                      await $steps["invokeGlobalAction2"];
                   }
 
                   $steps["updateLoading2"] = true
@@ -1998,7 +1988,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicDirectDialogChatbot__VariantsArgs;
     args?: PlasmicDirectDialogChatbot__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicDirectDialogChatbot__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicDirectDialogChatbot__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicDirectDialogChatbot__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

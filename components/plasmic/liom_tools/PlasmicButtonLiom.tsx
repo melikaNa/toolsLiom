@@ -575,8 +575,8 @@ function PlasmicButtonLiom__RenderFunc(props: {
           hasVariant($state, "loading", "loading")
             ? false
             : hasVariant($state, "unnamedVariant", "unnamedVariant")
-            ? false
-            : true
+              ? false
+              : true
         )
           ? renderPlasmicSlot({
               defaultContents: (
@@ -903,7 +903,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicButtonLiom__VariantsArgs;
     args?: PlasmicButtonLiom__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicButtonLiom__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicButtonLiom__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicButtonLiom__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -722,9 +722,8 @@ function PlasmicBioritm__RenderFunc(props: {
                     typeof $steps["updateSlideinModalClick"] === "object" &&
                     typeof $steps["updateSlideinModalClick"].then === "function"
                   ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
+                    $steps["updateSlideinModalClick"] =
+                      await $steps["updateSlideinModalClick"];
                   }
                 }}
               >
@@ -1248,9 +1247,8 @@ function PlasmicBioritm__RenderFunc(props: {
                       typeof $steps["updateSlideinModal3Click"].then ===
                         "function"
                     ) {
-                      $steps["updateSlideinModal3Click"] = await $steps[
-                        "updateSlideinModal3Click"
-                      ];
+                      $steps["updateSlideinModal3Click"] =
+                        await $steps["updateSlideinModal3Click"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -1492,9 +1490,8 @@ function PlasmicBioritm__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["refreshData"] =
@@ -4616,9 +4613,8 @@ function PlasmicBioritm__RenderFunc(props: {
                 typeof $steps["updateSlideinModalClick"] === "object" &&
                 typeof $steps["updateSlideinModalClick"].then === "function"
               ) {
-                $steps["updateSlideinModalClick"] = await $steps[
-                  "updateSlideinModalClick"
-                ];
+                $steps["updateSlideinModalClick"] =
+                  await $steps["updateSlideinModalClick"];
               }
             }}
             onClickChange={async (...eventArgs: any) => {
@@ -4866,9 +4862,8 @@ function PlasmicBioritm__RenderFunc(props: {
                       typeof $steps["updateSlideinModal2Click"].then ===
                         "function"
                     ) {
-                      $steps["updateSlideinModal2Click"] = await $steps[
-                        "updateSlideinModal2Click"
-                      ];
+                      $steps["updateSlideinModal2Click"] =
+                        await $steps["updateSlideinModal2Click"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -4924,9 +4919,8 @@ function PlasmicBioritm__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["invokeGlobalAction2"] =
@@ -4950,9 +4944,8 @@ function PlasmicBioritm__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction2"] === "object" &&
                       typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["invokeGlobalAction2"] =
+                        await $steps["invokeGlobalAction2"];
                     }
 
                     $steps["runCode"] = true
@@ -5005,9 +4998,8 @@ function PlasmicBioritm__RenderFunc(props: {
                       typeof $steps["updateFerstTimepage"] === "object" &&
                       typeof $steps["updateFerstTimepage"].then === "function"
                     ) {
-                      $steps["updateFerstTimepage"] = await $steps[
-                        "updateFerstTimepage"
-                      ];
+                      $steps["updateFerstTimepage"] =
+                        await $steps["updateFerstTimepage"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -5165,9 +5157,8 @@ function PlasmicBioritm__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
             }).apply(null, eventArgs);
           }}
@@ -5215,9 +5206,8 @@ function PlasmicBioritm__RenderFunc(props: {
               typeof $steps["updateSlideinModalClick"] === "object" &&
               typeof $steps["updateSlideinModalClick"].then === "function"
             ) {
-              $steps["updateSlideinModalClick"] = await $steps[
-                "updateSlideinModalClick"
-              ];
+              $steps["updateSlideinModalClick"] =
+                await $steps["updateSlideinModalClick"];
             }
           }}
           onClickChange={async (...eventArgs: any) => {
@@ -5412,9 +5402,8 @@ function PlasmicBioritm__RenderFunc(props: {
                     typeof $steps["updateSlideinModal3Click"].then ===
                       "function"
                   ) {
-                    $steps["updateSlideinModal3Click"] = await $steps[
-                      "updateSlideinModal3Click"
-                    ];
+                    $steps["updateSlideinModal3Click"] =
+                      await $steps["updateSlideinModal3Click"];
                   }
 
                   $steps["invokeGlobalAction"] = true
@@ -5468,9 +5457,8 @@ function PlasmicBioritm__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction"] === "object" &&
                     typeof $steps["invokeGlobalAction"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["invokeGlobalAction"] =
+                      await $steps["invokeGlobalAction"];
                   }
 
                   $steps["invokeGlobalAction2"] =
@@ -5494,9 +5482,8 @@ function PlasmicBioritm__RenderFunc(props: {
                     typeof $steps["invokeGlobalAction2"] === "object" &&
                     typeof $steps["invokeGlobalAction2"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
+                    $steps["invokeGlobalAction2"] =
+                      await $steps["invokeGlobalAction2"];
                   }
 
                   $steps["runCode"] = true
@@ -5549,9 +5536,8 @@ function PlasmicBioritm__RenderFunc(props: {
                     typeof $steps["updateFerstTimepage"] === "object" &&
                     typeof $steps["updateFerstTimepage"].then === "function"
                   ) {
-                    $steps["updateFerstTimepage"] = await $steps[
-                      "updateFerstTimepage"
-                    ];
+                    $steps["updateFerstTimepage"] =
+                      await $steps["updateFerstTimepage"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -5642,9 +5628,8 @@ function PlasmicBioritm__RenderFunc(props: {
                     typeof $steps["updateSlideinModal3Click"].then ===
                       "function"
                   ) {
-                    $steps["updateSlideinModal3Click"] = await $steps[
-                      "updateSlideinModal3Click"
-                    ];
+                    $steps["updateSlideinModal3Click"] =
+                      await $steps["updateSlideinModal3Click"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -5766,7 +5751,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicBioritm__VariantsArgs;
     args?: PlasmicBioritm__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicBioritm__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicBioritm__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicBioritm__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

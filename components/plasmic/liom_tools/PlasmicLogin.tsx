@@ -366,9 +366,8 @@ function PlasmicLogin__RenderFunc(props: {
               typeof $steps["invokeGlobalAction2"] === "object" &&
               typeof $steps["invokeGlobalAction2"].then === "function"
             ) {
-              $steps["invokeGlobalAction2"] = await $steps[
-                "invokeGlobalAction2"
-              ];
+              $steps["invokeGlobalAction2"] =
+                await $steps["invokeGlobalAction2"];
             }
           }}
           onColorChange={async (...eventArgs: any) => {
@@ -503,7 +502,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicLogin__VariantsArgs;
     args?: PlasmicLogin__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicLogin__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicLogin__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicLogin__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -908,9 +908,8 @@ function PlasmicTodoList__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                          $steps["invokeGlobalAction"] =
+                            await $steps["invokeGlobalAction"];
                         }
 
                         $steps["invokeGlobalAction2"] = !checked
@@ -947,9 +946,8 @@ function PlasmicTodoList__RenderFunc(props: {
                           typeof $steps["invokeGlobalAction2"].then ===
                             "function"
                         ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
+                          $steps["invokeGlobalAction2"] =
+                            await $steps["invokeGlobalAction2"];
                         }
                       }).apply(null, eventArgs);
                     }
@@ -1049,7 +1047,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTodoList__VariantsArgs;
     args?: PlasmicTodoList__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTodoList__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTodoList__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTodoList__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

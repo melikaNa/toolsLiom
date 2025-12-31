@@ -242,7 +242,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHeader2__VariantsArgs;
     args?: PlasmicHeader2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHeader2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHeader2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHeader2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

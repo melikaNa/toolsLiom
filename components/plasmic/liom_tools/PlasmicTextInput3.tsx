@@ -474,7 +474,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTextInput3__VariantsArgs;
     args?: PlasmicTextInput3__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTextInput3__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTextInput3__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTextInput3__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

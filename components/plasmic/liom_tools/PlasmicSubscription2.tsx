@@ -394,7 +394,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicSubscription2__VariantsArgs;
     args?: PlasmicSubscription2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicSubscription2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicSubscription2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicSubscription2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

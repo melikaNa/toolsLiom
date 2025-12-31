@@ -206,7 +206,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicBuyComponenct__VariantsArgs;
     args?: PlasmicBuyComponenct__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicBuyComponenct__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicBuyComponenct__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicBuyComponenct__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

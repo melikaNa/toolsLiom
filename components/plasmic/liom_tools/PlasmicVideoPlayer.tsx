@@ -291,7 +291,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicVideoPlayer__VariantsArgs;
     args?: PlasmicVideoPlayer__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicVideoPlayer__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicVideoPlayer__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicVideoPlayer__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

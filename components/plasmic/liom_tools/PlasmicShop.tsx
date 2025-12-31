@@ -447,9 +447,8 @@ function PlasmicShop__RenderFunc(props: {
                         typeof $steps["updateDiscountBox"] === "object" &&
                         typeof $steps["updateDiscountBox"].then === "function"
                       ) {
-                        $steps["updateDiscountBox"] = await $steps[
-                          "updateDiscountBox"
-                        ];
+                        $steps["updateDiscountBox"] =
+                          await $steps["updateDiscountBox"];
                       }
                     }}
                   >
@@ -803,7 +802,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShop__VariantsArgs;
     args?: PlasmicShop__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShop__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShop__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicShop__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

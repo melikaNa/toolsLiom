@@ -571,9 +571,8 @@ function PlasmicEntryPrescription2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction"] === "object" &&
                 typeof $steps["invokeGlobalAction"].then === "function"
               ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
+                $steps["invokeGlobalAction"] =
+                  await $steps["invokeGlobalAction"];
               }
 
               $steps["invokeGlobalAction2"] =
@@ -596,9 +595,8 @@ function PlasmicEntryPrescription2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction2"] === "object" &&
                 typeof $steps["invokeGlobalAction2"].then === "function"
               ) {
-                $steps["invokeGlobalAction2"] = await $steps[
-                  "invokeGlobalAction2"
-                ];
+                $steps["invokeGlobalAction2"] =
+                  await $steps["invokeGlobalAction2"];
               }
 
               $steps["updateBtnLoad2"] = true
@@ -643,9 +641,8 @@ function PlasmicEntryPrescription2__RenderFunc(props: {
                 typeof $steps["invokeGlobalAction3"] === "object" &&
                 typeof $steps["invokeGlobalAction3"].then === "function"
               ) {
-                $steps["invokeGlobalAction3"] = await $steps[
-                  "invokeGlobalAction3"
-                ];
+                $steps["invokeGlobalAction3"] =
+                  await $steps["invokeGlobalAction3"];
               }
 
               $steps["runCode3"] =
@@ -798,7 +795,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicEntryPrescription2__VariantsArgs;
     args?: PlasmicEntryPrescription2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicEntryPrescription2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicEntryPrescription2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicEntryPrescription2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

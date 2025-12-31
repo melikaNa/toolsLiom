@@ -228,9 +228,8 @@ function PlasmicHeaderV2__RenderFunc(props: {
             typeof $steps["goToHttpsLiomAppLinkMan"] === "object" &&
             typeof $steps["goToHttpsLiomAppLinkMan"].then === "function"
           ) {
-            $steps["goToHttpsLiomAppLinkMan"] = await $steps[
-              "goToHttpsLiomAppLinkMan"
-            ];
+            $steps["goToHttpsLiomAppLinkMan"] =
+              await $steps["goToHttpsLiomAppLinkMan"];
           }
         }}
         onColorChange={async (...eventArgs: any) => {
@@ -304,7 +303,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHeaderV2__VariantsArgs;
     args?: PlasmicHeaderV2__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHeaderV2__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHeaderV2__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHeaderV2__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

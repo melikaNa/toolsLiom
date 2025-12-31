@@ -197,10 +197,10 @@ function PlasmicFooter__RenderFunc(props: {
         hasVariant($state, "state", "empty")
           ? false
           : hasVariant($state, "state", "singularLeft")
-          ? true
-          : hasVariant($state, "state", "hasCompleted")
-          ? true
-          : true
+            ? true
+            : hasVariant($state, "state", "hasCompleted")
+              ? true
+              : true
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__x7ELb, {
@@ -430,7 +430,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicFooter__VariantsArgs;
     args?: PlasmicFooter__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicFooter__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicFooter__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicFooter__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -211,18 +211,18 @@ function PlasmicMenuIcon__RenderFunc(props: {
         hasVariant($state, "icons", "chartbar")
           ? Icon225Icon
           : hasVariant($state, "icons", "questioncircle")
-          ? Icon224Icon
-          : hasVariant($state, "icons", "clipboardlist")
-          ? Icon223Icon
-          : hasVariant($state, "icons", "speedometer")
-          ? Icon222Icon
-          : hasVariant($state, "icons", "history")
-          ? Icon221Icon
-          : hasVariant($state, "icons", "chart")
-          ? Icon220Icon
-          : hasVariant($state, "icons", "target")
-          ? Icon219Icon
-          : StickynoteIcon
+            ? Icon224Icon
+            : hasVariant($state, "icons", "clipboardlist")
+              ? Icon223Icon
+              : hasVariant($state, "icons", "speedometer")
+                ? Icon222Icon
+                : hasVariant($state, "icons", "history")
+                  ? Icon221Icon
+                  : hasVariant($state, "icons", "chart")
+                    ? Icon220Icon
+                    : hasVariant($state, "icons", "target")
+                      ? Icon219Icon
+                      : StickynoteIcon
       }
       className={classNames(
         projectcss.all,
@@ -281,7 +281,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMenuIcon__VariantsArgs;
     args?: PlasmicMenuIcon__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMenuIcon__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMenuIcon__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMenuIcon__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

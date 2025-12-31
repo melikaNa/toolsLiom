@@ -303,7 +303,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicBoxselect__VariantsArgs;
     args?: PlasmicBoxselect__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicBoxselect__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicBoxselect__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicBoxselect__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

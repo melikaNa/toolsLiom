@@ -658,9 +658,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                   typeof $steps["updateWeeksPregnant"] === "object" &&
                   typeof $steps["updateWeeksPregnant"].then === "function"
                 ) {
-                  $steps["updateWeeksPregnant"] = await $steps[
-                    "updateWeeksPregnant"
-                  ];
+                  $steps["updateWeeksPregnant"] =
+                    await $steps["updateWeeksPregnant"];
                 }
 
                 $steps["updateToolsList"] =
@@ -4662,7 +4661,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicPregnancy__VariantsArgs;
     args?: PlasmicPregnancy__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicPregnancy__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicPregnancy__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicPregnancy__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

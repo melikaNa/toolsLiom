@@ -818,8 +818,8 @@ function PlasmicStepsLayout__RenderFunc(props: {
         hasVariant($state, "layout", "advice")
           ? true
           : hasVariant($state, "layout", "card")
-          ? true
-          : false
+            ? true
+            : false
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__esDx6, {
@@ -932,8 +932,8 @@ function PlasmicStepsLayout__RenderFunc(props: {
         hasVariant($state, "layout", "banner")
           ? true
           : hasVariant($state, "layout", "card")
-          ? true
-          : false
+            ? true
+            : false
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__fczet, {
@@ -1050,7 +1050,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicStepsLayout__VariantsArgs;
     args?: PlasmicStepsLayout__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicStepsLayout__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicStepsLayout__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicStepsLayout__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

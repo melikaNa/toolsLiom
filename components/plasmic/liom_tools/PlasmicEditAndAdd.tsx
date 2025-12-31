@@ -321,7 +321,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicEditAndAdd__VariantsArgs;
     args?: PlasmicEditAndAdd__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicEditAndAdd__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicEditAndAdd__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicEditAndAdd__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

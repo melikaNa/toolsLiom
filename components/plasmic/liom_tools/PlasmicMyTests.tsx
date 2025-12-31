@@ -942,14 +942,14 @@ function PlasmicMyTests__RenderFunc(props: {
                                         score >= 80
                                           ? "red"
                                           : score >= 70
-                                          ? "oreng"
-                                          : score >= 60
-                                          ? "yellow"
-                                          : score >= 50
-                                          ? "blue"
-                                          : score >= 40
-                                          ? ""
-                                          : "";
+                                            ? "oreng"
+                                            : score >= 60
+                                              ? "yellow"
+                                              : score >= 50
+                                                ? "blue"
+                                                : score >= 40
+                                                  ? ""
+                                                  : "";
                                       return color;
                                     })();
                                   } catch (e) {
@@ -1174,7 +1174,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMyTests__VariantsArgs;
     args?: PlasmicMyTests__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMyTests__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMyTests__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMyTests__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

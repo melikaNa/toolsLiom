@@ -238,7 +238,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicNavbaricon__VariantsArgs;
     args?: PlasmicNavbaricon__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicNavbaricon__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicNavbaricon__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicNavbaricon__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

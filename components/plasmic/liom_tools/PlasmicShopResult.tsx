@@ -730,9 +730,8 @@ function PlasmicShopResult__RenderFunc(props: {
                       typeof $steps["updateLoadingbtn"] === "object" &&
                       typeof $steps["updateLoadingbtn"].then === "function"
                     ) {
-                      $steps["updateLoadingbtn"] = await $steps[
-                        "updateLoadingbtn"
-                      ];
+                      $steps["updateLoadingbtn"] =
+                        await $steps["updateLoadingbtn"];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -810,9 +809,8 @@ function PlasmicShopResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["updateLoadingbtn2"] = true
@@ -846,9 +844,8 @@ function PlasmicShopResult__RenderFunc(props: {
                       typeof $steps["updateLoadingbtn2"] === "object" &&
                       typeof $steps["updateLoadingbtn2"].then === "function"
                     ) {
-                      $steps["updateLoadingbtn2"] = await $steps[
-                        "updateLoadingbtn2"
-                      ];
+                      $steps["updateLoadingbtn2"] =
+                        await $steps["updateLoadingbtn2"];
                     }
 
                     $steps["goToPage"] =
@@ -991,20 +988,20 @@ function PlasmicShopResult__RenderFunc(props: {
                           }
                         })()
                       : hasVariant($state, "failed", "failed")
-                      ? (() => {
-                          try {
-                            return $state.disable;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
+                        ? (() => {
+                            try {
+                              return $state.disable;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()
-                      : undefined
+                          })()
+                        : undefined
                   }
                   load={generateStateValueProp($state, ["button3", "load"])}
                   onClick={async event => {
@@ -1132,9 +1129,8 @@ function PlasmicShopResult__RenderFunc(props: {
                       typeof $steps["invokeGlobalAction"] === "object" &&
                       typeof $steps["invokeGlobalAction"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
+                      $steps["invokeGlobalAction"] =
+                        await $steps["invokeGlobalAction"];
                     }
 
                     $steps["goToPage"] = true
@@ -3881,7 +3877,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicShopResult__VariantsArgs;
     args?: PlasmicShopResult__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicShopResult__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicShopResult__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicShopResult__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

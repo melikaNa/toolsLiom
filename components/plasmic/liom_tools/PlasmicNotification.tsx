@@ -3200,9 +3200,8 @@ function PlasmicNotification__RenderFunc(props: {
                                     typeof $steps["goToPage"].then ===
                                       "function"
                                   ) {
-                                    $steps["goToPage"] = await $steps[
-                                      "goToPage"
-                                    ];
+                                    $steps["goToPage"] =
+                                      await $steps["goToPage"];
                                   }
                                 }}
                               >
@@ -3338,9 +3337,8 @@ function PlasmicNotification__RenderFunc(props: {
                         typeof $steps["invokeGlobalAction"] === "object" &&
                         typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["invokeGlobalAction"] =
+                          await $steps["invokeGlobalAction"];
                       }
                     },
                     onClick: async event => {
@@ -3846,7 +3844,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicNotification__VariantsArgs;
     args?: PlasmicNotification__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicNotification__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicNotification__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicNotification__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -285,7 +285,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAlert__VariantsArgs;
     args?: PlasmicAlert__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAlert__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAlert__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAlert__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

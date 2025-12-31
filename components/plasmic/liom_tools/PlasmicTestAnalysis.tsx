@@ -644,8 +644,17 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                             return "";
                           };
                           $state.token = getCookie("token");
-                          return ($state.tokenChatBot =
-                            getCookie("tokenChatBot"));
+                          if (
+                            $state.paramsObject.tokenChatBot !== null &&
+                            $state.paramsObject.tokenChatBot !== undefined &&
+                            $state.paramsObject.tokenChatBot?.trim() !== ""
+                          ) {
+                            return ($state.tokenChatBot =
+                              $state.paramsObject.tokenChatBot);
+                          } else {
+                            return ($state.tokenChatBot =
+                              getCookie("tokenChatBot"));
+                          }
                         })();
                       }
                     };

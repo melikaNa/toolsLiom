@@ -170,7 +170,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicAsd__VariantsArgs;
     args?: PlasmicAsd__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicAsd__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicAsd__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicAsd__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

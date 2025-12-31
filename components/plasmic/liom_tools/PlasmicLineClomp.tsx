@@ -430,7 +430,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicLineClomp__VariantsArgs;
     args?: PlasmicLineClomp__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicLineClomp__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicLineClomp__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicLineClomp__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

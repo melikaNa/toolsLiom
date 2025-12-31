@@ -202,7 +202,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicBackgrond__VariantsArgs;
     args?: PlasmicBackgrond__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicBackgrond__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicBackgrond__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicBackgrond__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

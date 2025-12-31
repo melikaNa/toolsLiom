@@ -204,34 +204,36 @@ function PlasmicIcons__RenderFunc(props: {
         hasVariant($state, "unnamedGroupOfVariants", "t")
           ? true
           : hasVariant($state, "unnamedGroupOfVariants", "d")
-          ? true
-          : (() => {
-              try {
-                return !($props.currentItem.action !== "" &&
-                $state.apiRequest.data.extras.find(
-                  a => a.type === $props.currentItem.option_metric.slice(0, -1)
-                )
-                  ? $state.apiRequest.data.extras.find(
-                      a =>
-                        a.type === $props.currentItem.option_metric.slice(0, -1)
-                    ).isDone !== undefined
+            ? true
+            : (() => {
+                try {
+                  return !($props.currentItem.action !== "" &&
+                  $state.apiRequest.data.extras.find(
+                    a =>
+                      a.type === $props.currentItem.option_metric.slice(0, -1)
+                  )
                     ? $state.apiRequest.data.extras.find(
                         a =>
                           a.type ===
                           $props.currentItem.option_metric.slice(0, -1)
-                      ).isDone !== 1
-                    : false
-                  : false);
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
+                      ).isDone !== undefined
+                      ? $state.apiRequest.data.extras.find(
+                          a =>
+                            a.type ===
+                            $props.currentItem.option_metric.slice(0, -1)
+                        ).isDone !== 1
+                      : false
+                    : false);
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()
+              })()
       ) ? (
         <Icon132Icon
           className={classNames(projectcss.all, sty.svg__ikOjz, {
@@ -289,7 +291,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicIcons__VariantsArgs;
     args?: PlasmicIcons__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicIcons__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicIcons__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicIcons__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

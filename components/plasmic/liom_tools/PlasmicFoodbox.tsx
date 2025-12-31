@@ -256,8 +256,8 @@ function PlasmicFoodbox__RenderFunc(props: {
         {hasVariant($state, "avg", "bad")
           ? "\u0627\u062e\u0637\u0627\u0631 \u0627\u0632 \u0647\u0641\u062a\u0647 \u0642\u0628\u0644 \u0628\u06cc\u0634\u062a\u0631 \u0634\u062f\u0647."
           : hasVariant($state, "avg", "good")
-          ? "\u062a\u0627 \u0627\u0644\u0627\u0646 \u0639\u0627\u0644\u06cc \u067e\u06cc\u0634 \u0631\u0641\u062a\u06cc!"
-          : "\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647\u060c \u062f\u0627\u0631\u0647 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647."}
+            ? "\u062a\u0627 \u0627\u0644\u0627\u0646 \u0639\u0627\u0644\u06cc \u067e\u06cc\u0634 \u0631\u0641\u062a\u06cc!"
+            : "\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647\u060c \u062f\u0627\u0631\u0647 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647."}
       </div>
       <PlasmicIcon__
         data-plasmic-name={"svg"}
@@ -266,8 +266,8 @@ function PlasmicFoodbox__RenderFunc(props: {
           hasVariant($state, "avg", "bad")
             ? Icon65Icon
             : hasVariant($state, "avg", "good")
-            ? Icon64Icon
-            : Icon66Icon
+              ? Icon64Icon
+              : Icon66Icon
         }
         className={classNames(projectcss.all, sty.svg, {
           [sty.svgavg_bad]: hasVariant($state, "avg", "bad"),
@@ -306,7 +306,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicFoodbox__VariantsArgs;
     args?: PlasmicFoodbox__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicFoodbox__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicFoodbox__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicFoodbox__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -675,7 +675,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicLoadingComponentPerpule__VariantsArgs;
     args?: PlasmicLoadingComponentPerpule__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicLoadingComponentPerpule__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicLoadingComponentPerpule__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicLoadingComponentPerpule__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

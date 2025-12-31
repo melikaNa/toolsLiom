@@ -286,9 +286,8 @@ function PlasmicTask__RenderFunc(props: {
                 typeof $steps["postgresUpdateMany"] === "object" &&
                 typeof $steps["postgresUpdateMany"].then === "function"
               ) {
-                $steps["postgresUpdateMany"] = await $steps[
-                  "postgresUpdateMany"
-                ];
+                $steps["postgresUpdateMany"] =
+                  await $steps["postgresUpdateMany"];
               }
             }}
           >
@@ -444,9 +443,8 @@ function PlasmicTask__RenderFunc(props: {
                   typeof $steps["tutorialdbUpdateMany"] === "object" &&
                   typeof $steps["tutorialdbUpdateMany"].then === "function"
                 ) {
-                  $steps["tutorialdbUpdateMany"] = await $steps[
-                    "tutorialdbUpdateMany"
-                  ];
+                  $steps["tutorialdbUpdateMany"] =
+                    await $steps["tutorialdbUpdateMany"];
                 }
               }}
             >
@@ -528,9 +526,8 @@ function PlasmicTask__RenderFunc(props: {
                 typeof $steps["postgresUpdateMany"] === "object" &&
                 typeof $steps["postgresUpdateMany"].then === "function"
               ) {
-                $steps["postgresUpdateMany"] = await $steps[
-                  "postgresUpdateMany"
-                ];
+                $steps["postgresUpdateMany"] =
+                  await $steps["postgresUpdateMany"];
               }
 
               $steps["updateState"] = true
@@ -638,9 +635,8 @@ function PlasmicTask__RenderFunc(props: {
                   typeof $steps["postgresDeleteMany"] === "object" &&
                   typeof $steps["postgresDeleteMany"].then === "function"
                 ) {
-                  $steps["postgresDeleteMany"] = await $steps[
-                    "postgresDeleteMany"
-                  ];
+                  $steps["postgresDeleteMany"] =
+                    await $steps["postgresDeleteMany"];
                 }
               }}
             >
@@ -682,7 +678,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicTask__VariantsArgs;
     args?: PlasmicTask__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicTask__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicTask__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicTask__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

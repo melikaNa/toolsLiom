@@ -556,9 +556,8 @@ function PlasmicMainToolsPage__RenderFunc(props: {
                                   typeof $steps["invokeGlobalAction2"].then ===
                                     "function"
                                 ) {
-                                  $steps["invokeGlobalAction2"] = await $steps[
-                                    "invokeGlobalAction2"
-                                  ];
+                                  $steps["invokeGlobalAction2"] =
+                                    await $steps["invokeGlobalAction2"];
                                 }
 
                                 $steps["goTo"] =
@@ -976,7 +975,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMainToolsPage__VariantsArgs;
     args?: PlasmicMainToolsPage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMainToolsPage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMainToolsPage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMainToolsPage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

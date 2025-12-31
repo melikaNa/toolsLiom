@@ -250,7 +250,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicMassage__VariantsArgs;
     args?: PlasmicMassage__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicMassage__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicMassage__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicMassage__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props
