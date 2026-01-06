@@ -1970,36 +1970,7 @@ function PlasmicChatBot__RenderFunc(props: {
                           $state.readyToSend = false;
                           fileInput.replaceWith(fileInput.cloneNode(true));
                           fileInput = document.getElementById("fileInput");
-                          fileInput.addEventListener("change", async event => {
-                            if (window.isUploading) {
-                              console.warn(
-                                "\u23F3 Upload already in progress \u2014 skipping duplicate trigger!"
-                              );
-                              return;
-                            }
-                            console.log("\uD83D\uDCF8 Event 'change' fired!");
-                            const selected = Array.from(event.target.files);
-                            if (selected.length === 0) return;
-                            console.log(
-                              "\uD83D\uDCE6 Selected files:",
-                              selected
-                            );
-                            window.isUploading = true;
-                            try {
-                              await uploadFiles(selected);
-                            } finally {
-                              window.isUploading = false;
-                              fileInput.value = "";
-                              console.log(
-                                "\uD83E\uDDF9 Upload finished & input reset."
-                              );
-                            }
-                          });
-                          $state.readyToSend = true;
-                          console.log(
-                            "\uD83D\uDE80 File input is ready for upload!"
-                          );
-                          return async function uploadFiles(files) {
+                          async function uploadFiles(files) {
                             if (!Array.isArray($state.images))
                               $state.images = [];
                             $state.uploading = true;
@@ -2055,7 +2026,36 @@ function PlasmicChatBot__RenderFunc(props: {
                             }
                             $state.uploading = false;
                             console.log("\uD83C\uDF89 All uploads completed!");
-                          };
+                          }
+                          fileInput.addEventListener("change", async event => {
+                            if (window.isUploading) {
+                              console.warn(
+                                "\u23F3 Upload already in progress \u2014 skipping duplicate trigger!"
+                              );
+                              return;
+                            }
+                            console.log("\uD83D\uDCF8 Event 'change' fired!");
+                            const selected = Array.from(event.target.files);
+                            if (selected.length === 0) return;
+                            console.log(
+                              "\uD83D\uDCE6 Selectedddddd files:",
+                              selected
+                            );
+                            window.isUploading = true;
+                            try {
+                              await uploadFiles(selected);
+                            } finally {
+                              window.isUploading = false;
+                              fileInput.value = "";
+                              console.log(
+                                "\uD83E\uDDF9 Upload finished & input reset."
+                              );
+                            }
+                          });
+                          $state.readyToSend = true;
+                          return console.log(
+                            "\uD83D\uDE80 File input is ready for uploadddddddd!"
+                          );
                         }
                       })();
                     }

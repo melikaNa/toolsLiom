@@ -2887,43 +2887,25 @@ function PlasmicTestAnalysis__RenderFunc(props: {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
-                                          console.log("rominaaaa: 1-1");
                                           const result = $state.images.map(
                                             item => ({
                                               value: item,
                                               type: "image"
                                             })
                                           );
-                                          console.log("rominaaaa: 1-2");
                                           var question = encodeURIComponent(
                                             $state.getInfo.firstMessage
                                           );
-                                          console.log("rominaaaa: 1-3");
                                           var attachments = encodeURIComponent(
                                             JSON.stringify(result)
                                           );
-                                          console.log("rominaaaa: 1-4");
                                           var decodedResult = JSON.parse(
                                             decodeURIComponent(attachments)
                                           );
-                                          console.log("rominaaaa: 1-5");
                                           var prompt = encodeURIComponent(
                                             $state.getInfo.prompt
                                           );
-                                          console.log("rominaaaa: 1-6");
                                           var link = `https://tools.liom.app/chat-bot/?question=${question}&attachments=${attachments}&inApp=undefined&prompt=${prompt}`;
-                                          console.log(
-                                            "attachments:" + attachments
-                                          );
-                                          console.log(
-                                            "decoded-attachments:" +
-                                              JSON.stringify(
-                                                decodedResult,
-                                                null,
-                                                2
-                                              )
-                                          );
-                                          console.log("link:" + link);
                                           return window.open(link, "_self");
                                         })();
                                       }
