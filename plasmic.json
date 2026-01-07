@@ -3732,6 +3732,19 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicDownloadBox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "PLqiHQleFStd",
+          "name": "DownloadBage",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicDownloadBage.tsx",
+          "importSpec": {
+            "modulePath": "DownloadBage.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicDownloadBage.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -5219,6 +5232,11 @@
           "id": "kfDbmkEPBNdb",
           "name": "Google2SvgIcon",
           "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Google2Svg.tsx"
+        },
+        {
+          "id": "u6o9fp__Yygj",
+          "name": "Icon240Icon",
+          "moduleFilePath": "plasmic/liom_tools/icons/PlasmicIcon__Icon240.tsx"
         }
       ],
       "images": [

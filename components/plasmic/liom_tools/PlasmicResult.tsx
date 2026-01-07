@@ -84,6 +84,7 @@ import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/
 import Paziresh24Modal from "../../Paziresh24Modal"; // plasmic-import: ZGdhyEBPJSmH/component
 import Alert from "../../Alert"; // plasmic-import: K1JUp41_NKIi/component
 import Paziresh24LineClamp from "../../Paziresh24LineClamp"; // plasmic-import: xFfrwlkCaWS8/component
+import DownloadBage from "../../DownloadBage"; // plasmic-import: PLqiHQleFStd/component
 import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
 import RadioGroup from "../../RadioGroup"; // plasmic-import: XVaVorKU1BgY/component
 import Radio from "../../Radio"; // plasmic-import: -mvxyQjykw-c/component
@@ -166,6 +167,7 @@ export type PlasmicResult__OverridesType = {
   h2?: Flex__<"h2">;
   paziresh24LineClamp?: Flex__<typeof Paziresh24LineClamp>;
   cardSubtitle?: Flex__<"span">;
+  downloadBage?: Flex__<typeof DownloadBage>;
   dialog2?: Flex__<typeof Paziresh24Modal>;
   textArea2?: Flex__<typeof AntdTextArea>;
   directDialog?: Flex__<typeof DirectDialog>;
@@ -11162,6 +11164,71 @@ function PlasmicResult__RenderFunc(props: {
                   startIcon={null}
                 />
               </div>
+              {(() => {
+                try {
+                  return (
+                    new window.URLSearchParams(window.location.search).get(
+                      "inApp"
+                    ) !== "true"
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <DownloadBage
+                  data-plasmic-name={"downloadBage"}
+                  data-plasmic-override={overrides.downloadBage}
+                  className={classNames("__wab_instance", sty.downloadBage)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return "https://liom.app/";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
+                />
+              ) : null}
             </section>
           ) : null}
           <Paziresh24Modal
@@ -13211,6 +13278,7 @@ const PlasmicDescendants = {
     "h2",
     "paziresh24LineClamp",
     "cardSubtitle",
+    "downloadBage",
     "dialog2",
     "textArea2",
     "directDialog",
@@ -13260,6 +13328,7 @@ const PlasmicDescendants = {
   h2: ["h2"],
   paziresh24LineClamp: ["paziresh24LineClamp", "cardSubtitle"],
   cardSubtitle: ["cardSubtitle"],
+  downloadBage: ["downloadBage"],
   dialog2: ["dialog2", "textArea2"],
   textArea2: ["textArea2"],
   directDialog: ["directDialog"],
@@ -13314,6 +13383,7 @@ type NodeDefaultElementType = {
   h2: "h2";
   paziresh24LineClamp: typeof Paziresh24LineClamp;
   cardSubtitle: "span";
+  downloadBage: typeof DownloadBage;
   dialog2: typeof Paziresh24Modal;
   textArea2: typeof AntdTextArea;
   directDialog: typeof DirectDialog;
@@ -13438,6 +13508,7 @@ export const PlasmicResult = Object.assign(
     h2: makeNodeComponent("h2"),
     paziresh24LineClamp: makeNodeComponent("paziresh24LineClamp"),
     cardSubtitle: makeNodeComponent("cardSubtitle"),
+    downloadBage: makeNodeComponent("downloadBage"),
     dialog2: makeNodeComponent("dialog2"),
     textArea2: makeNodeComponent("textArea2"),
     directDialog: makeNodeComponent("directDialog"),
