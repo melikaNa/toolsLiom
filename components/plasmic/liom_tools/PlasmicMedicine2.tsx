@@ -530,7 +530,7 @@ function PlasmicMedicine2__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicMedicine2.pageMetadata.title}
         />
       </Head>

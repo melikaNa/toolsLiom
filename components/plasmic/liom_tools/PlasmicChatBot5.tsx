@@ -903,12 +903,12 @@ function PlasmicChatBot5__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicChatBot5.pageMetadata.title}
         />
         <meta
           key="description"
-          name="description"
+          property="description"
           content={PlasmicChatBot5.pageMetadata.description}
         />
         <meta
@@ -918,7 +918,7 @@ function PlasmicChatBot5__RenderFunc(props: {
         />
         <meta
           key="twitter:description"
-          name="twitter:description"
+          property="twitter:description"
           content={PlasmicChatBot5.pageMetadata.description}
         />
         <meta
@@ -928,7 +928,7 @@ function PlasmicChatBot5__RenderFunc(props: {
         />
         <meta
           key="twitter:image"
-          name="twitter:image"
+          property="twitter:image"
           content={PlasmicChatBot5.pageMetadata.ogImageSrc}
         />
       </Head>

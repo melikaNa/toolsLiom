@@ -848,12 +848,12 @@ function PlasmicSelfTest3__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicSelfTest3.pageMetadata.title}
         />
         <meta
           key="description"
-          name="description"
+          property="description"
           content={PlasmicSelfTest3.pageMetadata.description}
         />
         <meta
@@ -863,7 +863,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
         />
         <meta
           key="twitter:description"
-          name="twitter:description"
+          property="twitter:description"
           content={PlasmicSelfTest3.pageMetadata.description}
         />
         <meta
@@ -873,7 +873,7 @@ function PlasmicSelfTest3__RenderFunc(props: {
         />
         <meta
           key="twitter:image"
-          name="twitter:image"
+          property="twitter:image"
           content={PlasmicSelfTest3.pageMetadata.ogImageSrc}
         />
       </Head>

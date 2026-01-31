@@ -486,7 +486,7 @@ function PlasmicResult2__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicResult2.pageMetadata.title}
         />
       </Head>

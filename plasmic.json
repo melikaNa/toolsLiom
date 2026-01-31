@@ -3426,20 +3426,6 @@
           "componentType": "component"
         },
         {
-          "id": "n3DLa9cAqy6t",
-          "name": "SelfMedicationStep2",
-          "type": "managed",
-          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/self-medication-step-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/self-medication-step-2"
-        },
-        {
           "id": "fpnVV5gYHPGq",
           "name": "MyTests",
           "type": "managed",
@@ -3745,6 +3731,20 @@
           "cssFilePath": "plasmic/liom_tools/PlasmicDownloadBage.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "0WyHyUa7Uz6g",
+          "name": "SelfMedicationStep2",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-medication-step-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-medication-step-2"
         }
       ],
       "icons": [
@@ -5744,7 +5744,8 @@
           "componentImportPath": "@/components/BackHandler"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "dataTokensFilePath": ""
     }
   ],
   "globalVariants": {
@@ -5792,6 +5793,6 @@
   "nextjsConfig": {
     "pagesDir": "../src/pages"
   },
-  "cliVersion": "0.1.350",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.350/dist/plasmic.schema.json"
+  "cliVersion": "0.1.355",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.355/dist/plasmic.schema.json"
 }

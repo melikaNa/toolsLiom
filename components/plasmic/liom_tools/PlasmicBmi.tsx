@@ -1272,12 +1272,12 @@ function PlasmicBmi__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicBmi.pageMetadata.title}
         />
         <meta
           key="description"
-          name="description"
+          property="description"
           content={PlasmicBmi.pageMetadata.description}
         />
         <meta
@@ -1287,7 +1287,7 @@ function PlasmicBmi__RenderFunc(props: {
         />
         <meta
           key="twitter:description"
-          name="twitter:description"
+          property="twitter:description"
           content={PlasmicBmi.pageMetadata.description}
         />
         <meta
@@ -1297,7 +1297,7 @@ function PlasmicBmi__RenderFunc(props: {
         />
         <meta
           key="twitter:image"
-          name="twitter:image"
+          property="twitter:image"
           content={PlasmicBmi.pageMetadata.ogImageSrc}
         />
       </Head>

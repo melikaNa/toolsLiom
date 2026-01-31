@@ -631,7 +631,7 @@ function PlasmicBioritm__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicBioritm.pageMetadata.title}
         />
       </Head>

@@ -6,6 +6,7 @@ import GlobalContextsProvider from "../../components/plasmic/liom_tools/PlasmicG
 
 import { ThemeContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__Theme";
 import { UnnamedGlobalGroupOfVariantsContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants";
+import { NewViewContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__NewView";
 import { PlasmicSelfMedicationStep2 } from "../../components/plasmic/liom_tools/PlasmicSelfMedicationStep2";
 import { useRouter } from "next/router";
 
@@ -28,19 +29,21 @@ function SelfMedicationStep2() {
   // (https://nextjs.org/docs/advanced-features/custom-app).
 
   return (
-    <UnnamedGlobalGroupOfVariantsContextProvider value={undefined}>
-      <ThemeContextProvider value={undefined}>
-        <GlobalContextsProvider>
-          <PageParamsProvider__
-            route={useRouter()?.pathname}
-            params={useRouter()?.query}
-            query={useRouter()?.query}
-          >
-            <PlasmicSelfMedicationStep2 />
-          </PageParamsProvider__>
-        </GlobalContextsProvider>
-      </ThemeContextProvider>
-    </UnnamedGlobalGroupOfVariantsContextProvider>
+    <NewViewContextProvider value={undefined}>
+      <UnnamedGlobalGroupOfVariantsContextProvider value={undefined}>
+        <ThemeContextProvider value={undefined}>
+          <GlobalContextsProvider>
+            <PageParamsProvider__
+              route={useRouter()?.pathname}
+              params={useRouter()?.query}
+              query={useRouter()?.query}
+            >
+              <PlasmicSelfMedicationStep2 />
+            </PageParamsProvider__>
+          </GlobalContextsProvider>
+        </ThemeContextProvider>
+      </UnnamedGlobalGroupOfVariantsContextProvider>
+    </NewViewContextProvider>
   );
 }
 

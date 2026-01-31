@@ -214,7 +214,7 @@ function PlasmicPay__RenderFunc(props: {
         />
         <meta
           key="twitter:title"
-          name="twitter:title"
+          property="twitter:title"
           content={PlasmicPay.pageMetadata.title}
         />
       </Head>
