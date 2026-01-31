@@ -114,6 +114,7 @@
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 0px;
+  row-gap: 30px;
   min-width: 0;
   padding: 8px;
 }
