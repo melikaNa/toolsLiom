@@ -2819,7 +2819,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["goToPage"] = (() => {
+                              $steps["runCode3"] = (() => {
                                 const allowance =
                                   $state?.getUser?.data?.[0]?.result
                                     ?.allowance || [];
@@ -2836,34 +2836,66 @@ function PlasmicSelfMedication__RenderFunc(props: {
                               })()
                                 ? (() => {
                                     const actionArgs = {
-                                      destination: (() => {
-                                        try {
-                                          return (() => {
-                                            var token = $state.token;
-                                            var title =
+                                      customFunction: async () => {
+                                        return (() => {
+                                          var link;
+                                          var token = $state.token;
+                                          var title =
+                                            currentItem.title +
+                                            " | " +
+                                            $state.getStep.data.data[
+                                              $state.selectedStep
+                                            ].name +
+                                            " اُم";
+                                          if (
+                                            $state.getStep.data.info
+                                              .unlockMode != "daily"
+                                          )
+                                            title = currentItem.title;
+                                          if (
+                                            $state.getStep.data.data[
+                                              $state.selectedStep
+                                            ].orderr != 0
+                                          )
+                                            title =
                                               currentItem.title +
                                               " | " +
                                               $state.getStep.data.data[
                                                 $state.selectedStep
-                                              ].name +
-                                              " اُم";
-                                            if (
-                                              $state.getStep.data.info
-                                                .unlockMode != "daily"
-                                            )
-                                              title = currentItem.title;
-                                            if (
-                                              $state.getStep.data.data[
-                                                $state.selectedStep
-                                              ].orderr != 0
-                                            )
-                                              title =
-                                                currentItem.title +
-                                                " | " +
-                                                $state.getStep.data.data[
-                                                  $state.selectedStep
-                                                ].name;
-                                            return (
+                                              ].name;
+                                          if (
+                                            $state.getUser.data[0].result.user
+                                              .id ==
+                                            "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                          )
+                                            link =
+                                              "https://tools.liom.app/self-medication-step-new/?secId=" +
+                                              currentItem.id +
+                                              "&stepId=" +
+                                              currentItem.stepId +
+                                              "&style=" +
+                                              currentItem.styleType +
+                                              "&type=" +
+                                              $ctx.query.type +
+                                              "&token=" +
+                                              token +
+                                              "&inApp=" +
+                                              $state.paramsObject.inApp +
+                                              "&userId=" +
+                                              $state.getUser.data[0].result.user
+                                                .id +
+                                              "&selectStep=" +
+                                              $state.selectedStep +
+                                              "&version=" +
+                                              $state.paramsObject.version +
+                                              "&title=" +
+                                              title +
+                                              "&theme=" +
+                                              $state.paramsObject.theme +
+                                              "&origin=" +
+                                              $state.paramsObject.origin;
+                                          else
+                                            link =
                                               "https://tools.liom.app/self-medication-step/?secId=" +
                                               currentItem.id +
                                               "&stepId=" +
@@ -2888,43 +2920,22 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               "&theme=" +
                                               $state.paramsObject.theme +
                                               "&origin=" +
-                                              $state.paramsObject.origin
-                                            );
-                                          })();
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return undefined;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    };
-                                    return (({ destination }) => {
-                                      if (
-                                        typeof destination === "string" &&
-                                        destination.startsWith("#")
-                                      ) {
-                                        document
-                                          .getElementById(destination.substr(1))
-                                          .scrollIntoView({
-                                            behavior: "smooth"
-                                          });
-                                      } else {
-                                        __nextRouter?.push(destination);
+                                              $state.paramsObject.origin;
+                                          return window.open(link, "_self");
+                                        })();
                                       }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
                                     })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
                               if (
-                                $steps["goToPage"] != null &&
-                                typeof $steps["goToPage"] === "object" &&
-                                typeof $steps["goToPage"].then === "function"
+                                $steps["runCode3"] != null &&
+                                typeof $steps["runCode3"] === "object" &&
+                                typeof $steps["runCode3"].then === "function"
                               ) {
-                                $steps["goToPage"] = await $steps["goToPage"];
+                                $steps["runCode3"] = await $steps["runCode3"];
                               }
 
                               $steps["runCode"] = (() => {
