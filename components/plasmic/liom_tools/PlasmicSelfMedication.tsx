@@ -464,10 +464,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           return (() => {
                             const queryString = window.location.search;
                             const urlParams = new URLSearchParams(queryString);
-                            urlParams.forEach((value, key) => {
+                            return urlParams.forEach((value, key) => {
                               $state.paramsObject[key] = value;
                             });
-                            return console.log("rominaaaaa");
                           })();
                         }
                       };
@@ -2863,33 +2862,65 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 $state.getStep.data.data[
                                                   $state.selectedStep
                                                 ].name;
-                                            return (
-                                              "https://tools.liom.app/self-medication-step/?secId=" +
-                                              currentItem.id +
-                                              "&stepId=" +
-                                              currentItem.stepId +
-                                              "&style=" +
-                                              currentItem.styleType +
-                                              "&type=" +
-                                              $ctx.query.type +
-                                              "&token=" +
-                                              token +
-                                              "&inApp=" +
-                                              $state.paramsObject.inApp +
-                                              "&userId=" +
-                                              $state.getUser.data[0].result.user
-                                                .id +
-                                              "&selectStep=" +
-                                              $state.selectedStep +
-                                              "&version=" +
-                                              $state.paramsObject.version +
-                                              "&title=" +
-                                              title +
-                                              "&theme=" +
-                                              $state.paramsObject.theme +
-                                              "&origin=" +
-                                              $state.paramsObject.origin
-                                            );
+                                            if (
+                                              $state.paramsObject.origin ==
+                                              "new"
+                                            )
+                                              return (
+                                                "https://tools.liom.app/self-medication-step-2/?secId=" +
+                                                currentItem.id +
+                                                "&stepId=" +
+                                                currentItem.stepId +
+                                                "&style=" +
+                                                currentItem.styleType +
+                                                "&type=" +
+                                                $ctx.query.type +
+                                                "&token=" +
+                                                token +
+                                                "&inApp=" +
+                                                $state.paramsObject.inApp +
+                                                "&userId=" +
+                                                $state.getUser.data[0].result
+                                                  .user.id +
+                                                "&selectStep=" +
+                                                $state.selectedStep +
+                                                "&version=" +
+                                                $state.paramsObject.version +
+                                                "&title=" +
+                                                title +
+                                                "&theme=" +
+                                                $state.paramsObject.theme +
+                                                "&origin=" +
+                                                $state.paramsObject.origin
+                                              );
+                                            else
+                                              return (
+                                                "https://tools.liom.app/self-medication-step/?secId=" +
+                                                currentItem.id +
+                                                "&stepId=" +
+                                                currentItem.stepId +
+                                                "&style=" +
+                                                currentItem.styleType +
+                                                "&type=" +
+                                                $ctx.query.type +
+                                                "&token=" +
+                                                token +
+                                                "&inApp=" +
+                                                $state.paramsObject.inApp +
+                                                "&userId=" +
+                                                $state.getUser.data[0].result
+                                                  .user.id +
+                                                "&selectStep=" +
+                                                $state.selectedStep +
+                                                "&version=" +
+                                                $state.paramsObject.version +
+                                                "&title=" +
+                                                title +
+                                                "&theme=" +
+                                                $state.paramsObject.theme +
+                                                "&origin=" +
+                                                $state.paramsObject.origin
+                                              );
                                           })();
                                         } catch (e) {
                                           if (
