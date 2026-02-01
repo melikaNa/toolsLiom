@@ -2838,6 +2838,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                     const actionArgs = {
                                       customFunction: async () => {
                                         return (() => {
+                                          console.log("q");
                                           var link;
                                           var token = $state.token;
                                           var title =

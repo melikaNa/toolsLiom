@@ -452,27 +452,24 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] = true
+                    $steps["goToPage"] = false
                       ? (() => {
                           const actionArgs = {
-                            destination: (() => {
-                              return (
-                                "https://tools.liom.app/self-medication/?type=" +
-                                $ctx.query.type +
-                                "&inApp=" +
-                                $state.paramsObject.inApp +
-                                "&token=" +
-                                $state.token +
-                                "&selectStep=" +
-                                $state.paramsObject.selectStep +
-                                "&userId=" +
-                                ($state.getUser?.data?.[0]?.userId ?? "") +
-                                "&version=" +
-                                $state.paramsObject.version +
-                                "&theme=" +
-                                $state.paramsObject.theme
-                              );
-                            })()
+                            destination:
+                              "https://tools.liom.app/self-medication/?type=" +
+                              $ctx.query.type +
+                              "&inApp=" +
+                              $state.paramsObject.inApp +
+                              "&token=" +
+                              $state.token +
+                              "&selectStep=" +
+                              $state.paramsObject.selectStep +
+                              "&userId=" +
+                              ($state.getUser?.data?.[0]?.userId ?? "") +
+                              "&version=" +
+                              $state.paramsObject.version +
+                              "&theme=" +
+                              $state.paramsObject.theme
                           };
                           return (({ destination }) => {
                             if (
@@ -494,6 +491,26 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                       typeof $steps["goToPage"].then === "function"
                     ) {
                       $steps["goToPage"] = await $steps["goToPage"];
+                    }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return window.history.back();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                   role={"img"}
