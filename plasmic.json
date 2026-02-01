@@ -2746,20 +2746,6 @@
           "componentType": "component"
         },
         {
-          "id": "0RvDxrGTp6lz",
-          "name": "SelfMedicationStep",
-          "type": "managed",
-          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/self-medication-step.tsx"
-          },
-          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/self-medication-step"
-        },
-        {
           "id": "usfpaVkTXFYE",
           "name": "StepsLayout",
           "type": "managed",
@@ -3733,18 +3719,32 @@
           "componentType": "component"
         },
         {
-          "id": "0WyHyUa7Uz6g",
-          "name": "SelfMedicationStep2",
+          "id": "0RvDxrGTp6lz",
+          "name": "SelfMedicationStepOld",
           "type": "managed",
           "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.tsx",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStepOld.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/self-medication-step-2.tsx"
+            "modulePath": "../src/pages/self-medication-step-old.tsx"
           },
-          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep2.module.css",
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStepOld.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/self-medication-step-2"
+          "path": "/self-medication-step-old"
+        },
+        {
+          "id": "0WyHyUa7Uz6g",
+          "name": "SelfMedicationStep",
+          "type": "managed",
+          "projectId": "3zKPdhWckw1SJpPYhK46Bs",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-medication-step.tsx"
+          },
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStep.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-medication-step"
         }
       ],
       "icons": [

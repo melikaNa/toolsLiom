@@ -7,23 +7,23 @@ import GlobalContextsProvider from "../../components/plasmic/liom_tools/PlasmicG
 import { ThemeContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__Theme";
 import { UnnamedGlobalGroupOfVariantsContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants";
 import { NewViewContextProvider } from "../../components/plasmic/liom_tools/PlasmicGlobalVariant__NewView";
-import { PlasmicSelfMedicationStep } from "../../components/plasmic/liom_tools/PlasmicSelfMedicationStep";
+import { PlasmicSelfMedicationStepOld } from "../../components/plasmic/liom_tools/PlasmicSelfMedicationStepOld";
 import { useRouter } from "next/router";
 
-function SelfMedicationStep() {
-  // Use PlasmicSelfMedicationStep to render this component as it was
+function SelfMedicationStepOld() {
+  // Use PlasmicSelfMedicationStepOld to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicSelfMedicationStep are:
+  // Props you can pass into PlasmicSelfMedicationStepOld are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicSelfMedicationStep is wrapped by your project's global
+  // By default, PlasmicSelfMedicationStepOld is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -38,7 +38,7 @@ function SelfMedicationStep() {
               params={useRouter()?.query}
               query={useRouter()?.query}
             >
-              <PlasmicSelfMedicationStep />
+              <PlasmicSelfMedicationStepOld />
             </PageParamsProvider__>
           </GlobalContextsProvider>
         </ThemeContextProvider>
@@ -47,4 +47,4 @@ function SelfMedicationStep() {
   );
 }
 
-export default SelfMedicationStep;
+export default SelfMedicationStepOld;
