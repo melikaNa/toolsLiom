@@ -862,7 +862,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 try {
                   return $state.getData.loading
                     ? undefined
-                    : $state.paramsObject.style;
+                    : $state.getData.data[0].styleType;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -3627,6 +3627,21 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
               }
             })()}
           />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__qoSkI
+            )}
+          >
+            <React.Fragment>
+              {$state.getUser?.data?.[0]?.userIdr ==
+              "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                ? "romina"
+                : ""}
+            </React.Fragment>
+          </div>
         </div>
       </div>
     </React.Fragment>
