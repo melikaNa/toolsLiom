@@ -3734,17 +3734,17 @@
         },
         {
           "id": "0WyHyUa7Uz6g",
-          "name": "SelfMedicationStepNew",
+          "name": "SelfMedicationStepNewwww",
           "type": "managed",
           "projectId": "3zKPdhWckw1SJpPYhK46Bs",
-          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStepNew.tsx",
+          "renderModuleFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStepNewwww.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/self-medication-step-new.tsx"
+            "modulePath": "../src/pages/self-medication-step-newwwwww.tsx"
           },
-          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStepNew.module.css",
+          "cssFilePath": "plasmic/liom_tools/PlasmicSelfMedicationStepNewwww.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/self-medication-step-new"
+          "path": "/self-medication-step-newwwwww"
         }
       ],
       "icons": [
