@@ -4290,6 +4290,16 @@
           "assetId": "3zKPdhWckw1SJpPYhK46Bs",
           "type": "projectCss",
           "checksum": "8c1e2f49a62ea6d5c0d888001842af15"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "CVOJumsz-ACa",
+          "checksum": "456feb1527271818cc96154fad71b9cd"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "CVOJumsz-ACa",
+          "checksum": "456feb1527271818cc96154fad71b9cd"
         }
       ],
       "codegenVersion": "0.0.2"
