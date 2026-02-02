@@ -83,7 +83,6 @@ export const PlasmicTttttt__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicTttttt__OverridesType = {
   root?: Flex__<"div">;
-  text?: Flex__<"div">;
 };
 
 export interface DefaultTtttttProps {}
@@ -159,12 +158,55 @@ function PlasmicTttttt__RenderFunc(props: {
           )}
         >
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text
+              sty.text__bq2U4
+            )}
+          >
+            {"Enter some text"}
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__k4XMx
+            )}
+          >
+            {"Enter some text"}
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__ydnJu
+            )}
+          >
+            {"Enter some text"}
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__qq8Mw
+            )}
+          >
+            {"Enter some text"}
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__jRlk
+            )}
+          >
+            {"Enter some text"}
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__hgqCm
             )}
           >
             {"Enter some text"}
@@ -176,15 +218,13 @@ function PlasmicTttttt__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text"],
-  text: ["text"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -274,7 +314,6 @@ export const PlasmicTttttt = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicTttttt
     internalVariantProps: PlasmicTttttt__VariantProps,
