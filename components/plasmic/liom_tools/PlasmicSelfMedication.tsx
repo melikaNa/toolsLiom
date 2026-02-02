@@ -464,10 +464,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           return (() => {
                             const queryString = window.location.search;
                             const urlParams = new URLSearchParams(queryString);
-                            urlParams.forEach((value, key) => {
+                            return urlParams.forEach((value, key) => {
                               $state.paramsObject[key] = value;
                             });
-                            return console.log("new versionnnn");
                           })();
                         }
                       };
@@ -2864,32 +2863,66 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               $state.getStep.data.data[
                                                 $state.selectedStep
                                               ].name;
-                                          link =
-                                            "https://tools.liom.app/self-medication-step/?secId=" +
-                                            currentItem.id +
-                                            "&stepId=" +
-                                            currentItem.stepId +
-                                            "&style=" +
-                                            currentItem.styleType +
-                                            "&type=" +
-                                            $ctx.query.type +
-                                            "&token=" +
-                                            token +
-                                            "&inApp=" +
-                                            $state.paramsObject.inApp +
-                                            "&userId=" +
+                                          if (
                                             $state.getUser.data[0].result.user
-                                              .id +
-                                            "&selectStep=" +
-                                            $state.selectedStep +
-                                            "&version=" +
-                                            $state.paramsObject.version +
-                                            "&title=" +
-                                            title +
-                                            "&theme=" +
-                                            $state.paramsObject.theme +
-                                            "&origin=" +
-                                            $state.paramsObject.origin;
+                                              .id ==
+                                              "4ddd1fab-100c-49f0-b843-e70bff8add34" ||
+                                            $state.getUser.data[0].result.user
+                                              .id == "3"
+                                          )
+                                            link =
+                                              "https://tools.liom.app/step-newwwwww/?secId=" +
+                                              currentItem.id +
+                                              "&stepId=" +
+                                              currentItem.stepId +
+                                              "&style=" +
+                                              currentItem.styleType +
+                                              "&type=" +
+                                              $ctx.query.type +
+                                              "&token=" +
+                                              token +
+                                              "&inApp=" +
+                                              $state.paramsObject.inApp +
+                                              "&userId=" +
+                                              $state.getUser.data[0].result.user
+                                                .id +
+                                              "&selectStep=" +
+                                              $state.selectedStep +
+                                              "&version=" +
+                                              $state.paramsObject.version +
+                                              "&title=" +
+                                              title +
+                                              "&theme=" +
+                                              $state.paramsObject.theme +
+                                              "&origin=" +
+                                              $state.paramsObject.origin;
+                                          else
+                                            link =
+                                              "https://tools.liom.app/self-medication-step/?secId=" +
+                                              currentItem.id +
+                                              "&stepId=" +
+                                              currentItem.stepId +
+                                              "&style=" +
+                                              currentItem.styleType +
+                                              "&type=" +
+                                              $ctx.query.type +
+                                              "&token=" +
+                                              token +
+                                              "&inApp=" +
+                                              $state.paramsObject.inApp +
+                                              "&userId=" +
+                                              $state.getUser.data[0].result.user
+                                                .id +
+                                              "&selectStep=" +
+                                              $state.selectedStep +
+                                              "&version=" +
+                                              $state.paramsObject.version +
+                                              "&title=" +
+                                              title +
+                                              "&theme=" +
+                                              $state.paramsObject.theme +
+                                              "&origin=" +
+                                              $state.paramsObject.origin;
                                           return window.open(link, "_self");
                                         })();
                                       }
@@ -3028,30 +3061,63 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                       customFunction: async () => {
                                         return (() => {
                                           var token = $state.token;
-                                          var link =
-                                            "https://tools.liom.app/self-medication-step/?secId=" +
-                                            currentItem.id +
-                                            "&stepId=" +
-                                            currentItem.stepId +
-                                            "&style=" +
-                                            currentItem.styleType +
-                                            "&type=" +
-                                            $ctx.query.type +
-                                            "&token=" +
-                                            token +
-                                            "&inApp=" +
-                                            $ctx.query.inApp +
-                                            "&userId=" +
+                                          var link;
+                                          if (
                                             $state.getUser.data[0].result.user
-                                              .id +
-                                            "&selectStep=" +
-                                            $state.selectedStep +
-                                            "&version=" +
-                                            $ctx.query.version +
-                                            "&theme=" +
-                                            $ctx.query.theme +
-                                            "&origin=" +
-                                            $ctx.query.origin;
+                                              .id ==
+                                              "4ddd1fab-100c-49f0-b843-e70bff8add34" ||
+                                            $state.getUser.data[0].result.user
+                                              .id == "3"
+                                          )
+                                            link =
+                                              "https://tools.liom.app/step-newwwwww/?secId=" +
+                                              currentItem.id +
+                                              "&stepId=" +
+                                              currentItem.stepId +
+                                              "&style=" +
+                                              currentItem.styleType +
+                                              "&type=" +
+                                              $ctx.query.type +
+                                              "&token=" +
+                                              token +
+                                              "&inApp=" +
+                                              $ctx.query.inApp +
+                                              "&userId=" +
+                                              $state.getUser.data[0].result.user
+                                                .id +
+                                              "&selectStep=" +
+                                              $state.selectedStep +
+                                              "&version=" +
+                                              $ctx.query.version +
+                                              "&theme=" +
+                                              $ctx.query.theme +
+                                              "&origin=" +
+                                              $ctx.query.origin;
+                                          else
+                                            link =
+                                              "https://tools.liom.app/self-medication-step/?secId=" +
+                                              currentItem.id +
+                                              "&stepId=" +
+                                              currentItem.stepId +
+                                              "&style=" +
+                                              currentItem.styleType +
+                                              "&type=" +
+                                              $ctx.query.type +
+                                              "&token=" +
+                                              token +
+                                              "&inApp=" +
+                                              $ctx.query.inApp +
+                                              "&userId=" +
+                                              $state.getUser.data[0].result.user
+                                                .id +
+                                              "&selectStep=" +
+                                              $state.selectedStep +
+                                              "&version=" +
+                                              $ctx.query.version +
+                                              "&theme=" +
+                                              $ctx.query.theme +
+                                              "&origin=" +
+                                              $ctx.query.origin;
                                           var title =
                                             currentItem.title +
                                             " | " +

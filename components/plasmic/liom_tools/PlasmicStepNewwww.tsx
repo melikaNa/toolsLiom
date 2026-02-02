@@ -1444,8 +1444,8 @@ function PlasmicStepNewwww__RenderFunc(props: {
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                               (() => {
                                 try {
-                                  return $state?.listDetails?.length > 0
-                                    ? $state.listDetails
+                                  return currentItem.data.length > 0
+                                    ? currentItem.data
                                     : [];
                                 } catch (e) {
                                   if (
