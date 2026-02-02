@@ -2865,7 +2865,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 $state.selectedStep
                                               ].name;
                                           link =
-                                            "https://tools.liom.app/self-medication-step-old/?secId=" +
+                                            "https://tools.liom.app/self-medication-step/?secId=" +
                                             currentItem.id +
                                             "&stepId=" +
                                             currentItem.stepId +
@@ -3029,7 +3029,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                         return (() => {
                                           var token = $state.token;
                                           var link =
-                                            "https://tools.liom.app/self-medication-step-old/?secId=" +
+                                            "https://tools.liom.app/self-medication-step/?secId=" +
                                             currentItem.id +
                                             "&stepId=" +
                                             currentItem.stepId +
