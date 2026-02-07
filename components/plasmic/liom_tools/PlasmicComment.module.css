@@ -1,15 +1,15 @@
 .root {
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: auto;
+  left: auto;
+  right: auto;
   z-index: 2;
   min-width: 0;
   padding: 0px;
@@ -21,27 +21,37 @@
     right: 0;
   }
 }
-.freeBox__ntdba {
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
+.section {
+  display: grid;
+  position: fixed;
+  align-content: flex-start;
+  justify-items: flex-end;
   width: auto;
+  padding-left: var(--token-KDnC5QlJdkgq);
+  padding-right: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  bottom: auto;
   height: auto;
-  max-width: 100%;
-  column-gap: 8px;
-  display: none;
-  padding: 16px 14px 16px 8px;
+  right: 0;
+  padding-top: var(--token-KDnC5QlJdkgq);
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
 }
-@media (min-width: 0px) and (max-width: 768px) {
-  .freeBox__ntdba {
-    width: auto;
-  }
+.section > * {
+  grid-column: 4;
 }
 .rate2 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: auto;
   height: auto;
   max-width: 100%;
@@ -74,8 +84,20 @@
     font-size: var(--token-KUiXUfHPkqkm);
   }
 }
-.text__wLtUk {
+.freeBox__eRnR5 {
+  display: flex;
+  flex-direction: row;
   position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  column-gap: 5px;
+  min-width: 0;
+  padding: 0px;
+}
+.text__wLtUk {
   width: auto;
   height: auto;
   max-width: 100%;
@@ -194,10 +216,6 @@
 .text__wzjYz {
   text-align: right;
   font-size: var(--token-7E1YyiP6sAP9);
-}
-.sendComment:global(.__wab_instance) {
-  max-width: 100%;
-  display: none;
 }
 .comments:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;

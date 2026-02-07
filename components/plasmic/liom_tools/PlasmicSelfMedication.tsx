@@ -69,10 +69,9 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import LinearCalendar2 from "../../LinearCalendar2"; // plasmic-import: UJN9m2mxrPIu/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
-import { AntdTabs } from "@plasmicpkgs/antd5/skinny/registerTabs";
-import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
-import Comment from "../../Comment"; // plasmic-import: E_0Pbe3KE1WK/component
+import SendComment from "../../SendComment"; // plasmic-import: ezUjxKcpfsDj/component
 import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
+import Comment from "../../Comment"; // plasmic-import: E_0Pbe3KE1WK/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/styleTokensProvider
@@ -115,10 +114,10 @@ export type PlasmicSelfMedication__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   linearCalendar2?: Flex__<typeof LinearCalendar2>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
-  tabs?: Flex__<typeof AntdTabs>;
-  comment?: Flex__<typeof Comment>;
+  sendComment?: Flex__<typeof SendComment>;
   directDialog?: Flex__<typeof DirectDialog>;
   setFcm?: Flex__<typeof ApiRequest>;
+  comment?: Flex__<typeof Comment>;
 };
 
 export interface DefaultSelfMedicationProps {}
@@ -397,10 +396,106 @@ function PlasmicSelfMedication__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "tabs.activeKey",
+        path: "comment.id",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getStep?.data?.info?.id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "comment.cRate",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getStep?.data?.info?.cRate;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "comment.rate",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getStep?.data?.info?.rate;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "sendComment.userId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getUser?.data?.[0]?.result?.user.id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "sendComment.testId",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          $state.getStep?.data?.info?.id
+      },
+      {
+        path: "sendComment.name",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getUser?.data?.[0]?.result?.user.name;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -2321,351 +2416,361 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     />
                   ) : null}
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__s9KiX)}
-                  id={"my-scroll-list11"}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.getStep.data.data.length > 0
-                          ? $state.getStep.data.data
-                          : [];
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
+                <div className={classNames(projectcss.all, sty.freeBox__rp7P1)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__s9KiX)}
+                    id={"my-scroll-list11"}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.getStep.data.data.length > 0
+                            ? $state.getStep.data.data
+                            : [];
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__y9Cbt,
-                          ``
-                        )}
-                        key={currentIndex}
-                        onClick={async event => {
-                          const $steps = {};
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__y9Cbt,
+                            ``
+                          )}
+                          key={currentIndex}
+                          onClick={async event => {
+                            const $steps = {};
 
-                          $steps["updateSelectedStep"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["selectedStep"]
-                                  },
-                                  operation: 0,
-                                  value: currentIndex
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
+                            $steps["updateSelectedStep"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["selectedStep"]
+                                    },
+                                    operation: 0,
+                                    value: currentIndex
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSelectedStep"] != null &&
+                              typeof $steps["updateSelectedStep"] ===
+                                "object" &&
+                              typeof $steps["updateSelectedStep"].then ===
+                                "function"
+                            ) {
+                              $steps["updateSelectedStep"] =
+                                await $steps["updateSelectedStep"];
+                            }
+
+                            $steps["updateDetailsList"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["detailsList"]
+                                    },
+                                    operation: 0,
+                                    value: $steps.invokeGlobalAction?.data ?? []
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDetailsList"] != null &&
+                              typeof $steps["updateDetailsList"] === "object" &&
+                              typeof $steps["updateDetailsList"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDetailsList"] =
+                                await $steps["updateDetailsList"];
+                            }
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      undefined,
+                                      "https://n8n.staas.ir/webhook/selfTreatment",
+                                      (() => {
+                                        try {
+                                          return {
+                                            stepId:
+                                              $state.getStep.data[
+                                                $state.selectedStep
+                                              ].id
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] =
+                                await $steps["invokeGlobalAction"];
+                            }
+
+                            $steps["updateDetailsList4"] = false
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "\u0642\u062f\u0645 \u0628\u0639\u062f\u06cc \u0686\u0627\u0644\u0634 \u0641\u0631\u062f\u0627 \u0628\u0631\u0627\u062a \u0628\u0627\u0632 \u0645\u06cc\u0634\u0647\u066c \u0644\u0637\u0641\u0627 \u062a\u0627 \u0627\u0648\u0646 \u0645\u0648\u0642\u0639 \u0635\u0628\u0631 \u06a9\u0646 \u0648 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u062a\u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0645\u0631\u0648\u0632\u062a \u0647\u0633\u062a \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 \ud83d\ude0d",
+                                      "bottom-center"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDetailsList4"] != null &&
+                              typeof $steps["updateDetailsList4"] ===
+                                "object" &&
+                              typeof $steps["updateDetailsList4"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDetailsList4"] =
+                                await $steps["updateDetailsList4"];
+                            }
+
+                            $steps["updateDetailsList2"] = false
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return window.FlutterChannel.postMessage(
+                                          "#toast-قدم بعدی چالش فردا برات باز میشه\u066C لطفا تا اون موقع صبر کن و کارهایی که تو برنامه امروزت هست رو انجام بده \uD83D\uDE0D-warning"
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDetailsList2"] != null &&
+                              typeof $steps["updateDetailsList2"] ===
+                                "object" &&
+                              typeof $steps["updateDetailsList2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDetailsList2"] =
+                                await $steps["updateDetailsList2"];
+                            }
+                          }}
+                        >
+                          {(() => {
+                            try {
+                              return (() => {
+                                if (
+                                  $state.getUser.data[0].result.user
+                                    .healthStatus != "period" &&
+                                  currentItem.statusType == "period"
+                                ) {
+                                  return false;
+                                } else {
+                                  return true;
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <LinearCalendar2
+                              data-plasmic-name={"linearCalendar2"}
+                              data-plasmic-override={overrides.linearCalendar2}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.linearCalendar2,
+                                {
+                                  [sty.linearCalendar2darkMod]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
+                                }
+                              )}
+                              click={(() => {
+                                try {
+                                  return currentIndex == $state.selectedStep;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
                                   }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateSelectedStep"] != null &&
-                            typeof $steps["updateSelectedStep"] === "object" &&
-                            typeof $steps["updateSelectedStep"].then ===
-                              "function"
-                          ) {
-                            $steps["updateSelectedStep"] =
-                              await $steps["updateSelectedStep"];
-                          }
-
-                          $steps["updateDetailsList"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["detailsList"]
-                                  },
-                                  operation: 0,
-                                  value: $steps.invokeGlobalAction?.data ?? []
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateDetailsList"] != null &&
-                            typeof $steps["updateDetailsList"] === "object" &&
-                            typeof $steps["updateDetailsList"].then ===
-                              "function"
-                          ) {
-                            $steps["updateDetailsList"] =
-                              await $steps["updateDetailsList"];
-                          }
-
-                          $steps["invokeGlobalAction"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    undefined,
-                                    "https://n8n.staas.ir/webhook/selfTreatment",
-                                    (() => {
+                                  throw e;
+                                }
+                              })()}
+                              dark={
+                                hasVariant($state, "darkMod", "darkMod")
+                                  ? (() => {
                                       try {
-                                        return {
-                                          stepId:
-                                            $state.getStep.data[
-                                              $state.selectedStep
-                                            ].id
-                                        };
+                                        return $ctx.query.theme == "dark";
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
                                           e?.plasmicType ===
                                             "PlasmicUndefinedDataError"
                                         ) {
-                                          return undefined;
+                                          return [];
                                         }
                                         throw e;
                                       }
                                     })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["invokeGlobalAction"] != null &&
-                            typeof $steps["invokeGlobalAction"] === "object" &&
-                            typeof $steps["invokeGlobalAction"].then ===
-                              "function"
-                          ) {
-                            $steps["invokeGlobalAction"] =
-                              await $steps["invokeGlobalAction"];
-                          }
-
-                          $steps["updateDetailsList4"] = false
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "error",
-                                    "\u0642\u062f\u0645 \u0628\u0639\u062f\u06cc \u0686\u0627\u0644\u0634 \u0641\u0631\u062f\u0627 \u0628\u0631\u0627\u062a \u0628\u0627\u0632 \u0645\u06cc\u0634\u0647\u066c \u0644\u0637\u0641\u0627 \u062a\u0627 \u0627\u0648\u0646 \u0645\u0648\u0642\u0639 \u0635\u0628\u0631 \u06a9\u0646 \u0648 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u062a\u0648 \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0645\u0631\u0648\u0632\u062a \u0647\u0633\u062a \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 \ud83d\ude0d",
-                                    "bottom-center"
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.showToast"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateDetailsList4"] != null &&
-                            typeof $steps["updateDetailsList4"] === "object" &&
-                            typeof $steps["updateDetailsList4"].then ===
-                              "function"
-                          ) {
-                            $steps["updateDetailsList4"] =
-                              await $steps["updateDetailsList4"];
-                          }
-
-                          $steps["updateDetailsList2"] = false
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      return window.FlutterChannel.postMessage(
-                                        "#toast-قدم بعدی چالش فردا برات باز میشه\u066C لطفا تا اون موقع صبر کن و کارهایی که تو برنامه امروزت هست رو انجام بده \uD83D\uDE0D-warning"
-                                      );
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateDetailsList2"] != null &&
-                            typeof $steps["updateDetailsList2"] === "object" &&
-                            typeof $steps["updateDetailsList2"].then ===
-                              "function"
-                          ) {
-                            $steps["updateDetailsList2"] =
-                              await $steps["updateDetailsList2"];
-                          }
-                        }}
-                      >
-                        {(() => {
-                          try {
-                            return (() => {
-                              if (
-                                $state.getUser.data[0].result.user
-                                  .healthStatus != "period" &&
-                                currentItem.statusType == "period"
-                              ) {
-                                return false;
-                              } else {
-                                return true;
+                                  : undefined
                               }
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <LinearCalendar2
-                            data-plasmic-name={"linearCalendar2"}
-                            data-plasmic-override={overrides.linearCalendar2}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.linearCalendar2,
-                              {
-                                [sty.linearCalendar2darkMod]: hasVariant(
-                                  $state,
-                                  "darkMod",
-                                  "darkMod"
-                                )
-                              }
-                            )}
-                            click={(() => {
-                              try {
-                                return currentIndex == $state.selectedStep;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()}
-                            dark={
-                              hasVariant($state, "darkMod", "darkMod")
-                                ? (() => {
-                                    try {
-                                      return $ctx.query.theme == "dark";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                : undefined
-                            }
-                            done={(() => {
-                              try {
-                                return (() => {
+                              done={(() => {
+                                try {
+                                  return (() => {
+                                    if (
+                                      $state.getStep?.data?.info?.unlockMode ==
+                                        "openAll" ||
+                                      currentItem.orderr != 0
+                                    )
+                                      return 0;
+                                    else return currentItem.done == 1 ? 1 : 2;
+                                  })();
+                                } catch (e) {
                                   if (
-                                    $state.getStep?.data?.info?.unlockMode ==
-                                      "openAll" ||
-                                    currentItem.orderr != 0
-                                  )
-                                    return 0;
-                                  else return currentItem.done == 1 ? 1 : 2;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                            isLock={(() => {
-                              try {
-                                return (
-                                  // if ($state.getStep?.data?.info?.unlockMode == 'openAll' || currentItem.orderr != 0)
-                                  //   false
-                                  // else if ($state.userStep == currentIndex && (($state.getStep?.data?.todayReady ?? 0) == 1))
-                                  //   false
-                                  // else if (($state.userStep) < currentIndex)
-                                  //   true
-                                  // else
-                                  //   false
-                                  false
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
+                              })()}
+                              isLock={(() => {
+                                try {
+                                  return (
+                                    // if ($state.getStep?.data?.info?.unlockMode == 'openAll' || currentItem.orderr != 0)
+                                    //   false
+                                    // else if ($state.userStep == currentIndex && (($state.getStep?.data?.todayReady ?? 0) == 1))
+                                    //   false
+                                    // else if (($state.userStep) < currentIndex)
+                                    //   true
+                                    // else
+                                    //   false
+                                    false
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                            isShowDate={false}
-                            isVip={(() => {
-                              try {
-                                return currentItem.vip;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
+                              })()}
+                              isShowDate={false}
+                              isVip={(() => {
+                                try {
+                                  return currentItem.vip;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                            title={(() => {
-                              try {
-                                return currentItem.name;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
+                              })()}
+                              title={(() => {
+                                try {
+                                  return currentItem.name;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          />
-                        ) : null}
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__rp7P1)}>
+                              })()}
+                            />
+                          ) : null}
+                        </div>
+                      );
+                    })}
+                  </div>
                   {(() => {
                     try {
                       return $state.getStep.loading;
@@ -3374,85 +3479,61 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       })
                     : null}
                 </div>
-                <AntdTabs
-                  data-plasmic-name={"tabs"}
-                  data-plasmic-override={overrides.tabs}
-                  activeKey={generateStateValueProp($state, [
-                    "tabs",
-                    "activeKey"
-                  ])}
-                  animateTabBar={true}
-                  animateTabContent={false}
-                  animated={true}
-                  className={classNames("__wab_instance", sty.tabs)}
-                  items={
-                    <React.Fragment>
-                      <AntdTabItem
-                        children={null}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.tabItem__xJpR6
-                        )}
-                        key={"1"}
-                        label={
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__y7Wu
-                            )}
-                          >
-                            {
-                              "\u062e\u0648\u062f \u062f\u0631\u0645\u0627\u0646\u06cc"
-                            }
-                          </div>
-                        }
-                      />
-
-                      <AntdTabItem
-                        className={classNames(
-                          "__wab_instance",
-                          sty.tabItem__wa4VR
-                        )}
-                        key={"2"}
-                        label={
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__jDuDv
-                            )}
-                          >
-                            {
-                              "\u0646\u0638\u0631 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646"
-                            }
-                          </div>
-                        }
-                      >
-                        <Comment
-                          data-plasmic-name={"comment"}
-                          data-plasmic-override={overrides.comment}
-                          className={classNames("__wab_instance", sty.comment)}
-                        />
-                      </AntdTabItem>
-                    </React.Fragment>
-                  }
-                  onChange={async (...eventArgs: any) => {
+                <SendComment
+                  data-plasmic-name={"sendComment"}
+                  data-plasmic-override={overrides.sendComment}
+                  className={classNames("__wab_instance", sty.sendComment)}
+                  name={generateStateValueProp($state, ["sendComment", "name"])}
+                  onNameChange={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
-                      "tabs",
-                      "activeKey"
+                      "sendComment",
+                      "name"
                     ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
                   }}
-                  sticky={false}
-                  tabBarBackground={"#FFF"}
-                  tabBarClassName={classNames({
-                    [sty["pcls_03ObxR7svQbV"]]: true
-                  })}
-                  tabsDropdownClassName={classNames({
-                    [sty["pcls_qibqQDsFvaD5"]]: true
-                  })}
-                  tabsDropdownScopeClassName={sty["tabs__tabsDropdown"]}
-                  tabsScopeClassName={sty["tabs__tabs"]}
+                  onTestIdChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "sendComment",
+                      "testId"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onUserIdChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "sendComment",
+                      "userId"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  testId={generateStateValueProp($state, [
+                    "sendComment",
+                    "testId"
+                  ])}
+                  userId={generateStateValueProp($state, [
+                    "sendComment",
+                    "userId"
+                  ])}
                 />
               </div>
               {(() => {
@@ -3667,6 +3748,57 @@ function PlasmicSelfMedication__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/selfTreatment/setFcm"}
           />
+
+          <Comment
+            data-plasmic-name={"comment"}
+            data-plasmic-override={overrides.comment}
+            cRate={generateStateValueProp($state, ["comment", "cRate"])}
+            className={classNames("__wab_instance", sty.comment)}
+            id={generateStateValueProp($state, ["comment", "id"])}
+            onCRateChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["comment", "cRate"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onIdChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["comment", "id"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onRateChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["comment", "rate"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            rate={generateStateValueProp($state, ["comment", "rate"])}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3685,10 +3817,10 @@ const PlasmicDescendants = {
     "buttonLiom",
     "linearCalendar2",
     "loadingConclusion",
-    "tabs",
-    "comment",
+    "sendComment",
     "directDialog",
-    "setFcm"
+    "setFcm",
+    "comment"
   ],
   sideEffect: ["sideEffect"],
   headerLiom: ["headerLiom", "paziresh24Avatar"],
@@ -3699,10 +3831,10 @@ const PlasmicDescendants = {
   buttonLiom: ["buttonLiom"],
   linearCalendar2: ["linearCalendar2"],
   loadingConclusion: ["loadingConclusion"],
-  tabs: ["tabs", "comment"],
-  comment: ["comment"],
+  sendComment: ["sendComment"],
   directDialog: ["directDialog"],
-  setFcm: ["setFcm"]
+  setFcm: ["setFcm"],
+  comment: ["comment"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3718,10 +3850,10 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   linearCalendar2: typeof LinearCalendar2;
   loadingConclusion: typeof LoadingConclusion;
-  tabs: typeof AntdTabs;
-  comment: typeof Comment;
+  sendComment: typeof SendComment;
   directDialog: typeof DirectDialog;
   setFcm: typeof ApiRequest;
+  comment: typeof Comment;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3820,10 +3952,10 @@ export const PlasmicSelfMedication = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     linearCalendar2: makeNodeComponent("linearCalendar2"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
-    tabs: makeNodeComponent("tabs"),
-    comment: makeNodeComponent("comment"),
+    sendComment: makeNodeComponent("sendComment"),
     directDialog: makeNodeComponent("directDialog"),
     setFcm: makeNodeComponent("setFcm"),
+    comment: makeNodeComponent("comment"),
 
     // Metadata about props expected for PlasmicSelfMedication
     internalVariantProps: PlasmicSelfMedication__VariantProps,
