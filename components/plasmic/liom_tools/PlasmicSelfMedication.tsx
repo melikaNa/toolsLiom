@@ -2985,6 +2985,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 $state.getStep.data.data[
                                                   $state.selectedStep
                                                 ].name;
+                                            console.log(type);
+                                            console.log(
+                                              "if:" + type == "body_darkness"
+                                            );
                                             if (type == "body_darkness")
                                               link =
                                                 "https://tools.liom.app/step-newwwwww/?secId=" +
