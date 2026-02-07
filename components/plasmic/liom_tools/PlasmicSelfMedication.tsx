@@ -2957,6 +2957,11 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                           return (() => {
                                             var link;
                                             var token = $state.token;
+                                            var type =
+                                              $ctx.query.type ||
+                                              new URLSearchParams(
+                                                window.location.search
+                                              ).get("type");
                                             var title =
                                               currentItem.title +
                                               " | " +
@@ -2980,9 +2985,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 $state.getStep.data.data[
                                                   $state.selectedStep
                                                 ].name;
-                                            if (
-                                              $ctx.query.typ == "body_darkness"
-                                            )
+                                            if (type == "body_darkness")
                                               link =
                                                 "https://tools.liom.app/step-newwwwww/?secId=" +
                                                 currentItem.id +
@@ -3176,9 +3179,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                           return (() => {
                                             var token = $state.token;
                                             var link;
-                                            if (
-                                              $ctx.query.typ == "body_darkness"
-                                            )
+                                            var type =
+                                              $ctx.query.type ||
+                                              new URLSearchParams(
+                                                window.location.search
+                                              ).get("type");
+                                            if (type == "body_darkness")
                                               link =
                                                 "https://tools.liom.app/step-newwwwww/?secId=" +
                                                 currentItem.id +
