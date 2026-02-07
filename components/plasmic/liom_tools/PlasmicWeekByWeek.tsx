@@ -1759,6 +1759,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           "collapse2",
                           "open"
                         ]),
+                        rotationAngle: 90,
                         showArrow: true,
                         size: "large"
                       };
@@ -1916,6 +1917,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           "collapse",
                           "open"
                         ]),
+                        rotationAngle: 90,
                         showArrow: true,
                         size: "large"
                       };
@@ -2077,6 +2079,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           "collapse3",
                           "open"
                         ]),
+                        rotationAngle: 90,
                         showArrow: true,
                         size: "large"
                       };

@@ -3399,6 +3399,7 @@ function PlasmicResultForDoctor__RenderFunc(props: {
                                   __plasmic_idx_0,
                                   "open"
                                 ]),
+                                rotationAngle: 90,
                                 showArrow: true,
                                 size: "small"
                               };

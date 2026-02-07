@@ -69,6 +69,9 @@ import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-impor
 import ButtonLiom from "../../ButtonLiom"; // plasmic-import: HjsnDydNfnF-/component
 import LinearCalendar2 from "../../LinearCalendar2"; // plasmic-import: UJN9m2mxrPIu/component
 import LoadingConclusion from "../../LoadingConclusion"; // plasmic-import: 4McqJ57YwWl3/component
+import { AntdTabs } from "@plasmicpkgs/antd5/skinny/registerTabs";
+import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
+import Comment from "../../Comment"; // plasmic-import: E_0Pbe3KE1WK/component
 import DirectDialog from "../../DirectDialog"; // plasmic-import: GJ5eKNtJs574/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectModule
@@ -112,6 +115,8 @@ export type PlasmicSelfMedication__OverridesType = {
   buttonLiom?: Flex__<typeof ButtonLiom>;
   linearCalendar2?: Flex__<typeof LinearCalendar2>;
   loadingConclusion?: Flex__<typeof LoadingConclusion>;
+  tabs?: Flex__<typeof AntdTabs>;
+  comment?: Flex__<typeof Comment>;
   directDialog?: Flex__<typeof DirectDialog>;
   setFcm?: Flex__<typeof ApiRequest>;
 };
@@ -389,6 +394,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "setFcm.loading",
         type: "private",
         variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "tabs.activeKey",
+        type: "private",
+        variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -2654,82 +2665,10 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     );
                   })}
                 </div>
-                {(() => {
-                  try {
-                    return $state.getStep.loading;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__qfPX)}
-                  >
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return [2, 3, 4, 5, 6, 7, 8, 9, 10];
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__yh9Um,
-                            (() => {
-                              try {
-                                return $state.paramsObject.theme == "dark"
-                                  ? "shimmerDark"
-                                  : "shimmer";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          )}
-                          key={currentIndex}
-                        />
-                      );
-                    })}
-                  </div>
-                ) : null}
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__rMj4, {
-                    [sty.freeBoxdarkMod__rMj4Tta2T]: hasVariant(
-                      $state,
-                      "darkMod",
-                      "darkMod"
-                    )
-                  })}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__rp7P1)}>
                   {(() => {
                     try {
-                      return (
-                        ($state.getStep.data.data[$state.selectedStep].text ??
-                          "") != ""
-                      );
+                      return $state.getStep.loading;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -2741,52 +2680,13 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__tCh75
-                      )}
+                      className={classNames(projectcss.all, sty.freeBox__qfPX)}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (
-                              $state.getStep.data.data[$state.selectedStep]
-                                .text ?? ""
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                  ) : null}
-                  {(() => {
-                    try {
-                      return !$state.getItem.loading;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return false;
-                      }
-                      throw e;
-                    }
-                  })()
-                    ? (_par =>
+                      {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
                           try {
-                            return $state.detailsList.length > 0
-                              ? $state.detailsList
-                              : [];
+                            return [2, 3, 4, 5, 6, 7, 8, 9, 10];
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2804,481 +2704,515 @@ function PlasmicSelfMedication__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__hSeqy,
-                              {
-                                [sty.freeBoxdarkMod__hSeqytta2T]: hasVariant(
-                                  $state,
-                                  "darkMod",
-                                  "darkMod"
-                                )
-                              }
+                              sty.freeBox__yh9Um,
+                              (() => {
+                                try {
+                                  return $state.paramsObject.theme == "dark"
+                                    ? "shimmerDark"
+                                    : "shimmer";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
                             )}
-                            id={"parent"}
                             key={currentIndex}
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["runCode3"] = (() => {
-                                const allowance =
-                                  $state?.getUser?.data?.[0]?.result
-                                    ?.allowance || [];
-                                const filteredItem = allowance.find(item =>
-                                  item.type.includes($ctx.query.type)
-                                );
-                                const active = filteredItem
-                                  ? filteredItem.active
-                                  : false;
-                                return (
-                                  (active || !currentItem.vip) &&
-                                  $state.paramsObject.inApp != "true"
-                                );
-                              })()
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          console.log("q");
-                                          var link;
-                                          var token = $state.token;
-                                          var title =
-                                            currentItem.title +
-                                            " | " +
-                                            $state.getStep.data.data[
-                                              $state.selectedStep
-                                            ].name +
-                                            " اُم";
-                                          if (
-                                            $state.getStep.data.info
-                                              .unlockMode != "daily"
-                                          )
-                                            title = currentItem.title;
-                                          if (
-                                            $state.getStep.data.data[
-                                              $state.selectedStep
-                                            ].orderr != 0
-                                          )
-                                            title =
-                                              currentItem.title +
-                                              " | " +
-                                              $state.getStep.data.data[
-                                                $state.selectedStep
-                                              ].name;
-                                          if (
-                                            $state.getUser.data[0].result.user
-                                              .id ==
-                                              "4ddd1fab-100c-49f0-b843-e70bff8add34" ||
-                                            $state.getUser.data[0].result.user
-                                              .id == "3"
-                                          )
-                                            link =
-                                              "https://tools.liom.app/step-newwwwww/?secId=" +
-                                              currentItem.id +
-                                              "&stepId=" +
-                                              currentItem.stepId +
-                                              "&style=" +
-                                              currentItem.styleType +
-                                              "&type=" +
-                                              $ctx.query.type +
-                                              "&token=" +
-                                              token +
-                                              "&inApp=" +
-                                              $state.paramsObject.inApp +
-                                              "&userId=" +
-                                              $state.getUser.data[0].result.user
-                                                .id +
-                                              "&selectStep=" +
-                                              $state.selectedStep +
-                                              "&version=" +
-                                              $state.paramsObject.version +
-                                              "&title=" +
-                                              title +
-                                              "&theme=" +
-                                              $state.paramsObject.theme +
-                                              "&origin=" +
-                                              $state.paramsObject.origin;
-                                          else
-                                            link =
-                                              "https://tools.liom.app/self-medication-step/?secId=" +
-                                              currentItem.id +
-                                              "&stepId=" +
-                                              currentItem.stepId +
-                                              "&style=" +
-                                              currentItem.styleType +
-                                              "&type=" +
-                                              $ctx.query.type +
-                                              "&token=" +
-                                              token +
-                                              "&inApp=" +
-                                              $state.paramsObject.inApp +
-                                              "&userId=" +
-                                              $state.getUser.data[0].result.user
-                                                .id +
-                                              "&selectStep=" +
-                                              $state.selectedStep +
-                                              "&version=" +
-                                              $state.paramsObject.version +
-                                              "&title=" +
-                                              title +
-                                              "&theme=" +
-                                              $state.paramsObject.theme +
-                                              "&origin=" +
-                                              $state.paramsObject.origin;
-                                          return window.open(link, "_self");
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
+                          />
+                        );
+                      })}
+                    </div>
+                  ) : null}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__rMj4, {
+                      [sty.freeBoxdarkMod__rMj4Tta2T]: hasVariant(
+                        $state,
+                        "darkMod",
+                        "darkMod"
+                      )
+                    })}
+                  >
+                    {(() => {
+                      try {
+                        return (
+                          ($state.getStep.data.data[$state.selectedStep].text ??
+                            "") != ""
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tCh75
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                $state.getStep.data.data[$state.selectedStep]
+                                  .text ?? ""
+                              );
+                            } catch (e) {
                               if (
-                                $steps["runCode3"] != null &&
-                                typeof $steps["runCode3"] === "object" &&
-                                typeof $steps["runCode3"].then === "function"
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                $steps["runCode3"] = await $steps["runCode3"];
+                                return "";
                               }
-
-                              $steps["runCode"] = (() => {
-                                const allowance =
-                                  $state?.getUser?.data?.[0]?.result
-                                    ?.allowance || [];
-                                const filteredItem = allowance.find(item =>
-                                  item.type.includes($ctx.query.type)
-                                );
-                                const active = filteredItem
-                                  ? filteredItem.active
-                                  : false;
-                                return (
-                                  $state.paramsObject.inApp == "true" &&
-                                  !active &&
-                                  currentItem.vip == 1
-                                );
-                              })()
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          if ($ctx.query.type == "danger")
-                                            return window.FlutterChannel.postMessage(
-                                              "#directDialog-pregnancy_danger_sub"
-                                            );
-                                          else
-                                            return window.FlutterChannel.postMessage(
-                                              "#healthSubscription"
-                                            );
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
+                    {(() => {
+                      try {
+                        return !$state.getItem.loading;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })()
+                      ? (_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state.detailsList.length > 0
+                                ? $state.detailsList
+                                : [];
+                            } catch (e) {
                               if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                $steps["runCode"] = await $steps["runCode"];
+                                return [];
                               }
-
-                              $steps["showToast"] = (() => {
-                                const allowance =
-                                  $state?.getUser?.data?.[0]?.result
-                                    ?.allowance || [];
-                                const filteredItem = allowance.find(item =>
-                                  item.type.includes($ctx.query.type)
-                                );
-                                const active = filteredItem
-                                  ? filteredItem.active
-                                  : false;
-                                return (
-                                  $state.paramsObject.inApp != "true" &&
-                                  !active &&
-                                  currentItem.vip == 1
-                                );
-                              })()
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["directDialog", "open"]
-                                      },
-                                      operation: 4
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      const oldValue = $stateGet(
-                                        objRoot,
-                                        variablePath
-                                      );
-                                      $stateSet(
-                                        objRoot,
-                                        variablePath,
-                                        !oldValue
-                                      );
-                                      return !oldValue;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["showToast"] != null &&
-                                typeof $steps["showToast"] === "object" &&
-                                typeof $steps["showToast"].then === "function"
-                              ) {
-                                $steps["showToast"] = await $steps["showToast"];
-                              }
-
-                              $steps["runCode2"] = (() => {
-                                const allowance =
-                                  $state?.getUser?.data?.[0]?.result
-                                    ?.allowance || [];
-                                const filteredItem = allowance.find(item =>
-                                  item.type.includes($ctx.query.type)
-                                );
-                                const active = filteredItem
-                                  ? filteredItem.active
-                                  : false;
-                                return (
-                                  (active || !currentItem.vip) &&
-                                  $state.paramsObject.inApp == "true"
-                                );
-                              })()
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
-                                          var token = $state.token;
-                                          var link;
-                                          if (
-                                            $state.getUser.data[0].result.user
-                                              .id ==
-                                              "4ddd1fab-100c-49f0-b843-e70bff8add34" ||
-                                            $state.getUser.data[0].result.user
-                                              .id == "3"
-                                          )
-                                            link =
-                                              "https://tools.liom.app/step-newwwwww/?secId=" +
-                                              currentItem.id +
-                                              "&stepId=" +
-                                              currentItem.stepId +
-                                              "&style=" +
-                                              currentItem.styleType +
-                                              "&type=" +
-                                              $ctx.query.type +
-                                              "&token=" +
-                                              token +
-                                              "&inApp=" +
-                                              $ctx.query.inApp +
-                                              "&userId=" +
-                                              $state.getUser.data[0].result.user
-                                                .id +
-                                              "&selectStep=" +
-                                              $state.selectedStep +
-                                              "&version=" +
-                                              $ctx.query.version +
-                                              "&theme=" +
-                                              $ctx.query.theme +
-                                              "&origin=" +
-                                              $ctx.query.origin;
-                                          else
-                                            link =
-                                              "https://tools.liom.app/self-medication-step/?secId=" +
-                                              currentItem.id +
-                                              "&stepId=" +
-                                              currentItem.stepId +
-                                              "&style=" +
-                                              currentItem.styleType +
-                                              "&type=" +
-                                              $ctx.query.type +
-                                              "&token=" +
-                                              token +
-                                              "&inApp=" +
-                                              $ctx.query.inApp +
-                                              "&userId=" +
-                                              $state.getUser.data[0].result.user
-                                                .id +
-                                              "&selectStep=" +
-                                              $state.selectedStep +
-                                              "&version=" +
-                                              $ctx.query.version +
-                                              "&theme=" +
-                                              $ctx.query.theme +
-                                              "&origin=" +
-                                              $ctx.query.origin;
-                                          var title =
-                                            currentItem.title +
-                                            " | " +
-                                            $state.getStep.data.data[
-                                              $state.selectedStep
-                                            ].name +
-                                            " اُم";
-                                          if (
-                                            $state.getStep.data.data[
-                                              $state.selectedStep
-                                            ].orderr == 1
-                                          )
-                                            title =
-                                              currentItem.title +
-                                              " | " +
-                                              $state.getStep.data.data[
-                                                $state.selectedStep
-                                              ].name;
-                                          if (
-                                            $state.getStep.data.info
-                                              .unlockMode != "daily"
-                                          )
-                                            title = currentItem.title;
-                                          return window.FlutterChannel.postMessage(
-                                            "#inAppWebView**@@**" +
-                                              title +
-                                              "**@@**" +
-                                              link
-                                          );
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["runCode2"] != null &&
-                                typeof $steps["runCode2"] === "object" &&
-                                typeof $steps["runCode2"].then === "function"
-                              ) {
-                                $steps["runCode2"] = await $steps["runCode2"];
-                              }
-                            }}
-                          >
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                          const currentItem = __plasmic_item_0;
+                          const currentIndex = __plasmic_idx_0;
+                          return (
                             <div
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox___5QdKl,
+                                sty.freeBox__hSeqy,
                                 {
-                                  [sty.freeBoxdarkMod___5QdKltta2T]: hasVariant(
+                                  [sty.freeBoxdarkMod__hSeqytta2T]: hasVariant(
                                     $state,
                                     "darkMod",
                                     "darkMod"
                                   )
                                 }
                               )}
-                            >
-                              <LoadingConclusion
-                                data-plasmic-name={"loadingConclusion"}
-                                data-plasmic-override={
-                                  overrides.loadingConclusion
+                              id={"parent"}
+                              key={currentIndex}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["runCode3"] = (() => {
+                                  const allowance =
+                                    $state?.getUser?.data?.[0]?.result
+                                      ?.allowance || [];
+                                  const filteredItem = allowance.find(item =>
+                                    item.type.includes($ctx.query.type)
+                                  );
+                                  const active = filteredItem
+                                    ? filteredItem.active
+                                    : false;
+                                  return (
+                                    (active || !currentItem.vip) &&
+                                    $state.paramsObject.inApp != "true"
+                                  );
+                                })()
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            var link;
+                                            var token = $state.token;
+                                            var title =
+                                              currentItem.title +
+                                              " | " +
+                                              $state.getStep.data.data[
+                                                $state.selectedStep
+                                              ].name +
+                                              " اُم";
+                                            if (
+                                              $state.getStep.data.info
+                                                .unlockMode != "daily"
+                                            )
+                                              title = currentItem.title;
+                                            if (
+                                              $state.getStep.data.data[
+                                                $state.selectedStep
+                                              ].orderr != 0
+                                            )
+                                              title =
+                                                currentItem.title +
+                                                " | " +
+                                                $state.getStep.data.data[
+                                                  $state.selectedStep
+                                                ].name;
+                                            link =
+                                              "https://tools.liom.app/step-newwwwww/?secId=" +
+                                              currentItem.id +
+                                              "&stepId=" +
+                                              currentItem.stepId +
+                                              "&style=" +
+                                              currentItem.styleType +
+                                              "&type=" +
+                                              $ctx.query.type +
+                                              "&token=" +
+                                              token +
+                                              "&inApp=" +
+                                              $state.paramsObject.inApp +
+                                              "&userId=" +
+                                              $state.getUser.data[0].result.user
+                                                .id +
+                                              "&selectStep=" +
+                                              $state.selectedStep +
+                                              "&version=" +
+                                              $state.paramsObject.version +
+                                              "&title=" +
+                                              title +
+                                              "&theme=" +
+                                              $state.paramsObject.theme +
+                                              "&origin=" +
+                                              $state.paramsObject.origin;
+                                            return window.open(link, "_self");
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode3"] != null &&
+                                  typeof $steps["runCode3"] === "object" &&
+                                  typeof $steps["runCode3"].then === "function"
+                                ) {
+                                  $steps["runCode3"] = await $steps["runCode3"];
                                 }
+
+                                $steps["runCode"] = (() => {
+                                  const allowance =
+                                    $state?.getUser?.data?.[0]?.result
+                                      ?.allowance || [];
+                                  const filteredItem = allowance.find(item =>
+                                    item.type.includes($ctx.query.type)
+                                  );
+                                  const active = filteredItem
+                                    ? filteredItem.active
+                                    : false;
+                                  return (
+                                    $state.paramsObject.inApp == "true" &&
+                                    !active &&
+                                    currentItem.vip == 1
+                                  );
+                                })()
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            if ($ctx.query.type == "danger")
+                                              return window.FlutterChannel.postMessage(
+                                                "#directDialog-pregnancy_danger_sub"
+                                              );
+                                            else
+                                              return window.FlutterChannel.postMessage(
+                                                "#healthSubscription"
+                                              );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["showToast"] = (() => {
+                                  const allowance =
+                                    $state?.getUser?.data?.[0]?.result
+                                      ?.allowance || [];
+                                  const filteredItem = allowance.find(item =>
+                                    item.type.includes($ctx.query.type)
+                                  );
+                                  const active = filteredItem
+                                    ? filteredItem.active
+                                    : false;
+                                  return (
+                                    $state.paramsObject.inApp != "true" &&
+                                    !active &&
+                                    currentItem.vip == 1
+                                  );
+                                })()
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["directDialog", "open"]
+                                        },
+                                        operation: 4
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        const oldValue = $stateGet(
+                                          objRoot,
+                                          variablePath
+                                        );
+                                        $stateSet(
+                                          objRoot,
+                                          variablePath,
+                                          !oldValue
+                                        );
+                                        return !oldValue;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["showToast"] != null &&
+                                  typeof $steps["showToast"] === "object" &&
+                                  typeof $steps["showToast"].then === "function"
+                                ) {
+                                  $steps["showToast"] =
+                                    await $steps["showToast"];
+                                }
+
+                                $steps["runCode2"] = (() => {
+                                  const allowance =
+                                    $state?.getUser?.data?.[0]?.result
+                                      ?.allowance || [];
+                                  const filteredItem = allowance.find(item =>
+                                    item.type.includes($ctx.query.type)
+                                  );
+                                  const active = filteredItem
+                                    ? filteredItem.active
+                                    : false;
+                                  return (
+                                    (active || !currentItem.vip) &&
+                                    $state.paramsObject.inApp == "true"
+                                  );
+                                })()
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            var token = $state.token;
+                                            var link;
+                                            link =
+                                              "https://tools.liom.app/step-newwwwww/?secId=" +
+                                              currentItem.id +
+                                              "&stepId=" +
+                                              currentItem.stepId +
+                                              "&style=" +
+                                              currentItem.styleType +
+                                              "&type=" +
+                                              $ctx.query.type +
+                                              "&token=" +
+                                              token +
+                                              "&inApp=" +
+                                              $ctx.query.inApp +
+                                              "&userId=" +
+                                              $state.getUser.data[0].result.user
+                                                .id +
+                                              "&selectStep=" +
+                                              $state.selectedStep +
+                                              "&version=" +
+                                              $ctx.query.version +
+                                              "&theme=" +
+                                              $ctx.query.theme +
+                                              "&origin=" +
+                                              $ctx.query.origin;
+                                            var title =
+                                              currentItem.title +
+                                              " | " +
+                                              $state.getStep.data.data[
+                                                $state.selectedStep
+                                              ].name +
+                                              " اُم";
+                                            if (
+                                              $state.getStep.data.data[
+                                                $state.selectedStep
+                                              ].orderr == 1
+                                            )
+                                              title =
+                                                currentItem.title +
+                                                " | " +
+                                                $state.getStep.data.data[
+                                                  $state.selectedStep
+                                                ].name;
+                                            if (
+                                              $state.getStep.data.info
+                                                .unlockMode != "daily"
+                                            )
+                                              title = currentItem.title;
+                                            return window.FlutterChannel.postMessage(
+                                              "#inAppWebView**@@**" +
+                                                title +
+                                                "**@@**" +
+                                                link
+                                            );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode2"] != null &&
+                                  typeof $steps["runCode2"] === "object" &&
+                                  typeof $steps["runCode2"].then === "function"
+                                ) {
+                                  $steps["runCode2"] = await $steps["runCode2"];
+                                }
+                              }}
+                            >
+                              <div
                                 className={classNames(
-                                  "__wab_instance",
-                                  sty.loadingConclusion,
+                                  projectcss.all,
+                                  sty.freeBox___5QdKl,
                                   {
-                                    [sty.loadingConclusiondarkMod]: hasVariant(
-                                      $state,
-                                      "darkMod",
-                                      "darkMod"
-                                    ),
-                                    [sty.loadingConclusionglobal_theme_dark]:
-                                      hasVariant(
-                                        globalVariants,
-                                        "theme",
-                                        "dark"
-                                      ),
-                                    [sty.loadingConclusionglobal_theme_dark_darkMod]:
-                                      hasVariant(
-                                        $state,
-                                        "darkMod",
-                                        "darkMod"
-                                      ) &&
-                                      hasVariant(
-                                        globalVariants,
-                                        "theme",
-                                        "dark"
-                                      )
+                                    [sty.freeBoxdarkMod___5QdKltta2T]:
+                                      hasVariant($state, "darkMod", "darkMod")
                                   }
                                 )}
-                                color={
-                                  hasVariant($state, "darkMod", "darkMod")
-                                    ? (() => {
-                                        try {
-                                          return $ctx.query.type ==
-                                            "dangerOrNot"
-                                            ? undefined
-                                            : currentItem.isDone == 1
-                                              ? "green"
-                                              : "trasparent";
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    : (() => {
-                                        try {
-                                          return $ctx.query.type ==
-                                            "dangerOrNot"
-                                            ? undefined
-                                            : currentItem.isDone == 1
-                                              ? "green"
-                                              : "trasparent";
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                }
-                                fouse={
-                                  hasVariant($state, "darkMod", "darkMod")
-                                    ? true
-                                    : true
-                                }
-                                selected={
-                                  hasVariant($state, "darkMod", "darkMod")
-                                    ? true
-                                    : true
-                                }
                               >
-                                <div
+                                <LoadingConclusion
+                                  data-plasmic-name={"loadingConclusion"}
+                                  data-plasmic-override={
+                                    overrides.loadingConclusion
+                                  }
                                   className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___8Kyoi,
+                                    "__wab_instance",
+                                    sty.loadingConclusion,
                                     {
-                                      [sty.freeBoxdarkMod___8Kyoitta2T]:
-                                        hasVariant($state, "darkMod", "darkMod")
+                                      [sty.loadingConclusiondarkMod]:
+                                        hasVariant(
+                                          $state,
+                                          "darkMod",
+                                          "darkMod"
+                                        ),
+                                      [sty.loadingConclusionglobal_theme_dark]:
+                                        hasVariant(
+                                          globalVariants,
+                                          "theme",
+                                          "dark"
+                                        ),
+                                      [sty.loadingConclusionglobal_theme_dark_darkMod]:
+                                        hasVariant(
+                                          $state,
+                                          "darkMod",
+                                          "darkMod"
+                                        ) &&
+                                        hasVariant(
+                                          globalVariants,
+                                          "theme",
+                                          "dark"
+                                        )
                                     }
                                   )}
+                                  color={
+                                    hasVariant($state, "darkMod", "darkMod")
+                                      ? (() => {
+                                          try {
+                                            return $ctx.query.type ==
+                                              "dangerOrNot"
+                                              ? undefined
+                                              : currentItem.isDone == 1
+                                                ? "green"
+                                                : "trasparent";
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      : (() => {
+                                          try {
+                                            return $ctx.query.type ==
+                                              "dangerOrNot"
+                                              ? undefined
+                                              : currentItem.isDone == 1
+                                                ? "green"
+                                                : "trasparent";
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                  }
+                                  fouse={
+                                    hasVariant($state, "darkMod", "darkMod")
+                                      ? true
+                                      : true
+                                  }
+                                  selected={
+                                    hasVariant($state, "darkMod", "darkMod")
+                                      ? true
+                                      : true
+                                  }
                                 >
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__ksZwP,
+                                      sty.freeBox___8Kyoi,
                                       {
-                                        [sty.textdarkMod__ksZwPtta2T]:
+                                        [sty.freeBoxdarkMod___8Kyoitta2T]:
                                           hasVariant(
                                             $state,
                                             "darkMod",
@@ -3288,141 +3222,238 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                     )}
                                   >
                                     <div
-                                      className={
-                                        projectcss.__wab_expr_html_text
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__ksZwP,
+                                        {
+                                          [sty.textdarkMod__ksZwPtta2T]:
+                                            hasVariant(
+                                              $state,
+                                              "darkMod",
+                                              "darkMod"
+                                            )
+                                        }
+                                      )}
+                                    >
+                                      <div
+                                        className={
+                                          projectcss.__wab_expr_html_text
+                                        }
+                                        dangerouslySetInnerHTML={{
+                                          __html: currentItem.title
+                                        }}
+                                      />
+                                    </div>
+                                    {(() => {
+                                      try {
+                                        return currentItem.vip == 1;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return false;
+                                        }
+                                        throw e;
                                       }
-                                      dangerouslySetInnerHTML={{
-                                        __html: currentItem.title
-                                      }}
-                                    />
+                                    })() ? (
+                                      <PlasmicImg__
+                                        alt={""}
+                                        className={classNames(sty.img___9Cd58)}
+                                        displayHeight={
+                                          hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "mobileOnly"
+                                          )
+                                            ? "15px"
+                                            : "auto"
+                                        }
+                                        displayMaxHeight={"none"}
+                                        displayMaxWidth={"100%"}
+                                        displayMinHeight={"0"}
+                                        displayMinWidth={"0"}
+                                        displayWidth={
+                                          hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "mobileOnly"
+                                          )
+                                            ? "15px"
+                                            : "18px"
+                                        }
+                                        loading={"lazy"}
+                                        src={{
+                                          src: "/plasmic/liom_tools/images/image36.svg",
+                                          fullWidth: 22,
+                                          fullHeight: 20,
+                                          aspectRatio: 1.1
+                                        }}
+                                      />
+                                    ) : null}
                                   </div>
-                                  {(() => {
-                                    try {
-                                      return currentItem.vip == 1;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
-                                      }
-                                      throw e;
+                                </LoadingConclusion>
+                                <ChevronLeftIcon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__lmQ55,
+                                    {
+                                      [sty.svgdarkMod__lmQ55Tta2T]: hasVariant(
+                                        $state,
+                                        "darkMod",
+                                        "darkMod"
+                                      )
                                     }
-                                  })() ? (
-                                    <PlasmicImg__
-                                      alt={""}
-                                      className={classNames(sty.img___9Cd58)}
-                                      displayHeight={
-                                        hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "mobileOnly"
-                                        )
-                                          ? "15px"
-                                          : "auto"
-                                      }
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={
-                                        hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "mobileOnly"
-                                        )
-                                          ? "15px"
-                                          : "18px"
-                                      }
-                                      loading={"lazy"}
-                                      src={{
-                                        src: "/plasmic/liom_tools/images/image36.svg",
-                                        fullWidth: 22,
-                                        fullHeight: 20,
-                                        aspectRatio: 1.1
-                                      }}
-                                    />
-                                  ) : null}
-                                </div>
-                              </LoadingConclusion>
-                              <ChevronLeftIcon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__lmQ55,
-                                  {
-                                    [sty.svgdarkMod__lmQ55Tta2T]: hasVariant(
-                                      $state,
-                                      "darkMod",
-                                      "darkMod"
-                                    )
-                                  }
-                                )}
-                                role={"img"}
-                              />
+                                  )}
+                                  role={"img"}
+                                />
+                              </div>
                             </div>
-                          </div>
+                          );
+                        })
+                      : null}
+                  </div>
+                  {(() => {
+                    try {
+                      return $state.getItem.loading;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })()
+                    ? (_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return [2, 3, 4, 5, 6, 7];
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__xObKs,
+                              (() => {
+                                try {
+                                  return $state.paramsObject.theme == "dark"
+                                    ? "shimmerDark"
+                                    : "shimmer";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            )}
+                            key={currentIndex}
+                          />
                         );
                       })
                     : null}
                 </div>
-                {(() => {
-                  try {
-                    return $state.getItem.loading;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })()
-                  ? (_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return [2, 3, 4, 5, 6, 7];
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
+                <AntdTabs
+                  data-plasmic-name={"tabs"}
+                  data-plasmic-override={overrides.tabs}
+                  activeKey={generateStateValueProp($state, [
+                    "tabs",
+                    "activeKey"
+                  ])}
+                  animateTabBar={true}
+                  animateTabContent={false}
+                  animated={true}
+                  className={classNames("__wab_instance", sty.tabs)}
+                  items={
+                    <React.Fragment>
+                      <AntdTabItem
+                        children={null}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.tabItem__xJpR6
+                        )}
+                        key={"1"}
+                        label={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__y7Wu
+                            )}
+                          >
+                            {
+                              "\u062e\u0648\u062f \u062f\u0631\u0645\u0627\u0646\u06cc"
+                            }
+                          </div>
                         }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__xObKs,
-                            (() => {
-                              try {
-                                return $state.paramsObject.theme == "dark"
-                                  ? "shimmerDark"
-                                  : "shimmer";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          )}
-                          key={currentIndex}
+                      />
+
+                      <AntdTabItem
+                        className={classNames(
+                          "__wab_instance",
+                          sty.tabItem__wa4VR
+                        )}
+                        key={"2"}
+                        label={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__jDuDv
+                            )}
+                          >
+                            {
+                              "\u0646\u0638\u0631 \u06a9\u0627\u0631\u0628\u0631\u0627\u0646"
+                            }
+                          </div>
+                        }
+                      >
+                        <Comment
+                          data-plasmic-name={"comment"}
+                          data-plasmic-override={overrides.comment}
+                          className={classNames("__wab_instance", sty.comment)}
                         />
-                      );
-                    })
-                  : null}
+                      </AntdTabItem>
+                    </React.Fragment>
+                  }
+                  onChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "tabs",
+                      "activeKey"
+                    ]).apply(null, eventArgs);
+                  }}
+                  sticky={false}
+                  tabBarBackground={"#FFF"}
+                  tabBarClassName={classNames({
+                    [sty["pcls_03ObxR7svQbV"]]: true
+                  })}
+                  tabsDropdownClassName={classNames({
+                    [sty["pcls_qibqQDsFvaD5"]]: true
+                  })}
+                  tabsDropdownScopeClassName={sty["tabs__tabsDropdown"]}
+                  tabsScopeClassName={sty["tabs__tabs"]}
+                />
               </div>
               {(() => {
                 try {
@@ -3654,6 +3685,8 @@ const PlasmicDescendants = {
     "buttonLiom",
     "linearCalendar2",
     "loadingConclusion",
+    "tabs",
+    "comment",
     "directDialog",
     "setFcm"
   ],
@@ -3666,6 +3699,8 @@ const PlasmicDescendants = {
   buttonLiom: ["buttonLiom"],
   linearCalendar2: ["linearCalendar2"],
   loadingConclusion: ["loadingConclusion"],
+  tabs: ["tabs", "comment"],
+  comment: ["comment"],
   directDialog: ["directDialog"],
   setFcm: ["setFcm"]
 } as const;
@@ -3683,6 +3718,8 @@ type NodeDefaultElementType = {
   buttonLiom: typeof ButtonLiom;
   linearCalendar2: typeof LinearCalendar2;
   loadingConclusion: typeof LoadingConclusion;
+  tabs: typeof AntdTabs;
+  comment: typeof Comment;
   directDialog: typeof DirectDialog;
   setFcm: typeof ApiRequest;
 };
@@ -3783,6 +3820,8 @@ export const PlasmicSelfMedication = Object.assign(
     buttonLiom: makeNodeComponent("buttonLiom"),
     linearCalendar2: makeNodeComponent("linearCalendar2"),
     loadingConclusion: makeNodeComponent("loadingConclusion"),
+    tabs: makeNodeComponent("tabs"),
+    comment: makeNodeComponent("comment"),
     directDialog: makeNodeComponent("directDialog"),
     setFcm: makeNodeComponent("setFcm"),
 
