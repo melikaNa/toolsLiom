@@ -3479,62 +3479,79 @@ function PlasmicSelfMedication__RenderFunc(props: {
                       })
                     : null}
                 </div>
-                <SendComment
-                  data-plasmic-name={"sendComment"}
-                  data-plasmic-override={overrides.sendComment}
-                  className={classNames("__wab_instance", sty.sendComment)}
-                  name={generateStateValueProp($state, ["sendComment", "name"])}
-                  onNameChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
+                {(() => {
+                  try {
+                    return !$state.getItem.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <SendComment
+                    data-plasmic-name={"sendComment"}
+                    data-plasmic-override={overrides.sendComment}
+                    className={classNames("__wab_instance", sty.sendComment)}
+                    name={generateStateValueProp($state, [
                       "sendComment",
                       "name"
-                    ]).apply(null, eventArgs);
+                    ])}
+                    onNameChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "sendComment",
+                        "name"
+                      ]).apply(null, eventArgs);
 
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onTestIdChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onTestIdChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "sendComment",
+                        "testId"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    onUserIdChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "sendComment",
+                        "userId"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    testId={generateStateValueProp($state, [
                       "sendComment",
                       "testId"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  onUserIdChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
+                    ])}
+                    userId={generateStateValueProp($state, [
                       "sendComment",
                       "userId"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  testId={generateStateValueProp($state, [
-                    "sendComment",
-                    "testId"
-                  ])}
-                  userId={generateStateValueProp($state, [
-                    "sendComment",
-                    "userId"
-                  ])}
-                />
+                    ])}
+                  />
+                ) : null}
               </div>
               {(() => {
                 try {
