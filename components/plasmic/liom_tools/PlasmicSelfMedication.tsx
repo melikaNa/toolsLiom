@@ -368,8 +368,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI5MmFlY2UzLWIyOTItNGEwOS1hZDc0LTIxZTA4NzQxZGNlNiIsInR5cGUiOiJzZXNzaW9uIn0.wa2BGGpGdL49QTwXPhcp0xHwW3h9KCp5nPVJ_fSOD5U"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "buttonLiom.load",
@@ -1660,16 +1659,12 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   params={(() => {
                     try {
                       return (() => {
-                        var type =
-                          $state.paramsObject?.type ||
-                          new URLSearchParams(window.location.search).get(
-                            "type"
-                          ) ||
-                          "";
+                        var type = $state.paramsObject?.type || "";
                         return {
-                          token: $state.token,
-                          userId: $state.getUser.data[0].result.user.id,
-                          type: type
+                          token: $state.token ?? "",
+                          userId:
+                            $state.getUser.data?.[0]?.result?.user?.id ?? "",
+                          type: type ?? ""
                         };
                       })();
                     } catch (e) {
