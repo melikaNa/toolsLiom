@@ -3527,7 +3527,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                 </div>
                 {(() => {
                   try {
-                    return !$state.stepLoading;
+                    return !($state.stepLoading || $state.itemLoading);
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -3812,56 +3812,70 @@ function PlasmicSelfMedication__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/selfTreatment/setFcm"}
           />
 
-          <Comment
-            data-plasmic-name={"comment"}
-            data-plasmic-override={overrides.comment}
-            cRate={generateStateValueProp($state, ["comment", "cRate"])}
-            className={classNames("__wab_instance", sty.comment)}
-            id={generateStateValueProp($state, ["comment", "id"])}
-            onCRateChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["comment", "cRate"]).apply(
-                null,
-                eventArgs
-              );
-
+          {(() => {
+            try {
+              return true;
+            } catch (e) {
               if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return;
+                return true;
               }
-            }}
-            onIdChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["comment", "id"]).apply(
-                null,
-                eventArgs
-              );
+              throw e;
+            }
+          })() ? (
+            <Comment
+              data-plasmic-name={"comment"}
+              data-plasmic-override={overrides.comment}
+              cRate={generateStateValueProp($state, ["comment", "cRate"])}
+              className={classNames("__wab_instance", sty.comment)}
+              id={generateStateValueProp($state, ["comment", "id"])}
+              onCRateChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["comment", "cRate"]).apply(
+                  null,
+                  eventArgs
+                );
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            onRateChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["comment", "rate"]).apply(
-                null,
-                eventArgs
-              );
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onIdChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["comment", "id"]).apply(
+                  null,
+                  eventArgs
+                );
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-            rate={generateStateValueProp($state, ["comment", "rate"])}
-          />
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              onRateChange={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["comment", "rate"]).apply(
+                  null,
+                  eventArgs
+                );
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
+              rate={generateStateValueProp($state, ["comment", "rate"])}
+            />
+          ) : null}
         </div>
       </div>
     </React.Fragment>
