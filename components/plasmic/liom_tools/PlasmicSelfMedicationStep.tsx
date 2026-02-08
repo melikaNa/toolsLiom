@@ -2129,7 +2129,19 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              shouldFetch={true}
+              shouldFetch={(() => {
+                try {
+                  return $state.token != "" && $state.token != null;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
               url={"https://n8n.staas.ir/webhook/getUser"}
             >
               <ApiRequest
@@ -2138,7 +2150,7 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                 body={(() => {
                   try {
                     return (() => {
-                      var type = $ctx.query.type;
+                      var type = $state.paramsObject.type ?? "";
                       switch ($ctx.query.type) {
                         case "stretch_marks":
                           type = "stretchMarksIsActive";
@@ -2379,7 +2391,22 @@ function PlasmicSelfMedicationStep__RenderFunc(props: {
                     }
                   }).apply(null, eventArgs);
                 }}
-                shouldFetch={true}
+                shouldFetch={(() => {
+                  try {
+                    return (
+                      $state.paramsObject?.type != "" &&
+                      $state.paramsObject?.type != undefined
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()}
                 url={"https://n8n.staas.ir/webhook/selfTreatment"}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__yz5Xf)}>
