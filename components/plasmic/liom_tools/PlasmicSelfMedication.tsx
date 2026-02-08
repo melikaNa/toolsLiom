@@ -1277,7 +1277,19 @@ function PlasmicSelfMedication__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                shouldFetch={true}
+                shouldFetch={(() => {
+                  try {
+                    return $state.token != "" && $state.token != null;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()}
                 url={"https://n8n.staas.ir/webhook/selfTreatment/userInfo"}
               >
                 <ApiRequest
