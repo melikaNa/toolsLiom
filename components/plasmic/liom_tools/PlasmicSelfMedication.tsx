@@ -1659,7 +1659,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
                   params={(() => {
                     try {
                       return (() => {
-                        var type = $state.paramsObject?.type || "";
+                        var type = $ctx.query.type ?? "";
                         return {
                           token: $state.token ?? "",
                           userId:
