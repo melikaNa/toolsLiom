@@ -255,7 +255,8 @@ function PlasmicComment__RenderFunc(props: {
         path: "comments.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobileOnly") ? false : false
       },
       {
         path: "comment.data",
