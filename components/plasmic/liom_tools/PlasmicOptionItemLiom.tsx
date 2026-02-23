@@ -164,21 +164,21 @@ function PlasmicOptionItemLiom__RenderFunc(props: {
         path: "selctedOptionLiom",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.selctedOptionLiom
       },
       {
         path: "selctedOptionPaziresh",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.selctedOptionPaziresh
       },
       {
         path: "noLine",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noLine
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.noLine
       }
     ],
     [$props, $ctx, $refs]
@@ -187,6 +187,7 @@ function PlasmicOptionItemLiom__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

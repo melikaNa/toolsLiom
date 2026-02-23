@@ -167,7 +167,7 @@ function PlasmicLike__RenderFunc(props: {
         path: "warning",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.warning
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.warning
       },
       {
         path: "like",
@@ -181,7 +181,7 @@ function PlasmicLike__RenderFunc(props: {
         path: "diasble",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.diasble
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.diasble
       }
     ],
     [$props, $ctx, $refs]
@@ -190,6 +190,7 @@ function PlasmicLike__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

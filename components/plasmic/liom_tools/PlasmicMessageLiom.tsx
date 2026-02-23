@@ -246,119 +246,121 @@ function PlasmicMessageLiom__RenderFunc(props: {
         path: "pazireshAnswer",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.pazireshAnswer
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.pazireshAnswer
       },
       {
         path: "liomAnswer",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.liomAnswer
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.liomAnswer
       },
       {
         path: "loadingMessage",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.loadingMessage
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.loadingMessage
       },
       {
         path: "endMessege",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.endMessege
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.endMessege
       },
       {
         path: "hint",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.hint
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.hint
       },
       {
         path: "bot",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.bot
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.bot
       },
       {
         path: "popover.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "buttonLiom2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           hasVariant($state, "liomAnswer", "liomAnswer") ? "clear" : undefined
       },
       {
         path: "buttonLiom3.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           hasVariant($state, "liomAnswer", "liomAnswer") ? "clear" : []
       },
       {
         path: "buttonLiom4.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           hasVariant($state, "liomAnswer", "liomAnswer") ? "clear" : undefined
       },
       {
         path: "owner",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.owner
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.owner
       },
       {
         path: "buttonLiom2.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "buttonLiom4.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "buttonLiom3.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "feedback",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.feedback
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.feedback
       },
       {
         path: "unLike2.unLike",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "like2.like",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "buttonLiom.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           hasVariant($state, "bot", "bot") ? "clear" : undefined
       },
       {
         path: "buttonLiom.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           hasVariant($state, "bot", "bot") ? false : false
       }
     ],
@@ -368,6 +370,7 @@ function PlasmicMessageLiom__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

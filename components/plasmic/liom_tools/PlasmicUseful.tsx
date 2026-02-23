@@ -171,6 +171,7 @@ function PlasmicUseful__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

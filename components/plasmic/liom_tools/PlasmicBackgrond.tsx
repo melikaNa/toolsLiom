@@ -143,7 +143,7 @@ function PlasmicBackgrond__RenderFunc(props: {
         path: "liom",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.liom
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.liom
       }
     ],
     [$props, $ctx, $refs]
@@ -152,6 +152,7 @@ function PlasmicBackgrond__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

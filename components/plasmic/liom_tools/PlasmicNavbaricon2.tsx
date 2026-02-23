@@ -163,6 +163,7 @@ function PlasmicNavbaricon2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

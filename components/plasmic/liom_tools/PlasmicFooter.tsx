@@ -149,13 +149,13 @@ function PlasmicFooter__RenderFunc(props: {
         path: "state",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.state
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.state
       },
       {
         path: "shownType",
         type: "readonly",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "all",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "all",
 
         onChangeProp: "onShownTypeChange"
       }
@@ -166,6 +166,7 @@ function PlasmicFooter__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

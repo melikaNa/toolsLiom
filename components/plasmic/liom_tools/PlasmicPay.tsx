@@ -76,6 +76,35 @@ import sty from "./PlasmicPay.module.css"; // plasmic-import: hvJ9-klQN7Ze/css
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    title: "لیوم | هدیه ویژه",
+
+    openGraph: {
+      title: "لیوم | هدیه ویژه"
+    },
+    twitter: {
+      card: "summary",
+      title: "لیوم | هدیه ویژه"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicPay__VariantMembers = {};
@@ -146,49 +175,49 @@ function PlasmicPay__RenderFunc(props: {
         path: "subscription2.clickitem",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "subscription2.title",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "subscription2.price",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 120000
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 120000
       },
       {
         path: "subscription2.discount",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "50%"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "50%"
       },
       {
         path: "subscription2.fullprice",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "loadingBtn",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -197,8 +226,14 @@ function PlasmicPay__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -206,16 +241,12 @@ function PlasmicPay__RenderFunc(props: {
     <React.Fragment>
       <Head>
         <meta name="twitter:card" content="summary" />
-        <title key="title">{PlasmicPay.pageMetadata.title}</title>
-        <meta
-          key="og:title"
-          property="og:title"
-          content={PlasmicPay.pageMetadata.title}
-        />
+        <title key="title">{pageMetadata.title}</title>
+        <meta key="og:title" property="og:title" content={pageMetadata.title} />
         <meta
           key="twitter:title"
           property="twitter:title"
-          content={PlasmicPay.pageMetadata.title}
+          content={pageMetadata.title}
         />
       </Head>
 
@@ -1077,13 +1108,11 @@ export const PlasmicPay = Object.assign(
     internalVariantProps: PlasmicPay__VariantProps,
     internalArgProps: PlasmicPay__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "لیوم | هدیه ویژه",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/pay",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

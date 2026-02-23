@@ -210,7 +210,7 @@ function PlasmicNotifBox__RenderFunc(props: {
         path: "collapse.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props["open"],
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props["open"],
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -242,7 +242,7 @@ function PlasmicNotifBox__RenderFunc(props: {
         path: "forAll",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.forAll
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.forAll
       },
       {
         path: "delet",
@@ -259,6 +259,7 @@ function PlasmicNotifBox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

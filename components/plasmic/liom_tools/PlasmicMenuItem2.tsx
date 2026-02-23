@@ -158,7 +158,7 @@ function PlasmicMenuItem2__RenderFunc(props: {
         path: "select",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.select
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.select
       }
     ],
     [$props, $ctx, $refs]
@@ -167,6 +167,7 @@ function PlasmicMenuItem2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

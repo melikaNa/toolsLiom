@@ -84,6 +84,30 @@ import Icon93Icon from "./icons/PlasmicIcon__Icon93"; // plasmic-import: zelbblG
 
 import __lib_dayjs from "dayjs";
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicNewPage2__VariantMembers = {};
@@ -161,7 +185,7 @@ function PlasmicNewPage2__RenderFunc(props: {
         path: "textArea.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ``,
 
         onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
       },
@@ -169,7 +193,7 @@ function PlasmicNewPage2__RenderFunc(props: {
         path: "variable",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             massege: "salam",
             person: "me",
@@ -198,8 +222,14 @@ function PlasmicNewPage2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -757,13 +787,11 @@ export const PlasmicNewPage2 = Object.assign(
     internalVariantProps: PlasmicNewPage2__VariantProps,
     internalArgProps: PlasmicNewPage2__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/chat",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

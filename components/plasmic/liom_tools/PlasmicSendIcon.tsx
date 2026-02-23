@@ -167,7 +167,7 @@ function PlasmicSendIcon__RenderFunc(props: {
         path: "disable",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.diable;
@@ -194,7 +194,7 @@ function PlasmicSendIcon__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.load;
@@ -224,6 +224,7 @@ function PlasmicSendIcon__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

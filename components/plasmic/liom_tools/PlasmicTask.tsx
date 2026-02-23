@@ -154,13 +154,13 @@ function PlasmicTask__RenderFunc(props: {
         path: "state",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.state
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.state
       },
       {
         path: "textbox.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $props.task.description;
@@ -182,6 +182,7 @@ function PlasmicTask__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();

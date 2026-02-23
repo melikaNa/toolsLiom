@@ -164,7 +164,7 @@ function PlasmicLinearCalendar__RenderFunc(props: {
         path: "click",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.click
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.click
       }
     ],
     [$props, $ctx, $refs]
@@ -173,6 +173,7 @@ function PlasmicLinearCalendar__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

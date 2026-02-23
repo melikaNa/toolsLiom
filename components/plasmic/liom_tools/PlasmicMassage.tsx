@@ -145,7 +145,7 @@ function PlasmicMassage__RenderFunc(props: {
         path: "you",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.you
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.you
       }
     ],
     [$props, $ctx, $refs]
@@ -154,6 +154,7 @@ function PlasmicMassage__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

@@ -77,6 +77,35 @@ import sty from "./PlasmicPlayList.module.css"; // plasmic-import: tZIqYp1L6i1m/
 import ChevronRightIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronRight"; // plasmic-import: ehuYANk-vbAX/icon
 import XIcon from "../hamdast_sdk/icons/PlasmicIcon__X"; // plasmic-import: S0M2VMEAEs7X/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    title: "لیوم | محتوا آموزشی",
+
+    openGraph: {
+      title: "لیوم | محتوا آموزشی"
+    },
+    twitter: {
+      card: "summary",
+      title: "لیوم | محتوا آموزشی"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicPlayList__VariantMembers = {};
@@ -151,7 +180,7 @@ function PlasmicPlayList__RenderFunc(props: {
         path: "playList",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             title:
               "\u0622\u0647\u0646 \u062f\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc",
@@ -262,13 +291,13 @@ function PlasmicPlayList__RenderFunc(props: {
         path: "playIndex",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       },
       {
         path: "paramsObject",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -277,8 +306,14 @@ function PlasmicPlayList__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -286,16 +321,12 @@ function PlasmicPlayList__RenderFunc(props: {
     <React.Fragment>
       <Head>
         <meta name="twitter:card" content="summary" />
-        <title key="title">{PlasmicPlayList.pageMetadata.title}</title>
-        <meta
-          key="og:title"
-          property="og:title"
-          content={PlasmicPlayList.pageMetadata.title}
-        />
+        <title key="title">{pageMetadata.title}</title>
+        <meta key="og:title" property="og:title" content={pageMetadata.title} />
         <meta
           key="twitter:title"
           property="twitter:title"
-          content={PlasmicPlayList.pageMetadata.title}
+          content={pageMetadata.title}
         />
       </Head>
 
@@ -948,13 +979,11 @@ export const PlasmicPlayList = Object.assign(
     internalVariantProps: PlasmicPlayList__VariantProps,
     internalArgProps: PlasmicPlayList__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "لیوم | محتوا آموزشی",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/play-list",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

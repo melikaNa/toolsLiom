@@ -163,6 +163,7 @@ function PlasmicCountdown__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

@@ -84,6 +84,30 @@ import Drugs97680451SvgIcon from "./icons/PlasmicIcon__Drugs97680451Svg"; // pla
 import Icon215Icon from "./icons/PlasmicIcon__Icon215"; // plasmic-import: v7PgNy8ZeH6X/icon
 import Task17790924SvgIcon from "./icons/PlasmicIcon__Task17790924Svg"; // plasmic-import: 1mp41Mlu6eiH/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicMyTests__VariantMembers = {};
@@ -154,25 +178,25 @@ function PlasmicMyTests__RenderFunc(props: {
         path: "page",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "Result"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "Result"
       },
       {
         path: "apiRequest.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "apiRequest.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "apiRequest.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "lineClomp[].line",
@@ -186,8 +210,14 @@ function PlasmicMyTests__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -1259,13 +1289,11 @@ export const PlasmicMyTests = Object.assign(
     internalVariantProps: PlasmicMyTests__VariantProps,
     internalArgProps: PlasmicMyTests__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/my-tests",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

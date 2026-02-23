@@ -164,6 +164,7 @@ function PlasmicSlideinModal__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

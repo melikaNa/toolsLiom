@@ -175,13 +175,13 @@ function PlasmicCheckbox__RenderFunc(props: {
         path: "noLabel",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noLabel
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.noLabel
       },
       {
         path: "isDisabled",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.isDisabled
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.isDisabled
       },
       {
         path: "isChecked",
@@ -195,7 +195,8 @@ function PlasmicCheckbox__RenderFunc(props: {
         path: "isIndeterminate",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.isIndeterminate
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.isIndeterminate
       }
     ],
     [$props, $ctx, $refs]
@@ -204,6 +205,7 @@ function PlasmicCheckbox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

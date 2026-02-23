@@ -79,6 +79,30 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicNewPage.module.css"; // plasmic-import: fyCIp4k-QbvI/css
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicNewPage__VariantMembers = {};
@@ -151,13 +175,13 @@ function PlasmicNewPage__RenderFunc(props: {
         path: "g",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "ghgygg"
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => "ghgygg"
       },
       {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "header2[].tytle",
@@ -171,6 +195,7 @@ function PlasmicNewPage__RenderFunc(props: {
     $props,
     $ctx,
     $queries: $queries,
+    $q: {},
     $refs
   });
 
@@ -193,6 +218,11 @@ function PlasmicNewPage__RenderFunc(props: {
 
     $queries = new$Queries;
   }
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -256,7 +286,7 @@ function PlasmicNewPage__RenderFunc(props: {
               [
                 {
                   name: "header2[].tytle",
-                  initFunc: ({ $props, $state, $queries }) => "gjyggugu"
+                  initFunc: ({ $props, $state, $queries, $q }) => "gjyggugu"
                 }
               ],
               [__plasmic_idx_0]
@@ -3061,13 +3091,11 @@ export const PlasmicNewPage = Object.assign(
     internalVariantProps: PlasmicNewPage__VariantProps,
     internalArgProps: PlasmicNewPage__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/new-page",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

@@ -141,7 +141,7 @@ function Plasmicضصث__RenderFunc(props: {
         path: "state",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.state
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.state
       }
     ],
     [$props, $ctx, $refs]
@@ -150,6 +150,7 @@ function Plasmicضصث__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

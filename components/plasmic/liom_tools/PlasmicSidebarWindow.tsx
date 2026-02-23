@@ -191,7 +191,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
         path: "opening",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.open;
@@ -210,7 +210,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
         path: "buttonLiom.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "load2",
@@ -224,7 +224,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
         path: "buttonLiom.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -233,6 +233,7 @@ function PlasmicSidebarWindow__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

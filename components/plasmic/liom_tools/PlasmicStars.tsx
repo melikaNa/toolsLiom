@@ -152,7 +152,7 @@ function PlasmicStars__RenderFunc(props: {
         path: "activ",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.activ
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.activ
       }
     ],
     [$props, $ctx, $refs]
@@ -161,6 +161,7 @@ function PlasmicStars__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

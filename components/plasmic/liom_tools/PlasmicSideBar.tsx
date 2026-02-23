@@ -170,7 +170,7 @@ function PlasmicSideBar__RenderFunc(props: {
         path: "menu",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           {
             id: "dashboard",
             label_fa: "\u062f\u0627\u0634\u0628\u0648\u0631\u062f",
@@ -216,7 +216,7 @@ function PlasmicSideBar__RenderFunc(props: {
         path: "textInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -225,6 +225,7 @@ function PlasmicSideBar__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

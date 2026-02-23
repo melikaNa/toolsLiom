@@ -181,13 +181,13 @@ function PlasmicMenuIcon__RenderFunc(props: {
         path: "select",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.select
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.select
       },
       {
         path: "icons",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.icons
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.icons
       }
     ],
     [$props, $ctx, $refs]
@@ -196,6 +196,7 @@ function PlasmicMenuIcon__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

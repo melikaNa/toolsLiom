@@ -180,7 +180,7 @@ function PlasmicDialog2__RenderFunc(props: {
         path: "noTrigger",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noTrigger
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.noTrigger
       }
     ],
     [$props, $ctx, $refs]
@@ -189,6 +189,7 @@ function PlasmicDialog2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

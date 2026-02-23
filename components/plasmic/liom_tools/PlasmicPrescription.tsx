@@ -74,6 +74,30 @@ import sty from "./PlasmicPrescription.module.css"; // plasmic-import: _EFUknim3
 
 import ChevronRightIcon from "../hamdast_sdk/icons/PlasmicIcon__ChevronRight"; // plasmic-import: ehuYANk-vbAX/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicPrescription__VariantMembers = {};
@@ -136,6 +160,11 @@ function PlasmicPrescription__RenderFunc(props: {
   const globalVariants = _useGlobalVariants();
 
   const currentUser = useCurrentUser?.() || {};
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -303,13 +332,11 @@ export const PlasmicPrescription = Object.assign(
     internalVariantProps: PlasmicPrescription__VariantProps,
     internalArgProps: PlasmicPrescription__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/prescription",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

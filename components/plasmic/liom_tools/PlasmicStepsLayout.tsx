@@ -162,7 +162,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
         path: "layout",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.layout
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.layout
       }
     ],
     [$props, $ctx, $refs]
@@ -171,6 +171,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

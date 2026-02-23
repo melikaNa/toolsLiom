@@ -159,7 +159,7 @@ function PlasmicHeaderLiom__RenderFunc(props: {
         path: "dark",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.dark
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.dark
       }
     ],
     [$props, $ctx, $refs]
@@ -168,6 +168,7 @@ function PlasmicHeaderLiom__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

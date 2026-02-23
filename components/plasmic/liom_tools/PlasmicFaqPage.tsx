@@ -73,6 +73,30 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicFaqPage.module.css"; // plasmic-import: MeJVlJGb4rwY/css
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicFaqPage__VariantMembers = {};
@@ -142,7 +166,7 @@ function PlasmicFaqPage__RenderFunc(props: {
         path: "faq",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return [
@@ -650,7 +674,7 @@ function PlasmicFaqPage__RenderFunc(props: {
         path: "index",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -659,8 +683,14 @@ function PlasmicFaqPage__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -882,7 +912,7 @@ function PlasmicFaqPage__RenderFunc(props: {
                         [
                           {
                             name: "collapse[].open",
-                            initFunc: ({ $props, $state, $queries }) =>
+                            initFunc: ({ $props, $state, $queries, $q }) =>
                               undefined
                           }
                         ],
@@ -1043,13 +1073,11 @@ export const PlasmicFaqPage = Object.assign(
     internalVariantProps: PlasmicFaqPage__VariantProps,
     internalArgProps: PlasmicFaqPage__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/faq-page",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

@@ -147,7 +147,7 @@ function PlasmicSeen__RenderFunc(props: {
         path: "unnamedGroupOfVariants",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.unnamedGroupOfVariants
       }
     ],
@@ -157,6 +157,7 @@ function PlasmicSeen__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

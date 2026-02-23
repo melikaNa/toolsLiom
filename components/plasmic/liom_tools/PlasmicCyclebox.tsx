@@ -229,7 +229,7 @@ function PlasmicCyclebox__RenderFunc(props: {
         path: "normalpms",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.normalpms
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.normalpms
       }
     ],
     [$props, $ctx, $refs]
@@ -238,6 +238,7 @@ function PlasmicCyclebox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

@@ -181,7 +181,7 @@ function PlasmicImageOpload__RenderFunc(props: {
         path: "upload2",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.upload;
@@ -200,7 +200,7 @@ function PlasmicImageOpload__RenderFunc(props: {
         path: "docter",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.docter
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.docter
       }
     ],
     [$props, $ctx, $refs]
@@ -209,6 +209,7 @@ function PlasmicImageOpload__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

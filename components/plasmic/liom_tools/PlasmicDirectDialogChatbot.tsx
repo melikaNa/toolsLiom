@@ -190,13 +190,13 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "selectShop",
         type: "readonly",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.shopDialog.data.result.length == 1
@@ -221,7 +221,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
         path: "dialog.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.open;
@@ -240,25 +240,25 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
         path: "shopDialog.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "shopDialog.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "shopDialog.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "input4.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
@@ -266,19 +266,19 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
         path: "button12.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button8.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "dialog2.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "subscription3[].clickitem",
@@ -309,7 +309,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
         path: "button9.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "open",
@@ -323,7 +323,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
         path: "topShop",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.shopDialog.data.result.length == 1
@@ -346,19 +346,19 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
         path: "button12.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button8.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button9.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -367,6 +367,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -1492,7 +1493,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                       [
                         {
                           name: "subscription3[].clickitem",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return currentItem.id == $state.selectShop.id;
@@ -1509,7 +1510,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         },
                         {
                           name: "subscription3[].title",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return currentItem.text;
@@ -1526,7 +1527,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         },
                         {
                           name: "subscription3[].price",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return currentItem.price.toLocaleString();
@@ -1543,7 +1544,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         },
                         {
                           name: "subscription3[].discount",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return currentItem.badge;
@@ -1560,7 +1561,7 @@ function PlasmicDirectDialogChatbot__RenderFunc(props: {
                         },
                         {
                           name: "subscription3[].fullprice",
-                          initFunc: ({ $props, $state, $queries }) =>
+                          initFunc: ({ $props, $state, $queries, $q }) =>
                             (() => {
                               try {
                                 return currentItem.fullPrice.toLocaleString();

@@ -160,14 +160,14 @@ function PlasmicPercentageBox__RenderFunc(props: {
         path: "unnamedGroupOfVariants",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $props.unnamedGroupOfVariants
       },
       {
         path: "shape",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.shape
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.shape
       }
     ],
     [$props, $ctx, $refs]
@@ -176,6 +176,7 @@ function PlasmicPercentageBox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

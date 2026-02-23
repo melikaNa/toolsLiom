@@ -162,6 +162,7 @@ function PlasmicTick__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

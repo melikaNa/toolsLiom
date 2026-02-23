@@ -94,6 +94,30 @@ import Icon87Icon from "./icons/PlasmicIcon__Icon87"; // plasmic-import: vRe8tZ7
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T5fGoOgKRV/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicStepNewwww__VariantMembers = {
@@ -179,25 +203,25 @@ function PlasmicStepNewwww__RenderFunc(props: {
         path: "getData.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getData.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getData.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "listDetails",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "lineClomp4[][].line",
@@ -208,13 +232,13 @@ function PlasmicStepNewwww__RenderFunc(props: {
         path: "buttonLiom.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "isDone",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -251,19 +275,19 @@ function PlasmicStepNewwww__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "loading2",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "dark",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.paramsObject.theme == "dark";
@@ -282,85 +306,85 @@ function PlasmicStepNewwww__RenderFunc(props: {
         path: "getUser.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getUser.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getUser.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ``
       },
       {
         path: "paramsObject",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "buttonLiom2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "directDialog.selectShop",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "directDialog.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "loadshop",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "buttonLiom.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "buttonLiom2.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "lineClomp.line",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "lineClomp3.line",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "lineClomp2.line",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -369,10 +393,16 @@ function PlasmicStepNewwww__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
   const plasmicInvalidate = usePlasmicInvalidate();
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -2306,50 +2336,18 @@ function PlasmicStepNewwww__RenderFunc(props: {
                 data-plasmic-override={overrides.getData}
                 body={(() => {
                   try {
-                    return (() => {
-                      var type = $ctx.query.type;
-                      switch ($ctx.query.type) {
-                        case "stretch_marks":
-                          type = "stretchMarksIsActive";
-                          break;
-                        case "irregular":
-                          type = "irregularIsActive";
-                          break;
-                        case "adhd_treatment_sub":
-                          type = "adhdTreatmentIsActive";
-                          break;
-                        case "hair_care":
-                          type = "hairCareIsActive";
-                          break;
-                        case "skinCare":
-                          type = "skinCareIsActive";
-                          break;
-                        case "danger":
-                          type = "pregnancyDangerIsActive";
-                          break;
-                        case "pcos_sub":
-                          type = "pcosIsActive";
-                          break;
-                        case "sunken_eyes_sub":
-                          type = "sunkenEyesIsActive";
-                          break;
-                        case "vaginal_infection":
-                          type = "vaginalInfectionIsActive";
-                          break;
-                      }
-                      return {
-                        stepId: $state.paramsObject.stepId,
-                        sectionId: $state.paramsObject.secId,
-                        userId: $state.getUser?.data?.[0]?.userId,
-                        token: $state.token,
-                        sub: type,
-                        type:
-                          $ctx.query.type == "danger"
-                            ? "pregnancy_danger_sub"
-                            : $ctx.query.type,
-                        origin: $state.paramsObject.origin ?? ""
-                      };
-                    })();
+                    return {
+                      stepId: $state.paramsObject.stepId,
+                      sectionId: $state.paramsObject.secId,
+                      userId: $state.getUser?.data?.[0]?.userId,
+                      token: $state.token,
+                      sub: $state.paramsObject.subType ?? "",
+                      type:
+                        $ctx.query.type == "danger"
+                          ? "pregnancy_danger_sub"
+                          : $ctx.query.type,
+                      origin: $state.paramsObject.origin ?? ""
+                    };
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -3999,13 +3997,11 @@ export const PlasmicStepNewwww = Object.assign(
     internalVariantProps: PlasmicStepNewwww__VariantProps,
     internalArgProps: PlasmicStepNewwww__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/step-newwwwww",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

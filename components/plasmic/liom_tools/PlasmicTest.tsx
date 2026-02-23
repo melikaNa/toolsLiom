@@ -92,6 +92,30 @@ import Icon186Icon from "./icons/PlasmicIcon__Icon186"; // plasmic-import: 2GtCx
 import Icon187Icon from "./icons/PlasmicIcon__Icon187"; // plasmic-import: htu_gIjJqtkY/icon
 import Icon188Icon from "./icons/PlasmicIcon__Icon188"; // plasmic-import: 0UFwfDIVgQ7c/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicTest__VariantMembers = {};
@@ -179,7 +203,7 @@ function PlasmicTest__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "popover[].open",
@@ -210,7 +234,7 @@ function PlasmicTest__RenderFunc(props: {
         path: "collapseBaby.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -218,7 +242,7 @@ function PlasmicTest__RenderFunc(props: {
         path: "collapseMother.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -226,7 +250,7 @@ function PlasmicTest__RenderFunc(props: {
         path: "collapseHealth.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
@@ -234,13 +258,13 @@ function PlasmicTest__RenderFunc(props: {
         path: "name.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "lastname.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return undefined;
@@ -259,31 +283,31 @@ function PlasmicTest__RenderFunc(props: {
         path: "fathername.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "city.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "location.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "button5.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "button.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "button6[].load",
@@ -304,7 +328,7 @@ function PlasmicTest__RenderFunc(props: {
         path: "button5.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -313,8 +337,14 @@ function PlasmicTest__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -643,7 +673,8 @@ function PlasmicTest__RenderFunc(props: {
                                       initFunc: ({
                                         $props,
                                         $state,
-                                        $queries
+                                        $queries,
+                                        $q
                                       }) => "clear"
                                     },
                                     {
@@ -651,7 +682,8 @@ function PlasmicTest__RenderFunc(props: {
                                       initFunc: ({
                                         $props,
                                         $state,
-                                        $queries
+                                        $queries,
+                                        $q
                                       }) => false
                                     }
                                   ],
@@ -748,7 +780,8 @@ function PlasmicTest__RenderFunc(props: {
                                       initFunc: ({
                                         $props,
                                         $state,
-                                        $queries
+                                        $queries,
+                                        $q
                                       }) => "clear"
                                     },
                                     {
@@ -756,7 +789,8 @@ function PlasmicTest__RenderFunc(props: {
                                       initFunc: ({
                                         $props,
                                         $state,
-                                        $queries
+                                        $queries,
+                                        $q
                                       }) => false
                                     }
                                   ],
@@ -827,7 +861,7 @@ function PlasmicTest__RenderFunc(props: {
                           [
                             {
                               name: "popover[].open",
-                              initFunc: ({ $props, $state, $queries }) =>
+                              initFunc: ({ $props, $state, $queries, $q }) =>
                                 undefined
                             }
                           ],
@@ -930,7 +964,7 @@ function PlasmicTest__RenderFunc(props: {
                             [
                               {
                                 name: "switchbest[].isChecked",
-                                initFunc: ({ $props, $state, $queries }) =>
+                                initFunc: ({ $props, $state, $queries, $q }) =>
                                   (() => {
                                     try {
                                       return currentItem.rel.statusSms;
@@ -1106,11 +1140,12 @@ function PlasmicTest__RenderFunc(props: {
                       [
                         {
                           name: "button9[].color",
-                          initFunc: ({ $props, $state, $queries }) => undefined
+                          initFunc: ({ $props, $state, $queries, $q }) =>
+                            undefined
                         },
                         {
                           name: "button9[].load",
-                          initFunc: ({ $props, $state, $queries }) => false
+                          initFunc: ({ $props, $state, $queries, $q }) => false
                         }
                       ],
                       [__plasmic_idx_0]
@@ -2072,13 +2107,11 @@ export const PlasmicTest = Object.assign(
     internalVariantProps: PlasmicTest__VariantProps,
     internalArgProps: PlasmicTest__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/test",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

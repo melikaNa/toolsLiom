@@ -154,13 +154,13 @@ function PlasmicLineClomp__RenderFunc(props: {
         path: "more",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.more
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.more
       },
       {
         path: "line",
         type: "readonly",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true,
 
         onChangeProp: "onLineChange"
       },
@@ -168,7 +168,7 @@ function PlasmicLineClomp__RenderFunc(props: {
         path: "number",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -194,6 +194,7 @@ function PlasmicLineClomp__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

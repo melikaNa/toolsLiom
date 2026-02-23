@@ -163,6 +163,8 @@ function PlasmicPaziresh24Dialog__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const globalVariants = _useGlobalVariants();
+
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -177,7 +179,7 @@ function PlasmicPaziresh24Dialog__RenderFunc(props: {
         path: "noTrigger",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noTrigger
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.noTrigger
       }
     ],
     [$props, $ctx, $refs]
@@ -186,10 +188,10 @@ function PlasmicPaziresh24Dialog__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
-  const globalVariants = _useGlobalVariants();
   const styleTokensClassNames = _useStyleTokens();
 
   return (
@@ -371,7 +373,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicPaziresh24Dialog__VariantsArgs;
     args?: PlasmicPaziresh24Dialog__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicPaziresh24Dialog__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicPaziresh24Dialog__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicPaziresh24Dialog__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

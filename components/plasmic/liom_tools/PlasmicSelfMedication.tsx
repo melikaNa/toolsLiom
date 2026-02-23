@@ -86,6 +86,30 @@ import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: C9T
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: K1zqSSDSpUrs/icon
 import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: ZqTOLr82hcYp/icon
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicSelfMedication__VariantMembers = {
@@ -173,31 +197,31 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "detailsList",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "getStep.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getStep.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getStep.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "selectedStep",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -234,55 +258,55 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "getItem.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getItem.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getItem.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "itemLoading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "getUser.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getUser.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "getUser.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "stepLoading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => true
       },
       {
         path: "userStep",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return (() => {
@@ -319,19 +343,19 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "buttonLiom.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "directDialog.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "darkMod",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.paramsObject.theme == "dark";
@@ -350,55 +374,55 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "directDialog.selectShop",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "healthStatus",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       },
       {
         path: "paramsObject",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
       },
       {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ``
       },
       {
         path: "buttonLiom.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "setFcm.data",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "setFcm.error",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "setFcm.loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       },
       {
         path: "comment.id",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.getStep?.data?.info?.id;
@@ -417,7 +441,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "comment.cRate",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.getStep?.data?.info?.cRate;
@@ -436,7 +460,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "comment.rate",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.getStep?.data?.info?.rate;
@@ -455,7 +479,7 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "sendComment.userId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.getUser?.data?.[0]?.result?.user.id;
@@ -474,14 +498,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
         path: "sendComment.testId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           $state.getStep?.data?.info?.id
       },
       {
         path: "sendComment.name",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
               return $state.getUser?.data?.[0]?.result?.user.name;
@@ -503,8 +527,14 @@ function PlasmicSelfMedication__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -2940,6 +2970,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               new URLSearchParams(
                                                 window.location.search
                                               ).get("type");
+                                            var subType =
+                                              $state.getStep?.data?.info
+                                                ?.subType ?? "";
                                             var title =
                                               currentItem.title +
                                               " | " +
@@ -2993,7 +3026,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 "&theme=" +
                                                 $state.paramsObject.theme +
                                                 "&origin=" +
-                                                $state.paramsObject.origin;
+                                                $state.paramsObject.origin +
+                                                "&subType=" +
+                                                subType;
                                             else
                                               link =
                                                 "https://tools.liom.app/self-medication-step/?secId=" +
@@ -3020,7 +3055,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 "&theme=" +
                                                 $state.paramsObject.theme +
                                                 "&origin=" +
-                                                $state.paramsObject.origin;
+                                                $state.paramsObject.origin +
+                                                "&subType=" +
+                                                subType;
                                             return window.open(link, "_self");
                                           })();
                                         }
@@ -3166,6 +3203,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                               new URLSearchParams(
                                                 window.location.search
                                               ).get("type");
+                                            var subType =
+                                              $state.getStep?.data?.info
+                                                ?.subType ?? "";
                                             if (type == "body_darkness")
                                               link =
                                                 "https://tools.liom.app/step-newwwwww/?secId=" +
@@ -3190,7 +3230,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 "&theme=" +
                                                 $ctx.query.theme +
                                                 "&origin=" +
-                                                $ctx.query.origin;
+                                                $ctx.query.origin +
+                                                "&subType=" +
+                                                subType;
                                             else
                                               link =
                                                 "https://tools.liom.app/self-medication-step/?secId=" +
@@ -3215,7 +3257,9 @@ function PlasmicSelfMedication__RenderFunc(props: {
                                                 "&theme=" +
                                                 $ctx.query.theme +
                                                 "&origin=" +
-                                                $ctx.query.origin;
+                                                $ctx.query.origin +
+                                                "&subType=" +
+                                                subType;
                                             var title =
                                               currentItem.title +
                                               " | " +
@@ -4038,13 +4082,11 @@ export const PlasmicSelfMedication = Object.assign(
     internalVariantProps: PlasmicSelfMedication__VariantProps,
     internalArgProps: PlasmicSelfMedication__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/self-medication",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

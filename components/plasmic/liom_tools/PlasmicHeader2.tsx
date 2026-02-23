@@ -151,7 +151,8 @@ function PlasmicHeader2__RenderFunc(props: {
         path: "unnamedVariant",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
+          $props.unnamedVariant
       },
       {
         path: "tytle",
@@ -168,6 +169,7 @@ function PlasmicHeader2__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

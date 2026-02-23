@@ -174,7 +174,7 @@ function PlasmicUnLike__RenderFunc(props: {
         path: "warning",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.warning
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.warning
       },
       {
         path: "unLike",
@@ -188,25 +188,25 @@ function PlasmicUnLike__RenderFunc(props: {
         path: "dialog3.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "buttonLiom.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => []
       },
       {
         path: "buttonLiom.load",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "feedback",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => [
           "\u0633\u0628\u06a9 \u067e\u0627\u0633\u062e\u200c\u06af\u0648\u06cc\u06cc \u0631\u0627 \u062f\u0648\u0633\u062a \u0646\u062f\u0627\u0634\u062a\u0645",
           "\u0627\u0632 \u0633\u0628\u06a9 \u067e\u0627\u0633\u062e\u200c\u06af\u0648\u06cc\u06cc \u062e\u0648\u0634\u0645 \u0646\u06cc\u0627\u0645\u062f",
           "\u0627\u0632 \u0646\u0638\u0631 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u06cc \u062f\u0642\u06cc\u0642 \u0646\u0628\u0648\u062f"
@@ -216,7 +216,7 @@ function PlasmicUnLike__RenderFunc(props: {
         path: "antdInputTextArea.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", TextArea_Helpers)
       },
@@ -224,7 +224,7 @@ function PlasmicUnLike__RenderFunc(props: {
         path: "feed",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -233,6 +233,7 @@ function PlasmicUnLike__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 

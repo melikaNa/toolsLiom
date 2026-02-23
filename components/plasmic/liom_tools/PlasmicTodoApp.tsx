@@ -79,6 +79,30 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 3zKPdhWckw1SJpPYhK46Bs/projectcss
 import sty from "./PlasmicTodoApp.module.css"; // plasmic-import: 0tl2vrm8DsM8/css
 
+const emptyProxy: any = new Proxy(() => "", {
+  get(_, prop) {
+    return prop === Symbol.toPrimitive ? () => "" : emptyProxy;
+  }
+});
+
+function wrapQueriesWithLoadingProxy($q: any): any {
+  return new Proxy($q, {
+    get(target, queryName) {
+      const query = target[queryName];
+      return !query || query.isLoading || !query.data ? emptyProxy : query;
+    }
+  });
+}
+
+export function generateDynamicMetadata($q: any, $ctx: any) {
+  return {
+    openGraph: {},
+    twitter: {
+      card: "summary"
+    }
+  };
+}
+
 createPlasmicElementProxy;
 
 export type PlasmicTodoApp__VariantMembers = {
@@ -160,13 +184,13 @@ function PlasmicTodoApp__RenderFunc(props: {
         path: "state",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.state
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.state
       },
       {
         path: "footer.shownType",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -175,6 +199,7 @@ function PlasmicTodoApp__RenderFunc(props: {
     $props,
     $ctx,
     $queries: $queries,
+    $q: {},
     $refs
   });
 
@@ -195,6 +220,11 @@ function PlasmicTodoApp__RenderFunc(props: {
 
     $queries = new$Queries;
   }
+
+  const pageMetadata = generateDynamicMetadata(
+    wrapQueriesWithLoadingProxy({}),
+    $ctx
+  );
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -278,6 +308,7 @@ function PlasmicTodoApp__RenderFunc(props: {
                   [sty.linkstate_empty]: hasVariant($state, "state", "empty")
                 })}
                 component={Link}
+                legacyBehavior={false}
                 platform={"nextjs"}
               >
                 <ضصث
@@ -613,13 +644,11 @@ export const PlasmicTodoApp = Object.assign(
     internalVariantProps: PlasmicTodoApp__VariantProps,
     internalArgProps: PlasmicTodoApp__ArgProps,
 
-    // Page metadata
-    pageMetadata: {
-      title: "",
-      description: "",
-      ogImageSrc: "",
-      canonical: ""
-    }
+    pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pagePath: "/",
+      searchParams: {},
+      params: {}
+    })
   }
 );
 

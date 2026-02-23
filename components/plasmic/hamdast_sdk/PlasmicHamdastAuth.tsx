@@ -160,19 +160,19 @@ function PlasmicHamdastAuth__RenderFunc(props: {
         path: "loadIframe",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "isLoading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       },
       {
         path: "alert.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -181,6 +181,7 @@ function PlasmicHamdastAuth__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
@@ -346,9 +347,8 @@ function PlasmicHamdastAuth__RenderFunc(props: {
                     typeof $steps["updateLoadIframe"] === "object" &&
                     typeof $steps["updateLoadIframe"].then === "function"
                   ) {
-                    $steps["updateLoadIframe"] = await $steps[
-                      "updateLoadIframe"
-                    ];
+                    $steps["updateLoadIframe"] =
+                      await $steps["updateLoadIframe"];
                   }
 
                   $steps["updateLoadIframe2"] = true
@@ -382,9 +382,8 @@ function PlasmicHamdastAuth__RenderFunc(props: {
                     typeof $steps["updateLoadIframe2"] === "object" &&
                     typeof $steps["updateLoadIframe2"].then === "function"
                   ) {
-                    $steps["updateLoadIframe2"] = await $steps[
-                      "updateLoadIframe2"
-                    ];
+                    $steps["updateLoadIframe2"] =
+                      await $steps["updateLoadIframe2"];
                   }
 
                   $steps["updateLoadIframe3"] = true
@@ -418,9 +417,8 @@ function PlasmicHamdastAuth__RenderFunc(props: {
                     typeof $steps["updateLoadIframe3"] === "object" &&
                     typeof $steps["updateLoadIframe3"].then === "function"
                   ) {
-                    $steps["updateLoadIframe3"] = await $steps[
-                      "updateLoadIframe3"
-                    ];
+                    $steps["updateLoadIframe3"] =
+                      await $steps["updateLoadIframe3"];
                   }
 
                   $steps["updateLoadIframe4"] = true
@@ -442,9 +440,8 @@ function PlasmicHamdastAuth__RenderFunc(props: {
                     typeof $steps["updateLoadIframe4"] === "object" &&
                     typeof $steps["updateLoadIframe4"].then === "function"
                   ) {
-                    $steps["updateLoadIframe4"] = await $steps[
-                      "updateLoadIframe4"
-                    ];
+                    $steps["updateLoadIframe4"] =
+                      await $steps["updateLoadIframe4"];
                   }
                 }}
               />
@@ -501,9 +498,8 @@ function PlasmicHamdastAuth__RenderFunc(props: {
                     typeof $steps["updateDialogOpen"] === "object" &&
                     typeof $steps["updateDialogOpen"].then === "function"
                   ) {
-                    $steps["updateDialogOpen"] = await $steps[
-                      "updateDialogOpen"
-                    ];
+                    $steps["updateDialogOpen"] =
+                      await $steps["updateDialogOpen"];
                   }
 
                   $steps["runOnCancel"] = true
@@ -812,7 +808,9 @@ type NodeComponentProps<T extends NodeNameType> =
     variants?: PlasmicHamdastAuth__VariantsArgs;
     args?: PlasmicHamdastAuth__ArgsType;
     overrides?: NodeOverridesType<T>;
-  } & Omit<PlasmicHamdastAuth__VariantsArgs, ReservedPropsType> & // Specify variants directly as props
+  } &
+    // Specify variants directly as props
+    Omit<PlasmicHamdastAuth__VariantsArgs, ReservedPropsType> &
     // Specify args directly as props
     Omit<PlasmicHamdastAuth__ArgsType, ReservedPropsType> &
     // Specify overrides for each element directly as props

@@ -156,7 +156,7 @@ function PlasmicFoodbox__RenderFunc(props: {
         path: "avg",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.avg
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => $props.avg
       }
     ],
     [$props, $ctx, $refs]
@@ -165,6 +165,7 @@ function PlasmicFoodbox__RenderFunc(props: {
     $props,
     $ctx,
     $queries: {},
+    $q: {},
     $refs
   });
 
