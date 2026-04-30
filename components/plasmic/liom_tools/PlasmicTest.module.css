@@ -82,7 +82,7 @@
   text-align: right;
   font-size: 16px;
   line-height: 1.8;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #535353;
@@ -106,7 +106,7 @@
   font-size: 16px;
   font-weight: 700;
   color: var(--token-ieogzVSSyrRx);
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-style: normal;
   text-align: left;
   text-transform: none;
@@ -132,7 +132,7 @@
   font-size: 16px;
   font-weight: 700;
   color: var(--token-84PkxcVKH9-F);
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-style: normal;
   text-transform: none;
   line-height: 1.5;
@@ -181,7 +181,7 @@
   white-space: pre;
   font-weight: 700;
   color: var(--token-zux6fVI6aE30);
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-style: normal;
   text-transform: none;
@@ -197,7 +197,7 @@
   white-space: pre;
   font-size: 12px;
   color: var(--token-zux6fVI6aE30);
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-weight: normal;
   font-style: normal;
   text-transform: none;
@@ -242,7 +242,7 @@
 }
 .text__oQyPs {
   color: var(--token-zux6fVI6aE30);
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
@@ -272,7 +272,7 @@
 }
 .text__m8Gse {
   color: var(--token-zux6fVI6aE30);
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
@@ -307,7 +307,7 @@
   text-align: right;
   color: var(--token-zux6fVI6aE30);
   align-self: center;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -339,7 +339,7 @@
   font-size: 12px;
   align-self: center;
   color: #535353;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-weight: normal;
   font-style: normal;
   text-transform: none;
@@ -434,7 +434,7 @@
   color: #000000;
   font-weight: 700;
   cursor: pointer;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-style: normal;
   text-transform: none;
   line-height: 1.5;
@@ -458,7 +458,7 @@
   height: 1em;
 }
 .text__mjh9P {
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
@@ -550,7 +550,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -572,7 +572,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -682,7 +682,7 @@
   line-height: 1;
   letter-spacing: normal;
   text-decoration-line: none;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__iXgtK {
@@ -746,7 +746,7 @@
   letter-spacing: normal;
   text-decoration-line: none;
   text-overflow: clip;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__qlZak {
@@ -769,7 +769,7 @@
   letter-spacing: normal;
   text-decoration-line: none;
   text-overflow: clip;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   display: none;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -797,7 +797,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-family: "Inter", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
@@ -822,7 +822,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-family: "Inter", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
@@ -921,7 +921,7 @@
   text-align: right;
   font-size: 15px;
   font-weight: 700;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-style: normal;
   color: #535353;
   text-transform: none;
@@ -938,7 +938,7 @@
   text-align: right;
   margin-top: 4px;
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #535353;
@@ -997,7 +997,7 @@
   text-align: right;
   font-size: 15px;
   font-weight: 700;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-style: normal;
   color: #535353;
   text-transform: none;
@@ -1015,7 +1015,7 @@
   text-align: right;
   margin-top: 4px;
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #535353;
@@ -1074,7 +1074,7 @@
   text-align: right;
   font-size: 15px;
   font-weight: 700;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-style: normal;
   color: #535353;
   text-transform: none;
@@ -1092,7 +1092,7 @@
   text-align: right;
   margin-top: 4px;
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #535353;
@@ -1145,7 +1145,7 @@
   text-align: right;
   color: var(--token-jgohepLVeKvh);
   font-weight: 700;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-style: normal;
   text-transform: none;
@@ -1161,7 +1161,7 @@
   max-width: 100%;
   color: var(--token-jgohepLVeKvh);
   text-align: right;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -1210,7 +1210,7 @@
   font-size: 20px;
   background: none;
   font-weight: 700;
-  font-family: "Inter", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-style: normal;
   text-transform: none;
   line-height: 1.5;
@@ -1439,7 +1439,7 @@
 .text___5PCpk {
   font-size: 16px;
   font-weight: 700;
-  font-family: "Inter", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-style: normal;
   color: #ffffff;
   text-align: left;

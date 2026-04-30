@@ -185,7 +185,7 @@
   letter-spacing: normal;
   text-decoration-line: none;
   text-overflow: clip;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .text__bo8Ul {
@@ -200,7 +200,7 @@
   color: var(--token-jgohepLVeKvh);
   font-size: 15px;
   position: relative;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-weight: normal;
   font-style: normal;
   text-align: left;

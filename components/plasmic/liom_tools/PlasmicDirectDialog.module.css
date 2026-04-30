@@ -40,7 +40,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -218,7 +218,7 @@
   height: auto;
   max-width: 100%;
   align-self: auto;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 18px;
   font-weight: 700;
   font-style: normal;
@@ -251,7 +251,7 @@
   height: auto;
   max-width: 100%;
   padding-left: 10px;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
@@ -272,7 +272,7 @@
   height: auto;
   max-width: 100%;
   margin-right: 0px;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 16px;
   font-weight: 700;
   font-style: normal;
@@ -309,7 +309,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
@@ -334,7 +334,7 @@
   cursor: pointer;
   align-self: flex-start;
   color: #8254c6;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-style: normal;
   text-transform: none;
@@ -417,7 +417,7 @@
   height: 1em;
 }
 .text___86DEd {
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
@@ -462,7 +462,7 @@
   user-select: text;
   text-decoration-line: none !important;
   text-overflow: clip !important;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   min-width: 0;
 }
 .svg__ozmpK {
@@ -486,7 +486,7 @@
   text-decoration-line: none;
   text-overflow: clip;
   cursor: pointer;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   padding-bottom: 8px;
 }
 .dialog2:global(.__wab_instance):global(.__wab_instance) {
@@ -546,7 +546,7 @@
   text-align: center;
   font-weight: 500;
   z-index: 1;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   font-size: 12px;
   font-style: normal;
   color: var(--token-ieogzVSSyrRx);
@@ -587,7 +587,7 @@
   user-select: text;
   text-decoration-line: none !important;
   text-overflow: clip !important;
-  font-family: "Roboto", sans-serif;
+  font-family: "yekan_bakh", sans-serif;
   min-width: 0;
 }
 .svg__dAe3B {

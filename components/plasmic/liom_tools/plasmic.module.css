@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Ubuntu%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700&display=swap");
 
 .plasmic_tokens {
   --token-3MNJmQstkAEF: rgba(175, 47, 47, 0.15);
@@ -238,7 +237,7 @@
   .global_unnamedGlobalGroupOfVariants_unnamedVariant
 ),
 .plasmic_default_styles:where(.global_newView_newView) {
-  --mixin-5O0HpgEV__5D_font-family: "Roboto", sans-serif;
+  --mixin-5O0HpgEV__5D_font-family: "yekan_bakh", sans-serif;
   --mixin-5O0HpgEV__5D_font-size: 14px;
   --mixin-5O0HpgEV__5D_font-weight: normal;
   --mixin-5O0HpgEV__5D_font-style: normal;
@@ -248,42 +247,42 @@
   --mixin-5O0HpgEV__5D_line-height: 1.5;
   --mixin-5O0HpgEV__5D_letter-spacing: normal;
   --mixin-5O0HpgEV__5D_white-space: pre-wrap;
-  --mixin-wSTIQHUDDji1_font-family: "Inter", sans-serif;
+  --mixin-wSTIQHUDDji1_font-family: "yekan_bakh", sans-serif;
   --mixin-wSTIQHUDDji1_color: #000000;
   --mixin-wSTIQHUDDji1_font-size: 72px;
   --mixin-wSTIQHUDDji1_font-weight: 900;
   --mixin-wSTIQHUDDji1_letter-spacing: -4px;
   --mixin-wSTIQHUDDji1_line-height: 1;
   --mixin-wSTIQHUDDji1_white-space: pre-wrap;
-  --mixin-UCBzvi1CX9-K_font-family: "Inter", sans-serif;
+  --mixin-UCBzvi1CX9-K_font-family: "yekan_bakh", sans-serif;
   --mixin-UCBzvi1CX9-K_color: #000000;
   --mixin-UCBzvi1CX9-K_font-size: 48px;
   --mixin-UCBzvi1CX9-K_font-weight: 700;
   --mixin-UCBzvi1CX9-K_letter-spacing: -1px;
   --mixin-UCBzvi1CX9-K_line-height: 1.1;
   --mixin-UCBzvi1CX9-K_white-space: pre-wrap;
-  --mixin-eEf_BHP-0Py5_font-family: "Inter", sans-serif;
+  --mixin-eEf_BHP-0Py5_font-family: "yekan_bakh", sans-serif;
   --mixin-eEf_BHP-0Py5_color: #000000;
   --mixin-eEf_BHP-0Py5_font-size: 32px;
   --mixin-eEf_BHP-0Py5_font-weight: 600;
   --mixin-eEf_BHP-0Py5_letter-spacing: -0.8px;
   --mixin-eEf_BHP-0Py5_line-height: 1.2;
   --mixin-eEf_BHP-0Py5_white-space: pre-wrap;
-  --mixin-bOSS_HRqQB76_font-family: "Inter", sans-serif;
+  --mixin-bOSS_HRqQB76_font-family: "yekan_bakh", sans-serif;
   --mixin-bOSS_HRqQB76_color: #000000;
   --mixin-bOSS_HRqQB76_font-size: 24px;
   --mixin-bOSS_HRqQB76_font-weight: 600;
   --mixin-bOSS_HRqQB76_letter-spacing: -0.5px;
   --mixin-bOSS_HRqQB76_line-height: 1.3;
   --mixin-bOSS_HRqQB76_white-space: pre-wrap;
-  --mixin-aT0sr5VdOMrg_font-family: "Inter", sans-serif;
+  --mixin-aT0sr5VdOMrg_font-family: "yekan_bakh", sans-serif;
   --mixin-aT0sr5VdOMrg_color: #000000;
   --mixin-aT0sr5VdOMrg_font-size: 20px;
   --mixin-aT0sr5VdOMrg_font-weight: 600;
   --mixin-aT0sr5VdOMrg_letter-spacing: -0.3px;
   --mixin-aT0sr5VdOMrg_line-height: 1.5;
   --mixin-aT0sr5VdOMrg_white-space: pre-wrap;
-  --mixin-HEzwZwzR42gL_font-family: "Inter", sans-serif;
+  --mixin-HEzwZwzR42gL_font-family: "yekan_bakh", sans-serif;
   --mixin-HEzwZwzR42gL_color: #000000;
   --mixin-HEzwZwzR42gL_font-size: 16px;
   --mixin-HEzwZwzR42gL_font-weight: 600;
@@ -316,7 +315,7 @@
   --mixin-S7C3jp56UhwF_border-bottom-right-radius: 3px;
   --mixin-S7C3jp56UhwF_border-top-left-radius: 3px;
   --mixin-S7C3jp56UhwF_border-top-right-radius: 3px;
-  --mixin-S7C3jp56UhwF_font-family: "Inconsolata";
+  --mixin-S7C3jp56UhwF_font-family: "yekan_bakh";
   --mixin-S7C3jp56UhwF_padding-bottom: 1px;
   --mixin-S7C3jp56UhwF_padding-left: 4px;
   --mixin-S7C3jp56UhwF_padding-right: 4px;
@@ -339,7 +338,7 @@
   --mixin--hEECaWyklDN_border-bottom-right-radius: 3px;
   --mixin--hEECaWyklDN_border-top-left-radius: 3px;
   --mixin--hEECaWyklDN_border-top-right-radius: 3px;
-  --mixin--hEECaWyklDN_font-family: "Inconsolata";
+  --mixin--hEECaWyklDN_font-family: "yekan_bakh";
   --mixin--hEECaWyklDN_padding-bottom: 3px;
   --mixin--hEECaWyklDN_padding-left: 6px;
   --mixin--hEECaWyklDN_padding-right: 6px;
